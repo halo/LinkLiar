@@ -31,8 +31,9 @@
 + (Interface*) ethernet {
   NSArray *interfaces = [self all];
   for (Interface *interface in interfaces) {
-    if ([interface.kind isEqualToString:@"Ethernet"] && ([interface.BSDName isEqualToString:@"en0"] || [interface.BSDName isEqualToString:@"en1"])) {
-      //DLog(@"Identified Ethernet Interface: %@", interface.BSDName);
+    BOOL isNotBluetooth = [[interface.displayName stringByReplacingOccurrencesOfString:@"tooth" withString:@""] isEqualToString:interface.displayName];
+    if ([interface.kind isEqualToString:@"Ethernet"] && isNotBluetooth && ([interface.BSDName isEqualToString:@"en0"] || [interface.BSDName isEqualToString:@"en1"] || [interface.BSDName isEqualToString:@"en2"])) {
+      //DLog(@"Identified Ethernet Interface: <%@> <%@> <%@>", interface.BSDName, interface.kind, interface.displayName);
       return interface;
     }
     
@@ -59,6 +60,7 @@
  * the currently assigned MAC address. It returns it as NSString.
  */
 - (NSString*) softMAC {
+  if (!self.kind) return @"";
   // Getting the Task bootstrapped
   NSTask *ifconfig = [[NSTask alloc] init];
   NSPipe *pipe = [NSPipe pipe];
@@ -66,7 +68,7 @@
   
   // Configuring the ifconfig command
   [ifconfig setLaunchPath: @"/sbin/ifconfig"];
-  [ifconfig setArguments: [NSArray arrayWithObjects: [self BSDName], nil]];
+  [ifconfig setArguments: [NSArray arrayWithObjects: self.BSDName, nil]];
   [ifconfig setStandardOutput: pipe];
   // Starting the Task
   [ifconfig launch];
@@ -80,6 +82,7 @@
 }
 
 - (void) applyAddress:(MACAddresss*)address {
+  if (!self.kind) return;
   NSDictionary *error = [NSDictionary new];
   NSString *command = [self changeCommandForInterface:self.BSDName usingAddress:address.string];
   NSString *script = [[NSString new] stringByAppendingFormat:@"do shell script \"%@\" with administrator privileges", command];

@@ -20,10 +20,10 @@
 - (void) refreshGUI:sender {
   wifi = [Interface wifi];
   ethernet = [Interface ethernet];
-  [wifiNameLabel setStringValue:[wifi.displayName stringByAppendingFormat:@" %@", wifi.BSDName]];
-  [wifiSoftMAC setStringValue:wifi.softMAC];
-  [ethernetNameLabel setStringValue:[ethernet.displayName stringByAppendingFormat:@" %@", ethernet.BSDName]];
-  [ethernetSoftMAC setStringValue:ethernet.softMAC];
+  if (wifi.BSDName) [wifiNameLabel setStringValue:[wifi.displayName stringByAppendingFormat:@" %@", wifi.BSDName]];
+  if (wifi.softMAC) [wifiSoftMAC setStringValue:wifi.softMAC];
+  if (ethernet.BSDName) [ethernetNameLabel setStringValue:[ethernet.displayName stringByAppendingFormat:@" %@", ethernet.BSDName]];
+  if (ethernet.softMAC) [ethernetSoftMAC setStringValue:ethernet.softMAC];
 }
 
 - (void) setupObservers {
@@ -70,10 +70,12 @@
 }
 
 - (void) editWifi {
+  if (!wifi.kind) return;
   [changePopover showRelativeToRect:[wifiSoftMAC bounds] ofView:wifiSoftMAC preferredEdge:NSMaxYEdge];
 }
 
 - (void) editEthernet {
+  if (!ethernet.kind) return;
   [changePopover showRelativeToRect:[ethernetSoftMAC bounds] ofView:ethernetSoftMAC preferredEdge:NSMaxYEdge];
 }
 
