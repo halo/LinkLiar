@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1080</int>
-		<string key="IBDocument.SystemVersion">12C2034</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2844</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.SystemVersion">12E55</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.39</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2844</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSButton</string>
@@ -319,7 +319,6 @@
 							<string key="NSFrame">{{625, 17}, {25, 25}}</string>
 							<reference key="NSSuperview" ref="1037298196"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:3837</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="144716306">
@@ -350,7 +349,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="1052766846">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">272630272</int>
-								<string type="base64-UTF8" key="NSContents">TGlua0xpYXIgMC4xLjEKwqkgMjAxMyBmdW5rZW5zdHVybS5jb20KUHVibGlzaGVkIHVuZGVyIE1JVCBs
+								<string type="base64-UTF8" key="NSContents">TGlua0xpYXIgMC4xLjIKwqkgMjAxMyBmdW5rZW5zdHVybS5jb20KUHVibGlzaGVkIHVuZGVyIE1JVCBs
 aWNlbnNlA</string>
 								<object class="NSFont" key="NSSupport" id="22">
 									<string key="NSName">LucidaGrande</string>
@@ -515,7 +514,7 @@ aWNlbnNlA</string>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSCustomView" id="536281108">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSTextField" id="932897409">
@@ -629,7 +628,6 @@ T1IgT1RIRVIgREVBTElOR1MgSU4gVEhFIFNPRlRXQVJFLg</bytes>
 					</object>
 				</array>
 				<string key="NSFrameSize">{397, 330}</string>
-				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="161809154"/>
 				<string key="NSReuseIdentifierKey">_NS:1145</string>
 				<string key="NSClassName">NSView</string>
