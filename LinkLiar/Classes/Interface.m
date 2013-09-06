@@ -32,7 +32,7 @@
   NSArray *interfaces = [self all];
   for (Interface *interface in interfaces) {
     BOOL isNotBluetooth = [[interface.displayName stringByReplacingOccurrencesOfString:@"tooth" withString:@""] isEqualToString:interface.displayName];
-    if ([interface.kind isEqualToString:@"Ethernet"] && isNotBluetooth && ([interface.BSDName isEqualToString:@"en0"] || [interface.BSDName isEqualToString:@"en1"] || [interface.BSDName isEqualToString:@"en2"])) {
+    if ([interface.kind isEqualToString:@"Ethernet"] && isNotBluetooth && ([interface.BSDName isEqualToString:@"en0"] || [interface.BSDName isEqualToString:@"en1"] || [interface.BSDName isEqualToString:@"en2"] || [interface.BSDName isEqualToString:@"en3"])) {
       //DLog(@"Identified Ethernet Interface: <%@> <%@> <%@>", interface.BSDName, interface.kind, interface.displayName);
       return interface;
     }
