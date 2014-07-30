@@ -367,10 +367,10 @@
 		E0D1C83615D40BF400EB32CE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				DEPLOYMENT_LOCATION = YES;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LinkLiar/LinkLiar-Prefix.pch";
 				INFOPLIST_FILE = "LinkLiar/LinkLiar-Info.plist";
@@ -383,10 +383,10 @@
 		E0D1C83715D40BF400EB32CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = NO;
 				DEPLOYMENT_LOCATION = YES;
-				GCC_ENABLE_OBJC_GC = required;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LinkLiar/LinkLiar-Prefix.pch";
 				INFOPLIST_FILE = "LinkLiar/LinkLiar-Info.plist";

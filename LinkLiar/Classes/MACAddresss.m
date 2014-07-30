@@ -9,11 +9,11 @@
  */
 + (NSString*) random {
   // We will perform this with an Array that holds the HEX values
-  NSMutableArray *components = [[[NSMutableArray alloc] init] autorelease];
+  NSMutableArray *components = [[NSMutableArray alloc] init];
   // Six times we will add something to the Array
   for (NSInteger i = 0; i < 6; i++) {
     // Each time we add two random HEX values combined in one NSString. E.g. "AF" or "5C"
-    NSString *component = [[[NSString alloc] initWithFormat:@"%1X%1X", arc4random() % 15, arc4random() % 15] autorelease];
+    NSString *component = [[NSString alloc] initWithFormat:@"%1X%1X", arc4random() % 15, arc4random() % 15];
     // Please in lower case
     [components addObject:[component lowercaseString]];
   }
@@ -29,7 +29,7 @@
   // Stripping all existing colons
   string = [[self string] stringByReplacingOccurrencesOfString:@":" withString:@""];
   // Adding fresh colons
-  NSMutableString* formatted = [[string mutableCopy] autorelease];
+  NSMutableString* formatted = [string mutableCopy];
   if ([formatted length] > 10) [formatted insertString:@":" atIndex:10];
   if ([formatted length] > 8) [formatted insertString:@":" atIndex:8];
   if ([formatted length] > 6) [formatted insertString:@":" atIndex:6];

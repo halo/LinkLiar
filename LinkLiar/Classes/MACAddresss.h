@@ -1,6 +1,6 @@
 @interface MACAddresss : NSObject
 
-@property (assign) NSString *string;
+@property (strong) NSString *string;
 
 + (NSString*) random;
 - (BOOL) isValid;

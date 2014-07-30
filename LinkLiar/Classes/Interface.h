@@ -1,19 +1,12 @@
 @class MACAddresss;
 
-@interface Interface : NSObject {
-
-  NSString *BSDName;
-  NSString *displayName;
-  NSString *hardMAC;
-  NSString *kind;
-  
-}
+@interface Interface : NSObject {}
 
 // Attributes
-@property (nonatomic, assign) NSString *BSDName;
-@property (nonatomic, assign) NSString *displayName;
-@property (nonatomic, assign) NSString *hardMAC;
-@property (nonatomic, assign) NSString *kind;
+@property (nonatomic, strong) NSString *BSDName;
+@property (nonatomic, strong) NSString *displayName;
+@property (nonatomic, strong) NSString *hardMAC;
+@property (nonatomic, strong) NSString *kind;
 
 // Class Methods
 + (Interface*) ethernet;

@@ -4,9 +4,9 @@
 
 @interface LinkLiar : NSPreferencePane
 
-@property (assign) Interface *wifi;
-@property (assign) Interface *ethernet;
-@property (assign) NSString *editing;
+@property (strong) Interface *wifi;
+@property (strong) Interface *ethernet;
+@property (strong) NSString *editing;
 
 @property (strong) IBOutlet NSTextField *wifiNameLabel;
 @property (strong) IBOutlet NSTextField *wifiSoftMAC;

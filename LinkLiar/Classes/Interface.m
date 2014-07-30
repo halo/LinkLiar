@@ -11,21 +11,21 @@
  */
 + (NSArray*) all {
   NSMutableArray *result = [NSMutableArray new];
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
 
-  NSArray *interfaces_ = (NSArray*) SCNetworkInterfaceCopyAll();
-   for (id interface_ in interfaces_) {
-    Interface* interface = [self new];
-    SCNetworkInterfaceRef interfaceRef = (SCNetworkInterfaceRef)interface_;
-    interface.BSDName = (NSString*)SCNetworkInterfaceGetBSDName(interfaceRef);
-    interface.displayName = (NSString*)SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef);
-    interface.hardMAC = (NSString*)SCNetworkInterfaceGetHardwareAddressString(interfaceRef);
-    interface.kind = (NSString*)SCNetworkInterfaceGetInterfaceType(interfaceRef);
-    [result addObject:interface];
+    NSArray *interfaces_ = (NSArray*) CFBridgingRelease(SCNetworkInterfaceCopyAll());
+     for (id interface_ in interfaces_) {
+      Interface* interface = [self new];
+      SCNetworkInterfaceRef interfaceRef = (__bridge SCNetworkInterfaceRef)interface_;
+      interface.BSDName = (__bridge NSString*)SCNetworkInterfaceGetBSDName(interfaceRef);
+      interface.displayName = (__bridge NSString*)SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef);
+      interface.hardMAC = (__bridge NSString*)SCNetworkInterfaceGetHardwareAddressString(interfaceRef);
+      interface.kind = (__bridge NSString*)SCNetworkInterfaceGetInterfaceType(interfaceRef);
+      [result addObject:interface];
+    }
+
+    return (NSArray*)result;
   }
-    [pool drain];
-
-  return (NSArray*)result;
 }
 
 + (Interface*) ethernet {
