@@ -68,7 +68,7 @@
   
   // Configuring the ifconfig command
   [ifconfig setLaunchPath: @"/sbin/ifconfig"];
-  [ifconfig setArguments: [NSArray arrayWithObjects: self.BSDName, nil]];
+  [ifconfig setArguments: @[self.BSDName]];
   [ifconfig setStandardOutput: pipe];
   // Starting the Task
   [ifconfig launch];
@@ -77,7 +77,7 @@
   NSData *data = [file readDataToEndOfFile];
   NSString *cmdResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
   // Searching for the MAC address in the result
-  NSString *currentMAC = [[[[cmdResult componentsSeparatedByString:@"ether "] lastObject] componentsSeparatedByString:@" "] objectAtIndex:0]; 
+  NSString *currentMAC = [[[cmdResult componentsSeparatedByString:@"ether "] lastObject] componentsSeparatedByString:@" "][0]; 
   return currentMAC;
 }
 
