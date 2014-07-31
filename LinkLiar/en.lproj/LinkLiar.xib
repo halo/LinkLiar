@@ -119,7 +119,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" lineBreakMode="charWrapping" sendsActionOnEndEditing="YES" id="164">
                             <font key="font" metaFont="miniSystem"/>
-                            <string key="title">LinkLiar 0.1.2
+                            <string key="title">LinkLiar 0.2.0
 © 2014 halo
 Published under MIT license</string>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
