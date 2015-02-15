@@ -5,4 +5,4 @@ xcode_scheme: Link
 
 # http://stackoverflow.com/questions/27671854
 script:
-  - xcodebuild [DEFAULT_OPTIONS] CODE_SIGNING_REQUIRED=NO
+  - xctool -scheme Link clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
