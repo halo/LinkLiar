@@ -13,3 +13,4 @@ doc
 *.xcworkspacedata
 *.xcuserstate
 *xcuserdata*
+*.gem
