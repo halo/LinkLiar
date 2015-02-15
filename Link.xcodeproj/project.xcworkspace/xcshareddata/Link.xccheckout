@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>330A8619-023A-44FB-8C49-DEAD23F72AAB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Link</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9B0A1208F7BCAF3C3F6FF017A4012FA8444E039F</key>
+		<string>halo.github.com:halo/LinkLiar.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Link.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9B0A1208F7BCAF3C3F6FF017A4012FA8444E039F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>halo.github.com:halo/LinkLiar.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9B0A1208F7BCAF3C3F6FF017A4012FA8444E039F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9B0A1208F7BCAF3C3F6FF017A4012FA8444E039F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LinkLiar</string>
+		</dict>
+	</array>
+</dict>
+</plist>
