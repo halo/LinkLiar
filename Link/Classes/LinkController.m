@@ -105,7 +105,7 @@
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
-  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"I need somebody."];
+  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar"];
   [alert runModal];
 }
 
