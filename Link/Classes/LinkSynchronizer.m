@@ -37,27 +37,35 @@
     switch ([LinkPreferences modifierOfInterface:interface]) {
         
       case ModifierRandom:
+        if (!interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = [LinkMACAddress random];
         DDLogDebug(@"Randomizing hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
         [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
+        [LinkPreferences unforceInterface:interface];
         break;
         
       case ModifierDefine:
+        if (!interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = [LinkPreferences definitionOfInterface:interface];
         DDLogDebug(@"Defining hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
         [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
+        [LinkPreferences unforceInterface:interface];
         break;
         
       case ModifierOriginal:
+        if (interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = interface.hardMAC;
         DDLogDebug(@"Setting hardware MAC %@ of %@ to original MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
         [self.linkIntercom applyAddress:interface.hardMAC toBSD:interface.BSDName];
+        [LinkPreferences unforceInterface:interface];
         break;
 
       case ModifierReset:
-        newAddress = interface.hardMAC;
-        DDLogDebug(@"Resetting hardware MAC %@ of %@ to original MAC %@ and then forgetting about it", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
-        [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
+        if (!interface.hasOriginalMAC) {
+          newAddress = interface.hardMAC;
+          DDLogDebug(@"Resetting hardware MAC %@ of %@ to original MAC %@ and then forgetting about it", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
+          [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
+        }
         [LinkPreferences forgetInterface:interface];
         break;
 

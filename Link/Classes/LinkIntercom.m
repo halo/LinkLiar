@@ -40,10 +40,11 @@
       DDLogDebug(@"Helper is also at version %@", myVersion);
     } else {
       NSString *warning = [NSString stringWithFormat:@"I am at version %@ but the Helper is at %@. Please uninstall the helper manually (see https://github.com/halo/LinkLiar) and try again.", myVersion, helperVersion];
-      DDLogDebug(warning);
-      assert([NSThread isMainThread]);
-      NSAlert *alert = [NSAlert alertWithMessageText:@"Helpertool mismatch detected" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:warning];
-      [alert runModal];
+      NSLog(warning);
+      //assert([NSThread isMainThread]);
+      //NSAlert *alert = [NSAlert alertWithMessageText:@"Helpertool mismatch detected" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:warning];
+      //[alert runModal];
+      [NSApp terminate:self];
     }
   }];
 
@@ -202,7 +203,7 @@
   DDLogDebug(@"applyAddress to BSD...");
   [self usingIdenticalHelperToolVersion:^(NSError * connectError) {
     if (connectError != nil) {
-      DDLogDebug(@"applyInterfaces boom");
+      DDLogDebug(@"applyAddress boom");
       [self logError:connectError];
     } else {
       [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError * proxyError) {

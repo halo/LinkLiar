@@ -51,8 +51,16 @@
   [self.linkSynchronizer ensureHelperTool];
 }
 
-- (void) update {
+- (void) applyInterfaces {
   [self.linkSynchronizer applyInterfaces];
+}
+
+- (void) update {
+  [self applyInterfaces];
+  [self refresh];
+}
+
+- (void) refresh {
   [self.statusMenu refresh];
   self.statusItem.button.image = self.statusMenuIcon;
   self.statusItem.button.alternateImage = self.statusMenuIcon;
@@ -65,18 +73,18 @@
 
 - (void) menuWillOpen:(NSMenu*)menu {
   DDLogDebug(@"Refreshing menu before opening it...");
-  [self.statusMenu refresh];
+  [self refresh];
 }
 
 - (void) randomizeMAC:(NSMenuItem*)sender {
   LinkInterface *interface = [LinkInterfaces interfaceByBSDNumber:sender.tag];
-  [LinkPreferences randomizeInterface:interface];
+  [LinkPreferences randomizeInterface:interface force:YES];
   [self update];
 }
 
 - (void) originalizeMAC:(NSMenuItem*)sender {
   LinkInterface *interface = [LinkInterfaces interfaceByBSDNumber:sender.tag];
-  [LinkPreferences originalizeInterface:interface];
+  [LinkPreferences originalizeInterface:interface force:YES];
   [self update];
 }
 
@@ -89,7 +97,7 @@
   if (!newAddress) return;
   DDLogDebug(@"User specified %@", newAddress);
   
-  [LinkPreferences defineInterface:interface withMAC:newAddress];
+  [LinkPreferences defineInterface:interface withMAC:newAddress force:YES];
   [self update];
 }
 
@@ -105,7 +113,8 @@
 }
 
 - (void) getHelp:(NSMenuItem*)sender {
-  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar"];
+  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar You are currently running version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
+  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:description];
   [alert runModal];
 }
 

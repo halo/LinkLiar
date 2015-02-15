@@ -18,6 +18,7 @@
 
 #import "LinkInterface.h"
 
+const NSString *InterfaceForceFlag = @"force";
 const NSString *InterfaceModifierFlag = @"modifier";
 const NSString *InterfaceModifierRandom = @"random";
 const NSString *InterfaceModifierDefine = @"define";
@@ -26,75 +27,95 @@ const NSString *InterfaceModifierReset = @"reset";
 
 @implementation LinkPreferences
 
-+ (void) randomizeInterface:(LinkInterface*)interface {
+// Continuously observed
+
++ (void) randomizeInterface:(LinkInterface*)interface force:(BOOL)force {
   DDLogDebug(@"Remembering to randomize hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
-  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
-  [self setObject:InterfaceModifierRandom forKey:key];
+  [self setModifierValue:InterfaceModifierRandom forInterface:interface];
+  if (force) [self setForceForInterface:interface];
 }
 
-+ (void) originalizeInterface:(LinkInterface*)interface {
-  DDLogDebug(@"Remembering to keep hardware MAC %@ of %@ in original state", interface.hardMAC, interface.displayNameAndBSDName);
-  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
-  [self setObject:InterfaceModifierOriginal forKey:key];
-}
-
-+ (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address {
++ (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address force:(BOOL)force {
   DDLogDebug(@"Defining hardware MAC %@ of %@ to be %@", interface.hardMAC, interface.displayNameAndBSDName, address);
-  NSString *modifier = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
-  [self setObject:InterfaceModifierDefine forKey:modifier];
-  NSString *flag = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierDefine];
-  [self setObject:address forKey:flag];
+  [self setModifierValue:InterfaceModifierDefine forInterface:interface];
+  if (force) [self setForceForInterface:interface];
 }
+
++ (void) originalizeInterface:(LinkInterface*)interface force:(BOOL)force {
+  DDLogDebug(@"Remembering to keep hardware MAC %@ of %@ in original state", interface.hardMAC, interface.displayNameAndBSDName);
+  [self setModifierValue:InterfaceModifierOriginal forInterface:interface];
+  if (force) [self setForceForInterface:interface];
+}
+
+// One-time triggers
 
 + (void) resetInterface:(LinkInterface*)interface {
   DDLogDebug(@"Remembering to reset MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
-  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
-  [self setObject:InterfaceModifierReset forKey:key];
+  [self setObject:InterfaceModifierReset forKey:[self modifierKeyForInterface:interface]];
 }
 
 + (void) forgetInterface:(LinkInterface*)interface {
   DDLogDebug(@"Forgetting MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
-  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
-  [self removeObjectForKey:key];
+  [self removeObjectForKey:[self modifierKeyForInterface:interface]];
+}
+
++ (void) unforceInterface:(LinkInterface*)interface {
+  [self removeObjectForKey:[self forceKeyForInterface:interface]];
+}
+
+// Preference querying
+
++ (NSUInteger) modifierOfInterface:(LinkInterface*)interface {
+  NSString *modifier = [NSString stringWithFormat:@"%@", [self getObjectForKey:[self modifierKeyForInterface:interface]]];
+  
+  if ([InterfaceModifierRandom isEqualToString:modifier])   return ModifierRandom;
+  if ([InterfaceModifierDefine isEqualToString:modifier])   return ModifierDefine;
+  if ([InterfaceModifierOriginal isEqualToString:modifier]) return ModifierOriginal;
+  if ([InterfaceModifierReset isEqualToString:modifier])    return ModifierReset;
+  DDLogDebug(@"Don't know what to do with hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
+  return ModifierUnknown;
 }
 
 + (NSString*) definitionOfInterface:(LinkInterface*)interface {
-  NSString *result = @"";
-  if ([self modifierOfInterface:interface] == ModifierDefine) {
-    NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierDefine];
-    NSString *address = [self getObjectForKey:key];
-    if (address) result = address;
-  }
-  return result;
+  if ([self modifierOfInterface:interface] != ModifierDefine) return @"";
+  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierDefine];
+  NSString *address = [self getObjectForKey:key];
+  if (!address) return @"";
+  return address;
 }
 
-+ (NSUInteger) modifierOfInterface:(LinkInterface*)interface {
-  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
-  NSString *modifier = [NSString stringWithFormat:@"%@", [self getObjectForKey:key]];
-  if ([InterfaceModifierRandom isEqualToString:modifier]) {
-    return ModifierRandom;
-  } else if ([InterfaceModifierDefine isEqualToString:modifier]) {
-    return ModifierDefine;
-  } else if ([InterfaceModifierOriginal isEqualToString:modifier]) {
-    return ModifierOriginal;
-  } else if ([InterfaceModifierReset isEqualToString:modifier]) {
-    return ModifierReset;
-  } else {
-    //DDLogWarn(@"Don't know what to do with hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
-    return ModifierUnknown;
-  }
++ (BOOL) forceOfInterface:(LinkInterface*)interface {
+  return [InterfaceForceFlag isEqualToString:[self getObjectForKey:[self forceKeyForInterface:interface]]];
 }
 
 /*
-+ (NSString*) preferenceFilePath {
-  NSString *path = @"~/Library/Preferences";
-  path = [path stringByExpandingTildeInPath];
-  path = [path stringByAppendingPathComponent:[self bundleID]];
-  return path;
-}
+ + (NSString*) preferenceFilePath {
+ NSString *path = @"~/Library/Preferences";
+ path = [path stringByExpandingTildeInPath];
+ path = [path stringByAppendingPathComponent:[self bundleID]];
+ return path;
+ }
  */
 
-+ (void) setObject:(id)object forKey:(NSString*)key {
+// Internal
+
++ (void) setModifierValue:(const NSString*)value forInterface:(LinkInterface*)interface {
+  [self setObject:value forKey:[self modifierKeyForInterface:interface]];
+}
+
++ (NSString*) modifierKeyForInterface:(LinkInterface*)interface {
+  return  [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];;
+}
+
++ (NSString*) forceKeyForInterface:(LinkInterface*)interface {
+  return  [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceForceFlag];;
+}
+
++ (void) setForceForInterface:(LinkInterface*)interface {
+  [self setObject:InterfaceForceFlag forKey:[self forceKeyForInterface:interface]];
+}
+
++ (void) setObject:object forKey:(NSString*)key {
   [[NSUserDefaults standardUserDefaults] setObject:object forKey:key];
   [[NSUserDefaults standardUserDefaults] synchronize];
 }

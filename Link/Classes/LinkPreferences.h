@@ -33,11 +33,16 @@ extern const NSString *InterfaceModifierFlag;
 
 // Public
 
-+ (void) randomizeInterface:(LinkInterface*)interface;
-+ (void) originalizeInterface:(LinkInterface*)interface;
-+ (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address;
++ (void) randomizeInterface:(LinkInterface*)interface force:(BOOL)force;
++ (void) originalizeInterface:(LinkInterface*)interface force:(BOOL)force;
++ (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address force:(BOOL)force;
+
 + (void) resetInterface:(LinkInterface*)interface;
 + (void) forgetInterface:(LinkInterface*)interface;
+
++ (BOOL) forceOfInterface:(LinkInterface*)interface;
++ (void) unforceInterface:(LinkInterface*)interface;
+
 + (NSString*) definitionOfInterface:(LinkInterface*)interface;
 + (NSUInteger) modifierOfInterface:(LinkInterface*)interface;
 
