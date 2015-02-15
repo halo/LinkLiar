@@ -53,7 +53,7 @@ sudo rm /Library/PrivilegedHelperTools/com.funkensturm.LinkHelper
 
 Feel free to browse through the code of this application. It's rather small and straight-forward.
 
-The IconWork in the `Link/Images.xcassets` is from iconmnstr.com
+The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
 
 ## Special thanks
 
