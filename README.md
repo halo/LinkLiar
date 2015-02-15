@@ -16,6 +16,8 @@ This is an intuitive status menu application written in Objective-C to help you 
 
 ## Installation
 
+![Download Image](https://cdn.rawgit.com/halo/LinkLiar/master/doc/download.png)
+
 Grap the latest release [over here](https://github.com/halo/LinkLiar/releases) and place it into your `/Applications` directory. You might want to add it to the applications which start each time you login (see System Preferences -> User -> Login Items).
 
 ## Uninstall / Upgrading
