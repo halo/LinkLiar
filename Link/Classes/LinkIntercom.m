@@ -36,7 +36,7 @@
     
   }] getVersionWithReply:^(NSString *helperVersion) {
     NSString *myVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    if ([helperVersion isEqualToString:myVersion]) {
+    if ([helperVersion isEqualToString:self.requiredHelperVersion]) {
       DDLogDebug(@"Helper is also at version %@", myVersion);
     } else {
       NSString *warning = [NSString stringWithFormat:@"I am at version %@ but the Helper is at %@. Please uninstall the helper manually (see https://github.com/halo/LinkLiar) and try again.", myVersion, helperVersion];
@@ -113,6 +113,10 @@
   
 }
 
+- (NSString*) requiredHelperVersion {
+  return @"0.0.1";
+}
+
 - (void) connectAndExecuteCommandBlock:(void(^)(NSError *))commandBlock {
 // Connects to the helper tool and then executes the supplied command block on the
 // main thread, passing it an error indicating if the connection was successful.
@@ -152,7 +156,7 @@
 
   }] getVersionWithReply:^(NSString *helperVersion) {
     NSString *myVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    if ([helperVersion isEqualToString:myVersion]) {
+    if ([helperVersion isEqualToString:self.requiredHelperVersion]) {
       DDLogDebug(@"Helper is also at version %@", myVersion);
       //[self connectAndExecuteCommandBlock:block];
       block(nil);

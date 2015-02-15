@@ -40,6 +40,7 @@ sudo rm /Library/PrivilegedHelperTools/com.funkensturm.LinkHelper
 
 ## Troubleshooting
 
+* If the application does not start at all, run the `Console` app to see if there are any logs. Uninstall the HelperTool and try again.
 * Sometimes it takes 1-2 seconds for the MAC address to change so if you're really fast with your mouse you might see outdated information in the status menu. Just close and open the menu again in that case.
 * There exist MAC addresses which, for unknown reasons, cannot be applied to the interface. This may happen when you specify the address manually and e.g. choose a prefix which does not exist in the real world. You may try to use the "Random" function to make sure you always have a valid prefix.
 * You may loose your Internet connection if you change a MAC address while the Interface is in use. This is not dangerous, though. Just plug the Ethernet cable out an in again or power the Wi-Fi off and on again.
