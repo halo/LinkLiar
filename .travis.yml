@@ -2,3 +2,7 @@ sudo: false
 language: objective-c
 xcode_project: Link.xcodeproj
 xcode_scheme: Link
+
+# http://stackoverflow.com/questions/27671854
+script:
+  - xcodebuild [DEFAULT_OPTIONS] CODE_SIGNING_REQUIRED=NO
