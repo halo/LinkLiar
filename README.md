@@ -7,7 +7,7 @@
 
 This is an intuitive status menu application written in Objective-C to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
-![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/doc/screnshot.png)
+![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/doc/screenshot.png)
 
 ## Requirements
 
