@@ -1,4 +1,4 @@
 sudo: false
 language: objective-c
 xcode_project: Link.xcodeproj
-xcode_scheme: Release
+xcode_scheme: Link
