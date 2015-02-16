@@ -23,35 +23,41 @@
 
 @implementation LinkMenu
 
-@synthesize refreshItem, helpItem, quitItem;
+@synthesize refreshItem, helpItem, debugItem, quitItem;
 
-- (void) refresh {
-  //DDLogDebug(@"Refreshing menu...");
+- (void) refreshAssumingHelperInstalled:(BOOL)helperInstalled {
   [self removeAllItems];
   
-  //[self addItem:[NSMenuItem separatorItem]];
-  [self addInterfaceItems];
-  //[self addItem:[NSMenuItem separatorItem]];
+  if (!helperInstalled) [self addHelperItem];
+  [self addInterfaceItemsActionable:helperInstalled];
+
   [self addItem:self.helpItem];
+  [self addItem:self.debugItem];
   [self addItem:self.quitItem];
 }
 
-- (void) addInterfaceItems {
+- (void) addHelperItem {
+  NSMenuItem *installHelperItem = [[NSMenuItem alloc] initWithTitle:@"Authorize LinkLiar..." action:@selector(installHelperTool:) keyEquivalent:@""];
+  installHelperItem.target = self.delegate;
+  [self addItem:installHelperItem];
+  [self addItem:[NSMenuItem separatorItem]];
+}
+
+- (void) addInterfaceItemsActionable:(BOOL)actionable {
   for (LinkInterface* interface in [LinkInterfaces all]) {
-    [self addItem:[self menuForInterface: interface]];
+    [self addItem:[self menuForInterface:interface actionable:actionable]];
     [self addItem:[NSMenuItem separatorItem]];
   }
 }
 
-- (NSMenuItem*) menuForInterface:(LinkInterface*)interface {
+- (NSMenuItem*) menuForInterface:(LinkInterface*)interface actionable:(BOOL)actionable {
   [self addItem:[[NSMenuItem alloc] initWithTitle:interface.displayNameAndBSDName action:NULL keyEquivalent:@""]];
   
   NSMenuItem *mainItem = [NSMenuItem new];
   mainItem.title = interface.softMAC;
   mainItem.state = [interface hasOriginalMAC];
   mainItem.onStateImage = [NSImage imageNamed:@"InterfaceLeaking"];
- 
-  [mainItem setSubmenu:[self submenuForInterface:interface]];
+  if (actionable) [mainItem setSubmenu:[self submenuForInterface:interface]];
   return mainItem;
 }
 
@@ -112,6 +118,15 @@
   helpItem = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
   helpItem.target = self.delegate;
   return helpItem;
+}
+
+- (NSMenuItem*) debugItem {
+  debugItem = [[NSMenuItem alloc] initWithTitle:@"Debug Mode" action:@selector(toggleDebugMode:) keyEquivalent:@""];
+  debugItem.target = self.delegate;
+  debugItem.keyEquivalentModifierMask = NSAlternateKeyMask;
+  debugItem.state = [LinkPreferences debugMode];
+  debugItem.alternate = YES;
+  return debugItem;
 }
 
 - (NSMenuItem*) quitItem {

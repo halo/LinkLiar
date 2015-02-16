@@ -19,7 +19,8 @@
 @property (atomic, strong, readwrite) NSXPCConnection *helperToolConnection;
 @property (readonly) NSString *requiredHelperVersion;
 
-- (void) ensureHelperTool;
+- (BOOL) installHelperTool;
+- (void) getVersionWithReply:(void(^)(NSString*))block;
 - (void) applyAddress:(NSString*)address toBSD:(NSString*)BSDName;
 
 @end

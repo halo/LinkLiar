@@ -26,8 +26,15 @@
 
 @synthesize linkIntercom;
 
-- (void) ensureHelperTool {
-  [self.linkIntercom ensureHelperTool];
+- (BOOL) installHelperTool {
+  return [self.linkIntercom installHelperTool];
+}
+
+- (void) getVersionWithReply:(void(^)(NSString*))block {
+  [Log debug:@"Proxying from Synchronizer to Intercom..."];
+  [self.linkIntercom getVersionWithReply:^(NSString *helperVersion) {
+    block(helperVersion);
+  }];
 }
 
 - (void) applyInterfaces {
@@ -39,7 +46,7 @@
       case ModifierRandom:
         if (!interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = [LinkMACAddress random];
-        DDLogDebug(@"Randomizing hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
+        [Log debug:@"Randomizing hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress];
         [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
         [LinkPreferences unforceInterface:interface];
         break;
@@ -47,7 +54,7 @@
       case ModifierDefine:
         if (!interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = [LinkPreferences definitionOfInterface:interface];
-        DDLogDebug(@"Defining hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
+        [Log debug:@"Defining hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress];
         [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
         [LinkPreferences unforceInterface:interface];
         break;
@@ -55,7 +62,7 @@
       case ModifierOriginal:
         if (interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = interface.hardMAC;
-        DDLogDebug(@"Setting hardware MAC %@ of %@ to original MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
+        [Log debug:@"Setting hardware MAC %@ of %@ to original MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress];
         [self.linkIntercom applyAddress:interface.hardMAC toBSD:interface.BSDName];
         [LinkPreferences unforceInterface:interface];
         break;
@@ -63,7 +70,7 @@
       case ModifierReset:
         if (!interface.hasOriginalMAC) {
           newAddress = interface.hardMAC;
-          DDLogDebug(@"Resetting hardware MAC %@ of %@ to original MAC %@ and then forgetting about it", interface.hardMAC, interface.displayNameAndBSDName, newAddress);
+          [Log debug:@"Resetting hardware MAC %@ of %@ to original MAC %@ and then forgetting about it", interface.hardMAC, interface.displayNameAndBSDName, newAddress];
           [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
         }
         [LinkPreferences forgetInterface:interface];

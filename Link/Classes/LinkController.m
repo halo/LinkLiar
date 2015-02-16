@@ -28,6 +28,7 @@
 #import "LinkObserver.h"
 #import "LinkPreferences.h"
 #import "LinkInterfaces.h"
+#import "LinkLogger.h"
 
 @implementation LinkController
 
@@ -35,44 +36,64 @@
 @synthesize linkSynchronizer, linkObserver;
 
 - (void) awakeFromNib {
-  DDLogDebug(@"Awoke from NIB");
+  [Log debug:@"Awoke from NIB"];
   self.statusMenu.delegate = self;
   self.statusItem.menu = self.statusMenu;
-  [self ensureHelperTool];
   [self startMonitoring];
   [self update];
 }
 
-- (void) startMonitoring {
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interfacesDidChange:) name:@"State:/Network/Interface" object:self.linkObserver];
+- (void) update {
+  [self refreshWithUpdate:YES];
 }
 
-- (void) ensureHelperTool {
-  [self.linkSynchronizer ensureHelperTool];
+- (void) refresh {
+  [self refreshWithUpdate:NO];
+}
+
+- (void) refreshWithUpdate:(BOOL)performUpdate {
+  [Log debug:@"Going to refresh..."];
+  [self.statusMenu refreshAssumingHelperInstalled:NO];
+
+  [self usingHelperTool:^(NSInteger helperStatus, NSString *helperVersion) {
+    if (helperStatus == HelperReady) {
+      if (performUpdate) [self applyInterfaces];
+      [self.statusMenu refreshAssumingHelperInstalled:YES];
+    } else {
+      [self.statusMenu refreshAssumingHelperInstalled:NO];
+    }
+  }];
+
+  // The rest is independent of the HelperTool
+  self.statusItem.button.image = self.statusMenuIcon;
+  self.statusItem.button.alternateImage = self.statusMenuIcon;
+}
+
+- (NSString*) requiredHelperVersion {
+  return @"0.0.1";
+}
+
+- (void) startMonitoring {
+  [Log debug:@"Observing Interface changes..."];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interfacesDidChange:) name:@"State:/Network/Interface" object:self.linkObserver];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interfacesDidChange:) name:@"State:/Network/Interface/en0/AirPort" object:self.linkObserver];
+}
+
+- (void) installHelperTool:(NSMenuItem*)sender {
+  [self.linkSynchronizer installHelperTool];
 }
 
 - (void) applyInterfaces {
   [self.linkSynchronizer applyInterfaces];
 }
 
-- (void) update {
-  [self applyInterfaces];
+- (void) interfacesDidChange:(NSNotification*)notififcation {
+  [Log debug:@"Interface change detected..."];
   [self refresh];
 }
 
-- (void) refresh {
-  [self.statusMenu refresh];
-  self.statusItem.button.image = self.statusMenuIcon;
-  self.statusItem.button.alternateImage = self.statusMenuIcon;
-}
-
-- (void) interfacesDidChange:(NSNotification*)notififcation {
-  DDLogDebug(@"Interface change detected...");
-  [self update];
-}
-
 - (void) menuWillOpen:(NSMenu*)menu {
-  DDLogDebug(@"Refreshing menu before opening it...");
+  [Log debug:@"Refreshing menu before opening it..."];
   [self refresh];
 }
 
@@ -95,7 +116,7 @@
   NSString *description = [NSString stringWithFormat:@"The original hardware MAC for this Interface is %@", interface.hardMAC];
   NSString *newAddress = [self questionWithTitle:title andDescription:description andDefaultValue:@"aa:bb:cc:dd:ee:ff"];
   if (!newAddress) return;
-  DDLogDebug(@"User specified %@", newAddress);
+  [Log debug:@"User specified %@", newAddress];
   
   [LinkPreferences defineInterface:interface withMAC:newAddress force:YES];
   [self update];
@@ -112,14 +133,18 @@
   [LinkPreferences forgetInterface:interface];
 }
 
+- (void) toggleDebugMode:(NSMenuItem*)sender {
+  [LinkPreferences toggleDebugMode];
+}
+
 - (void) getHelp:(NSMenuItem*)sender {
-  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar You are currently running version %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
-  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:description];
+  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar You are currently running version %@ and your preferences are stored in %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [LinkPreferences preferencesFilePath]];
+  NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", description];
   [alert runModal];
 }
 
 - (NSString*) questionWithTitle:(NSString*)title andDescription:(NSString*)description andDefaultValue:(NSString*)defaultValue {
-  NSAlert *alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:description];
+  NSAlert *alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"%@", description];
   NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
 
   LinkMACAddressFormatter *formatter = [LinkMACAddressFormatter new];
@@ -134,6 +159,21 @@
   } else {
     return nil;
   }
+}
+
+- (void) usingHelperTool:(void(^)(NSInteger, NSString*))block {
+  [self.linkSynchronizer getVersionWithReply:^(NSString *helperVersion) {
+    if (helperVersion == nil) {
+      [Log debug:@"Helper Tool probably not installed!"];
+      block(HelperMissing, nil);
+    } else if ([helperVersion isEqualToString:self.requiredHelperVersion]) {
+      [Log debug:@"Yeah, this is the Helper I want."];
+      block(HelperReady, nil);
+    } else {
+      [Log debug:@"Helper Tool mismatch! I want %@ but Helper is at %@", self.requiredHelperVersion, helperVersion];
+      block(HelperVersionMismatch, helperVersion);
+    }
+  }];
 }
 
 - (NSStatusItem*) statusItem {

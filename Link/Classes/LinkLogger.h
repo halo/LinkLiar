@@ -14,11 +14,8 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "DDLog.h"
-#import "DDTTYLogger.h"
-
 @interface LinkLogger : NSObject
 
-+ (void) setup:(int)level;
++ (void) debug:(NSString*)format, ...;
 
 @end

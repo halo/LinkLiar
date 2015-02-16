@@ -31,10 +31,10 @@
 
 - (BOOL) hasOriginalMAC {
   if ([self.hardMAC isEqualToString:self.softMAC]) {
-    //DDLogDebug(@"%@ MAC %@ is original", self.displayNameAndBSDName, self.hardMAC);
+    //[Log debug:@"%@ MAC %@ is original", self.displayNameAndBSDName, self.hardMAC);
     return YES;
   } else {
-    //DDLogDebug(@"%@ MAC %@ is NOT the original %@", self.displayNameAndBSDName, self.hardMAC, self.softMAC);
+    //[Log debug:@"%@ MAC %@ is NOT the original %@", self.displayNameAndBSDName, self.hardMAC, self.softMAC);
     return NO;
   }
 }

@@ -18,8 +18,9 @@
 
 @property (readonly) NSMenuItem *refreshItem;
 @property (readonly) NSMenuItem *helpItem;
+@property (readonly) NSMenuItem *debugItem;
 @property (readonly) NSMenuItem *quitItem;
 
-- (void) refresh;
+- (void) refreshAssumingHelperInstalled:(BOOL)helperInstalled;
 
 @end

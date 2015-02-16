@@ -44,8 +44,8 @@
 
 - (BOOL) listener:(NSXPCListener*)listener shouldAcceptNewConnection:(NSXPCConnection*)newConnection {
   #pragma unused(listener)
-  assert(listener == self.listener);
-  assert(newConnection != nil);
+  NSAssert(listener == self.listener, @"NSXPCListener is not my instance variable", listener, self.listener);
+  NSAssert(newConnection != nil, @"XPC connection is nil", newConnection);
   
   newConnection.exportedInterface = [NSXPCInterface interfaceWithProtocol:@protocol(LinkHelperProtocol)];
   newConnection.exportedObject = self;
@@ -60,7 +60,7 @@
 }
 
 - (void) getVersionWithReply:(void(^)(NSString *version))reply {
-  reply([[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]);
+  reply([[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey]);
 }
 
 // It's painful to upgrade HelperTools so we keep this dead-simple.

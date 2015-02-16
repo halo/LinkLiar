@@ -15,6 +15,7 @@
  */
 
 #import "LinkObserver.h"
+#import "LinkLogger.h"
 
 static void observerNotificationProxy(SCDynamicStoreRef store, CFArrayRef triggeredKeys, void* info) {
   NSString *key;
@@ -22,6 +23,7 @@ static void observerNotificationProxy(SCDynamicStoreRef store, CFArrayRef trigge
   NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
   
   while (key = [keys nextObject]) {
+    //[Log debug:key];
     [notificationCenter postNotificationName:key object:(__bridge id)info userInfo:(__bridge NSDictionary*)SCDynamicStoreCopyValue(store, (__bridge CFStringRef) key)];
   }
 }

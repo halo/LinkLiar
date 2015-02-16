@@ -33,6 +33,10 @@ extern const NSString *InterfaceModifierFlag;
 
 // Public
 
++ (NSString*) preferencesFilePath;
++ (BOOL) debugMode;
++ (void) toggleDebugMode;
+
 + (void) randomizeInterface:(LinkInterface*)interface force:(BOOL)force;
 + (void) originalizeInterface:(LinkInterface*)interface force:(BOOL)force;
 + (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address force:(BOOL)force;

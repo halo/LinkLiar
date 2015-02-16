@@ -18,6 +18,7 @@
 
 #import "LinkInterface.h"
 
+const NSString *DebugFlag = @"force";
 const NSString *InterfaceForceFlag = @"force";
 const NSString *InterfaceModifierFlag = @"modifier";
 const NSString *InterfaceModifierRandom = @"random";
@@ -30,19 +31,19 @@ const NSString *InterfaceModifierReset = @"reset";
 // Continuously observed
 
 + (void) randomizeInterface:(LinkInterface*)interface force:(BOOL)force {
-  DDLogDebug(@"Remembering to randomize hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
+  [Log debug:@"Remembering to randomize hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName];
   [self setModifierValue:InterfaceModifierRandom forInterface:interface];
   if (force) [self setForceForInterface:interface];
 }
 
 + (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address force:(BOOL)force {
-  DDLogDebug(@"Defining hardware MAC %@ of %@ to be %@", interface.hardMAC, interface.displayNameAndBSDName, address);
+  [Log debug:@"Defining hardware MAC %@ of %@ to be %@", interface.hardMAC, interface.displayNameAndBSDName, address];
   [self setModifierValue:InterfaceModifierDefine forInterface:interface];
   if (force) [self setForceForInterface:interface];
 }
 
 + (void) originalizeInterface:(LinkInterface*)interface force:(BOOL)force {
-  DDLogDebug(@"Remembering to keep hardware MAC %@ of %@ in original state", interface.hardMAC, interface.displayNameAndBSDName);
+  [Log debug:@"Remembering to keep hardware MAC %@ of %@ in original state", interface.hardMAC, interface.displayNameAndBSDName];
   [self setModifierValue:InterfaceModifierOriginal forInterface:interface];
   if (force) [self setForceForInterface:interface];
 }
@@ -50,12 +51,12 @@ const NSString *InterfaceModifierReset = @"reset";
 // One-time triggers
 
 + (void) resetInterface:(LinkInterface*)interface {
-  DDLogDebug(@"Remembering to reset MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
+  [Log debug:@"Remembering to reset MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName];
   [self setObject:InterfaceModifierReset forKey:[self modifierKeyForInterface:interface]];
 }
 
 + (void) forgetInterface:(LinkInterface*)interface {
-  DDLogDebug(@"Forgetting MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
+  [Log debug:@"Forgetting MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName];
   [self removeObjectForKey:[self modifierKeyForInterface:interface]];
 }
 
@@ -72,7 +73,7 @@ const NSString *InterfaceModifierReset = @"reset";
   if ([InterfaceModifierDefine isEqualToString:modifier])   return ModifierDefine;
   if ([InterfaceModifierOriginal isEqualToString:modifier]) return ModifierOriginal;
   if ([InterfaceModifierReset isEqualToString:modifier])    return ModifierReset;
-  DDLogDebug(@"Don't know what to do with hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName);
+  [Log debug:@"Don't know what to do with hardware MAC %@ of %@", interface.hardMAC, interface.displayNameAndBSDName];
   return ModifierUnknown;
 }
 
@@ -88,14 +89,27 @@ const NSString *InterfaceModifierReset = @"reset";
   return [InterfaceForceFlag isEqualToString:[self getObjectForKey:[self forceKeyForInterface:interface]]];
 }
 
-/*
- + (NSString*) preferenceFilePath {
- NSString *path = @"~/Library/Preferences";
- path = [path stringByExpandingTildeInPath];
- path = [path stringByAppendingPathComponent:[self bundleID]];
- return path;
- }
- */
++ (BOOL) debugMode {
+  return [self getObjectForKey:(NSString*)DebugFlag] != nil;
+}
+
++ (void) toggleDebugMode {
+  if (self.debugMode) {
+    [Log debug:@"Deactivating Debug Mode..."];
+    [self removeObjectForKey:(NSString*)DebugFlag];
+  } else {
+    [Log debug:@"Activating Debug Mode..."];
+    [self setObject:DebugFlag forKey:(NSString*)DebugFlag];
+  }
+}
+
++ (NSString*) preferencesFilePath {
+  NSArray *path = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+  NSString *folder = [path objectAtIndex:0];
+  NSString *bundleIdentifier = [[NSBundle mainBundle] bundleIdentifier];
+  NSString *filename = [NSString stringWithFormat:@"%@.plist", bundleIdentifier];
+  return [[folder stringByAppendingPathComponent:@"Preferences"] stringByAppendingPathComponent:filename];
+}
 
 // Internal
 

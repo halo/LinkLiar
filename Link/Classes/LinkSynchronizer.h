@@ -20,7 +20,8 @@
 
 @property (readonly) LinkIntercom *linkIntercom;
 
-- (void) ensureHelperTool;
+- (BOOL) installHelperTool;
+- (void) getVersionWithReply:(void(^)(NSString*))block;
 - (void) applyInterfaces;
 
 @end

@@ -1,6 +1,6 @@
 #ifdef __OBJC__
   #import <Cocoa/Cocoa.h>
-  #import "DDLog.h"
+  #import "LinkLogger.h"
 #endif
 
-static int ddLogLevel = LOG_LEVEL_DEBUG;
+#define Log LinkLogger

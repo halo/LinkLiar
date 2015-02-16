@@ -22,64 +22,22 @@
 
 @implementation LinkIntercom
 
-- (void) ensureHelperTool {
-  assert([NSThread isMainThread]);
-  [self connectToHelperTool];
-  
-  [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError * proxyError) {
-    DDLogDebug(@"Could not query Helper version, installing it...");
-    if ([self elevateHelperTool]) {
-      DDLogDebug(@"And moving on with execution...");
-    } else {
-      DDLogDebug(@"Giving up on Helper.");
-    }
-    
-  }] getVersionWithReply:^(NSString *helperVersion) {
-    NSString *myVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    if ([helperVersion isEqualToString:self.requiredHelperVersion]) {
-      DDLogDebug(@"Helper is also at version %@", myVersion);
-    } else {
-      NSString *warning = [NSString stringWithFormat:@"I am at version %@ but the Helper is at %@. Please uninstall the helper manually (see https://github.com/halo/LinkLiar) and try again.", myVersion, helperVersion];
-      NSLog(warning);
-      //assert([NSThread isMainThread]);
-      //NSAlert *alert = [NSAlert alertWithMessageText:@"Helpertool mismatch detected" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:warning];
-      //[alert runModal];
-      [NSApp terminate:self];
-    }
-  }];
-
-}
-
-- (void) logText:(NSString*)text {
-  DDLogDebug(@"%@", text);
-}
-
-- (void) logError:(NSError*)error {
-  DDLogError(@"error details %@", error);
-}
-
-- (void) logWithFormat:(NSString*)format, ... {
-  va_list ap;
-  
-  // any thread
-  assert(format != nil);
-  
-  va_start(ap, format);
-  [self logText:[[NSString alloc] initWithFormat:format arguments:ap]];
-  va_end(ap);
+- (BOOL) installHelperTool {
+  NSAssert([NSThread isMainThread], @"You need to be on the main thread to install the Helper tool");
+  return [self elevateHelperTool];
 }
 
 // Ensures that we're connected to our helper tool.
 - (void) connectToHelperTool {
-  DDLogDebug(@"Connecting to Helper Tool...");
+  [Log debug:@"Connecting to Helper Tool..."];
 
-  //assert([NSThread isMainThread]);
+  //NSAssert([NSThread isMainThread], @"You need to be on the main thread to connect to the Helper tool");
   if (self.helperToolConnection) return;
   
-  DDLogDebug(@"Establishing NSXPCConnection...");
+  [Log debug:@"Establishing NSXPCConnection..."];
   self.helperToolConnection = [[NSXPCConnection alloc] initWithMachServiceName:kLinkHelperIdentifier options:NSXPCConnectionPrivileged];
   self.helperToolConnection.remoteObjectInterface = [NSXPCInterface interfaceWithProtocol:@protocol(LinkHelperProtocol)];
-  DDLogDebug(@"NSXPCConnection instantiated");
+  [Log debug:@"NSXPCConnection instantiated"];
 
   // We can ignore the retain cycle warning because a) the retain taken by the
   // invalidation handler block is released by us setting it to nil when the block
@@ -93,7 +51,7 @@
     self.helperToolConnection.invalidationHandler = nil;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
       self.helperToolConnection = nil;
-      [self logText:@"connection interrupted\n"];
+      [Log debug:@"XPC connection interrupted\n"];
     }];
   };
 
@@ -103,117 +61,79 @@
     self.helperToolConnection.invalidationHandler = nil;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
       self.helperToolConnection = nil;
-      [self logText:@"connection invalidated\n"];
+      [Log debug:@"XPC connection invalidated\n"];
     }];
   };
   #pragma clang diagnostic pop
-  DDLogDebug(@"Resuming connection...");
+  [Log debug:@"Resuming connection..."];
   [self.helperToolConnection resume];
-  DDLogDebug(@"Connection resumed.");
+  [Log debug:@"Connection resumed."];
   
-}
-
-- (NSString*) requiredHelperVersion {
-  return @"0.0.1";
 }
 
 - (void) connectAndExecuteCommandBlock:(void(^)(NSError *))commandBlock {
-// Connects to the helper tool and then executes the supplied command block on the
-// main thread, passing it an error indicating if the connection was successful.
+  // Connects to the helper tool and then executes the supplied command block on the
+  // main thread, passing it an error indicating if the connection was successful.
 
-  DDLogDebug(@"connectAndExecuteCommandBlock");
-  //assert([NSThread isMainThread]);
+  [Log debug:@"connectAndExecuteCommandBlock"];
   
-  // Ensure that there's a helper tool connection in place.
-  //if (self.helperToolConnection == nil)
-  //[self elevateHelperTool];
   [self connectToHelperTool];
   
   // Run the command block.  Note that we never error in this case because, if there is
   // an error connecting to the helper tool, it will be delivered to the error handler
   // passed to -remoteObjectProxyWithErrorHandler:.  However, I maintain the possibility
   // of an error here to allow for future expansion.
-  DDLogDebug(@"running command...");
+  [Log debug:@"running command..."];
 
   commandBlock(nil);
 }
 
-- (void) usingIdenticalHelperToolVersion:(void(^)(NSError*))block {
-  [self connectToHelperTool];
-  
-  [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError * proxyError) {
-    DDLogDebug(@"Could not query Helper version, installing it...");
-    if ([self elevateHelperTool]) {
-      DDLogDebug(@"And moving on with execution...");
-      NSAlert *alert = [NSAlert alertWithMessageText:@"Helpertool installed" defaultButton:@"Got it." alternateButton:nil otherButton:nil informativeTextWithFormat:@"Now that you installed the helper tool for the first time you need to try again what you just did. From now on the changes will take effect immediately. Some day I'll figure out a more user-friendly way for this... It has to do with threads so it's complicated ;)"];
-      [alert runModal];
+- (void) getVersionWithReply:(void(^)(NSString*))block {
+  [Log debug:@"Intercom is going to check HelperTool version..."];
 
-      // I wish I could just to this. But it will not take effect in this sub-thread.
-      // [self usingIdenticalHelperToolVersion:block];
-    } else {
-      DDLogDebug(@"Giving up on Helper.");
-    }
-
-  }] getVersionWithReply:^(NSString *helperVersion) {
-    NSString *myVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    if ([helperVersion isEqualToString:self.requiredHelperVersion]) {
-      DDLogDebug(@"Helper is also at version %@", myVersion);
-      //[self connectAndExecuteCommandBlock:block];
+  [self connectAndExecuteCommandBlock:^(NSError *connectError) {
+    if (connectError != nil) {
+      [Log debug:@"Gee, Intercom didn't get a connection"];
       block(nil);
-    } else {
-      NSString *warning = [NSString stringWithFormat:@"I am at version %@ but the Helper is at %@. Please uninstall the helper manually (see https://github.com/halo/LinkLiar) and try again.", myVersion, helperVersion];
-      DDLogDebug(warning);
-      // FIXME Not good. Subthreads may crash NSAlert.
-      NSAlert *alert = [NSAlert alertWithMessageText:@"Helpertool mismatch detected" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:warning];
-      [alert runModal];
     }
+    
+    [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError *proxyError) {
+    }] getVersionWithReply:^(NSString *helperVersion) {
+      block(helperVersion);
+    }];
   }];
 }
 
-- (void) getVersion {
-  DDLogDebug(@"getVersion");
-  [self connectToHelperTool];
-
-    [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError * proxyError) {
-      [self logError:proxyError];
-    }] getVersionWithReply:^(NSString *version) {
-      [self logWithFormat:@"version = %@\n", version];
-    }];
-  //}
-}
-
 - (BOOL) elevateHelperTool {
-  DDLogDebug(@"Elevating Helper Tool...");
+  [Log debug:@"Elevating Helper Tool..."];
   AuthorizationRef authRef = [self createAuthRef];
   
   if (authRef) {
-    DDLogDebug(@"Got Authorization");
+    [Log debug:@"Got Authorization"];
   } else {
-    DDLogWarn(@"Authorization failed");
+    [Log debug:@"Authorization failed"];
     return NO;
   }
 
   NSError *error = nil;
   if (![self blessHelperWithAuthRef:authRef error:&error]) {
-    DDLogError(@"Failed to bless helper");
-    DDLogError(@"%@", error);
+    [Log debug:@"Failed to bless helper: %@", error.localizedDescription];
     return NO;
   }
-  DDLogDebug(@"Blessed the helper");
+  [Log debug:@"Blessed the helper"];
   return YES;
 }
 
 - (void) applyAddress:(NSString*)address toBSD:(NSString*)BSDName {
-  DDLogDebug(@"applyAddress to BSD...");
-  [self usingIdenticalHelperToolVersion:^(NSError * connectError) {
+  [Log debug:@"applyAddress to BSD..."];
+  [self connectAndExecuteCommandBlock:^(NSError *connectError) {
     if (connectError != nil) {
-      DDLogDebug(@"applyAddress boom");
-      [self logError:connectError];
+      [Log debug:@"connectError: %@", connectError.localizedDescription];
     } else {
-      [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError * proxyError) {
-        [self logError:proxyError];
+      [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError *proxyError) {
+        [Log debug:@"ProxyError: %@", proxyError.localizedDescription];
       }] applyMACAddress:address toInterfaceWithBSD:BSDName withReply:^(BOOL success) {
-        [self logWithFormat:@"reply = %li", success];
+        [Log debug:@"reply = %li", success];
       }];
     }
   }];
@@ -227,7 +147,7 @@
 
   OSStatus status = AuthorizationCreate(&authRights, kAuthorizationEmptyEnvironment, flags, &authRef);
   if (status != errAuthorizationSuccess) {
-    NSLog(@"Failed to create AuthorizationRef, return code %i", status);
+    [Log debug:@"Failed to create AuthorizationRef, return code %i", status];
   }
   
   return authRef;

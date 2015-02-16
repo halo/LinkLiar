@@ -22,7 +22,7 @@
 
 + (NSString*) randomPrefix {
   NSInteger vendorsCount = [[self sharedInstance].allPrefixes count];
-  DDLogDebug(@"Choosing random MAC prefix among %li vendor prefixes...", (long)vendorsCount);
+  [Log debug:@"Choosing random MAC prefix among %li vendor prefixes...", (long)vendorsCount];
   NSUInteger randomIndex = arc4random() % vendorsCount;
   return ([self sharedInstance].allPrefixes)[randomIndex];
 }

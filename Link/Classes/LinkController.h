@@ -19,6 +19,12 @@
 @class LinkObserver;
 @class LinkSynchronizer;
 
+typedef NS_ENUM(NSInteger, HelperToolStatus) {
+  HelperMissing,
+  HelperVersionMismatch,
+  HelperReady
+};
+
 @interface LinkController : NSObject <NSApplicationDelegate, NSMenuDelegate>
 
 @property (readonly) NSStatusItem *statusItem;
@@ -28,12 +34,14 @@
 @property (readonly) LinkObserver *linkObserver;
 @property (readonly) NSImage *statusMenuIcon;
 
+- (void) installHelperTool:(NSMenuItem*)sender;
+- (void) getHelp:(NSMenuItem*)sender;
+- (void) toggleDebugMode:(NSMenuItem*)sender;
+
 - (void) randomizeMAC:(NSMenuItem*)sender;
 - (void) originalizeMAC:(NSMenuItem*)sender;
 - (void) specifyMAC:(NSMenuItem*)sender;
 - (void) resetMAC:(NSMenuItem*)sender;
 - (void) forgetMAC:(NSMenuItem*)sender;
-
-- (void) getHelp:(NSMenuItem*)sender;
 
 @end
