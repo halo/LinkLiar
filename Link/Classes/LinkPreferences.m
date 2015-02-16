@@ -18,7 +18,7 @@
 
 #import "LinkInterface.h"
 
-const NSString *DebugFlag = @"force";
+const NSString *DebugFlag = @"debug";
 const NSString *InterfaceForceFlag = @"force";
 const NSString *InterfaceModifierFlag = @"modifier";
 const NSString *InterfaceModifierRandom = @"random";
