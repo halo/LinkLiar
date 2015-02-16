@@ -40,7 +40,15 @@ sudo rm /Library/PrivilegedHelperTools/com.funkensturm.LinkHelper
 
 ## Troubleshooting
 
-* If the application does not start at all, run the `Console` app to see if there are any logs. Uninstall the HelperTool and try again.
+If LinkLiar starts, you can hold the ⌥ key to activate Debug Mode. The Logs will appear in the `Console` app.
+
+If the application does not even start, you may turn on debug logging using the following command:
+
+```bash
+defaults write com.funkensturm.Link.plist debug debug  # <- Yes, twice "debug"
+```
+
+* If the "Authorize LinkLayer..." menu item does not disappear, uninstall the curent HelperTool manually (see "Uninstall").
 * Sometimes it takes 1-2 seconds for the MAC address to change so if you're really fast with your mouse you might see outdated information in the status menu. Just close and open the menu again in that case.
 * There exist MAC addresses which, for unknown reasons, cannot be applied to the interface. This may happen when you specify the address manually and e.g. choose a prefix which does not exist in the real world. You may try to use the "Random" function to make sure you always have a valid prefix.
 * You may loose your Internet connection if you change a MAC address while the Interface is in use. This is not dangerous, though. Just plug the Ethernet cable out an in again or power the Wi-Fi off and on again.
@@ -54,13 +62,10 @@ sudo rm /Library/PrivilegedHelperTools/com.funkensturm.LinkHelper
 
 ## Development and credits
 
-Feel free to browse through the code of this application. It's rather small and straight-forward.
-
 The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
 
 ## Special thanks
 
-* To [CocoaLumberjack](https://github.com/CocoaLumberjack/CocoaLumberjack) I was allowed to use.
 * To **you** for starring my project on Github (the little star in the top right corner).
 
 ## License
