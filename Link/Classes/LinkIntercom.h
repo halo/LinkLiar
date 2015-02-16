@@ -14,6 +14,8 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+extern NSString *const LinkInterfaceMACAppliedNotification;
+
 @interface LinkIntercom : NSObject
 
 @property (atomic, strong, readwrite) NSXPCConnection *helperToolConnection;

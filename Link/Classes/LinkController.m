@@ -29,6 +29,7 @@
 #import "LinkPreferences.h"
 #import "LinkInterfaces.h"
 #import "LinkLogger.h"
+#import "LinkIntercom.h"
 
 @implementation LinkController
 
@@ -48,6 +49,11 @@
 }
 
 - (void) refresh {
+  [self refreshWithUpdate:NO];
+}
+
+- (void) interfaceMACApplied:sender {
+  [Log debug:@"A MAC address has been updated..."];
   [self refreshWithUpdate:NO];
 }
 
@@ -77,6 +83,7 @@
   [Log debug:@"Observing Interface changes..."];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interfacesDidChange:) name:@"State:/Network/Interface" object:self.linkObserver];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interfacesDidChange:) name:@"State:/Network/Interface/en0/AirPort" object:self.linkObserver];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interfaceMACApplied:) name:LinkInterfaceMACAppliedNotification object:nil];
 }
 
 - (void) installHelperTool:(NSMenuItem*)sender {

@@ -22,6 +22,8 @@
 #import "LinkMACAddress.h"
 #import "LinkPreferences.h"
 
+NSString *const LinkInterfaceMACAppliedNotification = @"LinkInterfaceMACAppliedNotification";
+
 @implementation LinkSynchronizer
 
 @synthesize linkIntercom;

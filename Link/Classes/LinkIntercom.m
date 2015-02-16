@@ -133,6 +133,8 @@
       [[self.helperToolConnection remoteObjectProxyWithErrorHandler:^(NSError *proxyError) {
         [Log debug:@"ProxyError: %@", proxyError.localizedDescription];
       }] applyMACAddress:address toInterfaceWithBSD:BSDName withReply:^(BOOL success) {
+        NSNotificationCenter* notificationCenter = [NSNotificationCenter defaultCenter];
+        [notificationCenter postNotificationName:LinkInterfaceMACAppliedNotification object:nil];
         [Log debug:@"reply = %li", success];
       }];
     }
