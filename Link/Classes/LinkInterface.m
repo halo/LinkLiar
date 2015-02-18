@@ -78,6 +78,8 @@
   NSData *data = [file readDataToEndOfFile];
   NSString *cmdResult = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
   
+  if (![cmdResult containsString:@"ether"]) return NULL;
+  
   // Searching for the MAC address in the result
   NSString *currentMAC = [[[cmdResult componentsSeparatedByString:@"ether "] lastObject] componentsSeparatedByString:@" "][0];
   return currentMAC;

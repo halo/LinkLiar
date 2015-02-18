@@ -49,10 +49,14 @@
       interface.hardMAC = (__bridge NSString*)SCNetworkInterfaceGetHardwareAddressString(interfaceRef);
       interface.kind = (__bridge NSString*)SCNetworkInterfaceGetInterfaceType(interfaceRef);
       
-      // It might be better to check for interface.kind == Ethernet or IEEE80211
-      if (![interface.displayName containsString:@"Wi"] && ![interface.displayName containsString:@"thern"] && ![interface.displayName containsString:@"Air"]) continue;
+      // You can only change MAC addresses of Ethernet and Wi-Fi adapters
+      if (![interface.kind isEqualToString:@"Ethernet"] && ![interface.kind isEqualToString:@"IEEE80211"]) continue;
+      // If there is no internal MAC this is to be ignored
       if (!interface.hardMAC) continue;
+      // If this interface is not in ifconfig, it's probably Bluetooth
       if (!interface.softMAC) continue;
+      // Internal Thunderbolt interfaces cannot be spoofed either
+      if ([interface.displayName containsString:@"Thunderbolt 1"] || [interface.displayName containsString:@"Thunderbolt 2"] || [interface.displayName containsString:@"Thunderbolt 3"] || [interface.displayName containsString:@"Thunderbolt 4"] || [interface.displayName containsString:@"Thunderbolt 5"]) continue;
       
       [result addObject:interface];
     }
