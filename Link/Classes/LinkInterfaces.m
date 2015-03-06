@@ -57,6 +57,8 @@
       if (!interface.softMAC) continue;
       // Internal Thunderbolt interfaces cannot be spoofed either
       if ([interface.displayName containsString:@"Thunderbolt 1"] || [interface.displayName containsString:@"Thunderbolt 2"] || [interface.displayName containsString:@"Thunderbolt 3"] || [interface.displayName containsString:@"Thunderbolt 4"] || [interface.displayName containsString:@"Thunderbolt 5"]) continue;
+      // iPhones etc. are not spoofable either
+      if ([interface.displayName containsString:@"iPhone"] || [interface.displayName containsString:@"iPad"] || [interface.displayName containsString:@"iPod"]) continue;
       
       [result addObject:interface];
     }
