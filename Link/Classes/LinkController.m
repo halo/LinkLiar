@@ -52,6 +52,24 @@
   [self refreshWithUpdate:NO];
 }
 
+- (void) updateAndRefresh {
+  [self update];
+  [self refreshSoon];
+  [self refreshLater];
+}
+
+- (void) refreshFromTimer:sender {
+  [self refresh];
+}
+
+- (void) refreshSoon {
+  [NSTimer scheduledTimerWithTimeInterval:7 target:self selector:@selector(refreshFromTimer:) userInfo:nil repeats:NO];
+}
+
+- (void) refreshLater {
+  [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(refreshFromTimer:) userInfo:nil repeats:NO];
+}
+
 - (void) interfaceMACApplied:sender {
   [Log debug:@"A MAC address has been updated..."];
   [self refreshWithUpdate:NO];
@@ -99,7 +117,7 @@
 
 - (void) interfacesDidChange:(NSNotification*)notififcation {
   [Log debug:@"Interface change detected..."];
-  [self refresh];
+  [self updateAndRefresh];
 }
 
 - (void) menuWillOpen:(NSMenu*)menu {
