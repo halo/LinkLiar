@@ -57,7 +57,7 @@
   mainItem.title = interface.softMAC;
   mainItem.state = [interface hasOriginalMAC];
   mainItem.onStateImage = [NSImage imageNamed:@"InterfaceLeaking"];
-  if (actionable) [mainItem setSubmenu:[self submenuForInterface:interface]];
+  if (actionable) mainItem.submenu = [self submenuForInterface:interface];
   return mainItem;
 }
 
@@ -114,25 +114,23 @@
 }
 
 - (NSMenuItem*) helpItem {
-  if (helpItem) return helpItem;
-  helpItem = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
-  helpItem.target = self.delegate;
-  return helpItem;
+  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
+  item.target = self.delegate;
+  return item;
 }
 
 - (NSMenuItem*) debugItem {
-  debugItem = [[NSMenuItem alloc] initWithTitle:@"Debug Mode" action:@selector(toggleDebugMode:) keyEquivalent:@""];
-  debugItem.target = self.delegate;
-  debugItem.keyEquivalentModifierMask = NSAlternateKeyMask;
-  debugItem.state = [LinkPreferences debugMode];
-  debugItem.alternate = YES;
-  return debugItem;
+  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Debug Mode" action:@selector(toggleDebugMode:) keyEquivalent:@""];
+  item.target = self.delegate;
+  item.keyEquivalentModifierMask = NSAlternateKeyMask;
+  item.state = [LinkPreferences debugMode];
+  item.alternate = YES;
+  return item;
 }
 
 - (NSMenuItem*) quitItem {
-  if (quitItem) return quitItem;
-  quitItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
-  return quitItem;
+  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@""];
+  return item;
 }
 
 @end
