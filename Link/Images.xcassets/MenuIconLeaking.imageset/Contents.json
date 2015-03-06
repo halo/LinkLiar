@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "iconmonstr-connection-icon-16.png"
+      "filename" : "iconmonstr-danger-10-icon-16.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "iconmonstr-connection-icon-24.png"
+      "filename" : "iconmonstr-danger-10-icon-24.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "iconmonstr-connection-icon-48.png"
+      "filename" : "iconmonstr-danger-10-icon-48.png"
     }
   ],
   "info" : {
