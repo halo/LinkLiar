@@ -108,6 +108,7 @@
   LinkInterface *interface = [LinkInterfaces interfaceByBSDNumber:sender.tag];
   [LinkPreferences randomizeInterface:interface force:YES];
   [self update];
+  [self warnAboutLoosingConnection];
 }
 
 - (void) originalizeMAC:(NSMenuItem*)sender {
@@ -127,6 +128,7 @@
   
   [LinkPreferences defineInterface:interface withMAC:newAddress force:YES];
   [self update];
+  [self warnAboutLoosingConnection];
 }
 
 - (void) resetMAC:(NSMenuItem*)sender {
@@ -148,6 +150,14 @@
   NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar You are currently running version %@ and your preferences are stored in %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [LinkPreferences preferencesFilePath]];
   NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", description];
   [alert runModal];
+}
+
+- (void) warnAboutLoosingConnection {
+  if ([LinkPreferences connectionWarningIgnored]) return;
+  NSString *description = [NSString stringWithFormat:@"Changing a MAC address may cause you to loose Internet connection on that Interface.\n\nIf that happens, just unplug the cable or turn off your Wi-Fi for a moment.\n\nThis warning will not appear again."];
+  NSAlert *alert = [NSAlert alertWithMessageText:@"Just to let you know..." defaultButton:@"Okay, got it." alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", description];
+  [alert runModal];
+  [LinkPreferences ignoreConnectionWarning];
 }
 
 - (NSString*) questionWithTitle:(NSString*)title andDescription:(NSString*)description andDefaultValue:(NSString*)defaultValue {

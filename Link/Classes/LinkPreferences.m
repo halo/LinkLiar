@@ -18,6 +18,7 @@
 
 #import "LinkInterface.h"
 
+const NSString *ConnectionWarningFlag = @"connection_warning";
 const NSString *DebugFlag = @"debug";
 const NSString *InterfaceForceFlag = @"force";
 const NSString *InterfaceModifierFlag = @"modifier";
@@ -91,6 +92,14 @@ const NSString *InterfaceModifierReset = @"reset";
 
 + (BOOL) debugMode {
   return [self getObjectForKey:(NSString*)DebugFlag] != nil;
+}
+
++ (BOOL) connectionWarningIgnored {
+  return [self getObjectForKey:(NSString*)ConnectionWarningFlag] != nil;
+}
+
++ (void) ignoreConnectionWarning {
+  [self setObject:ConnectionWarningFlag forKey:(NSString*)ConnectionWarningFlag];
 }
 
 + (void) toggleDebugMode {

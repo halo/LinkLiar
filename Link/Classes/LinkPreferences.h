@@ -37,6 +37,9 @@ extern const NSString *InterfaceModifierFlag;
 + (BOOL) debugMode;
 + (void) toggleDebugMode;
 
++ (BOOL) connectionWarningIgnored;
++ (void) ignoreConnectionWarning;
+
 + (void) randomizeInterface:(LinkInterface*)interface force:(BOOL)force;
 + (void) originalizeInterface:(LinkInterface*)interface force:(BOOL)force;
 + (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address force:(BOOL)force;
