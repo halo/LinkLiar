@@ -40,6 +40,7 @@
   @autoreleasepool {
     
     NSArray *interfaces = (NSArray*) CFBridgingRelease(SCNetworkInterfaceCopyAll());
+   
     for (id interface_ in interfaces) {
       SCNetworkInterfaceRef interfaceRef = (__bridge SCNetworkInterfaceRef)interface_;
 
@@ -53,12 +54,14 @@
       if (![interface.kind isEqualToString:@"Ethernet"] && ![interface.kind isEqualToString:@"IEEE80211"]) continue;
       // If there is no internal MAC this is to be ignored
       if (!interface.hardMAC) continue;
-      // If this interface is not in ifconfig, it's probably Bluetooth
-      if (!interface.softMAC) continue;
-      // Internal Thunderbolt interfaces cannot be spoofed either
-      if ([interface.displayName containsString:@"Thunderbolt 1"] || [interface.displayName containsString:@"Thunderbolt 2"] || [interface.displayName containsString:@"Thunderbolt 3"] || [interface.displayName containsString:@"Thunderbolt 4"] || [interface.displayName containsString:@"Thunderbolt 5"]) continue;
+      // Bluetooth can also be filtered out
+      if ([interface.displayName containsString:@"tooth"]) continue;
       // iPhones etc. are not spoofable either
       if ([interface.displayName containsString:@"iPhone"] || [interface.displayName containsString:@"iPad"] || [interface.displayName containsString:@"iPod"]) continue;
+      // Internal Thunderbolt interfaces cannot be spoofed either
+      if ([interface.displayName containsString:@"Thunderbolt 1"] || [interface.displayName containsString:@"Thunderbolt 2"] || [interface.displayName containsString:@"Thunderbolt 3"] || [interface.displayName containsString:@"Thunderbolt 4"] || [interface.displayName containsString:@"Thunderbolt 5"]) continue;
+      // If this interface is not in ifconfig, it's probably Bluetooth
+      if (!interface.softMAC) continue;
       
       [result addObject:interface];
     }
