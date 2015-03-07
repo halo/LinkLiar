@@ -9,7 +9,7 @@ This is an intuitive status menu application written in Objective-C to help you 
 
 If you like this project, feel free to give it a ★ in the top right corner.
 
-![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/doc/screenshot_1.1.1)
+![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/doc/screenshot_1.1.1.png)
 
 ## Requirements
 
