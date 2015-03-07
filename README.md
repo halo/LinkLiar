@@ -7,20 +7,20 @@
 
 This is an intuitive status menu application written in Objective-C to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
+If you like this project, feel free to give it a ★ in the top right corner.
+
 ![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/doc/screenshot.png)
 
 ## Requirements
 
-* Mac OS Yosemite (I have not tested it on older versions, it might work on Mavericks and Lion)
-* Administrator privileges (you will be asked once for your root password)
+* Mac OS Yosemite
+* Administrator privileges (you will be asked for your root password **once**)
 
 ## Installation
 
-Grap the latest release [over here](https://github.com/halo/LinkLiar/releases/latest) and place it into your `/Applications` directory. You might want to add it to the applications which start each time you login (see System Preferences -> User -> Login Items).
+Grap the latest release of [LinkLiar.app.zip](https://github.com/halo/LinkLiar/releases/latest), extract it, and place it into your `/Applications` directory.
 
-Once on the [release page](https://github.com/halo/LinkLiar/releases/latest) you need to click on the link that looks like this:
-
-![Download Image](https://cdn.rawgit.com/halo/LinkLiar/master/doc/download.png)
+You might want to add it to the applications which start each time you login (see *System Preferences -> User -> Login Items*).
 
 ## Uninstall / Upgrading
 
@@ -35,38 +35,31 @@ sudo rm /Library/PrivilegedHelperTools/com.funkensturm.LinkHelper
 ## Limitations
 
 * When your Wi-Fi (aka Airport) is turned off, you cannot change its MAC address. You need to turn it on first.
-* There is basic support to automatically enforce the settings you specified. This is triggered e.g. when you plugin a USB Ethernet adapter. I do not want to poll every minute to see if anything changed so that LinkLiar can jump in and revert it to what you want to have. This is to save energy and it's good programming practice. I'm still figuring out how to trigger this more reliably, e.g. when you manually change the MAC address with `ifconfig`.
-* Previous versions of LinkLiar were preference panes. While these are beautiful and not in your fase like status menu apps, there is a technical reason to why I don't use a preference pane. To run superuser commands with a HelperTool, the application needs to be signed - with preference panes, the application is "System Preferences" and it simply cannot be signed. Another advantage of the status menu is that you always see at once whether you're leaking a MAC address.
+* Previous versions of LinkLiar were preference panes. While these are beautiful and not in your face like status menu apps, there is a technical reason to why I don't use a preference pane any more. To run superuser commands with a HelperTool, the application needs to be signed - with preference panes, the application is "System Preferences" and it simply cannot be signed. Another advantage of the status menu is that you always see at once whether you're leaking a MAC address.
 
 ## Troubleshooting
 
-If LinkLiar starts, you can hold the ⌥ key to activate Debug Mode. The Logs will appear in the `Console` app.
+Once LinkLiar is started, you can hold the ⌥ key to activate debug mode. The Logs will appear in the `/Applications/Utilities/Console` app.
 
-If the application does not even start, you may turn on debug logging using the following command:
+If the application does not even start, you may turn on debug logging manually by runing the following command in a Terminal:
 
 ```bash
 defaults write com.funkensturm.Link.plist debug debug  # <- Yes, twice "debug"
 ```
 
 * If the "Authorize LinkLayer..." menu item does not disappear, uninstall the curent HelperTool manually (see "Uninstall").
-* Sometimes it takes 1-2 seconds for the MAC address to change so if you're really fast with your mouse you might see outdated information in the status menu. Just close and open the menu again in that case.
+* Sometimes it takes 1-2 seconds for the MAC address to change so if you're really fast with your mouse you might see outdated information in the status menu. Just close and open the menu again in that case. In rare occasions this can cause a crash.
 * There exist MAC addresses which, for unknown reasons, cannot be applied to the interface. This may happen when you specify the address manually and e.g. choose a prefix which does not exist in the real world. You may try to use the "Random" function to make sure you always have a valid prefix.
 * You may loose your Internet connection if you change a MAC address while the Interface is in use. This is not dangerous, though. Just plug the Ethernet cable out an in again or power the Wi-Fi off and on again.
 
 ## Future work
 
-* Improve interface change detection
 * Choose fake vendor from a list of MAC prefixes
 * Easier upgrading of HelperTool
-* Add a end-user logger for troubleshooting
 
 ## Development and credits
 
 The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
-
-## Special thanks
-
-* To **you** for starring my project on Github (the little star in the top right corner).
 
 ## License
 
