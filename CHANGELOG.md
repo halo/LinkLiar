@@ -1,4 +1,4 @@
-# 1.1.1 / Unreleased
+# 1.1.1
 
 * [BUGFIX] The "Debug Mode" menu item does not simply "overwrite" the "Help" menu item any more. Instead it pops up underneath when you hold the ⌥ key
 * [FEATURE] Added "Launch at login" toggle #17
