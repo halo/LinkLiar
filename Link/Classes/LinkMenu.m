@@ -20,19 +20,24 @@
 #import "LinkInterfaces.h"
 #import "LinkInterface.h"
 #import "LinkPreferences.h"
+#import "NSBundle+LoginItem.h"
 
 @implementation LinkMenu
 
 @synthesize refreshItem, helpItem, debugItem, quitItem;
 
 - (void) refreshAssumingHelperInstalled:(BOOL)helperInstalled {
+  
   [self removeAllItems];
   
   if (!helperInstalled) [self addHelperItem];
   [self addInterfaceItemsActionable:helperInstalled];
 
   [self addItem:self.helpItem];
+  [self addItem:self.emptyItem];
   [self addItem:self.debugItem];
+  [self addItem:self.emptyItem];
+  [self addItem:self.startupItem];
   [self addItem:self.quitItem];
 }
 
@@ -115,6 +120,22 @@
 
 - (NSMenuItem*) helpItem {
   NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
+  item.target = self.delegate;
+  return item;
+}
+
+- (NSMenuItem*) startupItem {
+  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Launch at startup" action:@selector(toggleLogin:) keyEquivalent:@""];
+  item.state = [[NSBundle mainBundle] isLoginItem];
+  item.keyEquivalentModifierMask = NSAlternateKeyMask;
+  item.alternate = YES;
+  item.target = self.delegate;
+  return item;
+}
+
+- (NSMenuItem*) emptyItem {
+  NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"Help" action:@selector(getHelp:) keyEquivalent:@""];
+  [item setView:[[NSView alloc] initWithFrame:NSMakeRect(0, 0, 0, 0)]];
   item.target = self.delegate;
   return item;
 }

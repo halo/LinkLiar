@@ -20,7 +20,7 @@ If you like this project, feel free to give it a ★ in the top right corner.
 
 Grap the latest release of [LinkLiar.app.zip](https://github.com/halo/LinkLiar/releases/latest), extract it, and place it into your `/Applications` directory.
 
-You might want to add it to the applications which start each time you login (see *System Preferences -> User -> Login Items*).
+Hint: Press the ⌥ key while the LinkLiar menu is open to choose whether you want it to "Launch at startup".
 
 ## Uninstall / Upgrading
 
@@ -57,9 +57,10 @@ defaults write com.funkensturm.Link.plist debug debug  # <- Yes, twice "debug"
 * Choose fake vendor from a list of MAC prefixes
 * Easier upgrading of HelperTool
 
-## Development and credits
+## Thanks
 
-The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
+* The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
+* @ianyh made [the code](https://github.com/ianyh/IYLoginItem) to toggle the "Launch at login".
 
 ## License
 

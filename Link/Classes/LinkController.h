@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, HelperToolStatus) {
 - (void) installHelperTool:(NSMenuItem*)sender;
 - (void) getHelp:(NSMenuItem*)sender;
 - (void) toggleDebugMode:(NSMenuItem*)sender;
+- (void) toggleLogin:(NSMenuItem*)sender;
 
 - (void) randomizeMAC:(NSMenuItem*)sender;
 - (void) originalizeMAC:(NSMenuItem*)sender;

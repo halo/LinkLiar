@@ -30,6 +30,7 @@
 #import "LinkInterfaces.h"
 #import "LinkLogger.h"
 #import "LinkIntercom.h"
+#import "NSBundle+LoginItem.h"
 
 @implementation LinkController
 
@@ -167,8 +168,16 @@
   [LinkPreferences toggleDebugMode];
 }
 
+- (void) toggleLogin:(NSMenuItem*)sender {
+  if ([[NSBundle mainBundle] isLoginItem]) {
+    [[NSBundle mainBundle] removeFromLoginItems];
+  } else {
+    [[NSBundle mainBundle] addToLoginItems];
+  }
+}
+
 - (void) getHelp:(NSMenuItem*)sender {
-  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar You are currently running version %@ and your preferences are stored in %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [LinkPreferences preferencesFilePath]];
+  NSString *description = [NSString stringWithFormat:@"For now, I refer to https://github.com/halo/LinkLiar\n\nYou are currently running version %@ \n\nYour preferences are stored in %@\n\nHold the ⌥ key while the menu is open to see extra menu items.", [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString*)kCFBundleVersionKey], [LinkPreferences preferencesFilePath]];
   NSAlert *alert = [NSAlert alertWithMessageText:@"Help!" defaultButton:@"Thanks" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", description];
   [alert runModal];
 }

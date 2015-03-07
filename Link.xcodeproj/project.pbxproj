@@ -34,6 +34,7 @@
 		C2CA149C1A74F7DB006746DD /* LinkMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA149B1A74F7DB006746DD /* LinkMenu.m */; };
 		C2CA14C51A751F0A006746DD /* LinkLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA14C31A751F0A006746DD /* LinkLogger.m */; };
 		C2CA15101A75581B006746DD /* LinkIntercom.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA150F1A75581B006746DD /* LinkIntercom.m */; };
+		C2F24D4B1AAAE329007B1DD5 /* NSBundle+LoginItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C2F24D4A1AAAE329007B1DD5 /* NSBundle+LoginItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		C2CA14C31A751F0A006746DD /* LinkLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkLogger.m; path = Classes/LinkLogger.m; sourceTree = "<group>"; };
 		C2CA150E1A75581B006746DD /* LinkIntercom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkIntercom.h; path = Classes/LinkIntercom.h; sourceTree = "<group>"; };
 		C2CA150F1A75581B006746DD /* LinkIntercom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkIntercom.m; path = Classes/LinkIntercom.m; sourceTree = "<group>"; };
+		C2F24D491AAAE329007B1DD5 /* NSBundle+LoginItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSBundle+LoginItem.h"; path = "Vendor/IYLoginItem/NSBundle+LoginItem.h"; sourceTree = "<group>"; };
+		C2F24D4A1AAAE329007B1DD5 /* NSBundle+LoginItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSBundle+LoginItem.m"; path = "Vendor/IYLoginItem/NSBundle+LoginItem.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +182,7 @@
 			children = (
 				C242561D1A743FC400CE573A /* Classes */,
 				AC14350014E698EF00406CEF /* Config */,
+				C2F24D471AAAE314007B1DD5 /* Vendor */,
 				C2CA148E1A74DC86006746DD /* Images.xcassets */,
 			);
 			path = Link;
@@ -296,6 +300,23 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		C2F24D471AAAE314007B1DD5 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C2F24D481AAAE321007B1DD5 /* IYLoginItem */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		C2F24D481AAAE321007B1DD5 /* IYLoginItem */ = {
+			isa = PBXGroup;
+			children = (
+				C2F24D491AAAE329007B1DD5 /* NSBundle+LoginItem.h */,
+				C2F24D4A1AAAE329007B1DD5 /* NSBundle+LoginItem.m */,
+			);
+			name = IYLoginItem;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,6 +409,7 @@
 				C2CA14921A74F633006746DD /* LinkInterface.m in Sources */,
 				C259D0F11A891B000036889E /* LinkObserver.m in Sources */,
 				C259D0F41A8948E40036889E /* LinkSynchronizer.m in Sources */,
+				C2F24D4B1AAAE329007B1DD5 /* NSBundle+LoginItem.m in Sources */,
 				C2CA15101A75581B006746DD /* LinkIntercom.m in Sources */,
 				C2CA14951A74F658006746DD /* LinkMACAddress.m in Sources */,
 				C2CA14C51A751F0A006746DD /* LinkLogger.m in Sources */,
