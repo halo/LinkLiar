@@ -226,7 +226,7 @@
 - (NSStatusItem*) statusItem {
   if (statusItem) return statusItem;
     
-  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
+  statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
  
   self.statusItem.button.image = self.statusMenuIcon;
   self.statusItem.button.alternateImage = self.statusMenuIcon;
