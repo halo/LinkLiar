@@ -20,7 +20,7 @@
 
 #import "LinkSynchronizer.h"
 #import "LinkMACAddress.h"
-#import "LinkMACAddressFormatter.h"
+#import "LinkMacAddressFormatter.h"
 #import "LinkMenu.h"
 #import "LinkHelper.h"
 #import "LinkInterface.h"

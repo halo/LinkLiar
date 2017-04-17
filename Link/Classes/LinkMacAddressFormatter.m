@@ -14,7 +14,7 @@
  WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#import "LinkMACAddressFormatter.h"
+#import "LinkMacAddressFormatter.h"
 
 @implementation LinkMACAddressFormatter
 
