@@ -31,6 +31,7 @@
 #import "LinkLogger.h"
 #import "LinkIntercom.h"
 #import "NSBundle+LoginItem.h"
+#import "LinkCopyPastableNSTextField.h"
 
 @implementation LinkController
 
@@ -192,7 +193,7 @@
 
 - (NSString*) questionWithTitle:(NSString*)title andDescription:(NSString*)description andDefaultValue:(NSString*)defaultValue {
   NSAlert *alert = [NSAlert alertWithMessageText:title defaultButton:@"OK" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"%@", description];
-  NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+  LinkCopyPastableNSTextField *input = [[LinkCopyPastableNSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
 
   LinkMACAddressFormatter *formatter = [LinkMACAddressFormatter new];
   [input setFormatter:formatter];

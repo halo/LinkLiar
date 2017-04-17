@@ -40,6 +40,7 @@ const NSString *InterfaceModifierReset = @"reset";
 + (void) defineInterface:(LinkInterface*)interface withMAC:(NSString*)address force:(BOOL)force {
   [Log debug:@"Defining hardware MAC %@ of %@ to be %@", interface.hardMAC, interface.displayNameAndBSDName, address];
   [self setModifierValue:InterfaceModifierDefine forInterface:interface];
+  [self setDefinitionValue:address forInterface:interface];
   if (force) [self setForceForInterface:interface];
 }
 
@@ -80,7 +81,7 @@ const NSString *InterfaceModifierReset = @"reset";
 
 + (NSString*) definitionOfInterface:(LinkInterface*)interface {
   if ([self modifierOfInterface:interface] != ModifierDefine) return @"";
-  NSString *key = [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierDefine];
+  NSString *key = [self definitionKeyForInterface:interface];
   NSString *address = [self getObjectForKey:key];
   if (!address) return @"";
   return address;
@@ -127,11 +128,19 @@ const NSString *InterfaceModifierReset = @"reset";
 }
 
 + (NSString*) modifierKeyForInterface:(LinkInterface*)interface {
-  return  [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];;
+  return [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierFlag];
+}
+
++ (void) setDefinitionValue:(const NSString*)value forInterface:(LinkInterface*)interface {
+  [self setObject:value forKey:[self definitionKeyForInterface:interface]];
+}
+
++ (NSString*) definitionKeyForInterface:(LinkInterface*)interface {
+  return [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceModifierDefine];;
 }
 
 + (NSString*) forceKeyForInterface:(LinkInterface*)interface {
-  return  [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceForceFlag];;
+  return [NSString stringWithFormat:@"%@.%@", interface.hardMAC, InterfaceForceFlag];;
 }
 
 + (void) setForceForInterface:(LinkInterface*)interface {

@@ -25,6 +25,7 @@
 		C270ECED1A76AB4900F132F7 /* LinkInterfaces.m in Sources */ = {isa = PBXBuildFile; fileRef = C270ECEC1A76AB4900F132F7 /* LinkInterfaces.m */; };
 		C270ECF01A76B84900F132F7 /* LinkMacAddressFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = C270ECEF1A76B84900F132F7 /* LinkMacAddressFormatter.m */; };
 		C270ECF31A76D04300F132F7 /* LinkPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = C270ECF21A76D04300F132F7 /* LinkPreferences.m */; };
+		C2C46E761EA5087200BE1B83 /* LinkCopyPastableNSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C2C46E751EA5087200BE1B83 /* LinkCopyPastableNSTextField.m */; };
 		C2CA14851A744B5F006746DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2CA14841A744B5F006746DD /* MainMenu.xib */; };
 		C2CA148F1A74DC86006746DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2CA148E1A74DC86006746DD /* Images.xcassets */; };
 		C2CA14921A74F633006746DD /* LinkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = C2CA14911A74F633006746DD /* LinkInterface.m */; };
@@ -100,6 +101,8 @@
 		C270ECEF1A76B84900F132F7 /* LinkMacAddressFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkMacAddressFormatter.m; path = Classes/LinkMacAddressFormatter.m; sourceTree = "<group>"; };
 		C270ECF11A76D04300F132F7 /* LinkPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkPreferences.h; path = Classes/LinkPreferences.h; sourceTree = "<group>"; };
 		C270ECF21A76D04300F132F7 /* LinkPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkPreferences.m; path = Classes/LinkPreferences.m; sourceTree = "<group>"; };
+		C2C46E741EA5087200BE1B83 /* LinkCopyPastableNSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkCopyPastableNSTextField.h; path = Classes/LinkCopyPastableNSTextField.h; sourceTree = "<group>"; };
+		C2C46E751EA5087200BE1B83 /* LinkCopyPastableNSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LinkCopyPastableNSTextField.m; path = Classes/LinkCopyPastableNSTextField.m; sourceTree = "<group>"; };
 		C2CA14841A744B5F006746DD /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		C2CA148E1A74DC86006746DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C2CA14901A74F633006746DD /* LinkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LinkInterface.h; path = Classes/LinkInterface.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 			children = (
 				C2CA149A1A74F7DB006746DD /* LinkMenu.h */,
 				C2CA149B1A74F7DB006746DD /* LinkMenu.m */,
+				C2C46E741EA5087200BE1B83 /* LinkCopyPastableNSTextField.h */,
+				C2C46E751EA5087200BE1B83 /* LinkCopyPastableNSTextField.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				C2CA15101A75581B006746DD /* LinkIntercom.m in Sources */,
 				C2CA14951A74F658006746DD /* LinkMACAddress.m in Sources */,
 				C2CA14C51A751F0A006746DD /* LinkLogger.m in Sources */,
+				C2C46E761EA5087200BE1B83 /* LinkCopyPastableNSTextField.m in Sources */,
 				C259D0EE1A8613140036889E /* LinkMACVendors.m in Sources */,
 				C24256111A743D6F00CE573A /* LinkController.m in Sources */,
 				C270ECF01A76B84900F132F7 /* LinkMacAddressFormatter.m in Sources */,

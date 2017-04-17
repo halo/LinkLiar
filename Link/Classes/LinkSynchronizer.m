@@ -41,7 +41,7 @@ NSString *const LinkInterfaceMACAppliedNotification = @"LinkInterfaceMACAppliedN
 
 - (void) applyInterfaces {
   NSString *newAddress;
-  
+
   for (LinkInterface* interface in [LinkInterfaces all]) {
     switch ([LinkPreferences modifierOfInterface:interface]) {
         
@@ -56,6 +56,10 @@ NSString *const LinkInterfaceMACAppliedNotification = @"LinkInterfaceMACAppliedN
       case ModifierDefine:
         if (!interface.hasOriginalMAC && ![LinkPreferences forceOfInterface:interface]) continue;
         newAddress = [LinkPreferences definitionOfInterface:interface];
+        if ([newAddress  isEqual: @""]) {
+          [Log debug:@"Missing Interface definition"];
+          return;
+        }
         [Log debug:@"Defining hardware MAC %@ of %@ to MAC %@", interface.hardMAC, interface.displayNameAndBSDName, newAddress];
         [self.linkIntercom applyAddress:newAddress toBSD:interface.BSDName];
         [LinkPreferences unforceInterface:interface];

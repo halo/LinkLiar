@@ -125,7 +125,7 @@
 }
 
 - (void) applyAddress:(NSString*)address toBSD:(NSString*)BSDName {
-  [Log debug:@"applyAddress to BSD..."];
+  [Log debug:@"applyAddress %@ to BSD %@", address, BSDName];
   [self connectAndExecuteCommandBlock:^(NSError *connectError) {
     if (connectError != nil) {
       [Log debug:@"connectError: %@", connectError.localizedDescription];
