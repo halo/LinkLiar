@@ -1,3 +1,12 @@
+# 1.1.3
+
+* [BUGFIX] Defining MAC addresses manually now works #23
+* [BUGFIX] Can now copy and paste manual MAC addresses #23
+
+# 1.1.2
+
+* [DESIGN] Smaller application icon #19
+
 # 1.1.1
 
 * [BUGFIX] The "Debug Mode" menu item does not simply "overwrite" the "Help" menu item any more. Instead it pops up underneath when you hold the ⌥ key
