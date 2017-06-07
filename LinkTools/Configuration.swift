@@ -22,27 +22,7 @@ class Configuration: NSObject {
     }
   }
 
-  //private func data() -> Data? {
-  //  let data = try? Data(contentsOf: path())
-    //print(String.init(data: data, encoding: String.Encoding.utf8))
-  //  return data
-  //}
-/*
-  func reads() -> [String: Any]? {
-    guard let json = data() else {
-      os_log("could not load json data again")
-      return nil
-    }
-    
-    if let dictionary = try? JSONSerialization.jsonObject(with: json) as! [String: Any] { return dictionary }
-    os_log("could not parse")
-    return nil
-  }
-*/
    func read() {
-
-    //_ = URLet url(fileURLWithPath: "/Users/orange/Code/LinkLiar")
-
 
     do {
       let data = content()!

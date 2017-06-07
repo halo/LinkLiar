@@ -10,9 +10,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     self.statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     let menu = NSMenu()
 
+    let item: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+    item.target = Controller.self
 
     menu.addItem(NSMenuItem.separator())
-    menu.addItem(NSMenuItem(title: "Authorize", action: #selector(authorize(_:)), keyEquivalent: "a"))
+    menu.addItem(item)
     menu.addItem(NSMenuItem(title: "Helper Version", action: #selector(helperVersion(_:)), keyEquivalent: "h"))
     menu.addItem(NSMenuItem(title: "Create Config dir", action: #selector(createConfigDir(_:)), keyEquivalent: "h"))
     menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
@@ -21,9 +23,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     statusItem!.menu = menu
   }
 
-  func authorize(_ sender: Any) {
-    Controller.authorize(sender)
-  }
+  //func authorize(_ sender: Any) {
+    //Controller.authorize(sender)
+    //print("NOOO")
+  //}
 
   func helperVersion(_ sender: Any) {
     Intercom.helperVersion(reply: {

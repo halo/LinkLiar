@@ -62,8 +62,8 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate{
       Log.debug("Created directory yo")
       reply(true)
     } catch let error as NSError {
-      Log.debug("Could not create directory")
-      Log.debug("Unable to create directory \(error.debugDescription)")
+      Log.debug("Could not create configuration directory")
+      Log.debug("Unable to create directory \(error.localizedDescription)")
       reply(false)
     }
   }
