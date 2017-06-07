@@ -26,14 +26,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
   func helperVersion(_ sender: Any) {
     Intercom.helperVersion(reply: {
-      version in
-      if (version == nil) {
+      rawVersion in
+      if (rawVersion == nil) {
         // TODO Compare SemVer
         Log.debug("helper does not seem to say much")
         Elevator().install()
       } else {
         Log.debug("helper is helpful")
-        Log.debug("\(version)")
+        let version = Version(rawVersion!)
+        Log.debug("\(version.version())")
       }
       // Elevator().bless()
 
