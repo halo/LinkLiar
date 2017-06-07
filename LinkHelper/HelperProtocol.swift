@@ -7,5 +7,6 @@ struct HelperConstants {
 @objc(HelperProtocol)
 protocol HelperProtocol {
   func version(reply: (String) -> Void)
+  func createConfigDirectory(reply: (Bool) -> Void)
 
 }

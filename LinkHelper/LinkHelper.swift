@@ -53,6 +53,22 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate{
     reply(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String)
   }
 
+  func createConfigDirectory(reply: (Bool) -> Void) {
+    let manager = FileManager.default
+
+    let attributes = [FileAttributeKey.posixPermissions.rawValue: 0o775]
+    do {
+      try manager.createDirectory(atPath: Configuration.directory, withIntermediateDirectories: false, attributes: attributes)
+      Log.debug("Created directory yo")
+      reply(true)
+    } catch let error as NSError {
+      Log.debug("Could not create directory")
+      Log.debug("Unable to create directory \(error.debugDescription)")
+      reply(false)
+    }
+  }
+
+
   /*
    Functions to run from the main app
    */

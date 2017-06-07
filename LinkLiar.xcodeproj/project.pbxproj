@@ -17,6 +17,9 @@
 		C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
 		C291CBF21EE8702E00154452 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF11EE8702E00154452 /* Controller.swift */; };
 		C291CBF41EE87B1E00154452 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF31EE87B1E00154452 /* Version.swift */; };
+		C291CBF61EE8827D00154452 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* Configuration.swift */; };
+		C291CBF71EE8827D00154452 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* Configuration.swift */; };
+		C291CBF81EE8827D00154452 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* Configuration.swift */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
 		C29B7DA31EE7336200609A21 /* io.github.halo.linkhelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -90,6 +93,7 @@
 		C291CBED1EE86CE500154452 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkHelper.swift; sourceTree = "<group>"; };
 		C291CBF11EE8702E00154452 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		C291CBF31EE87B1E00154452 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		C291CBF51EE8827D00154452 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = LinkTools/Configuration.swift; sourceTree = "<group>"; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Info.plist"; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 		C291CBEA1EE85D1200154452 /* LinkTools */ = {
 			isa = PBXGroup;
 			children = (
+				C291CBF51EE8827D00154452 /* Configuration.swift */,
 				C291CBE61EE85D0D00154452 /* Log.swift */,
 				C291CBF31EE87B1E00154452 /* Version.swift */,
 			);
@@ -152,9 +157,9 @@
 			children = (
 				C29B7D961EE69D1800609A21 /* main.swift */,
 				C291CBED1EE86CE500154452 /* LinkHelper.swift */,
+				C291CBE41EE85A4000154452 /* HelperProtocol.swift */,
 				C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */,
 				C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */,
-				C291CBE41EE85A4000154452 /* HelperProtocol.swift */,
 			);
 			path = LinkHelper;
 			sourceTree = "<group>";
@@ -190,8 +195,8 @@
 				C291CBF11EE8702E00154452 /* Controller.swift */,
 				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
 				C291CBE21EE8300F00154452 /* Intercom.swift */,
-				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
+				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
 			);
 			path = LinkLiar;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */,
+				C291CBF71EE8827D00154452 /* Configuration.swift in Sources */,
 				C291CBEF1EE86DC000154452 /* LinkHelper.swift in Sources */,
 				C291CBE81EE85D0D00154452 /* Log.swift in Sources */,
 				C29B7D971EE69D1800609A21 /* main.swift in Sources */,
@@ -380,6 +386,7 @@
 				C2BEBFFA1EE48D1B0072BE59 /* main.swift in Sources */,
 				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
+				C291CBF61EE8827D00154452 /* Configuration.swift in Sources */,
 				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
 				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
 				C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */,
@@ -400,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C291CBF81EE8827D00154452 /* Configuration.swift in Sources */,
 				C291CBE91EE85D0D00154452 /* Log.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,
 			);

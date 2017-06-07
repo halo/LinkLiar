@@ -3,8 +3,6 @@ import ServiceManagement
 
 class Intercom: NSObject {
 
-  private typealias `Self` = Intercom
-
   private static var xpcConnection: NSXPCConnection?
 
   static func reset() {
@@ -23,6 +21,23 @@ class Intercom: NSObject {
       installedVersion in
       Log.debug("Helper: Installed Version => \(installedVersion)")
       reply(installedVersion)
+    })
+  }
+
+  static func createConfigDir(reply: @escaping (Bool) -> Void) {
+    Log.debug("Asking Helper to create dir")
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
+      error in
+      Log.debug("Oh no, no connection to helper")
+      Log.debug(error.localizedDescription)
+      reply(false)
+    }) as! HelperProtocol
+
+    Log.debug("helper is there")
+    helper.createConfigDirectory(reply: {
+      success in
+      Log.debug("Helper worked on some directory I guess")
+      reply(success)
     })
   }
 

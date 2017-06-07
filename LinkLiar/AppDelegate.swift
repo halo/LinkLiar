@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     menu.addItem(NSMenuItem.separator())
     menu.addItem(NSMenuItem(title: "Authorize", action: #selector(authorize(_:)), keyEquivalent: "a"))
     menu.addItem(NSMenuItem(title: "Helper Version", action: #selector(helperVersion(_:)), keyEquivalent: "h"))
+    menu.addItem(NSMenuItem(title: "Create Config dir", action: #selector(createConfigDir(_:)), keyEquivalent: "h"))
     menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
     statusItem!.image = NSImage(named: "NSStatusAvailable")
@@ -38,5 +39,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
       }
       // Elevator().bless()
 
-    })  }
+    })
+  }
+
+  func createConfigDir(_ sender: Any) {
+    Intercom.createConfigDir(reply: {
+      success in
+      if (success) {
+        Log.debug("You gotta dir now")
+      } else {
+        Log.debug("No dir for you")
+      }
+    })
+  }
+
 }
