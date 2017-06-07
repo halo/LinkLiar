@@ -20,6 +20,7 @@
 		C291CBF61EE8827D00154452 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* Configuration.swift */; };
 		C291CBF71EE8827D00154452 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* Configuration.swift */; };
 		C291CBF81EE8827D00154452 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* Configuration.swift */; };
+		C291CBFD1EE8961400154452 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBFC1EE8961400154452 /* Menu.swift */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
 		C29B7DA31EE7336200609A21 /* io.github.halo.linkhelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -94,6 +95,7 @@
 		C291CBF11EE8702E00154452 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		C291CBF31EE87B1E00154452 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		C291CBF51EE8827D00154452 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = LinkTools/Configuration.swift; sourceTree = "<group>"; };
+		C291CBFC1EE8961400154452 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Info.plist"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				C2BEBFF91EE48D1B0072BE59 /* main.swift */,
 				C2BEBFDC1EE48B5E0072BE59 /* AppDelegate.swift */,
+				C291CBFC1EE8961400154452 /* Menu.swift */,
 				C291CBF11EE8702E00154452 /* Controller.swift */,
 				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
 				C291CBE21EE8300F00154452 /* Intercom.swift */,
@@ -387,6 +390,7 @@
 				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C291CBF61EE8827D00154452 /* Configuration.swift in Sources */,
+				C291CBFD1EE8961400154452 /* Menu.swift in Sources */,
 				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
 				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
 				C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */,

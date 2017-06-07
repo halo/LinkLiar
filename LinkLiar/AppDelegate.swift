@@ -8,25 +8,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     Log.debug("LinkLiar GUI launched.")
 
     self.statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
-    let menu = NSMenu()
-
-    let item: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
-    item.target = Controller.self
-
-    menu.addItem(NSMenuItem.separator())
-    menu.addItem(item)
-    menu.addItem(NSMenuItem(title: "Helper Version", action: #selector(helperVersion(_:)), keyEquivalent: "h"))
-    menu.addItem(NSMenuItem(title: "Create Config dir", action: #selector(createConfigDir(_:)), keyEquivalent: "h"))
-    menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
     statusItem!.image = NSImage(named: "NSStatusAvailable")
-    statusItem!.menu = menu
+    statusItem!.menu = Menu().menu
   }
-
-  //func authorize(_ sender: Any) {
-    //Controller.authorize(sender)
-    //print("NOOO")
-  //}
 
   func helperVersion(_ sender: Any) {
     Intercom.helperVersion(reply: {
