@@ -1,12 +1,12 @@
 //
 //  main.swift
-//  LinkHelper
+//  MyApplicationHelper
 //
-//  Created by orange on 2017-06-06.
-//  Copyright © 2017 halo. All rights reserved.
+//  Created by Erik Berglund on 2016-12-06.
+//  Copyright © 2016 Erik Berglund. All rights reserved.
 //
 
 import Foundation
 
-print("Hello, World!")
-
+let helper = LinkHelper()
+helper.run()

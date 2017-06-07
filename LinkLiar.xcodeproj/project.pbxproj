@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
+		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
+		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
+		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
+		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
+		C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBEB1EE86A0E00154452 /* Elevator.swift */; };
+		C291CBEF1EE86DC000154452 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBED1EE86CE500154452 /* LinkHelper.swift */; };
+		C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
+		C291CBF21EE8702E00154452 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF11EE8702E00154452 /* Controller.swift */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
 		C29B7DA31EE7336200609A21 /* io.github.halo.linkhelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -73,6 +82,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intercom.swift; sourceTree = "<group>"; };
+		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
+		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
+		C291CBEB1EE86A0E00154452 /* Elevator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
+		C291CBED1EE86CE500154452 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkHelper.swift; sourceTree = "<group>"; };
+		C291CBF11EE8702E00154452 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Info.plist"; sourceTree = "<group>"; };
@@ -121,12 +136,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C291CBEA1EE85D1200154452 /* LinkTools */ = {
+			isa = PBXGroup;
+			children = (
+				C291CBE61EE85D0D00154452 /* Log.swift */,
+			);
+			name = LinkTools;
+			sourceTree = "<group>";
+		};
 		C29B7D951EE69D1800609A21 /* LinkHelper */ = {
 			isa = PBXGroup;
 			children = (
 				C29B7D961EE69D1800609A21 /* main.swift */,
+				C291CBED1EE86CE500154452 /* LinkHelper.swift */,
 				C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */,
 				C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */,
+				C291CBE41EE85A4000154452 /* HelperProtocol.swift */,
 			);
 			path = LinkHelper;
 			sourceTree = "<group>";
@@ -137,6 +162,7 @@
 				C2BEBFDB1EE48B5E0072BE59 /* LinkLiar */,
 				C2BEC00B1EE4984E0072BE59 /* linkdaemon */,
 				C29B7D951EE69D1800609A21 /* LinkHelper */,
+				C291CBEA1EE85D1200154452 /* LinkTools */,
 				C2BEBFED1EE48B5E0072BE59 /* LinkLiarTests */,
 				C2BEBFDA1EE48B5E0072BE59 /* Products */,
 			);
@@ -158,6 +184,9 @@
 			children = (
 				C2BEBFF91EE48D1B0072BE59 /* main.swift */,
 				C2BEBFDC1EE48B5E0072BE59 /* AppDelegate.swift */,
+				C291CBF11EE8702E00154452 /* Controller.swift */,
+				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
+				C291CBE21EE8300F00154452 /* Intercom.swift */,
 				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
 			);
@@ -334,6 +363,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */,
+				C291CBEF1EE86DC000154452 /* LinkHelper.swift in Sources */,
+				C291CBE81EE85D0D00154452 /* Log.swift in Sources */,
 				C29B7D971EE69D1800609A21 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,7 +375,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2BEBFFA1EE48D1B0072BE59 /* main.swift in Sources */,
+				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
+				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
+				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
+				C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */,
+				C291CBF21EE8702E00154452 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C291CBE91EE85D0D00154452 /* Log.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
