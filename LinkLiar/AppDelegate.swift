@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     menu.addItem(NSMenuItem.separator())
     menu.addItem(NSMenuItem(title: "Authorize", action: #selector(authorize(_:)), keyEquivalent: "a"))
+    menu.addItem(NSMenuItem(title: "Helper Version", action: #selector(helperVersion(_:)), keyEquivalent: "h"))
     menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
 
     statusItem!.image = NSImage(named: "NSStatusAvailable")
@@ -22,4 +23,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func authorize(_ sender: Any) {
     Controller.authorize(sender)
   }
+
+  func helperVersion(_ sender: Any) {
+    Intercom.helperVersion(reply: {
+      version in
+      if (version == nil) {
+        // TODO Compare SemVer
+        Log.debug("helper does not seem to say much")
+        Elevator().install()
+      } else {
+        Log.debug("helper is helpful")
+        Log.debug("\(version)")
+      }
+      // Elevator().bless()
+
+    })  }
 }
