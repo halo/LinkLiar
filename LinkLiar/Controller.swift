@@ -58,7 +58,18 @@ class Controller: NSObject {
     })
   }
 
-  
+  static func deactivateDaemon(_ sender: Any) {
+    Intercom.deactivateDaemon(reply: {
+      success in
+      if (success) {
+        Log.debug("daemon deactivated")
+      } else {
+        Log.debug("daemon could not be deactivated")
+      }
+    })
+  }
+
+
 
 
 }

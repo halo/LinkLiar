@@ -5,7 +5,7 @@ class Menu: NSObject {
   let menu = NSMenu()
 
   override init() {
-    let item: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+    let item: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
     menu.addItem(item)
 
@@ -26,6 +26,10 @@ class Menu: NSObject {
     let item5: NSMenuItem = NSMenuItem(title: "Activate daemon", action: #selector(Controller.activateDaemon(_:)), keyEquivalent: "")
     item5.target = Controller.self
     menu.addItem(item5)
+
+    let item6: NSMenuItem = NSMenuItem(title: "Deativate daemon", action: #selector(Controller.deactivateDaemon(_:)), keyEquivalent: "")
+    item6.target = Controller.self
+    menu.addItem(item6)
 
     menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
   }

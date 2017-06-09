@@ -87,12 +87,21 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
   }
 
   func activateDaemon(reply: (Bool) -> Void) {
+    launchctl(activate: true, reply: reply)
+  }
+
+  func deactivateDaemon(reply: (Bool) -> Void) {
+    launchctl(activate: false, reply: reply)
+  }
+
+  func launchctl(activate: Bool, reply: (Bool) -> Void) {
     Log.debug("Preparing activation of daemon...")
     let task = Process()
 
     // Set the task parameters
     task.launchPath = "/usr/bin/sudo"
-    task.arguments = ["/bin/launchctl", "bootstrap" , "system", "/Library/LaunchDaemons/io.github.halo.linkdaemon.plist"]
+    let subcommand = activate ? "bootstrap" : "bootout"
+    task.arguments = ["/bin/launchctl", subcommand, "system", "/Library/LaunchDaemons/io.github.halo.linkdaemon.plist"]
 
     let outputPipe = Pipe()
     let errorPipe = Pipe()

@@ -75,6 +75,23 @@ class Intercom: NSObject {
     })
   }
 
+  static func deactivateDaemon(reply: @escaping (Bool) -> Void) {
+    Log.debug("Asking Helper to deactivate daemon")
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
+      error in
+      Log.debug("Oh no, no connection to helper")
+      Log.debug(error.localizedDescription)
+      reply(false)
+    }) as! HelperProtocol
+
+    Log.debug("helper is there")
+    helper.deactivateDaemon(reply: {
+      success in
+      Log.debug("Helper worked on the deactivation of the daemon")
+      reply(success)
+    })
+  }
+
   static func connection() -> NSXPCConnection? {
     if (self.xpcConnection != nil) { return self.xpcConnection }
 
