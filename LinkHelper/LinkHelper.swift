@@ -1,6 +1,6 @@
 import Foundation
 
-class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate{
+class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
 
   private var connections = [NSXPCConnection]()
   private var listener:NSXPCListener
@@ -68,25 +68,76 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate{
     }
   }
 
+  func establishDaemon(reply: (Bool) -> Void) {
+    let daemonpath = "/Users/orange/Code/LinkLiar/LinkLiar/build/DerivedData/LinkLiar/Build/Products/Debug/LinkLiar.app/Contents/Resources/linkdaemon"
+    let plist : [String: Any] = ["Label": "io.github.halo.linkdaemon", "ProgramArguments": [daemonpath], "KeepAlive": true]
+    let plistContent = NSDictionary(dictionary: plist)
 
-  /*
-   Functions to run from the main app
-   */
-  func runCommandLs(path: String, reply: @escaping (NSNumber) -> Void) {
+    let path = "/Library/LaunchDaemons/io.github.halo.linkdaemon.plist"
 
-    // For security reasons, all commands should be hardcoded in the helper
-    let command = "/bin/ls"
-    let arguments = [path]
+    let success:Bool = plistContent.write(toFile: path, atomically: true)
 
-    // Run the task
+    if success {
+      Log.debug("file has been created!")
+      reply(true)
+    }else{
+      Log.debug("unable to create the file")
+      reply(false)
+    }
   }
+
+  func activateDaemon(reply: (Bool) -> Void) {
+    Log.debug("Preparing activation of daemon...")
+    let task = Process()
+
+    // Set the task parameters
+    task.launchPath = "/usr/bin/sudo"
+    task.arguments = ["/bin/launchctl", "bootstrap" , "system", "/Library/LaunchDaemons/io.github.halo.linkdaemon.plist"]
+
+    let outputPipe = Pipe()
+    let errorPipe = Pipe()
+    task.standardOutput = outputPipe
+    task.standardError = errorPipe
+
+
+    // Launch the task
+    Log.debug("Activating daemon now")
+    task.launch()
+    task.waitUntilExit()
+
+    let status = task.terminationStatus
+
+
+    if status == 0 {
+      Log.debug("Task succeeded.")
+      reply(true)
+
+    } else {
+      Log.debug("Task failed \(task.terminationStatus)")
+
+      let outdata = outputPipe.fileHandleForReading.availableData
+      guard let stdout = String(data: outdata, encoding: .utf8) else {
+        Log.debug("Could not read stdout")
+        return
+      }
+
+      let errdata = errorPipe.fileHandleForReading.availableData
+      guard let stderr = String(data: errdata, encoding: .utf8) else {
+        Log.debug("Could not read stdout")
+        return
+      }
+
+      Log.debug("Reason: \(stdout) \(stderr)")
+
+      reply(false)
+    }
+  }
+  
 
   /*
    Not really used in this test app, but there might be reasons to support multiple simultaneous connections.
    */
-  private func connection() -> NSXPCConnection
-  {
-    //
+  private func connection() -> NSXPCConnection {
     return self.connections.last!
   }
 

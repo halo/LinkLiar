@@ -41,6 +41,40 @@ class Intercom: NSObject {
     })
   }
 
+  static func establishDaemon(reply: @escaping (Bool) -> Void) {
+    Log.debug("Asking Helper to establish daemon")
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
+      error in
+      Log.debug("Oh no, no connection to helper")
+      Log.debug(error.localizedDescription)
+      reply(false)
+    }) as! HelperProtocol
+
+    Log.debug("helper is there")
+    helper.establishDaemon(reply: {
+      success in
+      Log.debug("Helper worked on the establishment of the daemon")
+      reply(success)
+    })
+  }
+  
+  static func activateDaemon(reply: @escaping (Bool) -> Void) {
+    Log.debug("Asking Helper to activate daemon")
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
+      error in
+      Log.debug("Oh no, no connection to helper")
+      Log.debug(error.localizedDescription)
+      reply(false)
+    }) as! HelperProtocol
+
+    Log.debug("helper is there")
+    helper.activateDaemon(reply: {
+      success in
+      Log.debug("Helper worked on the activation of the daemon")
+      reply(success)
+    })
+  }
+
   static func connection() -> NSXPCConnection? {
     if (self.xpcConnection != nil) { return self.xpcConnection }
 
