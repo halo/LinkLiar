@@ -94,7 +94,7 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     launchctl(activate: false, reply: reply)
   }
 
-  func launchctl(activate: Bool, reply: (Bool) -> Void) {
+  private func launchctl(activate: Bool, reply: (Bool) -> Void) {
     Log.debug("Preparing activation of daemon...")
     let task = Process()
 

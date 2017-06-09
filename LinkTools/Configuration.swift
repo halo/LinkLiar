@@ -7,6 +7,11 @@ class Configuration: NSObject {
   static var directory = "/Library/Application Support/LinkLiar"
   var path = "\(Self.directory)/config.json"
 
+  static func url() -> URL {
+    return URL(fileURLWithPath: Configuration().path)
+  }
+
+
   func url() -> URL {
     return URL(fileURLWithPath: path)
   }

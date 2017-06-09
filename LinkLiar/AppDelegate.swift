@@ -13,4 +13,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     statusItem!.menu = Menu().menu
 
   }
+
 }
