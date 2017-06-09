@@ -5,9 +5,9 @@ class LinkDaemon {
   func run(){
     Log.debug("daemon says hello")
 
-    signal(SIGINT) {
+    signal(SIGTERM) {
       s in
-      print("Received SIGTERM, shutting down immediately")
+      Log.debug("Received SIGTERM, shutting down immediately")
       exit(0)
     }
 
