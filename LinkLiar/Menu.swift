@@ -1,10 +1,10 @@
 import Cocoa
 
-class Menu: NSObject {
+class Menu {
 
   let menu = NSMenu()
 
-  override init() {
+  func load() {
     let item: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
     menu.addItem(item)
@@ -32,6 +32,49 @@ class Menu: NSObject {
     menu.addItem(item6)
 
     menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+    // menu.delegate = self
+
+  }
+
+  func refresh(_ menu: NSMenu) {
+    Log.debug("Refreshing...")
+    //menu.removeAllItems()
+    // menu.update()
+
+    Intercom.helperVersion(reply: { rawVersion in
+
+      menu.removeAllItems()
+      self.load()
+
+      if (rawVersion == nil) {
+        Log.debug("I miss versino or helper or what!")
+
+        let item5: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+        item5.tag = 42
+        item5.target = Controller.self
+        //if (menu.item(withTag: 42) == nil) {
+          Log.debug("ADDING")
+          menu.insertItem(item5, at: 0)
+       // }
+
+        Log.debug("UPDATING")
+
+        RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: menu, order: 0, modes: [.commonModes])
+
+        //menu.update()
+
+      } else {
+        Log.debug("yes helper yes")
+
+      }
+    })
+  }
+
+  @objc func refreshMenu(_ nsMenu: NSMenu) {
+    Log.debug("refreshing menu live--------------------")
+    nsMenu.update()
+
+
   }
 
 }
