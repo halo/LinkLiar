@@ -2,7 +2,7 @@ import Cocoa
 
 class Menu {
 
-  let menu = NSMenu()
+  lazy var menu = NSMenu()
 
   func load() {
     let item: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
@@ -36,15 +36,19 @@ class Menu {
 
   }
 
-  func refresh(_ menu: NSMenu) {
+  func refresh() {
     Log.debug("Refreshing...")
     //menu.removeAllItems()
     // menu.update()
 
+    let item4: NSMenuItem = NSMenuItem(title: "One more...", action: #selector(Controller.establishDaemon(_:)), keyEquivalent: "")
+    item4.target = Controller.self
+    self.menu.addItem(item4)
+
     Intercom.helperVersion(reply: { rawVersion in
 
-      menu.removeAllItems()
-      self.load()
+      //menu.removeAllItems()
+      //self.load()
 
       if (rawVersion == nil) {
         Log.debug("I miss versino or helper or what!")
@@ -54,22 +58,15 @@ class Menu {
         item5.target = Controller.self
         //if (menu.item(withTag: 42) == nil) {
           Log.debug("ADDING")
-          menu.insertItem(item5, at: 0)
+          self.menu.insertItem(item5, at: 0)
        // }
 
-        Log.debug("UPDATING")
-
-
-        let nc = NotificationCenter.default
-        nc.post(name:Notification.Name(rawValue:"MyNotification"),
-                object: nil,
-                userInfo: nil)
-        //menu.update()
 
       } else {
         Log.debug("yes helper yes")
 
       }
+      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })
   }
 

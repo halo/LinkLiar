@@ -39,6 +39,13 @@
 		C2F2096A1EEC5CD300355561 /* PathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209691EEC5CD300355561 /* PathsTests.swift */; };
 		C2F2096C1EEC64FE00355561 /* justText.json in Resources */ = {isa = PBXBuildFile; fileRef = C2F2096B1EEC64FE00355561 /* justText.json */; };
 		C2F2096E1EEC693500355561 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2096D1EEC693500355561 /* Bar.swift */; };
+		C2F209701EEC700700355561 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2096F1EEC700700355561 /* NetworkObserver.swift */; };
+		C2F209731EEC701F00355561 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209711EEC701E00355561 /* CFArray+Sequence.swift */; };
+		C2F209741EEC701F00355561 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209711EEC701E00355561 /* CFArray+Sequence.swift */; };
+		C2F209751EEC701F00355561 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209721EEC701E00355561 /* Interfaces.swift */; };
+		C2F209761EEC701F00355561 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209721EEC701E00355561 /* Interfaces.swift */; };
+		C2F209781EEC729400355561 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
+		C2F209791EEC729400355561 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +135,10 @@
 		C2F209691EEC5CD300355561 /* PathsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsTests.swift; sourceTree = "<group>"; };
 		C2F2096B1EEC64FE00355561 /* justText.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = justText.json; sourceTree = "<group>"; };
 		C2F2096D1EEC693500355561 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		C2F2096F1EEC700700355561 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
+		C2F209711EEC701E00355561 /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CFArray+Sequence.swift"; path = "LinkTools/CFArray+Sequence.swift"; sourceTree = "<group>"; };
+		C2F209721EEC701E00355561 /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interfaces.swift; path = LinkTools/Interfaces.swift; sourceTree = "<group>"; };
+		C2F209771EEC729400355561 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = LinkTools/Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +176,13 @@
 		C291CBEA1EE85D1200154452 /* LinkTools */ = {
 			isa = PBXGroup;
 			children = (
+				C2F209711EEC701E00355561 /* CFArray+Sequence.swift */,
+				C2F209721EEC701E00355561 /* Interfaces.swift */,
 				C291CBF51EE8827D00154452 /* ConfigReader.swift */,
 				C291CBE61EE85D0D00154452 /* Log.swift */,
 				C291CBF31EE87B1E00154452 /* Version.swift */,
 				C2F209651EEC5BD900355561 /* Paths.swift */,
+				C2F209771EEC729400355561 /* Notifications.swift */,
 			);
 			name = LinkTools;
 			sourceTree = "<group>";
@@ -217,6 +231,7 @@
 				C291CBFC1EE8961400154452 /* Menu.swift */,
 				C291CBF11EE8702E00154452 /* Controller.swift */,
 				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
+				C2F2096F1EEC700700355561 /* NetworkObserver.swift */,
 				C291CBE21EE8300F00154452 /* Intercom.swift */,
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
 				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
@@ -425,16 +440,20 @@
 			files = (
 				C2BEBFFA1EE48D1B0072BE59 /* main.swift in Sources */,
 				C2F2096E1EEC693500355561 /* Bar.swift in Sources */,
+				C2F209701EEC700700355561 /* NetworkObserver.swift in Sources */,
 				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C291CBF61EE8827D00154452 /* ConfigReader.swift in Sources */,
 				C2F209661EEC5BD900355561 /* Paths.swift in Sources */,
 				C291CBFD1EE8961400154452 /* Menu.swift in Sources */,
+				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
 				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
 				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
 				C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */,
 				C291CBF21EE8702E00154452 /* Controller.swift in Sources */,
+				C2F209751EEC701F00355561 /* Interfaces.swift in Sources */,
 				C291CBF41EE87B1E00154452 /* Version.swift in Sources */,
+				C2F209731EEC701F00355561 /* CFArray+Sequence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,9 +474,12 @@
 				C2F209681EEC5BD900355561 /* Paths.swift in Sources */,
 				C291CBF81EE8827D00154452 /* ConfigReader.swift in Sources */,
 				C291CC011EEAA27D00154452 /* LinkDaemon.swift in Sources */,
+				C2F209791EEC729400355561 /* Notifications.swift in Sources */,
 				C291CBE91EE85D0D00154452 /* Log.swift in Sources */,
 				C2F2095F1EEB1E9D00355561 /* FileObserver.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,
+				C2F209741EEC701F00355561 /* CFArray+Sequence.swift in Sources */,
+				C2F209761EEC701F00355561 /* Interfaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
