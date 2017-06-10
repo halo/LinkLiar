@@ -1,36 +1,32 @@
 import Foundation
 import os.log
 
-class Configuration: NSObject {
-  private typealias `Self` = Configuration
+class ConfigReader {
 
-  static var directory = "/Library/Application Support/LinkLiar"
-  var path = "\(Self.directory)/config.json"
-
-  static func url() -> URL {
-    return URL(fileURLWithPath: Configuration().path)
+  var path: String
+  var url: URL {
+    get {
+      return URL(fileURLWithPath: path)
+    }
   }
 
-
-  func url() -> URL {
-    return URL(fileURLWithPath: path)
+  init(filePath: String) {
+    self.path = filePath
   }
 
-  func content() -> Data? {
-    Log.debug("Config path is \(path)")
+  func data() -> Data? {
     do {
-      let data = try Data(contentsOf: url())
+      let data = try Data(contentsOf: url)
       return data
     } catch {
-      print(error.localizedDescription)
+      Log.debug(error.localizedDescription)
       return nil
     }
   }
 
    func read() {
-
     do {
-      let data = content()!
+      let data = self.data()!
       let json = try JSONSerialization.jsonObject(with: data, options: [])
       if let object = json as? [String: Any] {
         // json is a dictionary

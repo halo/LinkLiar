@@ -59,8 +59,11 @@ class Menu {
 
         Log.debug("UPDATING")
 
-        RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: menu, order: 0, modes: [.commonModes])
 
+        let nc = NotificationCenter.default
+        nc.post(name:Notification.Name(rawValue:"MyNotification"),
+                object: nil,
+                userInfo: nil)
         //menu.update()
 
       } else {

@@ -9,7 +9,7 @@ class LinkDaemon {
       Log.debug("Received SIGTERM, shutting down immediately")
       exit(0)
     }
-    let observer = FileObserver(path: Configuration().path, block: {
+    FileObserver(path: Paths.configFile, block: {
       Log.debug("file changed!")
     })
 

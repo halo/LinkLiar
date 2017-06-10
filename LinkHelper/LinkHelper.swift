@@ -58,7 +58,7 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
 
     let attributes = [FileAttributeKey.posixPermissions.rawValue: 0o775]
     do {
-      try manager.createDirectory(atPath: Configuration.directory, withIntermediateDirectories: false, attributes: attributes)
+      try manager.createDirectory(atPath: Paths.configDirectory, withIntermediateDirectories: false, attributes: attributes)
       Log.debug("Created directory yo")
       reply(true)
     } catch let error as NSError {

@@ -1,11 +1,3 @@
-//
-//  LinkLiarTests.swift
-//  LinkLiarTests
-//
-//  Created by orange on 2017-06-04.
-//  Copyright © 2017 halo. All rights reserved.
-//
-
 import XCTest
 @testable import LinkLiar
 
