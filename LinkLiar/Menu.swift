@@ -5,6 +5,14 @@ class Menu {
   lazy var menu = NSMenu()
 
   func load() {
+
+    for interface in Interfaces.array() {
+      let it1: NSMenuItem = NSMenuItem(title: interface.BSDName, action: nil, keyEquivalent: "")
+      let it2: NSMenuItem = NSMenuItem(title: interface.hardMAC, action: nil, keyEquivalent: "")
+      self.menu.addItem(it1)
+      self.menu.addItem(it2)
+    }
+
     let item: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
     menu.addItem(item)
@@ -38,12 +46,15 @@ class Menu {
 
   func refresh() {
     Log.debug("Refreshing...")
+
+
+
     //menu.removeAllItems()
     // menu.update()
 
     let item4: NSMenuItem = NSMenuItem(title: "One more...", action: #selector(Controller.establishDaemon(_:)), keyEquivalent: "")
     item4.target = Controller.self
-    self.menu.addItem(item4)
+    //self.menu.addItem(item4)
 
     Intercom.helperVersion(reply: { rawVersion in
 
@@ -58,7 +69,7 @@ class Menu {
         item5.target = Controller.self
         //if (menu.item(withTag: 42) == nil) {
           Log.debug("ADDING")
-          self.menu.insertItem(item5, at: 0)
+          //self.menu.insertItem(item5, at: 0)
        // }
 
 
