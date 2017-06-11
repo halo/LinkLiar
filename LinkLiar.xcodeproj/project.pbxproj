@@ -46,6 +46,8 @@
 		C2F209761EEC701F00355561 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209721EEC701E00355561 /* Interfaces.swift */; };
 		C2F209781EEC729400355561 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
 		C2F209791EEC729400355561 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
+		C2F20A171EED990700355561 /* LinkLiarHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */; };
+		C2F20A1C1EED99FD00355561 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A1B1EED99FD00355561 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = C2BEBFD81EE48B5E0072BE59;
 			remoteInfo = LinkLiar;
+		};
+		C2F20A141EED980400355561 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2BEBFD11EE48B5E0072BE59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2F20A0D1EED97F800355561;
+			remoteInfo = LinkLiarHelp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -139,6 +148,9 @@
 		C2F209711EEC701E00355561 /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CFArray+Sequence.swift"; path = "LinkTools/CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C2F209721EEC701E00355561 /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interfaces.swift; path = LinkTools/Interfaces.swift; sourceTree = "<group>"; };
 		C2F209771EEC729400355561 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = LinkTools/Notifications.swift; sourceTree = "<group>"; };
+		C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarHelp.help; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F20A191EED998400355561 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LinkLiarHelp/Info.plist; sourceTree = "<group>"; };
+		C2F20A1B1EED99FD00355561 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LinkLiarHelp/index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +176,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C2BEC0071EE4984E0072BE59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2F20A0B1EED97F800355561 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -207,6 +226,7 @@
 				C29B7D951EE69D1800609A21 /* LinkHelper */,
 				C291CBEA1EE85D1200154452 /* LinkTools */,
 				C2BEBFED1EE48B5E0072BE59 /* LinkLiarTests */,
+				C2F20A181EED996200355561 /* LinkLiarHelp */,
 				C2BEBFDA1EE48B5E0072BE59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -218,6 +238,7 @@
 				C2BEBFEA1EE48B5E0072BE59 /* LinkLiarTests.xctest */,
 				C2BEC00A1EE4984E0072BE59 /* linkdaemon */,
 				C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */,
+				C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,6 +291,15 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
+		C2F20A181EED996200355561 /* LinkLiarHelp */ = {
+			isa = PBXGroup;
+			children = (
+				C2F20A191EED998400355561 /* Info.plist */,
+				C2F20A1B1EED99FD00355561 /* index.html */,
+			);
+			name = LinkLiarHelp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +332,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C2F20A151EED980400355561 /* PBXTargetDependency */,
 				C29B7D9C1EE69D1F00609A21 /* PBXTargetDependency */,
 				C29B7D8D1EE59C1600609A21 /* PBXTargetDependency */,
 			);
@@ -345,6 +376,23 @@
 			productReference = C2BEC00A1EE4984E0072BE59 /* linkdaemon */;
 			productType = "com.apple.product-type.tool";
 		};
+		C2F20A0D1EED97F800355561 /* LinkLiarHelp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2F20A111EED97F800355561 /* Build configuration list for PBXNativeTarget "LinkLiarHelp" */;
+			buildPhases = (
+				C2F20A0A1EED97F800355561 /* Sources */,
+				C2F20A0B1EED97F800355561 /* Frameworks */,
+				C2F20A0C1EED97F800355561 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkLiarHelp;
+			productName = LinkLiarHelp;
+			productReference = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -376,6 +424,11 @@
 						DevelopmentTeam = B9J4QR64LK;
 						ProvisioningStyle = Automatic;
 					};
+					C2F20A0D1EED97F800355561 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = B9J4QR64LK;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = C2BEBFD41EE48B5E0072BE59 /* Build configuration list for PBXProject "LinkLiar" */;
@@ -395,6 +448,7 @@
 				C2BEBFE91EE48B5E0072BE59 /* LinkLiarTests */,
 				C29B7D931EE69D1800609A21 /* io.github.halo.linkhelper */,
 				C2BEC0091EE4984E0072BE59 /* linkdaemon */,
+				C2F20A0D1EED97F800355561 /* LinkLiarHelp */,
 			);
 		};
 /* End PBXProject section */
@@ -404,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2F20A171EED990700355561 /* LinkLiarHelp.help in Resources */,
 				C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */,
 				C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */,
 			);
@@ -415,6 +470,14 @@
 			files = (
 				C2F2096C1EEC64FE00355561 /* justText.json in Resources */,
 				C2F209641EEC5AFD00355561 /* minimalConfig.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2F20A0C1EED97F800355561 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2F20A1C1EED99FD00355561 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +546,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2F20A0A1EED97F800355561 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -500,6 +570,11 @@
 			isa = PBXTargetDependency;
 			target = C2BEBFD81EE48B5E0072BE59 /* LinkLiar */;
 			targetProxy = C2BEBFEB1EE48B5E0072BE59 /* PBXContainerItemProxy */;
+		};
+		C2F20A151EED980400355561 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2F20A0D1EED97F800355561 /* LinkLiarHelp */;
+			targetProxy = C2F20A141EED980400355561 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -718,6 +793,36 @@
 			};
 			name = Release;
 		};
+		C2F20A121EED97F800355561 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				INFOPLIST_FILE = LinkLiarHelp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = help;
+			};
+			name = Debug;
+		};
+		C2F20A131EED97F800355561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				INFOPLIST_FILE = LinkLiarHelp/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarHelp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = help;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -765,6 +870,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C2F20A111EED97F800355561 /* Build configuration list for PBXNativeTarget "LinkLiarHelp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2F20A121EED97F800355561 /* Debug */,
+				C2F20A131EED97F800355561 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

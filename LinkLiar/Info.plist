@@ -30,6 +30,10 @@
 	<string>Copyright © 2017 halo. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>CFBundleHelpBookName</key>
+	<string>io.github.halo.LinkLiar3.Help</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>LinkLiarHelp.help</string>
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>io.github.halo.linkhelper</key>
