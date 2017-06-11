@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */; };
+		C239264A1EEDB84E008506E4 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C23926491EEDB84E008506E4 /* index.html */; };
 		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
 		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -46,11 +48,16 @@
 		C2F209761EEC701F00355561 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209721EEC701E00355561 /* Interfaces.swift */; };
 		C2F209781EEC729400355561 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
 		C2F209791EEC729400355561 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
-		C2F20A171EED990700355561 /* LinkLiarHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */; };
-		C2F20A1C1EED99FD00355561 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A1B1EED99FD00355561 /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C23926461EEDB089008506E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2BEBFD11EE48B5E0072BE59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C2F20A0D1EED97F800355561;
+			remoteInfo = LinkLiarHelp;
+		};
 		C29B7D8C1EE59C1600609A21 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2BEBFD11EE48B5E0072BE59 /* Project object */;
@@ -71,13 +78,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = C2BEBFD81EE48B5E0072BE59;
 			remoteInfo = LinkLiar;
-		};
-		C2F20A141EED980400355561 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2BEBFD11EE48B5E0072BE59 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C2F20A0D1EED97F800355561;
-			remoteInfo = LinkLiarHelp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -113,6 +113,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C23926491EEDB84E008506E4 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LinkLiarHelp/index.html; sourceTree = "<group>"; };
 		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intercom.swift; sourceTree = "<group>"; };
 		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
@@ -150,7 +151,6 @@
 		C2F209771EEC729400355561 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = LinkTools/Notifications.swift; sourceTree = "<group>"; };
 		C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarHelp.help; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F20A191EED998400355561 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = LinkLiarHelp/Info.plist; sourceTree = "<group>"; };
-		C2F20A1B1EED99FD00355561 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LinkLiarHelp/index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,13 +176,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C2BEC0071EE4984E0072BE59 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C2F20A0B1EED97F800355561 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -295,7 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				C2F20A191EED998400355561 /* Info.plist */,
-				C2F20A1B1EED99FD00355561 /* index.html */,
+				C23926491EEDB84E008506E4 /* index.html */,
 			);
 			name = LinkLiarHelp;
 			sourceTree = "<group>";
@@ -332,7 +325,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				C2F20A151EED980400355561 /* PBXTargetDependency */,
+				C23926471EEDB089008506E4 /* PBXTargetDependency */,
 				C29B7D9C1EE69D1F00609A21 /* PBXTargetDependency */,
 				C29B7D8D1EE59C1600609A21 /* PBXTargetDependency */,
 			);
@@ -381,7 +374,6 @@
 			buildConfigurationList = C2F20A111EED97F800355561 /* Build configuration list for PBXNativeTarget "LinkLiarHelp" */;
 			buildPhases = (
 				C2F20A0A1EED97F800355561 /* Sources */,
-				C2F20A0B1EED97F800355561 /* Frameworks */,
 				C2F20A0C1EED97F800355561 /* Resources */,
 			);
 			buildRules = (
@@ -458,7 +450,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2F20A171EED990700355561 /* LinkLiarHelp.help in Resources */,
+				C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */,
 				C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */,
 				C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */,
 			);
@@ -477,7 +469,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2F20A1C1EED99FD00355561 /* index.html in Resources */,
+				C239264A1EEDB84E008506E4 /* index.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +548,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C23926471EEDB089008506E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C2F20A0D1EED97F800355561 /* LinkLiarHelp */;
+			targetProxy = C23926461EEDB089008506E4 /* PBXContainerItemProxy */;
+		};
 		C29B7D8D1EE59C1600609A21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C2BEC0091EE4984E0072BE59 /* linkdaemon */;
@@ -570,11 +567,6 @@
 			isa = PBXTargetDependency;
 			target = C2BEBFD81EE48B5E0072BE59 /* LinkLiar */;
 			targetProxy = C2BEBFEB1EE48B5E0072BE59 /* PBXContainerItemProxy */;
-		};
-		C2F20A151EED980400355561 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C2F20A0D1EED97F800355561 /* LinkLiarHelp */;
-			targetProxy = C2F20A141EED980400355561 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -878,6 +870,7 @@
 				C2F20A131EED97F800355561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
