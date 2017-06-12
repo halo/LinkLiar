@@ -3,7 +3,8 @@ import SystemConfiguration
 import os.log
 
 class Interfaces: NSObject {
-  static func array() -> [Interface] {
+  
+  static func all() -> [Interface] {
     let interfaces = SCNetworkInterfaceCopyAll()
     var instances: [Interface] = []
 
@@ -11,14 +12,15 @@ class Interfaces: NSObject {
       let BSDName = SCNetworkInterfaceGetBSDName(interfaceRef as! SCNetworkInterface)! as String
       let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface)! as String
       let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface)! as String
+      let type = SCNetworkInterfaceGetInterfaceType(interfaceRef as! SCNetworkInterface)! as String
 
-      let interface = Interface(BSDName: BSDName, displayName: displayName, hardMAC: hardMAC)
+      let interface = Interface(BSDName: BSDName, displayName: displayName, hardMAC: hardMAC, kind: type)
       instances.append(interface)
     }
     return instances
 
   }
-
+/*
   class func all() -> [NSString:NSString] {
     os_log("Fetching all interfaces")
 
@@ -35,6 +37,7 @@ class Interfaces: NSObject {
     return dict
 
   }
+ */
 }
 
 

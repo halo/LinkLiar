@@ -2,16 +2,48 @@ import Cocoa
 
 class Menu {
 
-  lazy var menu = NSMenu()
+  let menu = NSMenu()
+
+  private var interfaces: [Interface] = []
+  private let queue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
+
+  private func reloadInterfaceItems() {
+    queue.sync {
+      Log.debug("Reloading Interface menu items")
+
+      // Remove all Interface items
+      for item in menu.items {
+        if (item.representedObject is Interface) {
+          print(item)
+
+          menu.removeItem(item) }
+      }
+
+      // Replenish Interfaces and create corresponding items
+      interfaces = Interfaces.all()
+
+      for interface in interfaces {
+        let titleItem = NSMenuItem(title: interface.title, action: nil, keyEquivalent: "")
+        titleItem.representedObject = interface
+        menu.addItem(titleItem)
+
+        let macItem = NSMenuItem(title: interface.hardMAC.humanReadable, action: nil, keyEquivalent: "")
+        macItem.representedObject = interface
+        macItem.target = Controller.self
+        menu.addItem(macItem)
+      }
+    }
+  }
+
+  func update() {
+    Log.debug("Updating menu...")
+    reloadInterfaceItems()
+  }
+  
+
+
 
   func load() {
-
-    for interface in Interfaces.array() {
-      let it1: NSMenuItem = NSMenuItem(title: interface.BSDName, action: nil, keyEquivalent: "")
-      let it2: NSMenuItem = NSMenuItem(title: interface.hardMAC, action: nil, keyEquivalent: "")
-      self.menu.addItem(it1)
-      self.menu.addItem(it2)
-    }
 
     let item: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
@@ -44,9 +76,10 @@ class Menu {
 
   }
 
-  func refresh() {
-    Log.debug("Refreshing...")
 
+
+  func test() {
+    Log.debug("Refreshing...")
 
 
     //menu.removeAllItems()
@@ -79,13 +112,6 @@ class Menu {
       }
       NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })
-  }
-
-  @objc func refreshMenu(_ nsMenu: NSMenu) {
-    Log.debug("refreshing menu live--------------------")
-    nsMenu.update()
-
-
   }
 
 }

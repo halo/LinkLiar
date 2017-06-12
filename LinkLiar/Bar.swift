@@ -9,7 +9,7 @@ class Bar: NSObject, NSMenuDelegate {
     statusItem.image = NSImage(named: "NSStatusAvailable")
     statusItem.menu = self.menu.menu
     statusItem.menu!.delegate = self
-    self.menu.load()
+    //self.menu.load()
 
     NotificationCenter.default.addObserver(forName:.menuChanged, object:nil, queue:nil, using:needsRefresh)
   }
@@ -21,12 +21,13 @@ class Bar: NSObject, NSMenuDelegate {
   }
 
   func refreshMenu() {
+    Log.debug("Immediately refreshing GUI")
     statusItem.menu!.update()
   }
 
   func menuWillOpen(_ nsMenu: NSMenu) {
     Log.debug("Menu will open...")
-    //menu.refresh()
+    menu.update()
   }
 
 }
