@@ -5,7 +5,26 @@ class Menu {
   let menu = NSMenu()
 
   private var interfaces: [Interface] = []
-  private let queue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
+  private let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
+
+  init() {
+    NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
+  }
+
+  func softMacIdentified(_ notification: Notification) {
+    let interface: Interface = notification.object as! Interface
+
+    queue.sync {
+      for item in menu.items {
+        guard (item.tag == 42) else { continue }
+        guard (item.representedObject is Interface) else { continue }
+        guard ((item.representedObject as! Interface).hardMAC == interface.hardMAC) else { continue }
+
+        item.title = interface.softMAC.humanReadable
+      }
+    }
+    NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+  }
 
   private func reloadInterfaceItems() {
     queue.sync {
@@ -14,22 +33,27 @@ class Menu {
       // Remove all Interface items
       for item in menu.items {
         if (item.representedObject is Interface) {
-          print(item)
+         // print(item)
 
           menu.removeItem(item) }
       }
 
-      // Replenish Interfaces and create corresponding items
+      // Replenish Interfaces
       interfaces = Interfaces.all()
 
+      // Replenish corresponding items
       for interface in interfaces {
+        interface.softMAC
+        interface.isPoweredOffWifi
+
         let titleItem = NSMenuItem(title: interface.title, action: nil, keyEquivalent: "")
         titleItem.representedObject = interface
         menu.addItem(titleItem)
 
-        let macItem = NSMenuItem(title: interface.hardMAC.humanReadable, action: nil, keyEquivalent: "")
+        let macItem = NSMenuItem(title: "Loading...", action: nil, keyEquivalent: "")
         macItem.representedObject = interface
         macItem.target = Controller.self
+        macItem.tag = 42
         menu.addItem(macItem)
       }
     }

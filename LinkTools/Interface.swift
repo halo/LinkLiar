@@ -1,4 +1,5 @@
 import Foundation
+import CoreWLAN
 
 class Interface {
 
@@ -15,7 +16,7 @@ class Interface {
 
   var softMAC: MACAddress {
     get {
-      getSoftMAC()
+      //if (cachedRawSoftMAC == "") { getSoftMAC() }
       return MACAddress(cachedRawSoftMAC)
     }
   }
@@ -26,6 +27,13 @@ class Interface {
     }
   }
 
+  var isPoweredOffWifi: Bool {
+    guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else {
+      return false
+    }
+    return !wifi.powerOn()
+  }
+
   private var rawHardMAC: String
 
   init(BSDName: String, displayName: String, hardMAC: String, kind: String) {
@@ -34,6 +42,8 @@ class Interface {
     self.rawHardMAC = hardMAC
     self.kind = kind
     self.cachedRawSoftMAC = ""
+    self.getSoftMAC()
+
   }
 
   func getSoftMAC() -> String {
@@ -52,24 +62,22 @@ class Interface {
     outHandle.waitForDataInBackgroundAndNotify()
 
 
-
-
     NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: task, queue: nil) { notification in
       //print(notification)
-      let pro = notification.object as! Process
-      //print(pro)
+      //let pro = notification.object as! Process
 
       let outdata = outputPipe.fileHandleForReading.availableData
       let stdout = String(data: outdata, encoding: .utf8)!
       //Log.debug(stdout)
 
       let rawMAC = stdout.components(separatedBy: "ether ").last!.components(separatedBy: " ").first!
-      Log.debug(rawMAC)
+      //Log.debug("It is \(rawMAC)")
+      if (rawMAC == "") { return }
 
       self.cachedRawSoftMAC = rawMAC
-      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
-
-
+      Log.debug("I know my cachedRawSoftMAC now. \(self.cachedRawSoftMAC)")
+      //NotificationCenter.default.post(name: .menuChanged, object: nil, userInfo: nil)
+      NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
     }
 
 
