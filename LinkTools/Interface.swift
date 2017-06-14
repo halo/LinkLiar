@@ -29,6 +29,22 @@ class Interface {
     }
   }
 
+  var isSpoofable: Bool {
+    // You can only change MAC addresses of Ethernet and Wi-Fi adapters
+    if ((["Ethernet", "IEEE80211"].index(of: kind) ) == nil) { return false }
+    // If there is no internal MAC this is to be ignored
+    if (hardMAC.isInvalid) { return false }
+    // Bluetooth can also be filtered out
+    //if ([displayName.contains("tooth")) { return false }
+    // iPhones etc. are not spoofable either
+    //if ([interface.displayName containsString:@"iPhone"] || [interface.displayName containsString:@"iPad"] || [interface.displayName containsString:@"iPod"]) { return false }
+    // Internal Thunderbolt interfaces cannot be spoofed either
+    //if ([interface.displayName containsString:@"Thunderbolt 1"] || [interface.displayName containsString:@"Thunderbolt 2"] || [interface.displayName containsString:@"Thunderbolt 3"] || [interface.displayName containsString:@"Thunderbolt 4"] || [interface.displayName containsString:@"Thunderbolt 5"]) { return false }
+    // If this interface is not in ifconfig, it's probably Bluetooth
+    //if (!interface.softMAC) { return false }
+    return true
+  }
+
   // This is a human readable representation of the Interface.
   // It is just simply from its name and interface identifier (e.g. "Wi-Fi ∙ en1")
   var title: String {
@@ -51,10 +67,15 @@ class Interface {
     self.kind = kind
     self._hardMAC = hardMAC
     self._softMAC = ""
+    let ifconfig = Ifconfig(BSDName: self.BSDName)
+
     if (async) {
-      Ifconfig(BSDName: BSDName).launchAsync(interface: self)
+      ifconfig.launch(softMAC: { softMAC in
+        self._softMAC = softMAC.formatted
+        NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
+      })
     } else {
-      self._softMAC = Ifconfig(BSDName: BSDName).launchSync()
+      self._softMAC = ifconfig.launch().formatted
     }
   }
 

@@ -13,3 +13,4 @@ build
 *.xcuserstate
 *xcuserdata*
 *.gem
+/docs/**

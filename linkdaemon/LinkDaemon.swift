@@ -1,6 +1,6 @@
 import Cocoa
 
-class LinkDaemon {
+public class LinkDaemon {
 
   func run() {
     Log.debug("daemon says hello")
