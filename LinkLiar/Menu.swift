@@ -33,20 +33,42 @@ class Menu {
 
       // Replenish corresponding items
       for interface in interfaces {
-        //interface.softMAC
-        //interface.isPoweredOffWifi
-
         let titleItem = NSMenuItem(title: interface.title, action: nil, keyEquivalent: "")
         titleItem.representedObject = interface
         menu.addItem(titleItem)
-
-        let macItem = NSMenuItem(title: "Loading...", action: nil, keyEquivalent: "")
-        macItem.representedObject = interface
-        macItem.target = Controller.self
-        macItem.tag = 42
-        menu.addItem(macItem)
+        menu.addItem(interfaceMenuItem(interface: interface))
       }
+      menu.addItem(NSMenuItem.separator())
     }
+  }
+
+  func interfaceMenuItem(interface: Interface) -> NSMenuItem {
+    let item = NSMenuItem(title: "Loading...", action: nil, keyEquivalent: "")
+    item.representedObject = interface
+    item.target = Controller.self
+    item.tag = 42
+
+    item.title = interface.softMAC.humanReadable;
+    item.state = interface.hasOriginalMAC ? 1 : 0
+    item.onStateImage = #imageLiteral(resourceName: "InterfaceLeaking")
+    item.submenu = interfaceSubMenuItem(interface: interface)
+    return item
+  }
+
+  func interfaceSubMenuItem(interface: Interface) -> NSMenu {
+    let submenu: NSMenu = NSMenu()
+
+    let vendorNameItem = NSMenuItem(title: "Vendor here", action: nil, keyEquivalent: "")
+    submenu.addItem(vendorNameItem)
+    submenu.addItem(NSMenuItem.separator())
+
+    if (interface.isPoweredOffWifi) {
+      let poweredOffItem = NSMenuItem(title: "Powered off", action: nil, keyEquivalent: "")
+      submenu.addItem(poweredOffItem)
+    } else {
+
+    }
+    return submenu
   }
 
   func softMacIdentified(_ notification: Notification) {
@@ -57,8 +79,9 @@ class Menu {
         guard (item.tag == 42) else { continue }
         guard (item.representedObject is Interface) else { continue }
         guard ((item.representedObject as! Interface).hardMAC == interface.hardMAC) else { continue }
-
-        item.title = interface.softMAC.humanReadable
+        let index = menu.index(of: item)
+        menu.insertItem(interfaceMenuItem(interface: interface), at: index)
+        menu.removeItem(item)
       }
     }
     NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)

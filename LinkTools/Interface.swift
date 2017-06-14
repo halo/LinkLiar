@@ -29,6 +29,10 @@ class Interface {
     }
   }
 
+  var hasOriginalMAC: Bool {
+    return hardMAC == softMAC
+  }
+
   var isSpoofable: Bool {
     // You can only change MAC addresses of Ethernet and Wi-Fi adapters
     if ((["Ethernet", "IEEE80211"].index(of: kind) ) == nil) { return false }
@@ -53,7 +57,7 @@ class Interface {
   // It is just simply from its name and interface identifier (e.g. "Wi-Fi ∙ en1")
   var title: String {
     get {
-      return "\(displayName) ∙ \(BSDName)"
+      return "\(displayName) · \(BSDName)"
     }
   }
 
