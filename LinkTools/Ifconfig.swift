@@ -37,7 +37,7 @@ class Ifconfig {
   private lazy var process: Process = {
     let task = Process()
     task.launchPath = "/sbin/ifconfig"
-    task.arguments = [self.BSDName]
+    task.arguments = [self.BSDName, "ether"]
     task.standardOutput = self.outputPipe
     task.standardError = self.errorPipe
     return task

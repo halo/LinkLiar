@@ -33,6 +33,13 @@ class Interface {
     return hardMAC == softMAC
   }
 
+  var BSDNumber: Int {
+    guard let number = Int(BSDName.replacingOccurrences(of: "en", with: "")) else {
+      return -1
+    }
+    return number
+  }
+
   var isSpoofable: Bool {
     // You can only change MAC addresses of Ethernet and Wi-Fi adapters
     if ((["Ethernet", "IEEE80211"].index(of: kind) ) == nil) { return false }

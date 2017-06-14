@@ -67,6 +67,13 @@ class Menu {
       submenu.addItem(poweredOffItem)
     } else {
 
+      let forgetItem = NSMenuItem(title: "Do nothing", action: nil, keyEquivalent: "")
+      forgetItem.tag = interface.BSDNumber;
+      forgetItem.target = Controller.self
+      //forgetItem.state = [LinkPreferences modifierOfInterface:interface] == ModifierUnknown;
+      submenu.addItem(forgetItem)
+
+
     }
     return submenu
   }
