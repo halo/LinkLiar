@@ -70,12 +70,12 @@ class Interface {
     let ifconfig = Ifconfig(BSDName: self.BSDName)
 
     if (async) {
-      ifconfig.launch(softMAC: { softMAC in
-        self._softMAC = softMAC.formatted
+      ifconfig.softMAC(callback: { address in
+        self._softMAC = address.formatted
         NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
       })
     } else {
-      self._softMAC = ifconfig.launch().formatted
+      self._softMAC = ifconfig.softMAC().formatted
     }
   }
 

@@ -63,7 +63,7 @@ class Ifconfig {
     return stdout
   }()
 
-  private lazy var softMAC: String = {
+  private lazy var _softMAC: String = {
     guard let ether = self.outputString.components(separatedBy: "ether ").last else {
       Log.error("Failed to parse STDOUT of `ifconfig \(self.BSDName)` when looking for `ether `")
       return ""
@@ -83,22 +83,17 @@ class Ifconfig {
 
   // MARK: Instance Methods
 
-  func launch() -> MACAddress {
+  func softMAC() -> MACAddress {
     process.launch()
     process.waitUntilExit()
-    if (process.terminationStatus == 0) {
-      Log.debug("Synchronous ifconfig succeeded.")
-    } else {
-      Log.debug("Synchronous ifconfig failed.")
-    }
-    return MACAddress(softMAC)
+    return MACAddress(_softMAC)
   }
 
-  func launch(softMAC: @escaping (MACAddress) -> Void) {
+  func softMAC(callback: @escaping (MACAddress) -> Void) {
     self.outputHandle.waitForDataInBackgroundAndNotify()
 
     NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: process, queue: nil) { notification in
-      softMAC(MACAddress(self.softMAC))
+      callback(MACAddress(self._softMAC))
     }
     process.launch()
   }
