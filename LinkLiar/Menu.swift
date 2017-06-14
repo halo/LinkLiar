@@ -11,19 +11,9 @@ class Menu {
     NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
   }
 
-  func softMacIdentified(_ notification: Notification) {
-    let interface: Interface = notification.object as! Interface
-
-    queue.sync {
-      for item in menu.items {
-        guard (item.tag == 42) else { continue }
-        guard (item.representedObject is Interface) else { continue }
-        guard ((item.representedObject as! Interface).hardMAC == interface.hardMAC) else { continue }
-
-        item.title = interface.softMAC.humanReadable
-      }
-    }
-    NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+  func update() {
+    Log.debug("Updating menu...")
+    reloadInterfaceItems()
   }
 
   private func reloadInterfaceItems() {
@@ -39,12 +29,12 @@ class Menu {
       }
 
       // Replenish Interfaces
-      interfaces = Interfaces.all()
+      interfaces = Interfaces.all(async: true)
 
       // Replenish corresponding items
       for interface in interfaces {
-        interface.softMAC
-        interface.isPoweredOffWifi
+        //interface.softMAC
+        //interface.isPoweredOffWifi
 
         let titleItem = NSMenuItem(title: interface.title, action: nil, keyEquivalent: "")
         titleItem.representedObject = interface
@@ -59,11 +49,23 @@ class Menu {
     }
   }
 
-  func update() {
-    Log.debug("Updating menu...")
-    reloadInterfaceItems()
+  func softMacIdentified(_ notification: Notification) {
+    let interface: Interface = notification.object as! Interface
+
+    queue.sync {
+      for item in menu.items {
+        guard (item.tag == 42) else { continue }
+        guard (item.representedObject is Interface) else { continue }
+        guard ((item.representedObject as! Interface).hardMAC == interface.hardMAC) else { continue }
+
+        item.title = interface.softMAC.humanReadable
+      }
+    }
+    NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }
   
+
+
 
 
 

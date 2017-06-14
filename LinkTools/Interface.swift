@@ -3,122 +3,58 @@ import CoreWLAN
 
 class Interface {
 
+  // These attributes are known instantaneously
   var BSDName: String
   var displayName: String
   var kind: String
-  var cachedRawSoftMAC: String
 
+  // This is where we keep the hardware MAC address as a String. But we don't expose it.
+  private var _hardMAC: String
+
+  // Instead we expose the hardware MAC as an object.
   var hardMAC: MACAddress {
     get {
-      return MACAddress(rawHardMAC)
+      return MACAddress(_hardMAC)
     }
   }
 
+  // This is where we keep the software MAC address as a String.
+  // This variable is populated asynchronously by running ifconfig.
+  var _softMAC: String
+
+  // Whether the software MAC is already known or not, we expose it as an object.
   var softMAC: MACAddress {
     get {
-      //if (cachedRawSoftMAC == "") { getSoftMAC() }
-      return MACAddress(cachedRawSoftMAC)
+      return MACAddress(_softMAC)
     }
   }
 
+  // This is a human readable representation of the Interface.
+  // It is just simply from its name and interface identifier (e.g. "Wi-Fi ∙ en1")
   var title: String {
     get {
       return "\(displayName) ∙ \(BSDName)"
     }
   }
 
+  // We cannot modify the MAC address of an Airport device that is turned off.
+  // This method figures out whether this interface is just that.
   var isPoweredOffWifi: Bool {
-    guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else {
-      return false
-    }
+    guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else { return false }
     return !wifi.powerOn()
   }
 
-  private var rawHardMAC: String
-
-  init(BSDName: String, displayName: String, hardMAC: String, kind: String) {
+  // Upon initialization we assign what we already know
+  init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
     self.BSDName = BSDName
     self.displayName = displayName
-    self.rawHardMAC = hardMAC
     self.kind = kind
-    self.cachedRawSoftMAC = ""
-    self.getSoftMAC()
-
-  }
-
-  func getSoftMAC() -> String {
-    let task = Process()
-
-    // Set the task parameters
-    task.launchPath = "/sbin/ifconfig"
-    task.arguments = [BSDName]
-
-    let outputPipe = Pipe()
-    let errorPipe = Pipe()
-    task.standardOutput = outputPipe
-    task.standardError = errorPipe
-
-    let outHandle = outputPipe.fileHandleForReading
-    outHandle.waitForDataInBackgroundAndNotify()
-
-
-    NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: task, queue: nil) { notification in
-      //print(notification)
-      //let pro = notification.object as! Process
-
-      let outdata = outputPipe.fileHandleForReading.availableData
-      let stdout = String(data: outdata, encoding: .utf8)!
-      //Log.debug(stdout)
-
-      let rawMAC = stdout.components(separatedBy: "ether ").last!.components(separatedBy: " ").first!
-      //Log.debug("It is \(rawMAC)")
-      if (rawMAC == "") { return }
-
-      self.cachedRawSoftMAC = rawMAC
-      Log.debug("I know my cachedRawSoftMAC now. \(self.cachedRawSoftMAC)")
-      //NotificationCenter.default.post(name: .menuChanged, object: nil, userInfo: nil)
-      NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
-    }
-
-
-
-    // Launch the task
-    Log.debug("Running ifconfig")
-    task.launch()
-    //task.waitUntilExit()
-    //Log.debug("ifconfig finished")
-
-    if (task.isRunning) { return "too early" }
-
-    let status = task.terminationStatus
-
-
-    if status == 0 {
-      Log.debug("Task succeeded.")
-      let outdata = outputPipe.fileHandleForReading.availableData
-      guard let stdout = String(data: outdata, encoding: .utf8) else {
-        Log.debug("Could not read stdout")
-        return ""
-      }
-      //Log.debug(stdout)
-
-      let errdata = errorPipe.fileHandleForReading.availableData
-      guard let stderr = String(data: errdata, encoding: .utf8) else {
-        Log.debug("Could not read stderr")
-        return ""
-      }
-      //Log.debug(stderr)
-
-      let rawMAC = stdout.components(separatedBy: "ether ").last!.components(separatedBy: " ").first!
-      Log.debug(rawMAC)
-      
-      return rawMAC
-
-
+    self._hardMAC = hardMAC
+    self._softMAC = ""
+    if (async) {
+      Ifconfig(BSDName: BSDName).launchAsync(interface: self)
     } else {
-      Log.debug("Task failed.")
-
-      return "no"
+      self._softMAC = Ifconfig(BSDName: BSDName).launchSync()
     }
   }
 

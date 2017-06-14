@@ -15,6 +15,8 @@
 		C23926501EEDCD73008506E4 /* MACAdress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239264E1EEDCD73008506E4 /* MACAdress.swift */; };
 		C23926521EEDCD9A008506E4 /* MACAddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926511EEDCD9A008506E4 /* MACAddressTests.swift */; };
 		C23926541EEE691D008506E4 /* InterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926531EEE691D008506E4 /* InterfaceTests.swift */; };
+		C23926581EF10613008506E4 /* Ifconfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926571EF10613008506E4 /* Ifconfig.swift */; };
+		C23926591EF10613008506E4 /* Ifconfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926571EF10613008506E4 /* Ifconfig.swift */; };
 		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
 		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -124,6 +126,7 @@
 		C239264E1EEDCD73008506E4 /* MACAdress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAdress.swift; path = LinkTools/MACAdress.swift; sourceTree = "<group>"; };
 		C23926511EEDCD9A008506E4 /* MACAddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressTests.swift; sourceTree = "<group>"; };
 		C23926531EEE691D008506E4 /* InterfaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceTests.swift; sourceTree = "<group>"; };
+		C23926571EF10613008506E4 /* Ifconfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.swift; path = LinkTools/Ifconfig.swift; sourceTree = "<group>"; };
 		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intercom.swift; sourceTree = "<group>"; };
 		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 				C2F209651EEC5BD900355561 /* Paths.swift */,
 				C239264B1EEDBBB4008506E4 /* Interface.swift */,
 				C239264E1EEDCD73008506E4 /* MACAdress.swift */,
+				C23926571EF10613008506E4 /* Ifconfig.swift */,
 			);
 			name = LinkTools;
 			sourceTree = "<group>";
@@ -508,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2BEBFFA1EE48D1B0072BE59 /* main.swift in Sources */,
+				C23926581EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C2F2096E1EEC693500355561 /* Bar.swift in Sources */,
 				C2F209701EEC700700355561 /* NetworkObserver.swift in Sources */,
 				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
@@ -546,6 +551,7 @@
 			files = (
 				C2F209681EEC5BD900355561 /* Paths.swift in Sources */,
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
+				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C291CBF81EE8827D00154452 /* ConfigReader.swift in Sources */,
 				C291CC011EEAA27D00154452 /* LinkDaemon.swift in Sources */,
 				C2F209791EEC729400355561 /* Notifications.swift in Sources */,

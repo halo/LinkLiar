@@ -22,6 +22,12 @@ class MACAddress: Equatable {
     }
   }
 
+  var isInvalid: Bool {
+    get {
+      return !isValid
+    }
+  }
+
   private var sanitized: String {
     get {
       return raw.lowercased().components(separatedBy: nonHexCharacters).joined()

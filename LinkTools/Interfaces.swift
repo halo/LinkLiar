@@ -2,7 +2,7 @@ import SystemConfiguration
 
 struct Interfaces {
   
-  static func all() -> [Interface] {
+  static func all(async: Bool) -> [Interface] {
     let interfaces = SCNetworkInterfaceCopyAll()
     var instances: [Interface] = []
 
@@ -12,7 +12,7 @@ struct Interfaces {
       let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface)! as String
       let type = SCNetworkInterfaceGetInterfaceType(interfaceRef as! SCNetworkInterface)! as String
 
-      let interface = Interface(BSDName: BSDName, displayName: displayName, hardMAC: hardMAC, kind: type)
+      let interface = Interface(BSDName: BSDName, displayName: displayName, kind: type, hardMAC: hardMAC, async: async)
       instances.append(interface)
     }
     return instances
