@@ -15,7 +15,7 @@ struct Interfaces {
       let interface = Interface(BSDName: BSDName as String, displayName: displayName as String, kind: type as String, hardMAC: hardMAC as String, async: async)
       if (interface.isSpoofable) { instances.append(interface) }
     }
-    return instances
+    return instances.sorted { $0.BSDName < $1.BSDName }
   }
 
 }
