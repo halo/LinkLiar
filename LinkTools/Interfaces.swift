@@ -7,16 +7,15 @@ struct Interfaces {
     var instances: [Interface] = []
 
     for interfaceRef in interfaces {
-      let BSDName = SCNetworkInterfaceGetBSDName(interfaceRef as! SCNetworkInterface)! as String
-      let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface)! as String
-      let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface)! as String
-      let type = SCNetworkInterfaceGetInterfaceType(interfaceRef as! SCNetworkInterface)! as String
+      guard let BSDName = SCNetworkInterfaceGetBSDName(interfaceRef as! SCNetworkInterface) else { continue }
+      guard let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface) else { continue }
+      guard let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface) else { continue }
+      guard let type = SCNetworkInterfaceGetInterfaceType(interfaceRef as! SCNetworkInterface) else { continue }
 
-      let interface = Interface(BSDName: BSDName, displayName: displayName, kind: type, hardMAC: hardMAC, async: async)
-      instances.append(interface)
+      let interface = Interface(BSDName: BSDName as String, displayName: displayName as String, kind: type as String, hardMAC: hardMAC as String, async: async)
+      if (interface.isSpoofable) { instances.append(interface) }
     }
     return instances
-
   }
 
 }

@@ -35,13 +35,17 @@ class Interface {
     // If there is no internal MAC this is to be ignored
     if (hardMAC.isInvalid) { return false }
     // Bluetooth can also be filtered out
-    //if ([displayName.contains("tooth")) { return false }
+    if (displayName.contains("tooth")) { return false }
     // iPhones etc. are not spoofable either
-    //if ([interface.displayName containsString:@"iPhone"] || [interface.displayName containsString:@"iPad"] || [interface.displayName containsString:@"iPod"]) { return false }
+    if (displayName.contains("iPhone")) { return false }
+    if (displayName.contains("iPad")) { return false }
+    if (displayName.contains("iPod")) { return false }
     // Internal Thunderbolt interfaces cannot be spoofed either
-    //if ([interface.displayName containsString:@"Thunderbolt 1"] || [interface.displayName containsString:@"Thunderbolt 2"] || [interface.displayName containsString:@"Thunderbolt 3"] || [interface.displayName containsString:@"Thunderbolt 4"] || [interface.displayName containsString:@"Thunderbolt 5"]) { return false }
-    // If this interface is not in ifconfig, it's probably Bluetooth
-    //if (!interface.softMAC) { return false }
+    if (displayName.contains("Thunderbolt 1")) { return false }
+    if (displayName.contains("Thunderbolt 2")) { return false }
+    if (displayName.contains("Thunderbolt 3")) { return false }
+    if (displayName.contains("Thunderbolt 4")) { return false }
+    if (displayName.contains("Thunderbolt 5")) { return false }
     return true
   }
 
