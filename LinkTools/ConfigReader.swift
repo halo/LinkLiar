@@ -3,8 +3,9 @@ import os.log
 
 class ConfigReader {
 
-  var path: String
-  var url: URL {
+  private var path: String
+
+  private var url: URL {
     get {
       return URL(fileURLWithPath: path)
     }
@@ -14,31 +15,32 @@ class ConfigReader {
     self.path = filePath
   }
 
-  func data() -> Data? {
+  lazy var data: Data? = {
     do {
-      let data = try Data(contentsOf: url)
-      return data
+      let result = try Data(contentsOf: self.url)
+      return result
     } catch {
       Log.debug(error.localizedDescription)
       return nil
     }
-  }
+  }()
 
-   func read() {
+  lazy var object: [String: Any] = {
+    guard let jsonData = self.data else {
+      Log.error("Missing JSON data to parse.")
+      return [String: Any]()
+    }
+
     do {
-      let data = self.data()!
-      let json = try JSONSerialization.jsonObject(with: data, options: [])
+      let json = try JSONSerialization.jsonObject(with: jsonData, options: [])
       if let object = json as? [String: Any] {
-        // json is a dictionary
-        print(object)
-      } else if let object = json as? [Any] {
-        // json is an array
-        print(object)
+        return object
       } else {
-        print("JSON is invalid")
+        Log.debug("JSON is not a Key-Value object")
       }
     } catch {
       print(error.localizedDescription)
     }
-  }
+    return [String: Any]()
+  }()
 }
