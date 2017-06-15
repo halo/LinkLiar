@@ -51,6 +51,8 @@ class Menu {
     item.title = interface.softMAC.humanReadable;
     item.state = interface.hasOriginalMAC ? 1 : 0
     item.onStateImage = #imageLiteral(resourceName: "InterfaceLeaking")
+    //item.onStateImage = #imageLiteral(resourceName: "MenuIconLeaking")
+    //item.onStateImage.isTemplate = true
     item.submenu = interfaceSubMenuItem(interface: interface)
     return item
   }
