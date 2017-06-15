@@ -6,11 +6,14 @@ class Bar: NSObject, NSMenuDelegate {
   lazy var menu: Menu = Menu()
 
   func setup() {
-    statusItem.image = NSImage(named: "NSStatusAvailable")
+    let icon = #imageLiteral(resourceName: "MenuIconProtected")
+    icon.isTemplate = true
+    statusItem.button!.image = icon
+    statusItem.button!.alternateImage = icon
+    statusItem.button!.setAccessibilityLabel("Linkliar")
+
     statusItem.menu = self.menu.menu
     statusItem.menu!.delegate = self
-    //self.menu.load()
-
     NotificationCenter.default.addObserver(forName:.menuChanged, object:nil, queue:nil, using:needsRefresh)
   }
 

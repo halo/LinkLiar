@@ -3,61 +3,61 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "lightning16.png",
+      "filename" : "LinkLiar_16x16.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "lightning32-1.png",
+      "filename" : "LinkLiar_16x16@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "lightning32.png",
+      "filename" : "LinkLiar_32x32.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "lightning64.png",
+      "filename" : "LinkLiar_32x32@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "lightning128.png",
+      "filename" : "LinkLiar_128x128.png",
       "scale" : "1x"
     },
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "lightning256-1.png",
+      "filename" : "LinkLiar_128x128@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "lightning256.png",
+      "filename" : "LinkLiar_256x256.png",
       "scale" : "1x"
     },
     {
       "size" : "256x256",
       "idiom" : "mac",
-      "filename" : "lightning512.png",
+      "filename" : "LinkLiar_256x256@2x.png",
       "scale" : "2x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "lightning.png",
+      "filename" : "LinkLiar_512x512.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "lightning1024.png",
+      "filename" : "LinkLiar_512x512@2x.png",
       "scale" : "2x"
     }
   ],
