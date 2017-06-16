@@ -2,7 +2,8 @@ struct Config {
 
   // I'm pretty sure this is atomic.
   // So there will always be exactly one observer.
-  private static var observer: FileObserver = {
+  /*
+  static var observer: FileObserver = {
     Log.debug("Setting up listener for \(Paths.configFile)")
 
     return FileObserver(path: Paths.configFile, block: {
@@ -10,19 +11,27 @@ struct Config {
       reload()
     })
   }()
+ **/
 
-  private static var _instance: Configuration?
+  static var observer: FileObserver = {
+    Log.debug("Setting up listener for \(Paths.configFile)")
+    return FileObserver(path: Paths.configFile, callback: {
+      reload()
+    })
+  }()
+
+  private static var _instance: Configuration = Configuration(dictionary: [String: Any]())
 
   static var instance: Configuration {
     get {
-      if (_instance == nil) { reload() }
-      return _instance!
+      if (_instance.version == nil) { reload() }
+      return _instance
     }
   }
 
   static func reload() {
     // This is just to initialize the static variable holding the observer.
-    Config.observer.noop()
+    Log.debug("Reloading Configuration singleton")
     let dictionary = JSONReader(filePath: Paths.configFile).dictionary
     _instance = Configuration(dictionary: dictionary)
   }

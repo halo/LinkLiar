@@ -8,6 +8,11 @@ class Controller: NSObject {
     Elevator().install()
   }
 
+  static func forgetInterface(_ sender: NSMenuItem) {
+    print("forgetting")
+    print(sender)
+  }
+
   static func helperVersion(_ sender: Any) {
     Intercom.helperVersion(reply: {
       rawVersion in

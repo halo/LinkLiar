@@ -13,6 +13,8 @@ class Menu {
 
   func update() {
     Log.debug("Updating menu...")
+    print(Config.instance)
+    print(Config.observer)
     reloadInterfaceItems()
   }
 
@@ -69,7 +71,7 @@ class Menu {
       submenu.addItem(poweredOffItem)
     } else {
 
-      let forgetItem = NSMenuItem(title: "Do nothing", action: nil, keyEquivalent: "")
+      let forgetItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.forgetInterface(_:)), keyEquivalent: "")
       forgetItem.tag = interface.BSDNumber;
       forgetItem.target = Controller.self
       //forgetItem.state = [LinkPreferences modifierOfInterface:interface] == ModifierUnknown;
