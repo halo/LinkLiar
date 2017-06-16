@@ -1,10 +1,10 @@
 import Foundation
 import os.log
 
-class ConfigReader {
+class JSONReader {
 
   private var path: String
-
+  
   private var url: URL {
     get {
       return URL(fileURLWithPath: path)
@@ -17,7 +17,10 @@ class ConfigReader {
 
   lazy var data: Data? = {
     do {
+      Log.debug("Reading \(self.path)")
       let result = try Data(contentsOf: self.url)
+      Log.debug("Content: \(result)")
+      Log.debug("Successfuly read it")
       return result
     } catch {
       Log.debug(error.localizedDescription)
@@ -25,7 +28,7 @@ class ConfigReader {
     }
   }()
 
-  lazy var object: [String: Any] = {
+  lazy var dictionary: [String: Any] = {
     guard let jsonData = self.data else {
       Log.error("Missing JSON data to parse.")
       return [String: Any]()
@@ -39,8 +42,9 @@ class ConfigReader {
         Log.debug("JSON is not a Key-Value object")
       }
     } catch {
-      print(error.localizedDescription)
+      Log.error(error.localizedDescription)
     }
     return [String: Any]()
   }()
+
 }

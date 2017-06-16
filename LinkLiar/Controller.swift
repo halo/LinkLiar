@@ -18,7 +18,7 @@ class Controller: NSObject {
       } else {
         Log.debug("helper is helpful")
         let version = Version(rawVersion!)
-        Log.debug("\(version.version())")
+        Log.debug("\(version.humanReadable)")
       }
       // Elevator().bless()
 

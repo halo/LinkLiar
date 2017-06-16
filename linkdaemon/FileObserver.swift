@@ -18,4 +18,6 @@ class FileObserver {
     self.source.cancel()
     close(fileDescriptor)
   }
+
+  func noop() {}
 }
