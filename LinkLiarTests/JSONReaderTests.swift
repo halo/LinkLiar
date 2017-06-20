@@ -22,14 +22,14 @@ class JSONReaderTests: XCTestCase {
 
   func testObjectWithSimpleJson() {
     let reader = JSONReader(filePath: fixturePath("minimalConfig.json"))
-    let json = reader.object
+    let json = reader.dictionary
     XCTAssertEqual(json.count, 1)
     XCTAssertEqual(json["version"] as? String, "0.0.1")
   }
 
   func testObjectWithNonJson() {
     let reader = JSONReader(filePath: fixturePath("justText.json"))
-    let json = reader.object
+    let json = reader.dictionary
     XCTAssertEqual(json.count, 0)
   }
 

@@ -4,10 +4,10 @@ struct Configuration {
     self.dictionary = dictionary
   }
 
-  private var dictionary: [String: Any]
+  var dictionary: [String: Any]
 
   lazy var version: String? = {
     return self.dictionary["version"] as? String
   }()
-  
+
 }

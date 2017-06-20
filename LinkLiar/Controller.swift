@@ -8,9 +8,17 @@ class Controller: NSObject {
     Elevator().install()
   }
 
+  static func resetConfig(_ sender: NSMenuItem) {
+    ConfigWriter.reset()
+  }
+
   static func forgetInterface(_ sender: NSMenuItem) {
-    print("forgetting")
-    print(sender)
+    guard let interface = sender.representedObject as? Interface else {
+      Log.error("Expected the NSMenuItem to be associated to an Interface")
+      return
+    }
+
+    ConfigWriter.forgetInterface(interface.hardMAC.formatted)
   }
 
   static func helperVersion(_ sender: Any) {

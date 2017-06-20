@@ -23,6 +23,9 @@
 		C239265F1EF3FB5B008506E4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239265D1EF3FB5B008506E4 /* Config.swift */; };
 		C23926611EF426FE008506E4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926601EF426FE008506E4 /* Configuration.swift */; };
 		C23926621EF426FE008506E4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926601EF426FE008506E4 /* Configuration.swift */; };
+		C23926681EF45F93008506E4 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926671EF45F93008506E4 /* JSONWriter.swift */; };
+		C239266A1EF98F01008506E4 /* ConfigWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926691EF98F01008506E4 /* ConfigWriter.swift */; };
+		C239266C1EF98F1A008506E4 /* JSONWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239266B1EF98F1A008506E4 /* JSONWriterTests.swift */; };
 		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
 		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -136,6 +139,9 @@
 		C239265A1EF1A213008506E4 /* IfconfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfconfigTests.swift; sourceTree = "<group>"; };
 		C239265D1EF3FB5B008506E4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = LinkTools/Config.swift; sourceTree = "<group>"; };
 		C23926601EF426FE008506E4 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = LinkTools/Configuration.swift; sourceTree = "<group>"; };
+		C23926671EF45F93008506E4 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriter.swift; sourceTree = "<group>"; };
+		C23926691EF98F01008506E4 /* ConfigWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigWriter.swift; sourceTree = "<group>"; };
+		C239266B1EF98F1A008506E4 /* JSONWriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriterTests.swift; sourceTree = "<group>"; };
 		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intercom.swift; sourceTree = "<group>"; };
 		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
@@ -275,6 +281,8 @@
 				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
 				C2F2096F1EEC700700355561 /* NetworkObserver.swift */,
 				C291CBE21EE8300F00154452 /* Intercom.swift */,
+				C23926691EF98F01008506E4 /* ConfigWriter.swift */,
+				C23926671EF45F93008506E4 /* JSONWriter.swift */,
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
 				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
 			);
@@ -286,6 +294,7 @@
 			children = (
 				C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */,
 				C2F209601EEC599100355561 /* JSONReaderTests.swift */,
+				C239266B1EF98F1A008506E4 /* JSONWriterTests.swift */,
 				C2F209691EEC5CD300355561 /* PathsTests.swift */,
 				C23926511EEDCD9A008506E4 /* MACAddressTests.swift */,
 				C23926531EEE691D008506E4 /* InterfaceTests.swift */,
@@ -531,8 +540,10 @@
 				C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C239264F1EEDCD73008506E4 /* MACAdress.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
+				C239266A1EF98F01008506E4 /* ConfigWriter.swift in Sources */,
 				C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */,
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
+				C23926681EF45F93008506E4 /* JSONWriter.swift in Sources */,
 				C2F209661EEC5BD900355561 /* Paths.swift in Sources */,
 				C291CBFD1EE8961400154452 /* Menu.swift in Sources */,
 				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
@@ -558,6 +569,7 @@
 				C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */,
 				C23926521EEDCD9A008506E4 /* MACAddressTests.swift in Sources */,
 				C2F209611EEC599100355561 /* JSONReaderTests.swift in Sources */,
+				C239266C1EF98F1A008506E4 /* JSONWriterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

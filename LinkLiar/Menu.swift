@@ -7,8 +7,25 @@ class Menu {
   private var interfaces: [Interface] = []
   private let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
+  private let developerMenu: NSMenuItem = {
+    let submenu: NSMenu = NSMenu()
+
+    let installHelperItem: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+    installHelperItem.target = Controller.self
+    submenu.addItem(installHelperItem)
+
+    let resetConfigItem: NSMenuItem = NSMenuItem(title: "Reset Config", action: #selector(Controller.resetConfig(_:)), keyEquivalent: "")
+    resetConfigItem.target = Controller.self
+    submenu.addItem(resetConfigItem)
+
+    let root: NSMenuItem = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
+    root.submenu = submenu
+    return root
+}()
+
   init() {
     NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
+    menu.addItem(developerMenu)
   }
 
   func update() {
@@ -72,7 +89,7 @@ class Menu {
     } else {
 
       let forgetItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.forgetInterface(_:)), keyEquivalent: "")
-      forgetItem.tag = interface.BSDNumber;
+      forgetItem.representedObject = interface
       forgetItem.target = Controller.self
       //forgetItem.state = [LinkPreferences modifierOfInterface:interface] == ModifierUnknown;
       submenu.addItem(forgetItem)
@@ -105,9 +122,6 @@ class Menu {
 
   func load() {
 
-    let item: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
-    item.target = Controller.self
-    menu.addItem(item)
 
     menu.addItem(NSMenuItem.separator())
 
