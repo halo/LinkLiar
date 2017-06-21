@@ -21,7 +21,7 @@ class Menu {
     let root: NSMenuItem = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
     root.submenu = submenu
     return root
-}()
+  }()
 
   init() {
     NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
@@ -88,11 +88,19 @@ class Menu {
       submenu.addItem(poweredOffItem)
     } else {
 
-      let forgetItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.forgetInterface(_:)), keyEquivalent: "")
-      forgetItem.representedObject = interface
-      forgetItem.target = Controller.self
-      //forgetItem.state = [LinkPreferences modifierOfInterface:interface] == ModifierUnknown;
-      submenu.addItem(forgetItem)
+      let action = Config.instance.actionForInterface(interface.hardMAC.formatted)
+
+      let ignoreItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.forgetInterface(_:)), keyEquivalent: "")
+      ignoreItem.representedObject = interface
+      ignoreItem.target = Controller.self
+      ignoreItem.state = action == Interface.Action.ignore ? 1 : 0
+      submenu.addItem(ignoreItem)
+
+      let randomizeItem: NSMenuItem = NSMenuItem(title: "Random", action: #selector(Controller.randomizeInterface(_:)), keyEquivalent: "")
+      randomizeItem.representedObject = interface
+      randomizeItem.target = Controller.self
+      randomizeItem.state = action == Interface.Action.random ? 1 : 0
+      submenu.addItem(randomizeItem)
 
 
     }

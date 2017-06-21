@@ -17,8 +17,15 @@ class Controller: NSObject {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
     }
+    ConfigWriter.ignoreInterface(interface.hardMAC.formatted)
+  }
 
-    ConfigWriter.forgetInterface(interface.hardMAC.formatted)
+  static func randomizeInterface(_ sender: NSMenuItem) {
+    guard let interface = sender.representedObject as? Interface else {
+      Log.error("Expected the NSMenuItem to be associated to an Interface")
+      return
+    }
+    ConfigWriter.randomizeInterface(interface.hardMAC.formatted)
   }
 
   static func helperVersion(_ sender: Any) {

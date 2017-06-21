@@ -3,6 +3,12 @@ import CoreWLAN
 
 class Interface {
 
+  enum Action: String {
+    case ignore = "ignore"
+    case random = "random"
+    case undefined
+  }
+
   // These attributes are known instantaneously
   var BSDName: String
   var displayName: String

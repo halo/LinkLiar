@@ -222,11 +222,11 @@
 				C2F209711EEC701E00355561 /* CFArray+Sequence.swift */,
 				C2F2095E1EEB1E9D00355561 /* FileObserver.swift */,
 				C2F209721EEC701E00355561 /* Interfaces.swift */,
+				C239264B1EEDBBB4008506E4 /* Interface.swift */,
 				C291CBF51EE8827D00154452 /* JSONReader.swift */,
 				C291CBE61EE85D0D00154452 /* Log.swift */,
 				C291CBF31EE87B1E00154452 /* Version.swift */,
 				C2F209651EEC5BD900355561 /* Paths.swift */,
-				C239264B1EEDBBB4008506E4 /* Interface.swift */,
 				C239264E1EEDCD73008506E4 /* MACAdress.swift */,
 				C23926571EF10613008506E4 /* Ifconfig.swift */,
 			);

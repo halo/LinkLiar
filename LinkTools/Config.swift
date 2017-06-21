@@ -26,6 +26,17 @@ struct Config {
     _instance = Configuration(dictionary: dictionary)
   }
 
+  /*
+  static func interfaces() -> [String: [String: String]] {
+    let dictionary = instance.dictionary
+    guard let interfacesDictionary = dictionary["interfaces"] as? [String: [String: String]] else {
+      Log.info("Cannot interpret interfaces section of config file. Ignoring it.")
+      return [String: [String: String]]()
+    }
+     return interfacesDictionary
+  }
+ */
+
   static func version() -> String {
     if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
       return version

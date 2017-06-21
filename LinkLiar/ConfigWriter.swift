@@ -9,22 +9,15 @@ struct ConfigWriter {
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
-  static func forgetInterface(_ hardMAC: String) {
+  static func ignoreInterface(_ hardMAC: String) {
     var dictionary = dictionaryWithCurrentVersion()
+    dictionary[hardMAC] = ["action": "ignore"]
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
 
-    guard var interfacesDictionary = dictionary["interfaces"] as? [String: [String: String]] else {
-      Log.error("Cannot interpret interfaces section of config file.")
-      dictionary["interfaces"] = [String: [String: Any]]()
-    }
-
-    guard var interfaceDictionary = interfacesDictionary[hardMAC] else {
-      Log.error("Cannot interpret section of interface \(hardMAC) in config file.")
-      return
-    }
-
-    interfaceDictionary["action"] = "ignore"
-    dictionary["interfaces"] = interfacesDictionary
-
+  static func randomizeInterface(_ hardMAC: String) {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary[hardMAC] = ["action": "random"]
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
