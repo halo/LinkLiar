@@ -6,6 +6,8 @@ class Interface {
   enum Action: String {
     case ignore = "ignore"
     case random = "random"
+    case specify = "specify"
+    case original = "original"
     case undefined
   }
 

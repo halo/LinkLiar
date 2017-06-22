@@ -102,6 +102,12 @@ class Menu {
       randomizeItem.state = action == Interface.Action.random ? 1 : 0
       submenu.addItem(randomizeItem)
 
+      let specifyItem: NSMenuItem = NSMenuItem(title: "Define manually", action: #selector(Controller.specifyInterface(_:)), keyEquivalent: "")
+      specifyItem.representedObject = interface
+      specifyItem.target = Controller.self
+      specifyItem.state = action == Interface.Action.specify ? 1 : 0
+      submenu.addItem(specifyItem)
+
 
     }
     return submenu

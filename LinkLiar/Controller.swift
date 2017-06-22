@@ -17,7 +17,7 @@ class Controller: NSObject {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
     }
-    ConfigWriter.ignoreInterface(interface.hardMAC.formatted)
+    ConfigWriter.ignoreInterface(interface)
   }
 
   static func randomizeInterface(_ sender: NSMenuItem) {
@@ -25,7 +25,23 @@ class Controller: NSObject {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
     }
-    ConfigWriter.randomizeInterface(interface.hardMAC.formatted)
+    ConfigWriter.randomizeInterface(interface)
+  }
+
+  static func specifyInterface(_ sender: NSMenuItem) {
+    guard let interface = sender.representedObject as? Interface else {
+      Log.error("Expected the NSMenuItem to be associated to an Interface")
+      return
+    }
+    let title = "Choose new MAC for \(interface.displayName)"
+    let description = "The original hardware MAC for this Interface is\n\(interface.hardMAC.formatted)"
+    guard let answer = MACAddressQuestion(title: title, description: description).ask() else {
+      Log.debug("You pressed <Cancel> when asked to enter a MAC address.")
+      return
+    }
+    let softMAC = MACAddress(answer)
+    Log.debug("You typed in \(answer) as desired MAC address, which is \(softMAC.formatted)")
+    ConfigWriter.specifyInterface(interface, softMAC: softMAC)
   }
 
   static func helperVersion(_ sender: Any) {
