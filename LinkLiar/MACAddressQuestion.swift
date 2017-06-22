@@ -5,11 +5,12 @@ class MACAddressQuestion {
   let title: String
   let description: String
 
-  let defaultAnswer = "aa:bb:cc:dd:ee:ff"
   let alert = NSAlert()
   let textField: CopyPastableNSTextField = {
     let field = CopyPastableNSTextField(frame: NSMakeRect(0, 0, 200, 24))
     field.formatter = MACAddressFormatter()
+    field.stringValue = "aa:bb:cc:dd:ee:ff"
+    field.placeholderString = "aa:bb:cc:dd:ee:ff"
     return field
   }()
 
@@ -19,6 +20,7 @@ class MACAddressQuestion {
 
     alert.messageText = title
     alert.informativeText = description
+
     alert.addButton(withTitle: "OK")
     alert.addButton(withTitle: "Cancel")
     alert.accessoryView = textField
