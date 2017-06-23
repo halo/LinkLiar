@@ -16,4 +16,10 @@ class Paths {
   static var configFile = configDirectory.appendPath("config.json")
   static var configFileURL = URL(fileURLWithPath: configFile)
 
+  static var helperDirectory = "/Library/PrivilegedHelperTools"
+  static var helperDirectoryURL = URL(fileURLWithPath: helperDirectory)
+
+  static var helperExecutable = helperDirectory.appendPath(Identifiers.helper.rawValue)
+  static var helperExecutableURL = URL(fileURLWithPath: helperExecutable)
+
 }

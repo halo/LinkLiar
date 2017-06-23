@@ -23,6 +23,8 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     Log.debug("Helper shutting down now.")
   }
 
+  // MARK HelperProtocol Conformity
+
   func version(reply: (String) -> Void) {
     guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
       Log.error("Helper is missing CFBundleVersion")
@@ -73,7 +75,14 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
   }
 
   func implode(reply: (Bool) -> Void) {
-    Log.debug("Setting up self destruction sequence...")
+    Log.debug("Removing helper executable...")
+    let remover = Process()
+    remover.launchPath = "/usr/bin/sudo"
+    remover.arguments = ["/bin/rm", Paths.helperExecutable]
+    remover.launch()
+    remover.waitUntilExit()
+
+    Log.debug("Removing helper daemon...")
     let task = Process()
     task.launchPath = "/usr/bin/sudo"
     task.arguments = ["/bin/launchctl", "remove", Identifiers.helper.rawValue]
