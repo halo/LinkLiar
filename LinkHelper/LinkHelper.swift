@@ -2,55 +2,33 @@ import Foundation
 
 class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
 
-  private var connections = [NSXPCConnection]()
-  private var listener:NSXPCListener
+  // MARK Private Properties
+
+  private lazy var listener: NSXPCListener = {
+    let listener = NSXPCListener(machServiceName:Identifiers.helper.rawValue)
+    listener.delegate = self
+    return listener
+  }()
+
   private var shouldQuit = false
-  private var shouldQuitCheckInterval = 1.0
 
-  override init(){
-    self.listener = NSXPCListener(machServiceName:HelperConstants.machServiceName)
-    super.init()
-    self.listener.delegate = self
-  }
+  // MARK Instance Methods
 
-  func run(){
-    self.listener.resume()
+  func listen(){
+    listener.resume() // Tell the XPC listener to start processing requests.
 
     while !shouldQuit {
-      RunLoop.current.run(until: Date.init(timeIntervalSinceNow: shouldQuitCheckInterval))
+      RunLoop.current.run(until: Date.init(timeIntervalSinceNow: 1))
     }
+    Log.debug("Helper shutting down now.")
   }
 
-  /*
-   Called when the application connects to the helper
-   */
-  func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
-
-    // MARK: Here a check should be added to verify the application that is calling the helper
-    // For example, checking that the codesigning is equal on the calling binary as this helper.
-
-    //newConnection.remoteObjectInterface = NSXPCInterface(with: ProcessProtocol.self)
-    newConnection.exportedInterface = NSXPCInterface(with:HelperProtocol.self)
-    newConnection.exportedObject = self;
-    newConnection.invalidationHandler = (() -> Void)? {
-      if let indexValue = self.connections.index(of: newConnection) {
-        self.connections.remove(at: indexValue)
-      }
-
-      if self.connections.count == 0 {
-        self.shouldQuit = true
-      }
-    }
-    self.connections.append(newConnection)
-    newConnection.resume()
-    return true
-  }
-
-  /*
-   Return bundle version for this helper
-   */
   func version(reply: (String) -> Void) {
-    reply(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String)
+    guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
+      Log.error("Helper is missing CFBundleVersion")
+      return
+    }
+    reply(version)
   }
 
   func createConfigDirectory(reply: (Bool) -> Void) {
@@ -93,6 +71,36 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
   func deactivateDaemon(reply: (Bool) -> Void) {
     launchctl(activate: false, reply: reply)
   }
+
+  func implode(reply: (Bool) -> Void) {
+    Log.debug("Setting up self destruction sequence...")
+    let task = Process()
+    task.launchPath = "/usr/bin/sudo"
+    task.arguments = ["/bin/launchctl", "remove", Identifiers.helper.rawValue]
+    task.launch()
+    task.waitUntilExit()
+
+    if (task.terminationStatus == 0) {
+      reply(true)
+    } else {
+      reply(false)
+    }
+  }
+
+  // MARK NSXPCListenerDelegate Conformity
+
+  func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
+    newConnection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
+    newConnection.exportedObject = self;
+    newConnection.invalidationHandler = (() -> Void)? {
+      Log.debug("Helper lost connection, queuing up for shutdown...")
+      self.shouldQuit = true
+    }
+    newConnection.resume()
+    return true
+  }
+
+  // MARK Private Instance Methods
 
   private func launchctl(activate: Bool, reply: (Bool) -> Void) {
     Log.debug("Preparing activation of daemon...")
@@ -137,18 +145,9 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
       }
 
       Log.debug("Reason: \(stdout) \(stderr)")
-
+      
       reply(false)
     }
   }
-  
-
-  /*
-   Not really used in this test app, but there might be reasons to support multiple simultaneous connections.
-   */
-  private func connection() -> NSXPCConnection {
-    return self.connections.last!
-  }
 
 }
-

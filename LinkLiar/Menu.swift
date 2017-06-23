@@ -7,31 +7,43 @@ class Menu {
   private var interfaces: [Interface] = []
   private let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
-  private let developerMenu: NSMenuItem = {
+  private lazy var developerMenu: NSMenuItem = {
     let submenu: NSMenu = NSMenu()
 
     let installHelperItem: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     installHelperItem.target = Controller.self
     submenu.addItem(installHelperItem)
 
-    let resetConfigItem: NSMenuItem = NSMenuItem(title: "Reset Config", action: #selector(Controller.resetConfig(_:)), keyEquivalent: "")
-    resetConfigItem.target = Controller.self
-    submenu.addItem(resetConfigItem)
+    submenu.addItem(self.resetConfigItem)
+    submenu.addItem(self.implodeHelperItem)
 
     let root: NSMenuItem = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
     root.submenu = submenu
     return root
   }()
 
+  private lazy var resetConfigItem: NSMenuItem = {
+    let item: NSMenuItem = NSMenuItem(title: "Reset Config", action: #selector(Controller.resetConfig(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var implodeHelperItem: NSMenuItem = {
+    let item: NSMenuItem = NSMenuItem(title: "Remove Helper", action: #selector(Controller.implodeHelper(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
   init() {
     NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
     menu.addItem(developerMenu)
+    load()
   }
 
   func update() {
     Log.debug("Updating menu...")
-    print(Config.instance)
-    print(Config.observer)
+    //print(Config.instance)
+    //print(Config.observer)
     reloadInterfaceItems()
   }
 
@@ -107,6 +119,12 @@ class Menu {
       specifyItem.target = Controller.self
       specifyItem.state = action == Interface.Action.specify ? 1 : 0
       submenu.addItem(specifyItem)
+
+      let originalizeItem: NSMenuItem = NSMenuItem(title: "Keep original", action: #selector(Controller.originalizeInterface(_:)), keyEquivalent: "")
+      originalizeItem.representedObject = interface
+      originalizeItem.target = Controller.self
+      originalizeItem.state = action == Interface.Action.original ? 1 : 0
+      submenu.addItem(originalizeItem)
 
 
     }

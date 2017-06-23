@@ -92,10 +92,30 @@ class Intercom: NSObject {
     })
   }
 
+  static func implodeHelper(reply: @escaping (Bool) -> Void) {
+    usingHelper(block: { helper in
+      helper.implode(reply: {
+        success in
+        Log.debug("Helper worked on the imploding")
+        reply(success)
+      })
+    })
+  }
+
+  static func usingHelper(block: @escaping (HelperProtocol) -> Void) {
+    Log.debug("Checking helper connection")
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
+      error in
+      Log.debug("Oh no, no connection to helper")
+      Log.debug(error.localizedDescription)
+    }) as! HelperProtocol
+    block(helper)
+  }
+
   static func connection() -> NSXPCConnection? {
     if (self.xpcConnection != nil) { return self.xpcConnection }
 
-    self.xpcConnection = NSXPCConnection(machServiceName: HelperConstants.machServiceName, options: NSXPCConnection.Options.privileged)
+    self.xpcConnection = NSXPCConnection(machServiceName: Identifiers.helper.rawValue, options: NSXPCConnection.Options.privileged)
     self.xpcConnection!.exportedObject = self
     self.xpcConnection!.remoteObjectInterface = NSXPCInterface(with:HelperProtocol.self)
 

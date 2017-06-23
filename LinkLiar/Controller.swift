@@ -44,6 +44,14 @@ class Controller: NSObject {
     ConfigWriter.specifyInterface(interface, softMAC: softMAC)
   }
 
+  static func originalizeInterface(_ sender: NSMenuItem) {
+    guard let interface = sender.representedObject as? Interface else {
+      Log.error("Expected the NSMenuItem to be associated to an Interface")
+      return
+    }
+    ConfigWriter.originalizeInterface(interface)
+  }
+
   static func helperVersion(_ sender: Any) {
     Intercom.helperVersion(reply: {
       rawVersion in
@@ -101,6 +109,17 @@ class Controller: NSObject {
         Log.debug("daemon deactivated")
       } else {
         Log.debug("daemon could not be deactivated")
+      }
+    })
+  }
+
+  static func implodeHelper(_ sender: Any) {
+    Intercom.implodeHelper(reply: {
+      success in
+      if (success) {
+        Log.debug("helper imploded")
+      } else {
+        Log.debug("helper could not be imploded")
       }
     })
   }
