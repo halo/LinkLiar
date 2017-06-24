@@ -49,11 +49,14 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
   }
 
   func establishDaemon(reply: (Bool) -> Void) {
-    let daemonpath = "/Users/orange/Code/LinkLiar/LinkLiar/build/DerivedData/LinkLiar/Build/Products/Debug/LinkLiar.app/Contents/Resources/linkdaemon"
-    let plist : [String: Any] = ["Label": "io.github.halo.linkdaemon", "ProgramArguments": [daemonpath], "KeepAlive": true]
+    let plist : [String: Any] = [
+      "Label": Identifiers.daemon.rawValue,
+      "ProgramArguments": [Paths.daemonExecutable],
+      "KeepAlive": true
+    ]
     let plistContent = NSDictionary(dictionary: plist)
 
-    let path = "/Library/LaunchDaemons/io.github.halo.linkdaemon.plist"
+    let path = Paths.daemonPlistFile
 
     let success:Bool = plistContent.write(toFile: path, atomically: true)
 
@@ -82,10 +85,12 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     remover.launch()
     remover.waitUntilExit()
 
+    if (remover.terminationStatus != 0) { reply(false) }
+
     Log.debug("Removing helper daemon...")
     let task = Process()
     task.launchPath = "/usr/bin/sudo"
-    task.arguments = ["/bin/launchctl", "remove", Identifiers.helper.rawValue]
+    task.arguments = ["/bin/launchctl", "bootout", "system", Paths.helperPlistFile]
     task.launch()
     task.waitUntilExit()
 
@@ -118,7 +123,7 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     // Set the task parameters
     task.launchPath = "/usr/bin/sudo"
     let subcommand = activate ? "bootstrap" : "bootout"
-    task.arguments = ["/bin/launchctl", subcommand, "system", "/Library/LaunchDaemons/io.github.halo.linkdaemon.plist"]
+    task.arguments = ["/bin/launchctl", subcommand, "system", Paths.daemonPlistFile]
 
     let outputPipe = Pipe()
     let errorPipe = Pipe()
@@ -132,7 +137,6 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     task.waitUntilExit()
 
     let status = task.terminationStatus
-
 
     if status == 0 {
       Log.debug("Task succeeded.")
@@ -149,7 +153,7 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
 
       let errdata = errorPipe.fileHandleForReading.availableData
       guard let stderr = String(data: errdata, encoding: .utf8) else {
-        Log.debug("Could not read stdout")
+        Log.debug("Could not read stderr")
         return
       }
 
