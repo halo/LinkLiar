@@ -58,10 +58,11 @@ defaults write com.funkensturm.Link.plist debug debug  # <- Yes, twice "debug"
 * Easier upgrading of HelperTool
 
 ## Thanks
+* https://github.com/raywenderlich/swift-style-guide
 
 * The IconWork in the `Link/Images.xcassets` is from [Iconmonstr](http://iconmonstr.com).
 * @ianyh made [the code](https://github.com/ianyh/IYLoginItem) to toggle the "Launch at login".
 
 ## License
 
-MIT 2015 funkensturm. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
+MIT 2017 funkensturm. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).

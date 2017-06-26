@@ -3,35 +3,25 @@ import Foundation
 class MACAddress: Equatable {
 
   var humanReadable: String {
-    get {
-      return isValid ? formatted : "??:??:??:??:??:??"
-    }
+    return isValid ? formatted : "??:??:??:??:??:??"
   }
 
   var formatted: String {
-    get {
-      return String(sanitized.characters.enumerated().map() {
-        $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
-        }.joined().dropFirst())
-    }
+    return String(sanitized.characters.enumerated().map() {
+      $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
+    }.joined().dropFirst())
   }
 
   var isValid: Bool {
-    get {
-      return formatted.characters.count == 17
-    }
+    return formatted.characters.count == 17
   }
 
   var isInvalid: Bool {
-    get {
-      return !isValid
-    }
+    return !isValid
   }
 
   private var sanitized: String {
-    get {
-      return raw.lowercased().components(separatedBy: nonHexCharacters).joined()
-    }
+    return raw.lowercased().components(separatedBy: nonHexCharacters).joined()
   }
 
   private var raw: String

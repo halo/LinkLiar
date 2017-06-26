@@ -15,9 +15,7 @@ struct Version {
   }
 
   var humanReadable: String {
-    get {
-      return "\(self.major).\(self.minor).\(self.patch)"
-    }
+    return "\(self.major).\(self.minor).\(self.patch)"
   }
 
   func isCompatible(other: Version) -> Bool {

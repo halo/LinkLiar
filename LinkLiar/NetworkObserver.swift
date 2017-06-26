@@ -1,18 +1,11 @@
 import Cocoa
 import SystemConfiguration
-import os.log
 
-extension Notification.Name {
-  static let interfacesChangedNotification = Notification.Name("interfacesChangedNotification")
-}
-
-class NetworkObserver: NSObject {
-  override init() {
-    super.init()
-
+class NetworkObserver {
+  init() {
     let callback: SCDynamicStoreCallBack = { (store, _, _) in
-      os_log("Network change detected")
-      NotificationCenter.default.post(name: .interfacesChangedNotification, object: nil)
+      Log.debug("Network change detected")
+      NotificationCenter.default.post(name: .interfacesChanged, object: nil)
     }
 
     let store = SCDynamicStoreCreate(nil, "Example" as CFString, callback, nil)
@@ -20,8 +13,8 @@ class NetworkObserver: NSObject {
     SCDynamicStoreSetNotificationKeys(store!, keys as CFArray, nil)
     CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store!, 0), CFRunLoopMode.defaultMode)
 
-    os_log("Loaded")
-    NotificationCenter.default.post(name: .interfacesChangedNotification, object: nil)
+    Log.debug("Loaded")
+    NotificationCenter.default.post(name: .interfacesChanged, object: nil)
   }
 }
 

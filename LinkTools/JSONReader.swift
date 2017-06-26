@@ -6,9 +6,7 @@ class JSONReader {
   private var path: String
   
   private var url: URL {
-    get {
-      return URL(fileURLWithPath: path)
-    }
+    return URL(fileURLWithPath: path)
   }
 
   init(filePath: String) {

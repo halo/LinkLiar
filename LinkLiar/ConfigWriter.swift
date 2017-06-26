@@ -15,9 +15,21 @@ struct ConfigWriter {
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
+  static func ignoreDefaultInterface() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["default"] = ["action": "ignore"]
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
   static func randomizeInterface(_ interface: Interface) {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary[interface.hardMAC.formatted] = ["action": "random"]
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func randomizeDefaultInterface() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["default"] = ["action": "random"]
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 

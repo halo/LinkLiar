@@ -12,12 +12,16 @@ class Controller: NSObject {
     ConfigWriter.reset()
   }
 
-  static func forgetInterface(_ sender: NSMenuItem) {
+  static func ignoreInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
     }
     ConfigWriter.ignoreInterface(interface)
+  }
+
+  static func ignoreDefaultInterface(_ sender: NSMenuItem) {
+    ConfigWriter.ignoreDefaultInterface()
   }
 
   static func randomizeInterface(_ sender: NSMenuItem) {
@@ -26,6 +30,10 @@ class Controller: NSObject {
       return
     }
     ConfigWriter.randomizeInterface(interface)
+  }
+
+  static func randomizeDefaultInterface(_ sender: NSMenuItem) {
+    ConfigWriter.randomizeDefaultInterface()
   }
 
   static func specifyInterface(_ sender: NSMenuItem) {
@@ -58,14 +66,12 @@ class Controller: NSObject {
       if (rawVersion == nil) {
         // TODO Compare SemVer
         Log.debug("helper does not seem to say much")
-        Elevator().install()
+        //Elevator().install()
       } else {
         Log.debug("helper is helpful")
         let version = Version(rawVersion!)
         Log.debug("\(version.humanReadable)")
       }
-      // Elevator().bless()
-
     })
   }
 
@@ -80,8 +86,8 @@ class Controller: NSObject {
     })
   }
 
-  static func establishDaemon(_ sender: Any) {
-    Intercom.establishDaemon(reply: {
+  static func configureDaemon(_ sender: Any) {
+    Intercom.configureDaemon(reply: {
       success in
       if (success) {
         Log.debug("You gotta daemon now")

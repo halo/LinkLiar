@@ -21,9 +21,7 @@ class Interface {
 
   // Instead we expose the hardware MAC as an object.
   var hardMAC: MACAddress {
-    get {
-      return MACAddress(_hardMAC)
-    }
+    return MACAddress(_hardMAC)
   }
 
   // This is where we keep the software MAC address as a String.
@@ -32,9 +30,7 @@ class Interface {
 
   // Whether the software MAC is already known or not, we expose it as an object.
   var softMAC: MACAddress {
-    get {
-      return MACAddress(_softMAC)
-    }
+    return MACAddress(_softMAC)
   }
 
   var hasOriginalMAC: Bool {
@@ -71,9 +67,7 @@ class Interface {
   // This is a human readable representation of the Interface.
   // It is just simply from its name and interface identifier (e.g. "Wi-Fi ∙ en1")
   var title: String {
-    get {
-      return "\(displayName) · \(BSDName)"
-    }
+    return "\(displayName) · \(BSDName)"
   }
 
   // We cannot modify the MAC address of an Airport device that is turned off.

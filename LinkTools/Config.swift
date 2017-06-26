@@ -7,16 +7,20 @@ struct Config {
     return FileObserver(path: Paths.configFile, callback: {
       Log.debug("Initiating config singleton reset.")
       reload()
+      NotificationCenter.default.post(name:.configChanged, object: nil, userInfo: nil)
     })
   }()
 
   private static var _instance: Configuration = Configuration(dictionary: [String: Any]())
 
   static var instance: Configuration {
-    get {
-      if (_instance.version == nil) { reload() }
-      return _instance
-    }
+    if (_instance.version == nil) { reload() }
+    return _instance
+  }
+
+  static func observe() {
+    var noop = observer as FileObserver?
+    if noop != nil { noop = nil }
   }
 
   static func reload() {

@@ -7,8 +7,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     Log.debug("LinkLiar GUI launched.")
     bar.setup()
-    
-    //NSApplication.shared().showHelp(self)
+    Config.observe()
   }
 
 }

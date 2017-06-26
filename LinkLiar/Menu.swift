@@ -7,43 +7,118 @@ class Menu {
   private var interfaces: [Interface] = []
   private let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
-  private lazy var developerMenu: NSMenuItem = {
-    let submenu: NSMenu = NSMenu()
-
-    let installHelperItem: NSMenuItem = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
-    installHelperItem.target = Controller.self
-    submenu.addItem(installHelperItem)
-
-    submenu.addItem(self.resetConfigItem)
-    submenu.addItem(self.implodeHelperItem)
-
-    let root: NSMenuItem = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
-    root.submenu = submenu
-    return root
+  /// The Developer Menu is revealed as alternative to this invisible dummy while holding the option key.
+  private lazy var developerMenuPlaceholderItem: NSMenuItem = {
+    let item = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    item.view = NSView(frame: NSMakeRect(0, 0, 0, 0))
+    return item
   }()
 
-  private lazy var resetConfigItem: NSMenuItem = {
-    let item: NSMenuItem = NSMenuItem(title: "Reset Config", action: #selector(Controller.resetConfig(_:)), keyEquivalent: "")
+  private lazy var developerMenuItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
+    item.submenu = self.developerSubmenu
+    item.keyEquivalentModifierMask = NSEventModifierFlags.option
+    item.isAlternate = true
+    return item
+  }()
+
+  private lazy var developerSubmenu: NSMenu = {
+    let item: NSMenu = NSMenu()
+    item.addItem(self.installHelperItem)
+    item.addItem(self.implodeHelperItem)
+    item.addItem(self.helperVersionItem)
+    item.addItem(NSMenuItem.separator())
+    item.addItem(self.createConfigDirectoryItem)
+    item.addItem(self.resetConfigItem)
+    item.addItem(NSMenuItem.separator())
+    item.addItem(self.configureDaemonItem)
+    item.addItem(self.activateDaemonItem)
+    item.addItem(self.deactivateDaemonItem)
+    return item
+  }()
+
+  private lazy var authorizeHelperItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var installHelperItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()
 
   private lazy var implodeHelperItem: NSMenuItem = {
-    let item: NSMenuItem = NSMenuItem(title: "Remove Helper", action: #selector(Controller.implodeHelper(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Remove Helper", action: #selector(Controller.implodeHelper(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()
 
+  private lazy var helperVersionItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Helper Version", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var createConfigDirectoryItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Create Config Dir", action: #selector(Controller.createConfigDir(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var resetConfigItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Reset Config File", action: #selector(Controller.resetConfig(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var configureDaemonItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Configure Daemon", action: #selector(Controller.configureDaemon(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var activateDaemonItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Activate Daemon", action: #selector(Controller.activateDaemon(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var deactivateDaemonItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Deactivate Daemon", action: #selector(Controller.deactivateDaemon(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var helpItem: NSMenuItem = {
+    return NSMenuItem(title: "Help", action: #selector(NSApplication.showHelp(_:)), keyEquivalent: "")
+  }()
+
+  private lazy var quitItem: NSMenuItem = {
+    return NSMenuItem(title: "Close", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+  }()
+
+  // MARK: Initialization
+
   init() {
     NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
-    menu.addItem(developerMenu)
-    load()
+    NotificationCenter.default.addObserver(forName: .configChanged, object:nil, queue:nil, using:configChanged)
+
+    menu.addItem(authorizeHelperItem)
+    menu.addItem(NSMenuItem.separator())
+    // -- Here be Interfaces --
+    menu.addItem(NSMenuItem.separator())
+    menu.addItem(defaultMenuItem)
+    menu.addItem(NSMenuItem.separator())
+    menu.addItem(developerMenuPlaceholderItem)
+    menu.addItem(developerMenuItem)
+    menu.addItem(helpItem)
+    menu.addItem(quitItem)
   }
 
   func update() {
     Log.debug("Updating menu...")
-    //print(Config.instance)
-    //print(Config.observer)
     reloadInterfaceItems()
   }
 
@@ -60,16 +135,17 @@ class Menu {
       }
 
       // Replenish Interfaces
-      interfaces = Interfaces.all(async: true)
+      // In reverse order because we insert one by one at the top of the menu
+      interfaces = Interfaces.all(async: true).reversed()
 
       // Replenish corresponding items
       for interface in interfaces {
         let titleItem = NSMenuItem(title: interface.title, action: nil, keyEquivalent: "")
         titleItem.representedObject = interface
-        menu.addItem(titleItem)
-        menu.addItem(interfaceMenuItem(interface: interface))
+        menu.insertItem(interfaceMenuItem(interface: interface), at: 2)
+        menu.insertItem(titleItem, at: 2)
       }
-      menu.addItem(NSMenuItem.separator())
+      //menu.addItem(NSMenuItem.separator())
     }
   }
 
@@ -102,7 +178,7 @@ class Menu {
 
       let action = Config.instance.actionForInterface(interface.hardMAC.formatted)
 
-      let ignoreItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.forgetInterface(_:)), keyEquivalent: "")
+      let ignoreItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.ignoreInterface(_:)), keyEquivalent: "")
       ignoreItem.representedObject = interface
       ignoreItem.target = Controller.self
       ignoreItem.state = action == Interface.Action.ignore ? 1 : 0
@@ -125,11 +201,37 @@ class Menu {
       originalizeItem.target = Controller.self
       originalizeItem.state = action == Interface.Action.original ? 1 : 0
       submenu.addItem(originalizeItem)
-
-
     }
     return submenu
   }
+
+  private lazy var defaultMenuItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Default", action: nil, keyEquivalent: "")
+    item.target = Controller.self
+    item.submenu = self.defaultSubMenuItem
+    return item
+  }()
+
+  private lazy var defaultSubMenuItem: NSMenu = {
+    let submenu: NSMenu = NSMenu()
+    submenu.addItem(self.ignoreDefaultItem)
+    submenu.addItem(self.randomizeDefaultItem)
+    return submenu
+  }()
+
+  private lazy var ignoreDefaultItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Do nothing", action: #selector(Controller.ignoreDefaultInterface(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    //item.state = Config.instance.actionForDefaultInterface() == Interface.Action.ignore ? 1 : 0
+    return item
+  }()
+
+  private lazy var randomizeDefaultItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Random", action: #selector(Controller.randomizeDefaultInterface(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    //item.state = Config.instance.actionForDefaultInterface() == Interface.Action.random ? 1 : 0
+    return item
+  }()
 
   func softMacIdentified(_ notification: Notification) {
     let interface: Interface = notification.object as! Interface
@@ -147,58 +249,16 @@ class Menu {
     NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }
   
+  func configChanged(_ notification: Notification) {
+    ignoreDefaultItem.state = Config.instance.actionForDefaultInterface() == Interface.Action.ignore ? 1 : 0
+    randomizeDefaultItem.state = Config.instance.actionForDefaultInterface() == Interface.Action.random ? 1 : 0
+    Log.debug("foooooooooooooooooooooo")
 
-
-
-
-
-  func load() {
-
-
-    menu.addItem(NSMenuItem.separator())
-
-    let item2: NSMenuItem = NSMenuItem(title: "Helper Version", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
-    item2.target = Controller.self
-    menu.addItem(item2)
-
-    let item3: NSMenuItem = NSMenuItem(title: "Create Config dir", action: #selector(Controller.createConfigDir(_:)), keyEquivalent: "")
-    item3.target = Controller.self
-    menu.addItem(item3)
-
-    let item4: NSMenuItem = NSMenuItem(title: "Establish daemon", action: #selector(Controller.establishDaemon(_:)), keyEquivalent: "")
-    item4.target = Controller.self
-    menu.addItem(item4)
-
-    let item5: NSMenuItem = NSMenuItem(title: "Activate daemon", action: #selector(Controller.activateDaemon(_:)), keyEquivalent: "")
-    item5.target = Controller.self
-    menu.addItem(item5)
-
-    let item6: NSMenuItem = NSMenuItem(title: "Deativate daemon", action: #selector(Controller.deactivateDaemon(_:)), keyEquivalent: "")
-    item6.target = Controller.self
-    menu.addItem(item6)
-
-    menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
-    // menu.delegate = self
-
+    NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }
 
-
-
   func test() {
-    Log.debug("Refreshing...")
-
-
-    //menu.removeAllItems()
-    // menu.update()
-
-    let item4: NSMenuItem = NSMenuItem(title: "One more...", action: #selector(Controller.establishDaemon(_:)), keyEquivalent: "")
-    item4.target = Controller.self
-    //self.menu.addItem(item4)
-
     Intercom.helperVersion(reply: { rawVersion in
-
-      //menu.removeAllItems()
-      //self.load()
 
       if (rawVersion == nil) {
         Log.debug("I miss versino or helper or what!")
@@ -206,10 +266,6 @@ class Menu {
         let item5: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
         item5.tag = 42
         item5.target = Controller.self
-        //if (menu.item(withTag: 42) == nil) {
-          Log.debug("ADDING")
-          //self.menu.insertItem(item5, at: 0)
-       // }
 
 
       } else {

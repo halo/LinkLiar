@@ -1,16 +1,16 @@
 import Foundation
 
-class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
+class LinkHelper: NSObject {
 
   // MARK Private Properties
 
-  private lazy var listener: NSXPCListener = {
+  lazy var listener: NSXPCListener = {
     let listener = NSXPCListener(machServiceName:Identifiers.helper.rawValue)
     listener.delegate = self
     return listener
   }()
 
-  private var shouldQuit = false
+  var shouldQuit = false
 
   // MARK Instance Methods
 
@@ -23,7 +23,10 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     Log.debug("Helper shutting down now.")
   }
 
-  // MARK HelperProtocol Conformity
+}
+
+// MARK: - HelperProtocol
+extension LinkHelper: HelperProtocol {
 
   func version(reply: (String) -> Void) {
     guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
@@ -48,17 +51,14 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     }
   }
 
-  func establishDaemon(reply: (Bool) -> Void) {
+  func configureDaemon(reply: (Bool) -> Void) {
     let plist : [String: Any] = [
       "Label": Identifiers.daemon.rawValue,
       "ProgramArguments": [Paths.daemonExecutable],
       "KeepAlive": true
     ]
     let plistContent = NSDictionary(dictionary: plist)
-
-    let path = Paths.daemonPlistFile
-
-    let success:Bool = plistContent.write(toFile: path, atomically: true)
+    let success:Bool = plistContent.write(toFile: Paths.daemonPlistFile, atomically: true)
 
     if success {
       Log.debug("file has been created!")
@@ -79,13 +79,15 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
 
   func implode(reply: (Bool) -> Void) {
     Log.debug("Removing helper executable...")
-    let remover = Process()
-    remover.launchPath = "/usr/bin/sudo"
-    remover.arguments = ["/bin/rm", Paths.helperExecutable]
-    remover.launch()
-    remover.waitUntilExit()
 
-    if (remover.terminationStatus != 0) { reply(false) }
+    do {
+      try FileManager.default.removeItem(atPath: Paths.helperExecutable)
+    }
+    catch let error as NSError {
+      Log.error("Could not delete helper executable \(error)")
+      reply(false)
+      return
+    }
 
     Log.debug("Removing helper daemon...")
     let task = Process()
@@ -94,24 +96,11 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     task.launch()
     task.waitUntilExit()
 
-    if (task.terminationStatus == 0) {
+    if task.terminationStatus == 0 {
       reply(true)
     } else {
       reply(false)
     }
-  }
-
-  // MARK NSXPCListenerDelegate Conformity
-
-  func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
-    newConnection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
-    newConnection.exportedObject = self;
-    newConnection.invalidationHandler = (() -> Void)? {
-      Log.debug("Helper lost connection, queuing up for shutdown...")
-      self.shouldQuit = true
-    }
-    newConnection.resume()
-    return true
   }
 
   // MARK Private Instance Methods
@@ -129,7 +118,6 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
     let errorPipe = Pipe()
     task.standardOutput = outputPipe
     task.standardError = errorPipe
-
 
     // Launch the task
     Log.debug("Activating daemon now")
@@ -161,6 +149,22 @@ class LinkHelper: NSObject, HelperProtocol, NSXPCListenerDelegate {
       
       reply(false)
     }
+  }
+
+}
+
+// MARK: - NSXPCListenerDelegate
+extension LinkHelper: NSXPCListenerDelegate {
+
+  func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
+    newConnection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
+    newConnection.exportedObject = self;
+    newConnection.invalidationHandler = (() -> Void)? {
+      Log.debug("Helper lost connection, queuing up for shutdown...")
+      self.shouldQuit = true
+    }
+    newConnection.resume()
+    return true
   }
 
 }
