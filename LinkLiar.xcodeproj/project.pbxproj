@@ -37,6 +37,10 @@
 		C239267F1F040A88008506E4 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239267E1F040A88008506E4 /* Synchronizer.swift */; };
 		C23926811F040AC1008506E4 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926801F040AC1008506E4 /* FileObserver.swift */; };
 		C23926821F040AC1008506E4 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926801F040AC1008506E4 /* FileObserver.swift */; };
+		C23926841F041795008506E4 /* AdvancedSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926831F041795008506E4 /* AdvancedSubmenu.swift */; };
+		C23926861F041A29008506E4 /* DeveloperSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926851F041A29008506E4 /* DeveloperSubmenu.swift */; };
+		C23926881F041A9B008506E4 /* InterfaceSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */; };
+		C239268A1F041CAB008506E4 /* DefaultSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926891F041CAB008506E4 /* DefaultSubmenu.swift */; };
 		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
 		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -158,6 +162,10 @@
 		C23926781F03D78A008506E4 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = LinkTools/Version.swift; sourceTree = "<group>"; };
 		C239267E1F040A88008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 		C23926801F040AC1008506E4 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObserver.swift; path = LinkTools/FileObserver.swift; sourceTree = "<group>"; };
+		C23926831F041795008506E4 /* AdvancedSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedSubmenu.swift; sourceTree = "<group>"; };
+		C23926851F041A29008506E4 /* DeveloperSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperSubmenu.swift; sourceTree = "<group>"; };
+		C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSubmenu.swift; sourceTree = "<group>"; };
+		C23926891F041CAB008506E4 /* DefaultSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSubmenu.swift; sourceTree = "<group>"; };
 		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Intercom.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HelperProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
@@ -292,6 +300,10 @@
 				C2BEBFDC1EE48B5E0072BE59 /* AppDelegate.swift */,
 				C2F2096D1EEC693500355561 /* Bar.swift */,
 				C291CBFC1EE8961400154452 /* Menu.swift */,
+				C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */,
+				C23926891F041CAB008506E4 /* DefaultSubmenu.swift */,
+				C23926831F041795008506E4 /* AdvancedSubmenu.swift */,
+				C23926851F041A29008506E4 /* DeveloperSubmenu.swift */,
 				C291CBF11EE8702E00154452 /* Controller.swift */,
 				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
 				C2F2096F1EEC700700355561 /* NetworkObserver.swift */,
@@ -557,11 +569,13 @@
 				C23926581EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C2F2096E1EEC693500355561 /* Bar.swift in Sources */,
 				C2F209701EEC700700355561 /* NetworkObserver.swift in Sources */,
+				C23926861F041A29008506E4 /* DeveloperSubmenu.swift in Sources */,
 				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
 				C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C239264F1EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C239266A1EF98F01008506E4 /* ConfigWriter.swift in Sources */,
+				C23926881F041A9B008506E4 /* InterfaceSubmenu.swift in Sources */,
 				C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */,
 				C239266E1EFC32B1008506E4 /* CopyPastableNSTextField.swift in Sources */,
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
@@ -570,7 +584,9 @@
 				C291CBFD1EE8961400154452 /* Menu.swift in Sources */,
 				C23926811F040AC1008506E4 /* FileObserver.swift in Sources */,
 				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
+				C239268A1F041CAB008506E4 /* DefaultSubmenu.swift in Sources */,
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
+				C23926841F041795008506E4 /* AdvancedSubmenu.swift in Sources */,
 				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
 				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
 				C23926741EFD1906008506E4 /* Identifiers.swift in Sources */,
