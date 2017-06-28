@@ -2,6 +2,13 @@ import Foundation
 
 class LinkHelper: NSObject {
 
+  static var version: Version = {
+    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+      return Version(version)
+    }
+    return Version("?.?.?")
+  }()
+
   // MARK Private Properties
 
   lazy var listener: NSXPCListener = {
@@ -15,6 +22,7 @@ class LinkHelper: NSObject {
   // MARK Instance Methods
 
   func listen(){
+    Log.debug("Helper \(LinkHelper.version.formatted) says hello")
     listener.resume() // Tell the XPC listener to start processing requests.
 
     while !shouldQuit {
@@ -29,11 +37,7 @@ class LinkHelper: NSObject {
 extension LinkHelper: HelperProtocol {
 
   func version(reply: (String) -> Void) {
-    guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String else {
-      Log.error("Helper is missing CFBundleVersion")
-      return
-    }
-    reply(version)
+    reply(LinkHelper.version.formatted)
   }
 
   func createConfigDirectory(reply: (Bool) -> Void) {

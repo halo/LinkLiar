@@ -41,11 +41,4 @@ struct Config {
   }
  */
 
-  static func version() -> String {
-    if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
-      return version
-    }
-    return "?.?.?"
-  }
-
 }

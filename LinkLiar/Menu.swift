@@ -22,12 +22,12 @@ class Menu {
   // MARK: Initialization
 
   init() {
-    NotificationCenter.default.addObserver(forName: .softMacIdentified, object:nil, queue:nil, using:softMacIdentified)
-    NotificationCenter.default.addObserver(forName: .configChanged, object:nil, queue:nil, using:configChanged)
+    NotificationCenter.default.addObserver(forName: .softMacIdentified, object: nil, queue: nil, using: softMacIdentified)
+    NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
 
     menu.addItem(authorizeItem)
     menu.addItem(NSMenuItem.separator())
-    // -- Here be Interfaces --
+    // <-- Here be Interfaces -->
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
     menu.addItem(NSMenuItem.separator())
@@ -103,7 +103,7 @@ class Menu {
     Intercom.helperVersion(reply: { rawVersion in
 
       if (rawVersion == nil) {
-        Log.debug("I miss versino or helper or what!")
+        Log.debug("I miss version or helper or what!")
 
         let item5: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
         item5.tag = 42

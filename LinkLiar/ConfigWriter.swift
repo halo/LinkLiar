@@ -5,7 +5,7 @@ struct ConfigWriter {
 
   static func reset() {
     var dictionary = [String: Any]()
-    dictionary["version"] = Config.version()
+    dictionary["version"] = AppDelegate.version
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
@@ -53,7 +53,7 @@ struct ConfigWriter {
 
   private static func dictionaryWithCurrentVersion() -> [String: Any] {
     var dictionary = Config.instance.dictionary
-    dictionary["version"] = Config.version()
+    dictionary["version"] = AppDelegate.version
     return dictionary
   }
 

@@ -12,7 +12,7 @@ class DeveloperSubmenu {
   lazy var menuItem: NSMenuItem = {
     let item = NSMenuItem(title: "Developer", action: nil, keyEquivalent: "")
     item.submenu = self.developerSubmenu
-    item.keyEquivalentModifierMask = [.control, .option]
+    item.keyEquivalentModifierMask = [.shift, .option]
     item.isAlternate = true
     return item
   }()
@@ -45,7 +45,7 @@ class DeveloperSubmenu {
   }()
 
   private lazy var helperVersionItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Helper Version", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Helper Version", action: #selector(Controller.helperIsCompatible(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()

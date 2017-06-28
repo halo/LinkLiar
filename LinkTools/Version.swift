@@ -14,7 +14,7 @@ struct Version {
     patch = Int(v[2])!
   }
 
-  var humanReadable: String {
+  var formatted: String {
     return "\(self.major).\(self.minor).\(self.patch)"
   }
 

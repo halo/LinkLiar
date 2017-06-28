@@ -69,17 +69,15 @@ class Controller: NSObject {
     ConfigWriter.originalizeInterface(interface)
   }
 
-  static func helperVersion(_ sender: Any) {
-    Intercom.helperVersion(reply: {
-      rawVersion in
-      if (rawVersion == nil) {
-        // TODO Compare SemVer
+  static func helperIsCompatible(_ sender: Any) {
+    Log.debug("Querying helper version")
+    Intercom.helperVersion(reply: { version in
+      if (true) {
         Log.debug("helper does not seem to say much")
-        //Elevator().install()
+
       } else {
         Log.debug("helper is helpful")
-        let version = Version(rawVersion!)
-        Log.debug("\(version.humanReadable)")
+
       }
     })
   }

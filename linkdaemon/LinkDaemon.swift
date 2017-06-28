@@ -5,7 +5,7 @@ class LinkDaemon {
   var observer: FileObserver?
 
   func run() {
-    Log.debug("daemon says hello")
+    Log.debug("Daemon \(LinkDaemon.version.formatted) says hello")
 
     signal(SIGTERM) { code in
       Log.debug("Received SIGTERM, shutting down immediately")
@@ -18,5 +18,13 @@ class LinkDaemon {
 
     RunLoop.main.run()
   }
+
+  static var version: Version = {
+    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+      return Version(version)
+    }
+    return Version("?.?.?")
+  }()
+
 
 }

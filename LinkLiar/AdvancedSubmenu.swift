@@ -25,13 +25,13 @@ class AdvancedSubmenu {
   }()
 
   private lazy var toggleDaemonItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Toggle Daemon", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Toggle Daemon", action: #selector(Controller.helperIsCompatible(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()
 
   private lazy var launchAtLoginItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Launch on Login", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Launch on Login", action: #selector(Controller.helperIsCompatible(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()

@@ -3,18 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIdentifier</key>
-	<string>io.github.halo.linkhelper</string>
+	<string>io.github.halo.linkdaemon</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>LinkHelper</string>
+	<string>LinkDaemon</string>
 	<key>CFBundleShortVersionString</key>
 	<string>2.0.0</string>
 	<key>CFBundleVersion</key>
 	<string>2.0.0</string>
-	<key>SMAuthorizedClients</key>
-	<array>
-		<string>identifier "io.github.halo.LinkLiar" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: github@posteo.org (FEG4R73RPA)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
-	</array>
 </dict>
 </plist>
