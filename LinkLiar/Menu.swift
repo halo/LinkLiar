@@ -7,6 +7,20 @@ class Menu {
   private var interfaces: [Interface] = []
   private let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
+  private lazy var advancedMenuPlaceholderItem: NSMenuItem = {
+    let item = NSMenuItem(title: "", action: nil, keyEquivalent: "")
+    item.view = NSView(frame: NSMakeRect(0, 0, 0, 0))
+    return item
+  }()
+
+  private lazy var advancedMenuItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
+    item.submenu = self.advancedSubmenu
+    item.keyEquivalentModifierMask = .option
+    item.isAlternate = true
+    return item
+  }()
+
   /// The Developer Menu is revealed as alternative to this invisible dummy while holding the option key.
   private lazy var developerMenuPlaceholderItem: NSMenuItem = {
     let item = NSMenuItem(title: "", action: nil, keyEquivalent: "")
@@ -15,10 +29,36 @@ class Menu {
   }()
 
   private lazy var developerMenuItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
+    let item = NSMenuItem(title: "Developer", action: nil, keyEquivalent: "")
     item.submenu = self.developerSubmenu
-    item.keyEquivalentModifierMask = NSEventModifierFlags.option
+    item.keyEquivalentModifierMask = [.control, .option]
     item.isAlternate = true
+    return item
+  }()
+
+  private lazy var advancedSubmenu: NSMenu = {
+    let item: NSMenu = NSMenu()
+    item.addItem(self.toggleDaemonItem)
+    item.addItem(self.launchAtLoginItem)
+    item.addItem(self.showLogsItem)
+    return item
+  }()
+
+  private lazy var toggleDaemonItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Toggle Daemon", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var launchAtLoginItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Launch on Login", action: #selector(Controller.helperVersion(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var showLogsItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Show Logs", action: #selector(Controller.showLogs(_:)), keyEquivalent: "")
+    item.target = Controller.self
     return item
   }()
 
@@ -92,11 +132,11 @@ class Menu {
   }()
 
   private lazy var helpItem: NSMenuItem = {
-    return NSMenuItem(title: "Help", action: #selector(NSApplication.showHelp(_:)), keyEquivalent: "")
+    return NSMenuItem(title: "Help...", action: #selector(NSApplication.showHelp(_:)), keyEquivalent: "")
   }()
 
   private lazy var quitItem: NSMenuItem = {
-    return NSMenuItem(title: "Close", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+    return NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
   }()
 
   // MARK: Initialization
@@ -111,6 +151,8 @@ class Menu {
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultMenuItem)
     menu.addItem(NSMenuItem.separator())
+    menu.addItem(advancedMenuPlaceholderItem)
+    menu.addItem(advancedMenuItem)
     menu.addItem(developerMenuPlaceholderItem)
     menu.addItem(developerMenuItem)
     menu.addItem(helpItem)
@@ -252,7 +294,6 @@ class Menu {
   func configChanged(_ notification: Notification) {
     ignoreDefaultItem.state = Config.instance.actionForDefaultInterface() == Interface.Action.ignore ? 1 : 0
     randomizeDefaultItem.state = Config.instance.actionForDefaultInterface() == Interface.Action.random ? 1 : 0
-    Log.debug("foooooooooooooooooooooo")
 
     NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }

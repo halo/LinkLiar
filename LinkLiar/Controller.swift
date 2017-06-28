@@ -130,8 +130,14 @@ class Controller: NSObject {
     })
   }
 
-
-
+  static func showLogs(_ sender: Any) {
+    let command = "/usr/bin/log stream --predicate 'subsystem == \\\"io.github.halo.LinkLiar\\\"' --level debug"
+    let source = "tell application \"Terminal\" \n activate \n do script with command \"\(command)\" \n end tell"
+    let script = NSAppleScript(source: source)!
+    var error : NSDictionary?
+    script.executeAndReturnError(&error)
+    if error != nil { Log.error((error?.description)!) }
+  }
 
 }
 
