@@ -84,7 +84,7 @@ class Menu {
   }()
 
   private lazy var installHelperItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Install Helper", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Install Helper", action: #selector(Controller.installHelper(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()
@@ -186,8 +186,8 @@ class Menu {
         titleItem.representedObject = interface
         menu.insertItem(interfaceMenuItem(interface: interface), at: 2)
         menu.insertItem(titleItem, at: 2)
+        menu.addItem(NSMenuItem.separator())
       }
-      //menu.addItem(NSMenuItem.separator())
     }
   }
 
@@ -197,11 +197,9 @@ class Menu {
     item.target = Controller.self
     item.tag = 42
 
-    item.title = interface.softMAC.humanReadable;
+    item.title = interface.softMAC.isValid ? interface.softMAC.humanReadable : "";
     item.state = interface.hasOriginalMAC ? 1 : 0
     item.onStateImage = #imageLiteral(resourceName: "InterfaceLeaking")
-    //item.onStateImage = #imageLiteral(resourceName: "MenuIconLeaking")
-    //item.onStateImage.isTemplate = true
     item.submenu = interfaceSubMenuItem(interface: interface)
     return item
   }
@@ -218,7 +216,7 @@ class Menu {
       submenu.addItem(poweredOffItem)
     } else {
 
-      let action = Config.instance.actionForInterface(interface.hardMAC.formatted)
+      let action = Config.instance.actionForInterface(interface.hardMAC)
 
       let ignoreItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.ignoreInterface(_:)), keyEquivalent: "")
       ignoreItem.representedObject = interface

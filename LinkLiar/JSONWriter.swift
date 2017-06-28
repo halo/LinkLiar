@@ -14,11 +14,9 @@ class JSONWriter {
   }
 
   func write(_ dictionary: [String: Any]) {
-
     do {
       let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) as NSData
       let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
-      Log.error("json string = \(jsonString)")
 
       do {
         try jsonString.write(toFile: path, atomically: true, encoding: String.Encoding.utf8)

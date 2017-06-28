@@ -13,6 +13,7 @@ class LinkDaemon {
     }
     observer = FileObserver(path: Paths.configFile, callback: {
       Log.debug("file changed!")
+      Synchronizer.run()
     })
 
     RunLoop.main.run()

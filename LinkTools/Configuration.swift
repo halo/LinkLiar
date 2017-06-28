@@ -10,8 +10,8 @@ struct Configuration {
     return self.dictionary["version"] as? String
   }()
 
-  func actionForInterface(_ hardMAC: String) -> Interface.Action {
-    guard let interfaceDictionary = dictionary[hardMAC] as? [String: String] else {
+  func actionForInterface(_ hardMAC: MACAddress) -> Interface.Action {
+    guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else {
       return Interface.Action.undefined
     }
 
@@ -20,6 +20,18 @@ struct Configuration {
     }
 
     return Interface.Action(rawValue: actionName) ?? .undefined
+  }
+
+  func addressForInterface(_ hardMAC: MACAddress) -> MACAddress? {
+    guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else {
+      return nil
+    }
+
+    guard let rawAddress = interfaceDictionary["address"] else {
+      return nil
+    }
+
+    return MACAddress(rawAddress)
   }
 
   func actionForDefaultInterface() -> Interface.Action {

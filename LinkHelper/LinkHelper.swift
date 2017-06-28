@@ -70,6 +70,13 @@ extension LinkHelper: HelperProtocol {
   }
 
   func activateDaemon(reply: (Bool) -> Void) {
+    launchctl(activate: false, reply: { deactivationSuccess in
+      if deactivationSuccess {
+        Log.debug("Deactivated daemon so I can now go ahead and activate it...")
+      } else {
+        Log.debug("Deactivation failed, but that's fine, let me activate it")
+      }
+    })
     launchctl(activate: true, reply: reply)
   }
 

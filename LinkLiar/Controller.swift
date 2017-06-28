@@ -4,9 +4,18 @@ import Cocoa
 class Controller: NSObject {
 
   static func authorize(_ sender: NSMenuItem) {
-    Log.debug("Looking up helper version")
+    Log.debug("Installing Helper and Daemon...")
+    installHelper(sender)
+    createConfigDir(sender)
+    configureDaemon(sender)
+    activateDaemon(sender)
+  }
+
+  static func installHelper(_ sender: NSMenuItem) {
+    Log.debug("Elevating Helper...")
     Elevator().install()
   }
+
 
   static func resetConfig(_ sender: NSMenuItem) {
     ConfigWriter.reset()
