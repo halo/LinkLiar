@@ -26,7 +26,7 @@ class Menu {
     NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
 
     menu.addItem(authorizeItem)
-    menu.addItem(NSMenuItem.separator())
+    menu.addItem(authorizeSeparatorItem)
     // <-- Here be Interfaces -->
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
@@ -42,12 +42,18 @@ class Menu {
   func update() {
     Log.debug("Updating menu...")
     reloadInterfaceItems()
+    queryHelperAlive()
+    queryHelperVersion()
   }
 
   private lazy var authorizeItem: NSMenuItem = {
     let item = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
+  }()
+
+  private lazy var authorizeSeparatorItem: NSMenuItem = {
+    return NSMenuItem.separator()
   }()
 
   private func reloadInterfaceItems() {
@@ -69,9 +75,9 @@ class Menu {
       // Replenish corresponding items
       for interface in interfaces {
         let interfaceSubmenu = InterfaceSubmenu(interface)
+        menu.insertItem(NSMenuItem.separator(), at: 2)
         menu.insertItem(interfaceSubmenu.menuItem, at: 2)
         menu.insertItem(interfaceSubmenu.titleMenuItem, at: 2)
-        menu.addItem(NSMenuItem.separator())
       }
     }
   }
@@ -99,20 +105,31 @@ class Menu {
     NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }
 
-  func test() {
-    Intercom.helperVersion(reply: { rawVersion in
-
-      if (rawVersion == nil) {
-        Log.debug("I miss version or helper or what!")
-
-        let item5: NSMenuItem = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
-        item5.tag = 42
-        item5.target = Controller.self
-
+  func queryHelperAlive() {
+    Intercom.helperAlive(reply: { alive in
+      if alive {
+        Log.debug("Helper is alive")
 
       } else {
-        Log.debug("yes helper yes")
+        Log.debug("Helper is dead")
+        self.authorizeItem.isHidden = false
+        self.authorizeSeparatorItem.isHidden = false
+      }
+      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+    })
+  }
 
+  func queryHelperVersion() {
+    Intercom.helperVersion(reply: { version in
+      if (version.isCompatible(other: AppDelegate.version)) {
+        Log.debug("Helper is compatible")
+        self.authorizeItem.isHidden = true
+        self.authorizeSeparatorItem.isHidden = true
+
+      } else {
+        Log.debug("Helper is not compatible")
+        self.authorizeItem.isHidden = false
+        self.authorizeSeparatorItem.isHidden = false
       }
       NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })

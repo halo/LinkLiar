@@ -28,9 +28,6 @@
 		C239266E1EFC32B1008506E4 /* CopyPastableNSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239266D1EFC32B1008506E4 /* CopyPastableNSTextField.swift */; };
 		C23926701EFC4040008506E4 /* MACAddressQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239266F1EFC4040008506E4 /* MACAddressQuestion.swift */; };
 		C23926721EFC476C008506E4 /* MACAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926711EFC476C008506E4 /* MACAddressFormatter.swift */; };
-		C23926741EFD1906008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926731EFD1905008506E4 /* Identifiers.swift */; };
-		C23926751EFD1906008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926731EFD1905008506E4 /* Identifiers.swift */; };
-		C23926761EFD1906008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926731EFD1905008506E4 /* Identifiers.swift */; };
 		C23926791F03D78A008506E4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
 		C239267A1F03D78A008506E4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
 		C239267B1F03D78A008506E4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
@@ -41,6 +38,9 @@
 		C23926861F041A29008506E4 /* DeveloperSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926851F041A29008506E4 /* DeveloperSubmenu.swift */; };
 		C23926881F041A9B008506E4 /* InterfaceSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */; };
 		C239268A1F041CAB008506E4 /* DefaultSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926891F041CAB008506E4 /* DefaultSubmenu.swift */; };
+		C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
+		C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
+		C23926901F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
 		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -158,7 +158,6 @@
 		C239266D1EFC32B1008506E4 /* CopyPastableNSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyPastableNSTextField.swift; sourceTree = "<group>"; };
 		C239266F1EFC4040008506E4 /* MACAddressQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressQuestion.swift; sourceTree = "<group>"; };
 		C23926711EFC476C008506E4 /* MACAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressFormatter.swift; sourceTree = "<group>"; };
-		C23926731EFD1905008506E4 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C23926781F03D78A008506E4 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = LinkTools/Version.swift; sourceTree = "<group>"; };
 		C239267E1F040A88008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 		C23926801F040AC1008506E4 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObserver.swift; path = LinkTools/FileObserver.swift; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSubmenu.swift; sourceTree = "<group>"; };
 		C23926891F041CAB008506E4 /* DefaultSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSubmenu.swift; sourceTree = "<group>"; };
 		C239268C1F0429ED008506E4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C239268D1F0574A7008506E4 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifiers.swift; path = LinkTools/Identifiers.swift; sourceTree = "<group>"; };
 		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Intercom.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HelperProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 				C2F209651EEC5BD900355561 /* Paths.swift */,
 				C239264E1EEDCD73008506E4 /* MACAddress.swift */,
 				C23926571EF10613008506E4 /* Ifconfig.swift */,
-				C23926731EFD1905008506E4 /* Identifiers.swift */,
+				C239268D1F0574A7008506E4 /* Identifiers.swift */,
 			);
 			name = LinkTools;
 			sourceTree = "<group>";
@@ -556,8 +556,8 @@
 				C239267A1F03D78A008506E4 /* Version.swift in Sources */,
 				C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */,
 				C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */,
+				C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C291CBEF1EE86DC000154452 /* LinkHelper.swift in Sources */,
-				C23926751EFD1906008506E4 /* Identifiers.swift in Sources */,
 				C291CBE81EE85D0D00154452 /* Log.swift in Sources */,
 				C29B7D971EE69D1800609A21 /* main.swift in Sources */,
 			);
@@ -577,6 +577,7 @@
 				C239264F1EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C239266A1EF98F01008506E4 /* ConfigWriter.swift in Sources */,
+				C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C23926881F041A9B008506E4 /* InterfaceSubmenu.swift in Sources */,
 				C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */,
 				C239266E1EFC32B1008506E4 /* CopyPastableNSTextField.swift in Sources */,
@@ -591,7 +592,6 @@
 				C23926841F041795008506E4 /* AdvancedSubmenu.swift in Sources */,
 				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
 				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
-				C23926741EFD1906008506E4 /* Identifiers.swift in Sources */,
 				C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */,
 				C291CBF21EE8702E00154452 /* Controller.swift in Sources */,
 				C23926701EFC4040008506E4 /* MACAddressQuestion.swift in Sources */,
@@ -624,6 +624,7 @@
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */,
+				C23926901F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C291CC011EEAA27D00154452 /* LinkDaemon.swift in Sources */,
 				C2F209791EEC729400355561 /* Notifications.swift in Sources */,
 				C239265F1EF3FB5B008506E4 /* Config.swift in Sources */,
@@ -633,7 +634,6 @@
 				C23926621EF426FE008506E4 /* Configuration.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,
 				C2F209741EEC701F00355561 /* CFArray+Sequence.swift in Sources */,
-				C23926761EFD1906008506E4 /* Identifiers.swift in Sources */,
 				C239267B1F03D78A008506E4 /* Version.swift in Sources */,
 				C2F209761EEC701F00355561 /* Interfaces.swift in Sources */,
 				C23926821F040AC1008506E4 /* FileObserver.swift in Sources */,

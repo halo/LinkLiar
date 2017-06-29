@@ -9,18 +9,25 @@ class Intercom: NSObject {
     self.xpcConnection = nil
   }
 
-  static func helperVersion(reply: @escaping (String?) -> Void) {
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
-      error in
-      Log.debug("Oh no, no connection to helper")
-      Log.debug(error.localizedDescription)
-      reply(nil)
+  static func helperAlive(reply: @escaping (Bool) -> Void) {
+    Log.debug("Checking helper alice")
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
+      reply(false)
+      return
     }) as! HelperProtocol
+    helper.version(reply: { _ in
+      Log.debug("The helper responded with its version in alive check")
+      reply(true)
+      return
+    })
+  }
 
-    helper.version(reply: {
-      installedVersion in
-      Log.debug("Helper: Installed Version => \(installedVersion)")
-      reply(installedVersion)
+  static func helperVersion(reply: @escaping (Version) -> Void) {
+    usingHelper(block: { helper in
+      helper.version(reply: { rawVersion in
+        Log.debug("The helper responded with its version")
+        reply(Version(rawVersion))
+      })
     })
   }
 
