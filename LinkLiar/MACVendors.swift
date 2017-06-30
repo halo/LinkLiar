@@ -12,6 +12,13 @@ struct MACVendors {
     })
   }
 
+  static func name(address: MACAddress) -> String {
+    Log.debug("Looking up vendor of MAC \(address.formatted)")
+    guard let name = dictionary[address.prefix] else {
+      return "No Vendor"
+    }
+    return name
+  }
 
   private static var path = Bundle.main.url(forResource: "oui", withExtension: "json")!.path
 

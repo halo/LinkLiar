@@ -39,7 +39,9 @@ class InterfaceSubmenu {
   private func subMenuItem() -> NSMenu {
     let submenu: NSMenu = NSMenu()
 
-    let vendorNameItem = NSMenuItem(title: "Vendor here", action: nil, keyEquivalent: "")
+    let vendorName = MACVendors.name(address: interface.softMAC)
+
+    let vendorNameItem = NSMenuItem(title: vendorName, action: nil, keyEquivalent: "")
     submenu.addItem(vendorNameItem)
     submenu.addItem(NSMenuItem.separator())
 

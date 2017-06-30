@@ -12,6 +12,10 @@ class MACAddress: Equatable {
     }.joined().dropFirst())
   }
 
+  var prefix: String {
+    return formatted.components(separatedBy: ":").prefix(3).joined(separator: ":")
+  }
+
   var isValid: Bool {
     return formatted.characters.count == 17
   }

@@ -242,6 +242,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C23926C61F06E04C008506E4 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C23926951F06C787008506E4 /* Bar.swift */,
+				C23926A21F06C787008506E4 /* Menu.swift */,
+				C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */,
+				C23926991F06C787008506E4 /* DefaultSubmenu.swift */,
+				C23926931F06C787008506E4 /* AdvancedSubmenu.swift */,
+				C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		C291CBEA1EE85D1200154452 /* LinkTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,21 +316,16 @@
 		C2BEBFDB1EE48B5E0072BE59 /* LinkLiar */ = {
 			isa = PBXGroup;
 			children = (
-				C23926931F06C787008506E4 /* AdvancedSubmenu.swift */,
+				C23926C61F06E04C008506E4 /* Menu */,
 				C23926941F06C787008506E4 /* AppDelegate.swift */,
-				C23926951F06C787008506E4 /* Bar.swift */,
 				C23926961F06C787008506E4 /* ConfigWriter.swift */,
 				C23926971F06C787008506E4 /* Controller.swift */,
 				C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */,
-				C23926991F06C787008506E4 /* DefaultSubmenu.swift */,
-				C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */,
 				C239269B1F06C787008506E4 /* Elevator.swift */,
 				C239269C1F06C787008506E4 /* Intercom.swift */,
-				C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */,
 				C239269E1F06C787008506E4 /* JSONWriter.swift */,
 				C239269F1F06C787008506E4 /* MACAddressFormatter.swift */,
 				C23926A01F06C787008506E4 /* MACAddressQuestion.swift */,
-				C23926A21F06C787008506E4 /* Menu.swift */,
 				C23926A31F06C787008506E4 /* NetworkObserver.swift */,
 				C23926A41F06C787008506E4 /* SoftMACCache.swift */,
 				C23926C11F06CA80008506E4 /* MACVendors.swift */,
