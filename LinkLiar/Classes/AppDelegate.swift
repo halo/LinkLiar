@@ -8,6 +8,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     Log.debug("LinkLiar GUI \(AppDelegate.version.formatted) launched.")
     bar.setup()
     Config.observe()
+    MACVendors.load()
   }
 
   static var version: Version = {

@@ -1,3 +1,13 @@
+# 2.0.0
+
+* [DEPRECATION] Dropped support for macOS El Capitan (and earlier), only Sierra and later supported
+* [FEATURE] Rewrote the entire application from scratch using Swift 3
+* [FEATURE] Moved logic that sets MAC addresses from userland to root launch daemon
+* [FEATURE] Default settings for unknown/future Interfaces
+* [FEATURE] Re-randomize MAC addresses on wake
+* [FEATURE] Proper application help (in progress)
+* [PERFORMANCE] The main menu does not halt, obtaining interfaces happens asynchronously
+
 # 1.1.3
 
 * [BUGFIX] Defining MAC addresses manually now works #23

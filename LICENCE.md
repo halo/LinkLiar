@@ -1,6 +1,4 @@
-Copyright (c) 2015 halo
-
-See directory "Link/Vendor" for third-party libraries (all MIT-compatible).
+Copyright (c) 2017 halo
 
 MIT License
 

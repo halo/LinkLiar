@@ -22,47 +22,50 @@
 		C239265F1EF3FB5B008506E4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239265D1EF3FB5B008506E4 /* Config.swift */; };
 		C23926611EF426FE008506E4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926601EF426FE008506E4 /* Configuration.swift */; };
 		C23926621EF426FE008506E4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926601EF426FE008506E4 /* Configuration.swift */; };
-		C23926681EF45F93008506E4 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926671EF45F93008506E4 /* JSONWriter.swift */; };
-		C239266A1EF98F01008506E4 /* ConfigWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926691EF98F01008506E4 /* ConfigWriter.swift */; };
 		C239266C1EF98F1A008506E4 /* JSONWriterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239266B1EF98F1A008506E4 /* JSONWriterTests.swift */; };
-		C239266E1EFC32B1008506E4 /* CopyPastableNSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239266D1EFC32B1008506E4 /* CopyPastableNSTextField.swift */; };
-		C23926701EFC4040008506E4 /* MACAddressQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239266F1EFC4040008506E4 /* MACAddressQuestion.swift */; };
-		C23926721EFC476C008506E4 /* MACAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926711EFC476C008506E4 /* MACAddressFormatter.swift */; };
 		C23926791F03D78A008506E4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
 		C239267A1F03D78A008506E4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
 		C239267B1F03D78A008506E4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
-		C239267F1F040A88008506E4 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239267E1F040A88008506E4 /* Synchronizer.swift */; };
 		C23926811F040AC1008506E4 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926801F040AC1008506E4 /* FileObserver.swift */; };
 		C23926821F040AC1008506E4 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926801F040AC1008506E4 /* FileObserver.swift */; };
-		C23926841F041795008506E4 /* AdvancedSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926831F041795008506E4 /* AdvancedSubmenu.swift */; };
-		C23926861F041A29008506E4 /* DeveloperSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926851F041A29008506E4 /* DeveloperSubmenu.swift */; };
-		C23926881F041A9B008506E4 /* InterfaceSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */; };
-		C239268A1F041CAB008506E4 /* DefaultSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926891F041CAB008506E4 /* DefaultSubmenu.swift */; };
 		C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C23926901F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
-		C23926921F057BB2008506E4 /* SoftMACCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926911F057BB2008506E4 /* SoftMACCache.swift */; };
-		C291CBE31EE8300F00154452 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE21EE8300F00154452 /* Intercom.swift */; };
-		C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
+		C23926A51F06C787008506E4 /* AdvancedSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926931F06C787008506E4 /* AdvancedSubmenu.swift */; };
+		C23926A61F06C787008506E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926941F06C787008506E4 /* AppDelegate.swift */; };
+		C23926A71F06C787008506E4 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926951F06C787008506E4 /* Bar.swift */; };
+		C23926A81F06C787008506E4 /* ConfigWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926961F06C787008506E4 /* ConfigWriter.swift */; };
+		C23926A91F06C787008506E4 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926971F06C787008506E4 /* Controller.swift */; };
+		C23926AA1F06C787008506E4 /* CopyPastableNSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */; };
+		C23926AB1F06C787008506E4 /* DefaultSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926991F06C787008506E4 /* DefaultSubmenu.swift */; };
+		C23926AC1F06C787008506E4 /* DeveloperSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */; };
+		C23926AD1F06C787008506E4 /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239269B1F06C787008506E4 /* Elevator.swift */; };
+		C23926AE1F06C787008506E4 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239269C1F06C787008506E4 /* Intercom.swift */; };
+		C23926AF1F06C787008506E4 /* InterfaceSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */; };
+		C23926B01F06C787008506E4 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239269E1F06C787008506E4 /* JSONWriter.swift */; };
+		C23926B11F06C787008506E4 /* MACAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239269F1F06C787008506E4 /* MACAddressFormatter.swift */; };
+		C23926B21F06C787008506E4 /* MACAddressQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A01F06C787008506E4 /* MACAddressQuestion.swift */; };
+		C23926B41F06C787008506E4 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A21F06C787008506E4 /* Menu.swift */; };
+		C23926B51F06C787008506E4 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A31F06C787008506E4 /* NetworkObserver.swift */; };
+		C23926B61F06C787008506E4 /* SoftMACCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A41F06C787008506E4 /* SoftMACCache.swift */; };
+		C23926B81F06C7C4008506E4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B71F06C7C4008506E4 /* main.swift */; };
+		C23926BB1F06C7E6008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
+		C23926BC1F06C7E6008506E4 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926BA1F06C7E6008506E4 /* LinkHelper.swift */; };
+		C23926BF1F06C804008506E4 /* LinkDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926BD1F06C804008506E4 /* LinkDaemon.swift */; };
+		C23926C01F06C804008506E4 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926BE1F06C804008506E4 /* Synchronizer.swift */; };
+		C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926C11F06CA80008506E4 /* MACVendors.swift */; };
+		C23926C41F06D04E008506E4 /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C23926C31F06D04E008506E4 /* oui.json */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
-		C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBEB1EE86A0E00154452 /* Elevator.swift */; };
-		C291CBEF1EE86DC000154452 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBED1EE86CE500154452 /* LinkHelper.swift */; };
-		C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE41EE85A4000154452 /* HelperProtocol.swift */; };
-		C291CBF21EE8702E00154452 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF11EE8702E00154452 /* Controller.swift */; };
 		C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
-		C291CBFD1EE8961400154452 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBFC1EE8961400154452 /* Menu.swift */; };
-		C291CC011EEAA27D00154452 /* LinkDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CC001EEAA27D00154452 /* LinkDaemon.swift */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
 		C29B7DA31EE7336200609A21 /* io.github.halo.linkhelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFDC1EE48B5E0072BE59 /* AppDelegate.swift */; };
 		C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */; };
 		C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */; };
-		C2BEBFFA1EE48D1B0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFF91EE48D1B0072BE59 /* main.swift */; };
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
 		C2F209611EEC599100355561 /* JSONReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209601EEC599100355561 /* JSONReaderTests.swift */; };
 		C2F209641EEC5AFD00355561 /* minimalConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = C2F209631EEC5AFD00355561 /* minimalConfig.json */; };
@@ -71,8 +74,6 @@
 		C2F209681EEC5BD900355561 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209651EEC5BD900355561 /* Paths.swift */; };
 		C2F2096A1EEC5CD300355561 /* PathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209691EEC5CD300355561 /* PathsTests.swift */; };
 		C2F2096C1EEC64FE00355561 /* justText.json in Resources */ = {isa = PBXBuildFile; fileRef = C2F2096B1EEC64FE00355561 /* justText.json */; };
-		C2F2096E1EEC693500355561 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2096D1EEC693500355561 /* Bar.swift */; };
-		C2F209701EEC700700355561 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F2096F1EEC700700355561 /* NetworkObserver.swift */; };
 		C2F209731EEC701F00355561 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209711EEC701E00355561 /* CFArray+Sequence.swift */; };
 		C2F209741EEC701F00355561 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209711EEC701E00355561 /* CFArray+Sequence.swift */; };
 		C2F209751EEC701F00355561 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209721EEC701E00355561 /* Interfaces.swift */; };
@@ -153,43 +154,47 @@
 		C239265A1EF1A213008506E4 /* IfconfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IfconfigTests.swift; sourceTree = "<group>"; };
 		C239265D1EF3FB5B008506E4 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = LinkTools/Config.swift; sourceTree = "<group>"; };
 		C23926601EF426FE008506E4 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = LinkTools/Configuration.swift; sourceTree = "<group>"; };
-		C23926671EF45F93008506E4 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriter.swift; sourceTree = "<group>"; };
-		C23926691EF98F01008506E4 /* ConfigWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigWriter.swift; sourceTree = "<group>"; };
 		C239266B1EF98F1A008506E4 /* JSONWriterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriterTests.swift; sourceTree = "<group>"; };
-		C239266D1EFC32B1008506E4 /* CopyPastableNSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyPastableNSTextField.swift; sourceTree = "<group>"; };
-		C239266F1EFC4040008506E4 /* MACAddressQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressQuestion.swift; sourceTree = "<group>"; };
-		C23926711EFC476C008506E4 /* MACAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressFormatter.swift; sourceTree = "<group>"; };
 		C23926781F03D78A008506E4 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = LinkTools/Version.swift; sourceTree = "<group>"; };
-		C239267E1F040A88008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronizer.swift; sourceTree = "<group>"; };
 		C23926801F040AC1008506E4 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObserver.swift; path = LinkTools/FileObserver.swift; sourceTree = "<group>"; };
-		C23926831F041795008506E4 /* AdvancedSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvancedSubmenu.swift; sourceTree = "<group>"; };
-		C23926851F041A29008506E4 /* DeveloperSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperSubmenu.swift; sourceTree = "<group>"; };
-		C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceSubmenu.swift; sourceTree = "<group>"; };
-		C23926891F041CAB008506E4 /* DefaultSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSubmenu.swift; sourceTree = "<group>"; };
 		C239268C1F0429ED008506E4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C239268D1F0574A7008506E4 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifiers.swift; path = LinkTools/Identifiers.swift; sourceTree = "<group>"; };
-		C23926911F057BB2008506E4 /* SoftMACCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftMACCache.swift; sourceTree = "<group>"; };
-		C291CBE21EE8300F00154452 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Intercom.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C291CBE41EE85A4000154452 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = HelperProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C23926931F06C787008506E4 /* AdvancedSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedSubmenu.swift; path = Classes/AdvancedSubmenu.swift; sourceTree = "<group>"; };
+		C23926941F06C787008506E4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
+		C23926951F06C787008506E4 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bar.swift; path = Classes/Bar.swift; sourceTree = "<group>"; };
+		C23926961F06C787008506E4 /* ConfigWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigWriter.swift; path = Classes/ConfigWriter.swift; sourceTree = "<group>"; };
+		C23926971F06C787008506E4 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Classes/Controller.swift; sourceTree = "<group>"; };
+		C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopyPastableNSTextField.swift; path = Classes/CopyPastableNSTextField.swift; sourceTree = "<group>"; };
+		C23926991F06C787008506E4 /* DefaultSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultSubmenu.swift; path = Classes/DefaultSubmenu.swift; sourceTree = "<group>"; };
+		C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeveloperSubmenu.swift; path = Classes/DeveloperSubmenu.swift; sourceTree = "<group>"; };
+		C239269B1F06C787008506E4 /* Elevator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Elevator.swift; path = Classes/Elevator.swift; sourceTree = "<group>"; };
+		C239269C1F06C787008506E4 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Intercom.swift; path = Classes/Intercom.swift; sourceTree = "<group>"; };
+		C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceSubmenu.swift; path = Classes/InterfaceSubmenu.swift; sourceTree = "<group>"; };
+		C239269E1F06C787008506E4 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONWriter.swift; path = Classes/JSONWriter.swift; sourceTree = "<group>"; };
+		C239269F1F06C787008506E4 /* MACAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddressFormatter.swift; path = Classes/MACAddressFormatter.swift; sourceTree = "<group>"; };
+		C23926A01F06C787008506E4 /* MACAddressQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddressQuestion.swift; path = Classes/MACAddressQuestion.swift; sourceTree = "<group>"; };
+		C23926A21F06C787008506E4 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Classes/Menu.swift; sourceTree = "<group>"; };
+		C23926A31F06C787008506E4 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkObserver.swift; path = Classes/NetworkObserver.swift; sourceTree = "<group>"; };
+		C23926A41F06C787008506E4 /* SoftMACCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoftMACCache.swift; path = Classes/SoftMACCache.swift; sourceTree = "<group>"; };
+		C23926B71F06C7C4008506E4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C23926B91F06C7E6008506E4 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperProtocol.swift; path = Classes/HelperProtocol.swift; sourceTree = "<group>"; };
+		C23926BA1F06C7E6008506E4 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkHelper.swift; path = Classes/LinkHelper.swift; sourceTree = "<group>"; };
+		C23926BD1F06C804008506E4 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkDaemon.swift; path = Classes/LinkDaemon.swift; sourceTree = "<group>"; };
+		C23926BE1F06C804008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronizer.swift; path = Classes/Synchronizer.swift; sourceTree = "<group>"; };
+		C23926C11F06CA80008506E4 /* MACVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACVendors.swift; sourceTree = "<group>"; };
+		C23926C31F06D04E008506E4 /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
-		C291CBEB1EE86A0E00154452 /* Elevator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Elevator.swift; sourceTree = "<group>"; };
-		C291CBED1EE86CE500154452 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = LinkHelper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C291CBF11EE8702E00154452 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Controller.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; };
-		C291CBFC1EE8961400154452 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Menu.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C291CC001EEAA27D00154452 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkDaemon.swift; sourceTree = "<group>"; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Info.plist"; sourceTree = "<group>"; };
 		C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Launchd.plist"; sourceTree = "<group>"; };
 		C2BEBFD91EE48B5E0072BE59 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2BEBFDC1EE48B5E0072BE59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BEBFE51EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2BEBFEA1EE48B5E0072BE59 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
 		C2BEBFF01EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2BEBFF91EE48D1B0072BE59 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2BEC00A1EE4984E0072BE59 /* linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEC00C1EE4984E0072BE59 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2F209601EEC599100355561 /* JSONReaderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReaderTests.swift; sourceTree = "<group>"; };
@@ -197,8 +202,6 @@
 		C2F209651EEC5BD900355561 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paths.swift; path = LinkTools/Paths.swift; sourceTree = "<group>"; };
 		C2F209691EEC5CD300355561 /* PathsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsTests.swift; sourceTree = "<group>"; };
 		C2F2096B1EEC64FE00355561 /* justText.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = justText.json; sourceTree = "<group>"; };
-		C2F2096D1EEC693500355561 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
-		C2F2096F1EEC700700355561 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		C2F209711EEC701E00355561 /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CFArray+Sequence.swift"; path = "LinkTools/CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C2F209721EEC701E00355561 /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interfaces.swift; path = LinkTools/Interfaces.swift; sourceTree = "<group>"; };
 		C2F209771EEC729400355561 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = LinkTools/Notifications.swift; sourceTree = "<group>"; };
@@ -263,8 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				C29B7D961EE69D1800609A21 /* main.swift */,
-				C291CBED1EE86CE500154452 /* LinkHelper.swift */,
-				C291CBE41EE85A4000154452 /* HelperProtocol.swift */,
+				C23926B91F06C7E6008506E4 /* HelperProtocol.swift */,
+				C23926BA1F06C7E6008506E4 /* LinkHelper.swift */,
 				C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */,
 				C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */,
 			);
@@ -299,24 +302,26 @@
 		C2BEBFDB1EE48B5E0072BE59 /* LinkLiar */ = {
 			isa = PBXGroup;
 			children = (
-				C2BEBFF91EE48D1B0072BE59 /* main.swift */,
-				C2BEBFDC1EE48B5E0072BE59 /* AppDelegate.swift */,
-				C2F2096D1EEC693500355561 /* Bar.swift */,
-				C291CBFC1EE8961400154452 /* Menu.swift */,
-				C23926871F041A9B008506E4 /* InterfaceSubmenu.swift */,
-				C23926891F041CAB008506E4 /* DefaultSubmenu.swift */,
-				C23926831F041795008506E4 /* AdvancedSubmenu.swift */,
-				C23926851F041A29008506E4 /* DeveloperSubmenu.swift */,
-				C291CBF11EE8702E00154452 /* Controller.swift */,
-				C291CBEB1EE86A0E00154452 /* Elevator.swift */,
-				C2F2096F1EEC700700355561 /* NetworkObserver.swift */,
-				C291CBE21EE8300F00154452 /* Intercom.swift */,
-				C23926691EF98F01008506E4 /* ConfigWriter.swift */,
-				C23926671EF45F93008506E4 /* JSONWriter.swift */,
-				C239266D1EFC32B1008506E4 /* CopyPastableNSTextField.swift */,
-				C239266F1EFC4040008506E4 /* MACAddressQuestion.swift */,
-				C23926711EFC476C008506E4 /* MACAddressFormatter.swift */,
-				C23926911F057BB2008506E4 /* SoftMACCache.swift */,
+				C23926931F06C787008506E4 /* AdvancedSubmenu.swift */,
+				C23926941F06C787008506E4 /* AppDelegate.swift */,
+				C23926951F06C787008506E4 /* Bar.swift */,
+				C23926961F06C787008506E4 /* ConfigWriter.swift */,
+				C23926971F06C787008506E4 /* Controller.swift */,
+				C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */,
+				C23926991F06C787008506E4 /* DefaultSubmenu.swift */,
+				C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */,
+				C239269B1F06C787008506E4 /* Elevator.swift */,
+				C239269C1F06C787008506E4 /* Intercom.swift */,
+				C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */,
+				C239269E1F06C787008506E4 /* JSONWriter.swift */,
+				C239269F1F06C787008506E4 /* MACAddressFormatter.swift */,
+				C23926A01F06C787008506E4 /* MACAddressQuestion.swift */,
+				C23926A21F06C787008506E4 /* Menu.swift */,
+				C23926A31F06C787008506E4 /* NetworkObserver.swift */,
+				C23926A41F06C787008506E4 /* SoftMACCache.swift */,
+				C23926C11F06CA80008506E4 /* MACVendors.swift */,
+				C23926B71F06C7C4008506E4 /* main.swift */,
+				C23926C31F06D04E008506E4 /* oui.json */,
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
 				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
 			);
@@ -343,8 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				C2BEC00C1EE4984E0072BE59 /* main.swift */,
-				C291CC001EEAA27D00154452 /* LinkDaemon.swift */,
-				C239267E1F040A88008506E4 /* Synchronizer.swift */,
+				C23926BD1F06C804008506E4 /* LinkDaemon.swift */,
+				C23926BE1F06C804008506E4 /* Synchronizer.swift */,
 				C239268C1F0429ED008506E4 /* Info.plist */,
 			);
 			path = linkdaemon;
@@ -526,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */,
+				C23926C41F06D04E008506E4 /* oui.json in Resources */,
 				C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */,
 				C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */,
 			);
@@ -556,12 +562,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F209671EEC5BD900355561 /* Paths.swift in Sources */,
+				C23926BC1F06C7E6008506E4 /* LinkHelper.swift in Sources */,
 				C239267A1F03D78A008506E4 /* Version.swift in Sources */,
-				C291CBF01EE86DC400154452 /* HelperProtocol.swift in Sources */,
 				C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */,
 				C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */,
-				C291CBEF1EE86DC000154452 /* LinkHelper.swift in Sources */,
 				C291CBE81EE85D0D00154452 /* Log.swift in Sources */,
+				C23926BB1F06C7E6008506E4 /* HelperProtocol.swift in Sources */,
 				C29B7D971EE69D1800609A21 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,39 +576,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2BEBFFA1EE48D1B0072BE59 /* main.swift in Sources */,
-				C23926921F057BB2008506E4 /* SoftMACCache.swift in Sources */,
 				C23926581EF10613008506E4 /* Ifconfig.swift in Sources */,
-				C2F2096E1EEC693500355561 /* Bar.swift in Sources */,
-				C2F209701EEC700700355561 /* NetworkObserver.swift in Sources */,
-				C23926861F041A29008506E4 /* DeveloperSubmenu.swift in Sources */,
-				C291CBE51EE85A4000154452 /* HelperProtocol.swift in Sources */,
+				C23926B61F06C787008506E4 /* SoftMACCache.swift in Sources */,
+				C23926AF1F06C787008506E4 /* InterfaceSubmenu.swift in Sources */,
+				C23926B51F06C787008506E4 /* NetworkObserver.swift in Sources */,
+				C23926B21F06C787008506E4 /* MACAddressQuestion.swift in Sources */,
 				C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C239264F1EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
-				C239266A1EF98F01008506E4 /* ConfigWriter.swift in Sources */,
+				C23926A51F06C787008506E4 /* AdvancedSubmenu.swift in Sources */,
 				C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */,
-				C23926881F041A9B008506E4 /* InterfaceSubmenu.swift in Sources */,
+				C23926A71F06C787008506E4 /* Bar.swift in Sources */,
 				C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */,
-				C239266E1EFC32B1008506E4 /* CopyPastableNSTextField.swift in Sources */,
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
-				C23926681EF45F93008506E4 /* JSONWriter.swift in Sources */,
+				C23926B11F06C787008506E4 /* MACAddressFormatter.swift in Sources */,
 				C2F209661EEC5BD900355561 /* Paths.swift in Sources */,
-				C291CBFD1EE8961400154452 /* Menu.swift in Sources */,
+				C23926AD1F06C787008506E4 /* Elevator.swift in Sources */,
+				C23926AA1F06C787008506E4 /* CopyPastableNSTextField.swift in Sources */,
 				C23926811F040AC1008506E4 /* FileObserver.swift in Sources */,
 				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
-				C239268A1F041CAB008506E4 /* DefaultSubmenu.swift in Sources */,
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
-				C23926841F041795008506E4 /* AdvancedSubmenu.swift in Sources */,
-				C2BEBFDD1EE48B5E0072BE59 /* AppDelegate.swift in Sources */,
-				C291CBE31EE8300F00154452 /* Intercom.swift in Sources */,
-				C291CBEC1EE86A0E00154452 /* Elevator.swift in Sources */,
-				C291CBF21EE8702E00154452 /* Controller.swift in Sources */,
-				C23926701EFC4040008506E4 /* MACAddressQuestion.swift in Sources */,
+				C23926AE1F06C787008506E4 /* Intercom.swift in Sources */,
+				C23926A81F06C787008506E4 /* ConfigWriter.swift in Sources */,
+				C23926A91F06C787008506E4 /* Controller.swift in Sources */,
 				C239265E1EF3FB5B008506E4 /* Config.swift in Sources */,
 				C2F209751EEC701F00355561 /* Interfaces.swift in Sources */,
-				C23926721EFC476C008506E4 /* MACAddressFormatter.swift in Sources */,
+				C23926B01F06C787008506E4 /* JSONWriter.swift in Sources */,
+				C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */,
+				C23926A61F06C787008506E4 /* AppDelegate.swift in Sources */,
 				C2F209731EEC701F00355561 /* CFArray+Sequence.swift in Sources */,
+				C23926B81F06C7C4008506E4 /* main.swift in Sources */,
+				C23926AC1F06C787008506E4 /* DeveloperSubmenu.swift in Sources */,
+				C23926B41F06C787008506E4 /* Menu.swift in Sources */,
+				C23926AB1F06C787008506E4 /* DefaultSubmenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -625,16 +631,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F209681EEC5BD900355561 /* Paths.swift in Sources */,
+				C23926C01F06C804008506E4 /* Synchronizer.swift in Sources */,
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */,
 				C23926901F0574A7008506E4 /* Identifiers.swift in Sources */,
-				C291CC011EEAA27D00154452 /* LinkDaemon.swift in Sources */,
+				C23926BF1F06C804008506E4 /* LinkDaemon.swift in Sources */,
 				C2F209791EEC729400355561 /* Notifications.swift in Sources */,
 				C239265F1EF3FB5B008506E4 /* Config.swift in Sources */,
 				C23926501EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C291CBE91EE85D0D00154452 /* Log.swift in Sources */,
-				C239267F1F040A88008506E4 /* Synchronizer.swift in Sources */,
 				C23926621EF426FE008506E4 /* Configuration.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,
 				C2F209741EEC701F00355561 /* CFArray+Sequence.swift in Sources */,
