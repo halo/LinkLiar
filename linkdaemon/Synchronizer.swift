@@ -19,7 +19,10 @@ class Synchronizer {
         guard let address = Config.instance.addressForInterface(interface.hardMAC) else {
           continue
         }
-        if interface.softMAC == address { continue }
+        if interface.softMAC == address {
+          Log.debug("Interface \(interface.BSDName) with hardMAC \(interface.hardMAC.formatted) and softMAC \(interface.softMAC.formatted) is already set to softMAC \(address.formatted) - skipping")
+          continue
+        }
         setMAC(BSDName: interface.BSDName, address: address)
 
       default:

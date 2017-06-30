@@ -30,6 +30,8 @@ class DeveloperSubmenu {
     item.addItem(self.configureDaemonItem)
     item.addItem(self.activateDaemonItem)
     item.addItem(self.deactivateDaemonItem)
+    item.addItem(NSMenuItem.separator())
+    item.addItem(self.installAllItem)
     return item
   }()
 
@@ -81,6 +83,12 @@ class DeveloperSubmenu {
 
   private lazy var deactivateDaemonItem: NSMenuItem = {
     let item = NSMenuItem(title: "Deactivate Daemon", action: #selector(Controller.deactivateDaemon(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var installAllItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Establish all", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()

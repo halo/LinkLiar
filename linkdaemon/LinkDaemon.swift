@@ -11,12 +11,14 @@ class LinkDaemon {
       Log.debug("Received SIGTERM, shutting down immediately")
       exit(0)
     }
-    observer = FileObserver(path: Paths.configFile, callback: {
-      Log.debug("file changed!")
-      Synchronizer.run()
-    })
 
+    NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
+    Config.observe()
     RunLoop.main.run()
+  }
+
+  func configChanged(_ notification: Notification) {
+    Synchronizer.run()
   }
 
   static var version: Version = {
@@ -25,6 +27,5 @@ class LinkDaemon {
     }
     return Version("?.?.?")
   }()
-
 
 }
