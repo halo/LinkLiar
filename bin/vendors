@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+require 'open-uri'
+require 'pathname'
+require 'json'
+require 'active_support/core_ext/string/filters'
+
+vendors = {}
+
+open('http://linuxnet.ca/ieee/oui.txt') do |file|
+  file.readlines.each do |line|
+    next unless line.include? '(hex)'
+
+    prefix, name = line.split('(hex)').map(&:squish)
+    prefix = prefix.downcase.tr('-', ':')
+
+    name = name.gsub('er?te', 'eräte')
+               .gsub('W?C', 'Wäc')
+               .gsub('f?r', 'für')
+               .gsub('B?r', 'Bür')
+               .gsub('J?rg', 'Jüg')
+               .gsub('J?ge', 'Jäge')
+               .gsub('s?cur', 'sécur')
+               .remove('Co. Ltd')
+               .remove('Ltd')
+               .remove(', Inc.')
+               .remove(', Inc')
+               .remove('Inc.')
+               .remove('Inc')
+               .remove('GmbH')
+               .remove('mbH')
+               .remove('Limited')
+               .remove('& Co. KG')
+               .remove(', LLC')
+               .remove('Technology')
+               .remove('Corporation')
+               .remove(' , ')
+               .remove(' . ')
+               .remove(' Co.')
+               .remove('Co,.')
+               .remove('Corp.')
+               .remove('Corp')
+               .remove('Communications')
+               .remove('Communication')
+               .remove('Technologies')
+               .remove('Technology')
+               .remove('Devices')
+               .remove('Device')
+               .remove('Systems')
+               .remove('System')
+               .remove('Electronic')
+               .squish
+
+    if name.length > 30
+      name = name.truncate(30).remove('...')
+    end
+
+    vendors[prefix] = name
+  end
+end
+
+Pathname.new('oui.json').write vendors.to_json
