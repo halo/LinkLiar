@@ -55,6 +55,7 @@
 		C23926C01F06C804008506E4 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926BE1F06C804008506E4 /* Synchronizer.swift */; };
 		C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926C11F06CA80008506E4 /* MACVendors.swift */; };
 		C23926C41F06D04E008506E4 /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C23926C31F06D04E008506E4 /* oui.json */; };
+		C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -576,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */,
 				C23926581EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C23926B61F06C787008506E4 /* SoftMACCache.swift in Sources */,
 				C23926AF1F06C787008506E4 /* InterfaceSubmenu.swift in Sources */,

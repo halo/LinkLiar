@@ -5,10 +5,10 @@ struct MACVendors {
   private static var dictionary: [String: String] = [:]
 
   static func load() {
-    Log.debug("Loading MAC vendors...")
+    Log.debug("Loading MAC vendors asynchronously...")
     DispatchQueue.main.async(execute: { () -> Void in
       dictionary = JSONReader(filePath: path).dictionary as! [String : String]
-      Log.debug("MAC vendors loading completed")
+      Log.debug("MAC vendors loading completed. I got \(dictionary.count) prefixes.")
     })
   }
 
