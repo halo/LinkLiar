@@ -35,6 +35,7 @@ struct ConfigWriter {
 
   static func specifyInterface(_ interface: Interface, softMAC: MACAddress) {
     var dictionary = dictionaryWithCurrentVersion()
+    Log.debug("Writing specific soft MAC \(softMAC.formatted) for hard MAC \(interface.hardMAC.formatted) to config file...")
     dictionary[interface.hardMAC.formatted] = ["action": "specify", "address": softMAC.formatted]
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
@@ -53,7 +54,7 @@ struct ConfigWriter {
 
   private static func dictionaryWithCurrentVersion() -> [String: Any] {
     var dictionary = Config.instance.dictionary
-    dictionary["version"] = AppDelegate.version
+    dictionary["version"] = AppDelegate.version.formatted
     return dictionary
   }
 

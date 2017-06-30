@@ -5,14 +5,14 @@ class Menu {
   let menu = NSMenu()
 
   private var interfaces: [Interface] = []
-  private let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
+  let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
   private lazy var advancedSubmenu = AdvancedSubmenu()
   private lazy var developerSubmenu = DeveloperSubmenu()
   private lazy var defaultSubmenu = DefaultSubmenu()
 
   private lazy var helpItem: NSMenuItem = {
-    return NSMenuItem(title: "Help...", action: #selector(NSApplication.showHelp(_:)), keyEquivalent: "")
+    return NSMenuItem(title: "Help", action: #selector(NSApplication.showHelp(_:)), keyEquivalent: "")
   }()
 
   private lazy var quitItem: NSMenuItem = {
@@ -82,15 +82,14 @@ class Menu {
     }
   }
 
-
   func softMacIdentified(_ notification: Notification) {
     let interface: Interface = notification.object as! Interface
 
     queue.sync {
       for item in menu.items {
-        guard (item.tag == 42) else { continue }
-        guard (item.representedObject is Interface) else { continue }
-        guard ((item.representedObject as! Interface).hardMAC == interface.hardMAC) else { continue }
+        guard item.tag == 42 else { continue }
+        guard item.representedObject is Interface else { continue }
+        guard (item.representedObject as! Interface).hardMAC == interface.hardMAC else { continue }
         let index = menu.index(of: item)
         let interfaceSubmenu = InterfaceSubmenu(interface)
         menu.insertItem(interfaceSubmenu.menuItem, at: index)
@@ -114,6 +113,7 @@ class Menu {
         Log.debug("Helper is dead")
         self.authorizeItem.isHidden = false
         self.authorizeSeparatorItem.isHidden = false
+        self.developerSubmenu.helperTitleItem.title = "Helper not installed"
       }
       NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })
@@ -125,12 +125,14 @@ class Menu {
         Log.debug("Helper is compatible")
         self.authorizeItem.isHidden = true
         self.authorizeSeparatorItem.isHidden = true
+        self.developerSubmenu.helperTitleItem.title = "Helper \(version.formatted) installed"
 
       } else {
         Log.debug("Helper is not compatible")
         self.authorizeItem.isHidden = false
         self.authorizeSeparatorItem.isHidden = false
-      }
+        self.developerSubmenu.helperTitleItem.title = "Helper \(version.formatted) incompatible"
+}
       NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })
   }

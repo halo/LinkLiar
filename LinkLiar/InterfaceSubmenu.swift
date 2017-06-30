@@ -20,7 +20,16 @@ class InterfaceSubmenu {
     item.target = Controller.self
     item.tag = 42
 
-    item.title = self.interface.softMAC.isValid ? self.interface.softMAC.humanReadable : "";
+    if self.interface.softMAC.isValid {
+      item.title = self.interface.softMAC.humanReadable
+      SoftMACCache.remember(BSDName: self.interface.BSDName, address: self.interface.softMAC.formatted)
+    } else {
+      if let address = SoftMACCache.address(BSDName: self.interface.BSDName) {
+        item.title = address
+      } else {
+        item.title = self.interface.hardMAC.formatted
+      }
+    }
     item.state = self.interface.hasOriginalMAC ? 1 : 0
     item.onStateImage = #imageLiteral(resourceName: "InterfaceLeaking")
     item.submenu = self.subMenuItem()

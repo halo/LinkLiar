@@ -25,7 +25,9 @@ class Bar: NSObject, NSMenuDelegate {
 
   func refreshMenu() {
     Log.debug("Immediately refreshing GUI")
-    statusItem.menu!.update()
+    self.menu.queue.sync {
+      statusItem.menu!.update()
+    }
   }
 
   func menuWillOpen(_ nsMenu: NSMenu) {

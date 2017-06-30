@@ -19,6 +19,7 @@ class DeveloperSubmenu {
 
   private lazy var developerSubmenu: NSMenu = {
     let item: NSMenu = NSMenu()
+    item.addItem(self.helperTitleItem)
     item.addItem(self.installHelperItem)
     item.addItem(self.implodeHelperItem)
     item.addItem(self.helperVersionItem)
@@ -30,6 +31,10 @@ class DeveloperSubmenu {
     item.addItem(self.activateDaemonItem)
     item.addItem(self.deactivateDaemonItem)
     return item
+  }()
+
+  lazy var helperTitleItem: NSMenuItem = {
+    return NSMenuItem(title: "Helper", action: nil, keyEquivalent: "")
   }()
 
   private lazy var installHelperItem: NSMenuItem = {
