@@ -56,6 +56,8 @@
 		C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926C11F06CA80008506E4 /* MACVendors.swift */; };
 		C23926C41F06D04E008506E4 /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C23926C31F06D04E008506E4 /* oui.json */; };
 		C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
+		C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */; };
+		C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A48701F0937390095ED0C /* RandomMACs.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -184,6 +186,8 @@
 		C23926BE1F06C804008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronizer.swift; path = Classes/Synchronizer.swift; sourceTree = "<group>"; };
 		C23926C11F06CA80008506E4 /* MACVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACVendors.swift; sourceTree = "<group>"; };
 		C23926C31F06D04E008506E4 /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
+		C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OuiPrefixes.swift; path = Classes/OuiPrefixes.swift; sourceTree = "<group>"; };
+		C24A48701F0937390095ED0C /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -359,6 +363,8 @@
 				C2BEC00C1EE4984E0072BE59 /* main.swift */,
 				C23926BD1F06C804008506E4 /* LinkDaemon.swift */,
 				C23926BE1F06C804008506E4 /* Synchronizer.swift */,
+				C24A48701F0937390095ED0C /* RandomMACs.swift */,
+				C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */,
 				C239268C1F0429ED008506E4 /* Info.plist */,
 			);
 			path = linkdaemon;
@@ -641,8 +647,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F209681EEC5BD900355561 /* Paths.swift in Sources */,
+				C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */,
 				C23926C01F06C804008506E4 /* Synchronizer.swift in Sources */,
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
+				C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */,
 				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */,
 				C23926901F0574A7008506E4 /* Identifiers.swift in Sources */,

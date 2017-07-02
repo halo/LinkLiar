@@ -42,7 +42,19 @@ class Synchronizer {
   }
 
   private static func randomize(_ interface: Interface) {
+    if !interface.hasOriginalMAC {
+      Log.debug("Interface \(interface.BSDName) already does not have its original address.")
 
+      let undesiredAddress = Config.instance.exceptionAddressForInterface(interface.hardMAC)
+      if undesiredAddress != nil && interface.softMAC != undesiredAddress {
+        Log.debug("Interface \(interface.BSDName) does neither have undesired \(String(describing: undesiredAddress)). Skipping.")
+        return
+      }
+    }
+
+    Log.debug("Randomizing Interface \(interface.BSDName)")
+    let address = RandomMACs.popular()
+    setMAC(BSDName: interface.BSDName, address: address)
   }
 
   private static func setMAC(BSDName: String, address: MACAddress) {
