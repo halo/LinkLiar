@@ -8,6 +8,9 @@ extension String {
 
 class Paths {
 
+  static var debugLogFile = "/tmp/linkliar.log"
+  static var debugLogFileURL = URL(fileURLWithPath: debugLogFile)
+
   static var configDirectory = "/Library/Application Support/LinkLiar"
   static var configDirectoryURL = URL(fileURLWithPath: configDirectory)
 
