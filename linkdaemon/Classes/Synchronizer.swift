@@ -7,18 +7,12 @@ class Synchronizer {
       let action = Config.instance.actionForInterface(interface.hardMAC)
 
       switch action {
-      case Interface.Action.ignore:
-        continue
-      case Interface.Action.original:
-        originalize(interface)
-      case Interface.Action.specify:
-        specify(interface)
-      case Interface.Action.random:
-        randomize(interface)
-      default:
-        print("FIXME")
+      case Interface.Action.ignore:    continue
+      case Interface.Action.original:  originalize(interface)
+      case Interface.Action.specify:   specify(interface)
+      case Interface.Action.random:    randomize(interface)
+      case Interface.Action.undefined: Log.error("Don't know what to do with Interface \(interface.BSDName)")
       }
-
     }
   }
 
@@ -42,19 +36,30 @@ class Synchronizer {
   }
 
   private static func randomize(_ interface: Interface) {
-    if !interface.hasOriginalMAC {
-      Log.debug("Interface \(interface.BSDName) already does not have its original address.")
+    Log.debug("Interface \(interface.BSDName) is specified to be randomized.")
 
-      let undesiredAddress = Config.instance.exceptionAddressForInterface(interface.hardMAC)
-      if undesiredAddress != nil && interface.softMAC != undesiredAddress {
-        Log.debug("Interface \(interface.BSDName) does neither have undesired \(String(describing: undesiredAddress)). Skipping.")
-        return
-      }
+    if interface.hasOriginalMAC {
+      Log.debug("Randomizing Interface \(interface.BSDName) because it currently has its original MAC address.")
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.popular())
     }
 
-    Log.debug("Randomizing Interface \(interface.BSDName)")
-    let address = RandomMACs.popular()
-    setMAC(BSDName: interface.BSDName, address: address)
+    guard let undesiredAddress = Config.instance.exceptionAddressForInterface(interface.hardMAC) else {
+      Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random and no undesired address has been specified.")
+      return
+    }
+
+    if undesiredAddress.isInvalid {
+      Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random and the undesired address is invalidly specified.")
+      return
+    }
+
+    if interface.softMAC == undesiredAddress {
+      Log.debug("Randomizing Interface \(interface.BSDName) because it currently has the undesired address \(undesiredAddress.humanReadable).")
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.popular())
+    } else {
+      Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random does not have the undesired address \(undesiredAddress.humanReadable).")
+      return
+    }
   }
 
   private static func setMAC(BSDName: String, address: MACAddress) {
