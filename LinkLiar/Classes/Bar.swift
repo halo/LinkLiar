@@ -54,10 +54,20 @@ class Bar: NSObject {
     statusItem.menu = self.menu.menu
     statusItem.menu!.delegate = self
 
+    // A new Interface might have been attached, refresh immediately to see if we're leaking an original hard MAC
     NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: iconNeedsRefreshUsingNotification)
+
+    // The Daemon might have changed something as soon as a new Interface came up. Let us check the status after the Daemon has probably finished.
+    NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: iconNeedsRefreshSoon)
+
+    // The config file has been modified. Let the Daemon do it's thing and when it has probably finished, let us refresh the icon.
     NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: iconNeedsRefreshSoon)
+
+    // Some other application or the end-user might have modified a MAC address via ifconfig. We cannot detect that, so we poll (without killing the battery).
     NotificationCenter.default.addObserver(forName: .intervalElapsed, object: nil, queue: nil, using: periodicRefresh)
-    NotificationCenter.default.addObserver(forName: .menuChanged, object: nil, queue: nil, using: menuNeedsRefresh)
+
+    // The contents of the status menu have updated, go ahead and re-render it.
+    NotificationCenter.default.addObserver(forName: .menuChanged, object: nil, queue: nil, using: menuNeedsRendering)
   }
 
   func periodicRefresh(_ _: Notification) {
@@ -88,7 +98,7 @@ class Bar: NSObject {
 
   // This method is called from an asynchronous background task. That's the wrong run loop.
   // Let's hop into the correct runloop, the one managing the opened macOS status bar menu, and trigger a live refresh of the GUI.
-  func menuNeedsRefresh(_ _: Notification) {
+  func menuNeedsRendering(_ _: Notification) {
     RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: nil, order: 0, modes: [.commonModes])
   }
 

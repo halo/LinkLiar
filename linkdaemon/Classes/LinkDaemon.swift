@@ -13,6 +13,7 @@ class LinkDaemon {
     }
 
     subscribe()
+    NetworkObserver.observe()
     IntervalTimer.run()
     Config.observe()
     RunLoop.main.run()
@@ -21,33 +22,39 @@ class LinkDaemon {
   func subscribe() {
     NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
     NotificationCenter.default.addObserver(forName: .intervalElapsed, object: nil, queue: nil, using: periodicRefresh)
+    NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: interfacesChanged)
 
     NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: .NSWorkspaceWillPowerOff, object: nil)
     NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: .NSWorkspaceWillSleep, object: nil)
     NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: .NSWorkspaceDidWake, object: nil)
   }
 
-  func periodicRefresh(_ notification: Notification) {
+  func periodicRefresh(_ _: Notification) {
     Log.debug("Time for periodic activity...")
     Synchronizer.run()
   }
 
-  func configChanged(_ notification: Notification) {
+  func configChanged(_ _: Notification) {
     Log.debug("Running Synchronizer because config changed...")
     Synchronizer.run()
   }
 
-  @objc func willPowerOff(_ notification: Notification) {
+  func interfacesChanged(_ _: Notification) {
+    Log.debug("Running Synchronizer because network conditions changed...")
+    Synchronizer.run()
+  }
+
+  @objc func willPowerOff(_ _: Notification) {
     Log.debug("Logging out...")
     Synchronizer.mayReRandomize()
   }
 
-  @objc func willSleep(_ notification: Notification) {
+  @objc func willSleep(_ _: Notification) {
     Log.debug("Going to sleep...")
     Synchronizer.mayReRandomize()
   }
 
-  @objc func didWake(_ notification: Notification) {
+  @objc func didWake(_ _: Notification) {
     Log.debug("Woke up...")
     // Cannot re-randomize here because it's too late.
     // Wi-Fi will loose connection.

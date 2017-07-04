@@ -4,8 +4,8 @@ import os.log
 struct ConfigWriter {
 
   static func reset() {
-    var dictionary = [String: Any]()
-    dictionary["version"] = AppDelegate.version
+    var dictionary = [String: String]()
+    dictionary["version"] = AppDelegate.version.formatted
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
