@@ -74,10 +74,11 @@ class Bar: NSObject {
 
   func iconNeedsRefresh() {
     DispatchQueue.global(qos: .background).async(execute: { () -> Void in
-      Log.debug("--------------")
+      Log.debug("Reloading status bar icon...")
       let icon = self.icon
       self.statusItem.button!.image = icon
       self.statusItem.button!.alternateImage = icon
+      Log.debug("Status bar icon reloaded.")
     })
   }
 
@@ -86,7 +87,6 @@ class Bar: NSObject {
   func menuNeedsRefresh(_ _: Notification) {
     RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: nil, order: 0, modes: [.commonModes])
   }
-
 
   func refreshMenu() {
     Log.debug("Immediately refreshing GUI")

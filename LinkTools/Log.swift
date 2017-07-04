@@ -29,10 +29,14 @@ public struct Log {
       fileHandle.seekToEndOfFile()
       fileHandle.write(data)
     } else {
-      do {
-        try data.write(to: Paths.debugLogFileURL)
-      } catch {}
-      // There is no logfile, which means the end-user does not want file logging
+      /*
+      #if DEBUG
+        do {
+          try data.write(to: Paths.debugLogFileURL)
+        } catch {}
+        // There is no logfile, which means the end-user does not want file logging
+      #endif
+      */
     }
   }
 
