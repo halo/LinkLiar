@@ -18,9 +18,14 @@ class Synchronizer {
 
   static func mayReRandomize() {
     for interface in Interfaces.all(async: false) {
-      let action = Config.instance.actionForInterface(interface.hardMAC)
+      var action = Config.instance.actionForInterface(interface.hardMAC)
+      if (action == .undefined) {
+        Log.debug("Interface \(interface.BSDName) has no action defined, falling back to default.")
+        action = Config.instance.actionForDefaultInterface()
+      }
+
       guard action == .random else {
-        Log.debug("Not re-randomizing \(interface.BSDName) because it is not to be randomized.")
+        Log.debug("Not re-randomizing \(interface.BSDName) because it is not defined to be random at all.")
         return
       }
       Log.debug("Taking the chance to re-randomize \(interface.BSDName)")
