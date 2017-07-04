@@ -57,8 +57,8 @@ class Bar: NSObject {
     // A new Interface might have been attached, refresh immediately to see if we're leaking an original hard MAC
     NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: iconNeedsRefreshUsingNotification)
 
-    // The Daemon might have changed something as soon as a new Interface came up. Let us check the status after the Daemon has probably finished.
-    NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: iconNeedsRefreshSoon)
+    // The Daemon might have changed something as soon as a new Interface came up. That takes some time. Let us check the status after the Daemon has probably finished.
+    NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: iconNeedsRefreshLater)
 
     // The config file has been modified. Let the Daemon do it's thing and when it has probably finished, let us refresh the icon.
     NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: iconNeedsRefreshSoon)
@@ -77,6 +77,10 @@ class Bar: NSObject {
 
   func iconNeedsRefreshSoon(_ _: Notification) {
     Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.iconNeedsRefreshUsingTimer(_:)), userInfo: nil, repeats: false)
+  }
+
+  func iconNeedsRefreshLater(_ _: Notification) {
+    Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.iconNeedsRefreshUsingTimer(_:)), userInfo: nil, repeats: false)
   }
 
   func iconNeedsRefreshUsingNotification(_ _: Notification) {

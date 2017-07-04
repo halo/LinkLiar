@@ -29,6 +29,14 @@ class Controller: NSObject {
     ConfigWriter.ignoreInterface(interface)
   }
 
+  static func forgetInterface(_ sender: NSMenuItem) {
+    guard let interface = sender.representedObject as? Interface else {
+      Log.error("Expected the NSMenuItem to be associated to an Interface")
+      return
+    }
+    ConfigWriter.forgetInterface(interface)
+  }
+
   static func ignoreDefaultInterface(_ sender: NSMenuItem) {
     ConfigWriter.ignoreDefaultInterface()
   }
