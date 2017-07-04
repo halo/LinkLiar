@@ -34,6 +34,18 @@ struct Configuration {
     return MACAddress(rawAddress)
   }
 
+  func addressForDefaultInterface() -> MACAddress? {
+    guard let interfaceDictionary = dictionary["default"] as? [String: String] else {
+      return nil
+    }
+
+    guard let rawAddress = interfaceDictionary["address"] else {
+      return nil
+    }
+
+    return MACAddress(rawAddress)
+  }
+
   func exceptionAddressForInterface(_ hardMAC: MACAddress) -> MACAddress? {
     guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else {
       return nil

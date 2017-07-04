@@ -40,6 +40,7 @@ extension AppDelegate: NSApplicationDelegate {
     bar.load()
     Config.observe()
     NetworkObserver.observe()
+    IntervalTimer.run()
     MACVendors.load()
   }
 

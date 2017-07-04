@@ -7,11 +7,11 @@ class Synchronizer {
       let action = Config.instance.actionForInterface(interface.hardMAC)
 
       switch action {
-      case .ignore:    continue
+      case .ignore:    Log.debug("Dutifully ignoring Interface \(interface.BSDName)")
       case .original:  originalize(interface)
       case .specify:   specify(interface)
       case .random:    randomize(interface)
-      case .undefined: Log.error("Don't know what to do with Interface \(interface.BSDName)")
+      case .undefined: defaultize(interface)
       }
     }
   }
@@ -72,6 +72,38 @@ class Synchronizer {
     } else {
       Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random does not have the undesired address \(undesiredAddress.humanReadable).")
       return
+    }
+  }
+
+  private static func specifyFromDefault(_ interface: Interface) {
+    guard let address = Config.instance.addressForDefaultInterface() else {
+      return
+    }
+    if interface.softMAC == address {
+      Log.debug("Interface \(interface.BSDName) with hardMAC \(interface.hardMAC.formatted) and softMAC \(interface.softMAC.formatted) is already set to softMAC \(address.formatted) - skipping")
+      return
+    }
+    setMAC(BSDName: interface.BSDName, address: address)
+  }
+
+  private static func defaultize(_ interface: Interface) {
+    let action = Config.instance.actionForDefaultInterface()
+
+    switch action {
+    case .ignore:
+      Log.debug("Ignoring unknown Interface \(interface.BSDName) because that is set as default.")
+    case .original:
+      Log.debug("Originalizing unknown Interface \(interface.BSDName) because that is set as default.")
+      originalize(interface)
+    case .specify:
+      Log.debug("Specifying unknown Interface \(interface.BSDName) because that is set as default.")
+      specifyFromDefault(interface)
+    case .random:
+      Log.debug("Randomizing unknown Interface \(interface.BSDName) because that is set as default.")
+      randomize(interface)
+    case .undefined:
+      Log.debug("Randomizing unknown Interface \(interface.BSDName) because no default is specified and that's a good default.")
+      randomize(interface)
     }
   }
 

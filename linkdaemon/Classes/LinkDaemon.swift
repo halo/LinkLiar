@@ -13,18 +13,27 @@ class LinkDaemon {
     }
 
     subscribe()
+    IntervalTimer.run()
     Config.observe()
     RunLoop.main.run()
   }
 
   func subscribe() {
     NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
-    NSWorkspace.shared().notificationCenter.addObserver(self, selector:#selector(willPowerOff(_:)), name: .NSWorkspaceWillPowerOff, object: nil)
-    NSWorkspace.shared().notificationCenter.addObserver(self, selector:#selector(willSleep(_:)), name: .NSWorkspaceWillSleep, object: nil)
-    NSWorkspace.shared().notificationCenter.addObserver(self, selector:#selector(didWake(_:)), name: .NSWorkspaceDidWake, object: nil)
+    NotificationCenter.default.addObserver(forName: .intervalElapsed, object: nil, queue: nil, using: periodicRefresh)
+
+    NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: .NSWorkspaceWillPowerOff, object: nil)
+    NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: .NSWorkspaceWillSleep, object: nil)
+    NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: .NSWorkspaceDidWake, object: nil)
+  }
+
+  func periodicRefresh(_ notification: Notification) {
+    Log.debug("Time for periodic activity...")
+    Synchronizer.run()
   }
 
   func configChanged(_ notification: Notification) {
+    Log.debug("Running Synchronizer because config changed...")
     Synchronizer.run()
   }
 

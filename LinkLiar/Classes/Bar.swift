@@ -49,15 +49,20 @@ class Bar: NSObject {
    */
   func load() {
     statusItem.button!.image = icon
-    statusItem.button!.alternateImage = icon
+    statusItem.button!.alternateImage = statusItem.button!.image
     statusItem.button!.setAccessibilityLabel("Linkliar")
-
     statusItem.menu = self.menu.menu
     statusItem.menu!.delegate = self
+
     NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: iconNeedsRefreshUsingNotification)
-    //NotificationCenter.default.addObserver(forName: .softMacIdentified, object: nil, queue: nil, using: iconNeedsRefreshSoon)
     NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: iconNeedsRefreshSoon)
+    NotificationCenter.default.addObserver(forName: .intervalElapsed, object: nil, queue: nil, using: periodicRefresh)
     NotificationCenter.default.addObserver(forName: .menuChanged, object: nil, queue: nil, using: menuNeedsRefresh)
+  }
+
+  func periodicRefresh(_ _: Notification) {
+    Log.debug("Time for periodic activity...")
+    iconNeedsRefresh()
   }
 
   func iconNeedsRefreshSoon(_ _: Notification) {
@@ -75,9 +80,8 @@ class Bar: NSObject {
   func iconNeedsRefresh() {
     DispatchQueue.global(qos: .background).async(execute: { () -> Void in
       Log.debug("Reloading status bar icon...")
-      let icon = self.icon
-      self.statusItem.button!.image = icon
-      self.statusItem.button!.alternateImage = icon
+      self.statusItem.button!.image = self.icon
+      self.statusItem.button!.alternateImage = self.statusItem.button!.image
       Log.debug("Status bar icon reloaded.")
     })
   }

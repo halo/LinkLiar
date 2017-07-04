@@ -61,6 +61,18 @@ class Controller: NSObject {
     ConfigWriter.specifyInterface(interface, softMAC: softMAC)
   }
 
+  static func specifyDefaultInterface(_ sender: NSMenuItem) {
+    let title = "Choose MAC for unknown Interfaces"
+    let description = "Whenever a new Interface is detected, this MAC address will be assigned to it."
+    guard let answer = MACAddressQuestion(title: title, description: description).ask() else {
+      Log.debug("You pressed <Cancel> when asked to enter a MAC address.")
+      return
+    }
+    let softMAC = MACAddress(answer)
+    Log.debug("You typed in \(answer) as desired MAC address, which is \(softMAC.formatted)")
+    ConfigWriter.specifyDefaultInterface(softMAC: softMAC)
+  }
+
   static func originalizeInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
@@ -69,20 +81,15 @@ class Controller: NSObject {
     ConfigWriter.originalizeInterface(interface)
   }
 
-  static func helperIsCompatible(_ sender: Any) {
-    Log.debug("Querying helper version")
-    Intercom.helperVersion(reply: { version in
-      if (true) {
-        Log.debug("helper does not seem to say much")
-
-      } else {
-        Log.debug("helper is helpful")
-
-      }
-    })
+  static func originalizeDefaultInterface(_ _: NSMenuItem) {
+    ConfigWriter.originalizeDefaultInterface()
   }
 
-  static func createConfigDir(_ sender: Any) {
+  static func helperIsCompatible(_ _: Any) {
+    Log.debug("TODO")
+  }
+
+  static func createConfigDir(_ _: Any) {
     Intercom.createConfigDir(reply: {
       success in
       if (success) {
@@ -93,7 +100,7 @@ class Controller: NSObject {
     })
   }
 
-  static func configureDaemon(_ sender: Any) {
+  static func configureDaemon(_ _: Any) {
     Intercom.configureDaemon(reply: {
       success in
       if (success) {
@@ -104,7 +111,7 @@ class Controller: NSObject {
     })
   }
 
-  static func activateDaemon(_ sender: Any) {
+  static func activateDaemon(_ _: Any) {
     Intercom.activateDaemon(reply: {
       success in
       if (success) {
