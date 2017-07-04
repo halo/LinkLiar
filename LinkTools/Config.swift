@@ -18,8 +18,9 @@ struct Config {
   }
 
   static func observe() {
-    var noop = observer as FileObserver?
-    if noop != nil { noop = nil }
+    // This is a silly no-op to initiate the observer variable.
+    if observer as FileObserver? != nil {}
+    reload()
   }
 
   static func reload() {

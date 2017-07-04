@@ -12,13 +12,36 @@ class LinkDaemon {
       exit(0)
     }
 
-    NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
+    subscribe()
     Config.observe()
     RunLoop.main.run()
   }
 
+  func subscribe() {
+    NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
+    NSWorkspace.shared().notificationCenter.addObserver(self, selector:#selector(willPowerOff(_:)), name: .NSWorkspaceWillPowerOff, object: nil)
+    NSWorkspace.shared().notificationCenter.addObserver(self, selector:#selector(willSleep(_:)), name: .NSWorkspaceWillSleep, object: nil)
+    NSWorkspace.shared().notificationCenter.addObserver(self, selector:#selector(didWake(_:)), name: .NSWorkspaceDidWake, object: nil)
+  }
+
   func configChanged(_ notification: Notification) {
     Synchronizer.run()
+  }
+
+  @objc func willPowerOff(_ notification: Notification) {
+    Log.debug("Logging out...")
+    Synchronizer.mayReRandomize()
+  }
+
+  @objc func willSleep(_ notification: Notification) {
+    Log.debug("Going to sleep...")
+    Synchronizer.mayReRandomize()
+  }
+
+  @objc func didWake(_ notification: Notification) {
+    Log.debug("Woke up...")
+    // Cannot re-randomize here because it's too late.
+    // Wi-Fi will loose connection.
   }
 
   static var version: Version = {

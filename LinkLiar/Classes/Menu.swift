@@ -19,6 +19,10 @@ class Menu {
     return NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
   }()
 
+  var hasAnyOriginalMAC: Bool {
+    return self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
+  }
+
   // MARK: Initialization
 
   init() {

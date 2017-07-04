@@ -7,12 +7,24 @@ class Synchronizer {
       let action = Config.instance.actionForInterface(interface.hardMAC)
 
       switch action {
-      case Interface.Action.ignore:    continue
-      case Interface.Action.original:  originalize(interface)
-      case Interface.Action.specify:   specify(interface)
-      case Interface.Action.random:    randomize(interface)
-      case Interface.Action.undefined: Log.error("Don't know what to do with Interface \(interface.BSDName)")
+      case .ignore:    continue
+      case .original:  originalize(interface)
+      case .specify:   specify(interface)
+      case .random:    randomize(interface)
+      case .undefined: Log.error("Don't know what to do with Interface \(interface.BSDName)")
       }
+    }
+  }
+
+  static func mayReRandomize() {
+    for interface in Interfaces.all(async: false) {
+      let action = Config.instance.actionForInterface(interface.hardMAC)
+      guard action == .random else {
+        Log.debug("Not re-randomizing \(interface.BSDName) because it is not to be randomized.")
+        return
+      }
+      Log.debug("Taking the chance to re-randomize \(interface.BSDName)")
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.popular())
     }
   }
 
@@ -32,6 +44,7 @@ class Synchronizer {
       Log.debug("Skipping Interface \(interface.BSDName), because it currently has its original MAC address.")
       return
     }
+    Log.debug("Giving Interface \(interface.BSDName) back its original hardware MAC.")
     setMAC(BSDName: interface.BSDName, address: interface.hardMAC)
   }
 
@@ -69,8 +82,8 @@ class Synchronizer {
     }
     Log.info("Setting MAC address <\(address.formatted)> for Interface \(BSDName)...")
     let task = Process()
-    task.launchPath = "/usr/bin/sudo"
-    task.arguments = ["/sbin/ifconfig", BSDName, "ether", address.formatted]
+    task.launchPath = "/sbin/ifconfig"
+    task.arguments = [BSDName, "ether", address.formatted]
     task.launch()
   }
 

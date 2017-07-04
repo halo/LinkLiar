@@ -3,19 +3,20 @@
 jazzy --xcodebuild-arguments \
       --author halo \
       --github_url https://github.com/halo/LinkLiar \
+      --min-acl internal \
       --xcodebuild-arguments -scheme,LinkLiar \
       --output docs/LinkLiar
 
-jazzy --xcodebuild-arguments \
-      --author halo \
-      --github_url https://github.com/halo/LinkLiar \
-      --xcodebuild-arguments -scheme,LinkHelper \
-      --output docs/LinkHelper
-
-jazzy --xcodebuild-arguments \
-      --author halo \
-      --github_url https://github.com/halo/LinkLiar \
-      --xcodebuild-arguments -scheme,linkdaemon \
-      --output docs/linkdaemon
+#jazzy --xcodebuild-arguments \
+#      --author halo \
+#      --github_url https://github.com/halo/LinkLiar \
+#      --xcodebuild-arguments -scheme,LinkHelper \
+#      --output docs/LinkHelper
+#
+#jazzy --xcodebuild-arguments \
+#      --author halo \
+#      --github_url https://github.com/halo/LinkLiar \
+#      --xcodebuild-arguments -scheme,linkdaemon \
+#      --output docs/linkdaemon
 
 open docs/LinkLiar/index.html

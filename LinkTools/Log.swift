@@ -11,16 +11,16 @@ public struct Log {
 
   public static func info(_ message: String) {
     os_log("%{public}@", log: log, type: .info, message)
-    appendToLogfile(message, prefix: "INFO")
+    appendToLogfile(message, prefix: "INFO ")
   }
 
   public static func error(_ message: String) {
     os_log("%{public}@", log: log, type: .error, message)
-    appendToLogfile(message, prefix: "ERROR1")
+    appendToLogfile(message, prefix: "ERROR")
   }
 
   private static func appendToLogfile(_ message: String, prefix: String) {
-    let data = "\(prefix) \(message)\n".data(using: String.Encoding.utf8)!
+    let data = "\(prefix) \(message)\n".data(using: .utf8)!
 
     if let fileHandle = FileHandle(forWritingAtPath: Paths.debugLogFile) {
       defer {
@@ -29,7 +29,10 @@ public struct Log {
       fileHandle.seekToEndOfFile()
       fileHandle.write(data)
     } else {
-      // There is no logfile
+      do {
+        try data.write(to: Paths.debugLogFileURL)
+      } catch {}
+      // There is no logfile, which means the end-user does not want file logging
     }
   }
 

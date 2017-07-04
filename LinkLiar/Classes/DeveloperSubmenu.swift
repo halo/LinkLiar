@@ -22,7 +22,6 @@ class DeveloperSubmenu {
     item.addItem(self.helperTitleItem)
     item.addItem(self.installHelperItem)
     item.addItem(self.implodeHelperItem)
-    item.addItem(self.helperVersionItem)
     item.addItem(NSMenuItem.separator())
     item.addItem(self.createConfigDirectoryItem)
     item.addItem(self.resetConfigItem)
@@ -47,12 +46,6 @@ class DeveloperSubmenu {
 
   private lazy var implodeHelperItem: NSMenuItem = {
     let item = NSMenuItem(title: "Remove Helper", action: #selector(Controller.implodeHelper(_:)), keyEquivalent: "")
-    item.target = Controller.self
-    return item
-  }()
-
-  private lazy var helperVersionItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Helper Version", action: #selector(Controller.helperIsCompatible(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()
