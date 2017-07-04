@@ -76,10 +76,10 @@ class InterfaceSubmenu {
       originalizeItem.state = action == Interface.Action.original ? 1 : 0
       submenu.addItem(originalizeItem)
 
-      let forgetItem: NSMenuItem = NSMenuItem(title: "Forget", action: #selector(Controller.forgetInterface), keyEquivalent: "")
+      let forgetItem: NSMenuItem = NSMenuItem(title: "Default", action: #selector(Controller.forgetInterface), keyEquivalent: "")
       forgetItem.representedObject = interface
       forgetItem.target = Controller.self
-      forgetItem.state = action == Interface.Action.original ? 1 : 0
+      forgetItem.state = action == Interface.Action.undefined ? 1 : 0
       submenu.addItem(forgetItem)
 
       submenu.addItem(NSMenuItem.separator())
