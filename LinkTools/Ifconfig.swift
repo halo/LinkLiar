@@ -57,9 +57,10 @@ class Ifconfig {
 
   private lazy var outputString: String = {
     guard let stdout = String(data: self.outputData, encoding: .utf8) else {
-      Log.error("I ran `ifconfig \(self.BSDName)` and expected STDOUT but there was none.")
+      Log.error("I ran `ifconfig \(self.BSDName)` and expected STDOUT but there was none at all.")
       return ""
     }
+
     return stdout
   }()
 

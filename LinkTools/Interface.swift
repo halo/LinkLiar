@@ -77,8 +77,9 @@ class Interface {
     self._hardMAC = hardMAC
     self._softMAC = ""
     let ifconfig = Ifconfig(BSDName: self.BSDName)
+    if !isSpoofable { return }
 
-    if (async) {
+    if async {
       ifconfig.softMAC(callback: { address in
         self._softMAC = address.formatted
         NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)

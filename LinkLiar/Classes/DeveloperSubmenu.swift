@@ -2,6 +2,14 @@ import Cocoa
 
 class DeveloperSubmenu {
 
+  lazy var menuItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Developer", action: nil, keyEquivalent: "")
+    item.submenu = self.developerSubmenu
+    item.keyEquivalentModifierMask = [.shift, .option]
+    item.isAlternate = true
+    return item
+  }()
+
   func update() {
     Intercom.helperVersion(reply: { versionOrNil in
       guard let version = versionOrNil else {
@@ -18,14 +26,6 @@ class DeveloperSubmenu {
       NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })
   }
-
-  lazy var menuItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Developer", action: nil, keyEquivalent: "")
-    item.submenu = self.developerSubmenu
-    item.keyEquivalentModifierMask = [.shift, .option]
-    item.isAlternate = true
-    return item
-  }()
 
   private lazy var developerSubmenu: NSMenu = {
     let item: NSMenu = NSMenu()
