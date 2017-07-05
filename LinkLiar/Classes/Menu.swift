@@ -35,9 +35,9 @@ class Menu {
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
     menu.addItem(NSMenuItem.separator())
-    menu.addItem(advancedSubmenu.placeholderItem)
+    menu.addItem(NSMenuItem.placeholder())
     menu.addItem(advancedSubmenu.menuItem)
-    menu.addItem(developerSubmenu.placeholderItem)
+    menu.addItem(NSMenuItem.placeholder())
     menu.addItem(developerSubmenu.menuItem)
     menu.addItem(helpItem)
     menu.addItem(quitItem)
@@ -46,8 +46,8 @@ class Menu {
   func update() {
     Log.debug("Updating menu...")
     reloadInterfaceItems()
-    queryHelperAlive()
-    queryHelperVersion()
+    developerSubmenu.update()
+    checkHelper()
   }
 
   private lazy var authorizeItem: NSMenuItem = {
@@ -108,35 +108,24 @@ class Menu {
     NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }
 
-  func queryHelperAlive() {
-    Intercom.helperAlive(reply: { alive in
-      if alive {
-        Log.debug("Helper is alive")
-
-      } else {
-        Log.debug("Helper is dead")
+  func checkHelper() {
+    Intercom.helperVersion(reply: { versionOrNil in
+      guard let version = versionOrNil else {
+        self.authorizeItem.title = "Authorize..."
         self.authorizeItem.isHidden = false
         self.authorizeSeparatorItem.isHidden = false
-        self.developerSubmenu.helperTitleItem.title = "Helper not installed"
+        NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+        return
       }
-      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
-    })
-  }
 
-  func queryHelperVersion() {
-    Intercom.helperVersion(reply: { version in
-      if (version.isCompatible(other: AppDelegate.version)) {
-        Log.debug("Helper is compatible")
+      if (version.isCompatible(with: AppDelegate.version)) {
         self.authorizeItem.isHidden = true
         self.authorizeSeparatorItem.isHidden = true
-        self.developerSubmenu.helperTitleItem.title = "Helper \(version.formatted) installed"
-
       } else {
-        Log.debug("Helper is not compatible")
+        self.authorizeItem.title = "Re-authorize..."
         self.authorizeItem.isHidden = false
         self.authorizeSeparatorItem.isHidden = false
-        self.developerSubmenu.helperTitleItem.title = "Helper \(version.formatted) incompatible"
-}
+      }
       NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
     })
   }

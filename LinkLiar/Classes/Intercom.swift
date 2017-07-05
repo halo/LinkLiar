@@ -22,12 +22,14 @@ class Intercom: NSObject {
     })
   }
 
-  static func helperVersion(reply: @escaping (Version) -> Void) {
-    usingHelper(block: { helper in
-      helper.version(reply: { rawVersion in
-        Log.debug("The helper responded with its version")
-        reply(Version(rawVersion))
-      })
+  static func helperVersion(reply: @escaping (Version?) -> Void) {
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
+      return reply(nil)
+    }) as! HelperProtocol
+
+    helper.version(reply: { rawVersion in
+      Log.debug("The helper responded with its version")
+      reply(Version(rawVersion))
     })
   }
 

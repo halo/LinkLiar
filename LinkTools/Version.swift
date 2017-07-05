@@ -18,8 +18,8 @@ struct Version {
     return "\(self.major).\(self.minor).\(self.patch)"
   }
 
-  func isCompatible(other: Version) -> Bool {
-    return self.major == other.major && self.minor == other.minor
+  func isCompatible(with: Version) -> Bool {
+    return self.major == with.major && self.minor == with.minor
   }
 
 }

@@ -2,12 +2,6 @@ import Cocoa
 
 class AdvancedSubmenu {
 
-  lazy var placeholderItem: NSMenuItem = {
-    let item = NSMenuItem(title: "", action: nil, keyEquivalent: "")
-    item.view = NSView(frame: NSMakeRect(0, 0, 0, 0))
-    return item
-  }()
-
   lazy var menuItem: NSMenuItem = {
     let item = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
     item.submenu = self.advancedSubmenu

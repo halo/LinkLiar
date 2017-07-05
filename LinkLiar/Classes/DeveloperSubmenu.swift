@@ -2,12 +2,22 @@ import Cocoa
 
 class DeveloperSubmenu {
 
-  /// The Developer Menu is revealed as "alternate" to this invisible dummy
-  lazy var placeholderItem: NSMenuItem = {
-    let item = NSMenuItem(title: "", action: nil, keyEquivalent: "")
-    item.view = NSView(frame: NSMakeRect(0, 0, 0, 0))
-    return item
-  }()
+  func update() {
+    Intercom.helperVersion(reply: { versionOrNil in
+      guard let version = versionOrNil else {
+        self.helperTitleItem.title = "Helper not installed"
+        NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+        return
+      }
+
+      if (version.isCompatible(with: AppDelegate.version)) {
+        self.helperTitleItem.title = "Helper \(version.formatted) installed"
+      } else {
+        self.helperTitleItem.title = "Helper \(version.formatted) incompatible"
+      }
+      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+    })
+  }
 
   lazy var menuItem: NSMenuItem = {
     let item = NSMenuItem(title: "Developer", action: nil, keyEquivalent: "")
@@ -35,7 +45,7 @@ class DeveloperSubmenu {
     return item
   }()
 
-  lazy var helperTitleItem: NSMenuItem = {
+  private lazy var helperTitleItem: NSMenuItem = {
     return NSMenuItem(title: "Helper", action: nil, keyEquivalent: "")
   }()
 
