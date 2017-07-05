@@ -55,6 +55,20 @@ extension LinkHelper: HelperProtocol {
     }
   }
 
+  func removeConfigDirectory(reply: (Bool) -> Void) {
+    let manager = FileManager.default
+
+    do {
+      try manager.removeItem(atPath: Paths.configDirectory)
+      Log.debug("Deleted directory yo")
+      reply(true)
+    } catch let error as NSError {
+      Log.debug("Could not delete configuration directory")
+      Log.debug("Unable to delete directory \(error.localizedDescription)")
+      reply(false)
+    }
+  }
+
   func configureDaemon(reply: (Bool) -> Void) {
     let plist : [String: Any] = [
       "Label": Identifiers.daemon.rawValue,

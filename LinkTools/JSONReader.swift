@@ -9,6 +9,14 @@ class JSONReader {
     return URL(fileURLWithPath: path)
   }
 
+  var success: Bool {
+    return data != nil
+  }
+
+  var failure: Bool {
+    return !success
+  }
+
   init(filePath: String) {
     self.path = filePath
   }

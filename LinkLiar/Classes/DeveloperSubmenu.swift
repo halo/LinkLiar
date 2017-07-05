@@ -2,7 +2,7 @@ import Cocoa
 
 class DeveloperSubmenu {
 
-  /// The Developer Menu is revealed as alternative to this invisible dummy while holding the option key.
+  /// The Developer Menu is revealed as "alternate" to this invisible dummy
   lazy var placeholderItem: NSMenuItem = {
     let item = NSMenuItem(title: "", action: nil, keyEquivalent: "")
     item.view = NSView(frame: NSMakeRect(0, 0, 0, 0))
@@ -24,6 +24,7 @@ class DeveloperSubmenu {
     item.addItem(self.implodeHelperItem)
     item.addItem(NSMenuItem.separator())
     item.addItem(self.createConfigDirectoryItem)
+    item.addItem(self.removeConfigDirectoryItem)
     item.addItem(self.resetConfigItem)
     item.addItem(NSMenuItem.separator())
     item.addItem(self.configureDaemonItem)
@@ -52,6 +53,12 @@ class DeveloperSubmenu {
 
   private lazy var createConfigDirectoryItem: NSMenuItem = {
     let item = NSMenuItem(title: "Create Config Dir", action: #selector(Controller.createConfigDir(_:)), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var removeConfigDirectoryItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Remove Config Dir", action: #selector(Controller.removeConfigDir(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()

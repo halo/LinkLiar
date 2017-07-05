@@ -108,6 +108,17 @@ class Controller: NSObject {
     })
   }
 
+  static func removeConfigDir(_ _: Any) {
+    Intercom.removeConfigDir(reply: {
+      success in
+      if (success) {
+        Log.debug("Deleted your dir now")
+      } else {
+        Log.debug("No dir deletion for you")
+      }
+    })
+  }
+
   static func configureDaemon(_ _: Any) {
     Intercom.configureDaemon(reply: {
       success in

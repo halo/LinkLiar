@@ -32,19 +32,20 @@ class Intercom: NSObject {
   }
 
   static func createConfigDir(reply: @escaping (Bool) -> Void) {
-    Log.debug("Asking Helper to create dir")
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
-      error in
-      Log.debug("Oh no, no connection to helper")
-      Log.debug(error.localizedDescription)
-      reply(false)
-    }) as! HelperProtocol
+    usingHelper(block: { helper in
+      helper.createConfigDirectory(reply: { success in
+        Log.debug("Helper worked on config dir creation")
+        reply(success)
+      })
+    })
+  }
 
-    Log.debug("helper is there")
-    helper.createConfigDirectory(reply: {
-      success in
-      Log.debug("Helper worked on some directory I guess")
-      reply(success)
+  static func removeConfigDir(reply: @escaping (Bool) -> Void) {
+    usingHelper(block: { helper in
+      helper.removeConfigDirectory(reply: { success in
+        Log.debug("Helper worked on config dir deletion")
+        reply(success)
+      })
     })
   }
 

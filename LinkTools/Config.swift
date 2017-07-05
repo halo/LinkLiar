@@ -18,7 +18,7 @@ struct Config {
   }
 
   static func observe() {
-    // This is a silly no-op to initiate the observer variable.
+    // This is a silly no-op to initiate the `observer` variable.
     if observer as FileObserver? != nil {}
     reload()
   }
@@ -26,7 +26,11 @@ struct Config {
   static func reload() {
     // This is just to initialize the static variable holding the observer.
     Log.debug("Reloading Configuration singleton from file")
-    let dictionary = JSONReader(filePath: Paths.configFile).dictionary
+    let reader = JSONReader(filePath: Paths.configFile)
+    if reader.failure {
+      return
+    }
+    let dictionary = reader.dictionary
     _instance = Configuration(dictionary: dictionary)
     NotificationCenter.default.post(name:.configChanged, object: nil, userInfo: nil)
   }

@@ -8,7 +8,6 @@ class Interface {
     case random = "random"
     case specify = "specify"
     case original = "original"
-    case undefined
   }
 
   // These attributes are known instantaneously
