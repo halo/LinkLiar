@@ -24,12 +24,14 @@ class SettingsSubmenu {
   private lazy var allowRerandomizationItem: NSMenuItem = {
     let item = NSMenuItem(title: "Allow Rerandomization", action: #selector(Controller.toggleRerandomization), keyEquivalent: "")
     item.target = Controller.self
+    item.toolTip = "When sleeping or logging out, re-randomize MAC addresses of interfaces that are set to be random (recommended)."
     return item
   }()
 
   private lazy var independentDaemonItem: NSMenuItem = {
     let item = NSMenuItem(title: "Run in Background", action: #selector(Controller.toggleDaemonRestriction), keyEquivalent: "")
     item.target = Controller.self
+    item.toolTip = "Manage Interfaces even when this GUI is not running (recommended)."
     return item
   }()
 
