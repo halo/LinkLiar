@@ -13,5 +13,5 @@ protocol HelperProtocol {
   func activateDaemon(reply: (Bool) -> Void)
   func deactivateDaemon(reply: (Bool) -> Void)
 
-  func implode(reply: (Bool) -> Void)
+  func uninstallHelper(reply: (Bool) -> Void)
 }

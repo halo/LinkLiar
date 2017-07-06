@@ -68,6 +68,9 @@ class Bar: NSObject {
 
     // The contents of the status menu have updated, go ahead and re-render it.
     NotificationCenter.default.addObserver(forName: .menuChanged, object: nil, queue: nil, using: menuNeedsRendering)
+
+    // So we don't have glitches by menu items suddenly disappearing
+    menu.update()
   }
 
   func periodicRefresh(_ _: Notification) {

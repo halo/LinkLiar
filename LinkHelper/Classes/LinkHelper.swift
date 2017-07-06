@@ -102,39 +102,9 @@ extension LinkHelper: HelperProtocol {
     launchctl(activate: false, reply: reply)
   }
 
-  func implode(reply: (Bool) -> Void) {
-    Log.debug("Removing helper...")
-
-    do {
-      try FileManager.default.removeItem(atPath: Paths.helperPlistFile)
-    }
-    catch let error as NSError {
-      Log.error("Could not delete helper plist \(error) is it there?")
-      return
-    }
-
-
-    do {
-      try FileManager.default.removeItem(atPath: Paths.helperExecutable)
-    }
-    catch let error as NSError {
-      Log.error("Could not delete helper executable \(error) is it there?")
-      //reply(false)
-      return
-    }
-
-    Log.debug("Removing helper daemon...")
-    let task = Process()
-    task.launchPath = "/usr/bin/sudo"
-    task.arguments = ["/bin/launchctl", "bootout", "system/\(Identifiers.helper.rawValue)"]
-    task.launch()
-    task.waitUntilExit()
-
-    if task.terminationStatus == 0 {
-      reply(true)
-    } else {
-      reply(false)
-    }
+  func uninstallHelper(reply: (Bool) -> Void) {
+    UninstallHelper.perform()
+    reply(true)
   }
 
   // MARK Private Instance Methods

@@ -7,7 +7,7 @@ class Menu {
   private var interfaces: [Interface] = []
   let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
-  private lazy var advancedSubmenu = AdvancedSubmenu()
+  private lazy var settingsSubmenu = SettingsSubmenu()
   private lazy var developerSubmenu = DeveloperSubmenu()
   private lazy var defaultSubmenu = DefaultSubmenu()
 
@@ -34,11 +34,10 @@ class Menu {
     // <-- Here be Interfaces -->
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
-    menu.addItem(NSMenuItem.separator())
-    menu.addItem(NSMenuItem.placeholder())
-    menu.addItem(advancedSubmenu.menuItem)
+    menu.addItem(settingsSubmenu.menuItem)
     menu.addItem(NSMenuItem.placeholder())
     menu.addItem(developerSubmenu.menuItem)
+    menu.addItem(NSMenuItem.separator())
     menu.addItem(helpItem)
     menu.addItem(quitItem)
   }

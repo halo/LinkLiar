@@ -31,7 +31,7 @@
 		C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C23926901F0574A7008506E4 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
-		C23926A51F06C787008506E4 /* AdvancedSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926931F06C787008506E4 /* AdvancedSubmenu.swift */; };
+		C23926A51F06C787008506E4 /* SettingsSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926931F06C787008506E4 /* SettingsSubmenu.swift */; };
 		C23926A61F06C787008506E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926941F06C787008506E4 /* AppDelegate.swift */; };
 		C23926A71F06C787008506E4 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926951F06C787008506E4 /* Bar.swift */; };
 		C23926A81F06C787008506E4 /* ConfigWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926961F06C787008506E4 /* ConfigWriter.swift */; };
@@ -69,6 +69,7 @@
 		C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */; };
 		C2BE6B9C1F0D523F0086A843 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9B1F0D523F0086A843 /* ConfigurationTests.swift */; };
 		C2BE6B9E1F0D791B0086A843 /* LaunchCtl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */; };
+		C2BE6BA01F0E47770086A843 /* UninstallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9F1F0E47770086A843 /* UninstallHelper.swift */; };
 		C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */; };
 		C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */; };
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
@@ -169,16 +170,16 @@
 		C23926801F040AC1008506E4 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObserver.swift; path = LinkTools/FileObserver.swift; sourceTree = "<group>"; };
 		C239268C1F0429ED008506E4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C239268D1F0574A7008506E4 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifiers.swift; path = LinkTools/Identifiers.swift; sourceTree = "<group>"; };
-		C23926931F06C787008506E4 /* AdvancedSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedSubmenu.swift; path = Classes/AdvancedSubmenu.swift; sourceTree = "<group>"; };
+		C23926931F06C787008506E4 /* SettingsSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsSubmenu.swift; path = Classes/SettingsSubmenu.swift; sourceTree = "<group>"; };
 		C23926941F06C787008506E4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		C23926951F06C787008506E4 /* Bar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bar.swift; path = Classes/Bar.swift; sourceTree = "<group>"; };
 		C23926961F06C787008506E4 /* ConfigWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigWriter.swift; path = Classes/ConfigWriter.swift; sourceTree = "<group>"; };
-		C23926971F06C787008506E4 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Classes/Controller.swift; sourceTree = "<group>"; };
+		C23926971F06C787008506E4 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Controller.swift; path = Classes/Controller.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopyPastableNSTextField.swift; path = Classes/CopyPastableNSTextField.swift; sourceTree = "<group>"; };
 		C23926991F06C787008506E4 /* DefaultSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultSubmenu.swift; path = Classes/DefaultSubmenu.swift; sourceTree = "<group>"; };
-		C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeveloperSubmenu.swift; path = Classes/DeveloperSubmenu.swift; sourceTree = "<group>"; };
+		C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = DeveloperSubmenu.swift; path = Classes/DeveloperSubmenu.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C239269B1F06C787008506E4 /* Elevator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Elevator.swift; path = Classes/Elevator.swift; sourceTree = "<group>"; };
-		C239269C1F06C787008506E4 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Intercom.swift; path = Classes/Intercom.swift; sourceTree = "<group>"; };
+		C239269C1F06C787008506E4 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Intercom.swift; path = Classes/Intercom.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceSubmenu.swift; path = Classes/InterfaceSubmenu.swift; sourceTree = "<group>"; };
 		C239269E1F06C787008506E4 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONWriter.swift; path = Classes/JSONWriter.swift; sourceTree = "<group>"; };
 		C239269F1F06C787008506E4 /* MACAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddressFormatter.swift; path = Classes/MACAddressFormatter.swift; sourceTree = "<group>"; };
@@ -186,8 +187,8 @@
 		C23926A21F06C787008506E4 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Classes/Menu.swift; sourceTree = "<group>"; };
 		C23926A41F06C787008506E4 /* SoftMACCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoftMACCache.swift; path = Classes/SoftMACCache.swift; sourceTree = "<group>"; };
 		C23926B71F06C7C4008506E4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		C23926B91F06C7E6008506E4 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelperProtocol.swift; path = Classes/HelperProtocol.swift; sourceTree = "<group>"; };
-		C23926BA1F06C7E6008506E4 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkHelper.swift; path = Classes/LinkHelper.swift; sourceTree = "<group>"; };
+		C23926B91F06C7E6008506E4 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = HelperProtocol.swift; path = Classes/HelperProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C23926BA1F06C7E6008506E4 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = LinkHelper.swift; path = Classes/LinkHelper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C23926BD1F06C804008506E4 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkDaemon.swift; path = Classes/LinkDaemon.swift; sourceTree = "<group>"; };
 		C23926BE1F06C804008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronizer.swift; path = Classes/Synchronizer.swift; sourceTree = "<group>"; };
 		C23926C11F06CA80008506E4 /* MACVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACVendors.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+placeholder.swift"; sourceTree = "<group>"; };
 		C2BE6B9B1F0D523F0086A843 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCtl.swift; sourceTree = "<group>"; };
+		C2BE6B9F1F0E47770086A843 /* UninstallHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UninstallHelper.swift; path = Classes/UninstallHelper.swift; sourceTree = "<group>"; };
 		C2BEBFD91EE48B5E0072BE59 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BEBFE51EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -265,7 +267,7 @@
 				C23926A21F06C787008506E4 /* Menu.swift */,
 				C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */,
 				C23926991F06C787008506E4 /* DefaultSubmenu.swift */,
-				C23926931F06C787008506E4 /* AdvancedSubmenu.swift */,
+				C23926931F06C787008506E4 /* SettingsSubmenu.swift */,
 				C239269A1F06C787008506E4 /* DeveloperSubmenu.swift */,
 			);
 			name = Menu;
@@ -302,8 +304,17 @@
 				C23926BA1F06C7E6008506E4 /* LinkHelper.swift */,
 				C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */,
 				C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */,
+				C2BE6BA11F0E477B0086A843 /* Actions */,
 			);
 			path = LinkHelper;
+			sourceTree = "<group>";
+		};
+		C2BE6BA11F0E477B0086A843 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				C2BE6B9F1F0E47770086A843 /* UninstallHelper.swift */,
+			);
+			name = Actions;
 			sourceTree = "<group>";
 		};
 		C2BEBFD01EE48B5E0072BE59 = {
@@ -610,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2F209671EEC5BD900355561 /* Paths.swift in Sources */,
+				C2BE6BA01F0E47770086A843 /* UninstallHelper.swift in Sources */,
 				C23926BC1F06C7E6008506E4 /* LinkHelper.swift in Sources */,
 				C239267A1F03D78A008506E4 /* Version.swift in Sources */,
 				C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */,
@@ -632,7 +644,7 @@
 				C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C239264F1EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
-				C23926A51F06C787008506E4 /* AdvancedSubmenu.swift in Sources */,
+				C23926A51F06C787008506E4 /* SettingsSubmenu.swift in Sources */,
 				C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C23926A71F06C787008506E4 /* Bar.swift in Sources */,
 				C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */,

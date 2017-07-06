@@ -39,7 +39,7 @@ class DeveloperSubmenu {
     let item: NSMenu = NSMenu()
     item.addItem(self.helperTitleItem)
     item.addItem(self.installHelperItem)
-    item.addItem(self.implodeHelperItem)
+    item.addItem(self.uninstallHelperItem)
     item.addItem(NSMenuItem.separator())
     item.addItem(self.createConfigDirectoryItem)
     item.addItem(self.removeConfigDirectoryItem)
@@ -64,8 +64,8 @@ class DeveloperSubmenu {
     return item
   }()
 
-  private lazy var implodeHelperItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Remove Helper", action: #selector(Controller.implodeHelper(_:)), keyEquivalent: "")
+  private lazy var uninstallHelperItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Remove Helper", action: #selector(Controller.uninstallHelper(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()

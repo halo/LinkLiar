@@ -152,8 +152,8 @@ class Controller: NSObject {
     })
   }
 
-  static func implodeHelper(_ sender: Any) {
-    Intercom.implodeHelper(reply: {
+  static func uninstallHelper(_ sender: Any) {
+    Intercom.uninstallHelper(reply: {
       success in
       if (success) {
         Log.debug("helper imploded")

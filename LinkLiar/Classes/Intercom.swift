@@ -102,9 +102,9 @@ class Intercom: NSObject {
     })
   }
 
-  static func implodeHelper(reply: @escaping (Bool) -> Void) {
+  static func uninstallHelper(reply: @escaping (Bool) -> Void) {
     usingHelper(block: { helper in
-      helper.implode(reply: {
+      helper.uninstallHelper(reply: {
         success in
         Log.debug("Helper worked on the imploding")
         reply(success)
