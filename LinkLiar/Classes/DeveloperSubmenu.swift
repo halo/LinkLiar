@@ -11,6 +11,14 @@ class DeveloperSubmenu {
   }()
 
   func update() {
+    LaunchCtl.isDaemonRunning(reply: { isRunning in
+      if isRunning {
+        self.daemonTitleItem.title = "Daemon running"
+      } else {
+        self.daemonTitleItem.title = "Daemon not running"
+      }
+    })
+
     Intercom.helperVersion(reply: { versionOrNil in
       guard let version = versionOrNil else {
         self.helperTitleItem.title = "Helper not installed"
@@ -37,6 +45,7 @@ class DeveloperSubmenu {
     item.addItem(self.removeConfigDirectoryItem)
     item.addItem(self.resetConfigItem)
     item.addItem(NSMenuItem.separator())
+    item.addItem(self.daemonTitleItem)
     item.addItem(self.configureDaemonItem)
     item.addItem(self.activateDaemonItem)
     item.addItem(self.deactivateDaemonItem)
@@ -77,6 +86,10 @@ class DeveloperSubmenu {
     let item = NSMenuItem(title: "Reset Config File", action: #selector(Controller.resetConfig(_:)), keyEquivalent: "")
     item.target = Controller.self
     return item
+  }()
+
+  private lazy var daemonTitleItem: NSMenuItem = {
+    return NSMenuItem(title: "Daemon", action: nil, keyEquivalent: "")
   }()
 
   private lazy var configureDaemonItem: NSMenuItem = {

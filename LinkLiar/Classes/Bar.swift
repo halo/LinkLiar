@@ -115,7 +115,7 @@ class Bar: NSObject {
 
 }
 
-// MARK: - NSXPCListenerDelegate
+// MARK: - NSMenuDelegate
 extension Bar: NSMenuDelegate {
 
   // MARK: Instance Methods

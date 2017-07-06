@@ -68,6 +68,7 @@
 		C29B7DA31EE7336200609A21 /* io.github.halo.linkhelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */; };
 		C2BE6B9C1F0D523F0086A843 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9B1F0D523F0086A843 /* ConfigurationTests.swift */; };
+		C2BE6B9E1F0D791B0086A843 /* LaunchCtl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */; };
 		C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */; };
 		C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */; };
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
@@ -201,6 +202,7 @@
 		C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Launchd.plist"; sourceTree = "<group>"; };
 		C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMenuItem+placeholder.swift"; sourceTree = "<group>"; };
 		C2BE6B9B1F0D523F0086A843 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
+		C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCtl.swift; sourceTree = "<group>"; };
 		C2BEBFD91EE48B5E0072BE59 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BEBFE51EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				C23926C11F06CA80008506E4 /* MACVendors.swift */,
 				C2F477521F0ACABE00BCFA24 /* Resources */,
 				C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */,
+				C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */,
 			);
 			path = LinkLiar;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				C23926AA1F06C787008506E4 /* CopyPastableNSTextField.swift in Sources */,
 				C23926811F040AC1008506E4 /* FileObserver.swift in Sources */,
 				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
+				C2BE6B9E1F0D791B0086A843 /* LaunchCtl.swift in Sources */,
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
 				C23926AE1F06C787008506E4 /* Intercom.swift in Sources */,
 				C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */,
