@@ -16,7 +16,9 @@ class Menu {
   }()
 
   private lazy var quitItem: NSMenuItem = {
-    return NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Quit", action: #selector(Controller.quit), keyEquivalent: "")
+    item.target = Controller.self
+    return item
   }()
 
   var hasAnyOriginalMAC: Bool {
@@ -45,8 +47,18 @@ class Menu {
   func update() {
     Log.debug("Updating menu...")
     reloadInterfaceItems()
+    settingsSubmenu.update()
     developerSubmenu.update()
     checkHelper()
+    updateQuitButton()
+  }
+
+  private func updateQuitButton() {
+    if Config.instance.isRestrictedDaemon {
+      quitItem.toolTip = "Quits this Menu and the LinkLiar Background Daemon"
+    } else {
+      quitItem.toolTip = "Quits this Menu"
+    }
   }
 
   private lazy var authorizeItem: NSMenuItem = {

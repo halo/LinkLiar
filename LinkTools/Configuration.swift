@@ -17,6 +17,28 @@ struct Configuration {
     return self.dictionary["version"] as? String
   }()
 
+  /**
+   * Queries whether the deamon os to be restricted to the lifetime of the GUI.
+   */
+  var isRestrictedDaemon: Bool {
+    guard let restriction = self.dictionary["restrict_daemon"] as? Bool else {
+      return false
+    }
+
+    return restriction != false
+  }
+
+  /**
+   * Queries whether interfaces set to random may be rerandomized at best-effort.
+   */
+  var isForbiddenToRerandomize: Bool {
+    guard let restriction = self.dictionary["skip_rerandom"] as? Bool else {
+      return false
+    }
+
+    return restriction != false
+  }
+
   // MARK: Initialization
 
   init(dictionary: [String: Any]) {

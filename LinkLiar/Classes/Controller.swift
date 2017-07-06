@@ -11,13 +11,38 @@ class Controller: NSObject {
     activateDaemon(sender)
   }
 
-  static func installHelper(_ sender: NSMenuItem) {
+  static func installHelper(_ _: Any) {
     Log.debug("Elevating Helper...")
     Elevator().install()
   }
 
+  static func quit(_ _: Any) {
+    if Config.instance.isRestrictedDaemon { deactivateDaemon(self) }
+    NSApp.terminate(self)
+  }
 
-  static func resetConfig(_ sender: NSMenuItem) {
+  static func toggleRerandomization(_ _: NSMenuItem) {
+    if Config.instance.isForbiddenToRerandomize {
+      ConfigWriter.allowRerandom()
+    } else {
+      ConfigWriter.forbidRerandom()
+    }
+  }
+
+  static func toggleDaemonRestriction(_ _: NSMenuItem) {
+    Config.instance.isRestrictedDaemon ? freeDaemon() : restrictDaemon()
+  }
+
+  private static func restrictDaemon() {
+    ConfigWriter.restrictDaemon()
+  }
+
+  private static func freeDaemon() {
+    ConfigWriter.freeDaemon()
+    activateDaemon(self)
+  }
+
+  static func resetConfig(_ _: NSMenuItem) {
     ConfigWriter.reset()
   }
 
@@ -141,7 +166,7 @@ class Controller: NSObject {
     })
   }
 
-  static func deactivateDaemon(_ sender: Any) {
+  static func deactivateDaemon(_ _: Any) {
     Intercom.deactivateDaemon(reply: {
       success in
       if (success) {

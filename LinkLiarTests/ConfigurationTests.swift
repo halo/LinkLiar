@@ -9,6 +9,52 @@ class ConfigurationTests: XCTestCase {
     XCTAssertEqual(["one": 1], configuration.dictionary as! [String: Int])
   }
 
+  func testRestrictDaemonWhenNothingSpecified() {
+    let configuration = Configuration(dictionary: [:])
+    XCTAssertFalse(configuration.isRestrictedDaemon)
+  }
+
+  func testRestrictDaemonWhenTrue() {
+    let dictionary = ["restrict_daemon": true]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertTrue(configuration.isRestrictedDaemon)
+  }
+
+  func testRestrictDaemonWhenTruthyString() {
+    let dictionary = ["restrict_daemon": "true"]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertFalse(configuration.isRestrictedDaemon)
+  }
+
+  func testRestrictDaemonWhenFalse() {
+    let dictionary = ["restrict_daemon": false]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertFalse(configuration.isRestrictedDaemon)
+  }
+
+  func testIsForbiddenToRerandomizeWhenNothingSpecified() {
+    let configuration = Configuration(dictionary: [:])
+    XCTAssertFalse(configuration.isForbiddenToRerandomize)
+  }
+
+  func testIsForbiddenToRerandomizeWhenTrue() {
+    let dictionary = ["skip_rerandom": true]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertTrue(configuration.isForbiddenToRerandomize)
+  }
+
+  func testIsForbiddenToRerandomizeWhenTruthyString() {
+    let dictionary = ["skip_rerandom": "true"]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertFalse(configuration.isForbiddenToRerandomize)
+  }
+
+  func testIsForbiddenToRerandomizeWhenFalse() {
+    let dictionary = ["skip_rerandom": false]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertFalse(configuration.isForbiddenToRerandomize)
+  }
+
   func testCalculatedActionForInterfaceWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
     let address = MACAddress("aa:bb:cc:dd:ee:ff")

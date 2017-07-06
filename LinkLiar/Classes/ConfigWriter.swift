@@ -9,6 +9,30 @@ struct ConfigWriter {
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
+  static func restrictDaemon() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["restrict_daemon"] = true
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func freeDaemon() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["restrict_daemon"] = nil
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func allowRerandom() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["skip_rerandom"] = nil
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func forbidRerandom() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["skip_rerandom"] = true
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
   static func ignoreInterface(_ interface: Interface) {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary[interface.hardMAC.formatted] = ["action": "ignore"]

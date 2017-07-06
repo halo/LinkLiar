@@ -16,6 +16,11 @@ class Synchronizer {
   }
 
   static func mayReRandomize() {
+    if Config.instance.isForbiddenToRerandomize {
+      Log.debug("This was a good chance to re-randomize, but it is disabled.")
+      return
+    }
+
     for interface in Interfaces.all(async: false) {
       let action = Config.instance.calculatedActionForInterface(interface.hardMAC)
 
