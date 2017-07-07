@@ -31,18 +31,16 @@ struct LaunchCtl {
     task.waitUntilExit()
 
     let outdata = outputPipe.fileHandleForReading.availableData
-    guard let stdout = String(data: outdata, encoding: .utf8) else {
-      Log.debug("Could not read stdout")
+    let stdout = String(data: outdata, encoding: .utf8) ?? ""
+
+    let missing = stdout.contains("not find")
+    let dead = stdout.contains("not running")
+
+    if missing || dead {
+      reply(!stdout.contains("not running"))
+    } else {
       reply(task.terminationStatus == 0)
-      return
     }
-
-    reply(!stdout.contains("not running"))
-
-
-    // This could be improved by checking the PID
-    // But since we have the daemon on KeepAlive, if its there, it's running.
-    //reply(task.terminationStatus == 0)
   }
 
 }
