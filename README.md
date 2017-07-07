@@ -3,6 +3,12 @@
 [![Build Status](https://travis-ci.org/halo/LinkLiar.svg?branch=master)](https://travis-ci.org/halo/LinkLiar)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/halo/LinkLiar)
 
+## Attention
+
+The master branch contains version 2 and is currently in the beta phase.
+
+The documentation below is still accurate for the version 1 series.
+
 ## Prevent your Mac from leaking MACs
 
 This is an intuitive status menu application written in Objective-C to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
