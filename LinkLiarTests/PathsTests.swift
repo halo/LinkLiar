@@ -73,4 +73,34 @@ class PathTests: XCTestCase {
     XCTAssertEqual("/Library/LaunchDaemons/io.github.halo.linkhelper.plist", url.path)
   }
 
+  func testDaemonPristineExecutable() {
+    let path = Paths.daemonPristineExecutable
+    XCTAssertTrue(path.hasSuffix("/LinkLiar.app/Contents/Resources/linkdaemon"))
+  }
+
+  func testDaemonPristineExecutableURL() {
+    let url = Paths.daemonPristineExecutableURL
+    XCTAssertTrue(url.path.hasSuffix("/LinkLiar.app/Contents/Resources/linkdaemon"))
+  }
+
+  func testDaemonDirectory() {
+    let path = Paths.daemonDirectory
+    XCTAssertEqual("/Library/Application Support/LinkDaemon", path)
+  }
+
+  func testDaemonDirectoryURL() {
+    let url = Paths.daemonDirectoryURL
+    XCTAssertEqual("/Library/Application Support/LinkDaemon", url.path)
+  }
+
+  func testDaemonExecutable() {
+    let path = Paths.daemonExecutable
+    XCTAssertEqual("/Library/Application Support/LinkDaemon/linkdaemon", path)
+  }
+
+  func testDaemonExecutableURL() {
+    let url = Paths.daemonExecutableURL
+    XCTAssertEqual("/Library/Application Support/LinkDaemon/linkdaemon", url.path)
+  }
+
 }

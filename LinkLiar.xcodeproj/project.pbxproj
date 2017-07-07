@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2340D9F1F0EB1120065F034 /* UninstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */; };
+		C2340DA01F0EB1120065F034 /* UninstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */; };
+		C2340DA21F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
+		C2340DA31F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
 		C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */; };
 		C239264A1EEDB84E008506E4 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C23926491EEDB84E008506E4 /* index.html */; };
 		C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239264B1EEDBBB4008506E4 /* Interface.swift */; };
@@ -70,6 +74,8 @@
 		C2BE6B9C1F0D523F0086A843 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9B1F0D523F0086A843 /* ConfigurationTests.swift */; };
 		C2BE6B9E1F0D791B0086A843 /* LaunchCtl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */; };
 		C2BE6BA01F0E47770086A843 /* UninstallHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6B9F1F0E47770086A843 /* UninstallHelper.swift */; };
+		C2BE6BA41F0E8D4C0086A843 /* BootDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6BA31F0E8D4C0086A843 /* BootDaemon.swift */; };
+		C2BE6BA61F0EA4B60086A843 /* InstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE6BA51F0EA4B60086A843 /* InstallDaemon.swift */; };
 		C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */; };
 		C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */; };
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
@@ -156,6 +162,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UninstallDaemon.swift; path = Classes/UninstallDaemon.swift; sourceTree = "<group>"; };
+		C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; };
 		C23926491EEDB84E008506E4 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = LinkLiarHelp/index.html; sourceTree = "<group>"; };
 		C239264B1EEDBBB4008506E4 /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interface.swift; path = LinkTools/Interface.swift; sourceTree = "<group>"; };
 		C239264E1EEDCD73008506E4 /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddress.swift; path = LinkTools/MACAddress.swift; sourceTree = "<group>"; };
@@ -205,6 +213,8 @@
 		C2BE6B9B1F0D523F0086A843 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchCtl.swift; sourceTree = "<group>"; };
 		C2BE6B9F1F0E47770086A843 /* UninstallHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UninstallHelper.swift; path = Classes/UninstallHelper.swift; sourceTree = "<group>"; };
+		C2BE6BA31F0E8D4C0086A843 /* BootDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BootDaemon.swift; path = Classes/BootDaemon.swift; sourceTree = "<group>"; };
+		C2BE6BA51F0EA4B60086A843 /* InstallDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InstallDaemon.swift; path = Classes/InstallDaemon.swift; sourceTree = "<group>"; };
 		C2BEBFD91EE48B5E0072BE59 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2BEBFE51EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,11 +310,10 @@
 			isa = PBXGroup;
 			children = (
 				C29B7D961EE69D1800609A21 /* main.swift */,
-				C23926B91F06C7E6008506E4 /* HelperProtocol.swift */,
 				C23926BA1F06C7E6008506E4 /* LinkHelper.swift */,
-				C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */,
-				C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */,
+				C23926B91F06C7E6008506E4 /* HelperProtocol.swift */,
 				C2BE6BA11F0E477B0086A843 /* Actions */,
+				C2BE6BA21F0E8CE00086A843 /* Resources */,
 			);
 			path = LinkHelper;
 			sourceTree = "<group>";
@@ -312,9 +321,22 @@
 		C2BE6BA11F0E477B0086A843 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */,
+				C2BE6BA51F0EA4B60086A843 /* InstallDaemon.swift */,
+				C2BE6BA31F0E8D4C0086A843 /* BootDaemon.swift */,
+				C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */,
 				C2BE6B9F1F0E47770086A843 /* UninstallHelper.swift */,
 			);
 			name = Actions;
+			sourceTree = "<group>";
+		};
+		C2BE6BA21F0E8CE00086A843 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */,
+				C29B7D9F1EE71AC000609A21 /* LinkHelper-Launchd.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		C2BEBFD01EE48B5E0072BE59 = {
@@ -620,13 +642,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2340DA31F0EB11B0065F034 /* ConfigDirectory.swift in Sources */,
 				C2F209671EEC5BD900355561 /* Paths.swift in Sources */,
 				C2BE6BA01F0E47770086A843 /* UninstallHelper.swift in Sources */,
 				C23926BC1F06C7E6008506E4 /* LinkHelper.swift in Sources */,
 				C239267A1F03D78A008506E4 /* Version.swift in Sources */,
 				C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */,
+				C2BE6BA61F0EA4B60086A843 /* InstallDaemon.swift in Sources */,
+				C2BE6BA41F0E8D4C0086A843 /* BootDaemon.swift in Sources */,
 				C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C291CBE81EE85D0D00154452 /* Log.swift in Sources */,
+				C2340DA01F0EB1120065F034 /* UninstallDaemon.swift in Sources */,
 				C23926BB1F06C7E6008506E4 /* HelperProtocol.swift in Sources */,
 				C29B7D971EE69D1800609A21 /* main.swift in Sources */,
 			);
@@ -637,6 +663,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */,
+				C2340DA21F0EB11B0065F034 /* ConfigDirectory.swift in Sources */,
 				C23926581EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C23926B61F06C787008506E4 /* SoftMACCache.swift in Sources */,
 				C23926AF1F06C787008506E4 /* InterfaceSubmenu.swift in Sources */,
@@ -660,6 +687,7 @@
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
 				C23926AE1F06C787008506E4 /* Intercom.swift in Sources */,
 				C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */,
+				C2340D9F1F0EB1120065F034 /* UninstallDaemon.swift in Sources */,
 				C23926A81F06C787008506E4 /* ConfigWriter.swift in Sources */,
 				C23926A91F06C787008506E4 /* Controller.swift in Sources */,
 				C2EEEBAA1F0C110C00657CC5 /* IntervalTimer.swift in Sources */,

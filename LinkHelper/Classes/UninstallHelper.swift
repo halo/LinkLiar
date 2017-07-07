@@ -12,7 +12,7 @@ struct UninstallHelper {
     do {
       try FileManager.default.removeItem(atPath: Paths.helperPlistFile)
     } catch {
-      Log.error("Could not delete helper plist \(error) is it there?")
+      Log.error("Could not delete Helper plist at \(Paths.helperPlistFile) is it there? \(error.localizedDescription)")
     }
   }
 
@@ -20,7 +20,7 @@ struct UninstallHelper {
     do {
       try FileManager.default.removeItem(atPath: Paths.helperExecutable)
     } catch {
-      Log.info("Could not delete helper executable \(error) is it there?")
+      Log.info("Could not delete Helper executable at \(Paths.helperExecutable) is it there? \(error.localizedDescription)")
     }
   }
 
@@ -28,6 +28,7 @@ struct UninstallHelper {
     let task = Process()
     task.launchPath = "/usr/bin/sudo"
     task.arguments = ["/bin/launchctl", "bootout", "system/\(Identifiers.helper.rawValue)"]
+    Log.info("Booting out Privileged Helper...")
     task.launch()
   }
 

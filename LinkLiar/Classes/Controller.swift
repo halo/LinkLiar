@@ -6,9 +6,24 @@ class Controller: NSObject {
   static func authorize(_ sender: NSMenuItem) {
     Log.debug("Installing Helper and Daemon...")
     installHelper(sender)
-    createConfigDir(sender)
-    configureDaemon(sender)
-    activateDaemon(sender)
+    Intercom.install(reply: { success in
+      if (success) {
+        Log.debug("Installation complete")
+      } else {
+        Log.debug("Could not complete installation")
+      }
+    })
+  }
+
+  static func uninstall(_ sender: NSMenuItem) {
+    Log.debug("Uninstalling Helper, Daemon and config directory...")
+    Intercom.uninstall(reply: { success in
+      if (success) {
+        Log.debug("Uninstall complete")
+      } else {
+        Log.debug("Could not complete uninstall")
+      }
+    })
   }
 
   static func installHelper(_ _: Any) {
@@ -144,8 +159,8 @@ class Controller: NSObject {
     })
   }
 
-  static func configureDaemon(_ _: Any) {
-    Intercom.configureDaemon(reply: {
+  static func installDaemon(_ _: Any) {
+    Intercom.installDaemon(reply: {
       success in
       if (success) {
         Log.debug("You gotta daemon now")
@@ -188,6 +203,21 @@ class Controller: NSObject {
     })
   }
 
+  static func uninstallDaemon(_ sender: Any) {
+    Intercom.uninstallDaemon(reply: {
+      success in
+      if (success) {
+        Log.debug("helper imploded")
+      } else {
+        Log.debug("helper could not be imploded")
+      }
+    })
+  }
+
+  static func revealConfigDir(_ sender: Any) {
+    revealPath(Paths.configDirectory)
+  }
+
   static func showLogs(_ sender: Any) {
     let command = "/usr/bin/log stream --predicate 'subsystem == \\\"io.github.halo.LinkLiar\\\"' --level debug"
     let source = "tell application \"Terminal\" \n activate \n do script \"\" \n set win to do script with command \"\(command)\" \n set win's current settings to settings set \"Pro\" \n end tell"
@@ -197,6 +227,12 @@ class Controller: NSObject {
     if error != nil { Log.error((error?.description)!) }
   }
 
+  private static func revealPath(_ path: String) {
+    let source = "tell application \"Finder\" to reveal POSIX file \"\(path)\""
+    let script = NSAppleScript(source: source)!
+    var error : NSDictionary?
+    script.executeAndReturnError(&error)
+    if error != nil { Log.error((error?.description)!) }
+  }
+
 }
-
-

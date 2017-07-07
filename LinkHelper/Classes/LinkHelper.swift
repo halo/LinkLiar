@@ -40,119 +40,53 @@ extension LinkHelper: HelperProtocol {
     reply(LinkHelper.version.formatted)
   }
 
-  func createConfigDirectory(reply: (Bool) -> Void) {
-    let manager = FileManager.default
+  func install(pristineExecutableURL: URL, reply: (Bool) -> Void) {
+    ConfigDirectory.create()
+    UninstallDaemon.perform()
+    InstallDaemon.perform(pristineExecutableURL: pristineExecutableURL)
+    reply(BootDaemon.bootstrap())
+  }
 
-    let attributes = [FileAttributeKey.posixPermissions.rawValue: 0o775]
-    do {
-      try manager.createDirectory(atPath: Paths.configDirectory, withIntermediateDirectories: false, attributes: attributes)
-      Log.debug("Created directory yo")
-      reply(true)
-    } catch let error as NSError {
-      Log.debug("Could not create configuration directory")
-      Log.debug("Unable to create directory \(error.localizedDescription)")
-      reply(false)
-    }
+  func uninstall(reply: (Bool) -> Void) {
+    let _ = BootDaemon.bootout()
+    UninstallDaemon.perform()
+    ConfigDirectory.remove()
+    UninstallHelper.perform()
+    reply(true) // <- Famous last words
+  }
+
+  func createConfigDirectory(reply: (Bool) -> Void) {
+    ConfigDirectory.create()
+    reply(true)
   }
 
   func removeConfigDirectory(reply: (Bool) -> Void) {
-    let manager = FileManager.default
-
-    do {
-      try manager.removeItem(atPath: Paths.configDirectory)
-      Log.debug("Deleted directory yo")
-      reply(true)
-    } catch let error as NSError {
-      Log.debug("Could not delete configuration directory")
-      Log.debug("Unable to delete directory \(error.localizedDescription)")
-      reply(false)
-    }
+    ConfigDirectory.remove()
+    reply(true)
   }
 
-  func configureDaemon(reply: (Bool) -> Void) {
-    let plist : [String: Any] = [
-      "Label": Identifiers.daemon.rawValue,
-      "ProgramArguments": [Paths.daemonExecutable],
-      "KeepAlive": true
-    ]
-    let plistContent = NSDictionary(dictionary: plist)
-    let success:Bool = plistContent.write(toFile: Paths.daemonPlistFile, atomically: true)
-
-    if success {
-      Log.debug("file has been created!")
-      reply(true)
-    }else{
-      Log.debug("unable to create the file")
-      reply(false)
-    }
+  func installDaemon(pristineExecutableURL: URL, reply: (Bool) -> Void) {
+    UninstallDaemon.perform()
+    InstallDaemon.perform(pristineExecutableURL: pristineExecutableURL)
+    reply(BootDaemon.bootstrap())
   }
 
   func activateDaemon(reply: (Bool) -> Void) {
-    launchctl(activate: false, reply: { deactivationSuccess in
-      if deactivationSuccess {
-        Log.debug("Deactivated daemon so I can now go ahead and activate it...")
-      } else {
-        Log.debug("Deactivation failed, but that's fine, let me activate it")
-      }
-    })
-    launchctl(activate: true, reply: reply)
+    reply(BootDaemon.bootstrap())
   }
 
   func deactivateDaemon(reply: (Bool) -> Void) {
-    launchctl(activate: false, reply: reply)
+    reply(BootDaemon.bootout())
+  }
+
+  func uninstallDaemon(reply: (Bool) -> Void) {
+    UninstallDaemon.perform()
+    reply(BootDaemon.bootout())
   }
 
   func uninstallHelper(reply: (Bool) -> Void) {
     UninstallHelper.perform()
     reply(true)
-  }
-
-  // MARK Private Instance Methods
-
-  private func launchctl(activate: Bool, reply: (Bool) -> Void) {
-    Log.debug("Preparing activation of daemon...")
-    let task = Process()
-
-    // Set the task parameters
-    task.launchPath = "/usr/bin/sudo"
-    let subcommand = activate ? "bootstrap" : "bootout"
-    task.arguments = ["/bin/launchctl", subcommand, "system", Paths.daemonPlistFile]
-
-    let outputPipe = Pipe()
-    let errorPipe = Pipe()
-    task.standardOutput = outputPipe
-    task.standardError = errorPipe
-
-    // Launch the task
-    Log.debug("Activating daemon now")
-    task.launch()
-    task.waitUntilExit()
-
-    let status = task.terminationStatus
-
-    if status == 0 {
-      Log.debug("Task succeeded.")
-      reply(true)
-
-    } else {
-      Log.debug("Task failed \(task.terminationStatus)")
-
-      let outdata = outputPipe.fileHandleForReading.availableData
-      guard let stdout = String(data: outdata, encoding: .utf8) else {
-        Log.debug("Could not read stdout")
-        return
-      }
-
-      let errdata = errorPipe.fileHandleForReading.availableData
-      guard let stderr = String(data: errdata, encoding: .utf8) else {
-        Log.debug("Could not read stderr")
-        return
-      }
-
-      Log.debug("Reason: \(stdout) \(stderr)")
-      
-      reply(false)
-    }
   }
 
 }

@@ -44,8 +44,8 @@ class Ifconfig {
   }()
 
   // These pipes will capture STDOUT and STDERR of the ifconfig process.
-  private lazy var outputPipe: Pipe = Pipe()
-  private lazy var errorPipe: Pipe = Pipe()
+  private lazy var outputPipe = Pipe()
+  private lazy var errorPipe = Pipe()
 
   private lazy var outputHandle: FileHandle = {
     return self.outputPipe.fileHandleForReading

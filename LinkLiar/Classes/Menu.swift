@@ -62,7 +62,7 @@ class Menu {
   }
 
   private lazy var authorizeItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize(_:)), keyEquivalent: "")
+    let item = NSMenuItem(title: "Authorize...", action: #selector(Controller.authorize), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()

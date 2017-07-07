@@ -9,19 +9,6 @@ class Intercom: NSObject {
     self.xpcConnection = nil
   }
 
-  static func helperAlive(reply: @escaping (Bool) -> Void) {
-    Log.debug("Checking helper alice")
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
-      reply(false)
-      return
-    }) as! HelperProtocol
-    helper.version(reply: { _ in
-      Log.debug("The helper responded with its version in alive check")
-      reply(true)
-      return
-    })
-  }
-
   static func helperVersion(reply: @escaping (Version?) -> Void) {
     let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
       return reply(nil)
@@ -30,6 +17,33 @@ class Intercom: NSObject {
     helper.version(reply: { rawVersion in
       Log.debug("The helper responded with its version")
       reply(Version(rawVersion))
+    })
+  }
+
+  static func install(reply: @escaping (Bool) -> Void) {
+    usingHelper(block: { helper in
+      helper.install(pristineExecutableURL: Paths.daemonPristineExecutableURL, reply: { success in
+        Log.debug("Helper worked on installation")
+        reply(success)
+      })
+    })
+  }
+
+  static func uninstall(reply: @escaping (Bool) -> Void) {
+    usingHelper(block: { helper in
+      helper.uninstall(reply: { success in
+        Log.debug("Helper worked on uninstallation")
+        reply(success)
+      })
+    })
+  }
+
+  static func uninstallDaemon(reply: @escaping (Bool) -> Void) {
+    usingHelper(block: { helper in
+      helper.uninstallDaemon(reply: { success in
+        Log.debug("Helper worked on daemon uninstallation")
+        reply(success)
+      })
     })
   }
 
@@ -51,61 +65,39 @@ class Intercom: NSObject {
     })
   }
 
-  static func configureDaemon(reply: @escaping (Bool) -> Void) {
-    Log.debug("Asking Helper to establish daemon")
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
-      error in
-      Log.debug("Oh no, no connection to helper")
-      Log.debug(error.localizedDescription)
-      reply(false)
-    }) as! HelperProtocol
-
-    Log.debug("helper is there")
-    helper.configureDaemon(reply: {
-      success in
-      Log.debug("Helper worked on the establishment of the daemon")
-      reply(success)
+  static func installDaemon(reply: @escaping (Bool) -> Void) {
+    Log.debug("Asking Helper to install daemon")
+    usingHelper(block: { helper in
+      helper.installDaemon(pristineExecutableURL: Paths.daemonPristineExecutableURL, reply: { success in
+        Log.debug("Helper worked on the establishment of the daemon")
+        reply(success)
+      })
     })
   }
   
   static func activateDaemon(reply: @escaping (Bool) -> Void) {
     Log.debug("Asking Helper to activate daemon")
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
-      error in
-      Log.debug("Oh no, no connection to helper")
-      Log.debug(error.localizedDescription)
-      reply(false)
-    }) as! HelperProtocol
-
-    Log.debug("helper is there")
-    helper.activateDaemon(reply: {
-      success in
-      Log.debug("Helper worked on the activation of the daemon")
-      reply(success)
+    usingHelper(block: { helper in
+      helper.activateDaemon(reply: { success in
+        Log.debug("Helper worked on the activation of the daemon")
+        reply(success)
+      })
     })
   }
 
   static func deactivateDaemon(reply: @escaping (Bool) -> Void) {
     Log.debug("Asking Helper to deactivate daemon")
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({
-      error in
-      Log.debug("Oh no, no connection to helper")
-      Log.debug(error.localizedDescription)
-      reply(false)
-    }) as! HelperProtocol
-
-    Log.debug("helper is there")
-    helper.deactivateDaemon(reply: {
-      success in
-      Log.debug("Helper worked on the deactivation of the daemon")
-      reply(success)
+    usingHelper(block: { helper in
+      helper.deactivateDaemon(reply: { success in
+        Log.debug("Helper worked on the deactivation of the daemon")
+        reply(success)
+      })
     })
   }
 
   static func uninstallHelper(reply: @escaping (Bool) -> Void) {
     usingHelper(block: { helper in
-      helper.uninstallHelper(reply: {
-        success in
+      helper.uninstallHelper(reply: { success in
         Log.debug("Helper worked on the imploding")
         reply(success)
       })
