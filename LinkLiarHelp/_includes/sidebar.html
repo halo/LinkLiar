@@ -1,2 +1,12 @@
-<a href="first.html">Introduction</a>
-<a href="second.html">Installation</a>
+{% assign current = page.path | split: '/' | last | split: '.' | first %}
+
+<nav class="c-sidebar">
+  <ul class="c-sidebar__list">
+  <li><span class="c-sidebar__chevron">⟩</span><a {% if current == 'index' %}class='active'{% endif %} href="index.html">Introduction</a></li>
+  <li><span class="c-sidebar__chevron">⟩</span><a {% if current == 'installation' %}class='active'{% endif %} href="installation.html">Installation</a></li>
+  <li><span class="c-sidebar__chevron">⟩</span><a {% if current == 'usage' %}class='active'{% endif %} href="usage.html">Usage</a></li>
+  <li><span class="c-sidebar__chevron">⟩</span><a {% if current == 'settings' %}class='active'{% endif %} href="settings.html">Settings</a></li>
+  <li><span class="c-sidebar__chevron">⟩</span><a {% if current == 'uninstall' %}class='active'{% endif %} href="uninstall.html">Uninstall</a></li>
+  <li><span class="c-sidebar__chevron">⟩</span><a {% if current == 'development' %}class='active'{% endif %} href="development.html">Development</a></li>
+</ul>
+</nav>

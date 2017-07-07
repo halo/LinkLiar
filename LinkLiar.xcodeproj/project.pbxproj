@@ -13,6 +13,7 @@
 		C2340DA31F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
 		C2340DB21F0FB7A00065F034 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C2340DB11F0FB7A00065F034 /* en.lproj */; };
 		C2340DB61F0FEA290065F034 /* application.css in Resources */ = {isa = PBXBuildFile; fileRef = C2340DB51F0FEA290065F034 /* application.css */; };
+		C2340DBB1F0FF65E0065F034 /* images in Resources */ = {isa = PBXBuildFile; fileRef = C2340DBA1F0FF65E0065F034 /* images */; };
 		C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */; };
 		C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239264B1EEDBBB4008506E4 /* Interface.swift */; };
 		C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239264B1EEDBBB4008506E4 /* Interface.swift */; };
@@ -167,6 +168,7 @@
 		C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DB11F0FB7A00065F034 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = LinkLiarHelp/_site/en.lproj; sourceTree = "<group>"; };
 		C2340DB51F0FEA290065F034 /* application.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = application.css; path = LinkLiarHelp/_site/application.css; sourceTree = "<group>"; };
+		C2340DBA1F0FF65E0065F034 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = LinkLiarHelp/_site/images; sourceTree = "<group>"; };
 		C239264B1EEDBBB4008506E4 /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interface.swift; path = LinkTools/Interface.swift; sourceTree = "<group>"; };
 		C239264E1EEDCD73008506E4 /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddress.swift; path = LinkTools/MACAddress.swift; sourceTree = "<group>"; };
 		C23926511EEDCD9A008506E4 /* MACAddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressTests.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				C2340DB11F0FB7A00065F034 /* en.lproj */,
+				C2340DBA1F0FF65E0065F034 /* images */,
 				C2340DB51F0FEA290065F034 /* application.css */,
 				C2F20A191EED998400355561 /* Info.plist */,
 			);
@@ -634,6 +637,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2340DBB1F0FF65E0065F034 /* images in Resources */,
 				C2340DB61F0FEA290065F034 /* application.css in Resources */,
 				C2340DB21F0FB7A00065F034 /* en.lproj in Resources */,
 			);

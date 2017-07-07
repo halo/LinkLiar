@@ -1,7 +1,0 @@
----
-title: Second
----
-
-# Second
-
-Topic...

@@ -2,11 +2,11 @@
 
 * [DEPRECATION] Dropped support for macOS El Capitan (and earlier), only Sierra and later supported
 * [FEATURE] Rewrote the entire application from scratch using Swift 3
-* [FEATURE] Moved logic that sets MAC addresses from userland to root launch daemon
+* [FEATURE] Moved logic that sets MAC addresses from userspace to root launch daemon
 * [FEATURE] Default settings for unknown/future Interfaces
-* [FEATURE] Re-randomize MAC addresses on wake
-* [FEATURE] Proper application help (in progress)
-* [PERFORMANCE] The main menu does not halt, obtaining interfaces happens asynchronously
+* [FEATURE] Re-randomize MAC addresses on sleep/logout
+* [FEATURE] Proper application help
+* [PERFORMANCE] The status menu does not halt, querying interfaces happens asynchronously
 
 # 1.1.3
 
