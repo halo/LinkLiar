@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+bundle exec copyright-header \
+  --add-path . \
+  --output-dir . \
+  --license MIT \
+  --copyright-software LinkLiar \
+  --copyright-software-description "Link-Layer MAC spoofing GUI for macOS" \
+  --copyright-holder "halo https://io.github.com/halo/LinkLiar" \
+  --copyright-year 2017 \
+  --word-wrap 130 \
+  --syntax lib/copyright_syntax.yml
