@@ -39,7 +39,7 @@ struct BootDaemon {
   // MARK Private Instance Methods
 
   private static func launchctl(_ subcommand: SubCommand) -> Bool {
-    Log.debug("Preparing activation of daemon...")
+    Log.debug("Preparing \(subcommand.rawValue) of daemon...")
     let task = Process()
 
     // Set the task parameters
@@ -52,7 +52,6 @@ struct BootDaemon {
     task.standardError = errorPipe
 
     // Launch the task
-    Log.debug("Activating daemon now")
     task.launch()
     task.waitUntilExit()
 

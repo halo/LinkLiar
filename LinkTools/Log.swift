@@ -18,21 +18,24 @@ import os.log
 import Foundation
 
 public struct Log {
-  private static let log = OSLog(subsystem: "io.github.halo.LinkLiar", category: "logger")
+  private static let log = OSLog(subsystem: Identifiers.gui.rawValue, category: "logger")
 
-  public static func debug(_ message: String) {
-    os_log("%{public}@", log: log, type: .debug, message)
-    appendToLogfile(message, prefix: "DEBUG")
+  public static func debug(_ message: String, callerPath: String = #file) {
+    write(message: message, level: .debug, callerPath: callerPath)
   }
 
-  public static func info(_ message: String) {
-    os_log("%{public}@", log: log, type: .info, message)
-    appendToLogfile(message, prefix: "INFO ")
+  public static func info(_ message: String, callerPath: String = #file) {
+    write(message: message, level: .info, callerPath: callerPath)
   }
 
-  public static func error(_ message: String) {
-    os_log("%{public}@", log: log, type: .error, message)
-    appendToLogfile(message, prefix: "ERROR")
+  public static func error(_ message: String, callerPath: String = #file) {
+    write(message: message, level: .error, callerPath: callerPath)
+  }
+
+  private static func write(message: String, level: OSLogType, callerPath: String) {
+    let filename = URL(fileURLWithPath: callerPath).deletingPathExtension().lastPathComponent
+    os_log("%{public}@ - %{public}@", log: log, type: .debug, filename, message)
+    appendToLogfile(message, prefix: "")
   }
 
   private static func appendToLogfile(_ message: String, prefix: String) {

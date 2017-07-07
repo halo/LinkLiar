@@ -82,6 +82,7 @@ extension LinkHelper: HelperProtocol {
   }
 
   func installDaemon(pristineExecutableURL: URL, reply: (Bool) -> Void) {
+    Log.debug("Going to prophylactically uninstall and then install daemon...")
     UninstallDaemon.perform()
     InstallDaemon.perform(pristineExecutableURL: pristineExecutableURL)
     reply(BootDaemon.bootstrap())

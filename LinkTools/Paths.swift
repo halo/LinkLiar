@@ -24,14 +24,14 @@ extension String {
 
 class Paths {
 
-  static let debugLogFile = "/tmp/linkliar.log"
-  static let debugLogFileURL = URL(fileURLWithPath: debugLogFile)
-
   static let configDirectory = "/Library/Application Support/LinkLiar"
   static let configDirectoryURL = URL(fileURLWithPath: configDirectory)
 
   static let configFile = configDirectory.appendPath("config.json")
   static let configFileURL = URL(fileURLWithPath: configFile)
+
+  static let debugLogFile = configDirectory.appendPath("linkliar.log")
+  static let debugLogFileURL = URL(fileURLWithPath: debugLogFile)
 
   static let helperDirectory = "/Library/PrivilegedHelperTools"
   static let helperDirectoryURL = URL(fileURLWithPath: helperDirectory)
