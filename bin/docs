@@ -1,11 +1,27 @@
 #!/usr/bin/env bash
+echo
 
+echo "  Clearing OS Help Book caches..."
+rm -rf ~/Library/Caches/com.apple.help*
+rm -rf ~/Library/Preferences/com.apple.help*
+# rm -rf ~/.Trash/*
+killall helpd
+defaults write com.apple.helpindexer IndexAnchors YES
+
+echo "  Removing outdated fragments in docs directory..."
 rm -rf docs/*
 mkdir -p docs
-touch docs/.gitkeep
 
-bundle exec jekyll build --source LinkLiarHelp
-cp LinkLiarHelp/_site/en.lproj/* docs
+echo "  Generating Help Book Bundle..."
+echo
+bundle exec jekyll build --source LinkLiarHelp --destination LinkLiarHelp/_site #> /dev/null
+echo
+
+echo "  Exposing Help Book to Github Pages..."
+cp -R LinkLiarHelp/_site/en.lproj/* docs
+
+echo "  Finished."
+echo
 
 #jazzy --xcodebuild-arguments \
 #      --author halo \
@@ -26,4 +42,3 @@ cp LinkLiarHelp/_site/en.lproj/* docs
 #      --xcodebuild-arguments -scheme,linkdaemon \
 #      --output docs/linkdaemon
 
-open docs/LinkLiar/index.html

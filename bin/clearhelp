@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-rm -rf ~/Library/Caches/com.apple.help*
-rm -rf ~/Library/Preferences/com.apple.help*
-rm -rf ~/.Trash/*
-killall helpd
-defaults write com.apple.helpindexer IndexAnchors YES
