@@ -9,7 +9,7 @@
 	<key>CFBundleHelpBookFolder</key>
 	<string>LinkLiarHelp.help</string>
 	<key>CFBundleHelpBookName</key>
-	<string>io.github.halo.LinkLiar3.Help</string>
+	<string>io.github.halo.LinkLiar.Help</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -35,7 +35,7 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>io.github.halo.linkhelper</key>
-		<string>identifier "io.github.halo.linkhelper" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: github@posteo.org (FEG4R73RPA)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		<string>identifier &quot;io.github.halo.linkhelper&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;Mac Developer: github@posteo.org (FEG4R73RPA)&quot; and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</dict>
 </dict>
 </plist>

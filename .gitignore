@@ -13,6 +13,5 @@ build
 *.xcuserstate
 *xcuserdata*
 *.gem
-/docs/**
 .bundle
-
+.sass-cache

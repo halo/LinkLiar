@@ -1,0 +1,15 @@
+markdown: kramdown
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "default"
+      order: 0
+
+exclude: ['Info.plist']
+
+sass:
+  sass_dir: _sass
+  style: compressed

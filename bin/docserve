@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+/usr/bin/open "http://127.0.0.1:4000/en.lproj"
+bundle exec jekyll serve --source LinkLiarHelp --watch

@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 
-jazzy --xcodebuild-arguments \
-      --author halo \
-      --github_url https://github.com/halo/LinkLiar \
-      --min-acl internal \
-      --xcodebuild-arguments -scheme,LinkLiar \
-      --output docs/LinkLiar
+rm -rf docs/*
+mkdir -p docs
+touch docs/.gitkeep
+
+bundle exec jekyll build --source LinkLiarHelp
+cp LinkLiarHelp/_site/en.lproj/* docs
+
+#jazzy --xcodebuild-arguments \
+#      --author halo \
+#      --github_url https://github.com/halo/LinkLiar \
+#      --min-acl internal \
+#      --xcodebuild-arguments -scheme,LinkLiar \
+#      --output docs/LinkLiar
 
 #jazzy --xcodebuild-arguments \
 #      --author halo \
