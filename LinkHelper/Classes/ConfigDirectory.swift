@@ -32,8 +32,8 @@ struct ConfigDirectory {
     do {
       try manager.removeItem(atPath: Paths.configDirectory)
       Log.debug("Deleted config directory \(Paths.configDirectory)")
-    } catch {
-      Log.info("Could not delete config directory \(Paths.configDirectory) \(error.localizedDescription)")
+    } catch let error as NSError {
+      Log.info("Could not delete config directory \(Paths.configDirectory) \(error)")
     }
   }
 
@@ -41,7 +41,7 @@ struct ConfigDirectory {
     do {
       try manager.createDirectory(atPath: Paths.configDirectory, withIntermediateDirectories: false)
       Log.debug("Created config directory \(Paths.configDirectory)")
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not create config directory \(Paths.configDirectory) does it already exist? \(error.localizedDescription)")
     }
   }
@@ -50,7 +50,7 @@ struct ConfigDirectory {
     do {
       try manager.setAttributes(directoryPermissions, ofItemAtPath: Paths.configDirectory)
       Log.debug("Set permissions of config directory at \(Paths.configDirectory) to \(directoryPermissions)")
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not set permissions for config directory \(error.localizedDescription)")
     }
   }

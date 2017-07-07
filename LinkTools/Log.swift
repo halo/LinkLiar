@@ -52,7 +52,7 @@ public struct Log {
       #if DEBUG
         do {
           try data.write(to: Paths.debugLogFileURL)
-        } catch {}
+        } catch let error as NSError {}
         // There is no logfile, which means the end-user does not want file logging
       #endif
       */

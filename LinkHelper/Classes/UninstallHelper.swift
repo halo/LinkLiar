@@ -27,7 +27,7 @@ struct UninstallHelper {
   private static func removePlist() {
     do {
       try FileManager.default.removeItem(atPath: Paths.helperPlistFile)
-    } catch {
+    } catch let error as NSError {
       Log.error("Could not delete Helper plist at \(Paths.helperPlistFile) is it there? \(error.localizedDescription)")
     }
   }
@@ -35,7 +35,7 @@ struct UninstallHelper {
   private static func removeExecutable() {
     do {
       try FileManager.default.removeItem(atPath: Paths.helperExecutable)
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not delete Helper executable at \(Paths.helperExecutable) is it there? \(error.localizedDescription)")
     }
   }

@@ -44,7 +44,7 @@ class JSONReader {
       Log.debug("Content: \(result)")
       Log.debug("Successfuly read it")
       return result
-    } catch {
+    } catch let error as NSError {
       Log.debug(error.localizedDescription)
       return nil
     }
@@ -63,7 +63,7 @@ class JSONReader {
       } else {
         Log.debug("JSON is not a Key-Value object")
       }
-    } catch {
+    } catch let error as NSError {
       Log.error(error.localizedDescription)
     }
     return [String: Any]()

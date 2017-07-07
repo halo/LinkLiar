@@ -56,10 +56,10 @@ extension LinkHelper: HelperProtocol {
     reply(LinkHelper.version.formatted)
   }
 
-  func install(pristineExecutableURL: URL, reply: (Bool) -> Void) {
+  func install(pristineDaemonExecutablePath: String, reply: (Bool) -> Void) {
     ConfigDirectory.create()
     UninstallDaemon.perform()
-    InstallDaemon.perform(pristineExecutableURL: pristineExecutableURL)
+    InstallDaemon.perform(pristineExecutablePath: pristineDaemonExecutablePath)
     reply(BootDaemon.bootstrap())
   }
 
@@ -81,10 +81,10 @@ extension LinkHelper: HelperProtocol {
     reply(true)
   }
 
-  func installDaemon(pristineExecutableURL: URL, reply: (Bool) -> Void) {
+  func installDaemon(pristineDaemonExecutablePath: String, reply: (Bool) -> Void) {
     Log.debug("Going to prophylactically uninstall and then install daemon...")
     UninstallDaemon.perform()
-    InstallDaemon.perform(pristineExecutableURL: pristineExecutableURL)
+    InstallDaemon.perform(pristineExecutablePath: pristineDaemonExecutablePath)
     reply(BootDaemon.bootstrap())
   }
 
@@ -97,8 +97,9 @@ extension LinkHelper: HelperProtocol {
   }
 
   func uninstallDaemon(reply: (Bool) -> Void) {
+    let success = BootDaemon.bootout()
     UninstallDaemon.perform()
-    reply(BootDaemon.bootout())
+    reply(success)
   }
 
   func uninstallHelper(reply: (Bool) -> Void) {

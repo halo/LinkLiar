@@ -30,11 +30,11 @@ struct InstallDaemon {
     "KeepAlive": true
   ]
 
-  static func perform(pristineExecutableURL: URL) {
+  static func perform(pristineExecutablePath: String) {
     createPlist()
     ensureDirectory()
     ensureDirectoryPermissions()
-    copyPristineExecutable(pristineExecutableURL: pristineExecutableURL)
+    copyPristineExecutable(pristineExecutablePath: pristineExecutablePath)
     ensureExecutablePermissions()
   }
 
@@ -52,7 +52,7 @@ struct InstallDaemon {
     do {
       try manager.createDirectory(atPath: Paths.daemonDirectory, withIntermediateDirectories: false)
       Log.debug("Created daemon directory \(Paths.daemonDirectory)")
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not create daemon directory \(Paths.daemonDirectory) does it already exist? \(error.localizedDescription)")
     }
   }
@@ -61,17 +61,18 @@ struct InstallDaemon {
     do {
       try manager.setAttributes(directoryPermissions, ofItemAtPath: Paths.daemonDirectory)
       Log.debug("Ensured permissions of daemon directory at \(Paths.daemonDirectory) to \(directoryPermissions)")
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not set permissions for daemon directory \(error.localizedDescription)")
     }
   }
 
-  private static func copyPristineExecutable(pristineExecutableURL: URL) {
+  private static func copyPristineExecutable(pristineExecutablePath: String) {
+    let pristineExecutableURL = URL(fileURLWithPath: pristineExecutablePath)
     Log.debug("Copying daemon executable from \(pristineExecutableURL) to \(Paths.daemonExecutable)")
     do {
       try manager.copyItem(at: pristineExecutableURL, to: Paths.daemonExecutableURL)
       Log.debug("Copied daemon executable from \(pristineExecutableURL) to \(Paths.daemonExecutable)")
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not copy daemon executable from \(pristineExecutableURL) to \(Paths.daemonExecutable) does it already exist? \(error.localizedDescription)")
     }
   }
@@ -80,7 +81,7 @@ struct InstallDaemon {
     do {
       try manager.setAttributes(executablePermissions, ofItemAtPath: Paths.daemonExecutable)
       Log.debug("Set permissions of daemon executable at \(Paths.daemonExecutable) to \(executablePermissions)")
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not set permissions for daemon executable \(error.localizedDescription)")
     }
   }

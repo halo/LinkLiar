@@ -26,7 +26,7 @@ struct UninstallDaemon {
   private static func removePlist() {
     do {
       try FileManager.default.removeItem(atPath: Paths.daemonPlistFile)
-    } catch {
+    } catch let error as NSError {
       Log.error("Could not delete Daemon plist at \(Paths.daemonPlistFile) is it there? \(error.localizedDescription)")
     }
   }
@@ -34,7 +34,7 @@ struct UninstallDaemon {
   private static func removeDirectory() {
     do {
       try FileManager.default.removeItem(atPath: Paths.daemonDirectory)
-    } catch {
+    } catch let error as NSError {
       Log.info("Could not delete Daemon directory at \(Paths.daemonDirectory) is it there? \(error.localizedDescription)")
     }
   }

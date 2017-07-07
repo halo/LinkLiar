@@ -48,14 +48,14 @@ class Paths {
   static let helperPlistFile = daemonsPlistDirectory.appendPath(Identifiers.helper.rawValue + ".plist")
   static let helperPlistFileURL = URL(fileURLWithPath: helperPlistFile)
 
-  static var daemonPristineExecutable: String {
+  static var daemonPristineExecutablePath: String {
     guard let url = Bundle.main.url(forResource: "linkdaemon", withExtension: nil) else {
       Log.error("Missing linkdaemon executable in LinkLiar.app Bundle at \(Bundle.main.resourcePath ?? "?")")
       return "/dev/null"
     }
     return url.path
   }
-  static var daemonPristineExecutableURL = URL(fileURLWithPath: daemonPristineExecutable)
+  static var daemonPristineExecutableURL = URL(fileURLWithPath: daemonPristineExecutablePath)
 
   static let daemonDirectory = "/Library/Application Support/LinkDaemon"
   static let daemonDirectoryURL = URL(fileURLWithPath: daemonDirectory)

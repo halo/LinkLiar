@@ -38,7 +38,7 @@ class Intercom: NSObject {
 
   static func install(reply: @escaping (Bool) -> Void) {
     usingHelper(block: { helper in
-      helper.install(pristineExecutableURL: Paths.daemonPristineExecutableURL, reply: { success in
+      helper.install(pristineDaemonExecutablePath: Paths.daemonPristineExecutablePath, reply: { success in
         Log.debug("Helper worked on installation")
         reply(success)
       })
@@ -84,7 +84,7 @@ class Intercom: NSObject {
   static func installDaemon(reply: @escaping (Bool) -> Void) {
     Log.debug("Asking Helper to install daemon")
     usingHelper(block: { helper in
-      helper.installDaemon(pristineExecutableURL: Paths.daemonPristineExecutableURL, reply: { success in
+      helper.installDaemon(pristineDaemonExecutablePath: Paths.daemonPristineExecutablePath, reply: { success in
         Log.debug("Helper worked on the establishment of the daemon")
         reply(success)
       })
@@ -140,7 +140,8 @@ class Intercom: NSObject {
       self.xpcConnection?.interruptionHandler = nil
       OperationQueue.main.addOperation(){
         self.xpcConnection = nil
-        Log.debug("XPC Connection interrupted\n")
+        Log.debug("XPC Connection interrupted - the Helper probably crashed.")
+        Log.debug("You mght find a crash report at /Library/Logs/DiagnosticReports")
       }
     }
 
@@ -148,7 +149,7 @@ class Intercom: NSObject {
       self.xpcConnection?.invalidationHandler = nil
       OperationQueue.main.addOperation(){
         self.xpcConnection = nil
-        Log.debug("XPC Connection Invalidated\n")
+        Log.debug("XPC Connection Invalidated")
       }
     }
 
