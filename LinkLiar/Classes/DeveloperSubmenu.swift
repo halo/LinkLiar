@@ -58,7 +58,9 @@ class DeveloperSubmenu {
 
   private lazy var developerSubmenu: NSMenu = {
     let item: NSMenu = NSMenu()
+    item.addItem(self.versionTitleItem)
     item.addItem(self.installAllItem)
+    item.addItem(self.uninstallAllItem)
     item.addItem(NSMenuItem.separator())
     item.addItem(self.helperTitleItem)
     item.addItem(self.installHelperItem)
@@ -78,8 +80,18 @@ class DeveloperSubmenu {
     return item
   }()
 
+  private lazy var versionTitleItem: NSMenuItem = {
+    return NSMenuItem(title: "LinkLiar \(AppDelegate.version.formatted)", action: nil, keyEquivalent: "")
+  }()
+
   private lazy var installAllItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Install all", action: #selector(Controller.authorize), keyEquivalent: "")
+    let item = NSMenuItem(title: "Install everything", action: #selector(Controller.authorize), keyEquivalent: "")
+    item.target = Controller.self
+    return item
+  }()
+
+  private lazy var uninstallAllItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Uninstall everything", action: #selector(Controller.uninstall), keyEquivalent: "")
     item.target = Controller.self
     return item
   }()
