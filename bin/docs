@@ -19,6 +19,8 @@ echo
 
 echo "  Exposing Help Book to Github Pages..."
 cp -R LinkLiarHelp/_site/en.lproj/* docs
+cp -R LinkLiarHelp/_site/application.css docs
+cp -R LinkLiarHelp/_site/images/* docs
 
 echo "  Finished."
 echo

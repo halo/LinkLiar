@@ -2,11 +2,11 @@
 title: Introduction
 ---
 
-# LinkLiar
+# LinkLiar Helpbook
 
 This is an intuitive status menu application written in Swift 3 to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
-![](../images/screenshot_1.1.1.png)
+![](screenshot_1.1.1.png)
 
 ## 📱 What is a MAC address and why would I change it?
 
