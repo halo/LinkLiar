@@ -1,0 +1,157 @@
+#!/usr/bin/ruby
+
+STDOUT.sync = true
+require 'json'
+require 'ostruct'
+
+module LinkLiar
+  module Extensions
+    module StringExtensions
+
+      def normal
+        stylize :normal
+      end
+
+      def red
+        stylize :red
+      end
+
+      def green
+        stylize :green
+      end
+
+      def yellow
+        stylize :yellow
+      end
+
+      def blue
+        stylize :blue
+      end
+
+      def magenta
+        stylize :magenta
+      end
+
+      def cyan
+        stylize :cyan
+      end
+
+      def bold
+        stylize :bold
+      end
+
+      def faint
+        stylize :faint
+      end
+
+      def blink
+        stylize :blink
+      end
+
+      private
+
+      def stylize(style)
+        start_code = start_code_for_style(style)
+        end_code   = end_code_for_style(style)
+
+        # When this string resets the style because of a bold pattern, ensure it's opened properly again
+        string = gsub(/\033\[1m(.*)\033\[22m/, "\033\[1m" + '\1' + "\033\[22m\033[#{start_code}m")
+
+        %(\033[#{start_code}m#{string}\033[#{end_code}m) + "\033[0m"
+      end
+
+      def start_code_for_style(style) # rubocop:disable Metrics/MethodLength,Metrics/CyclomaticComplexity
+        case style
+        when :normal  then 0
+        when :red     then 31
+        when :green   then 32
+        when :yellow  then 33
+        when :blue    then 34
+        when :magenta then 35
+        when :cyan    then 36
+        when :bold    then 1
+        when :faint   then 2
+        end
+      end
+
+      def end_code_for_style(style)
+        case style
+        when :blink then 25
+        when :bold  then 22
+        when :faint then 22
+        else             0
+        end
+      end
+
+    end
+  end
+end
+
+String.send :include, LinkLiar::Extensions::StringExtensions
+
+def Log
+  def initialize(json)
+    @json = json
+  end
+
+  def data
+    @data ||= JSON.parse(json)
+  end
+end
+
+class Log
+  def initialize(json)
+    @data = OpenStruct.new JSON.parse(json)
+  end
+
+  def valid?
+    data.eventMessage
+  end
+
+  def to_s
+    result = []
+
+    case owner
+    when :helper
+      result.push "Helper - ".yellow
+
+    when :daemon
+      result.push "Daemon - ".blue
+
+    when :gui
+      result.push "GUI    - ".red
+
+    end
+
+    result.push data.eventMessage
+    #result.push data
+    result.join
+  end
+
+  private
+
+  attr_reader :data
+
+  def owner
+    return :helper if data.senderImagePath.include? 'linkhelper'
+    return :daemon if data.senderImagePath.include? 'linkdaemon'
+    return :gui
+  end
+end
+
+command = %(/usr/bin/log stream --style json --predicate 'subsystem == "io.github.halo.LinkLiar"' --level debug)
+separators = ["{\n", "},{\n"] # Thank you Apple :/
+
+components = []
+IO.popen(command) do |lines|
+  lines.each do |line|
+    if separators.include?(line)
+      log = Log.new("{#{components.join(' ')}}")
+      next unless log.valid?
+      puts log
+      components.clear
+    else
+      components << line
+    end
+  end
+end

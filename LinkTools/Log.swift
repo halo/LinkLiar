@@ -21,24 +21,44 @@ public struct Log {
   private static let log = OSLog(subsystem: Identifiers.gui.rawValue, category: "logger")
 
   public static func debug(_ message: String, callerPath: String = #file) {
-    write(message: message, level: .debug, callerPath: callerPath)
+    write(message, level: .debug, callerPath: callerPath)
   }
 
   public static func info(_ message: String, callerPath: String = #file) {
-    write(message: message, level: .info, callerPath: callerPath)
+    write(message, level: .info, callerPath: callerPath)
   }
 
   public static func error(_ message: String, callerPath: String = #file) {
-    write(message: message, level: .error, callerPath: callerPath)
+    write(message, level: .error, callerPath: callerPath)
   }
 
-  private static func write(message: String, level: OSLogType, callerPath: String) {
-    let filename = URL(fileURLWithPath: callerPath).deletingPathExtension().lastPathComponent
-    os_log("%{public}@ - %{public}@", log: log, type: .debug, filename, message)
-    appendToLogfile(message, prefix: "")
+  private static func write(_ message: String, level: OSLogType, callerPath: String) {
+    guard let filename = callerPath.components(separatedBy: "/").last else {
+      return write(message, level: level)
+    }
+
+    guard let classname = filename.components(separatedBy: ".").first else {
+      return write(message, level: level)
+    }
+
+    write("\(classname) - \(message)", level: level)
   }
 
-  private static func appendToLogfile(_ message: String, prefix: String) {
+  private static func write(_ message: String, level: OSLogType) {
+    os_log("%{public}@", log: log, type: level, message)
+    appendToLogfile(message, level: level)
+  }
+
+  private static func appendToLogfile(_ message: String, level: OSLogType) {
+    var prefix = "UNKNOWN"
+
+    switch level {
+    case OSLogType.debug: prefix = "DEBUG"
+    case OSLogType.info: prefix = "INFO"
+    case OSLogType.error: prefix = "ERROR"
+    default: prefix = "DEFAULT"
+    }
+
     let data = "\(prefix) \(message)\n".data(using: .utf8)!
 
     if let fileHandle = FileHandle(forWritingAtPath: Paths.debugLogFile) {
@@ -48,14 +68,7 @@ public struct Log {
       fileHandle.seekToEndOfFile()
       fileHandle.write(data)
     } else {
-      /*
-      #if DEBUG
-        do {
-          try data.write(to: Paths.debugLogFileURL)
-        } catch let error as NSError {}
-        // There is no logfile, which means the end-user does not want file logging
-      #endif
-      */
+      // There is no logfile, which means the end-user does not want file logging
     }
   }
 

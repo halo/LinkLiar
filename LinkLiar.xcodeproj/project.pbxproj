@@ -12,8 +12,6 @@
 		C2340DA21F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
 		C2340DA31F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
 		C2340DB21F0FB7A00065F034 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = C2340DB11F0FB7A00065F034 /* en.lproj */; };
-		C2340DB61F0FEA290065F034 /* application.css in Resources */ = {isa = PBXBuildFile; fileRef = C2340DB51F0FEA290065F034 /* application.css */; };
-		C2340DBB1F0FF65E0065F034 /* images in Resources */ = {isa = PBXBuildFile; fileRef = C2340DBA1F0FF65E0065F034 /* images */; };
 		C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */ = {isa = PBXBuildFile; fileRef = C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */; };
 		C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239264B1EEDBBB4008506E4 /* Interface.swift */; };
 		C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239264B1EEDBBB4008506E4 /* Interface.swift */; };
@@ -69,6 +67,7 @@
 		C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
+		C294F82B1F1549200027C056 /* logs in Resources */ = {isa = PBXBuildFile; fileRef = C294F82A1F1549200027C056 /* logs */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
 		C29B7DA31EE7336200609A21 /* io.github.halo.linkhelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -167,8 +166,6 @@
 		C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = UninstallDaemon.swift; path = Classes/UninstallDaemon.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DB11F0FB7A00065F034 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = LinkLiarHelp/_site/en.lproj; sourceTree = "<group>"; };
-		C2340DB51F0FEA290065F034 /* application.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = application.css; path = LinkLiarHelp/_site/application.css; sourceTree = "<group>"; };
-		C2340DBA1F0FF65E0065F034 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = LinkLiarHelp/_site/images; sourceTree = "<group>"; };
 		C239264B1EEDBBB4008506E4 /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interface.swift; path = LinkTools/Interface.swift; sourceTree = "<group>"; };
 		C239264E1EEDCD73008506E4 /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddress.swift; path = LinkTools/MACAddress.swift; sourceTree = "<group>"; };
 		C23926511EEDCD9A008506E4 /* MACAddressTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressTests.swift; sourceTree = "<group>"; };
@@ -209,6 +206,7 @@
 		C24A48701F0937390095ED0C /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C294F82A1F1549200027C056 /* logs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = logs; path = bin/logs; sourceTree = SOURCE_ROOT; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C29B7D9E1EE71AC000609A21 /* LinkHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "LinkHelper-Info.plist"; sourceTree = "<group>"; };
@@ -443,8 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				C2340DB11F0FB7A00065F034 /* en.lproj */,
-				C2340DBA1F0FF65E0065F034 /* images */,
-				C2340DB51F0FEA290065F034 /* application.css */,
 				C2F20A191EED998400355561 /* Info.plist */,
 			);
 			name = LinkLiarHelp;
@@ -453,6 +449,7 @@
 		C2F477521F0ACABE00BCFA24 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C294F82A1F1549200027C056 /* logs */,
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
 				C23926C31F06D04E008506E4 /* oui.json */,
 				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
@@ -620,6 +617,7 @@
 				C23926481EEDB095008506E4 /* LinkLiarHelp.help in Resources */,
 				C23926C41F06D04E008506E4 /* oui.json in Resources */,
 				C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */,
+				C294F82B1F1549200027C056 /* logs in Resources */,
 				C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -637,8 +635,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2340DBB1F0FF65E0065F034 /* images in Resources */,
-				C2340DB61F0FEA290065F034 /* application.css in Resources */,
 				C2340DB21F0FB7A00065F034 /* en.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
