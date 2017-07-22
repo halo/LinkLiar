@@ -138,7 +138,7 @@ class Menu {
   func checkHelper() {
     Intercom.helperVersion(reply: { versionOrNil in
       guard let version = versionOrNil else {
-        self.authorizeItem.title = "Authorize..."
+        self.authorizeItem.title = "Authorize LinkLiar..."
         self.authorizeItem.isHidden = false
         self.authorizeSeparatorItem.isHidden = false
         NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
@@ -149,7 +149,7 @@ class Menu {
         self.authorizeItem.isHidden = true
         self.authorizeSeparatorItem.isHidden = true
       } else {
-        self.authorizeItem.title = "Re-authorize..."
+        self.authorizeItem.title = "Re-authorize LinkLiar..."
         self.authorizeItem.isHidden = false
         self.authorizeSeparatorItem.isHidden = false
       }
