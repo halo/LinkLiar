@@ -21,4 +21,4 @@ security import master_chief.cer -k linkliar.keychain -A
 security import master_chief.p12 -k linkliar.keychain -P $CERTIFICATE_PROTECTION_KEY -A
 
 echo "Preventing Sierra from hanging on Travis..."
-security set-key-partition-list -S apple-tool:,apple: -s -k $CERTIFICATE_PROTECTION_KEY linkliar.keychain > /dev/null
+security set-key-partition-list -S apple-tool:,apple: -s -k $CUSTOM_KEYCHAIN_PASSWORD linkliar.keychain > /dev/null
