@@ -16,10 +16,16 @@
 
 import Foundation
 
-class MACAddress: Equatable {
+struct MACAddress: Equatable {
 
   var humanReadable: String {
-    return isValid ? formatted : "??:??:??:??:??:??"
+    guard isValid else { return "??:??:??:??:??:??" }
+
+    if Config.instance.isAnonymized {
+      return add(Config.instance.anonymizationSeed).formatted
+    } else {
+      return formatted
+    }
   }
 
   var formatted: String {
@@ -41,14 +47,25 @@ class MACAddress: Equatable {
   }
 
   private var sanitized: String {
+    let nonHexCharacters = CharacterSet(charactersIn: "0123456789abcdef").inverted
     return raw.lowercased().components(separatedBy: nonHexCharacters).joined()
   }
 
   private var raw: String
-  private lazy var nonHexCharacters = CharacterSet(charactersIn: "0123456789abcdef").inverted
+
+  private var integers : [UInt8] {
+    return sanitized.characters.map { UInt8(String($0), radix: 16)! }
+  }
 
   init(_ raw: String) {
     self.raw = raw
+  }
+
+  func add(_ address: MACAddress) -> MACAddress {
+    let otherIntegers = address.integers
+    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
+    let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
+    return MACAddress(newAddress)
   }
 
 }

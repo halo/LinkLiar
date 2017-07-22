@@ -65,6 +65,13 @@ class MACAddressTests: XCTestCase {
     XCTAssertTrue(mac1 == mac2)
   }
 
+  func testAdd() {
+    let mac1 = MACAddress("11:aa:11:11:11:ff")
+    let mac2 = MACAddress("11:22:33:00:55:66")
+    let mac = mac1.add(mac2)
+    XCTAssertEqual("22:cc:44:11:66:55", mac.formatted)
+  }
+
   func testEquatableWithTwoDifferentAddresses() {
     let mac1 = MACAddress("aa:aa:aa:aa:aa:aa")
     let mac2 = MACAddress("bb:bb:bb:bb:bb:bb")

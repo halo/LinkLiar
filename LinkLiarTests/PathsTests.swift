@@ -90,7 +90,7 @@ class PathTests: XCTestCase {
   }
 
   func testDaemonPristineExecutable() {
-    let path = Paths.daemonPristineExecutable
+    let path = Paths.daemonPristineExecutablePath
     XCTAssertTrue(path.hasSuffix("/LinkLiar.app/Contents/Resources/linkdaemon"))
   }
 

@@ -44,6 +44,19 @@ struct Configuration {
     return restriction != false
   }
 
+  var anonymizationSeed: MACAddress {
+    guard let seed = self.dictionary["anonymous"] as? String else {
+      return MACAddress("")
+    }
+
+    return MACAddress(seed)
+  }
+
+  var isAnonymized: Bool {
+    print(anonymizationSeed)
+    return anonymizationSeed.isValid
+  }
+
   /**
    * Queries whether interfaces set to random may be rerandomized at best-effort.
    */

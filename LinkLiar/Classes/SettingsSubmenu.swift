@@ -27,12 +27,14 @@ class SettingsSubmenu {
   func update() {
     self.allowRerandomizationItem.state = Config.instance.isForbiddenToRerandomize ? 0 : 1
     self.independentDaemonItem.state = Config.instance.isRestrictedDaemon ? 0 : 1
+    self.anonymizeItem.state = Config.instance.isAnonymized ? 1 : 0
   }
 
   private lazy var settingsSubmenu: NSMenu = {
     let item: NSMenu = NSMenu()
     item.addItem(self.allowRerandomizationItem)
     item.addItem(self.independentDaemonItem)
+    item.addItem(self.anonymizeItem)
     //item.addItem(self.showLogsItem)
     return item
   }()
@@ -48,6 +50,13 @@ class SettingsSubmenu {
     let item = NSMenuItem(title: "Run in Background", action: #selector(Controller.toggleDaemonRestriction), keyEquivalent: "")
     item.target = Controller.self
     item.toolTip = "Manage Interfaces even when this GUI is not running (recommended)."
+    return item
+  }()
+
+  private lazy var anonymizeItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Anonymize Logs", action: #selector(Controller.toggleAnonymization), keyEquivalent: "")
+    item.target = Controller.self
+    item.toolTip = "Convenient if you wish to share your logs or screenshots (but do not share your config.yml, because it contains the key to de-anonymize anonymized logs)."
     return item
   }()
 

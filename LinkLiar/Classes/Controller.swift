@@ -64,6 +64,14 @@ class Controller: NSObject {
     Config.instance.isRestrictedDaemon ? freeDaemon() : restrictDaemon()
   }
 
+  static func toggleAnonymization(_ _: NSMenuItem) {
+    if Config.instance.isAnonymized {
+      ConfigWriter.deAnonymize()
+    } else {
+      ConfigWriter.anonymize()
+    }
+  }
+
   private static func restrictDaemon() {
     ConfigWriter.restrictDaemon()
   }

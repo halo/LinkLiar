@@ -112,6 +112,23 @@ struct ConfigWriter {
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
+
+  static func anonymize() {
+    var dictionary = dictionaryWithCurrentVersion()
+    let prefix = String(format: "%06X", Int(arc4random_uniform(0xffffff)))
+    let suffix = String(format: "%06X", Int(arc4random_uniform(0xffffff)))
+    dictionary["anonymous"] = MACAddress(prefix + suffix).formatted
+    Log.debug("Changing config by adding anonymization seed...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func deAnonymize() {
+    var dictionary = dictionaryWithCurrentVersion()
+    dictionary["anonymous"] = nil
+    Log.debug("Changing config by removing anonymization seed...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
   private static func dictionaryWithCurrentVersion() -> [String: Any] {
     var dictionary = Config.instance.dictionary
     dictionary["version"] = AppDelegate.version.formatted
