@@ -1,6 +1,7 @@
 sudo: false
 osx_image: xcode8.3
 language: objective-c
+xcode_project: LinkLiar.xcodeproj
 xcode_scheme: LinkLiar
 before_script: bin/cert
 
