@@ -2,5 +2,8 @@ sudo: false
 osx_image: xcode8.3
 language: objective-c
 xcode_scheme: LinkLiar
-before_script: bin/ci
+before_script: bin/cert
 rvm: 2.3
+
+# Skip Bundler
+install: true

@@ -15,3 +15,5 @@ build
 *.gem
 .bundle
 .sass-cache
+*.cer
+*.p12
