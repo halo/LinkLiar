@@ -4,6 +4,7 @@ language: objective-c
 xcode_project: LinkLiar.xcodeproj
 xcode_scheme: LinkLiar
 before_script: bin/cert
+script: xcodebuild test -scheme LinkLiar | xcpretty
 
 # Skip Bundler
 install: true
