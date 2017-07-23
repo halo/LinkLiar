@@ -95,6 +95,9 @@ class Ifconfig {
       Log.debug("Interface \(self.BSDName) has no MAC address.")
       return ""
     }
+
+    Log.debug("Interface \(self.BSDName) has the soft MAC address \(MACAddress(address).humanReadable)")
+
     return address
   }()
 

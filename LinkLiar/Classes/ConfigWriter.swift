@@ -66,7 +66,7 @@ struct ConfigWriter {
   static func randomizeInterface(_ interface: Interface) {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary[interface.hardMAC.formatted] = ["action": "random", "except": interface.softMAC.formatted]
-    Log.debug("Changing config to randomize Interface \(interface.BSDName) excluding its current address \(interface.softMAC.formatted)")
+    Log.debug("Changing config to randomize Interface \(interface.BSDName) excluding its current address \(interface.softMAC.humanReadable)")
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
@@ -80,14 +80,14 @@ struct ConfigWriter {
   static func specifyInterface(_ interface: Interface, softMAC: MACAddress) {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary[interface.hardMAC.formatted] = ["action": "specify", "address": softMAC.formatted]
-    Log.debug("Changing config to specific soft MAC \(softMAC.formatted) for hard MAC \(interface.hardMAC.formatted)...")
+    Log.debug("Changing config to specific soft MAC \(softMAC.humanReadable) for hard MAC \(interface.hardMAC.humanReadable)...")
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
   static func specifyDefaultInterface(softMAC: MACAddress) {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary["default"] = ["action": "specify", "address": softMAC.formatted]
-    Log.debug("Changing config to specific soft MAC \(softMAC.formatted) for default Interfaces...")
+    Log.debug("Changing config to specific soft MAC \(softMAC.humanReadable) for default Interfaces...")
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 

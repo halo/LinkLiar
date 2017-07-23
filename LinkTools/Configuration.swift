@@ -53,7 +53,6 @@ struct Configuration {
   }
 
   var isAnonymized: Bool {
-    print(anonymizationSeed)
     return anonymizationSeed.isValid
   }
 

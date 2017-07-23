@@ -123,7 +123,7 @@ class Controller: NSObject {
       return
     }
     let title = "Choose new MAC for \(interface.displayName)"
-    let description = "The original hardware MAC for this Interface is\n\(interface.hardMAC.formatted)"
+    let description = "The original hardware MAC for this Interface is\n\(interface.hardMAC.humanReadable)"
     guard let answer = MACAddressQuestion(title: title, description: description).ask() else {
       Log.debug("You pressed <Cancel> when asked to enter a MAC address.")
       return

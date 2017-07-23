@@ -54,7 +54,7 @@ class Synchronizer {
       return
     }
     if interface.softMAC == address {
-      Log.debug("Interface \(interface.BSDName) with hardMAC \(interface.hardMAC.formatted) and softMAC \(interface.softMAC.formatted) is already set to softMAC \(address.formatted) - skipping")
+      Log.debug("Interface \(interface.BSDName) with hardMAC \(interface.hardMAC.humanReadable) and softMAC \(interface.softMAC.humanReadable) is already set to softMAC \(address.humanReadable) - skipping")
       return
     }
     setMAC(BSDName: interface.BSDName, address: address)
@@ -101,7 +101,7 @@ class Synchronizer {
       Log.info("Cannot apply MAC <\(address.humanReadable)> because it is not valid.")
       return
     }
-    Log.info("Setting MAC address <\(address.formatted)> for Interface \(BSDName)...")
+    Log.info("Setting MAC address <\(address.humanReadable)> for Interface \(BSDName)...")
     let task = Process()
     task.launchPath = "/sbin/ifconfig"
     task.arguments = [BSDName, "ether", address.formatted]

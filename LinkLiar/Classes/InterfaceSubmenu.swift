@@ -40,12 +40,12 @@ class InterfaceSubmenu {
 
     if self.interface.softMAC.isValid {
       item.title = self.interface.softMAC.humanReadable
-      SoftMACCache.remember(BSDName: self.interface.BSDName, address: self.interface.softMAC.formatted)
+      SoftMACCache.remember(BSDName: self.interface.BSDName, address: self.interface.softMAC.humanReadable)
     } else {
       if let address = SoftMACCache.address(BSDName: self.interface.BSDName) {
         item.title = address
       } else {
-        item.title = self.interface.hardMAC.formatted
+        item.title = self.interface.hardMAC.humanReadable
       }
     }
     item.state = self.interface.hasOriginalMAC ? 1 : 0
@@ -116,7 +116,7 @@ class InterfaceSubmenu {
 
       submenu.addItem(NSMenuItem.separator())
 
-      let hardMACItem: NSMenuItem = NSMenuItem(title: interface.hardMAC.formatted, action: nil, keyEquivalent: "")
+      let hardMACItem: NSMenuItem = NSMenuItem(title: interface.hardMAC.humanReadable, action: nil, keyEquivalent: "")
       hardMACItem.isEnabled = false
       hardMACItem.toolTip = "The original hardware MAC address of this interface."
       submenu.addItem(hardMACItem)
