@@ -1,3 +1,8 @@
+# 2.0.1
+
+* [FEATURE] Anonymize MAC addresses in logfiles and menus
+* [BUGFIX] Disable submenus unless LinkLiar is authorized to avoid confusion
+
 # 2.0.0
 
 * [DEPRECATION] Dropped support for macOS El Capitan (and earlier), only Sierra and later supported
