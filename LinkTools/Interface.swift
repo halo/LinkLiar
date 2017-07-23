@@ -36,8 +36,7 @@ class Interface {
 
   // Instead we expose the hardware MAC as an object.
   var hardMAC: MACAddress {
-    //return MACAddress(_hardMAC)
-    return MACAddress("28:fa:4b:22:0a:42")
+    return MACAddress(_hardMAC)
   }
 
   // This is where we keep the software MAC address as a String.
