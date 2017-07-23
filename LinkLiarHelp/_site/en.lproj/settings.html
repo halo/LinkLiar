@@ -21,14 +21,53 @@
   <li><span class="c-sidebar__chevron">⟩</span><a  href="usage.html">Usage</a></li>
   <li><span class="c-sidebar__chevron">⟩</span><a class='active' href="settings.html">Settings</a></li>
   <li><span class="c-sidebar__chevron">⟩</span><a  href="uninstall.html">Uninstall</a></li>
-  <li><span class="c-sidebar__chevron">⟩</span><a  href="development.html">Development</a></li>
 </ul>
 </nav>
 
 		<main class="o-page">
 			<h1 id="settings">Settings</h1>
 
-<p>…</p>
+<p>Let’s look at how you can configure LinkLiar.</p>
+
+<p><img src="settings.png" alt="" /></p>
+
+<h2 id="-allow-rerandomization">🕹 Allow Rerandomization</h2>
+
+<p>If an interface has been set to “Random”, it may still not be random enough for you.
+Because keeping a specific address for a year or so, is not really random.</p>
+
+<p>With this setting enabled, LinkLiar will shuffle the MAC address whenever you logout
+or put your computer to sleep (e.g. closing the lid).</p>
+
+<p>This way you ensure enough entropy even over a longer period of time.</p>
+
+<h2 id="-run-in-background">👣 Run in Background</h2>
+
+<p>If you quit LinkLiar, it does not really quit.
+It is alive at all times and manages your MAC addresses according to your will.
+This way you can make sure that the MAC addresses even keep random on boot, before you login.</p>
+
+<p>You may disable this setting, so LinkLiar is only active while you can see
+the LinkLiar icon in your status bar.</p>
+
+<h2 id="-anonymize-logs">😎 Anonymize Logs</h2>
+
+<p>Should you ever find yourself in need to share your log file or a screenshot
+of LinkLiar, you might first want to turn on this setting.</p>
+
+<p>It will deterministically change the way it logs and displays the MAC address
+so you do not expose your original hardware MAC address.</p>
+
+<p>Don’t get confused though if this is turned on. Everything still works normally,
+but LinkLiar will tell you one thing while reality is another.</p>
+
+<p>By the way, you can see the logs by typing the following command into your Terminal.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>/Applications/LinkLiar.app/Contents/Resources/logs
+</code></pre>
+</div>
+
+<p>Assuming that your <code class="highlighter-rouge">LinkLiar.app</code> is located in <code class="highlighter-rouge">/Applications</code>.</p>
 
 		</main>
 		<footer class="c-footer">

@@ -1,7 +1,8 @@
-# 2.0.1
+# 2.1.0
 
-* [FEATURE] Anonymize MAC addresses in logfiles and menus
-* [BUGFIX] Disable submenus unless LinkLiar is authorized to avoid confusion
+* [FEATURE] Added setting to anonymize MAC addresses in log files and menus
+* [FEATURE] Updated screenshot in documentation
+* [BUGFIX] Disable submenus unless config file exists (to avoid confusion)
 
 # 2.0.0
 

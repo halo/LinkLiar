@@ -3,19 +3,13 @@
 [![Build Status](https://travis-ci.org/halo/LinkLiar.svg?branch=master)](https://travis-ci.org/halo/LinkLiar)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/halo/LinkLiar)
 
-## Attention
-
-The master branch contains version 2 and is currently in the beta phase.
-
-The documentation below is still accurate for the version 1 series.
-
 ## Prevent your Mac from leaking MACs
 
 This is an intuitive status menu application written in Objective-C to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
 If you like this project, feel free to give it a ★ in the top right corner.
 
-![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/doc/screenshot_1.1.1.png)
+![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/docs/screenshot_2.1.0.png)
 
 ## Requirements
 
@@ -60,8 +54,8 @@ defaults write com.funkensturm.Link.plist debug debug  # <- Yes, twice "debug"
 
 ## Future work
 
-* Choose fake vendor from a list of MAC prefixes
-* Easier upgrading of HelperTool
+* Add badge with test coverage to README
+* Nicer GUI for specifying a MAC address manually (with option to randomize)
 
 ## Thanks
 * https://github.com/raywenderlich/swift-style-guide
