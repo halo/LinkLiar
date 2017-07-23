@@ -56,4 +56,4 @@ Once LinkLiar is started and the menu is visible, you can hold the ⌥ Option k
 
 ## License
 
-MIT 2017 funkensturm. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
+MIT 2017 halo. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
