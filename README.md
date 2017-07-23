@@ -7,7 +7,17 @@
 
 This is an intuitive status menu application written in Swift to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
+It is free as in open-source. Should you like to motivate me, you may click on the ✭ in the top-right corner.
+
 ![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/docs/screenshot_2.1.0.png)
+
+## Documentation
+
+The end-user documentation is located at [halo.github.io/LinkLiar](http://halo.github.io/LinkLiar).
+
+What you're looking at right now is the technical documentation.
+
+There is also a source-code documentation in progress, see `bin/docs` for inspiration.
 
 ## Requirements
 
