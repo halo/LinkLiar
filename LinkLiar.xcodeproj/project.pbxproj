@@ -371,18 +371,16 @@
 			children = (
 				C2EEEBA51F0BD5AF00657CC5 /* Initialization */,
 				C23926C61F06E04C008506E4 /* Menu */,
-				C23926961F06C787008506E4 /* ConfigWriter.swift */,
 				C23926971F06C787008506E4 /* Controller.swift */,
-				C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */,
-				C239269B1F06C787008506E4 /* Elevator.swift */,
 				C239269C1F06C787008506E4 /* Intercom.swift */,
+				C239269B1F06C787008506E4 /* Elevator.swift */,
+				C23926961F06C787008506E4 /* ConfigWriter.swift */,
 				C239269E1F06C787008506E4 /* JSONWriter.swift */,
-				C239269F1F06C787008506E4 /* MACAddressFormatter.swift */,
-				C23926A01F06C787008506E4 /* MACAddressQuestion.swift */,
+				C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */,
 				C23926A41F06C787008506E4 /* SoftMACCache.swift */,
 				C23926C11F06CA80008506E4 /* MACVendors.swift */,
-				C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */,
-				C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */,
+				C23926A01F06C787008506E4 /* MACAddressQuestion.swift */,
+				C2E4FF911F248FD800D154BC /* Extensions */,
 				C2F477521F0ACABE00BCFA24 /* Resources */,
 			);
 			path = LinkLiar;
@@ -417,6 +415,16 @@
 				C239268C1F0429ED008506E4 /* Info.plist */,
 			);
 			path = linkdaemon;
+			sourceTree = "<group>";
+		};
+		C2E4FF911F248FD800D154BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */,
+				C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */,
+				C239269F1F06C787008506E4 /* MACAddressFormatter.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		C2EEEBA51F0BD5AF00657CC5 /* Initialization */ = {
