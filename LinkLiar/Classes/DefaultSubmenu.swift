@@ -23,6 +23,18 @@ class DefaultSubmenu {
     randomizeItem.state = Config.instance.calculatedActionForDefaultInterface() == .random ? 1 : 0
     specifyItem.state = Config.instance.calculatedActionForDefaultInterface() == .specify ? 1 : 0
     originalizeItem.state = Config.instance.calculatedActionForDefaultInterface() == .original ? 1 : 0
+
+    if FileManager.default.fileExists(atPath: Paths.configDirectory) {
+      ignoreItem.isEnabled = true
+      randomizeItem.isEnabled = true
+      specifyItem.isEnabled = true
+      originalizeItem.isEnabled = true
+    } else {
+      ignoreItem.isEnabled = false
+      randomizeItem.isEnabled = false
+      specifyItem.isEnabled = false
+      originalizeItem.isEnabled = false
+    }
   }
   
   lazy var menuItem: NSMenuItem = {
@@ -36,6 +48,7 @@ class DefaultSubmenu {
 
   private lazy var defaultSubMenuItem: NSMenu = {
     let submenu: NSMenu = NSMenu()
+    submenu.autoenablesItems = false
     submenu.addItem(self.ignoreItem)
     submenu.addItem(self.randomizeItem)
     submenu.addItem(self.specifyItem)

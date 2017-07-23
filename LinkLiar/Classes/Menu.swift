@@ -64,6 +64,7 @@ class Menu {
     Log.debug("Updating menu...")
     reloadInterfaceItems()
     settingsSubmenu.update()
+    defaultSubmenu.update()
     developerSubmenu.update()
     checkHelper()
     updateQuitButton()

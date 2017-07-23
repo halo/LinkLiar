@@ -28,15 +28,26 @@ class SettingsSubmenu {
     self.allowRerandomizationItem.state = Config.instance.isForbiddenToRerandomize ? 0 : 1
     self.independentDaemonItem.state = Config.instance.isRestrictedDaemon ? 0 : 1
     self.anonymizeItem.state = Config.instance.isAnonymized ? 1 : 0
+
+    if FileManager.default.fileExists(atPath: Paths.configDirectory) {
+      self.allowRerandomizationItem.isEnabled = true
+      self.independentDaemonItem.isEnabled = true
+      self.anonymizeItem.isEnabled = true
+    } else {
+      self.allowRerandomizationItem.isEnabled = false
+      self.independentDaemonItem.isEnabled = false
+      self.anonymizeItem.isEnabled = false
+    }
   }
 
   private lazy var settingsSubmenu: NSMenu = {
-    let item: NSMenu = NSMenu()
-    item.addItem(self.allowRerandomizationItem)
-    item.addItem(self.independentDaemonItem)
-    item.addItem(self.anonymizeItem)
-    //item.addItem(self.showLogsItem)
-    return item
+    let menu: NSMenu = NSMenu()
+    menu.autoenablesItems = false
+    menu.addItem(self.allowRerandomizationItem)
+    menu.addItem(self.independentDaemonItem)
+    menu.addItem(self.anonymizeItem)
+    //menu.addItem(self.showLogsItem)
+    return menu
   }()
 
   private lazy var allowRerandomizationItem: NSMenuItem = {

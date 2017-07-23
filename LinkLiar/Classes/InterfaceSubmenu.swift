@@ -55,11 +55,14 @@ class InterfaceSubmenu {
   }()
 
   private func subMenuItem() -> NSMenu {
+    let configurable = FileManager.default.fileExists(atPath: Paths.configDirectory)
     let submenu: NSMenu = NSMenu()
+    submenu.autoenablesItems = false
 
     let vendorName = MACVendors.name(address: interface.softMAC)
 
     let vendorNameItem = NSMenuItem(title: vendorName, action: nil, keyEquivalent: "")
+    vendorNameItem.isEnabled = false
     vendorNameItem.toolTip = "The vendor of this Interface's currently assigned MAC address."
     submenu.addItem(vendorNameItem)
     submenu.addItem(NSMenuItem.separator())
@@ -75,6 +78,7 @@ class InterfaceSubmenu {
       ignoreItem.representedObject = interface
       ignoreItem.target = Controller.self
       ignoreItem.state = action == .ignore ? 1 : 0
+      ignoreItem.isEnabled = configurable
       ignoreItem.toolTip = "This Interface will not be modified in any way."
       submenu.addItem(ignoreItem)
 
@@ -82,6 +86,7 @@ class InterfaceSubmenu {
       randomizeItem.representedObject = interface
       randomizeItem.target = Controller.self
       randomizeItem.state = action == .random ? 1 : 0
+      randomizeItem.isEnabled = configurable
       randomizeItem.toolTip = "Keep the MAC address of this Interface random."
       submenu.addItem(randomizeItem)
 
@@ -89,6 +94,7 @@ class InterfaceSubmenu {
       specifyItem.representedObject = interface
       specifyItem.target = Controller.self
       specifyItem.state = action == .specify ? 1 : 0
+      specifyItem.isEnabled = configurable
       specifyItem.toolTip = "Assign a specific MAC address to this Interfaces."
       submenu.addItem(specifyItem)
 
@@ -96,6 +102,7 @@ class InterfaceSubmenu {
       originalizeItem.representedObject = interface
       originalizeItem.target = Controller.self
       originalizeItem.state = action == .original ? 1 : 0
+      originalizeItem.isEnabled = configurable
       originalizeItem.toolTip = "Keep this Interface reset to its original hardware MAC address."
       submenu.addItem(originalizeItem)
 
@@ -103,12 +110,14 @@ class InterfaceSubmenu {
       forgetItem.representedObject = interface
       forgetItem.target = Controller.self
       forgetItem.state = action == nil ? 1 : 0
+      forgetItem.isEnabled = configurable
       forgetItem.toolTip = "Handle this Interfaces according to whatever is specified under \"Default\"."
       submenu.addItem(forgetItem)
 
       submenu.addItem(NSMenuItem.separator())
 
       let hardMACItem: NSMenuItem = NSMenuItem(title: interface.hardMAC.formatted, action: nil, keyEquivalent: "")
+      hardMACItem.isEnabled = false
       hardMACItem.toolTip = "The original hardware MAC address of this interface."
       submenu.addItem(hardMACItem)
     }
