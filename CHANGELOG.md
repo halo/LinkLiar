@@ -2,6 +2,7 @@
 
 * [FEATURE] Added setting to anonymize MAC addresses in log files and menus
 * [FEATURE] Updated screenshot in documentation
+* [FEATURE] Completed in-app Help Book
 * [BUGFIX] Disable submenus unless config file exists (to avoid confusion)
 
 # 2.0.0
