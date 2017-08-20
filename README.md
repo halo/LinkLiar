@@ -26,7 +26,10 @@ There is also a source-code documentation in progress, see `bin/docs` for inspir
 
 ## Installation
 
-Grap the latest release of [LinkLiar.app.zip](https://github.com/halo/LinkLiar/releases/latest), extract it, and place it into your `/Applications` directory.
+If you have [https://brew.sh](Homebrew), just run `brew cask install linkliar`.
+
+Alternatively, grab the latest release of [LinkLiar.app.zip](https://github.com/halo/LinkLiar/releases/latest), extract it,
+and place it into your `/Applications` directory (see [installation](http://halo.github.io/LinkLiar/installation.html) for help).
 
 ## Limitations
 
