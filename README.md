@@ -5,23 +5,17 @@
 
 ## Prevent your Mac from leaking MACs
 
-This is an intuitive status menu application written in Swift to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
+This is an intuitive macOS status menu application written in Swift to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
+
+[Download instructions](#installation)
 
 It is free as in open-source. Should you like to motivate me, you may click on the ✭ in the top-right corner.
 
 ![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/docs/screenshot_2.1.0.png)
 
-## Documentation
-
-The end-user documentation is located at [halo.github.io/LinkLiar](http://halo.github.io/LinkLiar).
-
-What you're looking at right now is the technical documentation.
-
-There is also a source-code documentation in progress, see `bin/docs` for inspiration.
-
 ## Requirements
 
-* macOS Sierra (see [releases](https://github.com/halo/LinkLiar/releases) for older versions)
+* macOS Sierra or later (see [releases](https://github.com/halo/LinkLiar/releases) for older versions)
 * Administrator privileges (you will be asked for your root password **once**)
 
 ## Installation
@@ -30,6 +24,14 @@ If you have [Homebrew](https://brew.sh), just run `brew cask install linkliar`.
 
 Alternatively, grab the latest release of [LinkLiar.app.zip](https://github.com/halo/LinkLiar/releases/latest), extract it,
 and place it into your `/Applications` directory (see [installation](http://halo.github.io/LinkLiar/installation.html) for help).
+
+## Documentation
+
+The end-user documentation is located at [halo.github.io/LinkLiar](http://halo.github.io/LinkLiar).
+
+What you're looking at right now is the technical documentation.
+
+There is also a source-code documentation in progress, see `bin/docs` for inspiration.
 
 ## Limitations
 
