@@ -19,7 +19,7 @@ import Cocoa
 
 class Controller: NSObject {
 
-  static func authorize(_ sender: NSMenuItem) {
+  @objc static func authorize(_ sender: NSMenuItem) {
     Log.debug("Installing Helper and Daemon...")
     installHelper(sender)
     Intercom.install(reply: { success in
@@ -31,7 +31,7 @@ class Controller: NSObject {
     })
   }
 
-  static func uninstall(_ sender: NSMenuItem) {
+  @objc static func uninstall(_ sender: NSMenuItem) {
     Log.debug("Uninstalling Helper, Daemon and config directory...")
     Intercom.uninstall(reply: { success in
       if (success) {
@@ -42,17 +42,17 @@ class Controller: NSObject {
     })
   }
 
-  static func installHelper(_ _: Any) {
+  @objc static func installHelper(_ _: Any) {
     Log.debug("Elevating Helper...")
     Elevator().install()
   }
 
-  static func quit(_ _: Any) {
+  @objc static func quit(_ _: Any) {
     if Config.instance.isRestrictedDaemon { deactivateDaemon(self) }
     NSApp.terminate(self)
   }
 
-  static func toggleRerandomization(_ _: NSMenuItem) {
+  @objc static func toggleRerandomization(_ _: NSMenuItem) {
     if Config.instance.isForbiddenToRerandomize {
       ConfigWriter.allowRerandom()
     } else {
@@ -60,11 +60,11 @@ class Controller: NSObject {
     }
   }
 
-  static func toggleDaemonRestriction(_ _: NSMenuItem) {
+  @objc static func toggleDaemonRestriction(_ _: NSMenuItem) {
     Config.instance.isRestrictedDaemon ? freeDaemon() : restrictDaemon()
   }
 
-  static func toggleAnonymization(_ _: NSMenuItem) {
+  @objc static func toggleAnonymization(_ _: NSMenuItem) {
     if Config.instance.isAnonymized {
       ConfigWriter.deAnonymize()
     } else {
@@ -81,11 +81,11 @@ class Controller: NSObject {
     activateDaemon(self)
   }
 
-  static func resetConfig(_ _: NSMenuItem) {
+  @objc static func resetConfig(_ _: NSMenuItem) {
     ConfigWriter.reset()
   }
 
-  static func ignoreInterface(_ sender: NSMenuItem) {
+  @objc static func ignoreInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
@@ -93,7 +93,7 @@ class Controller: NSObject {
     ConfigWriter.ignoreInterface(interface)
   }
 
-  static func forgetInterface(_ sender: NSMenuItem) {
+  @objc static func forgetInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
@@ -101,11 +101,11 @@ class Controller: NSObject {
     ConfigWriter.forgetInterface(interface)
   }
 
-  static func ignoreDefaultInterface(_ sender: NSMenuItem) {
+  @objc static func ignoreDefaultInterface(_ sender: NSMenuItem) {
     ConfigWriter.ignoreDefaultInterface()
   }
 
-  static func randomizeInterface(_ sender: NSMenuItem) {
+  @objc static func randomizeInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
@@ -113,11 +113,11 @@ class Controller: NSObject {
     ConfigWriter.randomizeInterface(interface)
   }
 
-  static func randomizeDefaultInterface(_ sender: NSMenuItem) {
+  @objc static func randomizeDefaultInterface(_ sender: NSMenuItem) {
     ConfigWriter.randomizeDefaultInterface()
   }
 
-  static func specifyInterface(_ sender: NSMenuItem) {
+  @objc static func specifyInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
@@ -133,7 +133,7 @@ class Controller: NSObject {
     ConfigWriter.specifyInterface(interface, softMAC: softMAC)
   }
 
-  static func specifyDefaultInterface(_ sender: NSMenuItem) {
+  @objc static func specifyDefaultInterface(_ sender: NSMenuItem) {
     let title = "Choose MAC for unknown Interfaces"
     let description = "Whenever a new Interface is detected, this MAC address will be assigned to it."
     guard let answer = MACAddressQuestion(title: title, description: description).ask() else {
@@ -145,7 +145,7 @@ class Controller: NSObject {
     ConfigWriter.specifyDefaultInterface(softMAC: softMAC)
   }
 
-  static func originalizeInterface(_ sender: NSMenuItem) {
+  @objc static func originalizeInterface(_ sender: NSMenuItem) {
     guard let interface = sender.representedObject as? Interface else {
       Log.error("Expected the NSMenuItem to be associated to an Interface")
       return
@@ -153,7 +153,7 @@ class Controller: NSObject {
     ConfigWriter.originalizeInterface(interface)
   }
 
-  static func originalizeDefaultInterface(_ _: NSMenuItem) {
+  @objc static func originalizeDefaultInterface(_ _: NSMenuItem) {
     ConfigWriter.originalizeDefaultInterface()
   }
 
@@ -161,7 +161,7 @@ class Controller: NSObject {
     Log.debug("TODO")
   }
 
-  static func createConfigDir(_ _: Any) {
+  @objc static func createConfigDir(_ _: Any) {
     Intercom.createConfigDir(reply: {
       success in
       if (success) {
@@ -172,7 +172,7 @@ class Controller: NSObject {
     })
   }
 
-  static func removeConfigDir(_ _: Any) {
+ @objc  static func removeConfigDir(_ _: Any) {
     Intercom.removeConfigDir(reply: {
       success in
       if (success) {
@@ -183,7 +183,7 @@ class Controller: NSObject {
     })
   }
 
-  static func installDaemon(_ _: Any) {
+  @objc static func installDaemon(_ _: Any) {
     Intercom.installDaemon(reply: {
       success in
       if (success) {
@@ -194,7 +194,7 @@ class Controller: NSObject {
     })
   }
 
-  static func activateDaemon(_ _: Any) {
+  @objc static func activateDaemon(_ _: Any) {
     Intercom.activateDaemon(reply: {
       success in
       if (success) {
@@ -205,7 +205,7 @@ class Controller: NSObject {
     })
   }
 
-  static func deactivateDaemon(_ _: Any) {
+  @objc static func deactivateDaemon(_ _: Any) {
     Intercom.deactivateDaemon(reply: {
       success in
       if (success) {
@@ -216,7 +216,7 @@ class Controller: NSObject {
     })
   }
 
-  static func uninstallHelper(_ sender: Any) {
+  @objc static func uninstallHelper(_ sender: Any) {
     Intercom.uninstallHelper(reply: {
       success in
       if (success) {
@@ -227,7 +227,7 @@ class Controller: NSObject {
     })
   }
 
-  static func uninstallDaemon(_ sender: Any) {
+  @objc static func uninstallDaemon(_ sender: Any) {
     Intercom.uninstallDaemon(reply: {
       success in
       if (success) {
@@ -238,11 +238,11 @@ class Controller: NSObject {
     })
   }
 
-  static func revealConfigDir(_ sender: Any) {
+  @objc static func revealConfigDir(_ sender: Any) {
     revealPath(Paths.configDirectory)
   }
 
-  static func showLogs(_ sender: Any) {
+  @objc static func showLogs(_ sender: Any) {
     let command = "/usr/bin/log stream --predicate 'subsystem == \\\"io.github.halo.LinkLiar\\\"' --level debug"
     let source = "tell application \"Terminal\" \n activate \n do script \"\" \n set win to do script with command \"\(command)\" \n set win's current settings to settings set \"Pro\" \n end tell"
     let script = NSAppleScript(source: source)!

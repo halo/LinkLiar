@@ -48,7 +48,7 @@ class InterfaceSubmenu {
         item.title = self.interface.hardMAC.humanReadable
       }
     }
-    item.state = self.interface.hasOriginalMAC ? 1 : 0
+    item.state = NSControl.StateValue(rawValue: self.interface.hasOriginalMAC ? 1 : 0)
     item.onStateImage = #imageLiteral(resourceName: "InterfaceLeaking")
     item.submenu = self.subMenuItem()
     return item
@@ -77,7 +77,7 @@ class InterfaceSubmenu {
       let ignoreItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.ignoreInterface), keyEquivalent: "")
       ignoreItem.representedObject = interface
       ignoreItem.target = Controller.self
-      ignoreItem.state = action == .ignore ? 1 : 0
+      ignoreItem.state = NSControl.StateValue(rawValue: action == .ignore ? 1 : 0)
       ignoreItem.isEnabled = configurable
       ignoreItem.toolTip = "This Interface will not be modified in any way."
       submenu.addItem(ignoreItem)
@@ -85,7 +85,7 @@ class InterfaceSubmenu {
       let randomizeItem: NSMenuItem = NSMenuItem(title: "Random", action: #selector(Controller.randomizeInterface), keyEquivalent: "")
       randomizeItem.representedObject = interface
       randomizeItem.target = Controller.self
-      randomizeItem.state = action == .random ? 1 : 0
+      randomizeItem.state = NSControl.StateValue(rawValue: action == .random ? 1 : 0)
       randomizeItem.isEnabled = configurable
       randomizeItem.toolTip = "Keep the MAC address of this Interface random."
       submenu.addItem(randomizeItem)
@@ -93,7 +93,7 @@ class InterfaceSubmenu {
       let specifyItem: NSMenuItem = NSMenuItem(title: "Define manually", action: #selector(Controller.specifyInterface), keyEquivalent: "")
       specifyItem.representedObject = interface
       specifyItem.target = Controller.self
-      specifyItem.state = action == .specify ? 1 : 0
+      specifyItem.state = NSControl.StateValue(rawValue: action == .specify ? 1 : 0)
       specifyItem.isEnabled = configurable
       specifyItem.toolTip = "Assign a specific MAC address to this Interfaces."
       submenu.addItem(specifyItem)
@@ -101,7 +101,7 @@ class InterfaceSubmenu {
       let originalizeItem: NSMenuItem = NSMenuItem(title: "Keep original", action: #selector(Controller.originalizeInterface), keyEquivalent: "")
       originalizeItem.representedObject = interface
       originalizeItem.target = Controller.self
-      originalizeItem.state = action == .original ? 1 : 0
+      originalizeItem.state = NSControl.StateValue(rawValue: action == .original ? 1 : 0)
       originalizeItem.isEnabled = configurable
       originalizeItem.toolTip = "Keep this Interface reset to its original hardware MAC address."
       submenu.addItem(originalizeItem)
@@ -109,7 +109,7 @@ class InterfaceSubmenu {
       let forgetItem: NSMenuItem = NSMenuItem(title: "Default", action: #selector(Controller.forgetInterface), keyEquivalent: "")
       forgetItem.representedObject = interface
       forgetItem.target = Controller.self
-      forgetItem.state = action == nil ? 1 : 0
+      forgetItem.state = NSControl.StateValue(rawValue: action == nil ? 1 : 0)
       forgetItem.isEnabled = configurable
       forgetItem.toolTip = "Handle this Interfaces according to whatever is specified under \"Default\"."
       submenu.addItem(forgetItem)

@@ -28,7 +28,7 @@ class Bar: NSObject {
    *
    * - Returns: An instance of `NSStatusItem`.
    */
-  lazy var statusItem = NSStatusBar.system().statusItem(withLength: NSSquareStatusItemLength)
+  lazy var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
   /**
    * The delegate of the status bar.
@@ -106,7 +106,7 @@ class Bar: NSObject {
     iconNeedsRefresh()
   }
 
-  func iconNeedsRefreshUsingTimer(_ _: Timer) {
+  @objc func iconNeedsRefreshUsingTimer(_ _: Timer) {
     iconNeedsRefresh()
   }
 
@@ -125,7 +125,7 @@ class Bar: NSObject {
     RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: nil, order: 0, modes: [.commonModes])
   }
 
-  func refreshMenu() {
+  @objc func refreshMenu() {
     Log.debug("Immediately refreshing GUI")
     self.menu.queue.sync {
       statusItem.menu!.update()

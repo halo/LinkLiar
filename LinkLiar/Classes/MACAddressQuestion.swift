@@ -45,7 +45,7 @@ class MACAddressQuestion {
   func ask() -> String? {
     let button = alert.runModal()
 
-    if (button == NSAlertFirstButtonReturn) {
+    if (button == NSApplication.ModalResponse.alertFirstButtonReturn) {
       textField.validateEditing()
       return textField.stringValue
     } else {

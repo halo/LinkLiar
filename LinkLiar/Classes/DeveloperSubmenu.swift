@@ -21,7 +21,7 @@ class DeveloperSubmenu {
   lazy var menuItem: NSMenuItem = {
     let item = NSMenuItem(title: "Advanced", action: nil, keyEquivalent: "")
     item.submenu = self.developerSubmenu
-    item.keyEquivalentModifierMask = .option
+    item.keyEquivalentModifierMask = NSEvent.ModifierFlags.option
     item.isAlternate = true
     return item
   }()

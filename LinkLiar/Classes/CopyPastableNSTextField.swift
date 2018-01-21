@@ -19,8 +19,8 @@ import Cocoa
 class CopyPastableNSTextField: NSTextField {
 
   override func performKeyEquivalent(with event: NSEvent) -> Bool {
-    guard event.type == NSEventType.keyDown else { return false }
-    guard event.modifierFlags.contains(.command) else { return false }
+    guard event.type == NSEvent.EventType.keyDown else { return false }
+    guard event.modifierFlags.contains(NSEvent.ModifierFlags.command) else { return false }
     guard let textView = window?.firstResponder as? NSTextView else { return false }
 
     let range = textView.selectedRange

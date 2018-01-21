@@ -40,9 +40,9 @@ class LinkDaemon {
     NotificationCenter.default.addObserver(forName: .intervalElapsed, object: nil, queue: nil, using: periodicRefresh)
     NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: interfacesChanged)
 
-    NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: .NSWorkspaceWillPowerOff, object: nil)
-    NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: .NSWorkspaceWillSleep, object: nil)
-    NSWorkspace.shared().notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: .NSWorkspaceDidWake, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: NSWorkspace.willPowerOffNotification, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: NSWorkspace.willSleepNotification, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: NSWorkspace.didWakeNotification, object: nil)
   }
 
   func periodicRefresh(_ _: Notification) {

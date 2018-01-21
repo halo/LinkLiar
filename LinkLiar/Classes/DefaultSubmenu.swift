@@ -19,10 +19,10 @@ import Cocoa
 class DefaultSubmenu {
 
   func update() {
-    ignoreItem.state = Config.instance.calculatedActionForDefaultInterface() == .ignore ? 1 : 0
-    randomizeItem.state = Config.instance.calculatedActionForDefaultInterface() == .random ? 1 : 0
-    specifyItem.state = Config.instance.calculatedActionForDefaultInterface() == .specify ? 1 : 0
-    originalizeItem.state = Config.instance.calculatedActionForDefaultInterface() == .original ? 1 : 0
+    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .ignore ? 1 : 0)
+    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .random ? 1 : 0)
+    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .specify ? 1 : 0)
+    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .original ? 1 : 0)
 
     if FileManager.default.fileExists(atPath: Paths.configDirectory) {
       ignoreItem.isEnabled = true

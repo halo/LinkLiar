@@ -570,22 +570,26 @@
 					C29B7D931EE69D1800609A21 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = B9J4QR64LK;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					C2BEBFD81EE48B5E0072BE59 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = B9J4QR64LK;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Manual;
 					};
 					C2BEBFE91EE48B5E0072BE59 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = B9J4QR64LK;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C2BEBFD81EE48B5E0072BE59;
 					};
 					C2BEC0091EE4984E0072BE59 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = B9J4QR64LK;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					C2F20A0D1EED97F800355561 = {
@@ -810,7 +814,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -831,7 +836,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -954,7 +960,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -970,7 +977,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -984,7 +992,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinkLiar.app/Contents/MacOS/LinkLiar";
 			};
 			name = Debug;
@@ -999,7 +1008,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinkLiar.app/Contents/MacOS/LinkLiar";
 			};
 			name = Release;
@@ -1011,7 +1021,8 @@
 				INFOPLIST_FILE = linkdaemon/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.linkdaemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1022,7 +1033,8 @@
 				INFOPLIST_FILE = linkdaemon/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.linkdaemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
