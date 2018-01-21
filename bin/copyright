@@ -7,6 +7,6 @@ bundle exec copyright-header \
   --copyright-software LinkLiar \
   --copyright-software-description "Link-Layer MAC spoofing GUI for macOS" \
   --copyright-holder "halo https://io.github.com/halo/LinkLiar" \
-  --copyright-year 2018 \
+  --copyright-year 2012-2018 \
   --word-wrap 130 \
   --syntax lib/copyright_syntax.yml

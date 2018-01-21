@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) 2012-2018 halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -13,7 +13,6 @@
  * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-
 
 // See https://blog.beecomedigital.com/2015/06/27/developing-a-filesystemwatcher-for-os-x-by-using-fsevents-with-swift-2/
 // See https://gist.github.com/DivineDominion/56e56f3db43216d9eaab300d3b9f049a
