@@ -1,3 +1,9 @@
+# 2.1.1
+
+Work in progress:
+
+* [FEATURE] Added option to start menu bar GUI as login item
+
 # 2.1.0
 
 * [FEATURE] Added setting to anonymize MAC addresses in log files and menus
