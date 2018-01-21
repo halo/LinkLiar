@@ -38,16 +38,17 @@ public class FileObserver {
 
   // MARK: - Private Properties
 
-  private let eventCallback: FSEventStreamCallback = { (stream: ConstFSEventStreamRef, contextInfo: UnsafeMutableRawPointer?, numEvents: Int, eventPaths: UnsafeMutableRawPointer, eventFlags: UnsafePointer<FSEventStreamEventFlags>?, eventIds: UnsafePointer<FSEventStreamEventId>?) in
+  typealias FSEventStreamCallback = @convention(c) (ConstFSEventStreamRef, UnsafeMutableRawPointer?, Int, UnsafeMutableRawPointer, UnsafePointer<FSEventStreamEventFlags>, UnsafePointer<FSEventStreamEventId>) -> Void
+  private let eventCallback: FSEventStreamCallback = { (stream, contextInfo, numEvents, eventPaths, eventFlags, eventIds) in
 
     let fileSystemWatcher: FileObserver = unsafeBitCast(contextInfo, to: FileObserver.self)
-    let paths = unsafeBitCast(eventPaths, to: NSArray.self) as! [String]
+    guard let paths = unsafeBitCast(eventPaths, to: NSArray.self) as? [String] else { return }
 
     for index in 0..<numEvents {
-      fileSystemWatcher.processEvent(eventId: eventIds![index], eventPath: paths[index], eventFlags: eventFlags![index])
+      fileSystemWatcher.processEvent(eventId: eventIds[index], eventPath: paths[index], eventFlags: eventFlags[index])
     }
 
-    fileSystemWatcher.lastEventId = eventIds![numEvents - 1]
+    fileSystemWatcher.lastEventId = eventIds[numEvents - 1]
   }
 
   private let pathsToWatch: [String]

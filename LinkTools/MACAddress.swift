@@ -29,7 +29,7 @@ struct MACAddress: Equatable {
   }
 
   var formatted: String {
-    return String(sanitized.characters.enumerated().map() {
+    return String(sanitized.enumerated().map() {
       $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
     }.joined().dropFirst())
   }
@@ -39,7 +39,7 @@ struct MACAddress: Equatable {
   }
 
   var isValid: Bool {
-    return formatted.characters.count == 17
+    return formatted.count == 17
   }
 
   var isInvalid: Bool {
@@ -54,7 +54,7 @@ struct MACAddress: Equatable {
   private var raw: String
 
   private var integers : [UInt8] {
-    return sanitized.characters.map { UInt8(String($0), radix: 16)! }
+    return sanitized.map { UInt8(String($0), radix: 16)! }
   }
 
   init(_ raw: String) {

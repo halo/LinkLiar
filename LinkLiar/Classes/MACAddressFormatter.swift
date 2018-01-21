@@ -32,7 +32,7 @@ class MACAddressFormatter : Formatter {
   }
 
   override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
-    if partialString.characters.count > 17 {
+    if partialString.count > 17 {
       return false
     }
 

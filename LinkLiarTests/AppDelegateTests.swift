@@ -21,7 +21,7 @@ class AppDelegateTests: XCTestCase {
 
   func testVersion() {
     let version = AppDelegate.version
-    XCTAssertEqual("2.0.0", version.formatted)
+    XCTAssertEqual("2.1.0", version.formatted)
   }
 
 }
