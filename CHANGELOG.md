@@ -1,8 +1,6 @@
 # 2.1.1
 
-Work in progress:
-
-* [FEATURE] Added option to start menu bar GUI as login item
+* [FEATURE] Added setting to start menu bar GUI on login
 
 # 2.1.0
 

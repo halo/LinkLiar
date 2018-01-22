@@ -22,4 +22,5 @@ extension Notification.Name {
   static let softMacIdentified = Notification.Name("\(Identifiers.gui).notifications.softMacIdentified")
   static let interfacesChanged = Notification.Name("\(Identifiers.gui).notifications.interfacesChanged")
   static let intervalElapsed = Notification.Name("\(Identifiers.gui).notifications.intervalElapsed")
+  static let killLauncher = Notification.Name("\(Identifiers.gui).notifications.killLauncher")
 }

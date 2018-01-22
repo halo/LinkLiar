@@ -72,6 +72,12 @@ extension AppDelegate: NSApplicationDelegate {
    */
   func applicationDidFinishLaunching(_ aNotification: Notification) {
     Log.debug("LinkLiar GUI \(AppDelegate.version.formatted) launched.")
+
+    if RunningApplications.isRunning(Identifiers.launcher.rawValue) {
+      Log.debug("Sending notification to running Launcher to quit.")
+      DistributedNotificationCenter.default().post(name: .killLauncher, object: Bundle.main.bundleIdentifier!)
+    }
+
     Config.observe()
     checkDaemon()
     bar.load()

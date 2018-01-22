@@ -64,6 +64,10 @@ class Controller: NSObject {
     Config.instance.isRestrictedDaemon ? freeDaemon() : restrictDaemon()
   }
 
+  @objc static func toggleLoginItem(_ _: NSMenuItem) {
+    LaunchAtLogin.toggle()
+  }
+
   @objc static func toggleAnonymization(_ _: NSMenuItem) {
     if Config.instance.isAnonymized {
       ConfigWriter.deAnonymize()

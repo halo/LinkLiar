@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20A31CE2015257500BC8386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A31A2201521E200BC8386 /* AppDelegate.swift */; };
+		C20A31CF2015257900BC8386 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
+		C20A31D02015257C00BC8386 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
+		C20A31D3201528ED00BC8386 /* LinkLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = C20A31C02015250900BC8386 /* LinkLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C2340D9F1F0EB1120065F034 /* UninstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */; };
 		C2340DA01F0EB1120065F034 /* UninstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */; };
 		C2340DA21F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
@@ -61,6 +65,10 @@
 		C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
 		C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */; };
 		C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A48701F0937390095ED0C /* RandomMACs.swift */; };
+		C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
+		C27108C120164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
+		C27108E72016559F00FDFD43 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
+		C27108E8201655A300FDFD43 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209651EEC5BD900355561 /* Paths.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -80,6 +88,8 @@
 		C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */; };
 		C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */; };
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
+		C2D5FE5B2015327300837EE8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5FE5A2015327300837EE8 /* main.swift */; };
+		C2D5FE5D20153EBA00837EE8 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5FE5C20153EBA00837EE8 /* LaunchAtLogin.swift */; };
 		C2EEEBA41F0BC16300657CC5 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEEBA31F0BC16300657CC5 /* AppDelegateTests.swift */; };
 		C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEEBA61F0C01C700657CC5 /* NetworkObserver.swift */; };
 		C2EEEBA81F0C01C700657CC5 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEEBA61F0C01C700657CC5 /* NetworkObserver.swift */; };
@@ -129,9 +139,26 @@
 			remoteGlobalIDString = C2BEBFD81EE48B5E0072BE59;
 			remoteInfo = LinkLiar;
 		};
+		C2D5FE5820152A9100837EE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C2BEBFD11EE48B5E0072BE59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C20A31BF2015250900BC8386;
+			remoteInfo = LinkLauncher;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C20A31D2201528DC00BC8386 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				C20A31D3201528ED00BC8386 /* LinkLauncher.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C29B7D921EE69D1800609A21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -163,6 +190,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C20A31A2201521E200BC8386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C20A31A9201521E200BC8386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C20A31AA201521E200BC8386 /* LinkLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkLauncher.entitlements; sourceTree = "<group>"; };
+		C20A31C02015250900BC8386 /* LinkLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = UninstallDaemon.swift; path = Classes/UninstallDaemon.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DB11F0FB7A00065F034 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = LinkLiarHelp/_site/en.lproj; sourceTree = "<group>"; };
@@ -204,6 +235,7 @@
 		C23926C31F06D04E008506E4 /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
 		C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OuiPrefixes.swift; path = Classes/OuiPrefixes.swift; sourceTree = "<group>"; };
 		C24A48701F0937390095ED0C /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
+		C27108BF20164DDB00FDFD43 /* RunningApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RunningApplications.swift; path = LinkTools/RunningApplications.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C294F82A1F1549200027C056 /* logs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = logs; path = bin/logs; sourceTree = SOURCE_ROOT; };
@@ -225,6 +257,8 @@
 		C2BEBFF01EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2BEC00A1EE4984E0072BE59 /* linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEC00C1EE4984E0072BE59 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C2D5FE5A2015327300837EE8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C2D5FE5C20153EBA00837EE8 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchAtLogin.swift; path = Classes/LaunchAtLogin.swift; sourceTree = "<group>"; };
 		C2EEEBA31F0BC16300657CC5 /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		C2EEEBA61F0C01C700657CC5 /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkObserver.swift; path = LinkTools/NetworkObserver.swift; sourceTree = "<group>"; };
 		C2EEEBA91F0C110C00657CC5 /* IntervalTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntervalTimer.swift; path = LinkTools/IntervalTimer.swift; sourceTree = "<group>"; };
@@ -241,6 +275,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C20A31BD2015250900BC8386 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C29B7D911EE69D1800609A21 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,6 +313,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20A31A1201521E200BC8386 /* LinkLauncher */ = {
+			isa = PBXGroup;
+			children = (
+				C2D5FE5A2015327300837EE8 /* main.swift */,
+				C20A31A2201521E200BC8386 /* AppDelegate.swift */,
+				C20A31A9201521E200BC8386 /* Info.plist */,
+				C20A31AA201521E200BC8386 /* LinkLauncher.entitlements */,
+			);
+			path = LinkLauncher;
+			sourceTree = "<group>";
+		};
 		C23926C61F06E04C008506E4 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +356,7 @@
 				C23926571EF10613008506E4 /* Ifconfig.swift */,
 				C239268D1F0574A7008506E4 /* Identifiers.swift */,
 				C2EEEBA91F0C110C00657CC5 /* IntervalTimer.swift */,
+				C27108BF20164DDB00FDFD43 /* RunningApplications.swift */,
 			);
 			name = LinkTools;
 			sourceTree = "<group>";
@@ -350,6 +403,7 @@
 				C291CBEA1EE85D1200154452 /* LinkTools */,
 				C2BEBFED1EE48B5E0072BE59 /* LinkLiarTests */,
 				C2F20A181EED996200355561 /* LinkLiarHelp */,
+				C20A31A1201521E200BC8386 /* LinkLauncher */,
 				C2BEBFDA1EE48B5E0072BE59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -362,6 +416,7 @@
 				C2BEC00A1EE4984E0072BE59 /* linkdaemon */,
 				C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */,
 				C2F20A0E1EED97F800355561 /* LinkLiarHelp.help */,
+				C20A31C02015250900BC8386 /* LinkLauncher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,6 +432,7 @@
 				C23926961F06C787008506E4 /* ConfigWriter.swift */,
 				C239269E1F06C787008506E4 /* JSONWriter.swift */,
 				C2BE6B9D1F0D791B0086A843 /* LaunchCtl.swift */,
+				C2D5FE5C20153EBA00837EE8 /* LaunchAtLogin.swift */,
 				C23926A41F06C787008506E4 /* SoftMACCache.swift */,
 				C23926C11F06CA80008506E4 /* MACVendors.swift */,
 				C23926A01F06C787008506E4 /* MACAddressQuestion.swift */,
@@ -468,6 +524,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C20A31BF2015250900BC8386 /* LinkLauncher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C20A31CB2015250900BC8386 /* Build configuration list for PBXNativeTarget "LinkLauncher" */;
+			buildPhases = (
+				C20A31BC2015250900BC8386 /* Sources */,
+				C20A31BD2015250900BC8386 /* Frameworks */,
+				C20A31BE2015250900BC8386 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkLauncher;
+			productName = LinkLauncher;
+			productReference = C20A31C02015250900BC8386 /* LinkLauncher.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C29B7D931EE69D1800609A21 /* io.github.halo.linkhelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C29B7D981EE69D1800609A21 /* Build configuration list for PBXNativeTarget "io.github.halo.linkhelper" */;
@@ -493,10 +566,12 @@
 				C2BEBFD61EE48B5E0072BE59 /* Frameworks */,
 				C2BEBFD71EE48B5E0072BE59 /* Resources */,
 				C29B7DA01EE71CF900609A21 /* CopyFiles */,
+				C20A31D2201528DC00BC8386 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C2D5FE5920152A9100837EE8 /* PBXTargetDependency */,
 				C23926471EEDB089008506E4 /* PBXTargetDependency */,
 				C29B7D9C1EE69D1F00609A21 /* PBXTargetDependency */,
 				C29B7D8D1EE59C1600609A21 /* PBXTargetDependency */,
@@ -563,10 +638,15 @@
 		C2BEBFD11EE48B5E0072BE59 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = halo;
 				TargetAttributes = {
+					C20A31BF2015250900BC8386 = {
+						CreatedOnToolsVersion = 9.2;
+						DevelopmentTeam = B9J4QR64LK;
+						ProvisioningStyle = Automatic;
+					};
 					C29B7D931EE69D1800609A21 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = B9J4QR64LK;
@@ -613,15 +693,23 @@
 			projectRoot = "";
 			targets = (
 				C2BEBFD81EE48B5E0072BE59 /* LinkLiar */,
-				C2BEBFE91EE48B5E0072BE59 /* LinkLiarTests */,
 				C29B7D931EE69D1800609A21 /* io.github.halo.linkhelper */,
 				C2BEC0091EE4984E0072BE59 /* linkdaemon */,
+				C20A31BF2015250900BC8386 /* LinkLauncher */,
+				C2BEBFE91EE48B5E0072BE59 /* LinkLiarTests */,
 				C2F20A0D1EED97F800355561 /* LinkLiarHelp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C20A31BE2015250900BC8386 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C2BEBFD71EE48B5E0072BE59 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -654,6 +742,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C20A31BC2015250900BC8386 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C27108E8201655A300FDFD43 /* Paths.swift in Sources */,
+				C27108E72016559F00FDFD43 /* Log.swift in Sources */,
+				C20A31D02015257C00BC8386 /* Identifiers.swift in Sources */,
+				C20A31CF2015257900BC8386 /* Notifications.swift in Sources */,
+				C2D5FE5B2015327300837EE8 /* main.swift in Sources */,
+				C20A31CE2015257500BC8386 /* AppDelegate.swift in Sources */,
+				C27108C120164DDC00FDFD43 /* RunningApplications.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C29B7D901EE69D1800609A21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -691,6 +793,7 @@
 				C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C23926A71F06C787008506E4 /* Bar.swift in Sources */,
 				C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */,
+				C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */,
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
 				C23926B11F06C787008506E4 /* MACAddressFormatter.swift in Sources */,
 				C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */,
@@ -709,6 +812,7 @@
 				C2EEEBAA1F0C110C00657CC5 /* IntervalTimer.swift in Sources */,
 				C239265E1EF3FB5B008506E4 /* Config.swift in Sources */,
 				C2F209751EEC701F00355561 /* Interfaces.swift in Sources */,
+				C2D5FE5D20153EBA00837EE8 /* LaunchAtLogin.swift in Sources */,
 				C23926B01F06C787008506E4 /* JSONWriter.swift in Sources */,
 				C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */,
 				C23926A61F06C787008506E4 /* AppDelegate.swift in Sources */,
@@ -794,9 +898,52 @@
 			target = C2BEBFD81EE48B5E0072BE59 /* LinkLiar */;
 			targetProxy = C2BEBFEB1EE48B5E0072BE59 /* PBXContainerItemProxy */;
 		};
+		C2D5FE5920152A9100837EE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C20A31BF2015250900BC8386 /* LinkLauncher */;
+			targetProxy = C2D5FE5820152A9100837EE8 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		C20A31CC2015250900BC8386 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LinkLauncher/LinkLauncher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LinkLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		C20A31CD2015250900BC8386 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_ENTITLEMENTS = LinkLauncher/LinkLauncher.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = LinkLauncher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLauncher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		C29B7D991EE69D1800609A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1071,6 +1218,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C20A31CB2015250900BC8386 /* Build configuration list for PBXNativeTarget "LinkLauncher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C20A31CC2015250900BC8386 /* Debug */,
+				C20A31CD2015250900BC8386 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C29B7D981EE69D1800609A21 /* Build configuration list for PBXNativeTarget "io.github.halo.linkhelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

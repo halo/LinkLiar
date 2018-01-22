@@ -28,6 +28,7 @@ class SettingsSubmenu {
     self.allowRerandomizationItem.state = NSControl.StateValue(rawValue: Config.instance.isForbiddenToRerandomize ? 0 : 1)
     self.independentDaemonItem.state = NSControl.StateValue(rawValue: Config.instance.isRestrictedDaemon ? 0 : 1)
     self.anonymizeItem.state = NSControl.StateValue(rawValue: Config.instance.isAnonymized ? 1 : 0)
+    self.loginStartupItem.state = NSControl.StateValue(rawValue: LaunchAtLogin.isEnabled ? 1 : 0)
 
     if FileManager.default.fileExists(atPath: Paths.configDirectory) {
       self.allowRerandomizationItem.isEnabled = true
@@ -46,6 +47,7 @@ class SettingsSubmenu {
     menu.addItem(self.allowRerandomizationItem)
     menu.addItem(self.independentDaemonItem)
     menu.addItem(self.anonymizeItem)
+    menu.addItem(self.loginStartupItem)
     //menu.addItem(self.showLogsItem)
     return menu
   }()
@@ -58,7 +60,7 @@ class SettingsSubmenu {
   }()
 
   private lazy var independentDaemonItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Run in Background", action: #selector(Controller.toggleDaemonRestriction), keyEquivalent: "")
+    let item = NSMenuItem(title: "Keep Running in Background", action: #selector(Controller.toggleDaemonRestriction), keyEquivalent: "")
     item.target = Controller.self
     item.toolTip = "Manage Interfaces even when this GUI is not running (recommended)."
     return item
@@ -68,6 +70,13 @@ class SettingsSubmenu {
     let item = NSMenuItem(title: "Anonymize Logs", action: #selector(Controller.toggleAnonymization), keyEquivalent: "")
     item.target = Controller.self
     item.toolTip = "Convenient if you wish to share your logs or screenshots (but do not share your config.yml, because it contains the key to de-anonymize anonymized logs)."
+    return item
+  }()
+
+  private lazy var loginStartupItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Start Menu Bar at Login", action: #selector(Controller.toggleLoginItem), keyEquivalent: "")
+    item.target = Controller.self
+    item.toolTip = "Useful if you didn't choose \"Keep running in background\""
     return item
   }()
 
