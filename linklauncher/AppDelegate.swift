@@ -30,9 +30,9 @@ extension AppDelegate: NSApplicationDelegate {
     DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.terminate), name: .killLauncher, object: Identifiers.gui.rawValue)
 
     if RunningApplications.isRunning(Identifiers.gui.rawValue) {
-      startGUI()
+      Log.debug("LinkLiar is already running.")
     } else {
-      Log.debug("LinkLiar is already running")
+      startGUI()
     }
     self.terminate()
   }
