@@ -114,13 +114,12 @@ class Log
     case owner
     when :helper
       result.push "Helper - ".yellow
-
     when :daemon
       result.push "Daemon - ".blue
-
     when :gui
       result.push "GUI    - ".red
-
+    when :launcher
+      result.push "Launch - ".magenta
     end
 
     result.push data.eventMessage
@@ -135,6 +134,7 @@ class Log
   def owner
     return :helper if data.senderImagePath.include? 'linkhelper'
     return :daemon if data.senderImagePath.include? 'linkdaemon'
+    return :launcher if data.senderImagePath.include? 'LinkLauncher'
     return :gui
   end
 end
@@ -142,16 +142,26 @@ end
 command = %(/usr/bin/log stream --style json --predicate 'subsystem == "io.github.halo.LinkLiar"' --level debug)
 separators = ["{\n", "},{\n"] # Thank you Apple :/
 
-components = []
-IO.popen(command) do |lines|
-  lines.each do |line|
-    if separators.include?(line)
-      log = Log.new("{#{components.join(' ')}}")
-      next unless log.valid?
-      puts log
-      components.clear
-    else
-      components << line
+begin
+  components = []
+  IO.popen(command) do |lines|
+    lines.each do |line|
+      next if line.start_with?('Filtering')
+      line = "{\n" if line == "[{\n"
+
+      if separators.include?(line)
+        log = Log.new("{#{components.join(' ')}}")
+        next unless log.valid?
+        puts log
+        components.clear
+      else
+        components << line
+      end
     end
   end
+rescue Interrupt => exception
+  puts
+  puts
+  puts ' Bye :)'.faint
+  puts
 end
