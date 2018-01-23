@@ -71,7 +71,7 @@ extension AppDelegate: NSApplicationDelegate {
    * Loads the status bar, auxiliary data and observers.
    */
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    Log.debug("LinkLiar GUI \(AppDelegate.version.formatted) launched.")
+    Log.debug("LinkLiar GUI \(AppDelegate.version.formatted) says hello")
 
     if RunningApplications.isRunning(Identifiers.launcher.rawValue) {
       Log.debug("Sending notification to running Launcher to quit.")

@@ -69,6 +69,7 @@ public struct Log {
       fileHandle.write(data)
     } else {
       // There is no logfile, which means the end-user does not want file logging
+      // You may also end up here if you turned on app sandboxing.
     }
   }
 

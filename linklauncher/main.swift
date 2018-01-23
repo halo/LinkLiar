@@ -1,8 +1,6 @@
-
 import Cocoa
 
-let delegate = AppDelegate()
+let delegate = LinkLauncher()
 NSApplication.shared.delegate = delegate
 
 NSApp.run()
-

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C20A31CE2015257500BC8386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A31A2201521E200BC8386 /* AppDelegate.swift */; };
+		C20A31CE2015257500BC8386 /* LinkLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20A31A2201521E200BC8386 /* LinkLauncher.swift */; };
 		C20A31CF2015257900BC8386 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
 		C20A31D02015257C00BC8386 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C20A31D3201528ED00BC8386 /* LinkLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = C20A31C02015250900BC8386 /* LinkLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -90,6 +90,7 @@
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
 		C2D5FE5B2015327300837EE8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5FE5A2015327300837EE8 /* main.swift */; };
 		C2D5FE5D20153EBA00837EE8 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5FE5C20153EBA00837EE8 /* LaunchAtLogin.swift */; };
+		C2DC93DC2017A0DF001B5E6E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
 		C2EEEBA41F0BC16300657CC5 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEEBA31F0BC16300657CC5 /* AppDelegateTests.swift */; };
 		C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEEBA61F0C01C700657CC5 /* NetworkObserver.swift */; };
 		C2EEEBA81F0C01C700657CC5 /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EEEBA61F0C01C700657CC5 /* NetworkObserver.swift */; };
@@ -190,9 +191,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C20A31A2201521E200BC8386 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C20A31A2201521E200BC8386 /* LinkLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLauncher.swift; sourceTree = "<group>"; };
 		C20A31A9201521E200BC8386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C20A31AA201521E200BC8386 /* LinkLauncher.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkLauncher.entitlements; sourceTree = "<group>"; };
 		C20A31C02015250900BC8386 /* LinkLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = UninstallDaemon.swift; path = Classes/UninstallDaemon.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -317,9 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				C2D5FE5A2015327300837EE8 /* main.swift */,
-				C20A31A2201521E200BC8386 /* AppDelegate.swift */,
+				C20A31A2201521E200BC8386 /* LinkLauncher.swift */,
 				C20A31A9201521E200BC8386 /* Info.plist */,
-				C20A31AA201521E200BC8386 /* LinkLauncher.entitlements */,
 			);
 			path = LinkLauncher;
 			sourceTree = "<group>";
@@ -646,6 +645,11 @@
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = B9J4QR64LK;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					C29B7D931EE69D1800609A21 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -746,12 +750,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2DC93DC2017A0DF001B5E6E /* Version.swift in Sources */,
 				C27108E8201655A300FDFD43 /* Paths.swift in Sources */,
 				C27108E72016559F00FDFD43 /* Log.swift in Sources */,
 				C20A31D02015257C00BC8386 /* Identifiers.swift in Sources */,
 				C20A31CF2015257900BC8386 /* Notifications.swift in Sources */,
 				C2D5FE5B2015327300837EE8 /* main.swift in Sources */,
-				C20A31CE2015257500BC8386 /* AppDelegate.swift in Sources */,
+				C20A31CE2015257500BC8386 /* LinkLauncher.swift in Sources */,
 				C27108C120164DDC00FDFD43 /* RunningApplications.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -911,7 +916,6 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = LinkLauncher/LinkLauncher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
@@ -930,7 +934,6 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = LinkLauncher/LinkLauncher.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;

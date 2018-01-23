@@ -22,8 +22,7 @@ It is free as in open-source. Should you like to motivate me, you may click on t
 
 If you have [Homebrew](https://brew.sh), just run `brew cask install linkliar`.
 
-Alternatively, grab the latest release of [LinkLiar.app.zip](https://github.com/halo/LinkLiar/releases/latest), extract it,
-and place it into your `/Applications` directory (see [installation](http://halo.github.io/LinkLiar/installation.html) for help).
+To install it manually, follow [these instructions](http://halo.github.io/LinkLiar/installation.html).
 
 ## Documentation
 
@@ -37,6 +36,7 @@ There is also a source-code documentation in progress, see `bin/docs` for inspir
 
 * When your Wi-Fi (aka Airport) is turned off, you cannot change its MAC address. You need to turn it on first.
 * If you change a MAC address while the interface is connected, you will briefly loose connection.
+* If you rapidly close and open your MacBook, the MAC address may change while the Wi-Fi connection remains and you loose the connection.
 
 ## Troubleshooting
 

@@ -1,6 +1,15 @@
 import Cocoa
 
-class AppDelegate: NSObject {
+class LinkLauncher: NSObject {
+  /**
+   * Looks up the version of the Application Bundle in Info.plist.
+   *
+   * - Returns: An instance of `Version`.
+   */
+  static var version: Version = {
+    Version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
+  }()
+
   @objc func terminate() {
     Log.debug("Shutting down myself")
     NSApp.terminate(nil)
@@ -23,10 +32,10 @@ class AppDelegate: NSObject {
   }
 }
 
-extension AppDelegate: NSApplicationDelegate {
+extension LinkLauncher: NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    Log.debug("I am alive")
+    Log.debug("LinkLauncher \(LinkLauncher.version.formatted) says hello")
     DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.terminate), name: .killLauncher, object: Identifiers.gui.rawValue)
 
     if RunningApplications.isRunning(Identifiers.gui.rawValue) {
