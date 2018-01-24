@@ -50,10 +50,23 @@ Delete the log file again to silence logging.
 
 Once LinkLiar is started and the menu is visible, you can hold the ⌥ Option key for advanced options. This is only intended for developers.
 
+If you want a more colorful output, clone this git repository and run `bin/logs`.
+That's what I use when I'm debugging.
+This utility is also bundled in LinkLiar so you can run it with
+
+```bash
+/Applications/LinkLiar.app/Contents/Resources/logs
+```
+
+## Development
+
+![](./docs/modules_20180124.svg)
+
 ## Future work
 
 * Add badge with test coverage to README
 * Nicer GUI for specifying a MAC address manually (with option to randomize)
+* Choose which vendor prefixes to randomize with
 
 ## Thanks
 
@@ -61,4 +74,4 @@ Once LinkLiar is started and the menu is visible, you can hold the ⌥ Option k
 
 ## License
 
-MIT 2017 halo. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
+MIT 2012-2018 halo. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
