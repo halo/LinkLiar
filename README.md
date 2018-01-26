@@ -39,6 +39,8 @@ There is also a source-code documentation in progress, see `bin/docs` for inspir
 * If you rapidly close and open your MacBook, the MAC address may change while the Wi-Fi connection remains and you loose the connection.
 * Whenever you successfully changed your MAC address, your `System Preferences` will still show you the original hardware MAC address.
   This is normal behavior and your actual network traffic uses the *new*, *changed* MAC address.
+* Choosing a "random vendor" prefix does **not** choose from **all** possible vendors, but only from
+  the most commonly known vendors ([these](https://github.com/halo/LinkLiar/blob/28c1853cb52c3edda797dbfd3670774d33dee613/linkdaemon/Classes/OuiPrefixes.swift#L17))).
 
 ## Troubleshooting
 
