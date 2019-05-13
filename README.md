@@ -2,9 +2,9 @@
 [![Downloaded](https://img.shields.io/github/downloads/halo/LinkLiar/total.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/halo/LinkLiar/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/halo/LinkLiar.svg?branch=master)](https://travis-ci.org/halo/LinkLiar)
-[![](https://img.shields.io/github/issues-raw/halo/LinkLiar.svg)]()
-[![](https://img.shields.io/github/issues-closed-raw/halo/LinkLiar.svg)]()
-[![](https://img.shields.io/github/last-commit/halo/LinkLiar.svg)]()
+[![](https://img.shields.io/github/issues-raw/halo/LinkLiar.svg)](https://github.com/halo/linkliar/issues)
+[![](https://img.shields.io/github/issues-closed-raw/halo/LinkLiar.svg)](https://github.com/halo/linkliar/issues?q=is%3Aissue+is%3Aclosed)
+[![](https://img.shields.io/github/last-commit/halo/LinkLiar.svg)](https://github.com/halo/LinkLiar/commits/master)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/halo/LinkLiar)
 
 ## Prevent your Mac from leaking MACs
@@ -45,6 +45,7 @@ There is also a source-code documentation in progress, see `bin/docs` for inspir
   This is normal behavior and your actual network traffic uses the *new*, *changed* MAC address.
 * Choosing a "random vendor" prefix does **not** choose from **all** possible vendors, but only from
   the most commonly known vendors ([these](https://github.com/halo/LinkLiar/blob/28c1853cb52c3edda797dbfd3670774d33dee613/linkdaemon/Classes/OuiPrefixes.swift#L17))).
+* 2018 Macbooks (and later) cannot change their MAC address, [for unknown reasons](https://github.com/feross/SpoofMAC/issues/87#issuecomment-485280175).
 
 ## Troubleshooting
 
