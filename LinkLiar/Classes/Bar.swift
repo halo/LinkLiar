@@ -122,7 +122,7 @@ class Bar: NSObject {
   // This method is called from an asynchronous background task. That's the wrong run loop.
   // Let's hop into the correct runloop, the one managing the opened macOS status bar menu, and trigger a live refresh of the GUI.
   func menuNeedsRendering(_ _: Notification) {
-    RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: nil, order: 0, modes: [.commonModes])
+    RunLoop.main.perform(#selector(self.refreshMenu), target: self, argument: nil, order: 0, modes: [RunLoop.Mode.common])
   }
 
   @objc func refreshMenu() {

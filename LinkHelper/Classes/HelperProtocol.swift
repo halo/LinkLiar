@@ -19,18 +19,18 @@ import Foundation
 @objc(HelperProtocol)
 
 protocol HelperProtocol {
-  func version(reply: (String) -> Void)
+  func version(reply: @escaping (String) -> Void)
 
-  func install(pristineDaemonExecutablePath: String, reply: (Bool) -> Void)
-  func uninstall(reply: (Bool) -> Void)
+  func install(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
+  func uninstall(reply: @escaping (Bool) -> Void)
 
-  func createConfigDirectory(reply: (Bool) -> Void)
-  func removeConfigDirectory(reply: (Bool) -> Void)
+  func createConfigDirectory(reply: @escaping (Bool) -> Void)
+  func removeConfigDirectory(reply: @escaping (Bool) -> Void)
 
-  func installDaemon(pristineDaemonExecutablePath: String, reply: (Bool) -> Void)
-  func activateDaemon(reply: (Bool) -> Void)
-  func deactivateDaemon(reply: (Bool) -> Void)
-  func uninstallDaemon(reply: (Bool) -> Void)
+  func installDaemon(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
+  func activateDaemon(reply: @escaping (Bool) -> Void)
+  func deactivateDaemon(reply: @escaping (Bool) -> Void)
+  func uninstallDaemon(reply: @escaping (Bool) -> Void)
 
-  func uninstallHelper(reply: (Bool) -> Void)
+  func uninstallHelper(reply: @escaping (Bool) -> Void)
 }

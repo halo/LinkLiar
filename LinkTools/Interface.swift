@@ -54,7 +54,7 @@ class Interface {
 
   var isSpoofable: Bool {
     // You can only change MAC addresses of Ethernet and Wi-Fi adapters
-    if ((["Ethernet", "IEEE80211"].index(of: kind) ) == nil) { return false }
+    if ((["Ethernet", "IEEE80211"].firstIndex(of: kind) ) == nil) { return false }
     // If there is no internal MAC this is to be ignored
     if (hardMAC.isInvalid) { return false }
     // Bluetooth can also be filtered out
