@@ -38,8 +38,6 @@ class Bar: NSObject {
   lazy var menu = Menu()
 
   var icon: NSImage {
-    if Thread.isMainThread { return self.iconLeaking }
-
     if Interfaces.anyOriginalMac() {
       return self.iconLeaking
     } else {
@@ -111,12 +109,12 @@ class Bar: NSObject {
   }
 
   func iconNeedsRefresh() {
-    DispatchQueue.global(qos: .background).async(execute: { () -> Void in
+    DispatchQueue.main.async {
       Log.debug("Reloading status bar icon...")
       self.statusItem.button!.image = self.icon
       self.statusItem.button!.alternateImage = self.statusItem.button!.image
       Log.debug("Status bar icon reloaded.")
-    })
+    }
   }
 
   // This method is called from an asynchronous background task. That's the wrong run loop.
