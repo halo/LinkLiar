@@ -112,7 +112,6 @@ struct ConfigWriter {
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
-
   static func anonymize() {
     var dictionary = dictionaryWithCurrentVersion()
     let prefix = String(format: "%06X", Int(arc4random_uniform(0xffffff)))

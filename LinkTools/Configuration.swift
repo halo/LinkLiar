@@ -77,19 +77,7 @@ struct Configuration {
 
   /**
    * Looks up the defined action for an Interface.
-   * If no valid action has been defined, use the default one.
    *
-   * - parameter hardMAC: The hardware MAC address of an Interface.
-   *
-   * - returns: An `Interface.Action` falling back to the default in a best-effort.
-   */
-  func calculatedActionForInterface(_ hardMAC: MACAddress) -> Interface.Action {
-    return actionForInterface(hardMAC) ?? calculatedActionForDefaultInterface()
-  }
-
-  /**
-   * Looks up the defined action for an Interface.
-   * 
    * - parameter hardMAC: The hardware MAC address of an Interface.
    *
    * - returns: An `Interface.Action` or `nil` if no valid action could be found
@@ -100,6 +88,18 @@ struct Configuration {
     guard let actionName = interfaceDictionary["action"] else { return nil }
 
     return Interface.Action(rawValue: actionName) ?? nil
+  }
+
+  /**
+   * Looks up the defined action for an Interface.
+   * If no valid action has been defined, use the default one.
+   *
+   * - parameter hardMAC: The hardware MAC address of an Interface.
+   *
+   * - returns: An `Interface.Action` falling back to the default in a best-effort.
+   */
+  func calculatedActionForInterface(_ hardMAC: MACAddress) -> Interface.Action {
+    return actionForInterface(hardMAC) ?? calculatedActionForDefaultInterface()
   }
 
   /**
@@ -178,4 +178,55 @@ struct Configuration {
     return address.isValid ? address : nil
   }
 
+  /**
+   * Looks up which prefixes are specified for an Interface.
+   *
+   * - parameter hardMAC: The hardware MAC address of an Interface.
+   *
+   * - returns: An Array of valid `MACAddress` or `nil` if there are none.
+   */
+  func prefixesForInterface(_ hardMAC: MACAddress) -> [MACPrefix]? {
+    guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
+    guard let rawAddressesString = interfaceDictionary["prefixes"] else { return nil }
+    let rawAddresses = rawAddressesString.split(separator: ",")
+
+    let addresses = rawAddresses.compactMap { string -> MACPrefix? in
+      let address = MACPrefix(String(string))
+      return address.isValid ? address : nil
+    }
+
+    return addresses.isEmpty ? nil : addresses
+  }
+
+  /**
+   * Looks up which prefixes are specified as default.
+   *
+   * - returns: An Array of valid `MACAddress` or `nil` if there are none.
+   */
+  func prefixesForDefaultInterface() -> [MACPrefix]? {
+    guard let interfaceDictionary = dictionary["default"] as? [String: String] else { return nil }
+    guard let rawAddressesString = interfaceDictionary["prefixes"] else { return nil }
+    let rawAddresses = rawAddressesString.split(separator: ",")
+
+    let addresses = rawAddresses.compactMap { string -> MACPrefix? in
+      let address = MACPrefix(String(string))
+      return address.isValid ? address : nil
+    }
+
+    return addresses.isEmpty ? nil : addresses
+  }
+
+  /**
+   * Looks up the defined prefixes for an Interface.
+   * If no valid address has been defined, use the default one.
+   * If the default is no valid address either, returns nil.
+   *
+   * - parameter hardMAC: The hardware MAC address of an Interface.
+   *
+   * - returns: An Array of valid `MACAddress` (falling back to the default)
+   *            or `nil` if there are none.
+   */
+  func calculatedPrefixesForInterface(_ hardMAC: MACAddress) -> [MACPrefix]? {
+    return prefixesForInterface(hardMAC) ?? prefixesForDefaultInterface()
+  }
 }

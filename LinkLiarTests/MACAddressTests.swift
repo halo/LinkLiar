@@ -50,13 +50,13 @@ class MACAddressTests: XCTestCase {
   }
 
   func testIsValidWithValidMac() {
-    let mac = MACAddress("aabb00ddee8")
-    XCTAssertFalse(mac.isValid)
+    let mac = MACAddress("aabb00ddee88")
+    XCTAssertTrue(mac.isValid)
   }
 
   func testIsValidWithInvalidMac() {
-    let mac = MACAddress("aabb00ddee88")
-    XCTAssertTrue(mac.isValid)
+    let mac = MACAddress("aabb00ddee8")
+    XCTAssertFalse(mac.isValid)
   }
 
   func testEquatableWithTwoEqualAddresses() {

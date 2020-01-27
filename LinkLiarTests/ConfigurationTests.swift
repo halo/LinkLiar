@@ -201,4 +201,101 @@ class ConfigurationTests: XCTestCase {
     XCTAssertNil(configuration.calculatedAddressForInterface(address))
   }
 
+  func testPrefixesForInterfaceWhenNothingSpecified() {
+    let configuration = Configuration(dictionary: [:])
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertNil(configuration.prefixesForInterface(address))
+  }
+
+  func testPrefixesForInterfaceWhenInvalid() {
+    let dictionary = ["aa:bb:cc:dd:ee:ff": ["prefixes": "WHAT,is, this?"]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertNil(configuration.prefixesForInterface(address))
+  }
+
+  func testPrefixesForInterfaceWithAtLeastOneValidPrefix() {
+    let dictionary = ["aa:bb:cc:dd:ee:ff": ["prefixes": "aa:bb:cc:dd:ee:ff,55:55:5,88:88:88,99:99:99"]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual([
+      MACPrefix("888888"),
+      MACPrefix("999999")
+    ], configuration.prefixesForInterface(address))
+  }
+
+  func testPrefixesForInterfaceWithWhitespace() {
+    let dictionary = ["aa:bb:cc:dd:ee:ff": ["prefixes": "  aA:bB: CC , DD:e e:ff "]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual([
+      MACPrefix("aa:bb:cc"),
+      MACPrefix("dd:ee:ff")
+    ], configuration.prefixesForInterface(address))
+  }
+
+  func testPrefixesForDefaultInterfaceWhenNothingSpecified() {
+    let configuration = Configuration(dictionary: [:])
+    XCTAssertNil(configuration.prefixesForDefaultInterface())
+  }
+
+  func testPrefixesForDefaultInterfaceWhenInvalid() {
+    let dictionary = ["default": ["prefixes": "WHAT,is, this?"]]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertNil(configuration.prefixesForDefaultInterface())
+  }
+
+  func testPrefixesForDefaultInterfaceWithAtLeastOneValidPrefix() {
+    let dictionary = ["default": ["prefixes": "aa:bb:cc:dd:ee:ff,55:55:5,88:88:88,99:99:99"]]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertEqual([
+      MACPrefix("888888"),
+      MACPrefix("999999")
+    ], configuration.prefixesForDefaultInterface())
+  }
+
+  func testPrefixesForDefaultInterfaceWithWhitespace() {
+    let dictionary = ["default": ["prefixes": "  aA:bB: CC , DD:e e:ff "]]
+    let configuration = Configuration(dictionary: dictionary)
+    XCTAssertEqual([
+      MACPrefix("aa:bb:cc"),
+      MACPrefix("dd:ee:ff")
+    ], configuration.prefixesForDefaultInterface())
+  }
+
+  func testCalculatedPrefixesForInterfaceWhenNothingSpecified() {
+    let configuration = Configuration(dictionary: [:])
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertNil(configuration.calculatedPrefixesForInterface(address))
+  }
+
+  func testCalculatedPrefixesForInterfaceWhenInvalid() {
+    let dictionary = ["default": ["prefixes": "WHAT,is, this?"],
+                      "aa:bb:cc:dd:ee:ff": ["prefixes": "And, THAT here?"]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertNil(configuration.calculatedPrefixesForInterface(address))
+  }
+
+  func testCalculatedPrefixesForInterfaceWithOnlyDefault() {
+    let dictionary = ["default": ["prefixes": "000000"]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual([MACPrefix("00:00:00")], configuration.calculatedPrefixesForInterface(address))
+  }
+
+  func testCalculatedPrefixesForInterfaceWithOnlyInterface() {
+    let dictionary = ["aa:bb:cc:dd:ee:ff": ["prefixes": "000000"]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual([MACPrefix("00:00:00")], configuration.calculatedPrefixesForInterface(address))
+  }
+
+  func testCalculatedPrefixesForInterfaceWithBothDefaultAndInterface() {
+    let dictionary = ["default": ["prefixes": "11:11:11"],
+                      "aa:bb:cc:dd:ee:ff": ["prefixes": "22:22:22"]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual([MACPrefix("22:22:22")], configuration.calculatedPrefixesForInterface(address))
+  }
 }

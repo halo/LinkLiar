@@ -11,6 +11,10 @@
 		C20A31CF2015257900BC8386 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209771EEC729400355561 /* Notifications.swift */; };
 		C20A31D02015257C00BC8386 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C239268D1F0574A7008506E4 /* Identifiers.swift */; };
 		C20A31D3201528ED00BC8386 /* LinkLauncher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = C20A31C02015250900BC8386 /* LinkLauncher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C231C0CD23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */; };
+		C231C0CE23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */; };
+		C231C0CF23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */; };
+		C231C0D223DF707200EFA3A8 /* MACPrefixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C231C0D123DF707200EFA3A8 /* MACPrefixTests.swift */; };
 		C2340D9F1F0EB1120065F034 /* UninstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */; };
 		C2340DA01F0EB1120065F034 /* UninstallDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */; };
 		C2340DA21F0EB11B0065F034 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */; };
@@ -194,6 +198,8 @@
 		C20A31A2201521E200BC8386 /* LinkLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLauncher.swift; sourceTree = "<group>"; };
 		C20A31A9201521E200BC8386 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C20A31C02015250900BC8386 /* LinkLauncher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLauncher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MACPrefix.swift; path = LinkTools/MACPrefix.swift; sourceTree = "<group>"; };
+		C231C0D123DF707200EFA3A8 /* MACPrefixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MACPrefixTests.swift; sourceTree = "<group>"; };
 		C2340D9E1F0EB1120065F034 /* UninstallDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = UninstallDaemon.swift; path = Classes/UninstallDaemon.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DA11F0EB11B0065F034 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2340DB11F0FB7A00065F034 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = LinkLiarHelp/_site/en.lproj; sourceTree = "<group>"; };
@@ -352,6 +358,7 @@
 				C23926781F03D78A008506E4 /* Version.swift */,
 				C2F209651EEC5BD900355561 /* Paths.swift */,
 				C239264E1EEDCD73008506E4 /* MACAddress.swift */,
+				C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */,
 				C23926571EF10613008506E4 /* Ifconfig.swift */,
 				C239268D1F0574A7008506E4 /* Identifiers.swift */,
 				C2EEEBA91F0C110C00657CC5 /* IntervalTimer.swift */,
@@ -451,6 +458,7 @@
 				C239266B1EF98F1A008506E4 /* JSONWriterTests.swift */,
 				C2F209691EEC5CD300355561 /* PathsTests.swift */,
 				C23926511EEDCD9A008506E4 /* MACAddressTests.swift */,
+				C231C0D123DF707200EFA3A8 /* MACPrefixTests.swift */,
 				C23926531EEE691D008506E4 /* InterfaceTests.swift */,
 				C239265A1EF1A213008506E4 /* IfconfigTests.swift */,
 				C2BEBFF01EE48B5E0072BE59 /* Info.plist */,
@@ -773,6 +781,7 @@
 				C239267A1F03D78A008506E4 /* Version.swift in Sources */,
 				C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */,
 				C2BE6BA61F0EA4B60086A843 /* InstallDaemon.swift in Sources */,
+				C231C0CE23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */,
 				C2BE6BA41F0E8D4C0086A843 /* BootDaemon.swift in Sources */,
 				C239268F1F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C291CBE81EE85D0D00154452 /* Log.swift in Sources */,
@@ -793,6 +802,7 @@
 				C23926AF1F06C787008506E4 /* InterfaceSubmenu.swift in Sources */,
 				C23926B21F06C787008506E4 /* MACAddressQuestion.swift in Sources */,
 				C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */,
+				C231C0CD23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */,
 				C239264F1EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C23926A51F06C787008506E4 /* SettingsSubmenu.swift in Sources */,
@@ -839,6 +849,7 @@
 				C2BE6B9C1F0D523F0086A843 /* ConfigurationTests.swift in Sources */,
 				C2F2096A1EEC5CD300355561 /* PathsTests.swift in Sources */,
 				C239265B1EF1A213008506E4 /* IfconfigTests.swift in Sources */,
+				C231C0D223DF707200EFA3A8 /* MACPrefixTests.swift in Sources */,
 				C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */,
 				C23926521EEDCD9A008506E4 /* MACAddressTests.swift in Sources */,
 				C2F209611EEC599100355561 /* JSONReaderTests.swift in Sources */,
@@ -853,6 +864,7 @@
 				C2F209681EEC5BD900355561 /* Paths.swift in Sources */,
 				C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */,
 				C2EEEBA81F0C01C700657CC5 /* NetworkObserver.swift in Sources */,
+				C231C0CF23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */,
 				C23926C01F06C804008506E4 /* Synchronizer.swift in Sources */,
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */,
