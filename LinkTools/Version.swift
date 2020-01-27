@@ -23,7 +23,7 @@ struct Version {
   var patch: Int
 
   init(_ version: String) {
-    var v = version.components(separatedBy: ".") as Array
+    let v = version.components(separatedBy: ".") as Array
 
     major = Int(v[0])!
     minor = Int(v[1])!

@@ -638,7 +638,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = halo;
 				TargetAttributes = {
 					C20A31BF2015250900BC8386 = {
@@ -656,7 +656,7 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = B9J4QR64LK;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					C2BEBFD81EE48B5E0072BE59 = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -917,6 +917,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
@@ -935,6 +936,7 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
@@ -951,6 +953,8 @@
 		C29B7D991EE69D1800609A21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				INFOPLIST_FILE = "LinkHelper/LinkHelper-Info.plist";
 				OTHER_LDFLAGS = (
@@ -965,6 +969,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -972,6 +977,8 @@
 		C29B7D9A1EE69D1800609A21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				INFOPLIST_FILE = "LinkHelper/LinkHelper-Info.plist";
 				OTHER_LDFLAGS = (
@@ -986,6 +993,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkHelper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -1104,9 +1112,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = LinkLiar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
@@ -1121,9 +1130,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = LinkLiar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
@@ -1138,6 +1148,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LinkLiarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -1153,6 +1164,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LinkLiarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -1166,7 +1178,9 @@
 		C2BEC00E1EE4984E0072BE59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
 				INFOPLIST_FILE = linkdaemon/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.linkdaemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1177,7 +1191,9 @@
 		C2BEC00F1EE4984E0072BE59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
 				INFOPLIST_FILE = linkdaemon/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.linkdaemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
