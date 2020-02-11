@@ -22,7 +22,7 @@ module Macs
     end
 
     def rows(&block)
-      open(url) do |file|
+      URI.open(url) do |file|
         file.readlines.each(&block)
       end
     end
@@ -30,7 +30,7 @@ module Macs
     def url
       'https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf;hb=HEAD'
       # Development only
-      # '/Users/orange/Desktop/manuf.txt'
+      # '~/Desktop/manuf.txt'
     end
 
     private
