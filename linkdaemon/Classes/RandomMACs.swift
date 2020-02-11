@@ -31,7 +31,23 @@ extension Collection where Index == Int {
 
 struct RandomMACs {
 
-  static func popular() -> MACAddress {
+  static func forInterFace(hardMAC: MACAddress) -> MACAddress {
+    guard let prefixes = Config.instance.prefixesForInterface(hardMAC) else {
+      return popular()
+    }
+
+    guard let userDefinedPrefix = prefixes.sample() else {
+      Log.error("Could not pick random prefix, falling back to default")
+      return popular()
+    }
+    Log.debug("Chose random user-defined prefix \(userDefinedPrefix) among \(prefixes.count) prefixes for \(hardMAC.humanReadable)")
+
+    return MACAddress([userDefinedPrefix.formatted, suffix()].joined())
+  }
+
+  // Internal Methods
+
+  private static func popular() -> MACAddress {
     return MACAddress([prefix(), suffix()].joined())
   }
 

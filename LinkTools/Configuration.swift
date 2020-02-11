@@ -196,7 +196,7 @@ struct Configuration {
     }
 
     return addresses.isEmpty ? nil : addresses
-  }
+  } 
 
   /**
    * Looks up which prefixes are specified as default.

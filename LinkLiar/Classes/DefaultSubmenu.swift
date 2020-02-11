@@ -53,6 +53,8 @@ class DefaultSubmenu {
     submenu.addItem(self.randomizeItem)
     submenu.addItem(self.specifyItem)
     submenu.addItem(self.originalizeItem)
+    submenu.addItem(NSMenuItem.separator())
+    submenu.addItem(self.prefixesItem)
     return submenu
   }()
 
@@ -84,4 +86,36 @@ class DefaultSubmenu {
     return item
   }()
 
+  private lazy var prefixesItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Prefixes", action: nil, keyEquivalent: "")
+    item.target = Controller.self
+    item.submenu = self.prefixesSubMenuItem
+    item.toolTip = "When randomizing, which prefixes should be used?"
+    return item
+  }()
+
+  private lazy var prefixesSubMenuItem: NSMenu = {
+    let submenu: NSMenu = NSMenu()
+    submenu.autoenablesItems = false
+    submenu.addItem(self.popularItem)
+    submenu.addItem(NSMenuItem.separator())
+    //submenu.addItem(self.prefixItems)
+    submenu.addItem(NSMenuItem.separator())
+    submenu.addItem(self.addPrefixItem)
+    return submenu
+  }()
+
+  private lazy var popularItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Popular", action:nil, keyEquivalent: "")
+    item.target = Controller.self
+    item.toolTip = "Choose the prefix randomly among popular vendors."
+    return item
+  }()
+
+  private lazy var addPrefixItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Add prefix...", action: nil, keyEquivalent: "")
+    item.target = Controller.self
+    item.toolTip = "Add a prefix to the user-defined default list."
+    return item
+  }()
 }

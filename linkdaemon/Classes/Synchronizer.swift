@@ -45,9 +45,11 @@ class Synchronizer {
         return
       }
       Log.debug("Taking the chance to re-randomize \(interface.BSDName)")
-      setMAC(BSDName: interface.BSDName, address: RandomMACs.popular())
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.forInterFace(hardMAC: interface.hardMAC))
     }
   }
+
+  // Internal Methods
 
   private static func specify(_ interface: Interface) {
     guard let address = Config.instance.calculatedAddressForInterface(interface.hardMAC) else {
@@ -74,7 +76,7 @@ class Synchronizer {
 
     if interface.hasOriginalMAC {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has its original MAC address.")
-      setMAC(BSDName: interface.BSDName, address: RandomMACs.popular())
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.forInterFace(hardMAC: interface.hardMAC))
     }
 
     guard let undesiredAddress = Config.instance.exceptionAddressForInterface(interface.hardMAC) else {
@@ -89,7 +91,7 @@ class Synchronizer {
 
     if interface.softMAC == undesiredAddress {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has the undesired address \(undesiredAddress.humanReadable).")
-      setMAC(BSDName: interface.BSDName, address: RandomMACs.popular())
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.forInterFace(hardMAC: interface.hardMAC))
     } else {
       Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random does not have the undesired address \(undesiredAddress.humanReadable).")
       return
@@ -101,6 +103,7 @@ class Synchronizer {
       Log.info("Cannot apply MAC <\(address.humanReadable)> because it is not valid.")
       return
     }
+
     Log.info("Setting MAC address <\(address.humanReadable)> for Interface \(BSDName)...")
     let task = Process()
     task.launchPath = "/sbin/ifconfig"
