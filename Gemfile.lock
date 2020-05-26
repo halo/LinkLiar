@@ -1,16 +1,16 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (5.1.4)
+    activesupport (5.2.4.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (~> 0.7)
+      i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     charlock_holmes (0.7.5)
     colorator (1.1.0)
-    concurrent-ruby (1.1.5)
+    concurrent-ruby (1.1.6)
     copyright-header (1.0.22)
       github-linguist
     em-websocket (0.5.1)
@@ -54,7 +54,7 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    minitest (5.11.1)
+    minitest (5.14.1)
     paint (2.0.1)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -71,7 +71,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
     thread_safe (0.3.6)
-    tzinfo (1.2.4)
+    tzinfo (1.2.7)
       thread_safe (~> 0.1)
 
 PLATFORMS
