@@ -79,6 +79,7 @@
 		C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
+		C291F67323F5AF7F00FB2CB0 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F67223F5AF7F00FB2CB0 /* Action.swift */; };
 		C294F82B1F1549200027C056 /* logs in Resources */ = {isa = PBXBuildFile; fileRef = C294F82A1F1549200027C056 /* logs */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
@@ -244,6 +245,7 @@
 		C27108BF20164DDB00FDFD43 /* RunningApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RunningApplications.swift; path = LinkTools/RunningApplications.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		C291F67223F5AF7F00FB2CB0 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Action.swift; path = LinkTools/Configuration/Action.swift; sourceTree = "<group>"; };
 		C294F82A1F1549200027C056 /* logs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = logs; path = bin/logs; sourceTree = SOURCE_ROOT; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				C2F209771EEC729400355561 /* Notifications.swift */,
 				C239265D1EF3FB5B008506E4 /* Config.swift */,
 				C23926601EF426FE008506E4 /* Configuration.swift */,
+				C291F67123F5AF3400FB2CB0 /* Configuration */,
 				C2F209711EEC701E00355561 /* CFArray+Sequence.swift */,
 				C23926801F040AC1008506E4 /* FileObserver.swift */,
 				C2F209721EEC701E00355561 /* Interfaces.swift */,
@@ -365,6 +368,14 @@
 				C27108BF20164DDB00FDFD43 /* RunningApplications.swift */,
 			);
 			name = LinkTools;
+			sourceTree = "<group>";
+		};
+		C291F67123F5AF3400FB2CB0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				C291F67223F5AF7F00FB2CB0 /* Action.swift */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		C29B7D951EE69D1800609A21 /* LinkHelper */ = {
@@ -819,6 +830,7 @@
 				C23926811F040AC1008506E4 /* FileObserver.swift in Sources */,
 				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
 				C2BE6B9E1F0D791B0086A843 /* LaunchCtl.swift in Sources */,
+				C291F67323F5AF7F00FB2CB0 /* Action.swift in Sources */,
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
 				C23926AE1F06C787008506E4 /* Intercom.swift in Sources */,
 				C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */,

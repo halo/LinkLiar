@@ -90,7 +90,7 @@ class DefaultSubmenu {
     let item = NSMenuItem(title: "Prefixes", action: nil, keyEquivalent: "")
     item.target = Controller.self
     item.submenu = self.prefixesSubMenuItem
-    item.toolTip = "When randomizing, which prefixes should be used?"
+    item.toolTip = "When randomizing, which prefixes should be used as default for new Interfaces?"
     return item
   }()
 

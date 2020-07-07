@@ -75,19 +75,8 @@ struct Configuration {
 
   // MARK: Instance Methods
 
-  /**
-   * Looks up the defined action for an Interface.
-   *
-   * - parameter hardMAC: The hardware MAC address of an Interface.
-   *
-   * - returns: An `Interface.Action` or `nil` if no valid action could be found
-   *            for this particular interface.
-   */
-  func actionForInterface(_ hardMAC: MACAddress) -> Interface.Action? {
-    guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
-    guard let actionName = interfaceDictionary["action"] else { return nil }
-
-    return Interface.Action(rawValue: actionName) ?? nil
+  func action() -> Action {
+    return Configuration.Action(dictionary: dictionary)
   }
 
   /**
@@ -116,6 +105,28 @@ struct Configuration {
     guard let actionName = interfaceDictionary["action"] else { return .ignore }
 
     return Interface.Action(rawValue: actionName) ?? .ignore
+  }
+
+  /**
+   * Queries whether user-defined prefixes should be used for an Interface.
+   *
+   * - parameter hardMAC: The hardware MAC address of an Interface.
+   */
+  func usePrefixesForInterface(_ hardMAC: MACAddress) -> Bool? {
+    return dictionary[hardMAC.formatted] as? Bool ?? false
+  }
+
+  /**
+   * Queries whether user-defined prefixes should be used by default.
+   *
+   * - parameter hardMAC: The hardware MAC address of an Interface.
+   */
+  func usePrefixesForDefault() -> Bool {
+    return dictionary["default"] as? Bool ?? false
+  }
+
+  func calculatedUsePrefixesForInterface(_ hardMAC: MACAddress) -> Bool {
+    return usePrefixesForInterface(hardMAC) || usePrefixesForDefault()
   }
 
   /**

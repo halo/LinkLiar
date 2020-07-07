@@ -126,6 +126,20 @@ class ConfigurationTests: XCTestCase {
     XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
   }
 
+  func testCalculatedUsePrefixesForInterfaceWhenNothingSpecified() {
+    let configuration = Configuration(dictionary: [:])
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual(false, configuration.calculatedUsePrefixesForInterface(address))
+  }
+
+  func testCalculatedUsePrefixesForInterfaceWhenDirectlySpecifiedAsTrue() {
+    let dictionary = ["aa:bb:cc:dd:ee:ff": ["user_prefixes": true]]
+    let configuration = Configuration(dictionary: dictionary)
+    let address = MACAddress("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual(true, configuration.calculatedUsePrefixesForInterface(address))
+  }
+
+
   func testExceptionAddressForInterfaceWhenNotSpecified() {
     let configuration = Configuration(dictionary: [:])
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
