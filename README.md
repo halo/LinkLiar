@@ -24,7 +24,7 @@ It is free as in open-source. Should you like to motivate me, you may click on t
 
 ## Installation
 
-If you have [Homebrew](https://brew.sh), just run `brew cask install linkliar`.
+If you have [Homebrew](https://brew.sh), just run `brew install --cask linkliar`.
 
 To install it manually, follow [these instructions](http://halo.github.io/LinkLiar/installation.html).
 
