@@ -19,10 +19,10 @@ import Cocoa
 class DefaultSubmenu {
 
   func update() {
-    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .ignore ? 1 : 0)
-    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .random ? 1 : 0)
-    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .specify ? 1 : 0)
-    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.calculatedActionForDefaultInterface() == .original ? 1 : 0)
+    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .ignore ? 1 : 0)
+    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .random ? 1 : 0)
+    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .specify ? 1 : 0)
+    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .original ? 1 : 0)
 
     if FileManager.default.fileExists(atPath: Paths.configDirectory) {
       ignoreItem.isEnabled = true
@@ -54,6 +54,7 @@ class DefaultSubmenu {
     submenu.addItem(self.specifyItem)
     submenu.addItem(self.originalizeItem)
     submenu.addItem(NSMenuItem.separator())
+    submenu.addItem(self.vendorsItem)
     submenu.addItem(self.prefixesItem)
     return submenu
   }()
@@ -86,30 +87,38 @@ class DefaultSubmenu {
     return item
   }()
 
+  private lazy var vendorsItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Vendors", action: nil, keyEquivalent: "")
+    item.target = Controller.self
+    item.submenu = self.vendorsSubMenuItem
+    item.toolTip = "When randomizing, which known prefixes by vendor should be used as default for new Interfaces?"
+    return item
+  }()
+
   private lazy var prefixesItem: NSMenuItem = {
     let item = NSMenuItem(title: "Prefixes", action: nil, keyEquivalent: "")
     item.target = Controller.self
     item.submenu = self.prefixesSubMenuItem
-    item.toolTip = "When randomizing, which prefixes should be used as default for new Interfaces?"
+    item.toolTip = "When randomizing, which manually defined prefixes should be used as default for new Interfaces?"
     return item
   }()
 
-  private lazy var prefixesSubMenuItem: NSMenu = {
+  private lazy var vendorsSubMenuItem: NSMenu = {
     let submenu: NSMenu = NSMenu()
     submenu.autoenablesItems = false
-    submenu.addItem(self.popularItem)
-    submenu.addItem(NSMenuItem.separator())
     //submenu.addItem(self.prefixItems)
     submenu.addItem(NSMenuItem.separator())
     submenu.addItem(self.addPrefixItem)
     return submenu
   }()
 
-  private lazy var popularItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Popular", action:nil, keyEquivalent: "")
-    item.target = Controller.self
-    item.toolTip = "Choose the prefix randomly among popular vendors."
-    return item
+  private lazy var prefixesSubMenuItem: NSMenu = {
+    let submenu: NSMenu = NSMenu()
+    submenu.autoenablesItems = false
+    //submenu.addItem(self.prefixItems)
+    submenu.addItem(NSMenuItem.separator())
+    submenu.addItem(self.addPrefixItem)
+    return submenu
   }()
 
   private lazy var addPrefixItem: NSMenuItem = {

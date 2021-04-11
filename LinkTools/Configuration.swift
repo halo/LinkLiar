@@ -34,7 +34,7 @@ struct Configuration {
   }()
 
   /**
-   * Queries whether the deamon os to be restricted to the lifetime of the GUI.
+   * Queries whether the deamon is to be restricted to the lifetime of the GUI.
    */
   var isRestrictedDaemon: Bool {
     guard let restriction = self.dictionary["restrict_daemon"] as? Bool else {
@@ -75,59 +75,16 @@ struct Configuration {
 
   // MARK: Instance Methods
 
-  func action() -> Action {
-    return Configuration.Action(dictionary: dictionary)
+  var action: Action {
+    return Action(dictionary: dictionary)
   }
 
-  /**
-   * Looks up the defined action for an Interface.
-   * If no valid action has been defined, use the default one.
-   *
-   * - parameter hardMAC: The hardware MAC address of an Interface.
-   *
-   * - returns: An `Interface.Action` falling back to the default in a best-effort.
-   */
-  func calculatedActionForInterface(_ hardMAC: MACAddress) -> Interface.Action {
-    return actionForInterface(hardMAC) ?? calculatedActionForDefaultInterface()
+  var prefixes: Prefixes {
+    return Prefixes(dictionary: dictionary)
   }
 
-  /**
-   * Looks up which action has been defined as default for unknown Interfaces.
-   *
-   * If no valid action was defined, it returns `Interface.Action.ignore` as fallback.
-   *
-   * - parameter hardMAC: The hardware MAC address of an Interface.
-   *
-   * - returns: An `Interface.Action`.
-   */
-  func calculatedActionForDefaultInterface() -> Interface.Action {
-    guard let interfaceDictionary = dictionary["default"] as? [String: String] else { return .ignore }
-    guard let actionName = interfaceDictionary["action"] else { return .ignore }
 
-    return Interface.Action(rawValue: actionName) ?? .ignore
-  }
 
-  /**
-   * Queries whether user-defined prefixes should be used for an Interface.
-   *
-   * - parameter hardMAC: The hardware MAC address of an Interface.
-   */
-  func usePrefixesForInterface(_ hardMAC: MACAddress) -> Bool? {
-    return dictionary[hardMAC.formatted] as? Bool ?? false
-  }
-
-  /**
-   * Queries whether user-defined prefixes should be used by default.
-   *
-   * - parameter hardMAC: The hardware MAC address of an Interface.
-   */
-  func usePrefixesForDefault() -> Bool {
-    return dictionary["default"] as? Bool ?? false
-  }
-
-  func calculatedUsePrefixesForInterface(_ hardMAC: MACAddress) -> Bool {
-    return usePrefixesForInterface(hardMAC) || usePrefixesForDefault()
-  }
 
   /**
    * Looks up the defined exceptioning MAC address for an Interface.

@@ -71,61 +71,6 @@ class ConfigurationTests: XCTestCase {
     XCTAssertFalse(configuration.isForbiddenToRerandomize)
   }
 
-  func testCalculatedActionForInterfaceWhenNothingSpecified() {
-    let configuration = Configuration(dictionary: [:])
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenDirectlySpecified() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["action": "random"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.random, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenDirectlySpecifiedMissing() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["whatever": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenDirectlySpecifiedInvalidly() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["action": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenDirectlySpecifiedInvalidlyType() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["action": 42]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenSpecifiedAsDefault() {
-    let dictionary = ["default": ["action": "specify"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.specify, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenSpecifiedAsDefaultInvalidly() {
-    let dictionary = ["default": ["action": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
-  }
-
-  func testCalculatedActionForInterfaceWhenSpecifiedAsDefaultMissing() {
-    let dictionary = ["default": ["whatever": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.calculatedActionForInterface(address))
-  }
-
   func testCalculatedUsePrefixesForInterfaceWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
@@ -138,7 +83,6 @@ class ConfigurationTests: XCTestCase {
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
     XCTAssertEqual(true, configuration.calculatedUsePrefixesForInterface(address))
   }
-
 
   func testExceptionAddressForInterfaceWhenNotSpecified() {
     let configuration = Configuration(dictionary: [:])

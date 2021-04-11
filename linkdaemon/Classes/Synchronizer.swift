@@ -20,7 +20,7 @@ class Synchronizer {
 
   static func run() {
     for interface in Interfaces.all(async: false) {
-      let action = Config.instance.calculatedActionForInterface(interface.hardMAC)
+      let action = Config.instance.action.calculatedForInterface(interface.hardMAC)
 
       switch action {
       case .ignore:    Log.debug("Dutifully ignoring Interface \(interface.BSDName)")
@@ -38,7 +38,7 @@ class Synchronizer {
     }
 
     for interface in Interfaces.all(async: false) {
-      let action = Config.instance.calculatedActionForInterface(interface.hardMAC)
+      let action = Config.instance.action.calculatedForInterface(interface.hardMAC)
 
       guard action == .random else {
         Log.debug("Not re-randomizing \(interface.BSDName) because it is not defined to be random.")

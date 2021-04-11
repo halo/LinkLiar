@@ -72,7 +72,7 @@ class InterfaceSubmenu {
       submenu.addItem(poweredOffItem)
     } else {
 
-      let action = Config.instance.actionForInterface(interface.hardMAC)
+      let action = Config.instance.action.forInterface(interface.hardMAC)
 
       let ignoreItem: NSMenuItem = NSMenuItem(title: "Do nothing", action: #selector(Controller.ignoreInterface), keyEquivalent: "")
       ignoreItem.representedObject = interface
