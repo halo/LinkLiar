@@ -77,6 +77,8 @@
 		C271A0032623733D008E27D8 /* Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A0022623733D008E27D8 /* Prefixes.swift */; };
 		C271A0042623733D008E27D8 /* Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A0022623733D008E27D8 /* Prefixes.swift */; };
 		C271A00C2623735B008E27D8 /* PrefixesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A00B2623735B008E27D8 /* PrefixesTests.swift */; };
+		C271A01426237A56008E27D8 /* MACPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A01326237A56008E27D8 /* MACPrefixes.swift */; };
+		C271A01526237A56008E27D8 /* MACPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A01326237A56008E27D8 /* MACPrefixes.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -250,6 +252,7 @@
 		C2719FF4262370A7008E27D8 /* ActionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C271A0022623733D008E27D8 /* Prefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefixes.swift; path = LinkTools/Configuration/Prefixes.swift; sourceTree = "<group>"; };
 		C271A00B2623735B008E27D8 /* PrefixesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixesTests.swift; sourceTree = "<group>"; };
+		C271A01326237A56008E27D8 /* MACPrefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MACPrefixes.swift; path = LinkTools/MACPrefixes.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291F67223F5AF7F00FB2CB0 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Action.swift; path = LinkTools/Configuration/Action.swift; sourceTree = "<group>"; };
@@ -378,6 +381,7 @@
 				C2F209651EEC5BD900355561 /* Paths.swift */,
 				C239264E1EEDCD73008506E4 /* MACAddress.swift */,
 				C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */,
+				C271A01326237A56008E27D8 /* MACPrefixes.swift */,
 				C23926571EF10613008506E4 /* Ifconfig.swift */,
 				C239268D1F0574A7008506E4 /* Identifiers.swift */,
 				C2EEEBA91F0C110C00657CC5 /* IntervalTimer.swift */,
@@ -840,6 +844,7 @@
 				C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */,
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
 				C23926B11F06C787008506E4 /* MACAddressFormatter.swift in Sources */,
+				C271A01426237A56008E27D8 /* MACPrefixes.swift in Sources */,
 				C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */,
 				C2F209661EEC5BD900355561 /* Paths.swift in Sources */,
 				C23926AD1F06C787008506E4 /* Elevator.swift in Sources */,
@@ -910,6 +915,7 @@
 				C23926501EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C271A0042623733D008E27D8 /* Prefixes.swift in Sources */,
 				C291CBE91EE85D0D00154452 /* Log.swift in Sources */,
+				C271A01526237A56008E27D8 /* MACPrefixes.swift in Sources */,
 				C23926621EF426FE008506E4 /* Configuration.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,
 				C2F209741EEC701F00355561 /* CFArray+Sequence.swift in Sources */,

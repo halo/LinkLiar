@@ -6,16 +6,18 @@ require 'macs'
 # Generate popular prefixes for Deamon
 # ------------------------------------
 
-result = []
-result.push '// This file was auto-generated using `bin/vendors`'
-result.push ''
-result.push 'struct OuiPrefixes {'
-result.push '  static let popular: [UInt32] = ['
-result.push Macs::Wireshark.new.popular_vendors.map(&:to_swift)
-result.push '  ]'
-result.push '}'
+# result = []
+# result.push '// This file was auto-generated using `bin/vendors`'
+# result.push ''
+# result.push 'struct OuiPrefixes {'
+# result.push '  static let popular: [UInt32] = ['
+# result.push Macs::Wireshark.new.popular_vendors.map(&:to_swift)
+# result.push '  ]'
+# result.push '}'
 
-Pathname.new('linkdaemon/Classes/OuiPrefixes.swift').write result.join("\n")
+puts Macs::Vendors.all.map(&:to_s)
+
+#Pathname.new('linkdaemon/Classes/OuiPrefixes.swift').write result.join("\n")
 
 # TODO
 # Pathname.new('LinkLiar/oui.json').write vendors.to_json

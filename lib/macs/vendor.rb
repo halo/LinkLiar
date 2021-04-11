@@ -1,36 +1,54 @@
 module Macs
   class Vendor
-    def initialize(name)
+    def initialize(name:)
       @name = name
+      @prefixes = []
+    end
+
+    def name
+      return 'Cisco' if @name == 'Cisco Systems'
+
+      @name
     end
 
     def to_s
-      [name, addresses.join(' ')].join("\n")
+      [name, prefixes.join(' ')].join("\n")
+      [name, prefixes.count].join(' – ')
     end
 
-    def to_swift
-      ["    // #{name}\n    ", addresses.map(&:to_hex).join(',')].join + ','
-    end
+    # def to_swift
+    #   ["    // #{name}\n    ", addresses.map(&:to_hex).join(',')].join + ','
+    # end
 
-    def add(address)
-      addresses.push address
+    def add_prefix(prefix)
+      prefixes.push prefix.downcase
     end
 
     def popular?
-      return false if addresses.count < 2
-      name.popular?
+      return true if name == 'Coca Cola Company' # I think this is just funny
+      return true if name == 'Nintendo' # This too, really
+      return false if prefixes.count < 3
+
+      popular_names.include?(name)
+    end
+
+    def <=>(other)
+      other.count <=> count
     end
 
     def count
-      addresses.count
+      prefixes.count
     end
 
     private
 
-    attr_reader :name
+    attr_reader :prefixes
 
-    def addresses
-      @addresses ||= []
+    def popular_names
+      %w[
+        Apple
+        Fujitsu
+      ]
     end
   end
 end

@@ -30,7 +30,7 @@ module Macs
     def url
       'https://code.wireshark.org/review/gitweb?p=wireshark.git;a=blob_plain;f=manuf;hb=HEAD'
       # Development only
-      # '~/Desktop/manuf.txt'
+      #'/tmp/manuf.txt'
     end
 
     private
