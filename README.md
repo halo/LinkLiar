@@ -64,6 +64,7 @@ That's what I use when I'm debugging.
 This utility is also bundled in LinkLiar so you can run it with
 
 ```bash
+# Run this in a Terminal for live debugging logs.
 /Applications/LinkLiar.app/Contents/Resources/logs
 ```
 

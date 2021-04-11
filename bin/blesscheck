@@ -92,7 +92,8 @@ def checkCodeSignature(programPath, programType):
         programPath
     ]
     try:
-        subprocess.check_call(args, stderr=open("/dev/null"))
+        print >> sys.stdout, "Running: %s" % args
+        subprocess.check_call(args)
     except subprocess.CalledProcessError, e:
         raise CheckException("%s code signature invalid" % programType, programPath)
 
