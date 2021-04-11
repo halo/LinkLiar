@@ -31,17 +31,48 @@ class Elevator: NSObject {
   }
 
   func authorization() -> AuthorizationRef? {
-    var authRef:AuthorizationRef?
-    var authItem = AuthorizationItem(name: kSMRightBlessPrivilegedHelper, valueLength: 0, value:UnsafeMutableRawPointer(bitPattern: 0), flags: 0)
-    var authRights:AuthorizationRights = AuthorizationRights(count: 1, items:&authItem)
-    let authFlags: AuthorizationFlags = [ [], .extendRights, .interactionAllowed, .preAuthorize ]
+    Log.debug("Instantiating Authorization...")
+    var authRef: AuthorizationRef?
+    var status = AuthorizationCreate(nil, nil, [.preAuthorize], &authRef)
+    //var status = OSStatus.init()
 
-    let status = AuthorizationCreate(&authRights, nil, authFlags, &authRef)
+    guard status == errAuthorizationSuccess else {
+      Log.debug("Could not obtain empty authorization.")
+      return nil
+    }
+
+    let authItem = kSMRightBlessPrivilegedHelper.withCString({kSMRightBlessPrivilegedHelperCString in
+      AuthorizationItem(name: kSMRightBlessPrivilegedHelperCString,
+                                       valueLength: 0,
+                                       value:UnsafeMutableRawPointer(bitPattern: 0),
+                                       flags: 0)
+    })
+
+    let pointer = UnsafeMutablePointer<AuthorizationItem>.allocate(capacity: 1)
+    pointer.initialize(to: authItem)
+
+    defer {
+      pointer.deinitialize(count: 1)
+      pointer.deallocate()
+    }
+
+    var authRights = AuthorizationRights(count: 1, items: pointer)
+
+
+      //UnsafeMutablePointer
+      //var authRights:AuthorizationRights = AuthorizationRights(count: 1, items:&authItem)
+      let authFlags: AuthorizationFlags = [ [], .extendRights, .interactionAllowed, .preAuthorize ]
+
+      status = AuthorizationCreate(&authRights, nil, authFlags, &authRef)
+
+    //})
+
     if (status != errAuthorizationSuccess) {
       let error = NSError(domain:NSOSStatusErrorDomain, code:Int(status), userInfo:nil)
       Log.debug("Authorization error: \(error)")
       return nil
     } else {
+      Log.debug("Authorization successful")
       return authRef
     }
   }
