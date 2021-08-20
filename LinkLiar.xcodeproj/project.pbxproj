@@ -66,6 +66,7 @@
 		C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926C11F06CA80008506E4 /* MACVendors.swift */; };
 		C23926C41F06D04E008506E4 /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C23926C31F06D04E008506E4 /* oui.json */; };
 		C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
+		C23E67BE26D0388500B4C2AE /* VendorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23E67BD26D0388500B4C2AE /* VendorsTests.swift */; };
 		C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */; };
 		C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A48701F0937390095ED0C /* RandomMACs.swift */; };
 		C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
@@ -99,6 +100,10 @@
 		C2BEBFE11EE48B5E0072BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */; };
 		C2BEBFEF1EE48B5E0072BE59 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEBFEE1EE48B5E0072BE59 /* LinkLiarTests.swift */; };
 		C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BEC00C1EE4984E0072BE59 /* main.swift */; };
+		C2C6896226D0331C000394C1 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6896126D0331C000394C1 /* Vendor.swift */; };
+		C2C6896426D0331C000394C1 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6896126D0331C000394C1 /* Vendor.swift */; };
+		C2C6896726D03481000394C1 /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6896626D03481000394C1 /* Vendors.swift */; };
+		C2C6896926D03481000394C1 /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C6896626D03481000394C1 /* Vendors.swift */; };
 		C2D5FE5B2015327300837EE8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5FE5A2015327300837EE8 /* main.swift */; };
 		C2D5FE5D20153EBA00837EE8 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D5FE5C20153EBA00837EE8 /* LaunchAtLogin.swift */; };
 		C2DC93DC2017A0DF001B5E6E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926781F03D78A008506E4 /* Version.swift */; };
@@ -246,6 +251,7 @@
 		C23926BE1F06C804008506E4 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronizer.swift; path = Classes/Synchronizer.swift; sourceTree = "<group>"; };
 		C23926C11F06CA80008506E4 /* MACVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACVendors.swift; sourceTree = "<group>"; };
 		C23926C31F06D04E008506E4 /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
+		C23E67BD26D0388500B4C2AE /* VendorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorsTests.swift; sourceTree = "<group>"; };
 		C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OuiPrefixes.swift; path = Classes/OuiPrefixes.swift; sourceTree = "<group>"; };
 		C24A48701F0937390095ED0C /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
 		C27108BF20164DDB00FDFD43 /* RunningApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RunningApplications.swift; path = LinkTools/RunningApplications.swift; sourceTree = "<group>"; };
@@ -275,6 +281,8 @@
 		C2BEBFF01EE48B5E0072BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2BEC00A1EE4984E0072BE59 /* linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2BEC00C1EE4984E0072BE59 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C2C6896126D0331C000394C1 /* Vendor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vendor.swift; path = LinkTools/Vendor.swift; sourceTree = "<group>"; };
+		C2C6896626D03481000394C1 /* Vendors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Vendors.swift; path = LinkTools/Vendors.swift; sourceTree = "<group>"; };
 		C2D5FE5A2015327300837EE8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C2D5FE5C20153EBA00837EE8 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LaunchAtLogin.swift; path = Classes/LaunchAtLogin.swift; sourceTree = "<group>"; };
 		C2EEEBA31F0BC16300657CC5 /* AppDelegateTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
@@ -379,6 +387,8 @@
 				C291CBE61EE85D0D00154452 /* Log.swift */,
 				C23926781F03D78A008506E4 /* Version.swift */,
 				C2F209651EEC5BD900355561 /* Paths.swift */,
+				C2C6896126D0331C000394C1 /* Vendor.swift */,
+				C2C6896626D03481000394C1 /* Vendors.swift */,
 				C239264E1EEDCD73008506E4 /* MACAddress.swift */,
 				C231C0CC23DF6EBD00EFA3A8 /* MACPrefix.swift */,
 				C271A01326237A56008E27D8 /* MACPrefixes.swift */,
@@ -494,6 +504,7 @@
 				C231C0D123DF707200EFA3A8 /* MACPrefixTests.swift */,
 				C23926531EEE691D008506E4 /* InterfaceTests.swift */,
 				C239265A1EF1A213008506E4 /* IfconfigTests.swift */,
+				C23E67BD26D0388500B4C2AE /* VendorsTests.swift */,
 				C2BEBFF01EE48B5E0072BE59 /* Info.plist */,
 				C2F209621EEC5AFD00355561 /* Fixtures */,
 			);
@@ -707,7 +718,6 @@
 					};
 					C2BEBFE91EE48B5E0072BE59 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = B9J4QR64LK;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C2BEBFD81EE48B5E0072BE59;
@@ -844,6 +854,7 @@
 				C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */,
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
 				C23926B11F06C787008506E4 /* MACAddressFormatter.swift in Sources */,
+				C2C6896226D0331C000394C1 /* Vendor.swift in Sources */,
 				C271A01426237A56008E27D8 /* MACPrefixes.swift in Sources */,
 				C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */,
 				C2F209661EEC5BD900355561 /* Paths.swift in Sources */,
@@ -856,6 +867,7 @@
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
 				C23926AE1F06C787008506E4 /* Intercom.swift in Sources */,
 				C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */,
+				C2C6896726D03481000394C1 /* Vendors.swift in Sources */,
 				C2340D9F1F0EB1120065F034 /* UninstallDaemon.swift in Sources */,
 				C23926A81F06C787008506E4 /* ConfigWriter.swift in Sources */,
 				C23926A91F06C787008506E4 /* Controller.swift in Sources */,
@@ -891,6 +903,7 @@
 				C2F209611EEC599100355561 /* JSONReaderTests.swift in Sources */,
 				C2719FF5262370A7008E27D8 /* ActionTests.swift in Sources */,
 				C239266C1EF98F1A008506E4 /* JSONWriterTests.swift in Sources */,
+				C23E67BE26D0388500B4C2AE /* VendorsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -903,10 +916,12 @@
 				C2EEEBA81F0C01C700657CC5 /* NetworkObserver.swift in Sources */,
 				C231C0CF23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */,
 				C23926C01F06C804008506E4 /* Synchronizer.swift in Sources */,
+				C2C6896926D03481000394C1 /* Vendors.swift in Sources */,
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */,
 				C2719FEC26236F91008E27D8 /* Action.swift in Sources */,
 				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
+				C2C6896426D0331C000394C1 /* Vendor.swift in Sources */,
 				C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */,
 				C23926901F0574A7008506E4 /* Identifiers.swift in Sources */,
 				C23926BF1F06C804008506E4 /* LinkDaemon.swift in Sources */,
@@ -1207,11 +1222,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LinkLiarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinkLiar.app/Contents/MacOS/LinkLiar";
 			};
@@ -1223,11 +1241,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = LinkLiarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinkLiar.app/Contents/MacOS/LinkLiar";
 			};

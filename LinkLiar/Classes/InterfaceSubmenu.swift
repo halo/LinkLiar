@@ -103,7 +103,7 @@ class InterfaceSubmenu {
       originalizeItem.target = Controller.self
       originalizeItem.state = NSControl.StateValue(rawValue: action == .original ? 1 : 0)
       originalizeItem.isEnabled = configurable
-      originalizeItem.toolTip = "Keep this Interface reset to its original hardware MAC address."
+      originalizeItem.toolTip = "Ensure this Interface is kept at its original hardware MAC address."
       submenu.addItem(originalizeItem)
 
       let forgetItem: NSMenuItem = NSMenuItem(title: "Default", action: #selector(Controller.forgetInterface), keyEquivalent: "")

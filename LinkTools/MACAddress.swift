@@ -18,6 +18,10 @@ import Foundation
 
 struct MACAddress: Equatable {
 
+  init(_ address: String) {
+    self.raw = address
+  }
+
   var humanReadable: String {
     guard isValid else { return "??:??:??:??:??:??" }
 
@@ -46,20 +50,16 @@ struct MACAddress: Equatable {
     return !isValid
   }
 
+  var integers : [UInt8] {
+    return sanitized.map { UInt8(String($0), radix: 16)! }
+  }
+
   private var sanitized: String {
     let nonHexCharacters = CharacterSet(charactersIn: "0123456789abcdef").inverted
     return raw.lowercased().components(separatedBy: nonHexCharacters).joined()
   }
 
   private var raw: String
-
-  private var integers : [UInt8] {
-    return sanitized.map { UInt8(String($0), radix: 16)! }
-  }
-
-  init(_ raw: String) {
-    self.raw = raw
-  }
 
   func add(_ address: MACAddress) -> MACAddress {
     let otherIntegers = address.integers

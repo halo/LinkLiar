@@ -15,24 +15,60 @@ extension Configuration {
     // MARK: Public Instance Methods
 
     /**
-     * Queries whether user-defined prefixes should be used for an Interface.
+     * Looks up which custom prefixes are specified as default.
      *
-     * - parameter hardMAC: The hardware MAC address of an Interface.
+     * - returns: An Array of valid `MACPrefix` or an empty Array if there are none.
      */
-    func usePrefixesForInterface(_ hardMAC: MACAddress) -> Bool {
-      return dictionary[hardMAC.formatted] as? Bool ?? false
+    var prefixesForDefaultInterface: [MACPrefix] {
+      return prefixesForKey("default")
     }
 
     /**
-     * Queries whether user-defined prefixes should be used by default.
+     * Looks up which vendors are specified as default.
+     *
+     * - returns: An Array of valid `Vendor` or an empty Array if there are none.
      */
-    func usePrefixesForDefault() -> Bool {
-      return dictionary["default"] as? Bool ?? false
-
+    var vendorsForDefaultInterface: [MACPrefix] {
+      return prefixesForKey("default")
     }
 
-    func calculatedUsePrefixesForInterface(_ hardMAC: MACAddress) -> Bool {
-      return usePrefixesForInterface(hardMAC) || usePrefixesForDefault()
+    /**
+     * Looks up which prefixes are specified for an Interface.
+     *
+     * - parameter hardMAC: The hardware MAC address of an Interface.
+     *
+     * - returns: An Array of valid `MACPrefix` or an empty Array if there are none.
+     */
+    func prefixesForInterface(_ hardMAC: MACAddress) -> [MACPrefix] {
+      return prefixesForKey(hardMAC.formatted)
+    }
+
+    /**
+     * Looks up the defined prefixes for an Interface.
+     * If no valid address has been defined, use the default one.
+     * If the default has no valid address either, returns an empty Array.
+     *
+     * - parameter hardMAC: The hardware MAC address of an Interface.
+     *
+     * - returns: An Array of valid `MACPrefix` (falling back to the default)
+     *            or an empty Array if there are none.
+     */
+    func calculatedPrefixesForInterface(_ hardMAC: MACAddress) -> [MACPrefix] {
+      let candidates = prefixesForInterface(hardMAC)
+      return candidates.isEmpty ? prefixesForDefaultInterface : candidates
+    }
+
+    private func prefixesForKey(_ key: String) -> [MACPrefix] {
+      guard let interfaceDictionary = dictionary[key] as? [String: String] else { return [] }
+      guard let rawAddressesString = interfaceDictionary["prefixes"] else { return [] }
+      let rawAddresses = rawAddressesString.split(separator: ",")
+
+      let addresses = rawAddresses.compactMap { string -> MACPrefix? in
+        let address = MACPrefix(String(string))
+        return address.isValid ? address : nil
+      }
+
+      return addresses.isEmpty ? [] : addresses
     }
   }
 }

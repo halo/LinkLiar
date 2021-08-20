@@ -73,7 +73,7 @@ class Interface {
   }
 
   // This is a human readable representation of the Interface.
-  // It is just simply from its name and interface identifier (e.g. "Wi-Fi ∙ en1")
+  // It's simply its name and interface identifier (e.g. "Wi-Fi ∙ en1")
   var title: String {
     return "\(displayName) · \(BSDName)"
   }

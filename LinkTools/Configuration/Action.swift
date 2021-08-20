@@ -21,7 +21,7 @@ extension Configuration {
      *
      * - returns: An `Interface.Action`.
      */
-    func calculatedForDefaultInterface() -> Interface.Action {
+    var calculatedForDefaultInterface: Interface.Action {
       guard let interfaceDictionary = dictionary["default"] as? [String: String] else { return .ignore }
       guard let actionName = interfaceDictionary["action"] else { return .ignore }
 
@@ -52,7 +52,7 @@ extension Configuration {
      * - returns: An `Interface.Action` falling back to the default in a best-effort.
      */
     func calculatedForInterface(_ hardMAC: MACAddress) -> Interface.Action {
-      return forInterface(hardMAC) ?? calculatedForDefaultInterface()
+      return forInterface(hardMAC) ?? calculatedForDefaultInterface
     }
 
   }

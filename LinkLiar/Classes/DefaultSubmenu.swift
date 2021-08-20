@@ -19,10 +19,10 @@ import Cocoa
 class DefaultSubmenu {
 
   func update() {
-    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .ignore ? 1 : 0)
-    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .random ? 1 : 0)
-    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .specify ? 1 : 0)
-    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface() == .original ? 1 : 0)
+    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .ignore ? 1 : 0)
+    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .random ? 1 : 0)
+    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .specify ? 1 : 0)
+    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .original ? 1 : 0)
 
     if FileManager.default.fileExists(atPath: Paths.configDirectory) {
       ignoreItem.isEnabled = true
@@ -41,7 +41,7 @@ class DefaultSubmenu {
     let item = NSMenuItem(title: "Default", action: nil, keyEquivalent: "")
     item.target = Controller.self
     item.submenu = self.defaultSubMenuItem
-    item.toolTip = "Interfaces marked as \"Default\" are implied to have this value."
+    item.toolTip = "Interfaces marked as \"Default\" have this value."
     self.update()
     return item
   }()
@@ -83,7 +83,7 @@ class DefaultSubmenu {
   private lazy var originalizeItem: NSMenuItem = {
     let item = NSMenuItem(title: "Keep original", action: #selector(Controller.originalizeDefaultInterface), keyEquivalent: "")
     item.target = Controller.self
-    item.toolTip = "Reset new Interfaces to their original hardware MAC address."
+    item.toolTip = "Ensure new Interfaces are kept at their original hardware MAC address."
     return item
   }()
 
@@ -91,7 +91,7 @@ class DefaultSubmenu {
     let item = NSMenuItem(title: "Vendors", action: nil, keyEquivalent: "")
     item.target = Controller.self
     item.submenu = self.vendorsSubMenuItem
-    item.toolTip = "When randomizing, which known prefixes by vendor should be used as default for new Interfaces?"
+    item.toolTip = "When randomizing, which popular prefixes should be used as default for new Interfaces?"
     return item
   }()
 
@@ -108,7 +108,7 @@ class DefaultSubmenu {
     submenu.autoenablesItems = false
     //submenu.addItem(self.prefixItems)
     submenu.addItem(NSMenuItem.separator())
-    submenu.addItem(self.addPrefixItem)
+    //submenu.addItem(self.addPrefixItem)
     return submenu
   }()
 

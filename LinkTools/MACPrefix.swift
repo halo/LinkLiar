@@ -20,7 +20,12 @@ struct MACPrefix: Equatable {
 
   var humanReadable: String {
     guard isValid else { return "??:??:??" }
-    return formatted
+
+    if Config.instance.isAnonymized {
+      return add(Config.instance.anonymizationSeed).formatted
+    } else {
+      return formatted
+    }
   }
 
   var formatted: String {
@@ -48,8 +53,19 @@ struct MACPrefix: Equatable {
 
   private var raw: String
 
+  private var integers : [UInt8] {
+    return sanitized.map { UInt8(String($0), radix: 8)! }
+  }
+
   init(_ raw: String) {
     self.raw = raw
+  }
+
+  func add(_ address: MACAddress) -> MACPrefix {
+    let otherIntegers = address.integers
+    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 8 }
+    let newPrefix = newIntegers.map { String($0, radix: 8) }.joined()
+    return MACPrefix(newPrefix)
   }
 
 }
