@@ -2,18 +2,15 @@ import Foundation
 
 struct Vendor: Equatable {
 
-  init(name: String, prefixes: [MACPrefix]) {
-    self.rawName = name
+  init(id: String, name: String, prefixes: [MACPrefix]) {
+    self.id = id
+    self.name = name
     self.prefixes = prefixes
   }
 
-  var name: String {
-    return rawName
-  }
-
+  var name: String
+  var id: String
   var prefixes: [MACPrefix]
-
-  private var rawName: String
 }
 
 func ==(lhs: Vendor, rhs: Vendor) -> Bool {
