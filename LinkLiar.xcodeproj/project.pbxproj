@@ -69,6 +69,11 @@
 		C23E67BE26D0388500B4C2AE /* VendorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23E67BD26D0388500B4C2AE /* VendorsTests.swift */; };
 		C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */; };
 		C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A48701F0937390095ED0C /* RandomMACs.swift */; };
+		C251369026DAA94100AA7B2E /* MACPrefixQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251368F26DAA94100AA7B2E /* MACPrefixQuestion.swift */; };
+		C251369226DABCFE00AA7B2E /* UnknownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369126DABCFE00AA7B2E /* UnknownInterface.swift */; };
+		C251369326DABCFE00AA7B2E /* UnknownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369126DABCFE00AA7B2E /* UnknownInterface.swift */; };
+		C251369526DACE8300AA7B2E /* KnownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369426DACE8300AA7B2E /* KnownInterface.swift */; };
+		C251369626DACE8300AA7B2E /* KnownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369426DACE8300AA7B2E /* KnownInterface.swift */; };
 		C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
 		C27108C120164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
 		C27108E72016559F00FDFD43 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -254,6 +259,9 @@
 		C23E67BD26D0388500B4C2AE /* VendorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorsTests.swift; sourceTree = "<group>"; };
 		C24A486E1F090EDF0095ED0C /* OuiPrefixes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OuiPrefixes.swift; path = Classes/OuiPrefixes.swift; sourceTree = "<group>"; };
 		C24A48701F0937390095ED0C /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
+		C251368F26DAA94100AA7B2E /* MACPrefixQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACPrefixQuestion.swift; path = Classes/MACPrefixQuestion.swift; sourceTree = "<group>"; };
+		C251369126DABCFE00AA7B2E /* UnknownInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnknownInterface.swift; path = LinkTools/Configuration/UnknownInterface.swift; sourceTree = "<group>"; };
+		C251369426DACE8300AA7B2E /* KnownInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnownInterface.swift; path = LinkTools/Configuration/KnownInterface.swift; sourceTree = "<group>"; };
 		C27108BF20164DDB00FDFD43 /* RunningApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RunningApplications.swift; path = LinkTools/RunningApplications.swift; sourceTree = "<group>"; };
 		C2719FF4262370A7008E27D8 /* ActionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C271A0022623733D008E27D8 /* Prefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefixes.swift; path = LinkTools/Configuration/Prefixes.swift; sourceTree = "<group>"; };
@@ -403,6 +411,8 @@
 		C291F67123F5AF3400FB2CB0 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				C251369126DABCFE00AA7B2E /* UnknownInterface.swift */,
+				C251369426DACE8300AA7B2E /* KnownInterface.swift */,
 				C291F67223F5AF7F00FB2CB0 /* Action.swift */,
 				C271A0022623733D008E27D8 /* Prefixes.swift */,
 			);
@@ -484,6 +494,7 @@
 				C23926A41F06C787008506E4 /* SoftMACCache.swift */,
 				C23926C11F06CA80008506E4 /* MACVendors.swift */,
 				C23926A01F06C787008506E4 /* MACAddressQuestion.swift */,
+				C251368F26DAA94100AA7B2E /* MACPrefixQuestion.swift */,
 				C2E4FF911F248FD800D154BC /* Extensions */,
 				C2F477521F0ACABE00BCFA24 /* Resources */,
 			);
@@ -846,6 +857,7 @@
 				C239264C1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C231C0CD23DF6EBD00EFA3A8 /* MACPrefix.swift in Sources */,
 				C239264F1EEDCD73008506E4 /* MACAddress.swift in Sources */,
+				C251369026DAA94100AA7B2E /* MACPrefixQuestion.swift in Sources */,
 				C291CBE71EE85D0D00154452 /* Log.swift in Sources */,
 				C23926A51F06C787008506E4 /* SettingsSubmenu.swift in Sources */,
 				C239268E1F0574A7008506E4 /* Identifiers.swift in Sources */,
@@ -857,6 +869,7 @@
 				C2C6896226D0331C000394C1 /* Vendor.swift in Sources */,
 				C271A01426237A56008E27D8 /* MACPrefixes.swift in Sources */,
 				C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */,
+				C251369526DACE8300AA7B2E /* KnownInterface.swift in Sources */,
 				C2F209661EEC5BD900355561 /* Paths.swift in Sources */,
 				C23926AD1F06C787008506E4 /* Elevator.swift in Sources */,
 				C23926AA1F06C787008506E4 /* CopyPastableNSTextField.swift in Sources */,
@@ -873,6 +886,7 @@
 				C23926A91F06C787008506E4 /* Controller.swift in Sources */,
 				C2EEEBAA1F0C110C00657CC5 /* IntervalTimer.swift in Sources */,
 				C239265E1EF3FB5B008506E4 /* Config.swift in Sources */,
+				C251369226DABCFE00AA7B2E /* UnknownInterface.swift in Sources */,
 				C2F209751EEC701F00355561 /* Interfaces.swift in Sources */,
 				C2D5FE5D20153EBA00837EE8 /* LaunchAtLogin.swift in Sources */,
 				C23926B01F06C787008506E4 /* JSONWriter.swift in Sources */,
@@ -920,6 +934,7 @@
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */,
 				C2719FEC26236F91008E27D8 /* Action.swift in Sources */,
+				C251369326DABCFE00AA7B2E /* UnknownInterface.swift in Sources */,
 				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C2C6896426D0331C000394C1 /* Vendor.swift in Sources */,
 				C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */,
@@ -930,6 +945,7 @@
 				C23926501EEDCD73008506E4 /* MACAddress.swift in Sources */,
 				C271A0042623733D008E27D8 /* Prefixes.swift in Sources */,
 				C291CBE91EE85D0D00154452 /* Log.swift in Sources */,
+				C251369626DACE8300AA7B2E /* KnownInterface.swift in Sources */,
 				C271A01526237A56008E27D8 /* MACPrefixes.swift in Sources */,
 				C23926621EF426FE008506E4 /* Configuration.swift in Sources */,
 				C2BEC00D1EE4984E0072BE59 /* main.swift in Sources */,

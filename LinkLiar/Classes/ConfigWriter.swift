@@ -91,6 +91,20 @@ struct ConfigWriter {
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
+  static func addDefaultPrefix(prefix: MACPrefix) {
+    var dictionary = dictionaryWithCurrentVersion()
+    var prefixes = Config.instance.prefixes.prefixesForDefaultInterface + [prefix]
+
+
+
+//    var subdictionary: [String:String] =
+//
+//    defaultSubdictionary.updateValue(prefixes.sort(), forKey: "prefixes")
+//    dictionary["default"] = defaultSubdictionary
+//    Log.debug("Changing config to add Prefix \(prefix.humanReadable) for default Interfaces...")
+//    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
   static func originalizeInterface(_ interface: Interface) {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary[interface.hardMAC.formatted] = ["action": "original"]

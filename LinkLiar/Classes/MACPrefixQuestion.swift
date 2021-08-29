@@ -14,45 +14,43 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import Foundation
+import Cocoa
 
-struct Config {
+class MACPrefixQuestion {
 
-  static var observer: FileObserver = {
-    Log.debug("Setting up listener for \(Paths.configFile)")
-    return FileObserver(path: Paths.configFile, callback: {
-      Log.debug("Initiating config singleton reset.")
-      reload()
-    })
+  let title: String
+  let description: String
+
+  let alert = NSAlert()
+  let textField: CopyPastableNSTextField = {
+    let field = CopyPastableNSTextField(frame: NSMakeRect(0, 0, 150, 24))
+    field.formatter = MACAddressFormatter()
+    field.stringValue = "aa:bb:cc"
+    field.placeholderString = "aa:bb:cc"
+    return field
   }()
 
-  private static var _instance: Configuration = Configuration(dictionary: [String: Any]())
+  init(title: String, description: String) {
+    self.title = title
+    self.description = description
 
-  static var instance: Configuration {
-    if (_instance.version == nil) { reload() }
-    return _instance
+    alert.messageText = title
+    alert.informativeText = description
+
+    alert.addButton(withTitle: "OK")
+    alert.addButton(withTitle: "Cancel")
+    alert.accessoryView = textField
   }
 
-  static var fileExists: Bool {
-    return FileManager.default.fileExists(atPath: Paths.configFile)
-  }
+  func ask() -> String? {
+    let button = alert.runModal()
 
-  static func observe() {
-    // This is a silly no-op to initiate the `observer` variable.
-    if observer as FileObserver? != nil {}
-    reload()
-  }
-
-  static func reload() {
-    // This is just to initialize the static variable holding the observer.
-    Log.debug("Reloading Configuration singleton from file")
-    let reader = JSONReader(filePath: Paths.configFile)
-    if reader.failure {
-      return
+    if (button == NSApplication.ModalResponse.alertFirstButtonReturn) {
+      textField.validateEditing()
+      return textField.stringValue
+    } else {
+      return nil
     }
-    let dictionary = reader.dictionary
-    _instance = Configuration(dictionary: dictionary)
-    NotificationCenter.default.post(name:.configChanged, object: nil, userInfo: nil)
   }
 
 }

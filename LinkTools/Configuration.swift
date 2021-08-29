@@ -19,6 +19,12 @@
  */
 struct Configuration {
 
+  // MARK: Initialization
+
+  init(dictionary: [String: Any]) {
+    self.dictionary = dictionary
+  }
+
   // MARK: Instance Properties
 
   /**
@@ -44,6 +50,9 @@ struct Configuration {
     return restriction != false
   }
 
+  /**
+   * Queries a seed used for anonymizing MAC addresses shown in GUI and logs.
+   */
   var anonymizationSeed: MACAddress {
     guard let seed = self.dictionary["anonymous"] as? String else {
       return MACAddress("")
@@ -52,6 +61,9 @@ struct Configuration {
     return MACAddress(seed)
   }
 
+  /**
+   * Queries whether MAC addresses should be anonymized in GUI and logs.
+   */
   var isAnonymized: Bool {
     return anonymizationSeed.isValid
   }
@@ -67,13 +79,6 @@ struct Configuration {
     return restriction != false
   }
 
-  // MARK: Initialization
-
-  init(dictionary: [String: Any]) {
-    self.dictionary = dictionary
-  }
-
-  // MARK: Instance Methods
 
   var action: Action {
     return Action(dictionary: dictionary)
@@ -83,6 +88,9 @@ struct Configuration {
     return Prefixes(dictionary: dictionary)
   }
 
+  var unknownInterface: UnknownInterface {
+    return unknownInterface(dictionary: dictionary)
+  }
 
 
 
@@ -132,19 +140,7 @@ struct Configuration {
     return address.isValid ? address : nil
   }
 
-  /**
-   * Looks up which address has been defined as default MAC address.
-   *
-   * - returns: A valid `MACAddress` or `nil` if no valid address was specified
-   *            as general default.
-   */
-  func addressForDefaultInterface() -> MACAddress? {
-    guard let interfaceDictionary = dictionary["default"] as? [String: String] else { return nil }
-    guard let rawAddress = interfaceDictionary["address"] else { return nil }
 
-    let address = MACAddress(rawAddress)
-    return address.isValid ? address : nil
-  }
 
 
 }

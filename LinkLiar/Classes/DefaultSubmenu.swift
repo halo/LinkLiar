@@ -19,24 +19,33 @@ import Cocoa
 class DefaultSubmenu {
 
   func update() {
-    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .ignore ? 1 : 0)
-    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .random ? 1 : 0)
-    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .specify ? 1 : 0)
-    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.action.calculatedForDefaultInterface == .original ? 1 : 0)
-
-    if FileManager.default.fileExists(atPath: Paths.configDirectory) {
-      ignoreItem.isEnabled = true
-      randomizeItem.isEnabled = true
-      specifyItem.isEnabled = true
-      originalizeItem.isEnabled = true
-    } else {
-      ignoreItem.isEnabled = false
-      randomizeItem.isEnabled = false
-      specifyItem.isEnabled = false
-      originalizeItem.isEnabled = false
-    }
+    updateStates()
+    updateEnability()
   }
-  
+
+  private func updateStates() {
+    ignoreItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .ignore ? 1 : 0)
+    randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .random ? 1 : 0)
+    specifyItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .specify ? 1 : 0)
+    originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .original ? 1 : 0)
+  }
+
+  private func updateEnability() {
+    Intercom.helperIsCompatible(reply: { yesOrNo in
+      self.enableAll(yesOrNo)
+      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+    })
+  }
+
+  private func enableAll(_ enableOrDisable: Bool) {
+    ignoreItem.isEnabled = enableOrDisable
+    randomizeItem.isEnabled = enableOrDisable
+    specifyItem.isEnabled = enableOrDisable
+    originalizeItem.isEnabled = enableOrDisable
+    vendorsItem.isEnabled = enableOrDisable
+    prefixesItem.isEnabled = enableOrDisable
+  }
+
   lazy var menuItem: NSMenuItem = {
     let item = NSMenuItem(title: "Default", action: nil, keyEquivalent: "")
     item.target = Controller.self

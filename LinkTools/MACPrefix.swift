@@ -16,7 +16,11 @@
 
 import Foundation
 
-struct MACPrefix: Equatable {
+struct MACPrefix: Comparable, Equatable {
+
+  static func <(lhs: MACPrefix, rhs: MACPrefix) -> Bool {
+    return lhs.prefix < rhs.prefix
+  }
 
   var humanReadable: String {
     guard isValid else { return "??:??:??" }

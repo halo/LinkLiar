@@ -25,6 +25,17 @@ class Intercom: NSObject {
     self.xpcConnection = nil
   }
 
+  static func helperIsCompatible(reply: @escaping (Bool) -> Void) {
+    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
+      return reply(false)
+    }) as! HelperProtocol
+
+    helper.version(reply: { rawVersion in
+      Log.debug("The helper responded with its version")
+      reply(Version(rawVersion).isCompatible(with: AppDelegate.version))
+    })
+  }
+
   static func helperVersion(reply: @escaping (Version?) -> Void) {
     let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
       return reply(nil)

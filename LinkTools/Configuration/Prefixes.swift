@@ -23,24 +23,6 @@ extension Configuration {
       return prefixesForKey("default")
     }
 
-    /**
-     * Looks up which vendors are specified as default.
-     * If there are absolutely no prefixes defined as default (neither vendors nor custom)
-     * then the fallback Vendor (Apple) is returned.
-     * Because we need always some prefix to use for randomization.
-     * Also, this makes upgrading LinkLiar simpler (i.e. no vendors and no prefixes
-     * defined in settings file means use some default and persist that as new setting)
-     *
-     * - returns: An Array of valid `Vendor`s or an empty Array if there are none.
-     */
-    var vendorsForDefaultInterface: [Vendor] {
-      let vendors = vendorsForKey("default")
-      let prefixes = prefixesForDefaultInterface
-
-      guard (!prefixes.isEmpty || !vendors.isEmpty) else { return defaultVendors }
-
-      return vendors
-    }
 
     /**
      * Looks up which prefixes are specified for an Interface.
@@ -101,12 +83,7 @@ extension Configuration {
       return customPrefixes + vendorPrefixes
     }
 
-    // Internal Helper Methods
 
-    private var defaultVendors: [Vendor] {
-      // This `!` could probably only fail during development if no vendor is defined.
-      return [Vendors.find("apple")!]
-    }
 
     private func prefixesForKey(_ key: String) -> [MACPrefix] {
       guard let baseDictionary = dictionary[key] as? [String: String] else { return [] }
@@ -122,15 +99,6 @@ extension Configuration {
     }
 
     private func vendorsForKey(_ key: String) -> [Vendor] {
-      guard let baseDictionary = dictionary[key] as? [String: String] else { return [] }
-      guard let rawVendorIDsString = baseDictionary["vendors"] else { return [] }
-      let rawVendorIDs = rawVendorIDsString.split(separator: ",")
-
-      let vendors = rawVendorIDs.compactMap { string -> Vendor? in
-        return Vendors.find(String(string))
-      }
-
-      return vendors
     }
   }
 }
