@@ -25,9 +25,9 @@ class SettingsSubmenu {
   }()
 
   func update() {
-    self.allowRerandomizationItem.state = NSControl.StateValue(rawValue: Config.instance.isForbiddenToRerandomize ? 0 : 1)
-    self.independentDaemonItem.state = NSControl.StateValue(rawValue: Config.instance.isRestrictedDaemon ? 0 : 1)
-    self.anonymizeItem.state = NSControl.StateValue(rawValue: Config.instance.isAnonymized ? 1 : 0)
+    self.allowRerandomizationItem.state = NSControl.StateValue(rawValue: Config.instance.settings.isForbiddenToRerandomize ? 0 : 1)
+    self.independentDaemonItem.state = NSControl.StateValue(rawValue: Config.instance.settings.isRestrictedDaemon ? 0 : 1)
+    self.anonymizeItem.state = NSControl.StateValue(rawValue: Config.instance.settings.anonymizationSeed.isValid ? 1 : 0)
     self.loginStartupItem.state = NSControl.StateValue(rawValue: LaunchAtLogin.isEnabled ? 1 : 0)
 
     if FileManager.default.fileExists(atPath: Paths.configDirectory) {

@@ -15,78 +15,47 @@ extension Configuration {
     // MARK: Public Instance Methods
 
     /**
-     * Looks up which custom prefixes are specified as default.
+     * Looks up which vendors are specified.
+     * If there are absolutely no prefixes defined (neither vendors nor custom)
+     * then the fallback Vendor (Apple) is returned.
      *
-     * - returns: An Array of valid `MACPrefix`es or an empty Array if there are none.
-     */
-    var prefixesForDefaultInterface: [MACPrefix] {
-      return prefixesForKey("default")
-    }
-
-
-    /**
-     * Looks up which prefixes are specified for an Interface.
-     *
-     * - parameter hardMAC: The hardware MAC address of an Interface.
-     *
-     * - returns: An Array of valid `MACPrefix`es or an empty Array if there are none.
-     */
-    func prefixesForInterface(_ hardMAC: MACAddress) -> [MACPrefix] {
-      return prefixesForKey(hardMAC.formatted)
-    }
-
-    /**
-     * Looks up which vendors are specified for an Interface.
-     *
-     * - parameter hardMAC: The hardware MAC address of an Interface.
+     * Because we need always some prefix to use for randomization.
+     * Also, this makes upgrading LinkLiar simpler (i.e. no vendors and no prefixes
+     * defined in settings file means use some default and persist that as new setting)
      *
      * - returns: An Array of valid `Vendor`s or an empty Array if there are none.
      */
-    func vendorsForInterface(_ hardMAC: MACAddress) -> [Vendor] {
-      let vendors = vendorsForKey(hardMAC.formatted)
-      let prefixes = prefixesForInterface(hardMAC)
+    var vendors: [Vendor] {
+      guard let defaultDictionary = dictionary["default"] as? [String: String] else { return defaultVendors }
+      guard let vendorIDsList = defaultDictionary["vendors"] else { return defaultVendors }
+      let vendorIDs = vendorIDsList.split(separator: ",")
 
-      guard (!prefixes.isEmpty || !vendors.isEmpty) else { return vendorsForDefaultInterface }
+      let vendors = vendorIDs.compactMap { string -> Vendor? in
+        return Vendors.find(String(string))
+      }
 
-      return vendors
+      // If there are vendors defined directly, return them.
+      guard vendors.isEmpty else { return vendors }
+
+      // We always need *some* prefix. If there are custom prefixes,
+      // we can rely on them and don't need to fall back here to anything.
+      guard prefixes.isEmpty else { return [] }
+
+      return defaultVendors
+    }
+
+    private var defaultVendors: [Vendor] {
+      // We assume that this vendor is always defined. It's a sensible default.
+      return [Vendors.find("apple")!]
     }
 
     /**
-     * Gathers all default prefixes that can be used for randomization.
+     * Looks up which custom prefixes are specified.
      *
-     * - parameter hardMAC: The hardware MAC address of an Interface.
-     *
-     * - returns: An Array of valid `MacPrefix`es that is never empty.
+     * - returns: An Array of valid `MACPrefix`es or an empty Array if there are none.
      */
-    var calculatedPrefixesForDefaultInterface: [MACPrefix] {
-      let customPrefixes = prefixesForDefaultInterface
-      let vendorPrefixes = vendorsForDefaultInterface.flatMap { $0.prefixes }
-
-      return customPrefixes + vendorPrefixes
-    }
-
-    /**
-     * Gathers all prefixes for this Interface that can be used for randomization.
-     * Falls back to the default if none are specified.
-     *
-     * - parameter hardMAC: The hardware MAC address of an Interface.
-     *
-     * - returns: An Array of valid `MacPrefix`es that is never empty.
-     */
-
-    func calculatedPrefixesForInterface(_ hardMAC: MACAddress) -> [MACPrefix] {
-      let customPrefixes = prefixesForInterface(hardMAC)
-      let vendorPrefixes = vendorsForInterface(hardMAC).flatMap { $0.prefixes }
-
-      guard (!customPrefixes.isEmpty || !vendorPrefixes.isEmpty) else { return calculatedPrefixesForDefaultInterface }
-
-      return customPrefixes + vendorPrefixes
-    }
-
-
-
-    private func prefixesForKey(_ key: String) -> [MACPrefix] {
-      guard let baseDictionary = dictionary[key] as? [String: String] else { return [] }
+    var prefixes: [MACPrefix] {
+      guard let baseDictionary = dictionary["default"] as? [String: String] else { return [] }
       guard let rawAddressesString = baseDictionary["prefixes"] else { return [] }
       let rawAddresses = rawAddressesString.split(separator: ",")
 
@@ -98,7 +67,19 @@ extension Configuration {
       return addresses
     }
 
-    private func vendorsForKey(_ key: String) -> [Vendor] {
+    /**
+     * Gathers all default prefixes that can be used for randomization.
+     *
+     * - parameter hardMAC: The hardware MAC address of an Interface.
+     *
+     * - returns: An Array of valid `MacPrefix`es that is never empty.
+     */
+    var calculatedPrefixes: [MACPrefix] {
+      let customPrefixes = prefixes
+      let vendorPrefixes = vendors.flatMap { $0.prefixes }
+
+      return customPrefixes + vendorPrefixes
     }
+
   }
 }

@@ -48,12 +48,12 @@ class Controller: NSObject {
   }
 
   @objc static func quit(_ _: Any) {
-    if Config.instance.isRestrictedDaemon { deactivateDaemon(self) }
+    if Config.instance.settings.isRestrictedDaemon { deactivateDaemon(self) }
     NSApp.terminate(self)
   }
 
   @objc static func toggleRerandomization(_ _: NSMenuItem) {
-    if Config.instance.isForbiddenToRerandomize {
+    if Config.instance.settings.isForbiddenToRerandomize {
       ConfigWriter.allowRerandom()
     } else {
       ConfigWriter.forbidRerandom()
@@ -61,7 +61,7 @@ class Controller: NSObject {
   }
 
   @objc static func toggleDaemonRestriction(_ _: NSMenuItem) {
-    Config.instance.isRestrictedDaemon ? freeDaemon() : restrictDaemon()
+    Config.instance.settings.isRestrictedDaemon ? freeDaemon() : restrictDaemon()
   }
 
   @objc static func toggleLoginItem(_ _: NSMenuItem) {
@@ -69,7 +69,7 @@ class Controller: NSObject {
   }
 
   @objc static func toggleAnonymization(_ _: NSMenuItem) {
-    if Config.instance.isAnonymized {
+    if Config.instance.settings.anonymizationSeed.isValid {
       ConfigWriter.deAnonymize()
     } else {
       ConfigWriter.anonymize()
@@ -159,6 +159,38 @@ class Controller: NSObject {
 
   @objc static func originalizeDefaultInterface(_ _: NSMenuItem) {
     ConfigWriter.originalizeDefaultInterface()
+  }
+
+  @objc static func removeVendor(_ sender: NSMenuItem) {
+    guard let vendor = sender.representedObject as? Vendor else {
+      Log.error("Expected the NSMenuItem to be associated to an Vendor")
+      return
+    }
+    ConfigWriter.removeVendor(vendor)
+  }
+
+  @objc static func removePrefix(_ sender: NSMenuItem) {
+    guard let prefix = sender.representedObject as? MACPrefix else {
+      Log.error("Expected the NSMenuItem to be associated to a MACPrefix")
+      return
+    }
+    ConfigWriter.removePrefix(prefix)
+  }
+
+  @objc static func addVendor(_ sender: NSMenuItem) {
+    guard let vendor = sender.representedObject as? Vendor else {
+      Log.error("Expected the NSMenuItem to be associated to an Vendor")
+      return
+    }
+    ConfigWriter.addVendor(vendor)
+  }
+
+  @objc static func addPrefix(_ sender: NSMenuItem) {
+    guard let prefix = sender.representedObject as? MACPrefix else {
+      Log.error("Expected the NSMenuItem to be associated to a MACPrefix")
+      return
+    }
+    ConfigWriter.addPrefix(prefix)
   }
 
   static func helperIsCompatible(_ _: Any) {

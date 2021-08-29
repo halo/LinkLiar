@@ -11,6 +11,10 @@ struct Vendor: Equatable {
   var name: String
   var id: String
   var prefixes: [MACPrefix]
+
+  var title: String {
+    [name, " (", String(prefixes.count), ")"].joined()
+  }
 }
 
 func ==(lhs: Vendor, rhs: Vendor) -> Bool {

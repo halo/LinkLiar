@@ -42,8 +42,6 @@ class DefaultSubmenu {
     randomizeItem.isEnabled = enableOrDisable
     specifyItem.isEnabled = enableOrDisable
     originalizeItem.isEnabled = enableOrDisable
-    vendorsItem.isEnabled = enableOrDisable
-    prefixesItem.isEnabled = enableOrDisable
   }
 
   lazy var menuItem: NSMenuItem = {
@@ -62,9 +60,6 @@ class DefaultSubmenu {
     submenu.addItem(self.randomizeItem)
     submenu.addItem(self.specifyItem)
     submenu.addItem(self.originalizeItem)
-    submenu.addItem(NSMenuItem.separator())
-    submenu.addItem(self.vendorsItem)
-    submenu.addItem(self.prefixesItem)
     return submenu
   }()
 
@@ -96,44 +91,4 @@ class DefaultSubmenu {
     return item
   }()
 
-  private lazy var vendorsItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Vendors", action: nil, keyEquivalent: "")
-    item.target = Controller.self
-    item.submenu = self.vendorsSubMenuItem
-    item.toolTip = "When randomizing, which popular prefixes should be used as default for new Interfaces?"
-    return item
-  }()
-
-  private lazy var prefixesItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Prefixes", action: nil, keyEquivalent: "")
-    item.target = Controller.self
-    item.submenu = self.prefixesSubMenuItem
-    item.toolTip = "When randomizing, which manually defined prefixes should be used as default for new Interfaces?"
-    return item
-  }()
-
-  private lazy var vendorsSubMenuItem: NSMenu = {
-    let submenu: NSMenu = NSMenu()
-    submenu.autoenablesItems = false
-    //submenu.addItem(self.prefixItems)
-    submenu.addItem(NSMenuItem.separator())
-    //submenu.addItem(self.addPrefixItem)
-    return submenu
-  }()
-
-  private lazy var prefixesSubMenuItem: NSMenu = {
-    let submenu: NSMenu = NSMenu()
-    submenu.autoenablesItems = false
-    //submenu.addItem(self.prefixItems)
-    submenu.addItem(NSMenuItem.separator())
-    submenu.addItem(self.addPrefixItem)
-    return submenu
-  }()
-
-  private lazy var addPrefixItem: NSMenuItem = {
-    let item = NSMenuItem(title: "Add prefix...", action: nil, keyEquivalent: "")
-    item.target = Controller.self
-    item.toolTip = "Add a prefix to the user-defined default list."
-    return item
-  }()
 }

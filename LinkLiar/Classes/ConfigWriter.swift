@@ -93,16 +93,9 @@ struct ConfigWriter {
 
   static func addDefaultPrefix(prefix: MACPrefix) {
     var dictionary = dictionaryWithCurrentVersion()
-    var prefixes = Config.instance.prefixes.prefixesForDefaultInterface + [prefix]
-
-
-
-//    var subdictionary: [String:String] =
-//
-//    defaultSubdictionary.updateValue(prefixes.sort(), forKey: "prefixes")
-//    dictionary["default"] = defaultSubdictionary
-//    Log.debug("Changing config to add Prefix \(prefix.humanReadable) for default Interfaces...")
-//    JSONWriter(filePath: Paths.configFile).write(dictionary)
+    dictionary["prefixes"] = Config.instance.prefixes.prefixes + [prefix]
+    Log.debug("Changing config to add Prefix \(prefix.humanReadable)...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
   static func originalizeInterface(_ interface: Interface) {
@@ -139,6 +132,42 @@ struct ConfigWriter {
     var dictionary = dictionaryWithCurrentVersion()
     dictionary["anonymous"] = nil
     Log.debug("Changing config by removing anonymization seed...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func removeVendor(_ vendor: Vendor) {
+    var dictionary = dictionaryWithCurrentVersion()
+    let currentVendorIds = Config.instance.prefixes.vendors.map { $0.id }
+    let newVendorIds = currentVendorIds.filter { $0 != vendor.id }
+    dictionary["vendors"] = newVendorIds
+    Log.debug("Changing config by removing Vendor with ID \"\(vendor.id)\"...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func removePrefix(_ prefix: MACPrefix) {
+    var dictionary = dictionaryWithCurrentVersion()
+    let currentPrefixes = Config.instance.prefixes.prefixes.map { $0.formatted }
+    let newPrefixes = currentPrefixes.filter { $0 != prefix.formatted }
+    dictionary["prefixes"] = newPrefixes
+    Log.debug("Changing config by removing Prefix \"\(prefix.formatted)\"...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func addVendor(_ vendor: Vendor) {
+    var dictionary = dictionaryWithCurrentVersion()
+    let currentVendorIds = Config.instance.prefixes.vendors.map { $0.id }
+    let newVendorIds = currentVendorIds + [vendor.id]
+    dictionary["vendors"] = newVendorIds
+    Log.debug("Changing config by adding Vendor with ID \"\(vendor.id)\"...")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
+  }
+
+  static func addPrefix(_ prefix: MACPrefix) {
+    var dictionary = dictionaryWithCurrentVersion()
+    let currentPrefixes = Config.instance.prefixes.prefixes.map { $0.formatted }
+    let newPrefixes = currentPrefixes + [prefix.formatted]
+    dictionary["prefixes"] = newPrefixes
+    Log.debug("Changing config by adding Prefix \"\(prefix.formatted)\"...")
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 

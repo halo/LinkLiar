@@ -43,7 +43,7 @@ class AppDelegate: NSObject {
 
   fileprivate func checkDaemon() {
     // If the daemon is self-sustained, no need to do anything
-    if !Config.instance.isRestrictedDaemon {
+    if !Config.instance.settings.isRestrictedDaemon {
       Log.debug("The daemon is not restricted.")
       return
     }

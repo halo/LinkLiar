@@ -23,9 +23,10 @@ class Menu {
   private var interfaces: [Interface] = []
   let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
+  private lazy var defaultSubmenu = DefaultSubmenu()
+  private lazy var prefixesSubmenu = PrefixesSubmenu()
   private lazy var settingsSubmenu = SettingsSubmenu()
   private lazy var developerSubmenu = DeveloperSubmenu()
-  private lazy var defaultSubmenu = DefaultSubmenu()
 
   private lazy var helpItem: NSMenuItem = {
     return NSMenuItem(title: "Help", action: #selector(NSApplication.showHelp(_:)), keyEquivalent: "")
@@ -52,6 +53,7 @@ class Menu {
     // <-- Here be Interfaces -->
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
+    menu.addItem(prefixesSubmenu.menuItem)
     menu.addItem(settingsSubmenu.menuItem)
     menu.addItem(NSMenuItem.placeholder())
     menu.addItem(developerSubmenu.menuItem)
@@ -63,15 +65,16 @@ class Menu {
   func update() {
     Log.debug("Updating menu...")
     reloadInterfaceItems()
-    settingsSubmenu.update()
     defaultSubmenu.update()
+    prefixesSubmenu.update()
+    settingsSubmenu.update()
     developerSubmenu.update()
     checkHelper()
     updateQuitButton()
   }
 
   private func updateQuitButton() {
-    if Config.instance.isRestrictedDaemon {
+    if Config.instance.settings.isRestrictedDaemon {
       quitItem.toolTip = "Quits this Menu and the LinkLiar Background Daemon"
     } else {
       quitItem.toolTip = "Quits this Menu"

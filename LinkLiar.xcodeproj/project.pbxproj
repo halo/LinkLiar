@@ -74,11 +74,13 @@
 		C251369326DABCFE00AA7B2E /* UnknownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369126DABCFE00AA7B2E /* UnknownInterface.swift */; };
 		C251369526DACE8300AA7B2E /* KnownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369426DACE8300AA7B2E /* KnownInterface.swift */; };
 		C251369626DACE8300AA7B2E /* KnownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369426DACE8300AA7B2E /* KnownInterface.swift */; };
+		C251369826DBCAB200AA7B2E /* PrefixesSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369726DBCAB200AA7B2E /* PrefixesSubmenu.swift */; };
+		C251369C26DC03C500AA7B2E /* MACPrefixFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369B26DC03C500AA7B2E /* MACPrefixFormatter.swift */; };
 		C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
 		C27108C120164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
 		C27108E72016559F00FDFD43 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C27108E8201655A300FDFD43 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F209651EEC5BD900355561 /* Paths.swift */; };
-		C2719FEC26236F91008E27D8 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F67223F5AF7F00FB2CB0 /* Action.swift */; };
+		C2719FEC26236F91008E27D8 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F67223F5AF7F00FB2CB0 /* Settings.swift */; };
 		C2719FF5262370A7008E27D8 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2719FF4262370A7008E27D8 /* ActionTests.swift */; };
 		C271A0032623733D008E27D8 /* Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A0022623733D008E27D8 /* Prefixes.swift */; };
 		C271A0042623733D008E27D8 /* Prefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A0022623733D008E27D8 /* Prefixes.swift */; };
@@ -91,7 +93,7 @@
 		C291CBF61EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF71EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
 		C291CBF81EE8827D00154452 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBF51EE8827D00154452 /* JSONReader.swift */; };
-		C291F67323F5AF7F00FB2CB0 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F67223F5AF7F00FB2CB0 /* Action.swift */; };
+		C291F67323F5AF7F00FB2CB0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291F67223F5AF7F00FB2CB0 /* Settings.swift */; };
 		C294F82B1F1549200027C056 /* logs in Resources */ = {isa = PBXBuildFile; fileRef = C294F82A1F1549200027C056 /* logs */; };
 		C29B7D8F1EE69C3800609A21 /* linkdaemon in Resources */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; };
 		C29B7D971EE69D1800609A21 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29B7D961EE69D1800609A21 /* main.swift */; };
@@ -262,6 +264,8 @@
 		C251368F26DAA94100AA7B2E /* MACPrefixQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACPrefixQuestion.swift; path = Classes/MACPrefixQuestion.swift; sourceTree = "<group>"; };
 		C251369126DABCFE00AA7B2E /* UnknownInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnknownInterface.swift; path = LinkTools/Configuration/UnknownInterface.swift; sourceTree = "<group>"; };
 		C251369426DACE8300AA7B2E /* KnownInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnownInterface.swift; path = LinkTools/Configuration/KnownInterface.swift; sourceTree = "<group>"; };
+		C251369726DBCAB200AA7B2E /* PrefixesSubmenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrefixesSubmenu.swift; path = Classes/PrefixesSubmenu.swift; sourceTree = "<group>"; };
+		C251369B26DC03C500AA7B2E /* MACPrefixFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACPrefixFormatter.swift; path = Classes/MACPrefixFormatter.swift; sourceTree = "<group>"; };
 		C27108BF20164DDB00FDFD43 /* RunningApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RunningApplications.swift; path = LinkTools/RunningApplications.swift; sourceTree = "<group>"; };
 		C2719FF4262370A7008E27D8 /* ActionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C271A0022623733D008E27D8 /* Prefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefixes.swift; path = LinkTools/Configuration/Prefixes.swift; sourceTree = "<group>"; };
@@ -269,7 +273,7 @@
 		C271A01326237A56008E27D8 /* MACPrefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MACPrefixes.swift; path = LinkTools/MACPrefixes.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		C291F67223F5AF7F00FB2CB0 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Action.swift; path = LinkTools/Configuration/Action.swift; sourceTree = "<group>"; };
+		C291F67223F5AF7F00FB2CB0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = LinkTools/Configuration/Settings.swift; sourceTree = "<group>"; };
 		C294F82A1F1549200027C056 /* logs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = logs; path = bin/logs; sourceTree = SOURCE_ROOT; };
 		C29B7D941EE69D1800609A21 /* io.github.halo.linkhelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.linkhelper; sourceTree = BUILT_PRODUCTS_DIR; };
 		C29B7D961EE69D1800609A21 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 			children = (
 				C23926951F06C787008506E4 /* Bar.swift */,
 				C23926A21F06C787008506E4 /* Menu.swift */,
+				C251369726DBCAB200AA7B2E /* PrefixesSubmenu.swift */,
 				C239269D1F06C787008506E4 /* InterfaceSubmenu.swift */,
 				C23926991F06C787008506E4 /* DefaultSubmenu.swift */,
 				C23926931F06C787008506E4 /* SettingsSubmenu.swift */,
@@ -411,9 +416,9 @@
 		C291F67123F5AF3400FB2CB0 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				C291F67223F5AF7F00FB2CB0 /* Settings.swift */,
 				C251369126DABCFE00AA7B2E /* UnknownInterface.swift */,
 				C251369426DACE8300AA7B2E /* KnownInterface.swift */,
-				C291F67223F5AF7F00FB2CB0 /* Action.swift */,
 				C271A0022623733D008E27D8 /* Prefixes.swift */,
 			);
 			name = Configuration;
@@ -541,6 +546,7 @@
 				C23926981F06C787008506E4 /* CopyPastableNSTextField.swift */,
 				C2BE6B991F0D011D0086A843 /* NSMenuItem+placeholder.swift */,
 				C239269F1F06C787008506E4 /* MACAddressFormatter.swift */,
+				C251369B26DC03C500AA7B2E /* MACPrefixFormatter.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -867,6 +873,7 @@
 				C23926611EF426FE008506E4 /* Configuration.swift in Sources */,
 				C23926B11F06C787008506E4 /* MACAddressFormatter.swift in Sources */,
 				C2C6896226D0331C000394C1 /* Vendor.swift in Sources */,
+				C251369C26DC03C500AA7B2E /* MACPrefixFormatter.swift in Sources */,
 				C271A01426237A56008E27D8 /* MACPrefixes.swift in Sources */,
 				C2BE6B9A1F0D011D0086A843 /* NSMenuItem+placeholder.swift in Sources */,
 				C251369526DACE8300AA7B2E /* KnownInterface.swift in Sources */,
@@ -876,13 +883,14 @@
 				C23926811F040AC1008506E4 /* FileObserver.swift in Sources */,
 				C2F209781EEC729400355561 /* Notifications.swift in Sources */,
 				C2BE6B9E1F0D791B0086A843 /* LaunchCtl.swift in Sources */,
-				C291F67323F5AF7F00FB2CB0 /* Action.swift in Sources */,
+				C291F67323F5AF7F00FB2CB0 /* Settings.swift in Sources */,
 				C23926791F03D78A008506E4 /* Version.swift in Sources */,
 				C23926AE1F06C787008506E4 /* Intercom.swift in Sources */,
 				C2EEEBA71F0C01C700657CC5 /* NetworkObserver.swift in Sources */,
 				C2C6896726D03481000394C1 /* Vendors.swift in Sources */,
 				C2340D9F1F0EB1120065F034 /* UninstallDaemon.swift in Sources */,
 				C23926A81F06C787008506E4 /* ConfigWriter.swift in Sources */,
+				C251369826DBCAB200AA7B2E /* PrefixesSubmenu.swift in Sources */,
 				C23926A91F06C787008506E4 /* Controller.swift in Sources */,
 				C2EEEBAA1F0C110C00657CC5 /* IntervalTimer.swift in Sources */,
 				C239265E1EF3FB5B008506E4 /* Config.swift in Sources */,
@@ -933,7 +941,7 @@
 				C2C6896926D03481000394C1 /* Vendors.swift in Sources */,
 				C239264D1EEDBBB4008506E4 /* Interface.swift in Sources */,
 				C24A486F1F090EDF0095ED0C /* OuiPrefixes.swift in Sources */,
-				C2719FEC26236F91008E27D8 /* Action.swift in Sources */,
+				C2719FEC26236F91008E27D8 /* Settings.swift in Sources */,
 				C251369326DABCFE00AA7B2E /* UnknownInterface.swift in Sources */,
 				C23926591EF10613008506E4 /* Ifconfig.swift in Sources */,
 				C2C6896426D0331C000394C1 /* Vendor.swift in Sources */,

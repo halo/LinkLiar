@@ -67,13 +67,15 @@ class LinkDaemon {
 
   @objc func willSleep(_ _: Notification) {
     Log.debug("Going to sleep...")
+    // It's safe to randomize here, loosing Wi-Fi is not tragic while
+    // closing the lid of your MacBook.
     Synchronizer.mayReRandomize()
   }
 
   @objc func didWake(_ _: Notification) {
     Log.debug("Woke up...")
     // Cannot re-randomize here because it's too late.
-    // Wi-Fi will loose connection.
+    // Wi-Fi will loose connection when opening the lid of your MacBook.
   }
 
   static var version: Version = {

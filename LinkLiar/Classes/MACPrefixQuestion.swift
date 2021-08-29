@@ -24,7 +24,7 @@ class MACPrefixQuestion {
   let alert = NSAlert()
   let textField: CopyPastableNSTextField = {
     let field = CopyPastableNSTextField(frame: NSMakeRect(0, 0, 150, 24))
-    field.formatter = MACAddressFormatter()
+    field.formatter = MACPrefixFormatter()
     field.stringValue = "aa:bb:cc"
     field.placeholderString = "aa:bb:cc"
     return field

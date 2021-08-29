@@ -25,8 +25,8 @@ struct MACPrefix: Comparable, Equatable {
   var humanReadable: String {
     guard isValid else { return "??:??:??" }
 
-    if Config.instance.isAnonymized {
-      return add(Config.instance.anonymizationSeed).formatted
+    if Config.instance.settings.anonymizationSeed.isValid {
+      return add(Config.instance.settings.anonymizationSeed).formatted
     } else {
       return formatted
     }

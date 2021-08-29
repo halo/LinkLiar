@@ -14,57 +14,33 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/**
- * An immutable wrapper for querying the content of the configuration file.
- */
-struct Configuration {
+import Foundation
 
-  // MARK: Initialization
+class MACPrefixFormatter : Formatter {
 
-  init(dictionary: [String: Any]) {
-    self.dictionary = dictionary
+  let disallowedCharacters = CharacterSet(charactersIn: "0123456789:abcdefABCDEF").inverted
+
+  override func string(for obj: Any?) -> String? {
+    guard let string = obj as? String else { return nil }
+    return string
   }
 
-  // MARK: Instance Properties
-
-  /**
-   * Gives access to the underlying dictionary of this configuration.
-   */
-  var dictionary: [String: Any]
-
-  /**
-   * Queries the version with whith the configuration was created.
-   */
-  lazy var version: String? = {
-    return self.dictionary["version"] as? String
-  }()
-
-  /**
-   * Queries general settings.
-   */
-  var settings: Settings {
-    return Settings(dictionary: dictionary)
+  override func getObjectValue(_ obj: AutoreleasingUnsafeMutablePointer<AnyObject?>?, for string: String, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
+    guard obj != nil else { return false }
+    obj?.pointee = string as AnyObject
+    return true
   }
 
-  /**
-   * Queries configuration for default/unknown Interfaces.
-   */
-  var unknownInterface: UnknownInterface {
-    return UnknownInterface(dictionary: dictionary)
-  }
+  override func isPartialStringValid(_ partialString: String, newEditingString newString: AutoreleasingUnsafeMutablePointer<NSString?>?, errorDescription error: AutoreleasingUnsafeMutablePointer<NSString?>?) -> Bool {
+    if partialString.count > 8 {
+      return false
+    }
 
-  /**
-   * Queries configuration for specific, known Interfaces.
-   */
-  var knownInterface: KnownInterface {
-    return KnownInterface(dictionary: dictionary)
-  }
+    if partialString.rangeOfCharacter(from: disallowedCharacters) != nil {
+      return false
+    }
 
-  /**
-   * Queries vendors and custom prefixes for randomization.
-   */
-  var prefixes: Prefixes {
-    return Prefixes(dictionary: dictionary)
+    return true
   }
-
+  
 }

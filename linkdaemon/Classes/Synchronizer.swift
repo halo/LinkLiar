@@ -20,7 +20,7 @@ class Synchronizer {
 
   static func run() {
     for interface in Interfaces.all(async: false) {
-      let action = Config.instance.action.calculatedForInterface(interface.hardMAC)
+      let action = Config.instance.knownInterface.action(interface.hardMAC)
 
       switch action {
       case .ignore:    Log.debug("Dutifully ignoring Interface \(interface.BSDName)")
@@ -32,27 +32,27 @@ class Synchronizer {
   }
 
   static func mayReRandomize() {
-    if Config.instance.isForbiddenToRerandomize {
+    if Config.instance.settings.isForbiddenToRerandomize {
       Log.debug("This was a good chance to re-randomize, but it is disabled.")
       return
     }
 
     for interface in Interfaces.all(async: false) {
-      let action = Config.instance.action.calculatedForInterface(interface.hardMAC)
+      let action = Config.instance.knownInterface.action(interface.hardMAC)
 
       guard action == .random else {
         Log.debug("Not re-randomizing \(interface.BSDName) because it is not defined to be random.")
         return
       }
       Log.debug("Taking the chance to re-randomize \(interface.BSDName)")
-      setMAC(BSDName: interface.BSDName, address: RandomMACs.forInterFace(hardMAC: interface.hardMAC))
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
     }
   }
 
   // Internal Methods
 
   private static func specify(_ interface: Interface) {
-    guard let address = Config.instance.calculatedAddressForInterface(interface.hardMAC) else {
+    guard let address = Config.instance.knownInterface.address(interface.hardMAC) else {
       return
     }
     if interface.softMAC == address {
@@ -76,10 +76,10 @@ class Synchronizer {
 
     if interface.hasOriginalMAC {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has its original MAC address.")
-      setMAC(BSDName: interface.BSDName, address: RandomMACs.forInterFace(hardMAC: interface.hardMAC))
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
     }
 
-    guard let undesiredAddress = Config.instance.exceptionAddressForInterface(interface.hardMAC) else {
+    guard let undesiredAddress = Config.instance.knownInterface.exceptionAddress(interface.hardMAC) else {
       Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random and no undesired address has been specified.")
       return
     }
@@ -91,7 +91,7 @@ class Synchronizer {
 
     if interface.softMAC == undesiredAddress {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has the undesired address \(undesiredAddress.humanReadable).")
-      setMAC(BSDName: interface.BSDName, address: RandomMACs.forInterFace(hardMAC: interface.hardMAC))
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
     } else {
       Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random does not have the undesired address \(undesiredAddress.humanReadable).")
       return

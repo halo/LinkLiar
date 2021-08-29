@@ -31,26 +31,23 @@ extension Collection where Index == Int {
 
 struct RandomMACs {
 
-  static func forInterFace(hardMAC: MACAddress) -> MACAddress {
-    let prefixes = Config.instance.prefixes.calculatedPrefixesForInterface(hardMAC) 
-
-    guard let userDefinedPrefix = prefixes.sample() else {
-      Log.error("Could not pick random prefix, falling back to default")
-      return popular()
-    }
-    Log.debug("Chose random user-defined prefix \(userDefinedPrefix) among \(prefixes.count) prefixes for \(hardMAC.humanReadable)")
-
-    return MACAddress([userDefinedPrefix.formatted, suffix()].joined())
-  }
-
   // Internal Methods
 
-  private static func popular() -> MACAddress {
+  static func generate() -> MACAddress {
     return MACAddress([prefix(), suffix()].joined())
   }
 
   private static func prefix() -> String {
-    return String(format:"%06X", OuiPrefixes.popular.sample()!)
+    let prefixes = Config.instance.prefixes.calculatedPrefixes
+
+    guard let prefix = prefixes.sample() else {
+      // The Array is never empty. But need to catch it still.
+      Log.error("Could not pick random prefix, falling back to 00:00:00")
+      return "00:00:00"
+    }
+    Log.debug("Chose random user-defined prefix \(prefix) among \(prefixes.count) prefixes")
+
+    return prefix.prefix
   }
 
   private static func suffix() -> String {
