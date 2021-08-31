@@ -1,3 +1,8 @@
+# 3.0.0
+
+* [FEATURE] Choose among vendors (and custom prefixes) to be used when randomizing MAC addresses #27
+* [FEATURE] Show which MAC address was specified by default
+
 # 2.1.1
 
 * [FEATURE] Added setting to start menu bar GUI on login

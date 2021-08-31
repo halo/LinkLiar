@@ -19,6 +19,10 @@ import os.log
 
 struct ConfigWriter {
 
+  static var isWritable: Bool {
+    FileManager.default.isWritableFile(atPath: Paths.configFile)
+  }
+
   static func reset() {
     var dictionary = [String: String]()
     dictionary["version"] = AppDelegate.version.formatted

@@ -19,14 +19,16 @@ import os.log
 
 class JSONWriter {
 
+  // MARK: Initialization
+
+  init(filePath: String) {
+    self.path = filePath
+  }
+
   private var path: String
 
   private var url: URL {
     return URL(fileURLWithPath: path)
-  }
-
-  init(filePath: String) {
-    self.path = filePath
   }
 
   func write(_ dictionary: [String: Any]) {

@@ -28,7 +28,8 @@ class DeveloperSubmenu {
 
   func update() {
     updateHelper()
-    updateConfig()
+    updateConfigDir()
+    updateConfigFile()
     updateDaemon()
   }
 
@@ -41,7 +42,7 @@ class DeveloperSubmenu {
       }
 
       if (version.isCompatible(with: AppDelegate.version)) {
-        self.helperTitleItem.title = "Helper \(version.formatted) installed"
+        self.helperTitleItem.title = "Helper \(version.formatted) compatible"
       } else {
         self.helperTitleItem.title = "Helper \(version.formatted) incompatible"
       }
@@ -49,16 +50,24 @@ class DeveloperSubmenu {
     })
   }
 
-  private func updateConfig() {
+  private func updateConfigDir() {
     var isDirectory: ObjCBool = false
     if FileManager.default.fileExists(atPath: Paths.configDirectory, isDirectory: &isDirectory) {
         if isDirectory.boolValue {
-           self.configDirectoryTitleItem.title = "ConfigDir exists"
+           self.configDirectoryTitleItem.title = "Config dir exists"
         } else {
-          self.configDirectoryTitleItem.title = "ConfigDir is file"
+          self.configDirectoryTitleItem.title = "Config dir is file"
         }
       } else {
-      self.configDirectoryTitleItem.title = "ConfigDir missing"
+      self.configDirectoryTitleItem.title = "Config dir missing"
+    }
+  }
+
+  private func updateConfigFile() {
+    if FileManager.default.isWritableFile(atPath: Paths.configDirectory) {
+      self.configFileTitleItem.title = "Config file writable"
+    } else {
+      self.configFileTitleItem.title = "Config file unwritable"
     }
   }
 
@@ -84,9 +93,11 @@ class DeveloperSubmenu {
     item.addItem(NSMenuItem.separator())
     item.addItem(self.configDirectoryTitleItem)
     item.addItem(self.createConfigDirectoryItem)
-    item.addItem(self.resetConfigItem)
     item.addItem(self.removeConfigDirectoryItem)
     item.addItem(self.revealConfigDirectoryItem)
+    item.addItem(NSMenuItem.separator())
+    item.addItem(self.configFileTitleItem)
+    item.addItem(self.resetConfigItem)
     item.addItem(NSMenuItem.separator())
     item.addItem(self.daemonTitleItem)
     item.addItem(self.installDaemonItem)
@@ -130,6 +141,10 @@ class DeveloperSubmenu {
 
   private lazy var configDirectoryTitleItem: NSMenuItem = {
     return NSMenuItem(title: "Config dir...", action: nil, keyEquivalent: "")
+  }()
+
+  private lazy var configFileTitleItem: NSMenuItem = {
+    return NSMenuItem(title: "Config file...", action: nil, keyEquivalent: "")
   }()
 
   private lazy var createConfigDirectoryItem: NSMenuItem = {

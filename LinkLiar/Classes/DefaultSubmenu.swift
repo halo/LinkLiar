@@ -21,6 +21,7 @@ class DefaultSubmenu {
   func update() {
     updateStates()
     updateEnability()
+    updateAddress()
   }
 
   private func updateStates() {
@@ -28,13 +29,18 @@ class DefaultSubmenu {
     randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .random ? 1 : 0)
     specifyItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .specify ? 1 : 0)
     originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .original ? 1 : 0)
+
   }
 
   private func updateEnability() {
-    Intercom.helperIsCompatible(reply: { yesOrNo in
-      self.enableAll(yesOrNo)
-      NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
-    })
+    self.enableAll(ConfigWriter.isWritable)
+    //NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
+  }
+
+  private func updateAddress() {
+    specifiedAddressItem.isHidden = Config.instance.unknownInterface.action != .specify
+    guard let address = Config.instance.unknownInterface.address else { return }
+    specifiedAddressItem.title = address.formatted
   }
 
   private func enableAll(_ enableOrDisable: Bool) {
@@ -60,6 +66,8 @@ class DefaultSubmenu {
     submenu.addItem(self.randomizeItem)
     submenu.addItem(self.specifyItem)
     submenu.addItem(self.originalizeItem)
+    submenu.addItem(NSMenuItem.separator())
+    submenu.addItem(self.specifiedAddressItem)
     return submenu
   }()
 
@@ -91,4 +99,11 @@ class DefaultSubmenu {
     return item
   }()
 
+  private lazy var specifiedAddressItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Loading...", action: nil, keyEquivalent: "")
+    item.isEnabled = false
+    item.isHidden = true
+    item.toolTip = "The specific MAC address assigned to new Interfaces."
+    return item
+  }()
 }
