@@ -23,10 +23,13 @@ struct Vendors {
     return Vendor.init(id: id, name: name, prefixes: prefixes)
   }
 
-  static var all: [Vendor] {
+  static var available: [Vendor] {
+    all.filter { !Config.instance.prefixes.vendors.contains($0) }
+  }
+
+  private static var all: [Vendor] {
     MACPrefixes.dictionary.keys.compactMap {
       return find($0)
     }
   }
-
 }

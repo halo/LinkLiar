@@ -186,10 +186,14 @@ class Controller: NSObject {
   }
 
   @objc static func addPrefix(_ sender: NSMenuItem) {
-    guard let prefix = sender.representedObject as? MACPrefix else {
-      Log.error("Expected the NSMenuItem to be associated to a MACPrefix")
+    let title = "Choose MAC prefix for unknown Interfaces"
+    let description = "Whenever a new Interface is to be randomized, this prefix will be among those to be picked."
+    guard let answer = MACPrefixQuestion(title: title, description: description).ask() else {
+      Log.debug("You pressed <Cancel> when asked to enter a MAC prefix.")
       return
     }
+    let prefix = MACPrefix(answer)
+    Log.debug("You typed in \(answer) as desired MAC prefix, which is \(prefix.formatted)")
     ConfigWriter.addPrefix(prefix)
   }
 

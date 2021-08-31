@@ -18,10 +18,6 @@ import Foundation
 
 struct MACPrefix: Comparable, Equatable {
 
-  static func <(lhs: MACPrefix, rhs: MACPrefix) -> Bool {
-    return lhs.prefix < rhs.prefix
-  }
-
   var humanReadable: String {
     guard isValid else { return "??:??:??" }
 
@@ -70,6 +66,10 @@ struct MACPrefix: Comparable, Equatable {
     let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 8 }
     let newPrefix = newIntegers.map { String($0, radix: 8) }.joined()
     return MACPrefix(newPrefix)
+  }
+
+  static func <(lhs: MACPrefix, rhs: MACPrefix) -> Bool {
+    return lhs.prefix < rhs.prefix
   }
 
 }

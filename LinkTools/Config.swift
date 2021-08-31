@@ -44,13 +44,12 @@ struct Config {
   }
 
   static func reload() {
-    // This is just to initialize the static variable holding the observer.
     Log.debug("Reloading Configuration singleton from file")
     let reader = JSONReader(filePath: Paths.configFile)
-    if reader.failure {
-      return
-    }
+    if reader.failure { return }
+
     let dictionary = reader.dictionary
+    // Discard the old configuration and instantiate a new one.
     _instance = Configuration(dictionary: dictionary)
     NotificationCenter.default.post(name:.configChanged, object: nil, userInfo: nil)
   }

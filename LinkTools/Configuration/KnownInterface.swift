@@ -21,11 +21,25 @@ extension Configuration {
     /**
      * Looks up which action has been defined.
      *
+     * Returns `nil` if no valid action was defined.
+     *
+     * - returns: An `Interface.Action`.
+     */
+    func action(_ hardMAC: MACAddress) -> Interface.Action? {
+      guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
+      guard let actionName = interfaceDictionary["action"] else { return nil }
+
+      return Interface.Action(rawValue: actionName) ?? nil
+    }
+
+    /**
+     * Looks up which action has been defined.
+     *
      * If no valid action was defined, it returns `Interface.Action.default` as fallback.
      *
      * - returns: An `Interface.Action`.
      */
-    func action(_ hardMAC: MACAddress) -> Interface.Action {
+    func calculatedAction(_ hardMAC: MACAddress) -> Interface.Action {
       guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return defaultAction }
       guard let actionName = interfaceDictionary["action"] else { return defaultAction }
 

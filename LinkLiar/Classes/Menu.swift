@@ -20,9 +20,10 @@ class Menu {
 
   let menu = NSMenu()
 
-  private var interfaces: [Interface] = []
+  // Prevent threads from interfering with one other.
   let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.menuQueue")
 
+  private var interfaces: [Interface] = []
   private lazy var defaultSubmenu = DefaultSubmenu()
   private lazy var prefixesSubmenu = PrefixesSubmenu()
   private lazy var settingsSubmenu = SettingsSubmenu()
@@ -50,7 +51,7 @@ class Menu {
 
     menu.addItem(authorizeItem)
     menu.addItem(authorizeSeparatorItem)
-    // <-- Here be Interfaces -->
+    // <-- Here the Interfaces will be injected -->
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
     menu.addItem(prefixesSubmenu.menuItem)
@@ -63,7 +64,7 @@ class Menu {
   }
 
   func update() {
-    Log.debug("Updating menu...")
+    Log.debug("Updating...")
     reloadInterfaceItems()
     defaultSubmenu.update()
     prefixesSubmenu.update()
@@ -98,13 +99,12 @@ class Menu {
       // Remove all Interface items
       for item in menu.items {
         if (item.representedObject is Interface) {
-         // print(item)
-
-          menu.removeItem(item) }
+          menu.removeItem(item)
+        }
       }
 
       // Replenish Interfaces
-      // In reverse order because we insert one by one at the top of the menu
+      // In reverse order because we insert them from the top and they move down.
       interfaces = Interfaces.all(async: true).reversed()
 
       // Replenish corresponding items

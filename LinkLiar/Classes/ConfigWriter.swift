@@ -157,7 +157,7 @@ struct ConfigWriter {
     var dictionary = dictionaryWithCurrentVersion()
     let currentVendorIds = Config.instance.prefixes.vendors.map { $0.id }
     let newVendorIds = currentVendorIds + [vendor.id]
-    dictionary["vendors"] = newVendorIds
+    dictionary["vendors"] = Array(Set(newVendorIds)).sorted() // Removes duplicates
     Log.debug("Changing config by adding Vendor with ID \"\(vendor.id)\"...")
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
@@ -166,7 +166,7 @@ struct ConfigWriter {
     var dictionary = dictionaryWithCurrentVersion()
     let currentPrefixes = Config.instance.prefixes.prefixes.map { $0.formatted }
     let newPrefixes = currentPrefixes + [prefix.formatted]
-    dictionary["prefixes"] = newPrefixes
+    dictionary["prefixes"] = Array(Set(newPrefixes)).sorted() // Removes duplicates
     Log.debug("Changing config by adding Prefix \"\(prefix.formatted)\"...")
     JSONWriter(filePath: Paths.configFile).write(dictionary)
   }

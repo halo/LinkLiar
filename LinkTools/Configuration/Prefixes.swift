@@ -26,16 +26,15 @@ extension Configuration {
      * - returns: An Array of valid `Vendor`s or an empty Array if there are none.
      */
     var vendors: [Vendor] {
-      guard let defaultDictionary = dictionary["default"] as? [String: String] else { return defaultVendors }
-      guard let vendorIDsList = defaultDictionary["vendors"] else { return defaultVendors }
-      let vendorIDs = vendorIDsList.split(separator: ",")
+      guard let vendorIDs = dictionary["vendors"] as? [String] else { return defaultVendors }
 
-      let vendors = vendorIDs.compactMap { string -> Vendor? in
-        return Vendors.find(String(string))
+      let vendors = Set(vendorIDs).compactMap { string -> Vendor? in
+        return Vendors.find(string)
       }
 
       // If there are vendors defined directly, return them.
-      guard vendors.isEmpty else { return vendors }
+      guard vendors.isEmpty else { return Array(vendors).sorted() }
+      Log.debug("Currently no vendors active")
 
       // We always need *some* prefix. If there are custom prefixes,
       // we can rely on them and don't need to fall back here to anything.
@@ -55,12 +54,10 @@ extension Configuration {
      * - returns: An Array of valid `MACPrefix`es or an empty Array if there are none.
      */
     var prefixes: [MACPrefix] {
-      guard let baseDictionary = dictionary["default"] as? [String: String] else { return [] }
-      guard let rawAddressesString = baseDictionary["prefixes"] else { return [] }
-      let rawAddresses = rawAddressesString.split(separator: ",")
+      guard let rawAddresses = dictionary["prefixes"] as? [String] else { return [] }
 
       let addresses = rawAddresses.compactMap { string -> MACPrefix? in
-        let address = MACPrefix(String(string))
+        let address = MACPrefix(string)
         return address.isValid ? address : nil
       }
 

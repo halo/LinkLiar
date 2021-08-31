@@ -26,6 +26,26 @@ class Interface {
     case original = "original"
   }
 
+  // Upon initialization we assign what we already know
+  init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
+    self.BSDName = BSDName
+    self.displayName = displayName
+    self.kind = kind
+    self._hardMAC = hardMAC
+    self._softMAC = ""
+    let ifconfig = Ifconfig(BSDName: self.BSDName)
+    if !isSpoofable { return }
+
+    if async {
+      ifconfig.softMAC(callback: { address in
+        self._softMAC = address.formatted
+        NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
+      })
+    } else {
+      self._softMAC = ifconfig.softMAC().formatted
+    }
+  }
+
   // These attributes are known instantaneously
   var BSDName: String
   var displayName: String
@@ -85,24 +105,5 @@ class Interface {
     return !wifi.powerOn()
   }
 
-  // Upon initialization we assign what we already know
-  init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
-    self.BSDName = BSDName
-    self.displayName = displayName
-    self.kind = kind
-    self._hardMAC = hardMAC
-    self._softMAC = ""
-    let ifconfig = Ifconfig(BSDName: self.BSDName)
-    if !isSpoofable { return }
-
-    if async {
-      ifconfig.softMAC(callback: { address in
-        self._softMAC = address.formatted
-        NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
-      })
-    } else {
-      self._softMAC = ifconfig.softMAC().formatted
-    }
-  }
 
 }

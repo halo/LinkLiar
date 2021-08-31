@@ -20,7 +20,7 @@ class Synchronizer {
 
   static func run() {
     for interface in Interfaces.all(async: false) {
-      let action = Config.instance.knownInterface.action(interface.hardMAC)
+      let action = Config.instance.knownInterface.calculatedAction(interface.hardMAC)
 
       switch action {
       case .ignore:    Log.debug("Dutifully ignoring Interface \(interface.BSDName)")

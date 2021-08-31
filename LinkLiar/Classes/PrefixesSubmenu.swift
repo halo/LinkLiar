@@ -18,8 +18,14 @@ import Cocoa
 
 class PrefixesSubmenu {
 
+  // Prevent threads from interfering with one other.
+  let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.prefixesSubmenuQueue")
+
   func update() {
     Log.debug("Updating...")
+    reloadChosenVendorItems()
+    reloadChosenPrefixesItems()
+    reloadAvailableVendorItems()
   }
 
   lazy var menuItem: NSMenuItem = {
@@ -35,34 +41,13 @@ class PrefixesSubmenu {
   private lazy var prefixesSubMenuItem: NSMenu = {
     let submenu: NSMenu = NSMenu()
     submenu.autoenablesItems = false
-    chosenVendorItems.forEach { submenu.addItem($0) }
+    // <-- Here the active vendors will be injected -->
     submenu.addItem(NSMenuItem.separator())
-    prefixItems.forEach { submenu.addItem($0) }
+    // <-- Here the active prefixes will be injected -->
+    submenu.addItem(NSMenuItem.separator())
     submenu.addItem(self.addVendorItem)
     submenu.addItem(self.addPrefixItem)
     return submenu
-  }()
-
-  private lazy var chosenVendorItems: [NSMenuItem] = {
-    Log.debug("Loading vendors into submenu...")
-    return Config.instance.prefixes.vendors.map {
-      let item = NSMenuItem(title: $0.title, action: #selector(Controller.removeVendor), keyEquivalent: "")
-      item.representedObject = $0
-      item.target = Controller.self
-      item.toolTip = "Remove vendor \"\($0.name)\" with its \"\(String($0.prefixes.count))\" prefixes from the list of prefixes."
-      return item
-    }
-  }()
-
-  private lazy var prefixItems: [NSMenuItem] = {
-    Log.debug("Loading prefixes into submenu...")
-    return Config.instance.prefixes.prefixes.map {
-      let item = NSMenuItem(title: $0.formatted, action: #selector(Controller.removePrefix), keyEquivalent: "")
-      item.representedObject = $0
-      item.target = Controller.self
-      item.toolTip = "Remove custom prefix \"\($0.formatted)\" from the list of prefixes."
-      return item
-    }
   }()
 
   private lazy var addPrefixItem: NSMenuItem = {
@@ -83,18 +68,76 @@ class PrefixesSubmenu {
   private lazy var vendorsSubMenuItem: NSMenu = {
     let submenu: NSMenu = NSMenu()
     submenu.autoenablesItems = false
-    missindVendorItems.forEach { submenu.addItem($0) }
+    // <-- Here the available vendors will be injected -->
     return submenu
   }()
 
-  private lazy var missindVendorItems: [NSMenuItem] = {
-    Log.debug("Loading vendors into submenu...")
-    return Vendors.all.map {
-      let item = NSMenuItem(title: $0.title, action: #selector(Controller.removeVendor), keyEquivalent: "")
-      item.representedObject = $0
-      item.target = Controller.self
-      item.toolTip = "Remove vendor \"\($0.name)\" with its \"\(String($0.prefixes.count))\" prefixes from the list of prefixes."
-      return item
+  private func reloadChosenVendorItems() {
+    queue.sync {
+      Log.debug("Loading chosen vendors into submenu...")
+
+      // Remove all currently listed vendors
+      for item in prefixesSubMenuItem.items {
+        if (item.representedObject is Vendor) {
+          prefixesSubMenuItem.removeItem(item)
+        }
+      }
+
+      // Replenish active vendors
+      // In reverse order because we insert them from the top and they move down.
+      Config.instance.prefixes.vendors.reversed().forEach {
+        let item = NSMenuItem(title: $0.title, action: #selector(Controller.removeVendor), keyEquivalent: "")
+        item.representedObject = $0
+        item.target = Controller.self
+        item.toolTip = "Remove vendor \"\($0.name)\" with its \"\(String($0.prefixes.count))\" prefixes from the list of prefixes."
+        prefixesSubMenuItem.insertItem(item, at: 0)
+      }
     }
-  }()
+  }
+
+  private func reloadChosenPrefixesItems() {
+    queue.sync {
+      Log.debug("Loading chosen prefixes into submenu...")
+
+      // Remove all currently listed vendors
+      for item in prefixesSubMenuItem.items {
+        if (item.representedObject is MACPrefix) {
+          prefixesSubMenuItem.removeItem(item)
+        }
+      }
+
+      // Replenish active vendors
+      Config.instance.prefixes.prefixes.reversed().forEach {
+        let item = NSMenuItem(title: $0.formatted, action: #selector(Controller.removePrefix), keyEquivalent: "")
+        item.representedObject = $0
+        item.target = Controller.self
+        item.toolTip = "Remove custom prefix \"\($0.formatted)\" from the list of prefixes."
+        prefixesSubMenuItem.insertItem(item, at: prefixesSubMenuItem.items.count - 3)
+      }
+    }
+  }
+
+  private func reloadAvailableVendorItems() {
+    queue.sync {
+      Log.debug("Loading available vendors into submenu...")
+
+      // Remove all currently listed vendors
+      for item in vendorsSubMenuItem.items {
+        if (item.representedObject is Vendor) {
+          vendorsSubMenuItem.removeItem(item)
+        }
+      }
+
+      // Replenish active vendors
+      // In reverse order because we insert them from the top and they move down.
+      Vendors.available.forEach {
+        let item = NSMenuItem(title: $0.title, action: #selector(Controller.addVendor), keyEquivalent: "")
+        item.representedObject = $0
+        item.target = Controller.self
+        item.toolTip = "Add vendor \"\($0.name)\" with its \"\(String($0.prefixes.count))\" prefixes to the list of prefixes."
+        vendorsSubMenuItem.insertItem(item, at: 0)
+      }
+    }
+  }
+
 }
