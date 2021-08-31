@@ -13,7 +13,7 @@ struct Vendor: Comparable, Equatable {
   var prefixes: [MACPrefix]
 
   var title: String {
-    [name, " (", String(prefixes.count), ")"].joined()
+    [name, " ・ ", String(prefixes.count)].joined()
   }
 
   static func <(lhs: Vendor, rhs: Vendor) -> Bool {

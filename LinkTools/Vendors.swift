@@ -28,7 +28,7 @@ struct Vendors {
   }
 
   private static var all: [Vendor] {
-    MACPrefixes.dictionary.keys.compactMap {
+    MACPrefixes.dictionary.keys.sorted().reversed().compactMap {
       return find($0)
     }
   }

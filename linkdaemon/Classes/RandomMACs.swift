@@ -45,7 +45,7 @@ struct RandomMACs {
       Log.error("Could not pick random prefix, falling back to 00:00:00")
       return "00:00:00"
     }
-    Log.debug("Chose random user-defined prefix \(prefix) among \(prefixes.count) prefixes")
+    Log.debug("Chose random user-defined prefix \(prefix.formatted) among \(prefixes.count) prefixes")
 
     return prefix.prefix
   }

@@ -61,6 +61,7 @@ extension Configuration {
         return address.isValid ? address : nil
       }
 
+      if (addresses.isEmpty) { Log.debug("Currently no prefixes active")}
       return addresses
     }
 

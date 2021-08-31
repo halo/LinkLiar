@@ -2,6 +2,7 @@
 
 * [FEATURE] Choose among vendors (and custom prefixes) to be used when randomizing MAC addresses #27
 * [FEATURE] Show which MAC address was specified by default
+* [UPDATE] Update MAC prefixes of "popular" vendors
 
 # 2.1.1
 
