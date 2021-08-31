@@ -1,6 +1,7 @@
 # 3.0.0
 
 * [FEATURE] Choose among vendors (and custom prefixes) to be used when randomizing MAC addresses #27
+* [FEATURE] Do not show leakage icon for ignored interfaces #38
 * [FEATURE] Show which MAC address was specified by default
 * [UPDATE] Update MAC prefixes of "popular" vendors
 

@@ -29,6 +29,8 @@ struct Interfaces {
 
       let interface = Interface(BSDName: BSDName as String, displayName: displayName as String, kind: type as String, hardMAC: hardMAC as String, async: false)
       if !interface.isSpoofable { continue }
+      // Ignored Interfaces do not trigger a leakage warning
+      if Config.instance.knownInterface.action(interface.hardMAC) == .ignore { continue }
       if interface.hasOriginalMAC { return true }
     }
     return false
