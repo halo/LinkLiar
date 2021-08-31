@@ -35,6 +35,8 @@ struct  NetworkObserver {
   static func observe() {
     SCDynamicStoreSetNotificationKeys(store!, keys as CFArray, nil)
     CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store!, 0), CFRunLoopMode.defaultMode)
+    // When the observer starts, we notify immediately.
+    // One could say the conditions changed right now "for us". From nothing to something.
     post()
   }
 
