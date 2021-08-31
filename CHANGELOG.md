@@ -1,8 +1,15 @@
 # 3.0.0
 
+* [BREAKING] Configuration directory moved from
+             `/Library/Application Support/LinkLiar/`
+             to
+             `/Library/Application Suppoert/io.github.halo.LinkLiar`
+             as this is more future-proof and I think the way Apple wants it.
+
 * [FEATURE] Choose among vendors (and custom prefixes) to be used when randomizing MAC addresses #27
 * [FEATURE] Do not show leakage icon for ignored interfaces #38
 * [FEATURE] Show which MAC address was specified by default
+* [FEATURE] Show paths to all relevant directories and files in developer menu
 * [UPDATE] Update MAC prefixes of "popular" vendors
 
 # 2.1.1

@@ -34,7 +34,6 @@ class DefaultSubmenu {
 
   private func updateEnability() {
     self.enableAll(ConfigWriter.isWritable)
-    //NotificationCenter.default.post(name:.menuChanged, object: nil, userInfo: nil)
   }
 
   private func updateAddress() {

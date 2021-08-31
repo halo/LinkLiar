@@ -24,7 +24,7 @@ extension String {
 
 class Paths {
 
-  static let configDirectory = "/Library/Application Support/LinkLiar"
+  static let configDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
   static let configDirectoryURL = URL(fileURLWithPath: configDirectory)
 
   static let configFile = configDirectory.appendPath("config.json")

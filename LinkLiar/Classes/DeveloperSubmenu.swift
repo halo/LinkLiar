@@ -104,6 +104,8 @@ class DeveloperSubmenu {
     item.addItem(self.activateDaemonItem)
     item.addItem(self.deactivateDaemonItem)
     item.addItem(self.uninstallDaemonItem)
+    item.addItem(NSMenuItem.separator())
+    item.addItem(self.pathsSubmenuItem)
     return item
   }()
 
@@ -199,4 +201,44 @@ class DeveloperSubmenu {
     return item
   }()
 
+  private lazy var pathsSubmenuItem: NSMenuItem = {
+    let item = NSMenuItem(title: "Paths", action: nil, keyEquivalent: "")
+    item.submenu = self.pathsSubmenu
+    return item
+  }()
+
+
+  private lazy var pathsSubmenu: NSMenu = {
+    let item: NSMenu = NSMenu()
+
+    item.addItem(NSMenuItem(title: "Config File", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.configFile, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    item.addItem(NSMenuItem(title: "Debug Log File", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.debugLogFile, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    item.addItem(NSMenuItem(title: "Daemon Plist File", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.daemonPlistFile, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    item.addItem(NSMenuItem(title: "Helper Plist File", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.helperPlistFile, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    item.addItem(NSMenuItem(title: "Helper Executable", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.helperExecutable, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    item.addItem(NSMenuItem(title: "Daemon Pristine Executable File", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.daemonPristineExecutablePath, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    item.addItem(NSMenuItem(title: "Daemon Executable", action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem(title: Paths.daemonExecutable, action: nil, keyEquivalent: ""))
+    item.addItem(NSMenuItem.separator())
+
+    return item
+  }()
 }

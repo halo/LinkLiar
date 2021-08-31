@@ -26,6 +26,17 @@ class PrefixesSubmenu {
     reloadChosenVendorItems()
     reloadChosenPrefixesItems()
     reloadAvailableVendorItems()
+    updateEnability()
+  }
+
+  private func updateEnability() {
+    self.enableAll(ConfigWriter.isWritable)
+  }
+
+  private func enableAll(_ enableOrDisable: Bool) {
+    prefixesSubMenuItem.items.forEach {
+      $0.isEnabled = enableOrDisable
+    }
   }
 
   lazy var menuItem: NSMenuItem = {
@@ -36,7 +47,6 @@ class PrefixesSubmenu {
     self.update()
     return item
   }()
-
 
   private lazy var prefixesSubMenuItem: NSMenu = {
     let submenu: NSMenu = NSMenu()
