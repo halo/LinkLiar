@@ -36,7 +36,7 @@ class InterfaceSubmenu {
     item.representedObject = self.interface
     item.target = Controller.self
     item.toolTip = "The currently assigned MAC address of this Interface."
-    item.tag = 42
+    item.tag = 42 // So we can identify this menu item among other Inteface-based items.
 
     if self.interface.softMAC.isValid {
       item.title = self.interface.softMAC.humanReadable
