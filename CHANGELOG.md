@@ -11,7 +11,7 @@
 * [DOCUMENTATION] Make the background dark
 * [DOCUMENTATION] Add section about prefix configuration
 
-# 3.0.0 (alpha)
+# 3.0.1 (alpha)
 
 * [BREAKING] Configuration directory moved from
              `/Library/Application Support/LinkLiar/`
