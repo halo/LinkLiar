@@ -54,9 +54,10 @@ class Menu {
     // <-- Here the Interfaces will be injected -->
     menu.addItem(NSMenuItem.separator())
     menu.addItem(defaultSubmenu.menuItem)
+    menu.addItem(NSMenuItem.placeholder()) // Needed because `prefixesSubmenu` is invisible.
     menu.addItem(prefixesSubmenu.menuItem)
     menu.addItem(settingsSubmenu.menuItem)
-    menu.addItem(NSMenuItem.placeholder())
+    menu.addItem(NSMenuItem.placeholder()) // Needed because `developerSubmenu` is invisible.
     menu.addItem(developerSubmenu.menuItem)
     menu.addItem(NSMenuItem.separator())
     menu.addItem(helpItem)

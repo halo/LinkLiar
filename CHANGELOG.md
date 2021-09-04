@@ -5,7 +5,10 @@
              to
              `/Library/Application Support/io.github.halo.linkdaemon`
              as this is more future-proof.
+* [USABILITY] Hide "Prefixes" submenu and reveal it only when holding the option key. I think it's only for advanced users.
 * [DOCUMENTATION] Updated application modules schema
+* [DOCUMENTATION] Add Airpass to list of alternative apps
+* [DOCUMENTATION] Make the background dark
 
 # 3.0.0
 

@@ -44,6 +44,8 @@ class PrefixesSubmenu {
     item.target = Controller.self
     item.submenu = self.prefixesSubMenuItem
     item.toolTip = "When randomizing, which prefixes should be used?"
+    item.keyEquivalentModifierMask = NSEvent.ModifierFlags.option
+    item.isAlternate = true
     self.update()
     return item
   }()
