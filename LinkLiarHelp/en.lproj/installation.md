@@ -6,9 +6,9 @@ title: Installation
 
 ## 📥 Download the app
 
-Head over to the [Download Section](https://github.com/halo/LinkLiar/releases/latest) and get the zip file.
+Head over to the [download section](https://github.com/halo/LinkLiar/releases/latest) and get the zip file.
 
-[![constrain](github_download.jpg)](https://github.com/halo/LinkLiar/releases/latest)
+[![constrain](github_download.png)](https://github.com/halo/LinkLiar/releases/latest)
 
 ## 📦 Extract the zip file (if needed)
 
@@ -20,7 +20,10 @@ Simply by double-clicking it.
 
 ## ▶️ Run the app
 
-Just double-click it.
+Double-click it.
+
+In case you're running into trouble with a message that says that this app is not trusted,
+right-click the app, then hold down the option-key, and then choose "Open".
 
 ## 👮🏼‍♀️ Authorize it
 
@@ -32,4 +35,6 @@ You will then be asked for your computer password.
 
 (You will only have to do this once, in order to give LinkLiar the permission to change your MAC address).
 
-# [How to use LinkLiar...](usage.html)
+## ▶️ What's next?
+
+Learn [how to use LinkLiar...](usage.html)

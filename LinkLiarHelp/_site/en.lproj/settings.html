@@ -41,14 +41,14 @@ or put your computer to sleep (e.g. closing the lid).</p>
 
 <p>This way you ensure enough entropy even over a longer period of time.</p>
 
-<h2 id="-run-in-background">👣 Run in Background</h2>
+<h2 id="-keep-running-in-background">👣 Keep Running in Background</h2>
 
 <p>If you quit LinkLiar, it does not really quit.
-It is alive at all times and manages your MAC addresses according to your will.
+It is alive at all times and manages your MAC addresses according to what you configured.
 This way you can make sure that the MAC addresses even keep random on boot, before you login.</p>
 
 <p>You may disable this setting, so LinkLiar is only active while you can see
-the LinkLiar icon in your status bar.</p>
+the LinkLiar icon in your menu bar.</p>
 
 <h2 id="-anonymize-logs">😎 Anonymize Logs</h2>
 
@@ -67,6 +67,39 @@ but LinkLiar will tell you one thing while reality is another.</p>
 </code></pre></div></div>
 
 <p>Assuming that your <code class="language-plaintext highlighter-rouge">LinkLiar.app</code> is located in <code class="language-plaintext highlighter-rouge">/Applications</code>.</p>
+
+<h2 id="️-start-menu-bar-at-login">☀️ Start Menu Bar at Login</h2>
+
+<p>This option will start the LinkLiar menu bar app when you login to your computer.</p>
+
+<p>Normally you don’t need to use this. It is sufficient to activate “Keep Running in Background” so that the background process is on.</p>
+
+<p>Starting the menu bar app is only useful if you want to be warned about MAC leakage by the icon.</p>
+
+<p> </p>
+
+<h1 id="configuring-mac-address-prefixes-for-randomization">Configuring MAC address prefixes for randomization</h1>
+
+<p>Most users won’t need to worry about this.
+But if you hold the Option ⌥ key while the LinkLiar menu is open,
+a new menu item will appear, called “Prefixes”.</p>
+
+<p><img src="prefixes.png" alt="" /></p>
+
+<p>A prefix are the first 6 characters of the MAC address, for example <code class="language-plaintext highlighter-rouge">aa:aa:aa</code> followed by the suffix <code class="language-plaintext highlighter-rouge">bb:bb:bb</code>.
+Together they make up the MAC address.</p>
+
+<p>Every vendor of network equipment (such as Apple, IBM, etc.) has been allocated one or more prefixes to be used in their products,
+such as your MacBook and phone. So, right now, your Wi-Fi card has one of Apple’s prefixes, and a unique suffix that nobody else has.</p>
+
+<p>If you instruct LinkLiar to generate a random MAC address for you, it will choose among one of the many prefixes
+that Apple uses. But you can change that by adding another vendor, such as Samsung.</p>
+
+<p>But you can also specify one or more prefixes yourself. LinkLiar chooses among all chosen vendors and custom prefixes (simply remove all vendors to force LinkLiar to pick a prefixfrom among your custom prefixes).</p>
+
+<h2 id="-thats-it">🍿 That’s it!</h2>
+
+<p>You’re now ready to use LinkLiar.</p>
 
 		</main>
 		<footer class="c-footer">

@@ -54,7 +54,7 @@ touch "/Library/Application Support/LinkLiar/linkliar.log"
 
 Delete the log file again to silence logging.
 
-Once LinkLiar is started and the menu is visible, you can hold the ⌥ Option key for advanced options. This is only intended for developers.
+Once LinkLiar is started and the menu is visible, you can hold the Option ⌥ key for advanced options. This is only intended for developers.
 
 If you want a more colorful output, clone this git repository and run `bin/logs`.
 That's what I use when I'm debugging.
