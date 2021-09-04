@@ -69,7 +69,11 @@ This utility is also bundled in LinkLiar so you can run it with
 
 ## Development
 
-![](./docs/modules_2021_10_04.svg)
+![](./docs/modules_20211004b.svg)
+
+### HelpBook
+
+To update the HelpBook (end-user documentation), change the *source files* in [LinkLiarHelp/en.lproj](https://github.com/halo/LinkLiar/tree/master/LinkLiarHelp/en.lproj) and *then* generate the output with `bin/docs`.
 
 ## Future work
 
