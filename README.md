@@ -14,7 +14,7 @@ This is an intuitive macOS status menu application written in Swift to help you 
 
 It is free as in open-source. Should you like to motivate me, you may click on the ✭ in the top-right corner.
 
-![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/docs/screenshot_3.0.1.png)
+![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/docs/screenshot_3.0.1.svg)
 
 ## Requirements
 
