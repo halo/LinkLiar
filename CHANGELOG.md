@@ -1,9 +1,18 @@
+# master
+
+* [BREAKING] Daemon executable directory moved from
+             `/Library/Application Support/LinkDaemon`
+             to
+             `/Library/Application Support/io.github.halo.linkdaemon`
+             as this is more future-proof.
+* [DOCUMENTATION] Updated application modules schema
+
 # 3.0.0
 
 * [BREAKING] Configuration directory moved from
              `/Library/Application Support/LinkLiar/`
              to
-             `/Library/Application Suppoert/io.github.halo.LinkLiar`
+             `/Library/Application Support/io.github.halo.LinkLiar`
              as this is more future-proof and I think the way Apple wants it.
 
 * [FEATURE] Choose among vendors (and custom prefixes) to be used when randomizing MAC addresses #27

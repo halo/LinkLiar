@@ -57,7 +57,7 @@ class Paths {
   }
   static var daemonPristineExecutableURL = URL(fileURLWithPath: daemonPristineExecutablePath)
 
-  static let daemonDirectory = "/Library/Application Support/LinkDaemon"
+  static let daemonDirectory = "/Library/Application Support/\(Identifiers.daemon.rawValue)"
   static let daemonDirectoryURL = URL(fileURLWithPath: daemonDirectory)
 
   static let daemonExecutable = daemonDirectory.appendPath("linkdaemon")

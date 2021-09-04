@@ -70,7 +70,7 @@ This utility is also bundled in LinkLiar so you can run it with
 
 ## Development
 
-![](./docs/modules_20180124.svg)
+![](./docs/modules_20211004.svg)
 
 ## Future work
 
