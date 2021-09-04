@@ -1,4 +1,4 @@
-# master
+# 3.0.1
 
 * [BREAKING] Daemon executable directory moved from
              `/Library/Application Support/LinkDaemon`
@@ -6,11 +6,12 @@
              `/Library/Application Support/io.github.halo.linkdaemon`
              as this is more future-proof.
 * [USABILITY] Hide "Prefixes" submenu and reveal it only when holding the option key. I think it's only for advanced users.
-* [DOCUMENTATION] Updated application modules schema
+* [DOCUMENTATION] Updated most images
 * [DOCUMENTATION] Add Airpass to list of alternative apps
 * [DOCUMENTATION] Make the background dark
+* [DOCUMENTATION] Add section about prefix configuration
 
-# 3.0.0
+# 3.0.0 (alpha)
 
 * [BREAKING] Configuration directory moved from
              `/Library/Application Support/LinkLiar/`
