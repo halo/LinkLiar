@@ -6,7 +6,7 @@ title: Introduction
 
 This is an intuitive status menu application written in Swift 3 to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
-![](screenshot_2.1.0.png)
+![](screenshot_3.0.1.svg)
 
 ## 📱 What is a MAC address and why would I change it?
 
