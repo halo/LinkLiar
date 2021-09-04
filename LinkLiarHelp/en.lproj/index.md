@@ -38,8 +38,10 @@ Your MacBook already ships with the tool to change your MAC address.
 You would just have to enter `ifconfig en0 ether aa:bb:cc:dd:ee:ff` in a Terminal.
 But that's cumbersome, so tools like LinkLiar are supposed to make it easier for you.
 
-For macOS, the more prominent graphical apps are [WiFiSpoof](https://wifispoof.com) (commercial)
-and [MacDaddyX](http://www.deepthought.ws/software/software-osx-macdaddyx/) (free).
+For macOS, the more prominent graphical apps are
+[Airpass](https://airpass.tiagoalves.me/) (open source),
+[WiFiSpoof](https://wifispoof.com) (commercial) and
+[MacDaddyX](http://www.deepthought.ws/software/software-osx-macdaddyx/) (free).
 Then there is the command line tool [SpoofMAC](https://feross.org/spoofmac/),
 which unfortunately has no graphical interface.
 
