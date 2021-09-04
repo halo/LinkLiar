@@ -1,5 +1,4 @@
 [![Version](https://img.shields.io/github/release/halo/LinkLiar.svg?style=flat&label=version)](https://github.com/halo/LinkLiar/releases)
-[![Downloaded](https://img.shields.io/github/downloads/halo/LinkLiar/total.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/halo/LinkLiar/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/halo/LinkLiar.svg?branch=master)](https://travis-ci.org/halo/LinkLiar)
 [![](https://img.shields.io/github/issues-raw/halo/LinkLiar.svg)](https://github.com/halo/linkliar/issues)
@@ -11,7 +10,7 @@
 
 This is an intuitive macOS status menu application written in Swift to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
 
-[Download instructions](#installation)
+[How do I install this?](#installation)
 
 It is free as in open-source. Should you like to motivate me, you may click on the ✭ in the top-right corner.
 
@@ -19,20 +18,20 @@ It is free as in open-source. Should you like to motivate me, you may click on t
 
 ## Requirements
 
-* macOS Sierra or later (see [releases](https://github.com/halo/LinkLiar/releases) for older versions)
-* Administrator privileges (you will be asked for your root password **once**)
+* macOS Sierra (10.12) or later (see [releases](https://github.com/halo/LinkLiar/releases) for older versions).
+* Administrator privileges (you will be asked for your root password *once*).
 
 ## Installation
 
 If you have [Homebrew](https://brew.sh), just run `brew install --cask linkliar`.
 
-To install it manually, follow [these instructions](http://halo.github.io/LinkLiar/installation.html).
+To install it manually, follow [these instructions](http://halo.github.io/LinkLiar/installation.html) in the documentation.
 
 ## Documentation
 
-The end-user documentation is located at [halo.github.io/LinkLiar](http://halo.github.io/LinkLiar).
-
 What you're looking at right now is the technical documentation.
+
+The end-user documentation is located at [halo.github.io/LinkLiar](http://halo.github.io/LinkLiar).
 
 There is also a source-code documentation in progress, see `bin/docs` for inspiration.
 
@@ -75,8 +74,6 @@ This utility is also bundled in LinkLiar so you can run it with
 ## Future work
 
 * Add badge with test coverage to README
-* Nicer GUI for specifying a MAC address manually (with option to randomize)
-* Choose which vendor prefixes to randomize with
 
 ## Thanks
 
@@ -84,4 +81,4 @@ This utility is also bundled in LinkLiar so you can run it with
 
 ## License
 
-MIT 2012-2018 halo. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
+MIT 2012-2021 halo. See [MIT-LICENSE](https://github.com/halo/LinkLiar/blob/master/LICENSE.md).
