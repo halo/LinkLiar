@@ -21,22 +21,22 @@ class PathTests: XCTestCase {
 
   func testConfigDirectory() {
     let path = Paths.configDirectory
-    XCTAssertEqual("/Library/Application Support/LinkLiar", path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar", path)
   }
 
   func testConfigDirectoryURL() {
     let url = Paths.configDirectoryURL
-    XCTAssertEqual("/Library/Application Support/LinkLiar", url.path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar", url.path)
   }
 
   func testConfigFile() {
     let path = Paths.configFile
-    XCTAssertEqual("/Library/Application Support/LinkLiar/config.json", path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar/config.json", path)
   }
 
   func testConfigFileURL() {
     let url = Paths.configFileURL
-    XCTAssertEqual("/Library/Application Support/LinkLiar/config.json", url.path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar/config.json", url.path)
   }
 
   func testHelperDirectory() {
@@ -101,22 +101,22 @@ class PathTests: XCTestCase {
 
   func testDaemonDirectory() {
     let path = Paths.daemonDirectory
-    XCTAssertEqual("/Library/Application Support/LinkDaemon", path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.linkdaemon", path)
   }
 
   func testDaemonDirectoryURL() {
     let url = Paths.daemonDirectoryURL
-    XCTAssertEqual("/Library/Application Support/LinkDaemon", url.path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.linkdaemon", url.path)
   }
 
   func testDaemonExecutable() {
     let path = Paths.daemonExecutable
-    XCTAssertEqual("/Library/Application Support/LinkDaemon/linkdaemon", path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.linkdaemon/linkdaemon", path)
   }
 
   func testDaemonExecutableURL() {
     let url = Paths.daemonExecutableURL
-    XCTAssertEqual("/Library/Application Support/LinkDaemon/linkdaemon", url.path)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.linkdaemon/linkdaemon", url.path)
   }
 
 }

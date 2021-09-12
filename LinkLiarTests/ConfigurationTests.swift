@@ -27,124 +27,48 @@ class ConfigurationTests: XCTestCase {
 
   func testRestrictDaemonWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
-    XCTAssertFalse(configuration.isRestrictedDaemon)
+    XCTAssertFalse(configuration.settings.isRestrictedDaemon)
   }
 
   func testRestrictDaemonWhenTrue() {
     let dictionary = ["restrict_daemon": true]
     let configuration = Configuration(dictionary: dictionary)
-    XCTAssertTrue(configuration.isRestrictedDaemon)
+    XCTAssertTrue(configuration.settings.isRestrictedDaemon)
   }
 
   func testRestrictDaemonWhenTruthyString() {
     let dictionary = ["restrict_daemon": "true"]
     let configuration = Configuration(dictionary: dictionary)
-    XCTAssertFalse(configuration.isRestrictedDaemon)
+    XCTAssertFalse(configuration.settings.isRestrictedDaemon)
   }
 
   func testRestrictDaemonWhenFalse() {
     let dictionary = ["restrict_daemon": false]
     let configuration = Configuration(dictionary: dictionary)
-    XCTAssertFalse(configuration.isRestrictedDaemon)
+    XCTAssertFalse(configuration.settings.isRestrictedDaemon)
   }
 
   func testIsForbiddenToRerandomizeWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
-    XCTAssertFalse(configuration.isForbiddenToRerandomize)
+    XCTAssertFalse(configuration.settings.isForbiddenToRerandomize)
   }
 
   func testIsForbiddenToRerandomizeWhenTrue() {
     let dictionary = ["skip_rerandom": true]
     let configuration = Configuration(dictionary: dictionary)
-    XCTAssertTrue(configuration.isForbiddenToRerandomize)
+    XCTAssertTrue(configuration.settings.isForbiddenToRerandomize)
   }
 
   func testIsForbiddenToRerandomizeWhenTruthyString() {
     let dictionary = ["skip_rerandom": "true"]
     let configuration = Configuration(dictionary: dictionary)
-    XCTAssertFalse(configuration.isForbiddenToRerandomize)
+    XCTAssertFalse(configuration.settings.isForbiddenToRerandomize)
   }
 
   func testIsForbiddenToRerandomizeWhenFalse() {
     let dictionary = ["skip_rerandom": false]
     let configuration = Configuration(dictionary: dictionary)
-    XCTAssertFalse(configuration.isForbiddenToRerandomize)
-  }
-
-
-  func testExceptionAddressForInterfaceWhenNotSpecified() {
-    let configuration = Configuration(dictionary: [:])
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.exceptionAddressForInterface(address))
-  }
-
-  func testExceptionAddressForInterfaceWhenSpecifiedInvalidly() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["except": "br:ok:en"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.exceptionAddressForInterface(address))
-  }
-
-  func testExceptionAddressForInterfaceWhenSpecifiedMissing() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["whatever": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.exceptionAddressForInterface(address))
-  }
-
-  func testExceptionAddressForInterfaceWhenSpecified() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["except": "bb:bb:bb:bb:bb:bb"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual("bb:bb:bb:bb:bb:bb", configuration.exceptionAddressForInterface(address)?.formatted)
-  }
-
-  func testCalculatedAddressForInterfaceWhenNothingSpecified() {
-    let configuration = Configuration(dictionary: [:])
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.calculatedAddressForInterface(address))
-  }
-
-  func testCalculatedAddressForInterfaceWhenDirectlySpecified() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["address": "bb:bb:bb:bb:bb:bb"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual("bb:bb:bb:bb:bb:bb", configuration.calculatedAddressForInterface(address)?.formatted)
-  }
-
-  func testCalculatedAddressForInterfaceWhenDirectlySpecifiedInvalidly() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["address": "br:ok:en"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.calculatedAddressForInterface(address))
-  }
-
-  func testCalculatedAddressForInterfaceWhenDirectlySpecifiedMissing() {
-    let dictionary = ["aa:bb:cc:dd:ee:ff": ["whatever": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.calculatedAddressForInterface(address))
-  }
-
-  func testCalculatedAddressForInterfaceWhenSpecifiedAsDefault() {
-    let dictionary = ["default": ["address": "bb:bb:bb:bb:bb:bb"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual("bb:bb:bb:bb:bb:bb", configuration.calculatedAddressForInterface(address)?.formatted)
-  }
-
-  func testCalculatedAddressForInterfaceWhenSpecifiedAsDefaultInvalidly() {
-    let dictionary = ["default": ["address": "br:ok:en"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.calculatedAddressForInterface(address))
-  }
-
-  func testCalculatedAddressForInterfaceWhenSpecifiedAsDefaultMissing() {
-    let dictionary = ["default": ["whatever": "whatever"]]
-    let configuration = Configuration(dictionary: dictionary)
-    let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.calculatedAddressForInterface(address))
+    XCTAssertFalse(configuration.settings.isForbiddenToRerandomize)
   }
 
 }

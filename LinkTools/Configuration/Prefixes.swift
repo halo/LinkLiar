@@ -70,15 +70,15 @@ extension Configuration {
      * - returns: An Array of valid `MACPrefix`es or an empty Array if there are none.
      */
     var prefixes: [MACPrefix] {
-      guard let rawAddresses = dictionary["prefixes"] as? [String] else { return [] }
+      guard let rawPrefixes = dictionary["prefixes"] as? [String] else { return [] }
 
-      let addresses = rawAddresses.compactMap { string -> MACPrefix? in
-        let address = MACPrefix(string)
-        return address.isValid ? address : nil
+      let prefixes = rawPrefixes.compactMap { string -> MACPrefix? in
+        let prefix = MACPrefix(string)
+        return prefix.isValid ? prefix : nil
       }
 
-      if (addresses.isEmpty) { Log.debug("Currently no prefixes active")}
-      return addresses
+      if (prefixes.isEmpty) { Log.debug("Currently no prefixes active")}
+      return prefixes
     }
 
     /**

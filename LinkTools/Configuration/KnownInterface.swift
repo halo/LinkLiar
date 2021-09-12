@@ -29,7 +29,7 @@ extension Configuration {
     var dictionary: [String:Any]
 
     var defaultAction: Interface.Action {
-      return Config.instance.unknownInterface.action
+      return UnknownInterface(dictionary: dictionary).action
     }
 
     // MARK: Public Instance Methods
@@ -74,6 +74,20 @@ extension Configuration {
 
       let address = MACAddress(rawAddress)
       return address.isValid ? address : nil
+    }
+
+    /**
+     * Looks up which MAC address has been defined.
+     * If none has been defined, returns the default specified address.
+     *
+     * - returns: A valid `MACAddress` or `nil` if no valid address was specified.
+     */
+    func calculatedAddress(_ hardMAC: MACAddress) -> MACAddress? {
+      guard let address = self.address(hardMAC) else {
+        return UnknownInterface(dictionary: dictionary).address
+      }
+
+      return address
     }
 
     /**

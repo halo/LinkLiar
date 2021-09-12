@@ -86,6 +86,7 @@
 		C271A00C2623735B008E27D8 /* PrefixesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A00B2623735B008E27D8 /* PrefixesTests.swift */; };
 		C271A01426237A56008E27D8 /* MACPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A01326237A56008E27D8 /* MACPrefixes.swift */; };
 		C271A01526237A56008E27D8 /* MACPrefixes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C271A01326237A56008E27D8 /* MACPrefixes.swift */; };
+		C280723F26EE87B400DC6EE7 /* KnownInterfaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280723E26EE87B400DC6EE7 /* KnownInterfaceTests.swift */; };
 		C291CBE71EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE81EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
 		C291CBE91EE85D0D00154452 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -269,6 +270,7 @@
 		C271A0022623733D008E27D8 /* Prefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefixes.swift; path = LinkTools/Configuration/Prefixes.swift; sourceTree = "<group>"; };
 		C271A00B2623735B008E27D8 /* PrefixesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefixesTests.swift; sourceTree = "<group>"; };
 		C271A01326237A56008E27D8 /* MACPrefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MACPrefixes.swift; path = LinkTools/MACPrefixes.swift; sourceTree = "<group>"; };
+		C280723E26EE87B400DC6EE7 /* KnownInterfaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownInterfaceTests.swift; sourceTree = "<group>"; };
 		C291CBE61EE85D0D00154452 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Log.swift; path = LinkTools/Log.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291CBF51EE8827D00154452 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = JSONReader.swift; path = LinkTools/JSONReader.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C291F67223F5AF7F00FB2CB0 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = LinkTools/Configuration/Settings.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 			children = (
 				C2719FF4262370A7008E27D8 /* ActionTests.swift */,
 				C271A00B2623735B008E27D8 /* PrefixesTests.swift */,
+				C280723E26EE87B400DC6EE7 /* KnownInterfaceTests.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -911,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EEEBA41F0BC16300657CC5 /* AppDelegateTests.swift in Sources */,
+				C280723F26EE87B400DC6EE7 /* KnownInterfaceTests.swift in Sources */,
 				C23926541EEE691D008506E4 /* InterfaceTests.swift in Sources */,
 				C2BE6B9C1F0D523F0086A843 /* ConfigurationTests.swift in Sources */,
 				C271A00C2623735B008E27D8 /* PrefixesTests.swift in Sources */,

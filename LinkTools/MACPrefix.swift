@@ -18,6 +18,10 @@ import Foundation
 
 struct MACPrefix: Comparable, Equatable {
 
+  init(_ raw: String) {
+    self.raw = raw
+  }
+
   var humanReadable: String {
     guard isValid else { return "??:??:??" }
 
@@ -55,10 +59,6 @@ struct MACPrefix: Comparable, Equatable {
 
   private var integers : [UInt8] {
     return sanitized.map { UInt8(String($0), radix: 8)! }
-  }
-
-  init(_ raw: String) {
-    self.raw = raw
   }
 
   func add(_ address: MACAddress) -> MACPrefix {

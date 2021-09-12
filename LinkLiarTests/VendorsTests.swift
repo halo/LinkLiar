@@ -28,8 +28,8 @@ class VendorsTests: XCTestCase {
   func testFindWhenExists() throws {
     let vendor = try XCTUnwrap(Vendors.find("ibm"))
     XCTAssertEqual("ibm", vendor.id)
-    XCTAssertEqual("IBM", vendor.name)
-    XCTAssertEqual(MACPrefix("3440b5"), vendor.prefixes.first)
+    XCTAssertEqual("Ibm", vendor.name)
+    XCTAssertEqual(MACPrefix("000255"), vendor.prefixes.first)
   }
 
 }

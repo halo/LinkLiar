@@ -23,7 +23,7 @@ class ConfigurationActionTests: XCTestCase {
 
   func testActionForDefaultWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
-    XCTAssertEqual(.ignore, configuration.action.calculatedForDefaultInterface)
+    XCTAssertEqual(.ignore, configuration.knownInterface.defaultAction)
   }
 
   // #forInterface
@@ -31,7 +31,7 @@ class ConfigurationActionTests: XCTestCase {
   func testActionForInterfaceWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertNil(configuration.action.forInterface(address))
+    XCTAssertNil(configuration.knownInterface.action(address))
   }
 
   // #calculatedForInterface (directly)
@@ -39,35 +39,35 @@ class ConfigurationActionTests: XCTestCase {
   func testCalculatedActionForInterfaceWhenNothingSpecified() {
     let configuration = Configuration(dictionary: [:])
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenDirectlySpecifiedInvalidly() {
     let dictionary = ["aa:bb:cc:dd:ee:ff": ["action": "whatever"]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenDirectlySpecifiedInvalidlyType() {
     let dictionary = ["aa:bb:cc:dd:ee:ff": ["action": 42]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenDirectlySpecifiedMissing() {
     let dictionary = ["aa:bb:cc:dd:ee:ff": ["whatever": "whatever"]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenDirectlySpecified() {
     let dictionary = ["aa:bb:cc:dd:ee:ff": ["action": "random"]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.random, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.random, configuration.knownInterface.calculatedAction(address))
   }
 
   // #calculatedForInterface (via default)
@@ -76,27 +76,27 @@ class ConfigurationActionTests: XCTestCase {
     let dictionary = ["default": ["action": "whatever"]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenSpecifiedAsDefaultInvalidlyType() {
     let dictionary = ["default": ["action": 42]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenSpecifiedAsDefaultMissing() {
     let dictionary = ["default": ["whatever": "whatever"]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.ignore, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.ignore, configuration.knownInterface.calculatedAction(address))
   }
 
   func testCalculatedActionForInterfaceWhenSpecifiedAsDefault() {
     let dictionary = ["default": ["action": "specify"]]
     let configuration = Configuration(dictionary: dictionary)
     let address = MACAddress("aa:bb:cc:dd:ee:ff")
-    XCTAssertEqual(.specify, configuration.action.calculatedForInterface(address))
+    XCTAssertEqual(.specify, configuration.knownInterface.calculatedAction(address))
   }
 }

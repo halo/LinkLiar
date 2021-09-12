@@ -52,7 +52,7 @@ class Synchronizer {
   // Internal Methods
 
   private static func specify(_ interface: Interface) {
-    guard let address = Config.instance.knownInterface.address(interface.hardMAC) else {
+    guard let address = Config.instance.knownInterface.calculatedAddress(interface.hardMAC) else {
       return
     }
     if interface.softMAC == address {
