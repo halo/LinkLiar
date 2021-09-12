@@ -20,7 +20,12 @@ import os.log
 struct ConfigWriter {
 
   static var isWritable: Bool {
-    FileManager.default.isWritableFile(atPath: Paths.configFile)
+    var isDirectory: ObjCBool = false
+    if !FileManager.default.fileExists(atPath: Paths.configFile, isDirectory: &isDirectory) {
+      reset()
+    }
+
+    return FileManager.default.isWritableFile(atPath: Paths.configFile)
   }
 
   static func reset() {

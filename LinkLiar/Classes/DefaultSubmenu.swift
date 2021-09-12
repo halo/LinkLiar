@@ -29,7 +29,6 @@ class DefaultSubmenu {
     randomizeItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .random ? 1 : 0)
     specifyItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .specify ? 1 : 0)
     originalizeItem.state = NSControl.StateValue(rawValue: Config.instance.unknownInterface.action == .original ? 1 : 0)
-
   }
 
   private func updateEnability() {

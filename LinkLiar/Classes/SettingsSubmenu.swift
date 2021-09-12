@@ -30,7 +30,7 @@ class SettingsSubmenu {
     self.anonymizeItem.state = NSControl.StateValue(rawValue: Config.instance.settings.anonymizationSeed.isValid ? 1 : 0)
     self.loginStartupItem.state = NSControl.StateValue(rawValue: LaunchAtLogin.isEnabled ? 1 : 0)
 
-    if FileManager.default.fileExists(atPath: Paths.configDirectory) {
+    if ConfigWriter.isWritable {
       self.allowRerandomizationItem.isEnabled = true
       self.independentDaemonItem.isEnabled = true
       self.anonymizeItem.isEnabled = true

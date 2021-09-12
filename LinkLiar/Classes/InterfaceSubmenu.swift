@@ -55,7 +55,7 @@ class InterfaceSubmenu {
   }()
 
   private func subMenuItem() -> NSMenu {
-    let configurable = FileManager.default.fileExists(atPath: Paths.configDirectory)
+    let configurable = ConfigWriter.isWritable
     let submenu: NSMenu = NSMenu()
     submenu.autoenablesItems = false
 

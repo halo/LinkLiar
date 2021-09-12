@@ -64,7 +64,7 @@ class DeveloperSubmenu {
   }
 
   private func updateConfigFile() {
-    if FileManager.default.isWritableFile(atPath: Paths.configDirectory) {
+    if ConfigWriter.isWritable {
       self.configFileTitleItem.title = "Config file writable"
     } else {
       self.configFileTitleItem.title = "Config file unwritable"
