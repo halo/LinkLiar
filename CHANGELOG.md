@@ -1,4 +1,9 @@
-# 3.0.1
+# 3.0.2
+
+* [BUGFIX] Specifying a manual address as default now affects the interfaces that should use the default
+* [BUGFIX] Properly disable/enable submenus if config file cannot be found/written
+
+# 3.0.1 (beta)
 
 * [BREAKING] Daemon executable directory moved from
              `/Library/Application Support/LinkDaemon`
@@ -11,7 +16,7 @@
 * [DOCUMENTATION] Make the background dark
 * [DOCUMENTATION] Add section about prefix configuration
 
-# 3.0.1 (alpha)
+# 3.0.0 (alpha)
 
 * [BREAKING] Configuration directory moved from
              `/Library/Application Support/LinkLiar/`
