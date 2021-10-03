@@ -1,7 +1,6 @@
 [![Version](https://img.shields.io/github/release/halo/LinkLiar.svg?style=flat&label=version)](https://github.com/halo/LinkLiar/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/halo/LinkLiar/blob/master/LICENSE.md)
 [![Build Status](https://github.com/halo/LinkLiar/actions/workflows/tests.yml/badge.svg)](https://github.com/halo/LinkLiar/actions)
-[![](https://img.shields.io/github/issues-raw/halo/LinkLiar.svg)](https://github.com/halo/linkliar/issues)
 [![](https://img.shields.io/github/issues-closed-raw/halo/LinkLiar.svg)](https://github.com/halo/linkliar/issues?q=is%3Aissue+is%3Aclosed)
 [![](https://img.shields.io/github/last-commit/halo/LinkLiar.svg)](https://github.com/halo/LinkLiar/commits/master)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/halo/LinkLiar)
