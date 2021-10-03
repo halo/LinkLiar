@@ -1,3 +1,7 @@
+# 3.0.3
+
+* [BUGFIX] Make sure only allowed prefixes are ever in use when checking for re-randomization.
+
 # 3.0.2
 
 * [BUGFIX] Specifying a manual address as default now affects the interfaces that should use the default
