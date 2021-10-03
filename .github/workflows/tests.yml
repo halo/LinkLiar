@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "Create variables..."
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          DEVELOPER_CERTIFICATE_PATH=$RUNNER_TEMP/developer_certificate.p12
+          DEVELOPER_CERTIFICATE_PATH=$RUNNER_TEMP/developer_certificate.cer
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
 
           echo "Download certificates from secrets..."
@@ -39,8 +39,9 @@ jobs:
           security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
           # security default-keychain -s $KEYCHAIN_PATH
 
-          echo "Import certificate to keychain..."
+          echo "Import build certificate to keychain..."
           security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          echo "Import developer certificate to keychain..."
           security import $DEVELOPER_CERTIFICATE_PATH -A -k $KEYCHAIN_PATH
 
           echo "Make Keychain available to Xcode..."
