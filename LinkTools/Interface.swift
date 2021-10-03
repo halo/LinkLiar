@@ -68,6 +68,10 @@ class Interface {
     return MACAddress(_softMAC)
   }
 
+  var softPrefix: MACPrefix {
+    return MACPrefix(softMAC.prefix)
+  }
+
   var hasOriginalMAC: Bool {
     return hardMAC == softMAC
   }

@@ -19,6 +19,8 @@ import XCTest
 
 class MACPrefixTests: XCTestCase {
 
+  // #formatted
+
   func testFormattedWithAlreadyFormattedPrefix() {
     let prefix = MACPrefix("aa:bb:cc")
     XCTAssertEqual("aa:bb:cc", prefix.formatted)
@@ -44,14 +46,28 @@ class MACPrefixTests: XCTestCase {
     XCTAssertEqual("aa:bb:00", prefix.formatted)
   }
 
+  func testFormattedWithFullMacAddress() {
+    let prefix = MACPrefix("aa:bb:cc:dd:ee:ff")
+    XCTAssertEqual("aa:bb:cc:dd:ee:ff", prefix.formatted)
+  }
+
+  // #humanReadable
+
   func testhumanReadableWithInvalidPrefix() {
     let prefix = MACPrefix("aabbXX")
     XCTAssertEqual("??:??:??", prefix.humanReadable)
   }
 
+  // #isValid
+
   func testIsValidWithValidPrefix() {
     let prefix = MACPrefix("aabb00")
     XCTAssertTrue(prefix.isValid)
+  }
+
+  func testIsValidWithFullMacAddress() {
+    let prefix = MACPrefix("aa:bb:cc:dd:ee:ff")
+    XCTAssertFalse(prefix.isValid)
   }
 
   func testIsValidWithInvalidPrefix() {

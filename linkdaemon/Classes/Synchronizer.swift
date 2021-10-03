@@ -44,6 +44,7 @@ class Synchronizer {
         Log.debug("Not re-randomizing \(interface.BSDName) because it is not defined to be random.")
         return
       }
+
       Log.debug("Taking the chance to re-randomize \(interface.BSDName)")
       setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
     }
@@ -77,6 +78,15 @@ class Synchronizer {
     if interface.hasOriginalMAC {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has its original MAC address.")
       setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
+    }
+
+    Log.debug("Checking among these prefixes: \(Config.instance.prefixes.calculatedPrefixes.map { $0.formatted }).")
+    if !Config.instance.prefixes.calculatedPrefixes.contains(interface.softPrefix) {
+      Log.debug("Interface \(interface.BSDName) has an unallowed prefix \(interface.softPrefix) so I'm rerandomizing it now.")
+      setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
+      return
+    } else {
+      Log.debug("The Interface \(interface.BSDName) has the sanctioned prefix \(interface.softMAC).")
     }
 
     guard let undesiredAddress = Config.instance.knownInterface.exceptionAddress(interface.hardMAC) else {

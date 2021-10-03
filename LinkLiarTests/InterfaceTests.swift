@@ -24,4 +24,12 @@ class InterfaceTests: XCTestCase {
 
     XCTAssertEqual("My display · My BSD", interface.title)
   }
+
+  func testSoftPrefix() {
+    let interface = Interface(BSDName: "x", displayName: "y", kind: "z", hardMAC: "aa:bb:cc:dd:ee:ff", async: false)
+    interface._softMAC = "55:55:55:77:88:99"
+
+    XCTAssertEqual(MACPrefix("55:55:55"), interface.softPrefix)
+  }
+
 }

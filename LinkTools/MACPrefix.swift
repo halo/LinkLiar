@@ -32,6 +32,7 @@ struct MACPrefix: Comparable, Equatable {
     }
   }
 
+  // This does not check for validity.
   var formatted: String {
     return String(sanitized.enumerated().map() {
       $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
