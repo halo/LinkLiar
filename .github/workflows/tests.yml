@@ -1,0 +1,46 @@
+name: Test Suite
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  tests:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # See https://docs.github.com/en/actions/deployment/installing-an-apple-certificate-on-macos-runners-for-xcode-development
+      - name: Install Developer Certificate
+        env:
+          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
+          DEVELOPER_CERTIFICATE_BASE64: ${{ secrets.DEVELOPER_CERTIFICATE_BASE64 }}
+          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          echo "Create variables..."
+          BUILD_CERTIFICATE_PATH=$RUNNER_TEMP/certificate.p12
+          CUSTOM_KEYCHAIN_PATH=$RUNNER_TEMP/linkliar.keychain
+
+          echo "Export certificates from secrets to disk..."
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $BUILD_CERTIFICATE_PATH
+
+          echo "Create and unlock custom keychain..."
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $CUSTOM_KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $CUSTOM_KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $CUSTOM_KEYCHAIN_PATH
+
+          echo "Import build certificate to keychain..."
+          security import $BUILD_CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $CUSTOM_KEYCHAIN_PATH
+
+          echo "Make keychain available to Xcode..."
+          security list-keychain -d user -s $CUSTOM_KEYCHAIN_PATH
+
+      - name: Run Test Suite
+        run: xcodebuild test -scheme LinkLiar
