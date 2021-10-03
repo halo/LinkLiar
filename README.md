@@ -1,17 +1,17 @@
 [![Version](https://img.shields.io/github/release/halo/LinkLiar.svg?style=flat&label=version)](https://github.com/halo/LinkLiar/releases)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/halo/LinkLiar/blob/master/LICENSE.md)
-[![Build Status](https://github.com/halo/LinkLiar/actions/workflows/tests.yml/badge.svg)](https://github.com/halo/LinkLiar/actions)
 [![](https://img.shields.io/github/issues-closed-raw/halo/LinkLiar.svg)](https://github.com/halo/linkliar/issues?q=is%3Aissue+is%3Aclosed)
 [![](https://img.shields.io/github/last-commit/halo/LinkLiar.svg)](https://github.com/halo/LinkLiar/commits/master)
+[![Build Status](https://github.com/halo/LinkLiar/actions/workflows/tests.yml/badge.svg)](https://github.com/halo/LinkLiar/actions)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/halo/LinkLiar)
 
 ## Prevent your Mac from leaking MACs
 
-This is an intuitive macOS status menu application written in Swift to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces.
+This is an intuitive macOS status menu application written in Swift to help you spoof the MAC addresses of your Wi-Fi and Ethernet interfaces. It is free open-source.
 
-[How do I install this?](#installation)
+[➡️ How do I install this?](#installation)
 
-It is free as in open-source. Should you like to motivate me, you may click on the ✭ in the top-right corner.
+If you star this project (by clicking on ✭ in the top-right corner), you help me to prioritize among my open-source projects.
 
 ![Screenshot](https://cdn.rawgit.com/halo/LinkLiar/master/docs/screenshot_3.0.1b.svg)
 
