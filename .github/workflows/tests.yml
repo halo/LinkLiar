@@ -25,26 +25,22 @@ jobs:
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         run: |
           echo "Create variables..."
-          CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
-          DEVELOPER_CERTIFICATE_PATH=$RUNNER_TEMP/developer_certificate.cer
-          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+          BUILD_CERTIFICATE_PATH=$RUNNER_TEMP/certificate.p12
+          CUSTOM_KEYCHAIN_PATH=$RUNNER_TEMP/linkliar.keychain
 
-          echo "Download certificates from secrets..."
-          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
-          echo -n "$DEVELOPER_CERTIFICATE_BASE64" | base64 --decode --output $DEVELOPER_CERTIFICATE_PATH
+          echo "Export certificates from secrets to disk..."
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $BUILD_CERTIFICATE_PATH
 
-          echo "Create custom keychain..."
-          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
-          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
-          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          echo "Create and unlock custom keychain..."
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $CUSTOM_KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $CUSTOM_KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $CUSTOM_KEYCHAIN_PATH
 
           echo "Import build certificate to keychain..."
-          security import $CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
-          echo "Import developer certificate to keychain..."
-          #security import $DEVELOPER_CERTIFICATE_PATH -A -k $KEYCHAIN_PATH
+          security import $BUILD_CERTIFICATE_PATH -P "$P12_PASSWORD" -A -t cert -f pkcs12 -k $CUSTOM_KEYCHAIN_PATH
 
           echo "Make keychain available to Xcode..."
-          security list-keychain -d user -s $KEYCHAIN_PATH
+          security list-keychain -d user -s $CUSTOM_KEYCHAIN_PATH
 
       - name: Run Test Suite
         run: xcodebuild test -scheme LinkLiar
