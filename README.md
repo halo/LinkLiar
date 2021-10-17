@@ -38,10 +38,10 @@ There is also a source-code documentation in progress, see `bin/docs` for inspir
 
 * When your Wi-Fi (aka Airport) is turned off, you cannot change its MAC address. You need to turn it on first.
 * If you change a MAC address while the interface is connected, you will briefly loose connection.
-* If you rapidly close and open your MacBook, the MAC address may change while the Wi-Fi connection remains and you loose the connection.
+* If you rapidly close and open your MacBook, the MAC address may change while the Wi-Fi connection remains and you loose the connection (that is, if you have configured LinkLiar to re-randomize the MAC address).
 * Whenever you successfully changed your MAC address, your `System Preferences` will still show you the original hardware MAC address.
   This is normal behavior and your actual network traffic uses the *new*, *changed* MAC address.
-* 2018 Macbooks (and later) cannot change their MAC address, [for unknown reasons](https://github.com/feross/SpoofMAC/issues/87#issuecomment-485280175).
+* 2018 MacBooks cannot change their MAC address, [because of a bug in macOS](https://github.com/feross/SpoofMAC/issues/87#issuecomment-485280175).
 
 ## Troubleshooting
 
