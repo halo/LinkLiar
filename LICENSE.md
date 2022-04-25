@@ -1,4 +1,4 @@
-Copyright (c) 2017 halo https://github.com/halo/LinkLiar
+Copyright (c) 2012-2022 halo https://github.com/halo/LinkLiar
 
 MIT License
 
