@@ -1,3 +1,7 @@
+# 3.1.0
+
+* [BUGFIX] Disassociate from any connected network before trying to change MAC address. See [this issue](https://github.com/halo/LinkLiar/issues/44#issuecomment-1107443632).
+
 # 3.0.3
 
 * [BUGFIX] Make sure only allowed prefixes are ever in use when checking for re-randomization.
