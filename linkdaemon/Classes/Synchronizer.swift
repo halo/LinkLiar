@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import CoreWLAN
 
 class Synchronizer {
 
@@ -113,6 +114,9 @@ class Synchronizer {
       Log.info("Cannot apply MAC <\(address.humanReadable)> because it is not valid.")
       return
     }
+
+    Log.info("Disassociating current Wi-Fi connection...")
+    CWWiFiClient.shared().interface()?.disassociate()
 
     Log.info("Setting MAC address <\(address.humanReadable)> for Interface \(BSDName)...")
     let task = Process()
