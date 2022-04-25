@@ -1,3 +1,7 @@
+# 3.2.0
+
+* [FEATURE] If connected to a network, re-associate to the same SSID after a disconnect to change the MAC address.
+
 # 3.1.0
 
 * [BUGFIX] Disassociate from any connected network before trying to change MAC address. See [this issue](https://github.com/halo/LinkLiar/issues/44#issuecomment-1107443632).

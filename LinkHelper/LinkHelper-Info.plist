@@ -9,9 +9,9 @@
 	<key>CFBundleName</key>
 	<string>LinkHelper</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.1.0</string>
+	<string>3.2.0</string>
 	<key>CFBundleVersion</key>
-	<string>3.1.0</string>
+	<string>3.2.0</string>
 	<key>SMAuthorizedClients</key>
 	<array>
 		<string>identifier &quot;io.github.halo.LinkLiar&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;Apple Development: github@posteo.org (FEG4R73RPA)&quot; and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
