@@ -42,6 +42,7 @@ There is also a source-code documentation in progress, see `bin/docs` for inspir
 * Whenever you successfully changed your MAC address, your `System Preferences` will still show you the original hardware MAC address.
   This is normal behavior and your actual network traffic uses the *new*, *changed* MAC address.
 * 2018 MacBooks cannot change their MAC address, [because of a bug in macOS](https://github.com/feross/SpoofMAC/issues/87#issuecomment-485280175).
+* As of macOS 12.3 (Monterey), the MAC address of an interface cannot be modified while connected to a network. That's why LinkLiar will disassociate from any connected network before modifying the MAC address.
 
 ## Troubleshooting
 
