@@ -729,7 +729,6 @@
 					};
 					C2BEBFD81EE48B5E0072BE59 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = B9J4QR64LK;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 					};
@@ -1009,6 +1008,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
@@ -1032,6 +1032,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
@@ -1217,8 +1218,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = LinkLiar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1229,6 +1232,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -1238,8 +1242,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = LinkLiar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1249,6 +1255,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
