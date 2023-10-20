@@ -14,9 +14,24 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import Cocoa
+import SwiftUI
 
-let delegate = AppDelegate()
-NSApplication.shared.delegate = delegate
+@main
 
-NSApp.run()
+struct LinkLiarApp: App {
+  @State private var state = LinkState()
+
+  var body: some Scene {
+    MenuBarExtra("LinkLiar", image: menuBarIconName) {
+      LinkMenu().environment(state)
+    }
+    
+    Settings {
+      SettingsView().navigationTitle("Settings")
+    }
+  }
+  
+  private var menuBarIconName: String {
+    state.warnAboutLeakage ? "MenuIconLeaking" : "MenuIconProtected"
+  }
+}

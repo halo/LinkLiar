@@ -58,7 +58,7 @@
 		C23926B21F06C787008506E4 /* MACAddressQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A01F06C787008506E4 /* MACAddressQuestion.swift */; };
 		C23926B41F06C787008506E4 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A21F06C787008506E4 /* Menu.swift */; };
 		C23926B61F06C787008506E4 /* SoftMACCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926A41F06C787008506E4 /* SoftMACCache.swift */; };
-		C23926B81F06C7C4008506E4 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B71F06C7C4008506E4 /* main.swift */; };
+		C23926B81F06C7C4008506E4 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B71F06C7C4008506E4 /* LinkLiarApp.swift */; };
 		C23926BB1F06C7E6008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
 		C23926BC1F06C7E6008506E4 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926BA1F06C7E6008506E4 /* LinkHelper.swift */; };
 		C23926BF1F06C804008506E4 /* LinkDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926BD1F06C804008506E4 /* LinkDaemon.swift */; };
@@ -68,6 +68,7 @@
 		C23926C51F06DCA5008506E4 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23926B91F06C7E6008506E4 /* HelperProtocol.swift */; };
 		C23E67BE26D0388500B4C2AE /* VendorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23E67BD26D0388500B4C2AE /* VendorsTests.swift */; };
 		C24A48711F0937390095ED0C /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A48701F0937390095ED0C /* RandomMACs.swift */; };
+		C24A900A2AE29237006D6768 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24A90092AE29237006D6768 /* SettingsView.swift */; };
 		C251369026DAA94100AA7B2E /* MACPrefixQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251368F26DAA94100AA7B2E /* MACPrefixQuestion.swift */; };
 		C251369226DABCFE00AA7B2E /* UnknownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369126DABCFE00AA7B2E /* UnknownInterface.swift */; };
 		C251369326DABCFE00AA7B2E /* UnknownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369126DABCFE00AA7B2E /* UnknownInterface.swift */; };
@@ -251,7 +252,7 @@
 		C23926A01F06C787008506E4 /* MACAddressQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddressQuestion.swift; path = Classes/MACAddressQuestion.swift; sourceTree = "<group>"; };
 		C23926A21F06C787008506E4 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Menu.swift; path = Classes/Menu.swift; sourceTree = "<group>"; };
 		C23926A41F06C787008506E4 /* SoftMACCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoftMACCache.swift; path = Classes/SoftMACCache.swift; sourceTree = "<group>"; };
-		C23926B71F06C7C4008506E4 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C23926B71F06C7C4008506E4 /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkLiarApp.swift; sourceTree = "<group>"; };
 		C23926B91F06C7E6008506E4 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = HelperProtocol.swift; path = Classes/HelperProtocol.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C23926BA1F06C7E6008506E4 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = LinkHelper.swift; path = Classes/LinkHelper.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C23926BD1F06C804008506E4 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkDaemon.swift; path = Classes/LinkDaemon.swift; sourceTree = "<group>"; };
@@ -260,6 +261,7 @@
 		C23926C31F06D04E008506E4 /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
 		C23E67BD26D0388500B4C2AE /* VendorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorsTests.swift; sourceTree = "<group>"; };
 		C24A48701F0937390095ED0C /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
+		C24A90092AE29237006D6768 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsView.swift; path = Classes/SettingsView.swift; sourceTree = "<group>"; };
 		C251368F26DAA94100AA7B2E /* MACPrefixQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACPrefixQuestion.swift; path = Classes/MACPrefixQuestion.swift; sourceTree = "<group>"; };
 		C251369126DABCFE00AA7B2E /* UnknownInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnknownInterface.swift; path = LinkTools/Configuration/UnknownInterface.swift; sourceTree = "<group>"; };
 		C251369426DACE8300AA7B2E /* KnownInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnownInterface.swift; path = LinkTools/Configuration/KnownInterface.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 		C2BEBFDB1EE48B5E0072BE59 /* LinkLiar */ = {
 			isa = PBXGroup;
 			children = (
+				C24A90092AE29237006D6768 /* SettingsView.swift */,
 				C2EEEBA51F0BD5AF00657CC5 /* Initialization */,
 				C23926C61F06E04C008506E4 /* Menu */,
 				C23926971F06C787008506E4 /* Controller.swift */,
@@ -554,7 +557,7 @@
 		C2EEEBA51F0BD5AF00657CC5 /* Initialization */ = {
 			isa = PBXGroup;
 			children = (
-				C23926B71F06C7C4008506E4 /* main.swift */,
+				C23926B71F06C7C4008506E4 /* LinkLiarApp.swift */,
 				C23926941F06C787008506E4 /* AppDelegate.swift */,
 			);
 			name = Initialization;
@@ -901,7 +904,8 @@
 				C23926C21F06CA80008506E4 /* MACVendors.swift in Sources */,
 				C23926A61F06C787008506E4 /* AppDelegate.swift in Sources */,
 				C2F209731EEC701F00355561 /* CFArray+Sequence.swift in Sources */,
-				C23926B81F06C7C4008506E4 /* main.swift in Sources */,
+				C23926B81F06C7C4008506E4 /* LinkLiarApp.swift in Sources */,
+				C24A900A2AE29237006D6768 /* SettingsView.swift in Sources */,
 				C23926AC1F06C787008506E4 /* DeveloperSubmenu.swift in Sources */,
 				C23926B41F06C787008506E4 /* Menu.swift in Sources */,
 				C23926AB1F06C787008506E4 /* DefaultSubmenu.swift in Sources */,
@@ -1021,7 +1025,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1046,7 +1050,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLauncher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1062,7 +1066,7 @@
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "LinkHelper/LinkHelper-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				OTHER_LDFLAGS = (
 					"-sectcreate",
 					__TEXT,
@@ -1089,7 +1093,7 @@
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "LinkHelper/LinkHelper-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				OTHER_LDFLAGS = (
 					"-sectcreate",
 					__TEXT,
@@ -1139,7 +1143,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
@@ -1160,12 +1164,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1201,12 +1206,13 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1216,11 +1222,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1236,17 +1243,20 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = LinkLiar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = "";
+				WATCHOS_DEPLOYMENT_TARGET = "";
 			};
 			name = Debug;
 		};
@@ -1262,16 +1272,19 @@
 				"DEVELOPMENT_TEAM[sdk=macosx*]" = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = LinkLiar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
+				TVOS_DEPLOYMENT_TARGET = "";
+				WATCHOS_DEPLOYMENT_TARGET = "";
 			};
 			name = Release;
 		};
@@ -1291,7 +1304,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1316,7 +1329,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1334,7 +1347,7 @@
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = linkdaemon/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.linkdaemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1350,7 +1363,7 @@
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = linkdaemon/Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.linkdaemon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1366,7 +1379,7 @@
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				INFOPLIST_FILE = LinkLiarHelp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar.help;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1383,7 +1396,7 @@
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				INFOPLIST_FILE = LinkLiarHelp/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = "$(MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar.help;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
