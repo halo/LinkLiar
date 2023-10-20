@@ -22,6 +22,7 @@ import Foundation
 public class FileObserver {
 
   let callback: () -> Void
+  let queue: DispatchQueue = DispatchQueue(label: "io.github.halo.LinkLiar.fileObserverQueue")
 
   public init(path: String, sinceWhen: FSEventStreamEventId = FSEventStreamEventId(kFSEventStreamEventIdSinceNow), callback: @escaping () -> Void) {
 
@@ -68,7 +69,7 @@ public class FileObserver {
     let flags = UInt32(kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagFileEvents)
     streamRef = FSEventStreamCreate(kCFAllocatorDefault, eventCallback, &context, pathsToWatch as CFArray, lastEventId, 0, flags)
 
-    FSEventStreamScheduleWithRunLoop(streamRef, CFRunLoopGetMain(), CFRunLoopMode.defaultMode.rawValue)
+    FSEventStreamSetDispatchQueue(streamRef, queue)
     FSEventStreamStart(streamRef)
 
     started = true
