@@ -29,6 +29,7 @@
 		C29EAF882AE5A268003578B9 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */; };
 		C29EAF8B2AE5A32B003578B9 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF8A2AE5A32B003578B9 /* Controller.swift */; };
 		C29EAF8C2AE5A32B003578B9 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF8A2AE5A32B003578B9 /* Controller.swift */; };
+		C29EAF942AE5A83C003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		C29EAF932AE5A82E003578B9 /* Copy Agent Property Lists */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
+			files = (
+				C29EAF942AE5A83C003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */,
+			);
+			name = "Copy Agent Property Lists";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +98,7 @@
 		C29EAF822AE5A21F003578B9 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDirectory.swift; sourceTree = "<group>"; };
 		C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkLiarApp.swift; path = Classes/LinkLiarApp.swift; sourceTree = "<group>"; };
 		C29EAF8A2AE5A32B003578B9 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = LinkLiar/Controller.swift; sourceTree = SOURCE_ROOT; };
+		C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +154,7 @@
 			children = (
 				C29EAF8A2AE5A32B003578B9 /* Controller.swift */,
 				C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */,
+				C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */,
 				C266992C2AE55EFC00592008 /* Assets.xcassets */,
 				C26699312AE55EFC00592008 /* LinkLiar.entitlements */,
 				C266992E2AE55EFC00592008 /* Preview Content */,
@@ -202,6 +216,7 @@
 			buildPhases = (
 				C26699212AE55EFC00592008 /* Sources */,
 				C26699232AE55EFC00592008 /* Resources */,
+				C29EAF932AE5A82E003578B9 /* Copy Agent Property Lists */,
 			);
 			buildRules = (
 			);

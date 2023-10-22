@@ -16,16 +16,20 @@ class Controller {
     
     print("\(helper) has status \(helper.status)")
     
-    do {
-      try helper.register()
+    DispatchQueue.global().async {
       
-      Log.debug("Successfully registered \(helper)")
-      //      Intercom.reset()
-    } catch {
-      Log.debug("Unable to register \(error)")
+      do {
+        try helper.register()
+        
+        Log.debug("Successfully registered \(helper)")
+        print("\(helper) has status \(helper.status)")
+      } catch {
+        Log.debug("Unable to register \(error)")
+      }
+      
     }
     
-    print("\(helper) has status \(helper.status) which is enabled: \(helper.status == SMAppService.Status.enabled)")
+    
   }
   
 }
