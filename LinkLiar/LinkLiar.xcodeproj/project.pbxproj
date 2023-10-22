@@ -14,6 +14,7 @@
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
+		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C26699662AE57A3100592008 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699282AE55EFC00592008 /* LinkLiarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarApp.swift; sourceTree = "<group>"; };
@@ -45,6 +58,9 @@
 		C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699442AE55EFD00592008 /* LinkLiarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarUITests.swift; sourceTree = "<group>"; };
 		C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C26699682AE57A3100592008 /* linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
+		C266996A2AE57A3100592008 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +85,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C26699652AE57A3100592008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -78,6 +101,7 @@
 				C26699272AE55EFC00592008 /* LinkLiar */,
 				C26699392AE55EFD00592008 /* LinkLiarTests */,
 				C26699432AE55EFD00592008 /* LinkLiarUITests */,
+				C26699692AE57A3100592008 /* linkdaemon */,
 				C26699262AE55EFC00592008 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +112,7 @@
 				C26699252AE55EFC00592008 /* LinkLiar.app */,
 				C26699362AE55EFD00592008 /* LinkLiarTests.xctest */,
 				C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */,
+				C26699682AE57A3100592008 /* linkdaemon */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +152,15 @@
 				C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */,
 			);
 			path = LinkLiarUITests;
+			sourceTree = "<group>";
+		};
+		C26699692AE57A3100592008 /* linkdaemon */ = {
+			isa = PBXGroup;
+			children = (
+				C266996F2AE57A3D00592008 /* linkdaemon.entitlements */,
+				C266996A2AE57A3100592008 /* main.swift */,
+			);
+			path = linkdaemon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +219,23 @@
 			productReference = C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C26699672AE57A3100592008 /* linkdaemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C266996E2AE57A3100592008 /* Build configuration list for PBXNativeTarget "linkdaemon" */;
+			buildPhases = (
+				C26699642AE57A3100592008 /* Sources */,
+				C26699652AE57A3100592008 /* Frameworks */,
+				C26699662AE57A3100592008 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = linkdaemon;
+			productName = linkdaemon;
+			productReference = C26699682AE57A3100592008 /* linkdaemon */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,6 +257,9 @@
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = C26699242AE55EFC00592008;
 					};
+					C26699672AE57A3100592008 = {
+						CreatedOnToolsVersion = 15.0;
+					};
 				};
 			};
 			buildConfigurationList = C26699202AE55EFC00592008 /* Build configuration list for PBXProject "LinkLiar" */;
@@ -224,6 +278,7 @@
 				C26699242AE55EFC00592008 /* LinkLiar */,
 				C26699352AE55EFD00592008 /* LinkLiarTests */,
 				C266993F2AE55EFD00592008 /* LinkLiarUITests */,
+				C26699672AE57A3100592008 /* linkdaemon */,
 			);
 		};
 /* End PBXProject section */
@@ -278,6 +333,14 @@
 			files = (
 				C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */,
 				C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26699642AE57A3100592008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C266996B2AE57A3100592008 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +606,38 @@
 			};
 			name = Release;
 		};
+		C266996C2AE57A3100592008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = linkdaemon/linkdaemon.entitlements;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CODE_SIGN_FLAGS = "\"-i io.github.halo.LinkLiar.linkdaemon\\\"\"";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar.linkdaemon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C266996D2AE57A3100592008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = linkdaemon/linkdaemon.entitlements;
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				OTHER_CODE_SIGN_FLAGS = "\"-i io.github.halo.LinkLiar.linkdaemon\\\"\"";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar.linkdaemon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -578,6 +673,15 @@
 			buildConfigurations = (
 				C26699512AE55EFD00592008 /* Debug */,
 				C26699522AE55EFD00592008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C266996E2AE57A3100592008 /* Build configuration list for PBXNativeTarget "linkdaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C266996C2AE57A3100592008 /* Debug */,
+				C266996D2AE57A3100592008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
