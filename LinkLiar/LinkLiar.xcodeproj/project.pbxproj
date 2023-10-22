@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C26699292AE55EFC00592008 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699282AE55EFC00592008 /* LinkLiarApp.swift */; };
+		C266992B2AE55EFC00592008 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266992A2AE55EFC00592008 /* ContentView.swift */; };
+		C266992D2AE55EFC00592008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992C2AE55EFC00592008 /* Assets.xcassets */; };
+		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
+		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
+		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
+		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C26699372AE55EFD00592008 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C266991D2AE55EFC00592008 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C26699242AE55EFC00592008;
+			remoteInfo = LinkLiar;
+		};
+		C26699412AE55EFD00592008 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C266991D2AE55EFC00592008 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C26699242AE55EFC00592008;
+			remoteInfo = LinkLiar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C26699282AE55EFC00592008 /* LinkLiarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarApp.swift; sourceTree = "<group>"; };
+		C266992A2AE55EFC00592008 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C266992C2AE55EFC00592008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C266992F2AE55EFC00592008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C26699312AE55EFC00592008 /* LinkLiar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkLiar.entitlements; sourceTree = "<group>"; };
+		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
+		C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C26699442AE55EFD00592008 /* LinkLiarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarUITests.swift; sourceTree = "<group>"; };
+		C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C26699222AE55EFC00592008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26699332AE55EFD00592008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C266993D2AE55EFD00592008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C266991C2AE55EFC00592008 = {
+			isa = PBXGroup;
+			children = (
+				C26699272AE55EFC00592008 /* LinkLiar */,
+				C26699392AE55EFD00592008 /* LinkLiarTests */,
+				C26699432AE55EFD00592008 /* LinkLiarUITests */,
+				C26699262AE55EFC00592008 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C26699262AE55EFC00592008 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C26699252AE55EFC00592008 /* LinkLiar.app */,
+				C26699362AE55EFD00592008 /* LinkLiarTests.xctest */,
+				C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C26699272AE55EFC00592008 /* LinkLiar */ = {
+			isa = PBXGroup;
+			children = (
+				C26699282AE55EFC00592008 /* LinkLiarApp.swift */,
+				C266992A2AE55EFC00592008 /* ContentView.swift */,
+				C266992C2AE55EFC00592008 /* Assets.xcassets */,
+				C26699312AE55EFC00592008 /* LinkLiar.entitlements */,
+				C266992E2AE55EFC00592008 /* Preview Content */,
+			);
+			path = LinkLiar;
+			sourceTree = "<group>";
+		};
+		C266992E2AE55EFC00592008 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C266992F2AE55EFC00592008 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C26699392AE55EFD00592008 /* LinkLiarTests */ = {
+			isa = PBXGroup;
+			children = (
+				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
+			);
+			path = LinkLiarTests;
+			sourceTree = "<group>";
+		};
+		C26699432AE55EFD00592008 /* LinkLiarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C26699442AE55EFD00592008 /* LinkLiarUITests.swift */,
+				C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */,
+			);
+			path = LinkLiarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C26699242AE55EFC00592008 /* LinkLiar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C266994A2AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiar" */;
+			buildPhases = (
+				C26699212AE55EFC00592008 /* Sources */,
+				C26699222AE55EFC00592008 /* Frameworks */,
+				C26699232AE55EFC00592008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LinkLiar;
+			productName = LinkLiar;
+			productReference = C26699252AE55EFC00592008 /* LinkLiar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C26699352AE55EFD00592008 /* LinkLiarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C266994D2AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiarTests" */;
+			buildPhases = (
+				C26699322AE55EFD00592008 /* Sources */,
+				C26699332AE55EFD00592008 /* Frameworks */,
+				C26699342AE55EFD00592008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C26699382AE55EFD00592008 /* PBXTargetDependency */,
+			);
+			name = LinkLiarTests;
+			productName = LinkLiarTests;
+			productReference = C26699362AE55EFD00592008 /* LinkLiarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C266993F2AE55EFD00592008 /* LinkLiarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C26699502AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiarUITests" */;
+			buildPhases = (
+				C266993C2AE55EFD00592008 /* Sources */,
+				C266993D2AE55EFD00592008 /* Frameworks */,
+				C266993E2AE55EFD00592008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C26699422AE55EFD00592008 /* PBXTargetDependency */,
+			);
+			name = LinkLiarUITests;
+			productName = LinkLiarUITests;
+			productReference = C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C266991D2AE55EFC00592008 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					C26699242AE55EFC00592008 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					C26699352AE55EFD00592008 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = C26699242AE55EFC00592008;
+					};
+					C266993F2AE55EFD00592008 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = C26699242AE55EFC00592008;
+					};
+				};
+			};
+			buildConfigurationList = C26699202AE55EFC00592008 /* Build configuration list for PBXProject "LinkLiar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C266991C2AE55EFC00592008;
+			productRefGroup = C26699262AE55EFC00592008 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C26699242AE55EFC00592008 /* LinkLiar */,
+				C26699352AE55EFD00592008 /* LinkLiarTests */,
+				C266993F2AE55EFD00592008 /* LinkLiarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C26699232AE55EFC00592008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */,
+				C266992D2AE55EFC00592008 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26699342AE55EFD00592008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C266993E2AE55EFD00592008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C26699212AE55EFC00592008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C266992B2AE55EFC00592008 /* ContentView.swift in Sources */,
+				C26699292AE55EFC00592008 /* LinkLiarApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26699322AE55EFD00592008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C266993C2AE55EFD00592008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */,
+				C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C26699382AE55EFD00592008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C26699242AE55EFC00592008 /* LinkLiar */;
+			targetProxy = C26699372AE55EFD00592008 /* PBXContainerItemProxy */;
+		};
+		C26699422AE55EFD00592008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C26699242AE55EFC00592008 /* LinkLiar */;
+			targetProxy = C26699412AE55EFD00592008 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C26699482AE55EFD00592008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C26699492AE55EFD00592008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		C266994B2AE55EFD00592008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LinkLiar/LinkLiar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LinkLiar/Preview Content\"";
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C266994C2AE55EFD00592008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LinkLiar/LinkLiar.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"LinkLiar/Preview Content\"";
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C266994E2AE55EFD00592008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinkLiar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LinkLiar";
+			};
+			name = Debug;
+		};
+		C266994F2AE55EFD00592008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LinkLiar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LinkLiar";
+			};
+			name = Release;
+		};
+		C26699512AE55EFD00592008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LinkLiar;
+			};
+			name = Debug;
+		};
+		C26699522AE55EFD00592008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B9J4QR64LK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = LinkLiar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C26699202AE55EFC00592008 /* Build configuration list for PBXProject "LinkLiar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C26699482AE55EFD00592008 /* Debug */,
+				C26699492AE55EFD00592008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C266994A2AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C266994B2AE55EFD00592008 /* Debug */,
+				C266994C2AE55EFD00592008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C266994D2AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C266994E2AE55EFD00592008 /* Debug */,
+				C266994F2AE55EFD00592008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C26699502AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C26699512AE55EFD00592008 /* Debug */,
+				C26699522AE55EFD00592008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C266991D2AE55EFC00592008 /* Project object */;
+}
