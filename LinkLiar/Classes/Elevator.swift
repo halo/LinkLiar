@@ -20,14 +20,41 @@ import ServiceManagement
 class Elevator: NSObject {
 
   func install() {
-    var cfError: Unmanaged<CFError>? = nil
-    if !SMJobBless(kSMDomainSystemLaunchd, Identifiers.helper.rawValue as CFString, authorization(), &cfError) {
-      let blessError = cfError!.takeRetainedValue() as Error
-      Log.debug("Bless Error: \(blessError)")
-    } else {
-      Log.debug("\(Identifiers.helper.rawValue) installed successfully")
-      Intercom.reset()
+//    let helper = SMAppService.agent
+    let helper = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
+    
+    
+    do {
+      try helper.unregister()
+      
+      Log.debug("Successfully UNregistered \(helper)")
+//      Intercom.reset()
+    } catch {
+      Log.debug("Unable to UNregister \(error)")
     }
+    
+    do {
+      try helper.register()
+      
+      Log.debug("Successfully registered \(helper)")
+//      Intercom.reset()
+    } catch {
+      Log.debug("Unable to register \(error)")
+    }
+    
+    print("\(helper) has status \(helper.status) which is \(helper.status == SMAppService.Status.enabled)")
+
+    
+    //    openSystemSettingsLoginItems
+    
+//    var cfError: Unmanaged<CFError>? = nil
+//    if !SMJobBless(kSMDomainSystemLaunchd, Identifiers.helper.rawValue as CFString, authorization(), &cfError) {
+//      let blessError = cfError!.takeRetainedValue() as Error
+//      Log.debug("Bless Error: \(blessError)")
+//    } else {
+//      Log.debug("\(Identifiers.helper.rawValue) installed successfully")
+//      Intercom.reset()
+//    }
   }
 
   func authorization() -> AuthorizationRef? {

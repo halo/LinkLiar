@@ -1,6 +1,6 @@
 import SwiftUI
 
-@Observable 
+@Observable
 
 class LinkState {
   var warnAboutLeakage = false
@@ -9,7 +9,7 @@ class LinkState {
 
 struct LinkMenu: View {
   @Environment(LinkState.self) private var state
-
+  
   var body: some View {
     Button("One") {
       state.warnAboutLeakage = true
@@ -36,18 +36,30 @@ struct LinkMenu: View {
 struct SettingsView: View {
   var body: some View {
     TabView {
-      Text("Things...")
-        .tabItem {
-          Image(systemName: "checkmark.circle")
-          Text("Interfaces")
-        }
       
-      Text("Tab 2 content here")
-        .tabItem {
-          Image(systemName: "sun.min")
-          Text("MAC Prefixes")
+      VStack {
+        Button(action: Controller.doAuthorize) {
+          Text("Authorize...")
         }
-    }.frame(width: 200, height: 150)
+      }.tabItem {
+        Image(systemName: "checkmark.circle")
+        Text("General")
+      }
+      
+      VStack {
+        Text("This is where the config file is located:")
+        Text(Paths.configFile)
+        Button(action: ConfigWriter.reset) {
+          Text("Reset Config file")
+        }
+        Text("Writable: \(ConfigWriter.isWritable ? "Yes" : "No")")
+      }.tabItem {
+        Image(systemName: "sun.min")
+        Text("Config file")
+      }
+      
+      
+    }.frame(width: 500, height: 300)
     
   }
 }

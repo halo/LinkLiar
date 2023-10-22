@@ -19,6 +19,18 @@ import Cocoa
 
 class Controller: NSObject {
 
+  
+  static func doAuthorize() {
+    Elevator().install()
+    Intercom.install(reply: { success in
+      if (success) {
+        Log.debug("Installation complete")
+      } else {
+        Log.debug("Could not complete installation")
+      }
+    })
+  }
+    
   @objc static func authorize(_ sender: NSMenuItem) {
     Log.debug("Installing Helper and Daemon...")
     installHelper(sender)

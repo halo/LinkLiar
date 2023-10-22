@@ -76,6 +76,8 @@
 		C251369626DACE8300AA7B2E /* KnownInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369426DACE8300AA7B2E /* KnownInterface.swift */; };
 		C251369826DBCAB200AA7B2E /* PrefixesSubmenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369726DBCAB200AA7B2E /* PrefixesSubmenu.swift */; };
 		C251369C26DC03C500AA7B2E /* MACPrefixFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C251369B26DC03C500AA7B2E /* MACPrefixFormatter.swift */; };
+		C26C7A172AE5510800FBE424 /* linkdaemon in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2BEC00A1EE4984E0072BE59 /* linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C26C7A1B2AE5521F00FBE424 /* io.github.halo.linkdaemon.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = C26C7A182AE5516200FBE424 /* io.github.halo.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C27108C020164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
 		C27108C120164DDC00FDFD43 /* RunningApplications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27108BF20164DDB00FDFD43 /* RunningApplications.swift */; };
 		C27108E72016559F00FDFD43 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C291CBE61EE85D0D00154452 /* Log.swift */; };
@@ -184,6 +186,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C26C7A162AE550FF00FBE424 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				C26C7A172AE5510800FBE424 /* linkdaemon in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26C7A1A2AE5521000FBE424 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LaunchDaemons;
+			dstSubfolderSpec = 1;
+			files = (
+				C26C7A1B2AE5521F00FBE424 /* io.github.halo.linkdaemon.plist in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C29B7D921EE69D1800609A21 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
@@ -267,6 +289,7 @@
 		C251369426DACE8300AA7B2E /* KnownInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnownInterface.swift; path = LinkTools/Configuration/KnownInterface.swift; sourceTree = "<group>"; };
 		C251369726DBCAB200AA7B2E /* PrefixesSubmenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrefixesSubmenu.swift; path = Classes/PrefixesSubmenu.swift; sourceTree = "<group>"; };
 		C251369B26DC03C500AA7B2E /* MACPrefixFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACPrefixFormatter.swift; path = Classes/MACPrefixFormatter.swift; sourceTree = "<group>"; };
+		C26C7A182AE5516200FBE424 /* io.github.halo.linkdaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = io.github.halo.linkdaemon.plist; sourceTree = "<group>"; };
 		C27108BF20164DDB00FDFD43 /* RunningApplications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RunningApplications.swift; path = LinkTools/RunningApplications.swift; sourceTree = "<group>"; };
 		C2719FF4262370A7008E27D8 /* ActionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C271A0022623733D008E27D8 /* Prefixes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefixes.swift; path = LinkTools/Configuration/Prefixes.swift; sourceTree = "<group>"; };
@@ -588,6 +611,7 @@
 				C2BEBFE51EE48B5E0072BE59 /* Info.plist */,
 				C23926C31F06D04E008506E4 /* oui.json */,
 				C2BEBFE01EE48B5E0072BE59 /* Assets.xcassets */,
+				C26C7A182AE5516200FBE424 /* io.github.halo.linkdaemon.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -638,6 +662,8 @@
 				C2BEBFD71EE48B5E0072BE59 /* Resources */,
 				C29B7DA01EE71CF900609A21 /* CopyFiles */,
 				C20A31D2201528DC00BC8386 /* CopyFiles */,
+				C26C7A162AE550FF00FBE424 /* CopyFiles */,
+				C26C7A1A2AE5521000FBE424 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1235,6 +1261,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LinkLiar/LinkLiar.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1264,6 +1291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LinkLiar/LinkLiar.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COMBINE_HIDPI_IMAGES = YES;
