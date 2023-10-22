@@ -1,10 +1,3 @@
-//
-//  LinkLiarTests.swift
-//  LinkLiarTests
-//
-//  Created by orange on 22.10.23.
-//
-
 import XCTest
 @testable import LinkLiar
 

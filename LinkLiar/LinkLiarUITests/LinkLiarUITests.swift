@@ -1,10 +1,3 @@
-//
-//  LinkLiarUITests.swift
-//  LinkLiarUITests
-//
-//  Created by orange on 22.10.23.
-//
-
 import XCTest
 
 final class LinkLiarUITests: XCTestCase {
