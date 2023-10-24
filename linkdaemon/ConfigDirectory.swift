@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -18,7 +18,7 @@ import Foundation
 
 struct ConfigDirectory {
 
-  // Readable and writable so that the GUI may persist config.
+  // Readable and executable directory, so that the GUI may access it at all.
   private static let directoryPermissions: [FileAttributeKey: Any] = [.posixPermissions: 0o775]
 
   private static let manager = FileManager.default
@@ -26,8 +26,26 @@ struct ConfigDirectory {
   static func create() {
     ensureDirectory()
     ensureDirectoryPermissions()
+    
+    if isWritable { return }
+    
+    do {
+      try "{}".write(toFile: Paths.configFile, atomically: true, encoding: .utf8)
+    } catch let error as NSError {
+      Log.error("Could not establish config file: \(error)")
+    }
+    
   }
 
+  static var isWritable: Bool {
+    var isDirectory: ObjCBool = false
+    if !FileManager.default.fileExists(atPath: Paths.configFile, isDirectory: &isDirectory) {
+//      reset()
+    }
+
+    return FileManager.default.isWritableFile(atPath: Paths.configFile)
+  }
+  
   static func remove() {
     do {
       try manager.removeItem(atPath: Paths.configDirectory)

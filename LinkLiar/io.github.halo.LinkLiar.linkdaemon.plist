@@ -5,6 +5,6 @@
 	<key>Label</key>
 	<string>io.github.halo.LinkLiar.linkdaemon</string>
 	<key>BundleProgram</key>
-	<string>Contents/MacOS/linkdaemon</string>
+	<string>Contents/MacOS/io.github.halo.LinkLiar.linkdaemon</string>
 </dict>
 </plist>

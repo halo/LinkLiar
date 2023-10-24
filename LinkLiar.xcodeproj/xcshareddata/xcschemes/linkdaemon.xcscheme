@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C26699672AE57A3100592008"
-               BuildableName = "linkdaemon"
-               BlueprintName = "linkdaemon"
+               BuildableName = "io.github.halo.LinkLiar.linkdaemon"
+               BlueprintName = "io.github.halo.LinkLiar.linkdaemon"
                ReferencedContainer = "container:LinkLiar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C26699672AE57A3100592008"
-            BuildableName = "linkdaemon"
-            BlueprintName = "linkdaemon"
+            BuildableName = "io.github.halo.LinkLiar.linkdaemon"
+            BlueprintName = "io.github.halo.LinkLiar.linkdaemon"
             ReferencedContainer = "container:LinkLiar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C26699672AE57A3100592008"
-            BuildableName = "linkdaemon"
-            BlueprintName = "linkdaemon"
+            BuildableName = "io.github.halo.LinkLiar.linkdaemon"
+            BlueprintName = "io.github.halo.LinkLiar.linkdaemon"
             ReferencedContainer = "container:LinkLiar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

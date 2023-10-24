@@ -9,6 +9,9 @@ struct LinkLiarApp: App {
         Button(action: Controller.doAuthorize) {
           Text("Authorize...")
         }
+        Button(action: Controller.doUnAuthorize) {
+          Text("UnAuthorize...")
+        }
       }
     }
   }
