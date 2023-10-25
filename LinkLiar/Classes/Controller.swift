@@ -10,6 +10,25 @@ import ServiceManagement
 
 class Controller {
   
+  static func install() {
+    Intercom.install(reply: { success in
+      if (success) {
+        Log.debug("Installation complete")
+      } else {
+        Log.debug("Could not complete installation")
+      }
+    })
+  }
+  
+  static func uninstall() {
+    Intercom.uninstall(reply: { success in
+      if (success) {
+        Log.debug("umInstallation complete")
+      } else {
+        Log.debug("Could not complete uninstallation")
+      }
+    })
+  }
   
   static func doUnAuthorize() {
     print("authorizing...")

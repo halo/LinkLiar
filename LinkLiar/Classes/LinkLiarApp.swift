@@ -12,6 +12,12 @@ struct LinkLiarApp: App {
         Button(action: Controller.doUnAuthorize) {
           Text("UnAuthorize...")
         }
+        Button(action: Controller.install) {
+          Text("Install...")
+        }
+        Button(action: Controller.uninstall) {
+          Text("UnInstall...")
+        }
       }
     }
   }

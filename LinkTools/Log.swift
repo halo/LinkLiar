@@ -61,10 +61,8 @@ public struct Log {
 
     let data = "\(prefix) \(message)\n".data(using: .utf8)!
 
-    if let fileHandle = FileHandle(forWritingAtPath: Paths.debugLogFile) {
-      defer {
-        fileHandle.closeFile()
-      }
+    if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
+      defer { fileHandle.closeFile() }
       fileHandle.seekToEndOfFile()
       fileHandle.write(data)
     } else {

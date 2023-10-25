@@ -15,7 +15,7 @@ import Foundation
 
 ConfigDirectory.create()
 
-let data = "Hello 1 the World!\n".data(using: .utf8)!
+let data = "Hello 9 the World!\n".data(using: .utf8)!
 
 if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
   defer {
@@ -28,7 +28,7 @@ if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
 }
 
 func main() {
-  for _ in 1...3 {
+  for _ in 1...2 {
 
       
       let data = "Ping\n".data(using: .utf8)!
@@ -43,19 +43,30 @@ func main() {
       
     
     
-      sleep(1)
+    sleep(1)
     }
   
   
-  let data = "Bye!\n".data(using: .utf8)!
 
   if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
-    defer {
-      fileHandle.closeFile()
-    }
+    defer { fileHandle.closeFile() }
     fileHandle.seekToEndOfFile()
-    fileHandle.write(data)
+    fileHandle.write("Listening...\n".data(using: .utf8)!)
   }
+  
+  Log.debug("Logger works")
+  let helper = LinkHelper()
+  Log.debug(helper.description)
+  helper.listen()
+  
+  
+  if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
+    defer { fileHandle.closeFile() }
+    fileHandle.seekToEndOfFile()
+    fileHandle.write("Bye!...\n".data(using: .utf8)!)
+  }
+  
+  
   exit(99)
 }
 
