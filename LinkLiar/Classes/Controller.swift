@@ -3,6 +3,7 @@ import ServiceManagement
 
 class Controller {
   
+  
   static var version: String = {
     Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
   }()
@@ -35,14 +36,14 @@ class Controller {
     
     DispatchQueue.global().async {
       
-//      do {
-//        try helper.unregister()
-//
-//        Log.debug("Successfully UNregistered \(helper)")
-//        print("\(helper) has status \(helper.status)")
-//      } catch {
-//        Log.debug("Unable to UNregister \(error)")
-//      }
+      //      do {
+      //        try helper.unregister()
+      //
+      //        Log.debug("Successfully UNregistered \(helper)")
+      //        print("\(helper) has status \(helper.status)")
+      //      } catch {
+      //        Log.debug("Unable to UNregister \(error)")
+      //      }
       
       do {
         try helper.unregister()
@@ -66,14 +67,14 @@ class Controller {
     
     DispatchQueue.global().async {
       
-//      do {
-//        try helper.unregister()
-//        
-//        Log.debug("Successfully UNregistered \(helper)")
-//        print("\(helper) has status \(helper.status)")
-//      } catch {
-//        Log.debug("Unable to UNregister \(error)")
-//      }
+      //      do {
+      //        try helper.unregister()
+      //
+      //        Log.debug("Successfully UNregistered \(helper)")
+      //        print("\(helper) has status \(helper.status)")
+      //      } catch {
+      //        Log.debug("Unable to UNregister \(error)")
+      //      }
       
       do {
         try helper.register()
@@ -85,8 +86,20 @@ class Controller {
       }
       
     }
-    
-    
+  }
+  
+  
+  
+  static func troubleshoot(state: LinkState) {
+    Radio.version(state: state, reply: { version in
+      if (version == nil) {
+        Log.debug("No Version")
+        state.daemonVersion = Version("0.0.0")
+      } else {
+        Log.debug("Received Version")
+        state.daemonVersion = version!
+      }
+    })
   }
   
 }

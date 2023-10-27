@@ -21,7 +21,8 @@ class Radio {
 
   private static var xpcConnection: NSXPCConnection?
 
-  static func reset() {
+  static func reset(state: LinkState) {
+    state.xpcStatus = "reset"
     self.xpcConnection = nil
   }
 
@@ -36,16 +37,14 @@ class Radio {
 //    })
   
 //
-//  static func helperVersion(reply: @escaping (Version?) -> Void) {
-//    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
-//      return reply(nil)
-//    }) as! HelperProtocol
-//
-//    helper.version(reply: { rawVersion in
-//      Log.debug("The helper responded with its version")
-//      reply(Version(rawVersion))
-//    })
-//  }
+  static func version(state: LinkState, reply: @escaping (Version?) -> Void) {
+    usingHelper(state: state, block: { helper in
+      helper.version(reply: { rawVersion in
+        Log.debug("The helper responded with its version")
+        reply(Version(rawVersion))
+      })
+    })
+  }
 
   
   //  static func uninstallDaemon(reply: @escaping (Bool) -> Void) {
@@ -58,7 +57,7 @@ class Radio {
   //  }
   
   static func install(reply: @escaping (Bool) -> Void) {
-    usingHelper(block: { helper in
+    usingHelper(state: LinkState(), block: { helper in
       helper.createConfigDirectory(reply: { success in
         Log.debug("Helper worked on installation")
         reply(success)
@@ -67,7 +66,7 @@ class Radio {
   }
 
   static func uninstall(reply: @escaping (Bool) -> Void) {
-    usingHelper(block: { helper in
+    usingHelper(state: LinkState(), block: { helper in
       helper.removeConfigDirectory(reply: { success in
         Log.debug("Helper worked on uninstallation")
         reply(success)
@@ -141,15 +140,19 @@ class Radio {
 //    })
 //  }
 
-  static func usingHelper(block: @escaping (ListenerProtocol) -> Void) {
-    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ error in
+  static func usingHelper(state: LinkState, block: @escaping (ListenerProtocol) -> Void) {
+    let helper = self.connection(state: state)?.remoteObjectProxyWithErrorHandler({ error in
       Log.debug("Oh no, no connection to helper: \(error.localizedDescription)")
+      state.connectedToDaemon = false
     }) as! ListenerProtocol
     block(helper)
   }
 
-  static func connection() -> NSXPCConnection? {
-    if (self.xpcConnection != nil) { return self.xpcConnection }
+  static func connection(state: LinkState) -> NSXPCConnection? {
+    if (self.xpcConnection != nil) {
+      state.xpcStatus = "initialized"
+      return self.xpcConnection
+    }
     
     Log.debug(Identifiers.daemon.rawValue)
     self.xpcConnection = NSXPCConnection(machServiceName: Identifiers.daemon.rawValue, options: NSXPCConnection.Options.privileged)
@@ -163,6 +166,7 @@ class Radio {
         self.xpcConnection = nil
         Log.debug("XPC Connection interrupted - the Helper probably crashed.")
         Log.debug("You mght find a crash report at /Library/Logs/DiagnosticReports")
+        state.xpcStatus = "interrupted"
       }
     }
     
@@ -172,6 +176,7 @@ class Radio {
       OperationQueue.main.addOperation(){
         self.xpcConnection = nil
         Log.debug("XPC Connection Invalidated")
+        state.xpcStatus = "invalidated"
       }
     }
 

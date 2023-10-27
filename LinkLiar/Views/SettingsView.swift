@@ -1,17 +1,14 @@
 import SwiftUI
 
 struct SettingsView: View {
+  @Environment(LinkState.self) private var state
+
   var body: some View {
     TabView {
       
-      VStack {
-        Button(action: Controller.doAuthorize) {
-          Text("Authorize...")
-        }
-      }.tabItem {
-        Image(systemName: "checkmark.circle")
-        Text("General")
-      }
+      
+      SettingsTroubleshootView().environment(state)
+        
       
 //      VStack {
 //        Text("This is where the config file is located:")
@@ -30,7 +27,3 @@ struct SettingsView: View {
     
   }
 }
-
-//#Preview {
-//  SettingsView()
-//}

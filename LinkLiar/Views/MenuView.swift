@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct LinkMenu: View {
+struct MenuView: View {
   @Environment(LinkState.self) private var state
   
   var body: some View {

@@ -57,10 +57,10 @@ class Listener: NSObject {
 // MARK: - HelperProtocol
 extension Listener: ListenerProtocol {
 //
-//  func version(reply: (String) -> Void) {
-//    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
-//    reply(version)
-//  }
+  func version(reply: (String) -> Void) {
+    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+    reply(version)
+  }
 //
 //  func install(pristineDaemonExecutablePath: String, reply: (Bool) -> Void) {
 //    ConfigDirectory.create()

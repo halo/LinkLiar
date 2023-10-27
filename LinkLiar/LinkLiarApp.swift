@@ -7,11 +7,11 @@ struct LinkLiarApp: App {
 
   var body: some Scene {
     MenuBarExtra("LinkLiar", image: menuBarIconName) {
-      LinkMenu().environment(state)
+      MenuView().environment(state)
     }
     
     Settings {
-      SettingsView().navigationTitle("Settings")
+      SettingsView().navigationTitle("Settings").environment(state)
     }
 //    WindowGroup {
 //      VStack {

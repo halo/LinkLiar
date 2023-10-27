@@ -16,21 +16,26 @@
 
 import Foundation
 
-@objc(HelperProtocol)
+struct Version {
+  
+  var major: Int
+  var minor: Int
+  var patch: Int
 
-protocol ListenerProtocol {
-  func version(reply: @escaping (String) -> Void)
+  init(_ version: String) {
+    let v = version.components(separatedBy: ".") as Array
 
-//  func install(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
-//  func uninstall(reply: @escaping (Bool) -> Void)
+    major = Int(v[0])!
+    minor = Int(v[1])!
+    patch = Int(v[2])!
+  }
 
-  func createConfigDirectory(reply: @escaping (Bool) -> Void)
-  func removeConfigDirectory(reply: @escaping (Bool) -> Void)
+  var formatted: String {
+    return "\(self.major).\(self.minor).\(self.patch)"
+  }
 
-//  func installDaemon(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
-//  func activateDaemon(reply: @escaping (Bool) -> Void)
-//  func deactivateDaemon(reply: @escaping (Bool) -> Void)
-//  func uninstallDaemon(reply: @escaping (Bool) -> Void)
-//
-//  func uninstallHelper(reply: @escaping (Bool) -> Void)
+  func isCompatible(with: Version) -> Bool {
+    return self.major == with.major && self.minor == with.minor
+  }
+
 }
