@@ -13,9 +13,11 @@
 
 import Foundation
 
-ConfigDirectory.create()
 
-let data = "Hello 9 the World!\n".data(using: .utf8)!
+
+
+
+let data = "Hello 12 the World!\n".data(using: .utf8)!
 
 if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
   defer {

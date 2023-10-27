@@ -14,7 +14,6 @@
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
 		C288E20D2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */; };
-		C288E20E2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */; };
 		C288E2102AE7AEBD0098FF39 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20F2AE7AEBD0098FF39 /* Controller.swift */; };
 		C288E2112AE7AEBD0098FF39 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20F2AE7AEBD0098FF39 /* Controller.swift */; };
 		C288E2132AE7AEC40098FF39 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Intercom.swift */; };
@@ -22,9 +21,7 @@
 		C288E2162AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
 		C288E2172AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
 		C288E2182AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
-		C288E2192AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
 		C288E21B2AE7AF620098FF39 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* LinkHelper.swift */; };
-		C288E21C2AE7AF620098FF39 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* LinkHelper.swift */; };
 		C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
@@ -37,7 +34,6 @@
 		C29EAF962AE5ADCA003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
-		C29EAFA82AE5B16D003578B9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -77,15 +73,6 @@
 			name = "Copy Agent Property Lists";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C29EAF9F2AE5B10D003578B9 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
 		C29EAFA92AE5B2C1003578B9 /* Embed Executables */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,7 +110,6 @@
 		C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkLiarApp.swift; path = Classes/LinkLiarApp.swift; sourceTree = "<group>"; };
 		C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C29EAFA12AE5B10D003578B9 /* freelinkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = freelinkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,13 +128,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C29EAF992AE5B074003578B9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C29EAF9E2AE5B10D003578B9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -178,7 +157,6 @@
 				C26699362AE55EFD00592008 /* LinkLiarTests.xctest */,
 				C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */,
 				C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */,
-				C29EAFA12AE5B10D003578B9 /* freelinkdaemon */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,23 +304,6 @@
 			productReference = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */;
 			productType = "com.apple.product-type.tool";
 		};
-		C29EAFA02AE5B10D003578B9 /* freelinkdaemon */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C29EAFA52AE5B10D003578B9 /* Build configuration list for PBXNativeTarget "freelinkdaemon" */;
-			buildPhases = (
-				C29EAF9D2AE5B10D003578B9 /* Sources */,
-				C29EAF9E2AE5B10D003578B9 /* Frameworks */,
-				C29EAF9F2AE5B10D003578B9 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = freelinkdaemon;
-			productName = freelinkdaemon;
-			productReference = C29EAFA12AE5B10D003578B9 /* freelinkdaemon */;
-			productType = "com.apple.product-type.tool";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -367,9 +328,6 @@
 					C26699672AE57A3100592008 = {
 						CreatedOnToolsVersion = 15.0;
 					};
-					C29EAFA02AE5B10D003578B9 = {
-						CreatedOnToolsVersion = 15.0;
-					};
 				};
 			};
 			buildConfigurationList = C26699202AE55EFC00592008 /* Build configuration list for PBXProject "LinkLiar" */;
@@ -389,7 +347,6 @@
 				C26699352AE55EFD00592008 /* LinkLiarTests */,
 				C266993F2AE55EFD00592008 /* LinkLiarUITests */,
 				C26699672AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */,
-				C29EAFA02AE5B10D003578B9 /* freelinkdaemon */,
 			);
 		};
 /* End PBXProject section */
@@ -470,17 +427,6 @@
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
 				C288E21B2AE7AF620098FF39 /* LinkHelper.swift in Sources */,
 				C288E2182AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C29EAF9D2AE5B10D003578B9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C29EAFA82AE5B16D003578B9 /* main.swift in Sources */,
-				C288E21C2AE7AF620098FF39 /* LinkHelper.swift in Sources */,
-				C288E20E2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */,
-				C288E2192AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,7 +589,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -671,7 +617,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 4.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.halo.LinkLiar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -783,28 +729,6 @@
 			};
 			name = Release;
 		};
-		C29EAFA62AE5B10D003578B9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B9J4QR64LK;
-				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		C29EAFA72AE5B10D003578B9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B9J4QR64LK;
-				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -849,15 +773,6 @@
 			buildConfigurations = (
 				C266996C2AE57A3100592008 /* Debug */,
 				C266996D2AE57A3100592008 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C29EAFA52AE5B10D003578B9 /* Build configuration list for PBXNativeTarget "freelinkdaemon" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C29EAFA62AE5B10D003578B9 /* Debug */,
-				C29EAFA72AE5B10D003578B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

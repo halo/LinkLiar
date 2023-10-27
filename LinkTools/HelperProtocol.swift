@@ -20,7 +20,7 @@ import Foundation
 
 protocol HelperProtocol {
 //  func version(reply: @escaping (String) -> Void)
-//
+
 //  func install(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
 //  func uninstall(reply: @escaping (Bool) -> Void)
 

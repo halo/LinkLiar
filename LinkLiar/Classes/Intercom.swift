@@ -47,6 +47,16 @@ class Intercom {
 //    })
 //  }
 
+  
+  //  static func uninstallDaemon(reply: @escaping (Bool) -> Void) {
+  //    usingHelper(block: { helper in
+  //      helper.uninstallDaemon(reply: { success in
+  //        Log.debug("Helper worked on daemon uninstallation")
+  //        reply(success)
+  //      })
+  //    })
+  //  }
+  
   static func install(reply: @escaping (Bool) -> Void) {
     usingHelper(block: { helper in
       helper.createConfigDirectory(reply: { success in
@@ -132,10 +142,8 @@ class Intercom {
 //  }
 
   static func usingHelper(block: @escaping (HelperProtocol) -> Void) {
-    Log.debug("Checking helper connection")
     let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ error in
       Log.debug("Oh no, no connection to helper: \(error.localizedDescription)")
-//      Log.debug()
     }) as! HelperProtocol
     block(helper)
   }

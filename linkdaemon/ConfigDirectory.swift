@@ -27,10 +27,20 @@ struct ConfigDirectory {
     ensureDirectory()
     ensureDirectoryPermissions()
     
-    if isWritable { return }
+//    if isWritable { return }
     
     do {
       try "{}".write(toFile: Paths.configFile, atomically: true, encoding: .utf8)
+      
+//      var attributes = [FileAttributeKey : Any]()
+      //let attr = [posixPermissions: 0o775]
+//      attributes[.posixPermissions] = 0o777
+      do {
+        try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"], ofItemAtPath: Paths.configFile)
+      }catch let error {
+          print("Permissions error: ", error)
+      }
+      
     } catch let error as NSError {
       Log.error("Could not establish config file: \(error)")
     }

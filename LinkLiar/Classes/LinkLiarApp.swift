@@ -6,6 +6,7 @@ struct LinkLiarApp: App {
   var body: some Scene {
     WindowGroup {
       VStack {
+        Text(Controller.version)
         Button(action: Controller.doAuthorize) {
           Text("Authorize...")
         }

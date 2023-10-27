@@ -10,6 +10,11 @@ import ServiceManagement
 
 class Controller {
   
+  static var version: String = {
+    Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+  }()
+  
+  
   static func install() {
     Intercom.install(reply: { success in
       if (success) {

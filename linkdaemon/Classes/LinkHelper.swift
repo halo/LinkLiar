@@ -37,10 +37,12 @@ class LinkHelper: NSObject {
   }()
 
   var shouldQuit = false
+  var versionOnStartUp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 
   // MARK Instance Methods
 
   func listen(){
+    
     Log.debug("Helper says hello")
     listener.resume() // Tell the XPC listener to start processing requests.
 
@@ -54,9 +56,10 @@ class LinkHelper: NSObject {
 
 // MARK: - HelperProtocol
 extension LinkHelper: HelperProtocol {
-
+//
 //  func version(reply: (String) -> Void) {
-//    reply(LinkHelper.version.formatted)
+//    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+//    reply(version)
 //  }
 //
 //  func install(pristineDaemonExecutablePath: String, reply: (Bool) -> Void) {
@@ -75,6 +78,20 @@ extension LinkHelper: HelperProtocol {
 //  }
 
   func createConfigDirectory(reply: (Bool) -> Void) {
+    
+//    Log.debug("\(Bundle.main.bundlePath)")
+//    Log.debug("\(Bundle.main.infoDictionary)")
+//    let infoPath = "\(Bundle.main.bundlePath)/Contents/Info.plist"
+//    Log.debug(infoPath)
+////
+//    let uncachedBundle = Bundle.init(path: Bundle.main.bundlePath)!
+////   Log.debug(uncachedBundle.infoDictionary!.description)
+//
+////    Log.debug(versionOnStartUp)
+//    Log.debug(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
+//    Log.debug("now!")
+//    Log.debug(uncachedBundle.infoDictionary?["CFBundleShortVersionString"]! as! String)
+
     ConfigDirectory.create()
     reply(true)
   }
@@ -121,7 +138,9 @@ extension LinkHelper: NSXPCListenerDelegate {
     newConnection.exportedObject = self;
     newConnection.invalidationHandler = (() -> Void)? {
       Log.debug("Helper lost connection, queuing up for shutdown...")
-      self.shouldQuit = true
+      // This means the GUI was closed and the helper can be closed.
+      // But now we're using a daemon, that one should not quit.
+//      self.shouldQuit = true
     }
     Log.debug("Resuming connection...")
     newConnection.resume() // Ready to receive connections
