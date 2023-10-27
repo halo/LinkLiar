@@ -17,7 +17,7 @@
 import Foundation
 import ServiceManagement
 
-class Intercom {
+class Radio {
 
   private static var xpcConnection: NSXPCConnection?
 

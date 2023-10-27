@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C266992D2AE55EFC00592008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992C2AE55EFC00592008 /* Assets.xcassets */; };
+		C22134472AEC012700BCF30E /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134462AEC012700BCF30E /* LinkState.swift */; };
+		C22134482AEC012700BCF30E /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134462AEC012700BCF30E /* LinkState.swift */; };
+		C221344C2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; };
+		C221344D2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; };
+		C221344E2AEC01DD00BCF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C221344B2AEC01DD00BCF30E /* Assets.xcassets */; };
+		C221344F2AEC01DD00BCF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C221344B2AEC01DD00BCF30E /* Assets.xcassets */; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
@@ -16,8 +21,8 @@
 		C288E20D2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */; };
 		C288E2102AE7AEBD0098FF39 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20F2AE7AEBD0098FF39 /* Controller.swift */; };
 		C288E2112AE7AEBD0098FF39 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20F2AE7AEBD0098FF39 /* Controller.swift */; };
-		C288E2132AE7AEC40098FF39 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Intercom.swift */; };
-		C288E2142AE7AEC40098FF39 /* Intercom.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Intercom.swift */; };
+		C288E2132AE7AEC40098FF39 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Radio.swift */; };
+		C288E2142AE7AEC40098FF39 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Radio.swift */; };
 		C288E2162AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
 		C288E2172AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
 		C288E2182AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
@@ -30,7 +35,6 @@
 		C29EAF802AE5A202003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF872AE5A268003578B9 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */; };
 		C29EAF882AE5A268003578B9 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */; };
-		C29EAF942AE5A83C003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C29EAF962AE5ADCA003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
@@ -68,7 +72,6 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolderSpec = 1;
 			files = (
-				C29EAF942AE5A83C003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */,
 			);
 			name = "Copy Agent Property Lists";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,10 +90,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C22134462AEC012700BCF30E /* LinkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinkState.swift; path = Classes/LinkState.swift; sourceTree = "<group>"; };
+		C22134492AEC01DD00BCF30E /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = SOURCE_ROOT; };
+		C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = io.github.halo.LinkLiar.linkdaemon.plist; path = LinkLiar/io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = SOURCE_ROOT; };
+		C221344B2AEC01DD00BCF30E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C266992C2AE55EFC00592008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C266992F2AE55EFC00592008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C26699312AE55EFC00592008 /* LinkLiar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LinkLiar.entitlements; sourceTree = "<group>"; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
 		C26699402AE55EFD00592008 /* LinkLiarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,14 +106,13 @@
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
 		C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDirectory.swift; sourceTree = "<group>"; };
 		C288E20F2AE7AEBD0098FF39 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Classes/Controller.swift; sourceTree = "<group>"; };
-		C288E2122AE7AEC40098FF39 /* Intercom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Intercom.swift; path = Classes/Intercom.swift; sourceTree = "<group>"; };
+		C288E2122AE7AEC40098FF39 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Radio.swift; path = Classes/Radio.swift; sourceTree = "<group>"; };
 		C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
 		C288E21A2AE7AF620098FF39 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkHelper.swift; path = Classes/LinkHelper.swift; sourceTree = "<group>"; };
 		C29EAF762AE59EE7003578B9 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkLiarApp.swift; path = Classes/LinkLiarApp.swift; sourceTree = "<group>"; };
-		C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -137,6 +141,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C22134452AEC00A700BCF30E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C221344B2AEC01DD00BCF30E /* Assets.xcassets */,
+				C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */,
+				C22134492AEC01DD00BCF30E /* LinkLiar.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C266991C2AE55EFC00592008 = {
 			isa = PBXGroup;
 			children = (
@@ -164,12 +178,11 @@
 		C26699272AE55EFC00592008 /* LinkLiar */ = {
 			isa = PBXGroup;
 			children = (
-				C288E2122AE7AEC40098FF39 /* Intercom.swift */,
-				C288E20F2AE7AEBD0098FF39 /* Controller.swift */,
 				C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */,
-				C29EAF912AE5A802003578B9 /* io.github.halo.LinkLiar.linkdaemon.plist */,
-				C266992C2AE55EFC00592008 /* Assets.xcassets */,
-				C26699312AE55EFC00592008 /* LinkLiar.entitlements */,
+				C22134462AEC012700BCF30E /* LinkState.swift */,
+				C288E20F2AE7AEBD0098FF39 /* Controller.swift */,
+				C288E2122AE7AEC40098FF39 /* Radio.swift */,
+				C22134452AEC00A700BCF30E /* Resources */,
 				C266992E2AE55EFC00592008 /* Preview Content */,
 			);
 			path = LinkLiar;
@@ -357,7 +370,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */,
-				C266992D2AE55EFC00592008 /* Assets.xcassets in Resources */,
+				C221344E2AEC01DD00BCF30E /* Assets.xcassets in Resources */,
+				C221344C2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +379,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C221344F2AEC01DD00BCF30E /* Assets.xcassets in Resources */,
+				C221344D2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,8 +399,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
+				C22134472AEC012700BCF30E /* LinkState.swift in Sources */,
 				C29EAF872AE5A268003578B9 /* LinkLiarApp.swift in Sources */,
-				C288E2132AE7AEC40098FF39 /* Intercom.swift in Sources */,
+				C288E2132AE7AEC40098FF39 /* Radio.swift in Sources */,
 				C288E2102AE7AEBD0098FF39 /* Controller.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
 				C288E2162AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
@@ -399,7 +416,8 @@
 				C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
 				C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */,
-				C288E2142AE7AEC40098FF39 /* Intercom.swift in Sources */,
+				C288E2142AE7AEC40098FF39 /* Radio.swift in Sources */,
+				C22134482AEC012700BCF30E /* LinkState.swift in Sources */,
 				C29EAF882AE5A268003578B9 /* LinkLiarApp.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 				C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */,
@@ -584,6 +602,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -612,6 +631,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,10 +1,3 @@
-//
-//  Controller.swift
-//  LinkLiar
-//
-//  Created by orange on 22.10.23.
-//
-
 import Foundation
 import ServiceManagement
 
@@ -14,9 +7,8 @@ class Controller {
     Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
   }()
   
-  
   static func install() {
-    Intercom.install(reply: { success in
+    Radio.install(reply: { success in
       if (success) {
         Log.debug("Installation complete")
       } else {
@@ -26,7 +18,7 @@ class Controller {
   }
   
   static func uninstall() {
-    Intercom.uninstall(reply: { success in
+    Radio.uninstall(reply: { success in
       if (success) {
         Log.debug("umInstallation complete")
       } else {
