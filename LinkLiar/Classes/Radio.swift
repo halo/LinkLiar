@@ -19,29 +19,13 @@ import ServiceManagement
 
 class Radio {
 
-  private static var xpcConnection: NSXPCConnection?
-
-  static func reset(state: LinkState) {
-    state.xpcStatus = "reset"
-    self.xpcConnection = nil
-  }
-
-//  static func helperIsCompatible(reply: @escaping (Bool) -> Void) {
-//    let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ _ in
-//      return reply(false)
-//    }) as! HelperProtocol
-//
-//    helper.version(reply: { rawVersion in
-//      Log.debug("The helper responded with its version")
-//      reply(Version(rawVersion).isCompatible(with: AppDelegate.version))
-//    })
-  
-//
   static func version(state: LinkState, reply: @escaping (Version?) -> Void) {
-    usingHelper(state: state, block: { helper in
-      helper.version(reply: { rawVersion in
-        Log.debug("The helper responded with its version")
-        reply(Version(rawVersion))
+    transceive(state: state, block: { listener in
+      listener.version(reply: { rawVersion in
+        Log.debug("The helper responded with its version \(rawVersion)")
+        let version = Version(rawVersion)
+        state.daemonVersion = version
+        reply(version)
       })
     })
   }
@@ -56,19 +40,21 @@ class Radio {
   //    })
   //  }
   
-  static func install(reply: @escaping (Bool) -> Void) {
-    usingHelper(state: LinkState(), block: { helper in
+  static func install(state: LinkState, reply: @escaping (Bool) -> Void) {
+    transceive(state: state, block: { helper in
       helper.createConfigDirectory(reply: { success in
         Log.debug("Helper worked on installation")
+        state.xpcStatus = .connected
         reply(success)
       })
     })
   }
 
-  static func uninstall(reply: @escaping (Bool) -> Void) {
-    usingHelper(state: LinkState(), block: { helper in
+  static func uninstall(state: LinkState, reply: @escaping (Bool) -> Void) {
+    transceive(state: state, block: { helper in
       helper.removeConfigDirectory(reply: { success in
         Log.debug("Helper worked on uninstallation")
+        state.xpcStatus = .connected
         reply(success)
       })
     })
@@ -140,48 +126,55 @@ class Radio {
 //    })
 //  }
 
-  static func usingHelper(state: LinkState, block: @escaping (ListenerProtocol) -> Void) {
-    let helper = self.connection(state: state)?.remoteObjectProxyWithErrorHandler({ error in
+  
+  // MARK: Private Properties
+
+  private static var xpcConnection: NSXPCConnection?
+
+  // MARK: Private Functions
+
+  private static func transceive(state: LinkState, block: @escaping (ListenerProtocol) -> Void) {
+    let helper = connection(state: state)?.remoteObjectProxyWithErrorHandler({ error in
       Log.debug("Oh no, no connection to helper: \(error.localizedDescription)")
       state.connectedToDaemon = false
     }) as! ListenerProtocol
     block(helper)
   }
-
-  static func connection(state: LinkState) -> NSXPCConnection? {
-    if (self.xpcConnection != nil) {
-      state.xpcStatus = "initialized"
-      return self.xpcConnection
+  
+  private static func connection(state: LinkState) -> NSXPCConnection? {
+    if (xpcConnection != nil) {
+      state.xpcStatus = .initialized
+      return xpcConnection
     }
     
     Log.debug(Identifiers.daemon.rawValue)
-    self.xpcConnection = NSXPCConnection(machServiceName: Identifiers.daemon.rawValue, options: NSXPCConnection.Options.privileged)
-    Log.debug("xpcConnection: \(self.xpcConnection!.description)")
-    self.xpcConnection!.exportedObject = self
-    self.xpcConnection!.remoteObjectInterface = NSXPCInterface(with: ListenerProtocol.self)
+    xpcConnection = NSXPCConnection(machServiceName: Identifiers.daemon.rawValue, options: NSXPCConnection.Options.privileged)
+    Log.debug("xpcConnection: \(xpcConnection!.description)")
+    xpcConnection!.exportedObject = self
+    xpcConnection!.remoteObjectInterface = NSXPCInterface(with: ListenerProtocol.self)
 
-    self.xpcConnection!.interruptionHandler = {
-      self.xpcConnection?.interruptionHandler = nil
+    xpcConnection!.interruptionHandler = {
+      xpcConnection?.interruptionHandler = nil
       OperationQueue.main.addOperation(){
-        self.xpcConnection = nil
+        xpcConnection = nil
         Log.debug("XPC Connection interrupted - the Helper probably crashed.")
         Log.debug("You mght find a crash report at /Library/Logs/DiagnosticReports")
-        state.xpcStatus = "interrupted"
+        state.xpcStatus = .interrupted
       }
     }
     
-    self.xpcConnection!.invalidationHandler = {
-      self.xpcConnection?.invalidationHandler = nil
+    xpcConnection!.invalidationHandler = {
+      xpcConnection?.invalidationHandler = nil
       
       OperationQueue.main.addOperation(){
-        self.xpcConnection = nil
+        xpcConnection = nil
         Log.debug("XPC Connection Invalidated")
-        state.xpcStatus = "invalidated"
+        state.xpcStatus = .invalidated
       }
     }
 
-    self.xpcConnection?.resume()
-    return self.xpcConnection
+    xpcConnection?.resume()
+    return xpcConnection
   }
 
 }

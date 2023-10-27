@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C221344C2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; };
 		C221344D2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; };
 		C221344E2AEC01DD00BCF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C221344B2AEC01DD00BCF30E /* Assets.xcassets */; };
 		C221344F2AEC01DD00BCF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C221344B2AEC01DD00BCF30E /* Assets.xcassets */; };
@@ -28,6 +27,7 @@
 		C22134692AEC37E600BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346A2AEC37E600BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346B2AEC3D7500BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
+		C221346C2AEC4B0F00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
@@ -81,6 +81,7 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolderSpec = 1;
 			files = (
+				C221346C2AEC4B0F00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */,
 			);
 			name = "Copy Agent Property Lists";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +405,6 @@
 			files = (
 				C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */,
 				C221344E2AEC01DD00BCF30E /* Assets.xcassets in Resources */,
-				C221344C2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

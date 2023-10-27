@@ -58,8 +58,20 @@ class Listener: NSObject {
 extension Listener: ListenerProtocol {
 //
   func version(reply: (String) -> Void) {
-    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
-    reply(version)
+    Log.debug("I was asked for my version")
+
+    guard let bundleDictionary = Bundle.main.infoDictionary else {
+      Log.debug("Cannot find my bundle")
+      return reply("missing bundle")
+    }
+    
+    guard let versionString = bundleDictionary["CFBundleShortVersionString"] as? String else {
+      Log.debug("Cannot find my version in the bundle dictionary")
+      return reply("missing version string")
+    }
+    
+    Log.debug("It is \(versionString)")
+    reply(versionString)
   }
 //
 //  func install(pristineDaemonExecutablePath: String, reply: (Bool) -> Void) {
