@@ -57,7 +57,7 @@ func main() {
   }
   
   Log.debug("Logger works")
-  let helper = LinkHelper()
+  let helper = Listener()
   Log.debug(helper.description)
   helper.listen()
   

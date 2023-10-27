@@ -16,7 +16,7 @@
 
 import Foundation
 
-class LinkHelper: NSObject {
+class Listener: NSObject {
 //
 //  static var version: Version = {
 //    if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
@@ -55,7 +55,7 @@ class LinkHelper: NSObject {
 }
 
 // MARK: - HelperProtocol
-extension LinkHelper: HelperProtocol {
+extension Listener: ListenerProtocol {
 //
 //  func version(reply: (String) -> Void) {
 //    let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
@@ -130,11 +130,11 @@ extension LinkHelper: HelperProtocol {
 }
 
 // MARK: - NSXPCListenerDelegate
-extension LinkHelper: NSXPCListenerDelegate {
+extension Listener: NSXPCListenerDelegate {
 
   func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
     Log.debug("New connection!")
-    newConnection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
+    newConnection.exportedInterface = NSXPCInterface(with: ListenerProtocol.self)
     newConnection.exportedObject = self;
     newConnection.invalidationHandler = (() -> Void)? {
       Log.debug("Helper lost connection, queuing up for shutdown...")

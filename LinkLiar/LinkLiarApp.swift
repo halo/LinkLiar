@@ -10,6 +10,9 @@ struct LinkLiarApp: App {
       LinkMenu().environment(state)
     }
     
+    Settings {
+      SettingsView().navigationTitle("Settings")
+    }
 //    WindowGroup {
 //      VStack {
 //        Text(Controller.version)
@@ -32,21 +35,5 @@ struct LinkLiarApp: App {
   
   private var menuBarIconName: String {
     state.warnAboutLeakage ? "MenuIconLeaking" : "MenuIconProtected"
-  }
-}
-
-
-
-struct LinkMenu: View {
-  @Environment(LinkState.self) private var state
-  
-  var body: some View {
-    Button("One") {
-      state.warnAboutLeakage = true
-    }
-    Button("Two") {
-      state.warnAboutLeakage = false
-    }
-    Divider()
   }
 }

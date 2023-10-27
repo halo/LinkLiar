@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -141,10 +141,10 @@ class Radio {
 //    })
 //  }
 
-  static func usingHelper(block: @escaping (HelperProtocol) -> Void) {
+  static func usingHelper(block: @escaping (ListenerProtocol) -> Void) {
     let helper = self.connection()?.remoteObjectProxyWithErrorHandler({ error in
       Log.debug("Oh no, no connection to helper: \(error.localizedDescription)")
-    }) as! HelperProtocol
+    }) as! ListenerProtocol
     block(helper)
   }
 
@@ -155,7 +155,7 @@ class Radio {
     self.xpcConnection = NSXPCConnection(machServiceName: Identifiers.daemon.rawValue, options: NSXPCConnection.Options.privileged)
     Log.debug("xpcConnection: \(self.xpcConnection!.description)")
     self.xpcConnection!.exportedObject = self
-    self.xpcConnection!.remoteObjectInterface = NSXPCInterface(with:HelperProtocol.self)
+    self.xpcConnection!.remoteObjectInterface = NSXPCInterface(with: ListenerProtocol.self)
 
     self.xpcConnection!.interruptionHandler = {
       self.xpcConnection?.interruptionHandler = nil

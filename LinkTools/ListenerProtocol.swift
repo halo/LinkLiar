@@ -18,7 +18,7 @@ import Foundation
 
 @objc(HelperProtocol)
 
-protocol HelperProtocol {
+protocol ListenerProtocol {
 //  func version(reply: @escaping (String) -> Void)
 
 //  func install(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)

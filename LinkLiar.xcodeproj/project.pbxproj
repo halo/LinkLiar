@@ -7,34 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C22134472AEC012700BCF30E /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134462AEC012700BCF30E /* LinkState.swift */; };
-		C22134482AEC012700BCF30E /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134462AEC012700BCF30E /* LinkState.swift */; };
 		C221344C2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; };
 		C221344D2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; };
 		C221344E2AEC01DD00BCF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C221344B2AEC01DD00BCF30E /* Assets.xcassets */; };
 		C221344F2AEC01DD00BCF30E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C221344B2AEC01DD00BCF30E /* Assets.xcassets */; };
+		C22134572AEC0BD600BCF30E /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134532AEC0BD600BCF30E /* LinkState.swift */; };
+		C22134582AEC0BD600BCF30E /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134532AEC0BD600BCF30E /* LinkState.swift */; };
+		C22134592AEC0BD600BCF30E /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134542AEC0BD600BCF30E /* Controller.swift */; };
+		C221345A2AEC0BD600BCF30E /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134542AEC0BD600BCF30E /* Controller.swift */; };
+		C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */; };
+		C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */; };
+		C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134562AEC0BD600BCF30E /* Radio.swift */; };
+		C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134562AEC0BD600BCF30E /* Radio.swift */; };
+		C22134602AEC0D6E00BCF30E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221345F2AEC0D6E00BCF30E /* SettingsView.swift */; };
+		C22134612AEC0D6E00BCF30E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221345F2AEC0D6E00BCF30E /* SettingsView.swift */; };
+		C22134632AEC0DA000BCF30E /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134622AEC0DA000BCF30E /* LinkMenu.swift */; };
+		C22134642AEC0DA000BCF30E /* LinkMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134622AEC0DA000BCF30E /* LinkMenu.swift */; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
 		C288E20D2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */; };
-		C288E2102AE7AEBD0098FF39 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20F2AE7AEBD0098FF39 /* Controller.swift */; };
-		C288E2112AE7AEBD0098FF39 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20F2AE7AEBD0098FF39 /* Controller.swift */; };
-		C288E2132AE7AEC40098FF39 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Radio.swift */; };
-		C288E2142AE7AEC40098FF39 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2122AE7AEC40098FF39 /* Radio.swift */; };
-		C288E2162AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
-		C288E2172AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
-		C288E2182AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */; };
-		C288E21B2AE7AF620098FF39 /* LinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* LinkHelper.swift */; };
+		C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
+		C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
+		C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
+		C288E21B2AE7AF620098FF39 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* Listener.swift */; };
 		C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
 		C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
 		C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF802AE5A202003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
-		C29EAF872AE5A268003578B9 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */; };
-		C29EAF882AE5A268003578B9 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */; };
 		C29EAF962AE5ADCA003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
@@ -90,10 +94,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C22134462AEC012700BCF30E /* LinkState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LinkState.swift; path = Classes/LinkState.swift; sourceTree = "<group>"; };
 		C22134492AEC01DD00BCF30E /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = SOURCE_ROOT; };
 		C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = io.github.halo.LinkLiar.linkdaemon.plist; path = LinkLiar/io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = SOURCE_ROOT; };
 		C221344B2AEC01DD00BCF30E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		C22134532AEC0BD600BCF30E /* LinkState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkState.swift; sourceTree = "<group>"; };
+		C22134542AEC0BD600BCF30E /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkLiarApp.swift; sourceTree = "<group>"; };
+		C22134562AEC0BD600BCF30E /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
+		C221345F2AEC0D6E00BCF30E /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C22134622AEC0DA000BCF30E /* LinkMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkMenu.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266992F2AE55EFC00592008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,14 +114,11 @@
 		C266996A2AE57A3100592008 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
 		C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDirectory.swift; sourceTree = "<group>"; };
-		C288E20F2AE7AEBD0098FF39 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Controller.swift; path = Classes/Controller.swift; sourceTree = "<group>"; };
-		C288E2122AE7AEC40098FF39 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Radio.swift; path = Classes/Radio.swift; sourceTree = "<group>"; };
-		C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperProtocol.swift; sourceTree = "<group>"; };
-		C288E21A2AE7AF620098FF39 /* LinkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkHelper.swift; path = Classes/LinkHelper.swift; sourceTree = "<group>"; };
+		C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
+		C288E21A2AE7AF620098FF39 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
 		C29EAF762AE59EE7003578B9 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkLiarApp.swift; path = Classes/LinkLiarApp.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C22134502AEC0BC000BCF30E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C22134622AEC0DA000BCF30E /* LinkMenu.swift */,
+				C221345F2AEC0D6E00BCF30E /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C22134522AEC0BD600BCF30E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C22134532AEC0BD600BCF30E /* LinkState.swift */,
+				C22134542AEC0BD600BCF30E /* Controller.swift */,
+				C22134562AEC0BD600BCF30E /* Radio.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		C266991C2AE55EFC00592008 = {
 			isa = PBXGroup;
 			children = (
@@ -178,10 +203,9 @@
 		C26699272AE55EFC00592008 /* LinkLiar */ = {
 			isa = PBXGroup;
 			children = (
-				C29EAF862AE5A268003578B9 /* LinkLiarApp.swift */,
-				C22134462AEC012700BCF30E /* LinkState.swift */,
-				C288E20F2AE7AEBD0098FF39 /* Controller.swift */,
-				C288E2122AE7AEC40098FF39 /* Radio.swift */,
+				C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */,
+				C22134522AEC0BD600BCF30E /* Classes */,
+				C22134502AEC0BC000BCF30E /* Views */,
 				C22134452AEC00A700BCF30E /* Resources */,
 				C266992E2AE55EFC00592008 /* Preview Content */,
 			);
@@ -218,7 +242,7 @@
 			children = (
 				C266996A2AE57A3100592008 /* main.swift */,
 				C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */,
-				C288E21A2AE7AF620098FF39 /* LinkHelper.swift */,
+				C288E21A2AE7AF620098FF39 /* Listener.swift */,
 				C266996F2AE57A3D00592008 /* linkdaemon.entitlements */,
 			);
 			path = linkdaemon;
@@ -227,7 +251,7 @@
 		C29EAF752AE59EE7003578B9 /* LinkTools */ = {
 			isa = PBXGroup;
 			children = (
-				C288E2152AE7AF2D0098FF39 /* HelperProtocol.swift */,
+				C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */,
 				C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */,
 				C29EAF7E2AE5A202003578B9 /* Log.swift */,
 				C29EAF762AE59EE7003578B9 /* Paths.swift */,
@@ -399,12 +423,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
-				C22134472AEC012700BCF30E /* LinkState.swift in Sources */,
-				C29EAF872AE5A268003578B9 /* LinkLiarApp.swift in Sources */,
-				C288E2132AE7AEC40098FF39 /* Radio.swift in Sources */,
-				C288E2102AE7AEBD0098FF39 /* Controller.swift in Sources */,
+				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
+				C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */,
+				C22134602AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
+				C22134572AEC0BD600BCF30E /* LinkState.swift in Sources */,
+				C22134592AEC0BD600BCF30E /* Controller.swift in Sources */,
+				C22134632AEC0DA000BCF30E /* LinkMenu.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
-				C288E2162AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
+				C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,14 +440,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */,
-				C288E2172AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
+				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
+				C22134642AEC0DA000BCF30E /* LinkMenu.swift in Sources */,
+				C221345A2AEC0BD600BCF30E /* Controller.swift in Sources */,
+				C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */,
-				C288E2142AE7AEC40098FF39 /* Radio.swift in Sources */,
-				C22134482AEC012700BCF30E /* LinkState.swift in Sources */,
-				C29EAF882AE5A268003578B9 /* LinkLiarApp.swift in Sources */,
+				C22134612AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
+				C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */,
+				C22134582AEC0BD600BCF30E /* LinkState.swift in Sources */,
 				C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */,
-				C288E2112AE7AEBD0098FF39 /* Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,8 +471,8 @@
 				C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */,
 				C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
-				C288E21B2AE7AF620098FF39 /* LinkHelper.swift in Sources */,
-				C288E2182AE7AF2D0098FF39 /* HelperProtocol.swift in Sources */,
+				C288E21B2AE7AF620098FF39 /* Listener.swift in Sources */,
+				C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
