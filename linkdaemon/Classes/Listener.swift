@@ -149,7 +149,7 @@ extension Listener: NSXPCListenerDelegate {
     newConnection.exportedInterface = NSXPCInterface(with: ListenerProtocol.self)
     newConnection.exportedObject = self;
     newConnection.invalidationHandler = (() -> Void)? {
-      Log.debug("Helper lost connection, queuing up for shutdown...")
+      Log.debug("Daemon lost connection to GUI...")
       // This means the GUI was closed and the helper can be closed.
       // But now we're using a daemon, that one should not quit.
 //      self.shouldQuit = true

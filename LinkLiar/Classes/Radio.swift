@@ -25,6 +25,7 @@ class Radio {
         Log.debug("The helper responded with its version \(rawVersion)")
         let version = Version(rawVersion)
         state.daemonVersion = version
+        state.xpcStatus = .connected
         reply(version)
       })
     })
@@ -143,7 +144,6 @@ class Radio {
   
   private static func connection(state: LinkState) -> NSXPCConnection? {
     if (xpcConnection != nil) {
-      state.xpcStatus = .initialized
       return xpcConnection
     }
     

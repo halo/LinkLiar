@@ -87,9 +87,7 @@ class Controller {
     }
   }
   
-  
-  
-  static func troubleshoot(state: LinkState) {
+  static func queryDaemonVersion(state: LinkState) {
     Radio.version(state: state, reply: { version in
       if (version == nil) {
         Log.debug("No Version")
@@ -100,6 +98,15 @@ class Controller {
       }
     })
   }
+
+  
+  static func troubleshoot(state: LinkState) {
+    queryDaemonRegistration(state: state)
+    queryDaemonVersion(state: state)
+
+  }
+  
+  // MARK: Private Functions
   
   private static func queryDaemonRegistration(state: LinkState) {
     Log.debug("BEFORE")

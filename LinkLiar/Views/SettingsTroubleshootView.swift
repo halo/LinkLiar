@@ -6,9 +6,10 @@ struct SettingsTroubleshootView: View {
   
   var body: some View {
     VStack {
+      
+      Text("Daemon State: \(state.daemonRegistration.rawValue)")
+      Text("Daemon Version: \(state.daemonVersion.formatted)")
       HStack {
-        Text("Daemon State: \(state.daemonRegistration.rawValue)")
-        
         Button(action: { Controller.registerDaemon(state: state) }) {
           Text("Register Daemon")
         }
@@ -19,21 +20,17 @@ struct SettingsTroubleshootView: View {
           Text("Unregister Daemon")
         }
       }
+      
+      Text("XPC State: \(state.xpcStatus.rawValue)")
       HStack {
-        
-        Text("XPC State: \(state.xpcStatus.rawValue)")
-        //      Text("Daemon connected: \(state.connectedToDaemon.description)")
-        
         Button(action: { Controller.troubleshoot(state: state) }) {
           Image(systemName: "arrow.2.circlepath")
         }
-        
-      }.tabItem {
-        Image(systemName: "bandage")
-        Text("Troubleshoot")
       }
       
-      
+    }.tabItem {
+      Image(systemName: "bandage")
+      Text("Troubleshoot")
     }
   }
 }
