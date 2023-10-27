@@ -6,7 +6,8 @@ struct SettingsTroubleshootView: View {
   
   var body: some View {
     VStack {
-      
+      Text("GUI Version: \(Controller.version)")
+
       Text("Daemon State: \(state.daemonRegistration.rawValue)")
       Text("Daemon Version: \(state.daemonVersion.formatted)")
       HStack {
