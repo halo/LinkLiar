@@ -53,7 +53,10 @@ class Interface: Identifiable {
     
     if async {
       ifconfig.softMAC(callback: { address in
-        self._softMAC = address.formatted
+        DispatchQueue.main.async {
+          //        Log.debug("Detecting \(BSDName) from \(self._softMAC) to \(address.formatted)")
+          self._softMAC = address.formatted
+        }
       })
     } else {
       self._softMAC = ifconfig.softMAC().formatted

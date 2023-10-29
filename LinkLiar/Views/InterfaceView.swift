@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct InterfaceView: View {
-  @State var interface: Interface
+  @Bindable var interface: Interface
   
   var body: some View {
       

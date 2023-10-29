@@ -40,8 +40,9 @@ struct MenuView: View {
         
       }.keyboardShortcut("q")
     }.fixedSize().onAppear {
+      // See https://damian.fyi/swift/2022/12/29/detecting-when-a-swiftui-menubarextra-with-window-style-is-opened.html
       observer = NSApplication.shared.observe(\.keyWindow) { x, y in
-          print("Is visible: \(NSApplication.shared.keyWindow != nil)")
+        NotificationCenter.default.post(name: .menuBarAppeared, object: nil)
       }
   }
   }
