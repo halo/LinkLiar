@@ -1,5 +1,5 @@
 /*
- * Copyright (C) halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -14,30 +14,34 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import Foundation
+import Cocoa
+import SystemConfiguration
 
-struct Version {
-  
-  var major: Int
-  var minor: Int
-  var patch: Int
+struct  NetworkObserver {
 
-  init(_ version: String) {
-    let v = version.components(separatedBy: ".") as Array
-
-    major = Int(v[0])!
-    minor = Int(v[1])!
-    patch = Int(v[2])!
+  private static let callback: SCDynamicStoreCallBack = { (store, _, _) in
+    Log.debug("Network change detected")
+    NetworkObserver.post()
   }
 
-  var formatted: String {
-    if (major == 0 && minor == 0 && patch == 0) { return "unknown" }
-    
-    return "\(self.major).\(self.minor).\(self.patch)"
+  private static let store = {
+    return SCDynamicStoreCreate(nil, "Example" as CFString, NetworkObserver.callback, nil)
+  }()
+
+  private static let keys = {
+    return [SCDynamicStoreKeyCreateNetworkInterface(nil, kSCDynamicStoreDomainState)]
+  }()
+
+  static func observe() {
+    SCDynamicStoreSetNotificationKeys(store!, keys as CFArray, nil)
+    CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store!, 0), CFRunLoopMode.defaultMode)
+    // When the observer starts, we notify immediately.
+    // One could say the conditions changed right now "for us". From nothing to something.
+    post()
   }
 
-  func isCompatible(with: Version) -> Bool {
-    return self.major == with.major && self.minor == with.minor
+  private static func post() {
+    NotificationCenter.default.post(name: .interfacesChanged, object: nil)
   }
-
 }
+

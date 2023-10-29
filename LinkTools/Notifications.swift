@@ -1,5 +1,5 @@
 /*
- * Copyright (C) halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -16,28 +16,11 @@
 
 import Foundation
 
-struct Version {
-  
-  var major: Int
-  var minor: Int
-  var patch: Int
-
-  init(_ version: String) {
-    let v = version.components(separatedBy: ".") as Array
-
-    major = Int(v[0])!
-    minor = Int(v[1])!
-    patch = Int(v[2])!
-  }
-
-  var formatted: String {
-    if (major == 0 && minor == 0 && patch == 0) { return "unknown" }
-    
-    return "\(self.major).\(self.minor).\(self.patch)"
-  }
-
-  func isCompatible(with: Version) -> Bool {
-    return self.major == with.major && self.minor == with.minor
-  }
-
+extension Notification.Name {
+  static let menuChanged = Notification.Name("\(Identifiers.gui).notifications.menuChanged")
+  static let configChanged = Notification.Name("\(Identifiers.gui).notifications.configChanged")
+  static let softMacIdentified = Notification.Name("\(Identifiers.gui).notifications.softMacIdentified")
+  static let interfacesChanged = Notification.Name("\(Identifiers.gui).notifications.interfacesChanged")
+  static let intervalElapsed = Notification.Name("\(Identifiers.gui).notifications.intervalElapsed")
+  static let killLauncher = Notification.Name("\(Identifiers.gui).notifications.killLauncher")
 }

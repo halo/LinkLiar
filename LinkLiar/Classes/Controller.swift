@@ -3,7 +3,6 @@ import ServiceManagement
 
 class Controller {
   
-  
   static var version: String = {
     Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
   }()
@@ -16,6 +15,11 @@ class Controller {
         Log.debug("Could not complete installation")
       }
     })
+  }
+  
+  
+  static func queryInterfaces(state: LinkState) {
+    state.interfaces = Interfaces.all(async: true)
   }
   
   static func uninstall(state: LinkState) {
@@ -101,6 +105,7 @@ class Controller {
 
   
   static func troubleshoot(state: LinkState) {
+    queryInterfaces(state: state)
     queryDaemonRegistration(state: state)
     queryDaemonVersion(state: state)
 
