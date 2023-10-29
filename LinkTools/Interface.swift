@@ -17,6 +17,11 @@
 import Foundation
 import CoreWLAN
 
+// Because the softMac is queried asynchronously
+// We need SwiftUI to know that the Interface intance
+// may change at some point in the future.
+@Observable
+
 class Interface: Identifiable {
   
   var id: String { BSDName }
@@ -41,7 +46,6 @@ class Interface: Identifiable {
     if async {
       ifconfig.softMAC(callback: { address in
         self._softMAC = address.formatted
-//        NotificationCenter.default.post(name: .softMacIdentified, object: self, userInfo: nil)
       })
     } else {
       self._softMAC = ifconfig.softMAC().formatted

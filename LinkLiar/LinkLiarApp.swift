@@ -12,9 +12,10 @@ struct LinkLiarApp: App {
     NetworkObserver.observe()
   }
   
+  
   private func networkConditionsChanged(_ _: Notification) {
     Log.debug("Network change detected, acting upon it")
-Controller.queryInterfaces(state: state)
+    Controller.queryInterfaces(state: state)
   }
   
   var body: some Scene {
