@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -18,30 +18,25 @@ import Cocoa
 import SystemConfiguration
 
 struct  NetworkObserver {
-
-  private static let callback: SCDynamicStoreCallBack = { (store, _, _) in
-    Log.debug("Network change detected")
-    NetworkObserver.post()
-  }
-
-  private static let store = {
-    return SCDynamicStoreCreate(nil, "Example" as CFString, NetworkObserver.callback, nil)
-  }()
-
-  private static let keys = {
-    return [SCDynamicStoreKeyCreateNetworkInterface(nil, kSCDynamicStoreDomainState)]
-  }()
-
+  
   static func observe() {
-    SCDynamicStoreSetNotificationKeys(store!, keys as CFArray, nil)
-    CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store!, 0), CFRunLoopMode.defaultMode)
+    let store = SCDynamicStoreCreate(nil, "LinkLiar" as CFString, NetworkObserver.callback, nil)!
+    let keys = [SCDynamicStoreKeyCreateNetworkInterface(nil, kSCDynamicStoreDomainState)] as CFArray
+    
+    SCDynamicStoreSetNotificationKeys(store, keys , nil)
+    CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store, 0), CFRunLoopMode.defaultMode)
+    
     // When the observer starts, we notify immediately.
-    // One could say the conditions changed right now "for us". From nothing to something.
-    post()
+    // One could say the conditions changed right now "for us".
+    callback(store, [] as CFArray, nil)
   }
-
-  private static func post() {
-    NotificationCenter.default.post(name: .interfacesChanged, object: nil)
+  
+  // I wish we could use `NetworkObserver.observe` with a callback closure.
+  // But callback types are not compatible with what the SystemConfiguration framework calls.
+  // So we resort to sending global notifications that anyone may subscribe to.
+  private static let callback: SCDynamicStoreCallBack = { (_, _, _) in
+    Log.debug("Network conditions changed")
+    NotificationCenter.default.post(name: .networkConditionsChanged, object: nil)
   }
+  
 }
-

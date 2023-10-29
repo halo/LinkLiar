@@ -7,11 +7,11 @@ struct LinkLiarApp: App {
   
   init() {
     Controller.troubleshoot(state: state)
-    NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: networkConditionsChanged)
-
+    
+    // Start observing Network condition changes.
+    NotificationCenter.default.addObserver(forName: .networkConditionsChanged, object: nil, queue: nil, using: networkConditionsChanged)
     NetworkObserver.observe()
   }
-  
   
   private func networkConditionsChanged(_ _: Notification) {
     Log.debug("Network change detected, acting upon it")
@@ -31,4 +31,5 @@ struct LinkLiarApp: App {
   private var menuBarIconName: String {
     state.warnAboutLeakage ? "MenuIconLeaking" : "MenuIconProtected"
   }
+  
 }
