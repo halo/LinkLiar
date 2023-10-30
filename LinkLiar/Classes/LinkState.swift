@@ -24,10 +24,12 @@ class LinkState {
   var xpcStatus = xpcStatuses.unknown
   var daemonVersion: Version = Version("0.0.0")
 
-
   var connectedToDaemon = false
-  var warnAboutLeakage = false
   var requestsDaemonAuthorization = false
   
   var interfaces = [Interface]()
+  
+  var warnAboutLeakage: Bool {
+    self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
+  }
 }

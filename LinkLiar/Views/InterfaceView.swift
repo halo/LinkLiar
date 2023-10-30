@@ -10,13 +10,14 @@ struct InterfaceView: View {
         if interface.hasOriginalMAC {
           Image("MenuIconLeaking")
         } else {
+          // Placeholder in the same size as the icon.
           Image("MenuIconLeaking").opacity(0)
         }
         
         VStack(alignment: .leading) {
           HStack(spacing: 8) {
             Text(interface.displayName)
-            Text(interface.BSDName).opacity(0.3)
+            Text(interface.BSDName).opacity(0.3).font(.system(.body, design: .monospaced))
           }
           
           HStack(spacing: 8) {
@@ -27,6 +28,7 @@ struct InterfaceView: View {
             Text("Spoofing \(interface.hardMAC.humanReadable)").font(.system(.footnote, design: .monospaced)).opacity(0.5)
           }
         }
+        // Padding parity on the right side.
         Image("MenuIconLeaking").opacity(0)
         
         
