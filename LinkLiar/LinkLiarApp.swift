@@ -15,15 +15,16 @@ struct LinkLiarApp: App {
     NetworkObserver.observe()
   }
   
+  // We have no way to detect whether someone changed a MAC address using ifconfig in the Terminal.
+  // Therefore we need to re-query all malleable MAC addresses evey time the menu bar is clicked on.
+  private func menuBarAppeared(_ _: Notification) {
+    Controller.queryAllSoftMACs(state: state)
+  }
+
   private func networkConditionsChanged(_ _: Notification) {
     Log.debug("Network change detected, acting upon it")
     Controller.queryInterfaces(state: state)
   }  
-  
-  private func menuBarAppeared(_ _: Notification) {
-    Log.debug("MenuBar appeared")
-    Controller.troubleshoot(state: state)
-  }
   
   var body: some Scene {
     MenuBarExtra("LinkLiar", image: menuBarIconName) {

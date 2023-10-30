@@ -17,9 +17,12 @@ class Controller {
     })
   }
   
-  
   static func queryInterfaces(state: LinkState) {
     state.interfaces = Interfaces.all(async: true)
+  }
+  
+  static func queryAllSoftMACs(state: LinkState) {
+    state.interfaces.forEach { $0.querySoftMAC(async: true) }
   }
   
   static func uninstall(state: LinkState) {

@@ -142,6 +142,7 @@ extension Listener: ListenerProtocol {
 }
 
 // MARK: - NSXPCListenerDelegate
+
 extension Listener: NSXPCListenerDelegate {
 
   func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {

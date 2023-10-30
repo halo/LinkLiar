@@ -24,8 +24,6 @@ import CoreWLAN
 
 class Interface: Identifiable {
   
-  var id: String { BSDName }
-  
   enum Action: String {
     case ignore = "ignore"
     case random = "random"
@@ -33,7 +31,29 @@ class Interface: Identifiable {
     case original = "original"
   }
   
-  // Upon initialization we assign what we already know
+  // MARK: Public Properties
+  
+  // Conform to Identifiable.
+  var id: String { self.BSDName }
+  
+  // These attributes are known instantaneously.
+  var BSDName: String
+  var displayName: String
+  var kind: String
+  
+  // Instead we expose the hardware MAC as an object.
+  var hardMAC: MACAddress {
+    return MACAddress(_hardMAC)
+  }
+  
+  // Whether the software MAC is already known or not, we expose it as an object.
+  var softMAC: MACAddress {
+    return MACAddress(_softMAC)
+  }
+  
+  // MARK: Initialization
+  
+  // Upon initialization we assign what we already know.
   init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
     self.BSDName = BSDName
     self.displayName = displayName
@@ -48,8 +68,12 @@ class Interface: Identifiable {
     self.kind = kind
     self._hardMAC = hardMAC
     self._softMAC = ""
-    let ifconfig = Ifconfig(BSDName: self.BSDName)
     if !isSpoofable { return }
+    querySoftMAC(async: async)
+  }
+  
+  func querySoftMAC(async: Bool) {
+    let ifconfig = Ifconfig(BSDName: self.BSDName)
     
     if async {
       ifconfig.softMAC(callback: { address in
@@ -63,27 +87,14 @@ class Interface: Identifiable {
     }
   }
   
-  // These attributes are known instantaneously
-  var BSDName: String
-  var displayName: String
-  var kind: String
-  
   // This is where we keep the hardware MAC address as a String. But we don't expose it.
   private var _hardMAC: String
   
-  // Instead we expose the hardware MAC as an object.
-  var hardMAC: MACAddress {
-    return MACAddress(_hardMAC)
-  }
   
   // This is where we keep the software MAC address as a String.
   // This variable is populated asynchronously by running ifconfig.
   var _softMAC: String
   
-  // Whether the software MAC is already known or not, we expose it as an object.
-  var softMAC: MACAddress {
-    return MACAddress(_softMAC)
-  }
   
   //  var softPrefix: MACPrefix {
   //    return MACPrefix(softMAC.prefix)
@@ -115,12 +126,12 @@ class Interface: Identifiable {
   
   // This is a human readable representation of the Interface.
   // It's simply its name and interface identifier (e.g. "Wi-Fi ∙ en1")
-  var title: String {
-    return "\(displayName) · \(BSDName)"
-  }
+  //  var title: String {
+  //    return "\(displayName) · \(BSDName)"
+  //  }
   
   // We cannot modify the MAC address of an Airport device that is turned off.
-  // This method figures out whether this interface is just that.
+  // This method figures out whether this interface is turned off.
   var isPoweredOffWifi: Bool {
     guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else { return false }
     return !wifi.powerOn()
