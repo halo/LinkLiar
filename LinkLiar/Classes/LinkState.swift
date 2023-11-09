@@ -3,6 +3,18 @@ import SwiftUI
 @Observable
 
 class LinkState {
+  var daemonRegistration = daemonRegistrations.unknown
+  var xpcStatus = xpcStatuses.unknown
+  var daemonVersion: Version = Version("0.0.0")
+  
+  var interfaces = [Interface]()
+  
+  var warnAboutLeakage: Bool {
+    self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
+  }
+}
+
+extension LinkState {
   // Analogous to `SMAppService.Status`.
   enum daemonRegistrations: String {
     case unknown = "unknown"
@@ -19,15 +31,5 @@ class LinkState {
     case connected = "connected"
     case invalidated = "invalidated"
     case interrupted = "interrupted"
-  }
-  
-  var daemonRegistration = daemonRegistrations.unknown
-  var xpcStatus = xpcStatuses.unknown
-  var daemonVersion: Version = Version("0.0.0")
-  
-  var interfaces = [Interface]()
-  
-  var warnAboutLeakage: Bool {
-    self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
   }
 }

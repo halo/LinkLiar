@@ -28,8 +28,6 @@
 		C221346A2AEC37E600BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346B2AEC3D7500BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346C2AEC4B0F00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C22134722AEEA9A400BCF30E /* ModalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134712AEEA9A400BCF30E /* ModalScene.swift */; };
-		C22134732AEEA9A400BCF30E /* ModalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134712AEEA9A400BCF30E /* ModalScene.swift */; };
 		C22134772AEECFA300BCF30E /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134742AEECFA300BCF30E /* MACAddress.swift */; };
 		C22134782AEECFA300BCF30E /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134742AEECFA300BCF30E /* MACAddress.swift */; };
 		C22134792AEECFA300BCF30E /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134742AEECFA300BCF30E /* MACAddress.swift */; };
@@ -142,7 +140,6 @@
 		C22134622AEC0DA000BCF30E /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTroubleshootView.swift; sourceTree = "<group>"; };
 		C22134682AEC37E600BCF30E /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		C22134712AEEA9A400BCF30E /* ModalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalScene.swift; sourceTree = "<group>"; };
 		C22134742AEECFA300BCF30E /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddress.swift; sourceTree = "<group>"; };
 		C22134752AEECFA300BCF30E /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		C22134762AEECFA300BCF30E /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
@@ -232,14 +229,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		C22134702AEEA9A400BCF30E /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				C22134712AEEA9A400BCF30E /* ModalScene.swift */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
 		C266991C2AE55EFC00592008 = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */,
-				C22134702AEEA9A400BCF30E /* Scenes */,
 				C22134522AEC0BD600BCF30E /* Classes */,
 				C22134502AEC0BC000BCF30E /* Views */,
 				C22134452AEC00A700BCF30E /* Resources */,
@@ -497,7 +485,6 @@
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
 				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
-				C22134722AEEA9A400BCF30E /* ModalScene.swift in Sources */,
 				C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */,
 				C22134602AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
 				C297DDCB2AF042A0003FA9E9 /* ApproveDaemonView.swift in Sources */,
@@ -546,7 +533,6 @@
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 				C297DDC32AEEE974003FA9E9 /* InterfaceView.swift in Sources */,
 				C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */,
-				C22134732AEEA9A400BCF30E /* ModalScene.swift in Sources */,
 				C22134582AEC0BD600BCF30E /* LinkState.swift in Sources */,
 				C297DDC62AF03E85003FA9E9 /* InterfacesView.swift in Sources */,
 				C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */,
