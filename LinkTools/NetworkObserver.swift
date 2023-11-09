@@ -19,6 +19,8 @@ import SystemConfiguration
 
 struct  NetworkObserver {
   
+  // MARK: Class Methods
+
   static func observe() {
     let store = SCDynamicStoreCreate(nil, "LinkLiar" as CFString, NetworkObserver.callback, nil)!
     let keys = [SCDynamicStoreKeyCreateNetworkInterface(nil, kSCDynamicStoreDomainState)] as CFArray
@@ -31,6 +33,8 @@ struct  NetworkObserver {
     callback(store, [] as CFArray, nil)
   }
   
+  // MARK: Private Class Methods
+
   // I wish we could use `NetworkObserver.observe` with a callback closure.
   // But callback types are not compatible with what the SystemConfiguration framework calls.
   // So we resort to sending global notifications that anyone may subscribe to.

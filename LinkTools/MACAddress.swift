@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -17,10 +17,23 @@
 import Foundation
 
 struct MACAddress: Equatable {
+  
+  // MARK: Class Methods
 
   init(_ address: String) {
     self.raw = address
   }
+
+  // MARK: Instance Methods
+
+  func add(_ address: MACAddress) -> MACAddress {
+    let otherIntegers = address.integers
+    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
+    let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
+    return MACAddress(newAddress)
+  }
+  
+  // MARK: Instance Properties
 
   var humanReadable: String {
     guard isValid else { return "??:??:??:??:??:??" }
@@ -53,6 +66,8 @@ struct MACAddress: Equatable {
   var integers : [UInt8] {
     return sanitized.map { UInt8(String($0), radix: 16)! }
   }
+  
+  // MARK: Private Instance Properties
 
   private var sanitized: String {
     let nonHexCharacters = CharacterSet(charactersIn: "0123456789abcdef").inverted
@@ -61,15 +76,16 @@ struct MACAddress: Equatable {
 
   private var raw: String
 
-  func add(_ address: MACAddress) -> MACAddress {
-    let otherIntegers = address.integers
-    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
-    let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
-    return MACAddress(newAddress)
+
+}
+
+extension MACAddress: Comparable {
+  static func ==(lhs: MACAddress, rhs: MACAddress) -> Bool {
+    return lhs.formatted == rhs.formatted
   }
-
+  
+  static func <(lhs: MACAddress, rhs: MACAddress) -> Bool {
+    return lhs.formatted < rhs.formatted
+  }
 }
 
-func ==(lhs: MACAddress, rhs: MACAddress) -> Bool {
-  return lhs.formatted == rhs.formatted
-}

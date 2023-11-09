@@ -28,8 +28,6 @@
 		C221346A2AEC37E600BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346B2AEC3D7500BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346C2AEC4B0F00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C221344A2AEC01DD00BCF30E /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C221346E2AEEA76C00BCF30E /* UnregisteredDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221346D2AEEA76C00BCF30E /* UnregisteredDaemonView.swift */; };
-		C221346F2AEEA76C00BCF30E /* UnregisteredDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221346D2AEEA76C00BCF30E /* UnregisteredDaemonView.swift */; };
 		C22134722AEEA9A400BCF30E /* ModalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134712AEEA9A400BCF30E /* ModalScene.swift */; };
 		C22134732AEEA9A400BCF30E /* ModalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134712AEEA9A400BCF30E /* ModalScene.swift */; };
 		C22134772AEECFA300BCF30E /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134742AEECFA300BCF30E /* MACAddress.swift */; };
@@ -65,6 +63,12 @@
 		C288E21B2AE7AF620098FF39 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* Listener.swift */; };
 		C297DDC22AEEE974003FA9E9 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDC12AEEE974003FA9E9 /* InterfaceView.swift */; };
 		C297DDC32AEEE974003FA9E9 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDC12AEEE974003FA9E9 /* InterfaceView.swift */; };
+		C297DDC52AF03E85003FA9E9 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDC42AF03E85003FA9E9 /* InterfacesView.swift */; };
+		C297DDC62AF03E85003FA9E9 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDC42AF03E85003FA9E9 /* InterfacesView.swift */; };
+		C297DDC82AF03ED0003FA9E9 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDC72AF03ED0003FA9E9 /* RegisterDaemonView.swift */; };
+		C297DDC92AF03ED0003FA9E9 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDC72AF03ED0003FA9E9 /* RegisterDaemonView.swift */; };
+		C297DDCB2AF042A0003FA9E9 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDCA2AF042A0003FA9E9 /* ApproveDaemonView.swift */; };
+		C297DDCC2AF042A0003FA9E9 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C297DDCA2AF042A0003FA9E9 /* ApproveDaemonView.swift */; };
 		C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
@@ -138,7 +142,6 @@
 		C22134622AEC0DA000BCF30E /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTroubleshootView.swift; sourceTree = "<group>"; };
 		C22134682AEC37E600BCF30E /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		C221346D2AEEA76C00BCF30E /* UnregisteredDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnregisteredDaemonView.swift; sourceTree = "<group>"; };
 		C22134712AEEA9A400BCF30E /* ModalScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalScene.swift; sourceTree = "<group>"; };
 		C22134742AEECFA300BCF30E /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddress.swift; sourceTree = "<group>"; };
 		C22134752AEECFA300BCF30E /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
@@ -161,6 +164,9 @@
 		C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
 		C288E21A2AE7AF620098FF39 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
 		C297DDC12AEEE974003FA9E9 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceView.swift; sourceTree = "<group>"; };
+		C297DDC42AF03E85003FA9E9 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
+		C297DDC72AF03ED0003FA9E9 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDaemonView.swift; sourceTree = "<group>"; };
+		C297DDCA2AF042A0003FA9E9 /* ApproveDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApproveDaemonView.swift; sourceTree = "<group>"; };
 		C29EAF762AE59EE7003578B9 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -206,8 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				C22134622AEC0DA000BCF30E /* MenuView.swift */,
+				C297DDCA2AF042A0003FA9E9 /* ApproveDaemonView.swift */,
 				C297DDC12AEEE974003FA9E9 /* InterfaceView.swift */,
-				C221346D2AEEA76C00BCF30E /* UnregisteredDaemonView.swift */,
+				C297DDC42AF03E85003FA9E9 /* InterfacesView.swift */,
+				C297DDC72AF03ED0003FA9E9 /* RegisterDaemonView.swift */,
 				C221345F2AEC0D6E00BCF30E /* SettingsView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
 			);
@@ -492,13 +500,15 @@
 				C22134722AEEA9A400BCF30E /* ModalScene.swift in Sources */,
 				C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */,
 				C22134602AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
+				C297DDCB2AF042A0003FA9E9 /* ApproveDaemonView.swift in Sources */,
 				C22134572AEC0BD600BCF30E /* LinkState.swift in Sources */,
+				C297DDC82AF03ED0003FA9E9 /* RegisterDaemonView.swift in Sources */,
 				C22134662AEC340B00BCF30E /* SettingsTroubleshootView.swift in Sources */,
 				C22134592AEC0BD600BCF30E /* Controller.swift in Sources */,
 				C22134852AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
 				C22134812AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
-				C221346E2AEEA76C00BCF30E /* UnregisteredDaemonView.swift in Sources */,
 				C22134632AEC0DA000BCF30E /* MenuView.swift in Sources */,
+				C297DDC52AF03E85003FA9E9 /* InterfacesView.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
@@ -518,8 +528,10 @@
 				C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */,
 				C221348A2AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
 				C221348E2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
+				C297DDC92AF03ED0003FA9E9 /* RegisterDaemonView.swift in Sources */,
 				C22134822AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
+				C297DDCC2AF042A0003FA9E9 /* ApproveDaemonView.swift in Sources */,
 				C22134782AEECFA300BCF30E /* MACAddress.swift in Sources */,
 				C221347E2AEECFA300BCF30E /* Interfaces.swift in Sources */,
 				C22134642AEC0DA000BCF30E /* MenuView.swift in Sources */,
@@ -528,7 +540,6 @@
 				C221345A2AEC0BD600BCF30E /* Controller.swift in Sources */,
 				C221346A2AEC37E600BCF30E /* Version.swift in Sources */,
 				C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
-				C221346F2AEEA76C00BCF30E /* UnregisteredDaemonView.swift in Sources */,
 				C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */,
 				C22134862AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
 				C22134612AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
@@ -537,6 +548,7 @@
 				C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */,
 				C22134732AEEA9A400BCF30E /* ModalScene.swift in Sources */,
 				C22134582AEC0BD600BCF30E /* LinkState.swift in Sources */,
+				C297DDC62AF03E85003FA9E9 /* InterfacesView.swift in Sources */,
 				C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

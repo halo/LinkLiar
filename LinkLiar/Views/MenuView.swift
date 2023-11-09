@@ -6,15 +6,10 @@ struct MenuView: View {
   
   var body: some View {
     VStack {
-      
-      // Container for Interfaces
-      VStack(alignment: .leading, spacing: 14) {
-        ForEach(state.interfaces) { interface in
-          // One Interface
-          InterfaceView(interface: interface)
-        }
-      }.padding()
-      
+        
+      RegisterDaemonView().environment(state)
+      ApproveDaemonView().environment(state)
+      InterfacesView().environment(state)
       
       
       //    Text("Welcome to LinkLiar.")

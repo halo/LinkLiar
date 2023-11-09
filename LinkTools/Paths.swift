@@ -34,25 +34,4 @@ class Paths {
   static let debugLogFile = "/tmp/linkliar.log"
   static let debugLogFileURL = URL(fileURLWithPath: debugLogFile)
 
-  static let daemonsPlistDirectory = "/Library/LaunchDaemons"
-  static let daemonsPlistDirectoryURL = URL(fileURLWithPath: daemonsPlistDirectory)
-
-  static let daemonPlistFile = daemonsPlistDirectory.appendPath(Identifiers.daemon.rawValue + ".plist")
-  static let daemonPlistFileURL = URL(fileURLWithPath: daemonPlistFile)
-
-  static var daemonPristineExecutablePath: String {
-    guard let url = Bundle.main.url(forResource: "linkdaemon", withExtension: nil) else {
-//      Log.error("Missing linkdaemon executable in LinkLiar.app Bundle at \(Bundle.main.resourcePath ?? "?")")
-      return "/dev/null"
-    }
-    return url.path
-  }
-  static var daemonPristineExecutableURL = URL(fileURLWithPath: daemonPristineExecutablePath)
-
-  static let daemonDirectory = "/Library/Application Support/\(Identifiers.daemon.rawValue)"
-  static let daemonDirectoryURL = URL(fileURLWithPath: daemonDirectory)
-
-  static let daemonExecutable = daemonDirectory.appendPath("linkdaemon")
-  static let daemonExecutableURL = URL(fileURLWithPath: daemonExecutable)
-
 }

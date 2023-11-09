@@ -18,7 +18,7 @@ class Controller {
   }
   
   static func queryInterfaces(state: LinkState) {
-    state.interfaces = Interfaces.all(async: true)
+    state.interfaces = Interfaces.all(asyncSoftMac: true)
   }
   
   static func queryAllSoftMACs(state: LinkState) {

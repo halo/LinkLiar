@@ -137,7 +137,6 @@ class Radio {
   private static func transceive(state: LinkState, block: @escaping (ListenerProtocol) -> Void) {
     let helper = connection(state: state)?.remoteObjectProxyWithErrorHandler({ error in
       Log.debug("Oh no, no connection to helper: \(error.localizedDescription)")
-      state.connectedToDaemon = false
     }) as! ListenerProtocol
     block(helper)
   }

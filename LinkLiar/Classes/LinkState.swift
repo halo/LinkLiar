@@ -20,12 +20,10 @@ class LinkState {
     case invalidated = "invalidated"
     case interrupted = "interrupted"
   }
+  
   var daemonRegistration = daemonRegistrations.unknown
   var xpcStatus = xpcStatuses.unknown
   var daemonVersion: Version = Version("0.0.0")
-
-  var connectedToDaemon = false
-  var requestsDaemonAuthorization = false
   
   var interfaces = [Interface]()
   

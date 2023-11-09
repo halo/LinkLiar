@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
+ * Copyright (C) halo https://io.github.com/halo/LinkLiar
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
  * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
@@ -16,16 +16,16 @@
 
 import Foundation
 
-@objc(HelperProtocol)
+@objc(ListenerProtocol)
 
 protocol ListenerProtocol {
   func version(reply: @escaping (String) -> Void)
 
-//  func install(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
-//  func uninstall(reply: @escaping (Bool) -> Void)
-
   func createConfigDirectory(reply: @escaping (Bool) -> Void)
   func removeConfigDirectory(reply: @escaping (Bool) -> Void)
+
+//  func install(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
+//  func uninstall(reply: @escaping (Bool) -> Void)
 
 //  func installDaemon(pristineDaemonExecutablePath: String, reply: @escaping (Bool) -> Void)
 //  func activateDaemon(reply: @escaping (Bool) -> Void)
