@@ -7,8 +7,8 @@ struct MenuView: View {
   var body: some View {
     VStack {
         
-      RegisterDaemonView().environment(state)
-      ApproveDaemonView().environment(state)
+//      RegisterDaemonView().environment(state)
+//      ApproveDaemonView().environment(state)
       InterfacesView().environment(state)
       
       

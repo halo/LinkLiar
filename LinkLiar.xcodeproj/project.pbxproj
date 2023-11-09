@@ -49,6 +49,8 @@
 		C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348E2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
+		C22F21882AFD529F0086B621 /* SettingsPoliciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */; };
+		C22F21892AFD529F0086B621 /* SettingsPoliciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
@@ -147,6 +149,7 @@
 		C22134842AEED11A00BCF30E /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CFArray+Sequence.swift"; path = "../../LinkLiar-old/LinkTools/CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C22134882AEED66C00BCF30E /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		C221348C2AEEDDAA00BCF30E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPoliciesView.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266992F2AE55EFC00592008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +215,7 @@
 				C297DDCA2AF042A0003FA9E9 /* ApproveDaemonView.swift */,
 				C297DDC12AEEE974003FA9E9 /* InterfaceView.swift */,
 				C297DDC42AF03E85003FA9E9 /* InterfacesView.swift */,
+				C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */,
 				C297DDC72AF03ED0003FA9E9 /* RegisterDaemonView.swift */,
 				C221345F2AEC0D6E00BCF30E /* SettingsView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
@@ -483,6 +487,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
+				C22F21882AFD529F0086B621 /* SettingsPoliciesView.swift in Sources */,
 				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
 				C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */,
@@ -525,6 +530,7 @@
 				C221347B2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C22134672AEC340B00BCF30E /* SettingsTroubleshootView.swift in Sources */,
 				C221345A2AEC0BD600BCF30E /* Controller.swift in Sources */,
+				C22F21892AFD529F0086B621 /* SettingsPoliciesView.swift in Sources */,
 				C221346A2AEC37E600BCF30E /* Version.swift in Sources */,
 				C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */,

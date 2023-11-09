@@ -33,8 +33,8 @@ struct LinkLiarApp: App {
     }.menuBarExtraStyle(.window)
     
     Settings {
-      SettingsView().navigationTitle("Settings").environment(state)
-    }
+      SettingsView().environment(state)
+    }.windowStyle(.hiddenTitleBar)
   }
   
   private var menuBarIconName: String {
