@@ -62,7 +62,12 @@ struct SettingsPoliciesView: View {
           Text(interface.displayName)
         }
         else {
-          Text(folderName)
+          switch folderName {
+            case "troubleshoot":
+              SettingsTroubleshootView().environment(state)
+            default:
+              Text(folderName)
+          }
         }
 //
 //        Text(interface.displayName)

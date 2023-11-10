@@ -7,18 +7,30 @@ struct ApproveDaemonView: View {
   var body: some View {
     if state.daemonRegistration == .requiresApproval {
       VStack {
-        VStack {
-          
-          Text("The LinkLiar background service is not authorized yet.").frame(maxWidth: 200)
-          Spacer()
-          Text("Please head over to the System Settings and activate it in the list of background services.").frame(maxWidth: 200)
-
-          Button(action: SMAppService.openSystemSettingsLoginItems) {
-            Text("Show Settings")
-          }
-        }.padding()
-        Divider()
-      }.frame(alignment: .topLeading)
+        
+        Image(systemName: "lock.shield")
+          .font(.system(size: 40))
+          .padding(.bottom, 4)
+        
+        Text("The LinkLiar background service\nwas installed and is waiting for\napproval.")
+          .padding(.bottom, 4)
+        
+        Text("Please head over to the System\nSettings and activate it in the list\nof background services.")
+          .padding(.bottom, 4)
+        
+        Button(action: SMAppService.openSystemSettingsLoginItems) {
+          Text("Show Settings")
+        }.padding(.bottom, 4)
+          .buttonStyle(.borderedProminent)
+      }
+      
+      Divider().padding(.top, 4)
     }
   }
+}
+
+#Preview {
+  let state = LinkState()
+  state.daemonRegistration = .requiresApproval
+  return ApproveDaemonView().environment(state)
 }

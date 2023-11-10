@@ -11,7 +11,7 @@ struct InterfacesView: View {
         // One Interface
         InterfaceView(interface: interface)
       }
-    }.padding([.horizontal, .top])
+    }
     
   }
 }

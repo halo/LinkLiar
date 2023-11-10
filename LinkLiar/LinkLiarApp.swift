@@ -20,6 +20,7 @@ struct LinkLiarApp: App {
   private func menuBarAppeared(_ _: Notification) {
     Log.debug("Menu Bar appeared")
     Controller.queryAllSoftMACs(state: state)
+    Controller.queryDaemonRegistration(state: state)
   }
 
   private func networkConditionsChanged(_ _: Notification) {
@@ -30,7 +31,8 @@ struct LinkLiarApp: App {
   var body: some Scene {
     MenuBarExtra("LinkLiar", image: menuBarIconName) {
       MenuView().environment(state)
-    }.menuBarExtraStyle(.window)
+    }
+    .menuBarExtraStyle(.window)
     
     Settings {
       SettingsView().environment(state)

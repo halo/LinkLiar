@@ -4,7 +4,7 @@ struct InterfaceView: View {
   @Bindable var interface: Interface
   
   var body: some View {
-      
+
       // Separating Icons and text
       HStack(spacing: 8) {
         if interface.hasOriginalMAC {

@@ -110,13 +110,12 @@ class Controller {
   static func troubleshoot(state: LinkState) {
     queryInterfaces(state: state)
     queryDaemonRegistration(state: state)
-    queryDaemonVersion(state: state)
 
   }
   
   // MARK: Private Functions
   
-  private static func queryDaemonRegistration(state: LinkState) {
+  static func queryDaemonRegistration(state: LinkState) {
     Log.debug("BEFORE")
     let helper = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
     Log.debug("AFTER")
@@ -133,6 +132,10 @@ class Controller {
       default:
         state.daemonRegistration = .novel
     }
+    // For some reason we also need to attempt to talk to the daemon
+    // in order for it's state to be updates
+    queryDaemonVersion(state: state)
+
   }
   
 }
