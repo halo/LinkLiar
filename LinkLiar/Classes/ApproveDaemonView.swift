@@ -24,7 +24,7 @@ struct ApproveDaemonView: View {
           .buttonStyle(.borderedProminent)
       }
       
-      Divider().padding(.top, 4)
+      Divider().padding(.vertical, 5)
     }
   }
 }

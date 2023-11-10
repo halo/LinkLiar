@@ -5,9 +5,11 @@ import SwiftUI
 class LinkState {
   var daemonRegistration = daemonRegistrations.unknown
   var xpcStatus = xpcStatuses.unknown
-  var daemonVersion: Version = Version("0.0.0")
+  var daemonVersion = Version("0.0.0")
   
   var interfaces = [Interface]()
+  
+  var wantsToQuit = false
   
   var warnAboutLeakage: Bool {
     self.interfaces.contains(where: { interface in interface.hasOriginalMAC })

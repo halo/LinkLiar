@@ -1,3 +1,4 @@
+import Cocoa
 import Foundation
 import ServiceManagement
 
@@ -21,6 +22,27 @@ class Controller {
     state.interfaces = Interfaces.all(asyncSoftMac: true)
   }
   
+  static func wantsToQuit(_ state: LinkState) {
+    guard !state.wantsToQuit else {
+      state.wantsToQuit = false
+      return
+    }
+    
+    if state.daemonRegistration == .enabled {
+      state.wantsToQuit = true
+    } else {
+      quitForReal()
+    }
+  }
+  
+  static func wantsToStay(_ state: LinkState) {
+    state.wantsToQuit = false
+  }
+  
+  static func quitForReal() {
+    NSApplication.shared.terminate(nil)
+  }
+
   static func queryAllSoftMACs(state: LinkState) {
     state.interfaces.forEach { $0.querySoftMAC(async: true) }
   }

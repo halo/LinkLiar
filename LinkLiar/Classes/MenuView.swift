@@ -12,11 +12,10 @@ struct MenuView: View {
     VStack {
       RegisterDaemonView().environment(state)
       ApproveDaemonView().environment(state)
+      
       InterfacesView().environment(state)
       
-//      Spacer().padding(.bottom, 1)
-      Divider()
-//      Spacer().padding(.bottom, 1)
+      Divider().padding(.top, 3)
 
       HStack() {
         SettingsLink {
@@ -25,11 +24,13 @@ struct MenuView: View {
           .buttonStyle(.accessoryBar)
         
         Button("Quit") {
-          NSApplication.shared.terminate(nil)
+          Controller.wantsToQuit(state)
         }.keyboardShortcut("q")
           .buttonStyle(.accessoryBar)
       }
       
+      ConfirmQuittingView().environment(state)
+
     }.padding(12).fixedSize()
       .onAppear {
         // See https://damian.fyi/swift/2022/12/29/detecting-when-a-swiftui-menubarextra-with-window-style-is-opened.html
@@ -42,13 +43,20 @@ struct MenuView: View {
 
 #Preview("Standard") {
   let state = LinkState()
-  Controller.queryInterfaces(state: state)
+  state.interfaces = Interfaces.all(asyncSoftMac: false)
   return MenuView().environment(state)
 }
 
 #Preview("Daemon not registered") {
   let state = LinkState()
+  state.interfaces = Interfaces.all(asyncSoftMac: false)
   state.daemonRegistration = .notRegistered
-  Controller.queryInterfaces(state: state)
+  return MenuView().environment(state)
+}
+
+#Preview("Daemon requires approval") {
+  let state = LinkState()
+  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.daemonRegistration = .requiresApproval
   return MenuView().environment(state)
 }

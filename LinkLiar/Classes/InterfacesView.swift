@@ -4,13 +4,14 @@ struct InterfacesView: View {
   @Environment(LinkState.self) private var state
   
   var body: some View {
-    
-    // Container for Interfaces
+    // Container for all Interfaces
     VStack(alignment: .leading, spacing: 14) {
+      
+      // One row per Interface
       ForEach(state.interfaces) { interface in
-        // One Interface
         InterfaceView(interface: interface)
       }
+      
     }
     
   }
