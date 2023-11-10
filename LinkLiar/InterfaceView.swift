@@ -37,6 +37,7 @@ struct InterfaceView: View {
   }
 }
 
-//#Preview {
-//  SettingsView()
-//}
+#Preview {
+  let interfaces = Interfaces.all(asyncSoftMac: true)
+  return InterfaceView(interface: interfaces.first!)
+}

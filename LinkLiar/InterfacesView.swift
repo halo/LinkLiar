@@ -11,8 +11,13 @@ struct InterfacesView: View {
         // One Interface
         InterfaceView(interface: interface)
       }
-    }.padding()
-    
+    }.padding([.horizontal, .top])
     
   }
+}
+
+#Preview("InterfacesView") {
+  let state = LinkState()
+  Controller.queryInterfaces(state: state)
+  return InterfacesView().environment(state)
 }
