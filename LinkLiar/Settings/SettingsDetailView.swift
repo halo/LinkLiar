@@ -14,11 +14,7 @@ struct SettingsDetailView: View {
       case SettingsView.panes.troubleshoot.rawValue:
         SettingsTroubleshootView().environment(state)
       default:
-        if let interface = state.interfaces.first(where: { $0.id == selectedFolder }) {
-          SettingsInterfaceView().environment(state)
-        } else {
-          Text("Could not find Interface \(selectedFolder ?? "?")")
-        }
+        SettingsInterfaceView(hardMAC: $selectedFolder).environment(state)
     }
   }
 }
