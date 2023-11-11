@@ -8,25 +8,27 @@ struct SettingsView: View {
   
   var body: some View {
     NavigationSplitView {
-      
       List(selection: $selectedFolder) {
+
+        Spacer()
+
         NavigationLink(value: panes.general.rawValue) {
-          Label("General", systemImage: "house")
+          Label("Welcome", systemImage: "figure.run")
         }
         
+        NavigationLink(value: panes.troubleshoot.rawValue) {
+          Label("Troubleshoot", systemImage: "cross.case")
+        }
+
         Spacer()
         Text("Interfaces")
         
         ForEach(state.interfaces) { interface in
           NavigationLink(value: interface.id) {
-            Label(interface.BSDName, systemImage: "house")
+            Label(interface.displayName, systemImage: "app.connected.to.app.below.fill")
           }
         }
-        
-        NavigationLink(value: panes.troubleshoot.rawValue) {
-          Label("Troubleshoot", systemImage: "house")
-        }
-      }
+              }
       .navigationSplitViewColumnWidth(180)
       .toolbar(removing: .sidebarToggle)
       
