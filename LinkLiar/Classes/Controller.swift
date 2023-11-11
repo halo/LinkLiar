@@ -43,7 +43,7 @@ class Controller {
     NSApplication.shared.terminate(nil)
   }
 
-  static func queryAllSoftMACs(state: LinkState) {
+  static func queryAllSoftMACs(_ state: LinkState) {
     state.interfaces.forEach { $0.querySoftMAC(async: true) }
   }
   

@@ -19,8 +19,12 @@ struct LinkLiarApp: App {
   // Therefore we need to re-query all malleable MAC addresses evey time the menu bar is clicked on.
   private func menuBarAppeared(_ _: Notification) {
     Log.debug("Menu Bar appeared")
-    Controller.queryAllSoftMACs(state: state)
+    Controller.queryAllSoftMACs(state)
     Controller.queryDaemonRegistration(state: state)
+
+    // If there was a "do you really want to quit?" warning,
+    // we can remove it once the menu bar was closed and reopened.
+    Controller.wantsToStay(state)
   }
 
   private func networkConditionsChanged(_ _: Notification) {
