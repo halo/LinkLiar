@@ -46,13 +46,14 @@
 		C221348E2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsView.swift */; };
-		C22F21902AFED6E40086B621 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218B2AFED6E40086B621 /* MenuView.swift */; };
-		C22F21912AFED6E40086B621 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218C2AFED6E40086B621 /* InterfaceView.swift */; };
-		C22F21922AFED6E40086B621 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218D2AFED6E40086B621 /* InterfacesView.swift */; };
-		C22F21932AFED6E40086B621 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218E2AFED6E40086B621 /* ApproveDaemonView.swift */; };
-		C22F21942AFED6E40086B621 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218F2AFED6E40086B621 /* RegisterDaemonView.swift */; };
-		C22F21962AFED6F40086B621 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */; };
 		C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
+		C22F219A2AFFFA9A0086B621 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21992AFFFA9A0086B621 /* MenuView.swift */; };
+		C22F21A02AFFFAB40086B621 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219B2AFFFAB40086B621 /* ApproveDaemonView.swift */; };
+		C22F21A12AFFFAB40086B621 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219C2AFFFAB40086B621 /* InterfacesView.swift */; };
+		C22F21A22AFFFAB40086B621 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219D2AFFFAB40086B621 /* InterfaceView.swift */; };
+		C22F21A32AFFFAB40086B621 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */; };
+		C22F21A42AFFFAB40086B621 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */; };
+		C22F21A62AFFFAD00086B621 /* SettingsInterfaceActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionView.swift */; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
@@ -143,13 +144,14 @@
 		C22134882AEED66C00BCF30E /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		C221348C2AEEDDAA00BCF30E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		C22F21872AFD529F0086B621 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		C22F218B2AFED6E40086B621 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = Classes/MenuView.swift; sourceTree = "<group>"; };
-		C22F218C2AFED6E40086B621 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceView.swift; path = Classes/InterfaceView.swift; sourceTree = "<group>"; };
-		C22F218D2AFED6E40086B621 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacesView.swift; path = Classes/InterfacesView.swift; sourceTree = "<group>"; };
-		C22F218E2AFED6E40086B621 /* ApproveDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApproveDaemonView.swift; path = Classes/ApproveDaemonView.swift; sourceTree = "<group>"; };
-		C22F218F2AFED6E40086B621 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterDaemonView.swift; path = Classes/RegisterDaemonView.swift; sourceTree = "<group>"; };
-		C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmQuittingView.swift; path = Classes/ConfirmQuittingView.swift; sourceTree = "<group>"; };
 		C22F21972AFFB0860086B621 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
+		C22F21992AFFFA9A0086B621 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = Menu/MenuView.swift; sourceTree = "<group>"; };
+		C22F219B2AFFFAB40086B621 /* ApproveDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApproveDaemonView.swift; path = Menu/ApproveDaemonView.swift; sourceTree = "<group>"; };
+		C22F219C2AFFFAB40086B621 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacesView.swift; path = Menu/InterfacesView.swift; sourceTree = "<group>"; };
+		C22F219D2AFFFAB40086B621 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceView.swift; path = Menu/InterfaceView.swift; sourceTree = "<group>"; };
+		C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmQuittingView.swift; path = Menu/ConfirmQuittingView.swift; sourceTree = "<group>"; };
+		C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterDaemonView.swift; path = Menu/RegisterDaemonView.swift; sourceTree = "<group>"; };
+		C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceActionView.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266992F2AE55EFC00592008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,6 +212,7 @@
 				C22F21872AFD529F0086B621 /* SettingsView.swift */,
 				C22F21972AFFB0860086B621 /* SettingsDetailView.swift */,
 				C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */,
+				C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
 			);
 			path = Settings;
@@ -228,12 +231,12 @@
 		C22F218A2AFE6A830086B621 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				C22F218B2AFED6E40086B621 /* MenuView.swift */,
-				C22F218F2AFED6E40086B621 /* RegisterDaemonView.swift */,
-				C22F218E2AFED6E40086B621 /* ApproveDaemonView.swift */,
-				C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */,
-				C22F218D2AFED6E40086B621 /* InterfacesView.swift */,
-				C22F218C2AFED6E40086B621 /* InterfaceView.swift */,
+				C22F21992AFFFA9A0086B621 /* MenuView.swift */,
+				C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */,
+				C22F219B2AFFFAB40086B621 /* ApproveDaemonView.swift */,
+				C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */,
+				C22F219C2AFFFAB40086B621 /* InterfacesView.swift */,
+				C22F219D2AFFFAB40086B621 /* InterfaceView.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -501,22 +504,23 @@
 				C22134602AEC0D6E00BCF30E /* SettingsInterfaceView.swift in Sources */,
 				C22134572AEC0BD600BCF30E /* LinkState.swift in Sources */,
 				C22134662AEC340B00BCF30E /* SettingsTroubleshootView.swift in Sources */,
-				C22F21932AFED6E40086B621 /* ApproveDaemonView.swift in Sources */,
-				C22F21902AFED6E40086B621 /* MenuView.swift in Sources */,
-				C22F21962AFED6F40086B621 /* ConfirmQuittingView.swift in Sources */,
+				C22F21A42AFFFAB40086B621 /* RegisterDaemonView.swift in Sources */,
 				C22134592AEC0BD600BCF30E /* Controller.swift in Sources */,
+				C22F21A02AFFFAB40086B621 /* ApproveDaemonView.swift in Sources */,
 				C22134852AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
 				C22134812AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
-				C22F21912AFED6E40086B621 /* InterfaceView.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
-				C22F21942AFED6E40086B621 /* RegisterDaemonView.swift in Sources */,
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
+				C22F21A32AFFFAB40086B621 /* ConfirmQuittingView.swift in Sources */,
 				C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C22134692AEC37E600BCF30E /* Version.swift in Sources */,
+				C22F21A12AFFFAB40086B621 /* InterfacesView.swift in Sources */,
+				C22F219A2AFFFA9A0086B621 /* MenuView.swift in Sources */,
+				C22F21A62AFFFAD00086B621 /* SettingsInterfaceActionView.swift in Sources */,
+				C22F21A22AFFFAB40086B621 /* InterfaceView.swift in Sources */,
 				C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */,
 				C221347D2AEECFA300BCF30E /* Interfaces.swift in Sources */,
-				C22F21922AFED6E40086B621 /* InterfacesView.swift in Sources */,
 				C22134772AEECFA300BCF30E /* MACAddress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
