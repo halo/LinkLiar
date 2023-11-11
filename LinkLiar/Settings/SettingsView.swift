@@ -1,31 +1,45 @@
 import SwiftUI
+import ServiceManagement
 
 struct SettingsView: View {
   @Environment(LinkState.self) private var state
 
+  @State private var selectedFolder: String?
+  
   var body: some View {
-    SettingsPoliciesView().environment(state)
-//    SettingsTroubleshootView().environment(state)
-//    TabView {
-//      
-//      
-//
-//
-//      
-////      VStack {
-////        Text("This is where the config file is located:")
-////        Text(Paths.configFile)
-////        Button(action: ConfigWriter.reset) {
-////          Text("Reset Config file")
-////        }
-////        Text("Writable: \(ConfigWriter.isWritable ? "Yes" : "No")")
-////      }.tabItem {
-////        Image(systemName: "sun.min")
-////        Text("Config file")
-////      }
-//      
-//      
-//    }.frame(width: 500, height: 300)
+    NavigationSplitView {
+      
+      List(selection: $selectedFolder) {
+        NavigationLink(value: panes.general.rawValue) {
+          Label("General", systemImage: "house")
+        }
+        
+        Spacer()
+        Text("Interfaces")
+        
+        ForEach(state.interfaces) { interface in
+          NavigationLink(value: interface.id) {
+            Label(interface.BSDName, systemImage: "house")
+          }
+        }
+        
+        NavigationLink(value: panes.troubleshoot.rawValue) {
+          Label("Troubleshoot", systemImage: "house")
+        }
+      }
+      .navigationSplitViewColumnWidth(180)
+      .toolbar(removing: .sidebarToggle)
+      
+    } detail: {
+      SettingsDetailView(selectedFolder: $selectedFolder).environment(state)
+    }.presentedWindowStyle(.hiddenTitleBar)
     
+  }
+}
+
+extension SettingsView {
+  enum panes: String {
+    case general = "general"
+    case troubleshoot = "troubleshoot"
   }
 }

@@ -3,17 +3,25 @@ import SwiftUI
 @Observable
 
 class LinkState {
+  // GUI
+  var wantsToQuit = false
+
+  // Daemon
   var daemonRegistration = daemonRegistrations.unknown
   var xpcStatus = xpcStatuses.unknown
   var daemonVersion = Version("0.0.0")
   
+  // Network
   var interfaces = [Interface]()
+
+  // Settings
+  var settingsEditingInterface: Interface?
   
-  var wantsToQuit = false
-  
+  // Derived
   var warnAboutLeakage: Bool {
     self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
   }
+
 }
 
 extension LinkState {

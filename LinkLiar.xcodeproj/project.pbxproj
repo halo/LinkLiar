@@ -18,8 +18,7 @@
 		C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */; };
 		C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134562AEC0BD600BCF30E /* Radio.swift */; };
 		C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134562AEC0BD600BCF30E /* Radio.swift */; };
-		C22134602AEC0D6E00BCF30E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221345F2AEC0D6E00BCF30E /* SettingsView.swift */; };
-		C22134612AEC0D6E00BCF30E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221345F2AEC0D6E00BCF30E /* SettingsView.swift */; };
+		C22134602AEC0D6E00BCF30E /* SettingsInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */; };
 		C22134662AEC340B00BCF30E /* SettingsTroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */; };
 		C22134692AEC37E600BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
 		C221346A2AEC37E600BCF30E /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134682AEC37E600BCF30E /* Version.swift */; };
@@ -46,13 +45,14 @@
 		C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348E2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
-		C22F21882AFD529F0086B621 /* SettingsPoliciesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */; };
+		C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsView.swift */; };
 		C22F21902AFED6E40086B621 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218B2AFED6E40086B621 /* MenuView.swift */; };
 		C22F21912AFED6E40086B621 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218C2AFED6E40086B621 /* InterfaceView.swift */; };
 		C22F21922AFED6E40086B621 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218D2AFED6E40086B621 /* InterfacesView.swift */; };
 		C22F21932AFED6E40086B621 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218E2AFED6E40086B621 /* ApproveDaemonView.swift */; };
 		C22F21942AFED6E40086B621 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F218F2AFED6E40086B621 /* RegisterDaemonView.swift */; };
 		C22F21962AFED6F40086B621 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */; };
+		C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
 		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
@@ -132,7 +132,7 @@
 		C22134542AEC0BD600BCF30E /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		C22134552AEC0BD600BCF30E /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkLiarApp.swift; sourceTree = "<group>"; };
 		C22134562AEC0BD600BCF30E /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
-		C221345F2AEC0D6E00BCF30E /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceView.swift; sourceTree = "<group>"; };
 		C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTroubleshootView.swift; sourceTree = "<group>"; };
 		C22134682AEC37E600BCF30E /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		C22134742AEECFA300BCF30E /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddress.swift; sourceTree = "<group>"; };
@@ -142,13 +142,14 @@
 		C22134842AEED11A00BCF30E /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CFArray+Sequence.swift"; path = "../../LinkLiar-old/LinkTools/CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C22134882AEED66C00BCF30E /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		C221348C2AEEDDAA00BCF30E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
-		C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPoliciesView.swift; sourceTree = "<group>"; };
+		C22F21872AFD529F0086B621 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C22F218B2AFED6E40086B621 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = Classes/MenuView.swift; sourceTree = "<group>"; };
 		C22F218C2AFED6E40086B621 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceView.swift; path = Classes/InterfaceView.swift; sourceTree = "<group>"; };
 		C22F218D2AFED6E40086B621 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacesView.swift; path = Classes/InterfacesView.swift; sourceTree = "<group>"; };
 		C22F218E2AFED6E40086B621 /* ApproveDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApproveDaemonView.swift; path = Classes/ApproveDaemonView.swift; sourceTree = "<group>"; };
 		C22F218F2AFED6E40086B621 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterDaemonView.swift; path = Classes/RegisterDaemonView.swift; sourceTree = "<group>"; };
 		C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmQuittingView.swift; path = Classes/ConfirmQuittingView.swift; sourceTree = "<group>"; };
+		C22F21972AFFB0860086B621 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266992F2AE55EFC00592008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,8 +207,9 @@
 		C22134502AEC0BC000BCF30E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				C221345F2AEC0D6E00BCF30E /* SettingsView.swift */,
-				C22F21872AFD529F0086B621 /* SettingsPoliciesView.swift */,
+				C22F21872AFD529F0086B621 /* SettingsView.swift */,
+				C22F21972AFFB0860086B621 /* SettingsDetailView.swift */,
+				C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
 			);
 			path = Settings;
@@ -491,11 +493,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
-				C22F21882AFD529F0086B621 /* SettingsPoliciesView.swift in Sources */,
+				C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */,
+				C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */,
 				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
 				C221345D2AEC0BD600BCF30E /* Radio.swift in Sources */,
-				C22134602AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
+				C22134602AEC0D6E00BCF30E /* SettingsInterfaceView.swift in Sources */,
 				C22134572AEC0BD600BCF30E /* LinkState.swift in Sources */,
 				C22134662AEC340B00BCF30E /* SettingsTroubleshootView.swift in Sources */,
 				C22F21932AFED6E40086B621 /* ApproveDaemonView.swift in Sources */,
@@ -535,7 +538,6 @@
 				C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */,
 				C22134862AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
-				C22134612AEC0D6E00BCF30E /* SettingsView.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 				C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */,
 				C22134582AEC0BD600BCF30E /* LinkState.swift in Sources */,
