@@ -14,41 +14,11 @@ struct SettingsDetailView: View {
       case SettingsView.panes.troubleshoot.rawValue:
         SettingsTroubleshootView().environment(state)
       default:
-        Text("Interface")
-        Text(selectedFolder ?? "weird")
+        if let interface = state.interfaces.first(where: { $0.id == selectedFolder }) {
+          SettingsInterfaceView().environment(state)
+        } else {
+          Text("Could not find Interface \(selectedFolder ?? "?")")
+        }
     }
-//      Text(selectedFolder ?? "nothing")
-//      SettingsDetailView(selectedFolder: selectedFolder).environment(state)
-
-
-//    if let name = selectedFolder {
-//      Text(name)
-//    } else {
-//      Text("Welcome")
-//      Text(selectedFolder ?? "nothing")
-//    }
   }
 }
-
-//
-//private func selectDetail(_ folderName: String?) -> View {
-//  guard let name = folderName else {
-//    return EmptyView()
-//  }
-//  
-//  switch name {
-//    case "troubleshoot":
-//      return SettingsTroubleshootView().environment(state)
-//    default:
-//      return loadInterfaceSettings(state: state, interfaceId: name)
-//  }
-//}
-//
-//private func loadInterfaceSettings(state: LinkState, interfaceId: Interface.ID?) -> View {
-//  guard let interface = state.interfaces.first(where: { $0.id == interfaceId }) else {
-//    return Text("Unknown Interface")
-//  }
-//
-//  state.settingsEditingInterface = interface
-//  return SettingsInterfaceView().environment(state)
-//}
