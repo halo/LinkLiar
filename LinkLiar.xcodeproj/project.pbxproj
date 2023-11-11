@@ -229,9 +229,9 @@
 				C22F218B2AFED6E40086B621 /* MenuView.swift */,
 				C22F218F2AFED6E40086B621 /* RegisterDaemonView.swift */,
 				C22F218E2AFED6E40086B621 /* ApproveDaemonView.swift */,
+				C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */,
 				C22F218D2AFED6E40086B621 /* InterfacesView.swift */,
 				C22F218C2AFED6E40086B621 /* InterfaceView.swift */,
-				C22F21952AFED6F40086B621 /* ConfirmQuittingView.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";

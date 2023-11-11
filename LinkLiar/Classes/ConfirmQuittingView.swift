@@ -7,7 +7,7 @@ struct ConfirmQuittingView: View {
   var body: some View {
     if state.wantsToQuit {
       VStack {
-        Divider().padding(.vertical, 5)
+        Divider().padding(.top, 3).padding(.bottom, 5)
 
         Image(systemName: "door.right.hand.closed")
           .font(.system(size: 40))

@@ -49,8 +49,10 @@ class Interface: Identifiable {
   
   // MARK: Instance Properties
   
-  /// Alias for the BSD Name of this Interface. Conforms to `Identifiable`.
-  var id: String { self.BSDName }
+  /// Conforming to `Identifiable`.
+  /// The only truly long-term unique identifier is the hardware MAC of an Interface.
+  /// In the unlikely case that it's unavailable, fall back to something like `en0`.
+  var id: String { hardMAC.isValid ? hardMAC.formatted : BSDName }
   
   // These attributes are known instantaneously when querying the operating system.
   var BSDName: String

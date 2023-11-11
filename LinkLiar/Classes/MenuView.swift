@@ -15,10 +15,11 @@ struct MenuView: View {
       
       InterfacesView().environment(state)
       
-      Divider().padding(.top, 3)
+      Divider().padding([.top, .bottom], 3)
 
       HStack() {
         SettingsLink {
+//          Image(systemName: "gear").imageScale(.medium)
           Text("Settings")
         }.keyboardShortcut(",", modifiers: .command)
           .buttonStyle(.accessoryBar)
@@ -58,5 +59,12 @@ struct MenuView: View {
   let state = LinkState()
   state.interfaces = Interfaces.all(asyncSoftMac: false)
   state.daemonRegistration = .requiresApproval
+  return MenuView().environment(state)
+}
+
+#Preview("Wanting to quit") {
+  let state = LinkState()
+  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.wantsToQuit = true
   return MenuView().environment(state)
 }
