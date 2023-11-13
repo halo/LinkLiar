@@ -41,6 +41,7 @@ struct SettingsInterfaceView: View {
         let oneBinding = Binding<Bool>(
                 get: { return true },
                 set: { _,_ in } )
+        
         GroupBox {
           HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 3) {

@@ -35,7 +35,7 @@ struct MenuView: View {
     }.padding(12).fixedSize()
       .onAppear {
         // See https://damian.fyi/swift/2022/12/29/detecting-when-a-swiftui-menubarextra-with-window-style-is-opened.html
-        observer = NSApplication.shared.observe(\.keyWindow) { x, y in
+        observer = NSApplication.shared.observe(\.keyWindow) { _, _ in
           NotificationCenter.default.post(name: .menuBarAppeared, object: nil)
         }
       }

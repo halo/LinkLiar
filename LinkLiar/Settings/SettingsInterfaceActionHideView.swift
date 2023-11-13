@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsInterfaceActionView: View {
+struct SettingsInterfaceActionHideView: View {
   @Environment(LinkState.self) private var state
   
   @State var interface: Interface?

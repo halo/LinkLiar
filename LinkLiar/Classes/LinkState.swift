@@ -15,7 +15,9 @@ class LinkState {
   var interfaces = [Interface]()
 
   // Settings
-  var settingsEditingInterface: Interface?
+  var configuration: [String: Any] = [:]
+  
+//  var settingsEditingInterface: Interface?
   
   // Derived
   var warnAboutLeakage: Bool {
