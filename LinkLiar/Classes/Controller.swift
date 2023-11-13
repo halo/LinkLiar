@@ -3,11 +3,7 @@ import Foundation
 import ServiceManagement
 
 class Controller {
-  
-  static var version: String = {
-    Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
-  }()
-  
+    
   static func install(state: LinkState) {
     Radio.install(state: state, reply: { success in
       if (success) {

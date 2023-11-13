@@ -17,54 +17,23 @@
 import Foundation
 
 struct ConfigDirectory {
-
-  // Readable and executable directory, so that the GUI may access it at all.
-  private static let directoryPermissions: [FileAttributeKey: Any] = [.posixPermissions: 0o775]
-
-  private static let manager = FileManager.default
-
+  
+  // MARK: Class Methods
+  
   static func create() {
     ensureDirectory()
     ensureDirectoryPermissions()
-    
-//    if isWritable { return }
-    
-    do {
-      try "{}".write(toFile: Paths.configFile, atomically: true, encoding: .utf8)
-      
-//      var attributes = [FileAttributeKey : Any]()
-      //let attr = [posixPermissions: 0o775]
-//      attributes[.posixPermissions] = 0o777
-      do {
-        try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"], ofItemAtPath: Paths.configFile)
-      }catch let error {
-          print("Permissions error: ", error)
-      }
-      
-    } catch let error as NSError {
-      Log.error("Could not establish config file: \(error)")
-    }
-    
-  }
-
-  static var isWritable: Bool {
-    var isDirectory: ObjCBool = false
-    if !FileManager.default.fileExists(atPath: Paths.configFile, isDirectory: &isDirectory) {
-//      reset()
-    }
-
-    return FileManager.default.isWritableFile(atPath: Paths.configFile)
+    ensureFile()
+    ensureFilePermissions()
   }
   
-  static func remove() {
-    do {
-      try manager.removeItem(atPath: Paths.configDirectory)
-      Log.debug("Deleted config directory \(Paths.configDirectory)")
-    } catch let error as NSError {
-      Log.info("Could not delete config directory \(Paths.configDirectory) \(error)")
-    }
-  }
-
+  // MARK: Private Instance Properties
+  
+  private static let manager = FileManager.default
+  
+  
+  // MARK: Private Instance Methods
+  
   private static func ensureDirectory() {
     do {
       try manager.createDirectory(atPath: Paths.configDirectory, withIntermediateDirectories: false)
@@ -73,14 +42,79 @@ struct ConfigDirectory {
       Log.info("Could not create config directory \(Paths.configDirectory) does it already exist? \(error.localizedDescription)")
     }
   }
-
+  
   private static func ensureDirectoryPermissions() {
+    // Readable and executable directory, so that the GUI may access it at all.
+    let directoryPermissions: [FileAttributeKey: Any] = [.posixPermissions: 0o775]
+    
     do {
       try manager.setAttributes(directoryPermissions, ofItemAtPath: Paths.configDirectory)
-      Log.debug("Set permissions of config directory at \(Paths.configDirectory) to \(directoryPermissions)")
+      Log.debug("Did set permissions of config directory at \(Paths.configDirectory) to \(directoryPermissions)")
     } catch let error as NSError {
       Log.info("Could not set permissions for config directory \(error.localizedDescription)")
     }
   }
 
+  private static func ensureFile() {
+    var isDirectory: ObjCBool = false
+    guard !FileManager.default.fileExists(atPath: Paths.configFile, isDirectory: &isDirectory) else {
+      Log.debug("Config file already exists")
+      return
+    }
+    
+    do {
+      try "{}".write(toFile: Paths.configFile, atomically: true, encoding: .utf8)
+      Log.debug("Created empty config file")
+    } catch let error as NSError {
+      Log.error("Could not establish empty config file: \(error)")
+    }
+  }
+  
+  private static func ensureFilePermissions() {
+    do {
+      try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"], ofItemAtPath: Paths.configFile)
+      Log.debug("Did set file permissions")
+    }catch let error {
+      print("File Permissions error: ", error)
+    }
+  }
+
+  //    if isWritable { return }
+  //
+  //    do {
+  //      try "{}".write(toFile: Paths.configFile, atomically: true, encoding: .utf8)
+  //
+  ////      var attributes = [FileAttributeKey : Any]()
+  //      //let attr = [posixPermissions: 0o775]
+  ////      attributes[.posixPermissions] = 0o777
+  //      do {
+  //        try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"], ofItemAtPath: Paths.configFile)
+  //      }catch let error {
+  //          print("Permissions error: ", error)
+  //      }
+  //
+  //    } catch let error as NSError {
+  //      Log.error("Could not establish config file: \(error)")
+  //    }
+  
+  //  }
+  
+  //  static var isWritable: Bool {
+  //    var isDirectory: ObjCBool = false
+  //    if !FileManager.default.fileExists(atPath: Paths.configFile, isDirectory: &isDirectory) {
+  ////      reset()
+  //    }
+  //
+  //    return FileManager.default.isWritableFile(atPath: Paths.configFile)
+  //  }
+  //
+  //  static func remove() {
+  //    do {
+  //      try manager.removeItem(atPath: Paths.configDirectory)
+  //      Log.debug("Deleted config directory \(Paths.configDirectory)")
+  //    } catch let error as NSError {
+  //      Log.info("Could not delete config directory \(Paths.configDirectory) \(error)")
+  //    }
+  //  }
+  
 }

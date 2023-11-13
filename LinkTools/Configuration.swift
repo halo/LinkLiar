@@ -14,44 +14,37 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import Foundation
-import os.log
-
-class JSONWriter {
+/**
+ * An immutable wrapper for querying the content of the configuration file.
+ */
+class Configuration {
 
   // MARK: Class Methods
 
-  init(filePath: String) {
-    self.path = filePath
+  init(dictionary: [String: Any]) {
+    self.dictionary = dictionary
   }
 
-  // MARK: Instance Methods
+  // MARK: Instance Properties
 
-  func write(_ dictionary: [String: Any]) {
-    do {
-      let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [.sortedKeys, .prettyPrinted]) as NSData
-      let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
+  /**
+   * Gives access to the underlying dictionary of this configuration.
+   */
+  var dictionary: [String: Any]
 
-      do {
-        // We don't have write-permissions to the entire directory.
-        // Instead of creating a temporary auxiliary file and atomically replacing config.json,
-        // we modify the existing file in-place, since we're only allowed to do that.
-        try jsonString.write(toFile: path, atomically: false, encoding: .utf8)
-      } catch let error as NSError {
-        Log.error("Could not write: \(error)")
-      }
-
-    } catch let error as NSError {
-      Log.error("Could not serialize: \(error)")
-    }
-  }
+  /**
+   * Queries the version with whith the configuration was created.
+   */
+  lazy var version: String? = {
+    return self.dictionary["version"] as? String
+  }()
   
-  // MARK: Private Instance Properties
 
-  private var path: String
-
-  private var url: URL {
-    return URL(fileURLWithPath: path)
+  /**
+   * Queries general settings.
+   */
+  func policy(_ hardMAC: MACAddress) -> Policy {
+    return Policy(hardMAC, dictionary: dictionary)
   }
 
 }

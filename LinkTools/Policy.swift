@@ -14,44 +14,42 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import Foundation
-import os.log
-
-class JSONWriter {
-
-  // MARK: Class Methods
-
-  init(filePath: String) {
-    self.path = filePath
-  }
-
-  // MARK: Instance Methods
-
-  func write(_ dictionary: [String: Any]) {
-    do {
-      let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [.sortedKeys, .prettyPrinted]) as NSData
-      let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
-
-      do {
-        // We don't have write-permissions to the entire directory.
-        // Instead of creating a temporary auxiliary file and atomically replacing config.json,
-        // we modify the existing file in-place, since we're only allowed to do that.
-        try jsonString.write(toFile: path, atomically: false, encoding: .utf8)
-      } catch let error as NSError {
-        Log.error("Could not write: \(error)")
-      }
-
-    } catch let error as NSError {
-      Log.error("Could not serialize: \(error)")
+/**
+ * An immutable wrapper for querying the content of the configuration file.
+ */
+extension Configuration {
+  struct Policy {
+    
+    // MARK: Class Methods
+    
+    init(_ hardMAC: MACAddress, dictionary: [String: Any]) {
+      self.dictionary = dictionary
+      self.hardMAC = hardMAC
     }
+    
+    // MARK: Instance Properties
+    
+    /**
+     * Gives access to the underlying dictionary of this configuration.
+     */
+    var dictionary: [String: Any]
+    var hardMAC: MACAddress
+    
+    // MARK: Instance Methods
+    
+    /**
+     * Looks up which action has been defined.
+     *
+     * Returns `nil` if no valid action was defined.
+     *
+     * - returns: An ``Interface.Action`` or `nil.
+     */
+    func action() -> Interface.Action? {
+      guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
+      guard let actionName = interfaceDictionary["action"] else { return nil }
+
+      return Interface.Action(rawValue: actionName) ?? nil
+    }
+    
   }
-  
-  // MARK: Private Instance Properties
-
-  private var path: String
-
-  private var url: URL {
-    return URL(fileURLWithPath: path)
-  }
-
 }

@@ -29,7 +29,9 @@ struct LinkLiarApp: App {
 
   private func configFileChanged() {
     Log.debug("Config file change detected, acting upon it")
+    state.configDictionary = JSONReader.init(filePath: Paths.configFile).dictionary
   }
+  
   // We have no way to detect whether someone changed a MAC address using ifconfig in the Terminal.
   // Therefore we should to re-query all MAC addresses evey time the menu bar is clicked on.
   private func menuBarAppeared(_ _: Notification) {

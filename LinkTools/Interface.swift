@@ -158,6 +158,7 @@ extension Interface: Comparable {
 
 extension Interface {
   enum Action: String {
+    case hide = "hide"
     case ignore = "ignore"
     case random = "random"
     case specify = "specify"

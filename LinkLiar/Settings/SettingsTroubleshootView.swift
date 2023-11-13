@@ -6,7 +6,8 @@ struct SettingsTroubleshootView: View {
   
   var body: some View {
     VStack {
-      Text("GUI Version: \(Controller.version)")
+      Text("Config file version: \(state.config.version ?? "?")")
+      Text("GUI Version: \(state.version.formatted)")
 
       Text("Daemon State: \(state.daemonRegistration.rawValue)")
       Text("Daemon Version: \(state.daemonVersion.formatted)")
@@ -34,4 +35,5 @@ struct SettingsTroubleshootView: View {
       Text("Troubleshoot")
     }
   }
+  
 }

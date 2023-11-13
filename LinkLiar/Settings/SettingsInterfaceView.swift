@@ -18,82 +18,70 @@ struct SettingsInterfaceView: View {
           .opacity(0.5)
           .padding(.bottom)
         
-        Form {
-                  Section(header: Text("Notifications")) {
-//                      Picker("Notify Me About", selection: $notifyMeAbout) {
-//                          Text("Direct Messages").tag(NotifyMeAboutType.directMessages)
-//                          Text("Mentions").tag(NotifyMeAboutType.mentions)
-//                          Text("Anything").tag(NotifyMeAboutType.anything)
-//                      }
-//                      Toggle("Play notification sounds", isOn: $playNotificationSounds)
-//                      Toggle("Send read receipts", isOn: $sendReadReceipts)
-                  }
-                  Section(header: Text("User Profiles")) {
-//                      Picker("Profile Image Size", selection: $profileImageSize) {
-//                          Text("Large").tag(ProfileImageSize.large)
-//                          Text("Medium").tag(ProfileImageSize.medium)
-//                          Text("Small").tag(ProfileImageSize.small)
-//                      }
-                  }
-              }
+        SettingsInterfaceActionManageView(interface: interface).environment(state)
         
-                
-        let oneBinding = Binding<Bool>(
-                get: { return true },
-                set: { _,_ in } )
-        
-        GroupBox {
-          HStack(alignment: .top) {
-            VStack(alignment: .leading, spacing: 3) {
-              Text("Show in Menu Bar")
-              Text("When you disable this, When you disable this, When you disable this, When you disable this, When you disable this, When you disable this, When you disable this, When you disable this, ").font(.caption)
-            }
-            Spacer()
-            Toggle(isOn: oneBinding) {}.toggleStyle(.switch).controlSize(.small)
-          }.padding(4)
-          
-          Divider()
+//        Form {
+//                  Section(header: Text("Notifications")) {
+////                      Picker("Notify Me About", selection: $notifyMeAbout) {
+////                          Text("Direct Messages").tag(NotifyMeAboutType.directMessages)
+////                          Text("Mentions").tag(NotifyMeAboutType.mentions)
+////                          Text("Anything").tag(NotifyMeAboutType.anything)
+////                      }
+////                      Toggle("Play notification sounds", isOn: $playNotificationSounds)
+////                      Toggle("Send read receipts", isOn: $sendReadReceipts)
+//                  }
+//                  Section(header: Text("User Profiles")) {
+////                      Picker("Profile Image Size", selection: $profileImageSize) {
+////                          Text("Large").tag(ProfileImageSize.large)
+////                          Text("Medium").tag(ProfileImageSize.medium)
+////                          Text("Small").tag(ProfileImageSize.small)
+////                      }
+//                  }
+//              }
+//        
+//                
+//          Divider()
+//
+//          HStack {
+//            Text("Manage MAC address")
+//            Spacer()
+//            Toggle(isOn: oneBinding) {}.toggleStyle(.switch).controlSize(.small)
+//          }.padding(4)
 
-          HStack {
-            Text("Manage MAC address")
-            Spacer()
-            Toggle(isOn: oneBinding) {}.toggleStyle(.switch).controlSize(.small)
-          }.padding(4)
-
-          Divider()
-
-          HStack {
-            Text("Behavior")
-            Spacer()
-            Menu {
-                Button {
-                    // do something
-                } label: {
-                    Text("Linear")
-                    Image(systemName: "arrow.down.right.circle")
-                }
-                Button {
-                    // do something
-                } label: {
-                    Text("Radial")
-                    Image(systemName: "arrow.up.and.down.circle")
-                }
-            } label: {
-                 Text("Styles")
-                 Image(systemName: "tag.circle")
-            }.menuStyle(.borderlessButton)
-              
-//            Picker {
+//          Divider()
+//
+//          HStack {
+//            Text("Behavior")
+//            Spacer()
+//            Menu {
+//                Button {
+//                    // do something
+//                } label: {
+//                    Text("Linear")
+//                    Image(systemName: "arrow.down.right.circle")
+//                }
+//                Button {
+//                    // do something
+//                } label: {
+//                    Text("Radial")
+//                    Image(systemName: "arrow.up.and.down.circle")
+//                }
+//            } label: {
+//                 Text("Styles")
+//                 Image(systemName: "tag.circle")
+//            }.menuStyle(.borderlessButton)
 //              
-//            }
-          }.padding(4)
-          Divider()
-          HStack {
-            Text("Specify Address")
-            Spacer()
-          }.padding(4)
+////            Picker {
+////              
+////            }
+//          }.padding(4)
+//          Divider()
+//          HStack {
+//            Text("Specify Address")
+//            Spacer()
+//          }.padding(4)
 
-        }
+//        }
         
 //        Picker {
 //          Button(action: {}) {
@@ -167,7 +155,7 @@ struct SettingsInterfaceView: View {
 #Preview {
   struct Preview: View {
     @State var state: LinkState = LinkState()
-    @State var hardMAC: String? = "" // Insert your Wi-Fi Hard MAC here
+    @State var hardMAC: String? = "c4:35:d9:9a:25:df" // Insert your Wi-Fi Hard MAC here
     
     init() {
       state.interfaces = Interfaces.all(asyncSoftMac: false)

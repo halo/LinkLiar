@@ -5,6 +5,9 @@ import SwiftUI
 class LinkState {
   // GUI
   var wantsToQuit = false
+  var version: Version = {
+    Version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
+  }()
 
   // Daemon
   var daemonRegistration = daemonRegistrations.unknown
@@ -15,13 +18,20 @@ class LinkState {
   var interfaces = [Interface]()
 
   // Settings
-  var configuration: [String: Any] = [:]
+  
+  /// Holds the raw configuration file as Dictionary.
+  var configDictionary: [String: Any] = [:]
   
 //  var settingsEditingInterface: Interface?
   
   // Derived
   var warnAboutLeakage: Bool {
     self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
+  }
+  
+  /// Convenience wrapper for reading the configuration.
+  var config: Configuration {
+    Configuration(dictionary: configDictionary)
   }
 
 }

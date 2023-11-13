@@ -109,7 +109,7 @@ extension Listener: ListenerProtocol {
   }
 
   func removeConfigDirectory(reply: (Bool) -> Void) {
-    ConfigDirectory.remove()
+//    ConfigDirectory.remove()
     reply(true)
   }
 

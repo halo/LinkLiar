@@ -17,41 +17,25 @@
 import Foundation
 import os.log
 
-class JSONWriter {
+class ConfigWriter {
 
   // MARK: Class Methods
 
-  init(filePath: String) {
-    self.path = filePath
-  }
-
-  // MARK: Instance Methods
-
-  func write(_ dictionary: [String: Any]) {
-    do {
-      let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [.sortedKeys, .prettyPrinted]) as NSData
-      let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
-
-      do {
-        // We don't have write-permissions to the entire directory.
-        // Instead of creating a temporary auxiliary file and atomically replacing config.json,
-        // we modify the existing file in-place, since we're only allowed to do that.
-        try jsonString.write(toFile: path, atomically: false, encoding: .utf8)
-      } catch let error as NSError {
-        Log.error("Could not write: \(error)")
-      }
-
-    } catch let error as NSError {
-      Log.error("Could not serialize: \(error)")
-    }
-  }
-  
-  // MARK: Private Instance Properties
-
-  private var path: String
-
-  private var url: URL {
-    return URL(fileURLWithPath: path)
+  static func setInterfaceActionToHidden(interface: Interface, isOn: Bool, state: LinkState) {
+    var dictionary = state.configDictionary
+    dictionary["version"] = state.version.formatted
+    let newAction = isOn ? "hide" : "ignore"
+    
+    var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
+    interfaceDictionary.updateValue(newAction, forKey: "action")
+    
+    dictionary[interface.hardMAC.formatted] = interfaceDictionary
+    
+//    let newInterfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": "hide"]
+    
+//    if interfaceDictionary
+    Log.debug("Changing config to ignore Interface \(interface.hardMAC.formatted)")
+    JSONWriter(filePath: Paths.configFile).write(dictionary)
   }
 
 }
