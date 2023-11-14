@@ -89,18 +89,7 @@ class Interface: Identifiable {
     }
   }
   
-  // MARK: Private Instance Properties
-
-  /// This is where we keep the hardware MAC address as a String. But we don't expose it.
-  private var _hardMAC: String
-  
-  /// This is where we keep the software MAC address as a String.
-  /// This variable is populated asynchronously using ``Ifconfig``.
-  var _softMAC: String
-  
-  //  var softPrefix: MACPrefix {
-  //    return MACPrefix(softMAC.prefix)
-  //  }
+  // MARK: Instance Properties
   
   var hasOriginalMAC: Bool {
     return hardMAC == softMAC
@@ -143,6 +132,27 @@ class Interface: Identifiable {
     guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else { return false }
     return !wifi.powerOn()
   }
+  
+  var iconName: String {
+    if (kind == "IEEE80211") { return "wifi" }
+
+    return "cable.connector.horizontal"
+  }
+  
+  // MARK: Private Instance Properties
+
+  /// This is where we keep the hardware MAC address as a String. But we don't expose it.
+  private var _hardMAC: String
+  
+  /// This is where we keep the software MAC address as a String.
+  /// This variable is populated asynchronously using ``Ifconfig``.
+  var _softMAC: String
+  
+  //  var softPrefix: MACPrefix {
+  //    return MACPrefix(softMAC.prefix)
+  //  }
+  
+
   
 }
 

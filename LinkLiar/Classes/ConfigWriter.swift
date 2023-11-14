@@ -21,21 +21,46 @@ class ConfigWriter {
 
   // MARK: Class Methods
 
-  static func setInterfaceActionToHidden(interface: Interface, isOn: Bool, state: LinkState) {
+  static func setInterfaceActionHiddenness(interface: Interface, isHidden: Bool, state: LinkState) {
+    let newAction = isHidden ? Interface.Action.hide : Interface.Action.ignore
+    setInterfaceAction(interface: interface, action: newAction, state: state)
+  }
+  
+  static func setInterfaceActionIgnoredness(interface: Interface, isIgnored: Bool, state: LinkState) {
+    let newAction = isIgnored ? Interface.Action.ignore : nil
+    setInterfaceAction(interface: interface, action: newAction, state: state)
+  }
+  
+  // MARK: Private Class Methods
+  
+  private static func setInterfaceAction(interface: Interface, action: Interface.Action?, state: LinkState) {
     var dictionary = state.configDictionary
     dictionary["version"] = state.version.formatted
-    let newAction = isOn ? "hide" : "ignore"
     
-    var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
-    interfaceDictionary.updateValue(newAction, forKey: "action")
+    var interfaceDictionary: [String: String] = [:]
     
-    dictionary[interface.hardMAC.formatted] = interfaceDictionary
-    
-//    let newInterfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": "hide"]
-    
-//    if interfaceDictionary
-    Log.debug("Changing config to ignore Interface \(interface.hardMAC.formatted)")
-    JSONWriter(filePath: Paths.configFile).write(dictionary)
+    if action == nil {
+      interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+      interfaceDictionary.removeValue(forKey: "action")
+      Log.debug("Removing action of Interface \(interface.hardMAC.formatted)")
+    } else {
+      if let newAction = action?.rawValue {
+        Log.debug("Changing action of Interface \(interface.hardMAC.formatted) to \(newAction)")
+        interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
+        interfaceDictionary.updateValue(newAction, forKey: "action")
+      }
+    }
+  
+    if interfaceDictionary.isEmpty {
+      Log.debug("Removing unused Interface policy \(interface.hardMAC.formatted)")
+      dictionary.removeValue(forKey: interface.hardMAC.formatted)
+    } else {
+      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+    }
+
+    if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      state.configDictionary = dictionary
+    }
   }
 
 }

@@ -23,9 +23,13 @@ struct SettingsView: View {
         Spacer()
         Text("Interfaces")
         
+        NavigationLink(value: panes.defaultPolicy.rawValue) {
+          Label("Default", systemImage: "movieclapper")
+        }
+        
         ForEach(state.interfaces) { interface in
           NavigationLink(value: interface.id) {
-            Label(interface.displayName, systemImage: "app.connected.to.app.below.fill")
+            Label(interface.displayName, systemImage: interface.iconName)
           }
         }
               }
@@ -43,5 +47,6 @@ extension SettingsView {
   enum panes: String {
     case general = "general"
     case troubleshoot = "troubleshoot"
+    case defaultPolicy = "default_policy"
   }
 }

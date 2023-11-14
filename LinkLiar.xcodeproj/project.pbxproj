@@ -84,6 +84,7 @@
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C2B633BD2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +186,7 @@
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C2B633BC2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceActionDefaultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +231,7 @@
 				C22F21972AFFB0860086B621 /* SettingsDetailView.swift */,
 				C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */,
 				C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionManageView.swift */,
+				C2B633BC2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
 			);
 			path = Settings;
@@ -526,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
+				C2B633BD2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift in Sources */,
 				C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */,
 				C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */,
 				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,

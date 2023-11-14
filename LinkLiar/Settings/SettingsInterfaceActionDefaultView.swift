@@ -1,27 +1,27 @@
 import SwiftUI
 
-struct SettingsInterfaceActionManageView: View {
+struct SettingsInterfaceActionDefaultView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
   var body: some View {
     
-    // false means it is hidden
+    // false means it is ignored
     // true means it is anything else
     let value = Binding<Bool>(
-      get: { state.config.policy(interface.hardMAC).action() != .hide },
-      set: { value,_ in ConfigWriter.setInterfaceActionHiddenness(interface: interface, isHidden: !value, state: state) } )
+      get: { state.config.policy(interface.hardMAC).action() != .ignore },
+      set: { value,_ in ConfigWriter.setInterfaceActionIgnoredness(interface: interface, isIgnored: !value, state: state) } )
     
     GroupBox {
       HStack(alignment: .top) {
         VStack(alignment: .leading, spacing: 3) {
-          Text("Show in Menu Bar")
+          Text("Manage MAC address")
           if value.wrappedValue {
-            Text("This Interface is currently shown in the menu bar list. If you turn this off, you essentially tell LinkLiar that you never want to see this Interface again and that its MAC address need not be managed by LinkLiar.")
+            Text("LinkLiar currently does to this Interface whatever you configured as a default for Interfaces. If you turn this off, LinkLiar will not do anything with this Interface and not warn you if it has its original MAC address.")
               .font(.caption)
               .foregroundColor(.secondary)
           } else {
-            Text("This Interface is currently hidden from the menu bar. If you turn this on, you will see the Interface in the menu bar and you can configure LinkLiar to manage its MAC address.")
+            Text("This Interface is currently being ignored by LinkLiar. If you turn this on, LinkLiar will start managing its MAC address and warn you whenever it uses its original MAC address.")
               .font(.caption)
               .foregroundColor(.secondary)
           }
@@ -42,6 +42,6 @@ struct SettingsInterfaceActionManageView: View {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
-  return SettingsInterfaceActionManageView().environment(state)
+  return SettingsInterfaceActionDefaultView().environment(state)
                                             .environment(interface)
 }

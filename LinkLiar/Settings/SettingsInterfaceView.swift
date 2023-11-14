@@ -22,6 +22,12 @@ struct SettingsInterfaceView: View {
       SettingsInterfaceActionManageView().environment(state)
                                          .environment(interface)
       
+      if (state.config.policy(interface.hardMAC).action() != .hide) {
+        SettingsInterfaceActionDefaultView().environment(state)
+                                           .environment(interface)
+
+      }
+
 //        Form {
 //                  Section(header: Text("Notifications")) {
 ////                      Picker("Notify Me About", selection: $notifyMeAbout) {

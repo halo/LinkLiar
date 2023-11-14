@@ -32,9 +32,12 @@ struct MenuView: View {
       
       ConfirmQuittingView().environment(state)
 
-    }.padding(12).fixedSize()
+    }.padding(12)
+      .fixedSize()
       .onAppear {
         // See https://damian.fyi/swift/2022/12/29/detecting-when-a-swiftui-menubarextra-with-window-style-is-opened.html
+        // For some reason this also triggers when the Settings view received or loosed focus.
+        // I guess that's a good thing.
         observer = NSApplication.shared.observe(\.keyWindow) { _, _ in
           NotificationCenter.default.post(name: .menuBarAppeared, object: nil)
         }

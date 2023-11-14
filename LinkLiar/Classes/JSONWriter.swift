@@ -27,7 +27,7 @@ class JSONWriter {
 
   // MARK: Instance Methods
 
-  func write(_ dictionary: [String: Any]) {
+  func write(_ dictionary: [String: Any]) -> Bool {
     do {
       let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: [.sortedKeys, .prettyPrinted]) as NSData
       let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
@@ -37,12 +37,15 @@ class JSONWriter {
         // Instead of creating a temporary auxiliary file and atomically replacing config.json,
         // we modify the existing file in-place, since we're only allowed to do that.
         try jsonString.write(toFile: path, atomically: false, encoding: .utf8)
+        return true
       } catch let error as NSError {
         Log.error("Could not write: \(error)")
+        return false
       }
 
     } catch let error as NSError {
       Log.error("Could not serialize: \(error)")
+      return false
     }
   }
   
