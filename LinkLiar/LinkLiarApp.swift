@@ -28,25 +28,33 @@ struct LinkLiarApp: App {
   // MARK: Private Instance Methods
 
   private func configFileChanged() {
-    Log.debug("Config file change detected, acting upon it")
-    state.configDictionary = JSONReader.init(filePath: Paths.configFile).dictionary
+    // While the menu is expanded, we must not change it's state on a background thread.
+    // All state-changing operations must be run on the main thread.
+    DispatchQueue.main.async {
+      Log.debug("Config file change detected, acting upon it")
+      state.configDictionary = JSONReader.init(filePath: Paths.configFile).dictionary
+    }
   }
   
   // We have no way to detect whether someone changed a MAC address using ifconfig in the Terminal.
   // Therefore we should to re-query all MAC addresses evey time the menu bar is clicked on.
   private func menuBarAppeared(_ _: Notification) {
-    Log.debug("Menu Bar appeared")
-    Controller.queryAllSoftMACs(state)
-    Controller.queryDaemonRegistration(state: state)
-
-    // If there was a "do you really want to quit?" warning,
-    // we can remove it once the menu bar was closed and reopened.
-    Controller.wantsToStay(state)
+    DispatchQueue.main.async {
+      Log.debug("Menu Bar appeared")
+      Controller.queryAllSoftMACs(state)
+      Controller.queryDaemonRegistration(state: state)
+      
+      // If there was a "do you really want to quit?" warning,
+      // we can remove it once the menu bar was closed and reopened.
+      Controller.wantsToStay(state)
+    }
   }
 
   private func networkConditionsChanged() {
-    Log.debug("Network change detected, acting upon it")
-    Controller.queryInterfaces(state: state)
+    DispatchQueue.main.async {
+      Log.debug("Network change detected, acting upon it")
+      Controller.queryInterfaces(state: state)
+    }
   }
   
   var body: some Scene {
