@@ -26,7 +26,11 @@ class LinkState {
   
   // Derived
   var warnAboutLeakage: Bool {
-    self.interfaces.contains(where: { interface in interface.hasOriginalMAC })
+    self.interfaces.contains(where: { interface in
+      interface.hasOriginalMAC &&
+        config.policy(interface.hardMAC).action() != .ignore &&
+        config.policy(interface.hardMAC).action() != .hide
+    })
   }
   
   /// Convenience wrapper for reading the configuration.
