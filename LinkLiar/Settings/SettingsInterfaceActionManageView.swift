@@ -2,8 +2,9 @@ import SwiftUI
 
 struct SettingsInterfaceActionManageView: View {
   @Environment(LinkState.self) private var state
-  
-  @State var interface: Interface
+  @Environment(Interface.self) private var interface
+
+//  @Binding var interface: Interface
   
   var body: some View {
     
@@ -26,9 +27,9 @@ struct SettingsInterfaceActionManageView: View {
 }
 
 
-#Preview {
-  let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
-  
-  return SettingsInterfaceActionManageView(interface: interface).environment(state)
-}
+//#Preview {
+//  let state = LinkState()
+//  let interface = Interfaces.all(asyncSoftMac: false).first!
+//  
+//  return SettingsInterfaceActionManageView(interface: interface).environment(state)
+//}

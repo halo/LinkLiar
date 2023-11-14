@@ -2,6 +2,7 @@ import SwiftUI
 
 struct InterfaceView: View {
   @Bindable var interface: Interface
+  
   @State var hoversHardMAC = false
   @State var copiedHardMAC = 0.0
   @State var hoversSoftMAC = false

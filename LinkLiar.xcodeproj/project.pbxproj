@@ -250,11 +250,11 @@
 			isa = PBXGroup;
 			children = (
 				C22F21992AFFFA9A0086B621 /* MenuView.swift */,
+				C22F219C2AFFFAB40086B621 /* InterfacesView.swift */,
+				C22F219D2AFFFAB40086B621 /* InterfaceView.swift */,
 				C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */,
 				C22F219B2AFFFAB40086B621 /* ApproveDaemonView.swift */,
 				C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */,
-				C22F219C2AFFFAB40086B621 /* InterfacesView.swift */,
-				C22F219D2AFFFAB40086B621 /* InterfaceView.swift */,
 			);
 			name = Menu;
 			sourceTree = "<group>";

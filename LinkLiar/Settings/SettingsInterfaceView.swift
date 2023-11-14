@@ -2,24 +2,26 @@ import SwiftUI
 
 struct SettingsInterfaceView: View {
   @Environment(LinkState.self) private var state
-  
-  @Binding var hardMAC: String?
+  @Environment(Interface.self) private var interface
+
+//  @Binding var hardMAC: String?
+//  @Binding var interface: Interface
   
   var body: some View {
-    if let interface {
-      VStack(alignment: .leading) {
-        
-        Text(interface.displayName)
-          .font(.title2)
-          .padding(.top)
-        
-        Text(interface.BSDName)
-          .font(.system(.body, design: .monospaced))
-          .opacity(0.5)
-          .padding(.bottom)
-        
-        SettingsInterfaceActionManageView(interface: interface).environment(state)
-        
+    VStack(alignment: .leading) {
+      
+      Text(interface.displayName)
+        .font(.title2)
+        .padding(.top)
+      
+      Text(interface.BSDName)
+        .font(.system(.body, design: .monospaced))
+        .opacity(0.5)
+        .padding(.bottom)
+      
+      SettingsInterfaceActionManageView().environment(state)
+                                         .environment(interface)
+      
 //        Form {
 //                  Section(header: Text("Notifications")) {
 ////                      Picker("Notify Me About", selection: $notifyMeAbout) {
@@ -38,8 +40,8 @@ struct SettingsInterfaceView: View {
 ////                      }
 //                  }
 //              }
-//        
-//                
+//
+//
 //          Divider()
 //
 //          HStack {
@@ -70,9 +72,9 @@ struct SettingsInterfaceView: View {
 //                 Text("Styles")
 //                 Image(systemName: "tag.circle")
 //            }.menuStyle(.borderlessButton)
-//              
+//
 ////            Picker {
-////              
+////
 ////            }
 //          }.padding(4)
 //          Divider()
@@ -82,12 +84,12 @@ struct SettingsInterfaceView: View {
 //          }.padding(4)
 
 //        }
-        
+      
 //        Picker {
 //          Button(action: {}) {
 //            Label("Create a file", systemImage: "doc")
 //          }
-//          
+//
 //          Button(action: {}) {
 //            Label("Create a folder", systemImage: "folder")
 //          }
@@ -100,73 +102,73 @@ struct SettingsInterfaceView: View {
 //      label: {
 //        Label("Choose behavior", systemImage: "arcade.stick.console")
 //      }
-        
+      
 //        List {
 //          SettingsInterfaceActionView(interface: interface, action: Interface.Action.ignore).environment(state)
 //          SettingsInterfaceActionView(interface: interface, action: Interface.Action.random).environment(state)
 //          SettingsInterfaceActionView(interface: interface, action: Interface.Action.specify).environment(state)
 //        }.listStyle(.bordered)
-        //        GroupBox(label:
-        //                  Label("Default", systemImage: "wand.and.stars").font(.headline)
-        //        ) {
-        //          VStack(alignment: .leading) {
-        //            Text("Lorem Ipsum Wow this is good")
-        //          }
-        //        }.padding(.bottom)
-        //
-        //        GroupBox(label:
-        //                  Label("Do Nothing", systemImage: "bed.double.fill").font(.headline)
-        //        ) {
-        //          VStack(alignment: .leading) {
-        //            Text("Lorem Ipsum Wow this is good")
-        //          }
-        //
-        //        }
-        
-        
-        //
-        //        GroupBox {
-        //          Text("Random")
-        //        }.background(.red).frame(maxWidth: .infinity)
-        //
-        //        GroupBox {
-        //          Text("Ignore")
-        //        }
-        //
-        //        GroupBox {
-        //          Text("Hide")
-        //        }
-        Spacer()
-      }.padding()
-      //      .background(.green)
+      //        GroupBox(label:
+      //                  Label("Default", systemImage: "wand.and.stars").font(.headline)
+      //        ) {
+      //          VStack(alignment: .leading) {
+      //            Text("Lorem Ipsum Wow this is good")
+      //          }
+      //        }.padding(.bottom)
+      //
+      //        GroupBox(label:
+      //                  Label("Do Nothing", systemImage: "bed.double.fill").font(.headline)
+      //        ) {
+      //          VStack(alignment: .leading) {
+      //            Text("Lorem Ipsum Wow this is good")
+      //          }
+      //
+      //        }
       
-    } else {
-      Text("Could not find Interface \(hardMAC ?? "?")")
-    }
+      
+      //
+      //        GroupBox {
+      //          Text("Random")
+      //        }.background(.red).frame(maxWidth: .infinity)
+      //
+      //        GroupBox {
+      //          Text("Ignore")
+      //        }
+      //
+      //        GroupBox {
+      //          Text("Hide")
+      //        }
+      Spacer()
+    }.padding()
+    //      .background(.green)
     
+//    } else {
+//      Text("Could not find Interface \(hardMAC ?? "?")")
+//    }
     
+//    } else {
+//      Text("Interface removed.")
+//    }
   }
   
-  private var interface: Interface? {
-    state.interfaces.first(where: { $0.id == hardMAC })
-  }
+//  private var loadInterface: Interface? {
+//    interface = state.interfaces.first(where: { $0.id == hardMAC })!
+//  }
 }
 
-#Preview {
-  struct Preview: View {
-    @State var state: LinkState = LinkState()
-    @State var hardMAC: String? = "c4:35:d9:9a:25:df" // Insert your Wi-Fi Hard MAC here
-    
-    init() {
-      state.interfaces = Interfaces.all(asyncSoftMac: false)
-      // FIXME: Why is this not working?
-      hardMAC = state.interfaces.first!.id
-    }
-    
-    var body: some View {
-      return SettingsInterfaceView(hardMAC: $hardMAC).environment(state)
-    }
-  }
-  
-  return Preview()
-}
+//#Preview {
+//  struct Preview: View {
+//    @State var state: LinkState = LinkState()
+//    @State var interface: Interface
+//    
+//    init() {
+//      state.interfaces = Interfaces.all(asyncSoftMac: false)
+//    }
+//    
+//    var body: some View {
+//      return SettingsInterfaceView(interface: $interface).environment(state)
+//    }
+//  }
+//  
+//  return Preview()
+//}
