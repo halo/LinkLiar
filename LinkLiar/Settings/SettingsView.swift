@@ -3,15 +3,15 @@ import ServiceManagement
 
 struct SettingsView: View {
   @Environment(LinkState.self) private var state
-
+  
   @State private var selectedFolder: String?
   
   var body: some View {
     NavigationSplitView {
       List(selection: $selectedFolder) {
-
+        
         Spacer()
-
+        
         NavigationLink(value: panes.general.rawValue) {
           Label("Welcome", systemImage: "figure.run")
         }
@@ -19,20 +19,24 @@ struct SettingsView: View {
         NavigationLink(value: panes.troubleshoot.rawValue) {
           Label("Troubleshoot", systemImage: "cross.case")
         }
-
+        
         Spacer()
         Text("Interfaces")
         
-        NavigationLink(value: panes.defaultPolicy.rawValue) {
-          Label("Default", systemImage: "movieclapper")
-        }
         
         ForEach(state.interfaces) { interface in
           NavigationLink(value: interface.id) {
             Label(interface.displayName, systemImage: interface.iconName)
           }
         }
-              }
+        
+        Divider().padding(.top, -5)
+        
+        NavigationLink(value: panes.defaultPolicy.rawValue) {
+          Label("Interface Default", systemImage: "movieclapper")
+        }
+        
+      }
       .navigationSplitViewColumnWidth(180)
       .toolbar(removing: .sidebarToggle)
       
@@ -50,3 +54,12 @@ extension SettingsView {
     case defaultPolicy = "default_policy"
   }
 }
+
+#Preview {
+  let state = LinkState()
+  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  
+  return SettingsView().environment(state)
+  
+}
+
