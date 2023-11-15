@@ -9,33 +9,42 @@ struct SettingsView: View {
   var body: some View {
     NavigationSplitView {
       List(selection: $selectedFolder) {
-        
         Spacer()
-        
+
         NavigationLink(value: panes.general.rawValue) {
-          Label("Welcome", systemImage: "figure.run")
+          Label("Welcome", systemImage: "figure.dance")
         }
         
+        NavigationLink(value: panes.help.rawValue) {
+          Label("Help", systemImage: "book.pages")
+        }
+        
+        NavigationLink(value: panes.community.rawValue) {
+          Label("Community", systemImage: "bubble")
+        }
+
         NavigationLink(value: panes.troubleshoot.rawValue) {
-          Label("Troubleshoot", systemImage: "cross.case")
+          Label("Troubleshoot", systemImage: "bandage")
+        }
+        
+        NavigationLink(value: panes.uninstall.rawValue) {
+          Label("Uninstall", systemImage: "trash")
         }
         
         Spacer()
         Text("Interfaces")
         
-        
+        NavigationLink(value: panes.defaultPolicy.rawValue) {
+          Label("Interface Default", systemImage: "wand.and.stars.inverse")
+        }
+
         ForEach(state.interfaces) { interface in
           NavigationLink(value: interface.id) {
             Label(interface.displayName, systemImage: interface.iconName)
           }
         }
         
-        Divider().padding(.top, -5)
-        
-        NavigationLink(value: panes.defaultPolicy.rawValue) {
-          Label("Interface Default", systemImage: "movieclapper")
-        }
-        
+        Spacer()
       }
       .navigationSplitViewColumnWidth(180)
       .toolbar(removing: .sidebarToggle)
@@ -51,6 +60,9 @@ extension SettingsView {
   enum panes: String {
     case general = "general"
     case troubleshoot = "troubleshoot"
+    case help = "help"
+    case community = "community"
+    case uninstall = "uninstall"
     case defaultPolicy = "default_policy"
   }
 }
