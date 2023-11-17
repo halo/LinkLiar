@@ -60,8 +60,7 @@ struct LinkLiarApp: App {
   var body: some Scene {
     MenuBarExtra("LinkLiar", image: menuBarIconName) {
       MenuView().environment(state)
-    }
-    .menuBarExtraStyle(.window)
+    }.menuBarExtraStyle(.window)
     
     Settings {
       SettingsView().environment(state)

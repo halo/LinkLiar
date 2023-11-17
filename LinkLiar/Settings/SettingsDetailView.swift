@@ -10,9 +10,9 @@ struct SettingsDetailView: View {
       
       switch selectedFolder {
         case nil:
+          EmptyView()
+        case SettingsView.panes.welcome.rawValue:
           Text("Welcome")
-        case SettingsView.panes.general.rawValue:
-          Text("General")
         case SettingsView.panes.troubleshoot.rawValue:
           SettingsTroubleshootView().environment(state)
         default:

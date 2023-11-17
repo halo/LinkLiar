@@ -34,4 +34,7 @@ class Paths {
   static let debugLogFile = "/tmp/linkliar.log"
   static let debugLogFileURL = URL(fileURLWithPath: debugLogFile)
 
+  static let githubApiReleases = "https://api.github.com/repos/halo/LinkLiar/releases/latest"
+  static let githubApiReleasesURL = URL(string: githubApiReleases)!
+
 }

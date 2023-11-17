@@ -4,14 +4,14 @@ import ServiceManagement
 struct SettingsView: View {
   @Environment(LinkState.self) private var state
   
-  @State private var selectedFolder: String?
+  @State private var selectedFolder: String? = panes.welcome.rawValue
   
   var body: some View {
     NavigationSplitView {
       List(selection: $selectedFolder) {
         Spacer()
 
-        NavigationLink(value: panes.general.rawValue) {
+        NavigationLink(value: panes.welcome.rawValue) {
           Label("Welcome", systemImage: "figure.dance")
         }
         
@@ -52,13 +52,13 @@ struct SettingsView: View {
     } detail: {
       SettingsDetailView(selectedFolder: $selectedFolder).environment(state)
     }.presentedWindowStyle(.hiddenTitleBar)
-    
+
   }
 }
 
 extension SettingsView {
   enum panes: String {
-    case general = "general"
+    case welcome = "welcome"
     case troubleshoot = "troubleshoot"
     case help = "help"
     case community = "community"
