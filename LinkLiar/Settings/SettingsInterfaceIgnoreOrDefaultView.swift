@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsInterfaceActionDefaultView: View {
+struct SettingsInterfaceIgnoreOrDefaultView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
@@ -42,6 +42,6 @@ struct SettingsInterfaceActionDefaultView: View {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
-  return SettingsInterfaceActionDefaultView().environment(state)
+  return SettingsInterfaceDefaultOrCustomView().environment(state)
                                             .environment(interface)
 }

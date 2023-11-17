@@ -53,7 +53,7 @@
 		C22F21A22AFFFAB40086B621 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219D2AFFFAB40086B621 /* InterfaceView.swift */; };
 		C22F21A32AFFFAB40086B621 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */; };
 		C22F21A42AFFFAB40086B621 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */; };
-		C22F21A62AFFFAD00086B621 /* SettingsInterfaceActionManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionManageView.swift */; };
+		C22F21A62AFFFAD00086B621 /* SettingsInterfaceHideOrIgnoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A52AFFFAD00086B621 /* SettingsInterfaceHideOrIgnoreView.swift */; };
 		C22F21A82B010B210086B621 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A72B010B210086B621 /* JSONWriter.swift */; };
 		C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
@@ -74,6 +74,8 @@
 		C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E21B2AE7AF620098FF39 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* Listener.swift */; };
+		C28E03232B07EF360074EC94 /* SettingsInterfaceActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03222B07EF360074EC94 /* SettingsInterfaceActionView.swift */; };
+		C28E03252B07F3370074EC94 /* SettingsInterfaceIgnoreOrDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03242B07F3370074EC94 /* SettingsInterfaceIgnoreOrDefaultView.swift */; };
 		C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
@@ -84,7 +86,7 @@
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C2B633BD2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift */; };
+		C2B633BD2B04094900BC69A5 /* SettingsInterfaceDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* SettingsInterfaceDefaultOrCustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,7 +164,7 @@
 		C22F219D2AFFFAB40086B621 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfaceView.swift; path = Menu/InterfaceView.swift; sourceTree = "<group>"; };
 		C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmQuittingView.swift; path = Menu/ConfirmQuittingView.swift; sourceTree = "<group>"; };
 		C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterDaemonView.swift; path = Menu/RegisterDaemonView.swift; sourceTree = "<group>"; };
-		C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceActionManageView.swift; sourceTree = "<group>"; };
+		C22F21A52AFFFAD00086B621 /* SettingsInterfaceHideOrIgnoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceHideOrIgnoreView.swift; sourceTree = "<group>"; };
 		C22F21A72B010B210086B621 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriter.swift; sourceTree = "<group>"; };
 		C22F21A92B010C970086B621 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
 		C22F21AC2B010CBE0086B621 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObserver.swift; sourceTree = "<group>"; };
@@ -182,11 +184,13 @@
 		C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDirectory.swift; sourceTree = "<group>"; };
 		C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
 		C288E21A2AE7AF620098FF39 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
+		C28E03222B07EF360074EC94 /* SettingsInterfaceActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceActionView.swift; sourceTree = "<group>"; };
+		C28E03242B07F3370074EC94 /* SettingsInterfaceIgnoreOrDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceIgnoreOrDefaultView.swift; sourceTree = "<group>"; };
 		C29EAF762AE59EE7003578B9 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C2B633BC2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceActionDefaultView.swift; sourceTree = "<group>"; };
+		C2B633BC2B04094900BC69A5 /* SettingsInterfaceDefaultOrCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceDefaultOrCustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,8 +234,10 @@
 				C22F21872AFD529F0086B621 /* SettingsView.swift */,
 				C22F21972AFFB0860086B621 /* SettingsDetailView.swift */,
 				C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */,
-				C22F21A52AFFFAD00086B621 /* SettingsInterfaceActionManageView.swift */,
-				C2B633BC2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift */,
+				C22F21A52AFFFAD00086B621 /* SettingsInterfaceHideOrIgnoreView.swift */,
+				C28E03242B07F3370074EC94 /* SettingsInterfaceIgnoreOrDefaultView.swift */,
+				C2B633BC2B04094900BC69A5 /* SettingsInterfaceDefaultOrCustomView.swift */,
+				C28E03222B07EF360074EC94 /* SettingsInterfaceActionView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
 			);
 			path = Settings;
@@ -529,7 +535,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
-				C2B633BD2B04094900BC69A5 /* SettingsInterfaceActionDefaultView.swift in Sources */,
+				C2B633BD2B04094900BC69A5 /* SettingsInterfaceDefaultOrCustomView.swift in Sources */,
 				C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */,
 				C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */,
 				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
@@ -547,6 +553,7 @@
 				C22134812AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C22F21A82B010B210086B621 /* JSONWriter.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
+				C28E03232B07EF360074EC94 /* SettingsInterfaceActionView.swift in Sources */,
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
 				C22F21A32AFFFAB40086B621 /* ConfirmQuittingView.swift in Sources */,
@@ -557,9 +564,10 @@
 				C22134692AEC37E600BCF30E /* Version.swift in Sources */,
 				C22F21A12AFFFAB40086B621 /* InterfacesView.swift in Sources */,
 				C22F219A2AFFFA9A0086B621 /* MenuView.swift in Sources */,
-				C22F21A62AFFFAD00086B621 /* SettingsInterfaceActionManageView.swift in Sources */,
+				C22F21A62AFFFAD00086B621 /* SettingsInterfaceHideOrIgnoreView.swift in Sources */,
 				C22F21A22AFFFAB40086B621 /* InterfaceView.swift in Sources */,
 				C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */,
+				C28E03252B07F3370074EC94 /* SettingsInterfaceIgnoreOrDefaultView.swift in Sources */,
 				C221347D2AEECFA300BCF30E /* Interfaces.swift in Sources */,
 				C22134772AEECFA300BCF30E /* MACAddress.swift in Sources */,
 			);

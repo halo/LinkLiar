@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsInterfaceActionManageView: View {
+struct SettingsInterfaceHideOrIgnoreView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
@@ -42,6 +42,6 @@ struct SettingsInterfaceActionManageView: View {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
-  return SettingsInterfaceActionManageView().environment(state)
+  return SettingsInterfaceHideOrIgnoreView().environment(state)
                                             .environment(interface)
 }

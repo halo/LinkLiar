@@ -33,7 +33,7 @@ class ConfigWriter {
   
   // MARK: Private Class Methods
   
-  private static func setInterfaceAction(interface: Interface, action: Interface.Action?, state: LinkState) {
+  static func setInterfaceAction(interface: Interface, action: Interface.Action?, state: LinkState) {
     var dictionary = state.configDictionary
     dictionary["version"] = state.version.formatted
     

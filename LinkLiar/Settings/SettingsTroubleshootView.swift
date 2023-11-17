@@ -59,9 +59,6 @@ struct SettingsTroubleshootView: View {
             Button(action: { Controller.registerDaemon(state: state) }) {
               Text("Register Daemon")
             }
-            Button(action: { Controller.registerDaemon(state: state) }) {
-              Text("Register Daemon")
-            }
             Button(action: { Controller.unregisterDaemon(state: state) }) {
               Text("Unregister Daemon")
             }
