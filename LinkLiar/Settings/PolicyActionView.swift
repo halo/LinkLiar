@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsInterfaceActionView: View {
+struct PolicyActionView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
@@ -9,7 +9,7 @@ struct SettingsInterfaceActionView: View {
     // false means it is ignored
     // true means it is anything else
     let value = Binding<Interface.Action?>(
-      get: { state.config.policy(interface.hardMAC).action() },
+      get: { state.config.policy(interface.hardMAC).action },
       set: { value,_ in ConfigWriter.setInterfaceAction(interface: interface, action: value, state: state) } )
     
     GroupBox {
@@ -66,6 +66,6 @@ struct SettingsInterfaceActionView: View {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
-  return SettingsInterfaceActionView().environment(state)
+  return PolicyActionView().environment(state)
                                        .environment(interface)
 }

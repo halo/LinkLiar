@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsInterfaceIgnoreOrDefaultView: View {
+struct PolicyIgnoreOrDefaultView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
@@ -9,7 +9,7 @@ struct SettingsInterfaceIgnoreOrDefaultView: View {
     // false means it is ignored
     // true means it is anything else
     let value = Binding<Bool>(
-      get: { state.config.policy(interface.hardMAC).action() != .ignore },
+      get: { state.config.policy(interface.hardMAC).action != .ignore },
       set: { value,_ in ConfigWriter.setInterfaceActionIgnoredness(interface: interface, isIgnored: !value, state: state) } )
     
     GroupBox {
@@ -17,7 +17,7 @@ struct SettingsInterfaceIgnoreOrDefaultView: View {
         VStack(alignment: .leading, spacing: 3) {
           Text("Manage MAC address")
           if value.wrappedValue {
-            Text("LinkLiar currently does to this Interface whatever you configured as a default for Interfaces. If you turn this off, LinkLiar will not do anything with this Interface and not warn you if it has its original MAC address.")
+            Text("LinkLiar may change the MAC address of this interface. If you turn this off, LinkLiar will never change this Interface and not warn you if it has its original MAC address.")
               .font(.caption)
               .foregroundColor(.secondary)
           } else {
@@ -42,6 +42,6 @@ struct SettingsInterfaceIgnoreOrDefaultView: View {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
-  return SettingsInterfaceDefaultOrCustomView().environment(state)
+  return PolicyDefaultOrCustomView().environment(state)
                                             .environment(interface)
 }

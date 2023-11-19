@@ -42,12 +42,17 @@ struct InterfaceView: View {
                 hoversSoftMAC = hovering
               }
             
-            if hoversSoftMAC || recentlyCopied {
-              let hoverImageName = recentlyCopied ? "checkmark" : "doc.on.doc.fill"
-              Image(systemName: hoverImageName)
-                .imageScale(.small)
-                .opacity(0.5)
-            }
+//            if hoversSoftMAC || recentlyCopied {
+//              let hoverImageName = recentlyCopied ? "checkmark" : "doc.on.doc.fill"
+//              Image(systemName: hoverImageName)
+//                .imageScale(.small)
+//                .opacity(0.5)
+//            } else {
+//              let hoverImageName = recentlyCopied ? "checkmark" : "doc.on.doc.fill"
+//              Image(systemName: hoverImageName)
+//                .imageScale(.small)
+//                .opacity(0)
+//            }
           }.buttonStyle(.plain)
           
           //            Text(interface.softMAC.humanReadable)

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SettingsInterfaceHideOrIgnoreView: View {
+struct PolicyHideOrIgnoreView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
@@ -9,7 +9,7 @@ struct SettingsInterfaceHideOrIgnoreView: View {
     // false means it is hidden
     // true means it is anything else
     let value = Binding<Bool>(
-      get: { state.config.policy(interface.hardMAC).action() != .hide },
+      get: { state.config.policy(interface.hardMAC).action != .hide },
       set: { value,_ in ConfigWriter.setInterfaceActionHiddenness(interface: interface, isHidden: !value, state: state) } )
     
     GroupBox {
@@ -17,7 +17,7 @@ struct SettingsInterfaceHideOrIgnoreView: View {
         VStack(alignment: .leading, spacing: 3) {
           Text("Show in Menu Bar")
           if value.wrappedValue {
-            Text("This Interface is currently shown in the menu bar list. If you turn this off, you essentially tell LinkLiar that you never want to see this Interface again and that its MAC address need not be managed by LinkLiar.")
+            Text("This Interface is currently shown in the menu bar list. If you turn this off, you essentially tell LinkLiar that you never want to see this Interface again and that its MAC address need not be modified.")
               .font(.caption)
               .foregroundColor(.secondary)
           } else {
@@ -42,6 +42,6 @@ struct SettingsInterfaceHideOrIgnoreView: View {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
-  return SettingsInterfaceHideOrIgnoreView().environment(state)
+  return PolicyHideOrIgnoreView().environment(state)
                                             .environment(interface)
 }

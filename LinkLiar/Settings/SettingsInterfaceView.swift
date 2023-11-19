@@ -19,17 +19,17 @@ struct SettingsInterfaceView: View {
         .opacity(0.5)
         .padding(.bottom)
       
-      SettingsInterfaceHideOrIgnoreView().environment(state).environment(interface)
+      PolicyHideOrIgnoreView().environment(state).environment(interface)
       
-      if (state.config.policy(interface.hardMAC).action() != .hide) {
-        SettingsInterfaceIgnoreOrDefaultView().environment(state).environment(interface)
+      if (state.config.policy(interface.hardMAC).action != .hide) {
+        PolicyIgnoreOrDefaultView().environment(state).environment(interface)
         
-        if ((state.config.policy(interface.hardMAC).action()) != .ignore) {
-          SettingsInterfaceDefaultOrCustomView().environment(state).environment(interface)
+        if ((state.config.policy(interface.hardMAC).action) != .ignore) {
+          PolicyDefaultOrCustomView().environment(state).environment(interface)
           
-          if ((state.config.policy(interface.hardMAC).action()) != nil) {
+          if ((state.config.policy(interface.hardMAC).action) != nil) {
             
-            SettingsInterfaceActionView().environment(state)
+            PolicyActionView().environment(state)
               .environment(interface)
             
           }

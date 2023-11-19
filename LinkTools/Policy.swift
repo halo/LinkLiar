@@ -34,17 +34,15 @@ extension Configuration {
      */
     var dictionary: [String: Any]
     var hardMAC: MACAddress
-    
-    // MARK: Instance Methods
-    
+        
     /**
      * Looks up which action has been defined.
      *
-     * Returns `nil` if no valid action was defined.
+     * Returns `nil` if no (valid) action was defined.
      *
-     * - returns: An ``Interface.Action`` or `nil.
+     * - returns: An ``Interface.Action`` or `nil`.
      */
-    func action() -> Interface.Action? {
+    var action: Interface.Action? {
       guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
       guard let actionName = interfaceDictionary["action"] else { return nil }
 
