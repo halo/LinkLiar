@@ -13,6 +13,8 @@ struct SettingsDetailView: View {
           EmptyView()
         case SettingsView.panes.welcome.rawValue:
           Text("Welcome")
+        case SettingsView.panes.defaultPolicy.rawValue:
+          SettingsInterfaceFallbackView().environment(state)
         case SettingsView.panes.troubleshoot.rawValue:
           SettingsTroubleshootView().environment(state)
         default:

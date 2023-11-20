@@ -91,4 +91,33 @@ class ConfigWriter {
     }
   }
 
+  static func setFallbackInterfaceAction(action: Interface.Action?, state: LinkState) {
+    var dictionary = state.configDictionary
+    dictionary["version"] = state.version.formatted
+    
+    var interfaceDictionary: [String: String] = [:]
+    
+    if action == nil {
+      interfaceDictionary = dictionary["default"] as? [String: String] ?? [:]
+      interfaceDictionary.removeValue(forKey: "action")
+      Log.debug("Removing action of fallback Interface")
+    } else {
+      if let newAction = action?.rawValue {
+        Log.debug("Changing fallback action to \(newAction)")
+        interfaceDictionary = dictionary["default"] as? [String: String] ?? ["action": newAction]
+        interfaceDictionary.updateValue(newAction, forKey: "action")
+      }
+    }
+  
+    if interfaceDictionary.isEmpty {
+      Log.debug("Removing unused fallback policy")
+      dictionary.removeValue(forKey: "default")
+    } else {
+      dictionary["default"] = interfaceDictionary
+    }
+
+    if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      state.configDictionary = dictionary
+    }
+  }
 }

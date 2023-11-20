@@ -41,10 +41,16 @@ class Configuration {
   
 
   /**
-   * Queries general settings.
+   * Queries settings of one Interface.
    */
   func policy(_ hardMAC: MACAddress) -> Policy {
-    return Policy(hardMAC, dictionary: dictionary)
+    return Policy(hardMAC.formatted, dictionary: dictionary)
   }
 
+  /**
+   * Queries settings of the default Interface.
+   */
+  var fallbackPolicy: Policy {
+    return Policy("default", dictionary: dictionary)
+  }
 }

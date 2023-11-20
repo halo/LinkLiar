@@ -22,7 +22,7 @@ extension Configuration {
     
     // MARK: Class Methods
     
-    init(_ hardMAC: MACAddress, dictionary: [String: Any]) {
+    init(_ hardMAC: String, dictionary: [String: Any]) {
       self.dictionary = dictionary
       self.hardMAC = hardMAC
     }
@@ -33,7 +33,7 @@ extension Configuration {
      * Gives access to the underlying dictionary of this configuration.
      */
     var dictionary: [String: Any]
-    var hardMAC: MACAddress
+    var hardMAC: String
         
     /**
      * Looks up which action has been defined.
@@ -43,7 +43,7 @@ extension Configuration {
      * - returns: An ``Interface.Action`` or `nil`.
      */
     var action: Interface.Action? {
-      guard let interfaceDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
+      guard let interfaceDictionary = dictionary[hardMAC] as? [String: String] else { return nil }
       guard let actionName = interfaceDictionary["action"] else { return nil }
 
       return Interface.Action(rawValue: actionName) ?? nil
@@ -56,7 +56,7 @@ extension Configuration {
      * - returns: A valid `MACAddress` or `nil` if no valid address was specified.
      */
     var address: MACAddress? {
-      guard let defaultDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
+      guard let defaultDictionary = dictionary[hardMAC] as? [String: String] else { return nil }
       guard let rawAddress = defaultDictionary["address"] else { return nil }
 
       let address = MACAddress(rawAddress)

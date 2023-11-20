@@ -17,14 +17,16 @@ struct PolicyActionView: View {
     GroupBox {
       VStack(alignment: .leading) {
         
-        
         HStack(alignment: .top) {
           Menu {
             Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .random, state: state) }) {
-              Text("Random")
+              Text("Always Keep Random")
             }
             Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .specify, state: state) }) {
-              Text("Specify")
+              Text("Specific MAC Address")
+            }
+            Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .original, state: state) }) {
+              Text("Keep Original MAC Address")
             }
             Divider()
             
@@ -36,8 +38,11 @@ struct PolicyActionView: View {
               case .specify:
                 Text("Specific MAC Address")
                 
+              case .original:
+                Text("Keep Original MAC Address")
+                
               default:
-                Text("Invalid")
+                Text("Unknown")
             }
             Text(actionValue.wrappedValue?.rawValue ?? "?")
             
@@ -68,6 +73,11 @@ struct PolicyActionView: View {
               .disableAutocorrection(true)
               .border(.secondary)
               
+            case .original:
+              Text("LinkLiar ensures that this Interface always has its original hardware MAC address.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+
             default:
               Text("Invalid")
           }
