@@ -63,4 +63,32 @@ class ConfigWriter {
     }
   }
 
+  static func setInterfaceAddress(interface: Interface, address: MACAddress, state: LinkState) {
+    guard address.isValid else {
+      return
+    }
+        
+    var dictionary = state.configDictionary
+    dictionary["version"] = state.version.formatted
+    
+    var interfaceDictionary: [String: String] = [:]
+    
+    let newAddress = address.formatted
+  
+    Log.debug("Changing address of Interface \(interface.hardMAC.formatted) to \(newAddress)")
+    interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["address": newAddress]
+    interfaceDictionary.updateValue(newAddress, forKey: "address")
+  
+    if interfaceDictionary.isEmpty {
+      Log.debug("Removing unused Interface policy \(interface.hardMAC.formatted)")
+      dictionary.removeValue(forKey: interface.hardMAC.formatted)
+    } else {
+      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+    }
+
+    if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      state.configDictionary = dictionary
+    }
+  }
+
 }

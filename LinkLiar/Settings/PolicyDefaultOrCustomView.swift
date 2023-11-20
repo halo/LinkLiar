@@ -15,7 +15,7 @@ struct PolicyDefaultOrCustomView: View {
     GroupBox {
       HStack(alignment: .top) {
         VStack(alignment: .leading, spacing: 3) {
-          Text("Custom MAC address")
+          Text("Customize Interface")
           if value.wrappedValue {
             Text("This Interface is managed using custom rules. If you turn this off, LinkLiar will do to this Interface whatever you defined as Interface default.")
               .font(.caption)

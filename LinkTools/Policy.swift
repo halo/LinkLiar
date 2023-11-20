@@ -49,5 +49,18 @@ extension Configuration {
       return Interface.Action(rawValue: actionName) ?? nil
     }
     
+    /**
+     * Looks up which MAC address has been defined.
+     * This is useful if the action is "specify".
+     *
+     * - returns: A valid `MACAddress` or `nil` if no valid address was specified.
+     */
+    var address: MACAddress? {
+      guard let defaultDictionary = dictionary[hardMAC.formatted] as? [String: String] else { return nil }
+      guard let rawAddress = defaultDictionary["address"] else { return nil }
+
+      let address = MACAddress(rawAddress)
+      return address.isValid ? address : nil
+    }
   }
 }

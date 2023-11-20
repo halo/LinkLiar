@@ -15,18 +15,22 @@ struct SettingsView: View {
           Label("Welcome", systemImage: "figure.dance")
         }
         
+        NavigationLink(value: panes.settings.rawValue) {
+          Label("Settings", systemImage: "gear")
+        }
+        
         NavigationLink(value: panes.help.rawValue) {
-          Label("Help", systemImage: "book.pages")
+          Label("FAQ", systemImage: "book.pages")
+        }
+        
+        NavigationLink(value: panes.troubleshoot.rawValue) {
+          Label("Troubleshoot", systemImage: "bandage")
         }
         
         NavigationLink(value: panes.community.rawValue) {
           Label("Community", systemImage: "bubble")
         }
 
-        NavigationLink(value: panes.troubleshoot.rawValue) {
-          Label("Troubleshoot", systemImage: "bandage")
-        }
-        
         NavigationLink(value: panes.uninstall.rawValue) {
           Label("Uninstall", systemImage: "trash")
         }
@@ -46,12 +50,13 @@ struct SettingsView: View {
         
         Spacer()
       }
-      .navigationSplitViewColumnWidth(180)
       .toolbar(removing: .sidebarToggle)
-      
+      .navigationSplitViewColumnWidth(155)
+
     } detail: {
       SettingsDetailView(selectedFolder: $selectedFolder).environment(state)
     }.presentedWindowStyle(.hiddenTitleBar)
+      .frame(minWidth: 650, idealWidth: 650, maxWidth: 650, minHeight: 500, idealHeight: 500, maxHeight: 800)
 
   }
 }
@@ -59,6 +64,7 @@ struct SettingsView: View {
 extension SettingsView {
   enum panes: String {
     case welcome = "welcome"
+    case settings = "settings"
     case troubleshoot = "troubleshoot"
     case help = "help"
     case community = "community"

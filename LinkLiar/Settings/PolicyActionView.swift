@@ -6,57 +6,75 @@ struct PolicyActionView: View {
   
   var body: some View {
     
-    // false means it is ignored
-    // true means it is anything else
-    let value = Binding<Interface.Action?>(
+    let actionValue = Binding<Interface.Action?>(
       get: { state.config.policy(interface.hardMAC).action },
       set: { value,_ in ConfigWriter.setInterfaceAction(interface: interface, action: value, state: state) } )
     
+    let specificAddress = Binding<String>(
+      get: { state.config.policy(interface.hardMAC).address?.formatted ?? "" },
+      set: { value,_ in ConfigWriter.setInterfaceAddress(interface: interface, address: MACAddress(value), state: state) } )
+    
     GroupBox {
-      HStack(alignment: .top) {
-        VStack(alignment: .leading, spacing: 3) {
-          Text("Custom MAC address")
-          
-          if let action = value.wrappedValue {
-            Text(action.rawValue)
-          } else {
-            Text("None")
-          }
-//
-//          if value.wrappedValue {
-//            Text("asd")
-//              .font(.caption)
-//              .foregroundColor(.secondary)
-//          } else {
-//            Text("jkl")
-//              .font(.caption)
-//              .foregroundColor(.secondary)
-//          }
-        }
-        Spacer()
+      VStack(alignment: .leading) {
         
-        Menu {
-          Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .random, state: state) }) {
-            Text("Random")
-          }
-          Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .specify, state: state) }) {
-            Text("Specify")
-          }
-          Divider()
-          Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: nil, state: state) }) {
-            Text("Default")
-          }
+        
+        HStack(alignment: .top) {
+          Menu {
+            Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .random, state: state) }) {
+              Text("Random")
+            }
+            Button(action: { ConfigWriter.setInterfaceAction(interface: interface, action: .specify, state: state) }) {
+              Text("Specify")
+            }
+            Divider()
+            
+          } label: {
+            switch actionValue.wrappedValue {
+              case .random:
+                Text("Always Keep Random")
+                
+              case .specify:
+                Text("Specific MAC Address")
+                
+              default:
+                Text("Invalid")
+            }
+            Text(actionValue.wrappedValue?.rawValue ?? "?")
+            
+          }.menuStyle(.borderlessButton)
+            .fixedSize()
           
-        } label: {
-          Text("ho")
-        }.menuStyle(.borderlessButton).fixedSize()
+          Spacer()
+        }.padding(4)
+        
+        VStack(alignment: .leading) {
+          
+          switch actionValue.wrappedValue {
+            case .random:
+              Text("LinkLiar ensures that this Interface always has a random MAC address.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+              
+            case .specify:
+              Text("You specify a particular MAC address and LinkLiar sees to it that this Interface always has this address.")
+                .font(.caption)
+                .foregroundColor(.secondary)
 
+              TextField("MAC Address",
+                        value: specificAddress,
+                        formatter: MACAddressFormatter(),
+                        prompt: Text("e.g. aa:bb:cc:dd:ee:ff")
+              )
+              .disableAutocorrection(true)
+              .border(.secondary)
+              
+            default:
+              Text("Invalid")
+          }
+          
+        }.padding(4)
         
-//        Toggle(isOn: value) {}
-//          .toggleStyle(.switch)
-//          .controlSize(.small)
-        
-      }.padding(4)
+      }
     }
   }
 }
@@ -67,5 +85,5 @@ struct PolicyActionView: View {
   let interface = Interfaces.all(asyncSoftMac: false).first!
   
   return PolicyActionView().environment(state)
-                                       .environment(interface)
+    .environment(interface)
 }
