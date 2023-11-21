@@ -15,7 +15,9 @@ struct MenuView: View {
       
       InterfacesView().environment(state)
       
-      Divider().padding([.top, .bottom], 3)
+      if !state.nonHiddenInterfaces.isEmpty {
+        Divider().padding([.top, .bottom], 3)
+      }
 
       HStack() {
         SettingsLink {
@@ -69,5 +71,11 @@ struct MenuView: View {
   let state = LinkState()
   state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   state.wantsToQuit = true
+  return MenuView().environment(state)
+}
+
+#Preview("No Interfaces") {
+  let state = LinkState()
+  state.allInterfaces = []
   return MenuView().environment(state)
 }
