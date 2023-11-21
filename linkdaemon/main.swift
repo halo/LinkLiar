@@ -1,86 +1,17 @@
-//import Foundation
-//
-//func main() {
-//    while true {
-//        print("Hello World!")
-//        sleep(3)
-//    }
-//}
-//
-//main()
+/*
+ * Copyright (C) halo https://io.github.com/halo/LinkLiar
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
+ * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
+ * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
 
-
-
-import Foundation
-
-
-
-
-
-//let data = "Hello 12 the World!\n".data(using: .utf8)!
-//
-//if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
-//  defer {
-//    fileHandle.closeFile()
-//  }
-//  fileHandle.seekToEndOfFile()
-//  fileHandle.write(data)
-//} else {
-//  try "Initializing...".write(toFile: "/tmp/linkliar.log", atomically: true, encoding: .utf8)
-//}
-
-
-func main() {
-  Log.debug("Daemon says hello")
-  ConfigDirectory.create()
-
-  
-//  for _ in 1...2 {
-//
-//      
-//      let data = "Ping\n".data(using: .utf8)!
-//
-//      if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
-//        defer {
-//          fileHandle.closeFile()
-//        }
-//        fileHandle.seekToEndOfFile()
-//        fileHandle.write(data)
-//      }
-//      
-//    
-//    
-//    sleep(1)
-//    }
-//  
-//  
-//
-//  if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
-//    defer { fileHandle.closeFile() }
-//    fileHandle.seekToEndOfFile()
-//    fileHandle.write("Listening...\n".data(using: .utf8)!)
-//  }
-//  
-//  Log.debug("Logger works")
-//  let helper = Listener()
-//  Log.debug(helper.description)
-//  helper.listen()
-//  
-//  
-//  if let fileHandle = FileHandle(forWritingAtPath: "/tmp/linkliar.log") {
-//    defer { fileHandle.closeFile() }
-//    fileHandle.seekToEndOfFile()
-//    fileHandle.write("Bye!...\n".data(using: .utf8)!)
-//  }
-//  
-//  
-//  exit(99)
-}
-
-main()
-////print("Hello World from daemon!")
-////
-////Log.debug("Hello, World from daemon!")
-////
-////
-////print("Bye from daemon!")
+LinkDaemon().run()

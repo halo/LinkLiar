@@ -62,5 +62,6 @@ extension Configuration {
       let address = MACAddress(rawAddress)
       return address.isValid ? address : nil
     }
+    
   }
 }

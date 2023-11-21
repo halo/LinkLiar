@@ -18,7 +18,7 @@ struct SettingsDetailView: View {
         case SettingsView.panes.troubleshoot.rawValue:
           SettingsTroubleshootView().environment(state)
         default:
-          if let interface = state.interfaces.first(where: { $0.id == selectedFolder }) {
+          if let interface = state.allInterfaces.first(where: { $0.id == selectedFolder }) {
             SettingsInterfaceView().environment(state)
                                    .environment(interface)
           } else {

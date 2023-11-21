@@ -133,6 +133,10 @@ class Interface: Identifiable {
     return !wifi.powerOn()
   }
   
+  var isWifi: Bool {
+    guard (CWWiFiClient.shared().interface(withName: BSDName) != nil) else { return false }
+    return true
+  }
   var iconName: String {
     if (kind == "IEEE80211") { return "wifi" }
 

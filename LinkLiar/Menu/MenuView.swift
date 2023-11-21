@@ -47,27 +47,27 @@ struct MenuView: View {
 
 #Preview("Standard") {
   let state = LinkState()
-  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   return MenuView().environment(state)
 }
 
 #Preview("Daemon not registered") {
   let state = LinkState()
-  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   state.daemonRegistration = .notRegistered
   return MenuView().environment(state)
 }
 
 #Preview("Daemon requires approval") {
   let state = LinkState()
-  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   state.daemonRegistration = .requiresApproval
   return MenuView().environment(state)
 }
 
 #Preview("Wanting to quit") {
   let state = LinkState()
-  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   state.wantsToQuit = true
   return MenuView().environment(state)
 }

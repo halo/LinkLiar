@@ -15,7 +15,12 @@ class LinkState {
   var daemonVersion = Version("0.0.0")
   
   // Network
-  var interfaces = [Interface]()
+  var allInterfaces = [Interface]()
+  var nonHiddenInterfaces: [Interface] {
+    self.allInterfaces.filter {
+      config.policy($0.hardMAC).action != .hide
+    }
+  }
 
   // Settings
   
@@ -26,10 +31,8 @@ class LinkState {
   
   // Derived
   var warnAboutLeakage: Bool {
-    self.interfaces.contains(where: { interface in
-      interface.hasOriginalMAC &&
-        config.policy(interface.hardMAC).action != .ignore &&
-        config.policy(interface.hardMAC).action != .hide
+    self.nonHiddenInterfaces.contains(where: { interface in
+      interface.hasOriginalMAC && config.policy(interface.hardMAC).action != .ignore
     })
   }
   

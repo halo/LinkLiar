@@ -14,50 +14,49 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/**
- * An immutable wrapper for querying the content of the configuration file.
- */
-class Configuration {
+extension Configuration {
+  struct General {
 
-  // MARK: Class Methods
+    // MARK: Initialization
 
-  init(dictionary: [String: Any]) {
-    self.dictionary = dictionary
-  }
+    init(dictionary: [String: Any]) {
+      self.dictionary = dictionary
+    }
 
-  // MARK: Instance Properties
+    // MARK: Public Instance Properties
 
-  /**
-   * Gives access to the underlying dictionary of this configuration.
-   */
-  var dictionary: [String: Any]
+    var dictionary: [String: Any]
 
-  /**
-   * Queries the version with whith the configuration was created.
-   */
-  lazy var version: String? = {
-    return self.dictionary["version"] as? String
-  }()
-  
 
-  /**
-   * Queries settings of one Interface.
-   */
-  func policy(_ hardMAC: MACAddress) -> Policy {
-    return Policy(hardMAC.formatted, dictionary: dictionary)
-  }
+    /**
+     * Queries whether interfaces set to random may be rerandomized at best-effort.
+     * This is yes by default. You can turn it off by adding the key.
+     */
+    var isForbiddenToRerandomize: Bool {
+      guard let restriction = self.dictionary["skip_rerandom"] as? Bool else {
+        return false
+      }
 
-  /**
-   * Queries settings of the default Interface.
-   */
-  var fallbackPolicy: Policy {
-    return Policy("default", dictionary: dictionary)
-  }
-  
-  /**
-   * Queries settings of the default Interface.
-   */
-  var general: General {
-    return General(dictionary: dictionary)
+      return restriction != false
+    }
+
+//    /**
+//     * Queries whether MAC addresses should be anonymized in GUI and logs.
+//     */
+    var isAnonymized: Bool {
+      return anonymizationSeed.isValid
+    }
+
+    /**
+     * Queries a seed used for anonymizing MAC addresses shown in GUI and logs.
+     */
+    var anonymizationSeed: MACAddress {
+      guard let seed = self.dictionary["anonymous"] as? String else {
+        return MACAddress("")
+      }
+
+      return MACAddress(seed)
+    }
+
   }
 }

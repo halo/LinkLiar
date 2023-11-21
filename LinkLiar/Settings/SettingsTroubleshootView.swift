@@ -123,7 +123,7 @@ struct SettingsTroubleshootView: View {
 
 #Preview {
   let state = LinkState()
-  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   
   return SettingsTroubleshootView().environment(state)
   

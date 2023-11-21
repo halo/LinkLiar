@@ -42,9 +42,11 @@ struct SettingsView: View {
           Label("Interface Default", systemImage: "wand.and.stars.inverse")
         }
 
-        ForEach(state.interfaces) { interface in
+        ForEach(state.allInterfaces) { interface in
+          let isHidden = state.config.policy(interface.hardMAC).action == .hide
+          let opacity = isHidden ? 0.5 : 1
           NavigationLink(value: interface.id) {
-            Label(interface.displayName, systemImage: interface.iconName)
+            Label(interface.displayName, systemImage: interface.iconName).opacity(opacity)
           }
         }
         
@@ -75,7 +77,7 @@ extension SettingsView {
 
 #Preview {
   let state = LinkState()
-  state.interfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
   
   return SettingsView().environment(state)
   

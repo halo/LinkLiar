@@ -4,38 +4,80 @@ struct SettingsInterfaceView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
   
-  //  @Binding var hardMAC: String?
-  //  @Binding var interface: Interface
-  
+  @State private var selectedTab = Tab.macaddress
+
   var body: some View {
-    VStack(alignment: .leading) {
+    VStack {
+
+      // --------
+      // Headline
+      // --------
       
-      Text(interface.displayName)
-        .font(.title2)
-        .padding(.top)
+      SettingsInterfaceHeadlineView().environment(state).environment(interface)
       
-      Text(interface.BSDName)
-        .font(.system(.body, design: .monospaced))
-        .opacity(0.5)
-        .padding(.bottom)
-      
-      PolicyHideOrIgnoreView().environment(state).environment(interface)
-      
-      if (state.config.policy(interface.hardMAC).action != .hide) {
-        PolicyIgnoreOrDefaultView().environment(state).environment(interface)
-        
-        if ((state.config.policy(interface.hardMAC).action) != .ignore) {
-          PolicyDefaultOrCustomView().environment(state).environment(interface)
+      switch state.config.policy(interface.hardMAC).action {
           
-          if ((state.config.policy(interface.hardMAC).action) != nil) {
-            
-            PolicyActionView().environment(state)
-              .environment(interface)
-            
+        case .hide:
+          VStack {
+            Spacer()
+            HStack {
+              Spacer()
+                Text("This Interface is hidden from the menu bar\nand LinkLiar never changes its MAC address.")
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+              Spacer()
+            }
+            Spacer()
           }
-        }
-        
+
+        default:
+          TabView {
+            VStack {
+              if (state.config.policy(interface.hardMAC).action != .hide) {
+                PolicyIgnoreOrDefaultView().environment(state).environment(interface)
+                
+                if ((state.config.policy(interface.hardMAC).action) != .ignore) {
+                  PolicyDefaultOrCustomView().environment(state).environment(interface)
+                  
+                  if ((state.config.policy(interface.hardMAC).action) != nil) {
+                    
+                    PolicyActionView().environment(state)
+                      .environment(interface)
+                    
+                  }
+                }
+                
+              }
+              Spacer()
+            }
+                  .tabItem {
+                      Text("MAC Address")
+                  }.padding()
+            
+            if interface.isWifi {
+              Text("Access Point")
+                  .tabItem {
+                      Text("Access Point")
+                  }
+          }
+          }
+//          Picker("What now?", selection: $selectedTab) {
+//               Text("MAC Address").tag(Tab.macaddress)
+//               Text("Access Points").tag(Tab.accesspoint)
+//         }
+////          .pickerStyle(.segmented)
+//          .padding(0)
+//          .background(.red)
       }
+      
+//      switch $selectedTab.wrappedValue {
+//          
+//        case .macaddress:
+//
+//        case .accesspoint:
+//          Text("Access Point...")
+//      }
+
       
       //        Form {
       //                  Section(header: Text("Notifications")) {
@@ -171,19 +213,34 @@ struct SettingsInterfaceView: View {
   //  }
 }
 
-//#Preview {
-//  struct Preview: View {
-//    @State var state: LinkState = LinkState()
-//    @State var interface: Interface
-//
-//    init() {
-//      state.interfaces = Interfaces.all(asyncSoftMac: false)
-//    }
-//
-//    var body: some View {
-//      return SettingsInterfaceView(interface: $interface).environment(state)
-//    }
-//  }
-//
-//  return Preview()
-//}
+
+extension SettingsInterfaceView {
+  enum Tab: Int {
+    case macaddress = 1
+    case accesspoint = 2
+  }
+}
+
+#Preview("Hidden") {
+  let state = LinkState()
+  let interface = Interfaces.all(asyncSoftMac: false).first!
+  state.configDictionary = [interface.hardMAC.formatted: ["action": "hide"]]
+
+  return SettingsInterfaceView().environment(state).environment(interface)
+}
+
+#Preview("Ignored WiFi") {
+  let state = LinkState()
+  let interface = Interfaces.all(asyncSoftMac: false).first!
+  state.configDictionary = [interface.hardMAC.formatted: ["action": "ignore"]]
+
+  return SettingsInterfaceView().environment(state).environment(interface)
+}
+
+#Preview("Ignored Cable") {
+  let state = LinkState()
+  let interface = Interfaces.all(asyncSoftMac: false).last!
+  state.configDictionary = [interface.hardMAC.formatted: ["action": "ignore"]]
+
+  return SettingsInterfaceView().environment(state).environment(interface)
+}

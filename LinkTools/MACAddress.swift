@@ -26,15 +26,25 @@ struct MACAddress: Equatable {
 
   // MARK: Instance Methods
 
-  func add(_ address: MACAddress) -> MACAddress {
-    let otherIntegers = address.integers
-    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
-    let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
-    return MACAddress(newAddress)
-  }
+//  func add(_ address: MACAddress) -> MACAddress {
+//  }
   
   // MARK: Instance Properties
 
+  func humanReadable(config: Configuration) -> String {
+    guard isValid else { return "??:??:??:??:??:??" }
+    
+    guard (config.general.isAnonymized) else {
+      return humanReadable
+    }
+    let address = config.general.anonymizationSeed
+    let otherIntegers = address.integers
+    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
+    let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
+    return MACAddress(newAddress).formatted
+  }
+
+  
   var humanReadable: String {
     guard isValid else { return "??:??:??:??:??:??" }
 
