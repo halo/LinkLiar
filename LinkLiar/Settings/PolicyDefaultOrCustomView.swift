@@ -17,7 +17,7 @@ struct PolicyDefaultOrCustomView: View {
         VStack(alignment: .leading, spacing: 3) {
           Text("Customize Interface")
           if value.wrappedValue {
-            Text("This Interface is managed using custom rules. If you turn this off, LinkLiar will do to this Interface whatever you defined as Interface default.")
+            Text("This Interface is managed using the custom rules below. If you turn this off, LinkLiar will do to this Interface whatever you defined as Interface default.")
               .font(.caption)
               .foregroundColor(.secondary)
           } else {

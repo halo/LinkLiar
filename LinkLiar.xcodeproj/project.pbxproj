@@ -243,15 +243,10 @@
 			isa = PBXGroup;
 			children = (
 				C22F21872AFD529F0086B621 /* SettingsView.swift */,
+				C28E03312B0D4DCA0074EC94 /* Interface */,
 				C22F21972AFFB0860086B621 /* SettingsDetailView.swift */,
 				C28E03282B0BD0360074EC94 /* SettingsInterfaceFallbackView.swift */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
-				C28E032C2B0D43560074EC94 /* SettingsInterfaceHeadlineView.swift */,
-				C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */,
-				C22F21A52AFFFAD00086B621 /* PolicyHideOrIgnoreView.swift */,
-				C28E03242B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift */,
-				C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */,
-				C28E03222B07EF360074EC94 /* PolicyActionView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -363,6 +358,19 @@
 				C266996F2AE57A3D00592008 /* linkdaemon.entitlements */,
 			);
 			path = linkdaemon;
+			sourceTree = "<group>";
+		};
+		C28E03312B0D4DCA0074EC94 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */,
+				C28E032C2B0D43560074EC94 /* SettingsInterfaceHeadlineView.swift */,
+				C22F21A52AFFFAD00086B621 /* PolicyHideOrIgnoreView.swift */,
+				C28E03242B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift */,
+				C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */,
+				C28E03222B07EF360074EC94 /* PolicyActionView.swift */,
+			);
+			name = Interface;
 			sourceTree = "<group>";
 		};
 		C29EAF752AE59EE7003578B9 /* LinkTools */ = {

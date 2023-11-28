@@ -50,7 +50,7 @@ struct PolicyActionView: View {
             .fixedSize()
           
           Spacer()
-        }.padding(4)
+        }.padding(.top, 4)
         
         VStack(alignment: .leading) {
           
@@ -71,7 +71,9 @@ struct PolicyActionView: View {
                         prompt: Text("e.g. aa:bb:cc:dd:ee:ff")
               )
               .disableAutocorrection(true)
-              .border(.secondary)
+              .border(.tertiary)
+              .font(.system(.title3, design: .monospaced))
+              .frame(width: 200)
               
             case .original:
               Text("LinkLiar ensures that this Interface always has its original hardware MAC address.")
@@ -82,7 +84,7 @@ struct PolicyActionView: View {
               Text("Invalid")
           }
           
-        }.padding(4)
+        }.padding([.bottom, .horizontal], 4)
         
       }
     }
@@ -90,10 +92,29 @@ struct PolicyActionView: View {
 }
 
 
-#Preview {
+#Preview("Always Random") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
+  state.configDictionary = [interface.hardMAC.formatted: ["action": "random"]]
   
-  return PolicyActionView().environment(state)
-    .environment(interface)
+  return PolicyActionView().environment(state).environment(interface)
 }
+
+
+#Preview("Specified MAC") {
+  let state = LinkState()
+  let interface = Interfaces.all(asyncSoftMac: false).first!
+  state.configDictionary = [interface.hardMAC.formatted: ["action": "specify", "address": "aa:bb:cc:dd:ee:ff"]]
+  
+  return PolicyActionView().environment(state).environment(interface)
+}
+
+
+#Preview("Original MAC") {
+  let state = LinkState()
+  let interface = Interfaces.all(asyncSoftMac: false).first!
+  state.configDictionary = [interface.hardMAC.formatted: ["action": "original"]]
+  
+  return PolicyActionView().environment(state).environment(interface)
+}
+
