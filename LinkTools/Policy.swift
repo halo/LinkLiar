@@ -56,12 +56,33 @@ extension Configuration {
      * - returns: A valid `MACAddress` or `nil` if no valid address was specified.
      */
     var address: MACAddress? {
-      guard let defaultDictionary = dictionary[hardMAC] as? [String: String] else { return nil }
-      guard let rawAddress = defaultDictionary["address"] else { return nil }
+      guard let interfaceDictionary = dictionary[hardMAC] as? [String: String] else { return nil }
+      guard let rawAddress = interfaceDictionary["address"] else { return nil }
 
       let address = MACAddress(rawAddress)
       return address.isValid ? address : nil
     }
     
+//    {
+//      "ssids:00:2a:a5:75:da:32" : {
+//        "Some Wifi Name" : "aa:bb:cc:dd:ee:ff",
+//        "Another SSID" : "11:22:33:44:55:66"
+//      },
+//      "ssids:00:2a:a5:11:3f:8b" : {
+//        "University SSID" : "55:55:55:55:55:55",
+//      },
+//    }
+    var accessPoints: [AccessPointPolicy] {
+      guard let ssidsDictionary = dictionary["ssids:\(hardMAC)"] as? [String: String] else { return [] }
+      
+      return ssidsDictionary.compactMap({ ssid, rawAddress in
+        let address = MACAddress(rawAddress)
+        guard !ssid.isEmpty else { return nil }
+        guard address.isValid else { return nil }
+        guard let validAccessPointPolicy = AccessPointPolicy.initIfValid(ssid: ssid, softMAC: rawAddress) else { return nil }
+        return validAccessPointPolicy
+      })
+
+    }
   }
 }

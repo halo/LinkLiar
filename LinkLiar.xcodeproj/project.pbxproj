@@ -45,6 +45,8 @@
 		C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348E2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
+		C225BDA42B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
+		C225BDA52B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
 		C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsView.swift */; };
 		C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
 		C22F219A2AFFFA9A0086B621 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21992AFFFA9A0086B621 /* MenuView.swift */; };
@@ -93,6 +95,7 @@
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C2B633BD2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */; };
+		C2DAB21E2B1647E1002DD295 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +165,7 @@
 		C22134842AEED11A00BCF30E /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CFArray+Sequence.swift"; path = "../../LinkLiar-old/LinkTools/CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C22134882AEED66C00BCF30E /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		C221348C2AEEDDAA00BCF30E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointPolicy.swift; sourceTree = "<group>"; };
 		C22F21872AFD529F0086B621 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C22F21972AFFB0860086B621 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		C22F21992AFFFA9A0086B621 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = Menu/MenuView.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyDefaultOrCustomView.swift; sourceTree = "<group>"; };
+		C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +287,7 @@
 			children = (
 				C28E032E2B0D473A0074EC94 /* General.swift */,
 				C22F21B42B02A4B50086B621 /* Policy.swift */,
+				C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				C28E03242B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift */,
 				C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */,
 				C28E03222B07EF360074EC94 /* PolicyActionView.swift */,
+				C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -578,12 +585,14 @@
 				C22134592AEC0BD600BCF30E /* Controller.swift in Sources */,
 				C22F21A02AFFFAB40086B621 /* ApproveDaemonView.swift in Sources */,
 				C22134852AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
+				C225BDA42B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */,
 				C22134812AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C22F21A82B010B210086B621 /* JSONWriter.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
 				C28E03232B07EF360074EC94 /* PolicyActionView.swift in Sources */,
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
+				C2DAB21E2B1647E1002DD295 /* AccessPointsView.swift in Sources */,
 				C22F21A32AFFFAB40086B621 /* ConfirmQuittingView.swift in Sources */,
 				C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */,
 				C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
@@ -638,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C225BDA52B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */,
 				C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
 				C221347F2AEECFA300BCF30E /* Interfaces.swift in Sources */,
 				C221346B2AEC3D7500BCF30E /* Version.swift in Sources */,

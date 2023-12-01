@@ -51,7 +51,7 @@ struct SettingsInterfaceView: View {
           }.padding()
           
           if interface.isWifi {
-            Text("Access Point")
+            AccessPointsView().environment(state).environment(interface)
               .tabItem {
                 Text("Access Point")
               }
@@ -99,6 +99,6 @@ extension SettingsInterfaceView {
 #Preview("Default WiFi") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-
+  
   return SettingsInterfaceView().environment(state).environment(interface)
 }
