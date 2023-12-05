@@ -56,6 +56,11 @@ struct SettingsInterfaceView: View {
                 Text("Access Point")
               }
           }
+
+          DiagnoseInterfaceView().environment(state).environment(interface)
+            .tabItem {
+              Text("Diagnose")
+            }
         }
       }
       Spacer()

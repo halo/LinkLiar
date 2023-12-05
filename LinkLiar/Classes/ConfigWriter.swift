@@ -31,6 +31,48 @@ class ConfigWriter {
     setInterfaceAction(interface: interface, action: newAction, state: state)
   }
   
+  static func removeInterfaceSsid(interface: Interface, ssid: String, state: LinkState) {
+    var dictionary = state.configDictionary
+    dictionary["version"] = state.version.formatted
+    
+    var ssidDictionary: [String: String] = [:]
+    let key = "ssids:\(interface.hardMAC.humanReadable)"
+      
+    ssidDictionary = dictionary[key] as? [String: String] ?? [:]
+    ssidDictionary.removeValue(forKey: ssid)
+    dictionary[key] = ssidDictionary
+  
+    if ssidDictionary.isEmpty {
+      Log.debug("Removing unused SSID policy \(key)")
+      dictionary.removeValue(forKey: key)
+    }
+
+    Log.debug("Writing \(dictionary)")
+    print(dictionary)
+    if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      state.configDictionary = dictionary
+    }
+  }
+
+  
+  static func addInterfaceSsid(interface: Interface, ssid: String, address: String, state: LinkState) {
+    guard !ssid.isEmpty else { return }
+    guard let macAddress = MACAddress.initIfValid(address) else { return }
+            
+    var dictionary = state.configDictionary
+    dictionary["version"] = state.version.formatted
+    let key = "ssids:\(interface.hardMAC.humanReadable)"
+
+    let defaultSsidDictionary = [ssid: macAddress.formatted]
+    var ssidsDictionary = dictionary[key] as? [String: String] ?? defaultSsidDictionary
+    ssidsDictionary.updateValue(macAddress.formatted, forKey: ssid)
+    dictionary[key] = ssidsDictionary
+
+    if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      state.configDictionary = dictionary
+    }
+  }
+  
   // MARK: Private Class Methods
   
   static func setInterfaceAction(interface: Interface, action: Interface.Action?, state: LinkState) {

@@ -47,6 +47,7 @@
 		C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221348C2AEEDDAA00BCF30E /* Notifications.swift */; };
 		C225BDA42B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
 		C225BDA52B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
+		C225BDA72B1FB17C00FFD119 /* DiagnoseInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */; };
 		C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsView.swift */; };
 		C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
 		C22F219A2AFFFA9A0086B621 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21992AFFFA9A0086B621 /* MenuView.swift */; };
@@ -166,6 +167,7 @@
 		C22134882AEED66C00BCF30E /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkObserver.swift; sourceTree = "<group>"; };
 		C221348C2AEEDDAA00BCF30E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointPolicy.swift; sourceTree = "<group>"; };
+		C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnoseInterfaceView.swift; sourceTree = "<group>"; };
 		C22F21872AFD529F0086B621 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C22F21972AFFB0860086B621 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		C22F21992AFFFA9A0086B621 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = Menu/MenuView.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */,
 				C28E03222B07EF360074EC94 /* PolicyActionView.swift */,
 				C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */,
+				C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
+				C225BDA72B1FB17C00FFD119 /* DiagnoseInterfaceView.swift in Sources */,
 				C2B633BD2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift in Sources */,
 				C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */,
 				C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */,

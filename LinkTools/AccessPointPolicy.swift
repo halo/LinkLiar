@@ -35,7 +35,7 @@ extension Configuration {
     
     // MARK: Instance Properties
     /// Conforming to `Identifiable`.
-    var id: String { "\(ssid)\(softMAC.formatted)" }
+    var id: String { "\(ssid)|\(softMAC.formatted)" }
 
     /**
      * Gives access to the underlying dictionary of this configuration.
@@ -48,3 +48,14 @@ extension Configuration {
     }
   }
 }
+
+extension Configuration.AccessPointPolicy: Comparable {
+  static func ==(lhs: Configuration.AccessPointPolicy, rhs: Configuration.AccessPointPolicy) -> Bool {
+    return lhs.id == rhs.id
+  }
+  
+  static func <(lhs: Configuration.AccessPointPolicy, rhs: Configuration.AccessPointPolicy) -> Bool {
+    return lhs.id < rhs.id
+  }
+}
+

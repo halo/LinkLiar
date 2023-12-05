@@ -20,6 +20,12 @@ struct MACAddress: Equatable {
   
   // MARK: Class Methods
 
+  static func initIfValid(_ address: String) -> MACAddress? {
+    let macAddress = self.init(address)
+    if !macAddress.isValid { return nil }
+    return macAddress
+  }
+
   init(_ address: String) {
     self.raw = address
   }

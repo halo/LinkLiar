@@ -81,7 +81,7 @@ extension Configuration {
         guard address.isValid else { return nil }
         guard let validAccessPointPolicy = AccessPointPolicy.initIfValid(ssid: ssid, softMAC: rawAddress) else { return nil }
         return validAccessPointPolicy
-      })
+      }).sorted()
 
     }
   }
