@@ -33,7 +33,6 @@ public class FileObserver {
 
   // MARK: Instance Methods
 
-  
   public func start() {
     guard started == false else { return }
 

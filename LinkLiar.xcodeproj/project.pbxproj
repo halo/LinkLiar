@@ -48,6 +48,12 @@
 		C225BDA42B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
 		C225BDA52B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
 		C225BDA72B1FB17C00FFD119 /* DiagnoseInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */; };
+		C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */; };
+		C225BDAD2B1FBA3A00FFD119 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */; };
+		C225BDAE2B1FBA3A00FFD119 /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */; };
+		C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAF2B1FBA4000FFD119 /* Listener.swift */; };
+		C225BDB22B1FBCD500FFD119 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */; };
+		C225BDB32B1FBCD500FFD119 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */; };
 		C22F21882AFD529F0086B621 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsView.swift */; };
 		C22F21982AFFB0860086B621 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
 		C22F219A2AFFFA9A0086B621 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21992AFFFA9A0086B621 /* MenuView.swift */; };
@@ -72,11 +78,9 @@
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
-		C288E20D2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */; };
 		C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
-		C288E21B2AE7AF620098FF39 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E21A2AE7AF620098FF39 /* Listener.swift */; };
 		C28E03232B07EF360074EC94 /* PolicyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03222B07EF360074EC94 /* PolicyActionView.swift */; };
 		C28E03252B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03242B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift */; };
 		C28E03272B0A7EF50074EC94 /* MACAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03262B0A7EF50074EC94 /* MACAddressFormatter.swift */; };
@@ -168,6 +172,11 @@
 		C221348C2AEEDDAA00BCF30E /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointPolicy.swift; sourceTree = "<group>"; };
 		C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnoseInterfaceView.swift; sourceTree = "<group>"; };
+		C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; };
+		C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronizer.swift; path = Classes/Synchronizer.swift; sourceTree = "<group>"; };
+		C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
+		C225BDAF2B1FBA4000FFD119 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
+		C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
 		C22F21872AFD529F0086B621 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C22F21972AFFB0860086B621 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
 		C22F21992AFFFA9A0086B621 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = Menu/MenuView.swift; sourceTree = "<group>"; };
@@ -193,9 +202,7 @@
 		C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.LinkLiar.linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266996A2AE57A3100592008 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
-		C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigDirectory.swift; sourceTree = "<group>"; };
 		C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
-		C288E21A2AE7AF620098FF39 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
 		C28E03222B07EF360074EC94 /* PolicyActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyActionView.swift; sourceTree = "<group>"; };
 		C28E03242B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyIgnoreOrDefaultView.swift; sourceTree = "<group>"; };
 		C28E03262B0A7EF50074EC94 /* MACAddressFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressFormatter.swift; sourceTree = "<group>"; };
@@ -271,6 +278,17 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		C225BDA82B1FB9B500FFD119 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
+				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
+				C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */,
+				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		C22F218A2AFE6A830086B621 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,8 +316,8 @@
 			isa = PBXGroup;
 			children = (
 				C26699272AE55EFC00592008 /* LinkLiar */,
-				C29EAF752AE59EE7003578B9 /* LinkTools */,
 				C26699692AE57A3100592008 /* linkdaemon */,
+				C29EAF752AE59EE7003578B9 /* LinkTools */,
 				C26699392AE55EFD00592008 /* LinkLiarTests */,
 				C26699432AE55EFD00592008 /* LinkLiarUITests */,
 				C26699262AE55EFC00592008 /* Products */,
@@ -361,8 +379,7 @@
 			children = (
 				C266996A2AE57A3100592008 /* main.swift */,
 				C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */,
-				C288E20C2AE7AB660098FF39 /* ConfigDirectory.swift */,
-				C288E21A2AE7AF620098FF39 /* Listener.swift */,
+				C225BDA82B1FB9B500FFD119 /* Classes */,
 				C266996F2AE57A3D00592008 /* linkdaemon.entitlements */,
 			);
 			path = linkdaemon;
@@ -396,6 +413,7 @@
 				C22134802AEED0AC00BCF30E /* Ifconfig.swift */,
 				C22134752AEECFA300BCF30E /* Interface.swift */,
 				C22134762AEECFA300BCF30E /* Interfaces.swift */,
+				C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */,
 				C22134742AEECFA300BCF30E /* MACAddress.swift */,
 				C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */,
 				C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */,
@@ -568,6 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C225BDB22B1FBCD500FFD119 /* IntervalTimer.swift in Sources */,
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
 				C225BDA72B1FB17C00FFD119 /* DiagnoseInterfaceView.swift in Sources */,
 				C2B633BD2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift in Sources */,
@@ -655,21 +674,24 @@
 				C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
 				C221347F2AEECFA300BCF30E /* Interfaces.swift in Sources */,
 				C221346B2AEC3D7500BCF30E /* Version.swift in Sources */,
+				C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */,
 				C22134872AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
+				C225BDB32B1FBCD500FFD119 /* IntervalTimer.swift in Sources */,
 				C22134832AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C221347C2AEECFA300BCF30E /* Interface.swift in Sources */,
-				C288E20D2AE7AB660098FF39 /* ConfigDirectory.swift in Sources */,
 				C29EAF962AE5ADCA003578B9 /* Identifiers.swift in Sources */,
 				C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */,
 				C28E032B2B0BD5EB0074EC94 /* LinkDaemon.swift in Sources */,
 				C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */,
 				C221348B2AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
 				C28E03302B0D473A0074EC94 /* General.swift in Sources */,
+				C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */,
 				C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */,
 				C22F21B32B02A2CE0086B621 /* Configuration.swift in Sources */,
+				C225BDAE2B1FBA3A00FFD119 /* RandomMACs.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
 				C22F21B62B02A4B50086B621 /* Policy.swift in Sources */,
-				C288E21B2AE7AF620098FF39 /* Listener.swift in Sources */,
+				C225BDAD2B1FBA3A00FFD119 /* Synchronizer.swift in Sources */,
 				C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C22134792AEECFA300BCF30E /* MACAddress.swift in Sources */,
 				C22F21AE2B010CBE0086B621 /* FileObserver.swift in Sources */,

@@ -78,43 +78,5 @@ struct ConfigDirectory {
       print("File Permissions error: ", error)
     }
   }
-
-  //    if isWritable { return }
-  //
-  //    do {
-  //      try "{}".write(toFile: Paths.configFile, atomically: true, encoding: .utf8)
-  //
-  ////      var attributes = [FileAttributeKey : Any]()
-  //      //let attr = [posixPermissions: 0o775]
-  ////      attributes[.posixPermissions] = 0o777
-  //      do {
-  //        try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"], ofItemAtPath: Paths.configFile)
-  //      }catch let error {
-  //          print("Permissions error: ", error)
-  //      }
-  //
-  //    } catch let error as NSError {
-  //      Log.error("Could not establish config file: \(error)")
-  //    }
-  
-  //  }
-  
-  //  static var isWritable: Bool {
-  //    var isDirectory: ObjCBool = false
-  //    if !FileManager.default.fileExists(atPath: Paths.configFile, isDirectory: &isDirectory) {
-  ////      reset()
-  //    }
-  //
-  //    return FileManager.default.isWritableFile(atPath: Paths.configFile)
-  //  }
-  //
-  //  static func remove() {
-  //    do {
-  //      try manager.removeItem(atPath: Paths.configDirectory)
-  //      Log.debug("Deleted config directory \(Paths.configDirectory)")
-  //    } catch let error as NSError {
-  //      Log.info("Could not delete config directory \(Paths.configDirectory) \(error)")
-  //    }
-  //  }
   
 }

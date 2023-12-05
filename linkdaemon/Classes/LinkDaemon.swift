@@ -21,73 +21,69 @@ class LinkDaemon {
   // MARK: Class Methods
   
   init() {
+    Log.debug("Daemon \(version.formatted) says hello")
+  }
+  
+  func run() {
     // Start observing the config file.
-//    configFileObserver = FileObserver.init(path: Paths.configFile, callback: configFileChanged)
-//
-//    // Start observing changes of ethernet interfaces
-//    networkObserver = NetworkObserver(callback: networkConditionsChanged)
+    configFileObserver = FileObserver.init(path: Paths.configFile, callback: configFileChanged)
 
+    // Load config file once.
+    configFileChanged()
+
+    intervalTimer = IntervalTimer.init(callback: intervalElaped)
+
+    // Start observing changes of ethernet interfaces
+    networkObserver = NetworkObserver(callback: networkConditionsChanged)
+    
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: NSWorkspace.willPowerOffNotification, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: NSWorkspace.willSleepNotification, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: NSWorkspace.didWakeNotification, object: nil)
+
+    RunLoop.main.run()
   }
   
   // MARK: Private Instance Properties
   
   private var configFileObserver: FileObserver?
   private var networkObserver: NetworkObserver?
-
+  private var intervalTimer: IntervalTimer?
   
-  var observer: FileObserver?
+  /// Holds the raw configuration file as Dictionary.
+  var configDictionary: [String: Any] = [:]
 
-  func run() {
-//    Log.debug("Daemon \(LinkDaemon.version.formatted) says hello")
-//
-//    signal(SIGTERM) { code in
-//      Log.debug("Received SIGTERM, shutting down immediately")
-//      exit(0)
-//    }
-//
-//    subscribe()
-//    NetworkObserver.observe()
-//    IntervalTimer.run()
-//    Config.observe()
-//    RunLoop.main.run()
+  // MARK: Private Instance Methods
+
+  private func intervalElaped() {
+    Log.debug("Interval elaped, acting upon it")
+    Synchronizer.run()
+  }
+  
+  private func configFileChanged() {
+    DispatchQueue.main.async {
+      Log.debug("Config file change detected, acting upon it")
+      self.configDictionary = JSONReader.init(filePath: Paths.configFile).dictionary
+    }
   }
 
-//  func subscribe() {
-//    NotificationCenter.default.addObserver(forName: .configChanged, object: nil, queue: nil, using: configChanged)
-//    NotificationCenter.default.addObserver(forName: .intervalElapsed, object: nil, queue: nil, using: periodicRefresh)
-//    NotificationCenter.default.addObserver(forName: .interfacesChanged, object: nil, queue: nil, using: interfacesChanged)
-//
-//    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: NSWorkspace.willPowerOffNotification, object: nil)
-//    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: NSWorkspace.willSleepNotification, object: nil)
-//    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: NSWorkspace.didWakeNotification, object: nil)
-//  }
+  private func networkConditionsChanged() {
+    DispatchQueue.main.async {
+      Log.debug("Network change detected, acting upon it")
+      Synchronizer.run()
+    }
+  }
 
-//  func periodicRefresh(_ _: Notification) {
-//    Log.debug("Time for periodic activity...")
-//    Synchronizer.run()
-//  }
-//
-//  func configChanged(_ _: Notification) {
-//    Log.debug("Running Synchronizer because config changed...")
-//    Synchronizer.run()
-//  }
-//
-//  func interfacesChanged(_ _: Notification) {
-//    Log.debug("Running Synchronizer because network conditions changed...")
-//    Synchronizer.run()
-//  }
-//
-//  @objc func willPowerOff(_ _: Notification) {
-//    Log.debug("Logging out...")
-//    Synchronizer.mayReRandomize()
-//  }
-//
-//  @objc func willSleep(_ _: Notification) {
-//    Log.debug("Going to sleep...")
-//    // It's safe to randomize here, loosing Wi-Fi is not tragic while
-//    // closing the lid of your MacBook.
-//    Synchronizer.mayReRandomize()
-//  }
+  @objc func willPowerOff(_ _: Notification) {
+    Log.debug("Logging out...")
+    Synchronizer.mayReRandomize()
+  }
+
+  @objc func willSleep(_ _: Notification) {
+    Log.debug("Going to sleep...")
+    // It's safe to randomize here, loosing Wi-Fi is not tragic while
+    // closing the lid of your MacBook.
+    Synchronizer.mayReRandomize()
+  }
 
   @objc func didWake(_ _: Notification) {
     Log.debug("Woke up...")
@@ -95,7 +91,7 @@ class LinkDaemon {
     // Wi-Fi will loose connection when opening the lid of your MacBook.
   }
 
-  static var version: Version = {
+  var version: Version = {
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
       return Version(version)
     }
