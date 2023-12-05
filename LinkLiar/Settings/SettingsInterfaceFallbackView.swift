@@ -26,6 +26,9 @@ struct SettingsInterfaceFallbackView: View {
               Button(action: { ConfigWriter.setFallbackInterfaceAction(action: .original, state: state) }) {
                 Text("Keep Original MAC Address")
               }
+              Button(action: { ConfigWriter.setFallbackInterfaceAction(action: nil, state: state) }) {
+                Text("Ignore")
+              }
               Divider()
               
             } label: {
@@ -37,7 +40,7 @@ struct SettingsInterfaceFallbackView: View {
                   Text("Keep Original MAC Address")
                   
                 default:
-                  Text("Unknown")
+                  Text("Ignore")
               }
               Text(actionValue.wrappedValue?.rawValue ?? "?")
               
@@ -51,17 +54,17 @@ struct SettingsInterfaceFallbackView: View {
             
             switch actionValue.wrappedValue {
               case .random:
-                Text("LinkLiar ensures that this Interface always has a random MAC address.")
+                Text("LinkLiar ensures that an Interface always has a random MAC address.")
                   .font(.caption)
                   .foregroundColor(.secondary)
                 
               case .original:
-                Text("LinkLiar ensures that this Interface always has its original hardware MAC address.")
+                Text("LinkLiar ensures that an Interface always has its original hardware MAC address.")
                   .font(.caption)
                   .foregroundColor(.secondary)
                 
               default:
-                Text("Invalid")
+                Text("LinkLiar warns if an Interface is leaking its MAC address, but LinkLiar won't modify the MAC address.")
             }
             
           }.padding(4)
