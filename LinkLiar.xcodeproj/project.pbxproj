@@ -37,7 +37,6 @@
 		C22134822AEED0AC00BCF30E /* Ifconfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134802AEED0AC00BCF30E /* Ifconfig.swift */; };
 		C22134832AEED0AC00BCF30E /* Ifconfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134802AEED0AC00BCF30E /* Ifconfig.swift */; };
 		C22134852AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134842AEED11A00BCF30E /* CFArray+Sequence.swift */; };
-		C22134862AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134842AEED11A00BCF30E /* CFArray+Sequence.swift */; };
 		C22134872AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134842AEED11A00BCF30E /* CFArray+Sequence.swift */; };
 		C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134882AEED66C00BCF30E /* NetworkObserver.swift */; };
 		C221348A2AEED66C00BCF30E /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134882AEED66C00BCF30E /* NetworkObserver.swift */; };
@@ -74,7 +73,6 @@
 		C22F21B62B02A4B50086B621 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21B42B02A4B50086B621 /* Policy.swift */; };
 		C22F21B92B02AD870086B621 /* ConfigWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21B82B02AD870086B621 /* ConfigWriter.swift */; };
 		C26699302AE55EFC00592008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C266992F2AE55EFC00592008 /* Preview Assets.xcassets */; };
-		C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266993A2AE55EFD00592008 /* LinkLiarTests.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -99,6 +97,37 @@
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C2ADC8512B22212B002A2905 /* InterfacePrefixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8502B22212B002A2905 /* InterfacePrefixesView.swift */; };
+		C2ADC8532B22293B002A2905 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */; };
+		C2ADC8542B222B6E002A2905 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21B12B02A2CE0086B621 /* Configuration.swift */; };
+		C2ADC8552B222BA5002A2905 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E032E2B0D473A0074EC94 /* General.swift */; };
+		C2ADC8562B222BA5002A2905 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21B42B02A4B50086B621 /* Policy.swift */; };
+		C2ADC8572B222BA5002A2905 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA32B1A6A6100FFD119 /* AccessPointPolicy.swift */; };
+		C2ADC8582B222C1A002A2905 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21AC2B010CBE0086B621 /* FileObserver.swift */; };
+		C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
+		C2ADC85B2B222C2D002A2905 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */; };
+		C2ADC85C2B222C3F002A2905 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21992AFFFA9A0086B621 /* MenuView.swift */; };
+		C2ADC8982B222CEE002A2905 /* ConfigWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21B82B02AD870086B621 /* ConfigWriter.swift */; };
+		C2ADC8992B222CEE002A2905 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A72B010B210086B621 /* JSONWriter.swift */; };
+		C2ADC89A2B222CEE002A2905 /* MACAddressFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03262B0A7EF50074EC94 /* MACAddressFormatter.swift */; };
+		C2ADC89B2B222CEE002A2905 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219C2AFFFAB40086B621 /* InterfacesView.swift */; };
+		C2ADC89C2B222CEE002A2905 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219D2AFFFAB40086B621 /* InterfaceView.swift */; };
+		C2ADC89D2B222CEE002A2905 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219F2AFFFAB40086B621 /* RegisterDaemonView.swift */; };
+		C2ADC89E2B222CEE002A2905 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219B2AFFFAB40086B621 /* ApproveDaemonView.swift */; };
+		C2ADC89F2B222CEE002A2905 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F219E2AFFFAB40086B621 /* ConfirmQuittingView.swift */; };
+		C2ADC8A02B222CEE002A2905 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21872AFD529F0086B621 /* SettingsView.swift */; };
+		C2ADC8A12B222CEE002A2905 /* SettingsInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221345F2AEC0D6E00BCF30E /* SettingsInterfaceView.swift */; };
+		C2ADC8A22B222CEE002A2905 /* SettingsInterfaceHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E032C2B0D43560074EC94 /* SettingsInterfaceHeadlineView.swift */; };
+		C2ADC8A32B222CEE002A2905 /* PolicyHideOrIgnoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A52AFFFAD00086B621 /* PolicyHideOrIgnoreView.swift */; };
+		C2ADC8A42B222CEE002A2905 /* PolicyIgnoreOrDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03242B07F3370074EC94 /* PolicyIgnoreOrDefaultView.swift */; };
+		C2ADC8A52B222CEE002A2905 /* PolicyDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */; };
+		C2ADC8A62B222CEE002A2905 /* PolicyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03222B07EF360074EC94 /* PolicyActionView.swift */; };
+		C2ADC8A72B222CEE002A2905 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */; };
+		C2ADC8A82B222CEE002A2905 /* DiagnoseInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */; };
+		C2ADC8A92B222CEE002A2905 /* InterfacePrefixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8502B22212B002A2905 /* InterfacePrefixesView.swift */; };
+		C2ADC8AA2B222CEE002A2905 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
+		C2ADC8AB2B222CEE002A2905 /* SettingsInterfaceFallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03282B0BD0360074EC94 /* SettingsInterfaceFallbackView.swift */; };
+		C2ADC8AC2B222CEE002A2905 /* SettingsTroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */; };
 		C2B633BD2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */; };
 		C2DAB21E2B1647E1002DD295 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */; };
 /* End PBXBuildFile section */
@@ -214,6 +243,8 @@
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C2ADC8502B22212B002A2905 /* InterfacePrefixesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacePrefixesView.swift; sourceTree = "<group>"; };
+		C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyDefaultOrCustomView.swift; sourceTree = "<group>"; };
 		C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,7 +290,7 @@
 				C22F21872AFD529F0086B621 /* SettingsView.swift */,
 				C28E03312B0D4DCA0074EC94 /* Interface */,
 				C22F21972AFFB0860086B621 /* SettingsDetailView.swift */,
-				C28E03282B0BD0360074EC94 /* SettingsInterfaceFallbackView.swift */,
+				C2ADC84F2B2220A4002A2905 /* Fallback */,
 				C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */,
 			);
 			path = Settings;
@@ -361,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
+				C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */,
 			);
 			path = LinkLiarTests;
 			sourceTree = "<group>";
@@ -396,6 +428,7 @@
 				C28E03222B07EF360074EC94 /* PolicyActionView.swift */,
 				C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */,
 				C225BDA62B1FB17C00FFD119 /* DiagnoseInterfaceView.swift */,
+				C2ADC8502B22212B002A2905 /* InterfacePrefixesView.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -430,6 +463,14 @@
 				C29EAF9B2AE5B07C003578B9 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2ADC84F2B2220A4002A2905 /* Fallback */ = {
+			isa = PBXGroup;
+			children = (
+				C28E03282B0BD0360074EC94 /* SettingsInterfaceFallbackView.swift */,
+			);
+			name = Fallback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -546,9 +587,9 @@
 			projectRoot = "";
 			targets = (
 				C26699242AE55EFC00592008 /* LinkLiar */,
+				C26699672AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */,
 				C26699352AE55EFD00592008 /* LinkLiarTests */,
 				C266993F2AE55EFD00592008 /* LinkLiarUITests */,
-				C26699672AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */,
 			);
 		};
 /* End PBXProject section */
@@ -595,6 +636,7 @@
 				C28E03272B0A7EF50074EC94 /* MACAddressFormatter.swift in Sources */,
 				C221345B2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
+				C2ADC8512B22212B002A2905 /* InterfacePrefixesView.swift in Sources */,
 				C22F21AD2B010CBE0086B621 /* FileObserver.swift in Sources */,
 				C22F21B22B02A2CE0086B621 /* Configuration.swift in Sources */,
 				C28E03292B0BD0360074EC94 /* SettingsInterfaceFallbackView.swift in Sources */,
@@ -637,8 +679,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2ADC8982B222CEE002A2905 /* ConfigWriter.swift in Sources */,
+				C2ADC8992B222CEE002A2905 /* JSONWriter.swift in Sources */,
+				C2ADC89A2B222CEE002A2905 /* MACAddressFormatter.swift in Sources */,
+				C2ADC89B2B222CEE002A2905 /* InterfacesView.swift in Sources */,
+				C2ADC89C2B222CEE002A2905 /* InterfaceView.swift in Sources */,
+				C2ADC89D2B222CEE002A2905 /* RegisterDaemonView.swift in Sources */,
+				C2ADC89E2B222CEE002A2905 /* ApproveDaemonView.swift in Sources */,
+				C2ADC89F2B222CEE002A2905 /* ConfirmQuittingView.swift in Sources */,
+				C2ADC8A02B222CEE002A2905 /* SettingsView.swift in Sources */,
+				C2ADC8A12B222CEE002A2905 /* SettingsInterfaceView.swift in Sources */,
+				C2ADC8A22B222CEE002A2905 /* SettingsInterfaceHeadlineView.swift in Sources */,
+				C2ADC8A32B222CEE002A2905 /* PolicyHideOrIgnoreView.swift in Sources */,
+				C2ADC8A42B222CEE002A2905 /* PolicyIgnoreOrDefaultView.swift in Sources */,
+				C2ADC8A52B222CEE002A2905 /* PolicyDefaultOrCustomView.swift in Sources */,
+				C2ADC8A62B222CEE002A2905 /* PolicyActionView.swift in Sources */,
+				C2ADC8A72B222CEE002A2905 /* AccessPointsView.swift in Sources */,
+				C2ADC8A82B222CEE002A2905 /* DiagnoseInterfaceView.swift in Sources */,
+				C2ADC8A92B222CEE002A2905 /* InterfacePrefixesView.swift in Sources */,
+				C2ADC8AA2B222CEE002A2905 /* SettingsDetailView.swift in Sources */,
+				C2ADC8AB2B222CEE002A2905 /* SettingsInterfaceFallbackView.swift in Sources */,
+				C2ADC8AC2B222CEE002A2905 /* SettingsTroubleshootView.swift in Sources */,
+				C2ADC85C2B222C3F002A2905 /* MenuView.swift in Sources */,
+				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
+				C2ADC85B2B222C2D002A2905 /* IntervalTimer.swift in Sources */,
+				C2ADC8582B222C1A002A2905 /* FileObserver.swift in Sources */,
+				C2ADC8552B222BA5002A2905 /* General.swift in Sources */,
+				C2ADC8562B222BA5002A2905 /* Policy.swift in Sources */,
+				C2ADC8572B222BA5002A2905 /* AccessPointPolicy.swift in Sources */,
+				C2ADC8542B222B6E002A2905 /* Configuration.swift in Sources */,
 				C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */,
 				C221348A2AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
+				C2ADC8532B22293B002A2905 /* ConfigurationTests.swift in Sources */,
 				C221348E2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
 				C22134822AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
@@ -649,11 +721,9 @@
 				C221346A2AEC37E600BCF30E /* Version.swift in Sources */,
 				C221345C2AEC0BD600BCF30E /* LinkLiarApp.swift in Sources */,
 				C29EAF7C2AE59F1F003578B9 /* Identifiers.swift in Sources */,
-				C22134862AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 				C221345E2AEC0BD600BCF30E /* Radio.swift in Sources */,
 				C22134582AEC0BD600BCF30E /* LinkState.swift in Sources */,
-				C266993B2AE55EFD00592008 /* LinkLiarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,9 +22,7 @@ class LinkDaemon {
   
   init() {
     Log.debug("Daemon \(version.formatted) says hello")
-  }
-  
-  func run() {
+
     // Start observing the config file.
     configFileObserver = FileObserver.init(path: Paths.configFile, callback: configFileChanged)
 

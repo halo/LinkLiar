@@ -57,10 +57,16 @@ struct SettingsInterfaceView: View {
               }
           }
 
+          InterfacePrefixesView().environment(state).environment(interface)
+            .tabItem {
+              Text("Vendors")
+            }
+
           DiagnoseInterfaceView().environment(state).environment(interface)
             .tabItem {
               Text("Diagnose")
             }
+
         }
       }
       Spacer()

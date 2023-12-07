@@ -17,47 +17,47 @@
 /**
  * An immutable wrapper for querying the content of the configuration file.
  */
-class Configuration {
-
+struct Configuration {
+  
   // MARK: Class Methods
-
+  
   init(dictionary: [String: Any]) {
     self.dictionary = dictionary
   }
-
-  // MARK: Instance Properties
-
-  /**
-   * Gives access to the underlying dictionary of this configuration.
-   */
+  
+  // MARK: Public Instance Properties
+  
+  ///
+  /// Gives (readonly) access to the underlying dictionary of this configuration.
+  ///
   var dictionary: [String: Any]
 
-  /**
-   * Queries the version with whith the configuration was created.
-   */
+  ///
+  /// Queries the version with which the configuration was created.
+  ///
   lazy var version: String? = {
     return self.dictionary["version"] as? String
   }()
   
-
-  /**
-   * Queries settings of one Interface.
-   */
+  ///
+  /// Queries universal settings.
+  ///
+  var general: General {
+    return General(dictionary: dictionary)
+  }
+  
+  ///
+  /// Queries settings of one Interface.
+  ///
   func policy(_ hardMAC: MACAddress) -> Policy {
     return Policy(hardMAC.formatted, dictionary: dictionary)
   }
-
-  /**
-   * Queries settings of the default Interface.
-   */
+  
+  ///
+  /// Queries settings of the "default" Interface.
+  ///
   var fallbackPolicy: Policy {
     return Policy("default", dictionary: dictionary)
   }
   
-  /**
-   * Queries settings of the default Interface.
-   */
-  var general: General {
-    return General(dictionary: dictionary)
-  }
 }
