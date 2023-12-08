@@ -128,6 +128,7 @@
 		C2ADC8AA2B222CEE002A2905 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21972AFFB0860086B621 /* SettingsDetailView.swift */; };
 		C2ADC8AB2B222CEE002A2905 /* SettingsInterfaceFallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E03282B0BD0360074EC94 /* SettingsInterfaceFallbackView.swift */; };
 		C2ADC8AC2B222CEE002A2905 /* SettingsTroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22134652AEC340B00BCF30E /* SettingsTroubleshootView.swift */; };
+		C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */; };
 		C2B633BD2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */; };
 		C2DAB21E2B1647E1002DD295 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */; };
 /* End PBXBuildFile section */
@@ -245,6 +246,7 @@
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2ADC8502B22212B002A2905 /* InterfacePrefixesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacePrefixesView.swift; sourceTree = "<group>"; };
 		C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
+		C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPolicyTests.swift; sourceTree = "<group>"; };
 		C2B633BC2B04094900BC69A5 /* PolicyDefaultOrCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyDefaultOrCustomView.swift; sourceTree = "<group>"; };
 		C2DAB21D2B1647E1002DD295 /* AccessPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -393,6 +395,7 @@
 			children = (
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
 				C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */,
+				C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */,
 			);
 			path = LinkLiarTests;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C266994A2AE55EFD00592008 /* Build configuration list for PBXNativeTarget "LinkLiar" */;
 			buildPhases = (
+				C2ADC8AF2B23A954002A2905 /* Run Linter */,
 				C26699212AE55EFC00592008 /* Sources */,
 				C26699232AE55EFC00592008 /* Resources */,
 				C29EAF932AE5A82E003578B9 /* Copy Agent Property Lists */,
@@ -622,6 +626,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C2ADC8AF2B23A954002A2905 /* Run Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Linter";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"/opt/homebrew/bin:$PATH\"\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C26699212AE55EFC00592008 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -703,6 +728,7 @@
 				C2ADC85C2B222C3F002A2905 /* MenuView.swift in Sources */,
 				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
 				C2ADC85B2B222C2D002A2905 /* IntervalTimer.swift in Sources */,
+				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
 				C2ADC8582B222C1A002A2905 /* FileObserver.swift in Sources */,
 				C2ADC8552B222BA5002A2905 /* General.swift in Sources */,
 				C2ADC8562B222BA5002A2905 /* Policy.swift in Sources */,

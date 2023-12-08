@@ -14,9 +14,7 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/**
- * An immutable wrapper for querying the content of the configuration file.
- */
+
 extension Configuration {
   struct AccessPointPolicy: Identifiable {
     

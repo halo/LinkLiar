@@ -14,4 +14,4 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-LinkDaemon()
+let daemon = LinkDaemon()

@@ -27,7 +27,6 @@ extension Configuration {
 
     var dictionary: [String: Any]
 
-
     /**
      * Queries whether interfaces set to random may be rerandomized at best-effort.
      * This is yes by default. You can turn it off by adding the key.
