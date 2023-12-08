@@ -1,12 +1,6 @@
 #!/bin/sh
 
-bundle exec copyright-header \
-  --add-path . \
-  --output-dir . \
-  --license MIT \
-  --copyright-software LinkLiar \
-  --copyright-software-description "Link-Layer MAC spoofing GUI for macOS" \
-  --copyright-holder "halo https://io.github.com/halo/LinkLiar" \
-  --copyright-year "" \
-  --word-wrap 120 \
-  --syntax lib/copyright_syntax.yml
+# brew tap hashicorp/tap
+# brew install hashicorp/tap/copywrite
+
+copywrite headers

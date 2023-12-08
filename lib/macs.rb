@@ -1,3 +1,6 @@
+# Copyright (c) halo
+# SPDX-License-Identifier: MIT
+
 require 'open-uri'
 require 'pathname'
 require 'json'

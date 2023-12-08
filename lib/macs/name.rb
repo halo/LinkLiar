@@ -1,3 +1,6 @@
+# Copyright (c) halo
+# SPDX-License-Identifier: MIT
+
 module Macs
   class Name
     def initialize(raw)
