@@ -18,7 +18,7 @@ import Foundation
 import os.log
 
 class JSONReader {
-  
+
   // MARK: Class Methods
 
   init(filePath: String) {
@@ -68,9 +68,9 @@ class JSONReader {
   }()
 
   // MARK: Private Instance Properties
-  
+
   private var path: String
-  
+
   private var url: URL {
     return URL(fileURLWithPath: path)
   }

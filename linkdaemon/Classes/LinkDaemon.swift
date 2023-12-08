@@ -19,7 +19,7 @@ import Cocoa
 class LinkDaemon {
 
   // MARK: Class Methods
-  
+
   init() {
     Log.debug("Daemon \(version.formatted) says hello")
 
@@ -33,20 +33,20 @@ class LinkDaemon {
 
     // Start observing changes of ethernet interfaces
     networkObserver = NetworkObserver(callback: networkConditionsChanged)
-    
+
     NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: NSWorkspace.willPowerOffNotification, object: nil)
     NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: NSWorkspace.willSleepNotification, object: nil)
     NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: NSWorkspace.didWakeNotification, object: nil)
 
     RunLoop.main.run()
   }
-  
+
   // MARK: Private Instance Properties
-  
+
   private var configFileObserver: FileObserver?
   private var networkObserver: NetworkObserver?
   private var intervalTimer: IntervalTimer?
-  
+
   /// Holds the raw configuration file as Dictionary.
   var configDictionary: [String: Any] = [:]
 
@@ -56,7 +56,7 @@ class LinkDaemon {
     Log.debug("Interval elaped, acting upon it")
     Synchronizer.run()
   }
-  
+
   private func configFileChanged() {
     DispatchQueue.main.async {
       Log.debug("Config file change detected, acting upon it")

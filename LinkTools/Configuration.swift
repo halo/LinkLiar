@@ -18,15 +18,15 @@
  * An immutable wrapper for querying the content of the configuration file.
  */
 struct Configuration {
-  
+
   // MARK: Class Methods
-  
+
   init(dictionary: [String: Any]) {
     self.dictionary = dictionary
   }
-  
+
   // MARK: Public Instance Properties
-  
+
   ///
   /// Gives (readonly) access to the underlying dictionary of this configuration.
   ///
@@ -38,26 +38,26 @@ struct Configuration {
   lazy var version: String? = {
     return self.dictionary["version"] as? String
   }()
-  
+
   ///
   /// Queries universal settings.
   ///
   var general: General {
     return General(dictionary: dictionary)
   }
-  
+
   ///
   /// Queries settings of one Interface.
   ///
   func policy(_ hardMAC: MACAddress) -> Policy {
     return Policy(hardMAC.formatted, dictionary: dictionary)
   }
-  
+
   ///
   /// Queries settings of the "default" Interface.
   ///
   var fallbackPolicy: Policy {
     return Policy("default", dictionary: dictionary)
   }
-  
+
 }

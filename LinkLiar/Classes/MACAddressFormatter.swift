@@ -16,7 +16,7 @@
 
 import Foundation
 
-class MACAddressFormatter : Formatter {
+class MACAddressFormatter: Formatter {
 
   let disallowedCharacters = CharacterSet(charactersIn: "0123456789:abcdefABCDEF").inverted
 
@@ -42,5 +42,5 @@ class MACAddressFormatter : Formatter {
 
     return true
   }
-  
+
 }

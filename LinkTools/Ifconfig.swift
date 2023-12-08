@@ -53,14 +53,14 @@ class Ifconfig {
   func softMAC(callback: @escaping (MACAddress) -> Void) {
     self.outputHandle.waitForDataInBackgroundAndNotify()
 
-    NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: process, queue: nil) { notification in
+    NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: process, queue: nil) { _ in
       callback(MACAddress(self._softMAC))
     }
-    
+
     // Run ifconfig.
     process.launch()
   }
-  
+
   // MARK: Private Instance Properties
 
   /// The `Process` instance that will execute the command.
@@ -75,7 +75,7 @@ class Ifconfig {
 
   /// This pipe will capture STDOUT of the ifconfig process.
   private lazy var outputPipe = Pipe()
-  
+
   /// This pipe will capture STDERR of the ifconfig process.
   private lazy var errorPipe = Pipe()
 

@@ -23,9 +23,9 @@ import CoreWLAN
 @Observable
 
 class Interface: Identifiable {
-  
+
   // MARK: Class Methods
-  
+
   /// Upon initialization we assign what we already know.
   init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
     self.BSDName = BSDName
@@ -41,35 +41,35 @@ class Interface: Identifiable {
     self.kind = kind
     self._hardMAC = hardMAC
     self._softMAC = ""
-    
+
     // No need to lookup a soft MAC if it cannot be modified.
     if !isSpoofable { return }
     querySoftMAC(async: async)
   }
-  
+
   // MARK: Instance Properties
-  
+
   /// Conforming to `Identifiable`.
   /// The only truly long-term unique identifier is the hardware MAC of an Interface.
   /// In the unlikely case that it's unavailable, fall back to something like `en0`.
   var id: String { hardMAC.isValid ? hardMAC.formatted : BSDName }
-  
+
   // These attributes are known instantaneously when querying the operating system.
   var BSDName: String
   var displayName: String
   var kind: String
-  
+
   /// Exposes the hardware MAC as an object.
   var hardMAC: MACAddress {
     return MACAddress(_hardMAC)
   }
-  
+
   /// Exposes the software MAC as an object.
   /// Whether it is already known or not.
   var softMAC: MACAddress {
     return MACAddress(_softMAC)
   }
-  
+
   // MARK: Instance Methods
 
   /// Asks ``Ifconfig`` to fetch the soft MAC of this Interface.
@@ -77,7 +77,7 @@ class Interface: Identifiable {
   /// This can be done synchronously or asynchronously.
   func querySoftMAC(async: Bool) {
     let ifconfig = Ifconfig(BSDName: self.BSDName)
-    
+
     if async {
       ifconfig.softMAC(callback: { address in
         DispatchQueue.main.async {
@@ -88,94 +88,98 @@ class Interface: Identifiable {
       self._softMAC = ifconfig.softMAC().formatted
     }
   }
-  
+
   // MARK: Instance Properties
-  
+
   var hasOriginalMAC: Bool {
     return hardMAC == softMAC
   }
-  
+
   var isSpoofable: Bool {
     // You can only change MAC addresses of Ethernet and Wi-Fi adapters
-    if ((["Ethernet", "IEEE80211"].firstIndex(of: kind) ) == nil) { return false }
-    
+    if (["Ethernet", "IEEE80211"].firstIndex(of: kind) ) == nil { return false }
+
     // If there is no internal MAC this is to be ignored
-    if (hardMAC.isInvalid) { return false }
-    
+    if hardMAC.isInvalid { return false }
+
     // Bluetooth can also be filtered out
-    if (displayName.contains("tooth")) { return false }
-    
+    if displayName.contains("tooth") { return false }
+
     // iPhones etc. are not spoofable either
-    if (displayName.contains("iPhone")) { return false }
-    if (displayName.contains("iPad")) { return false }
-    if (displayName.contains("iPod")) { return false }
-    
+    if displayName.contains("iPhone") { return false }
+    if displayName.contains("iPad") { return false }
+    if displayName.contains("iPod") { return false }
+
     // Internal Thunderbolt interfaces cannot be spoofed either
-    if (displayName.contains("Thunderbolt 1")) { return false }
-    if (displayName.contains("Thunderbolt 2")) { return false }
-    if (displayName.contains("Thunderbolt 3")) { return false }
-    if (displayName.contains("Thunderbolt 4")) { return false }
-    if (displayName.contains("Thunderbolt 5")) { return false }
-    
+    if displayName.contains("Thunderbolt 1") { return false }
+    if displayName.contains("Thunderbolt 2") { return false }
+    if displayName.contains("Thunderbolt 3") { return false }
+    if displayName.contains("Thunderbolt 4") { return false }
+    if displayName.contains("Thunderbolt 5") { return false }
+
     return true
   }
-  
+
   // This is a human readable representation of the Interface.
   // It's simply its name and interface identifier (e.g. "Wi-Fi ∙ en1")
   //  var title: String {
   //    return "\(displayName) · \(BSDName)"
   //  }
-  
+
   /// We cannot modify the MAC address of an Airport device that is turned off.
   /// This method figures out whether this interface is turned off.
   var isPoweredOffWifi: Bool {
     guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else { return false }
     return !wifi.powerOn()
   }
-  
+
   var isWifi: Bool {
-    guard (CWWiFiClient.shared().interface(withName: BSDName) != nil) else { return false }
+    guard CWWiFiClient.shared().interface(withName: BSDName) != nil else { return false }
     return true
   }
   var iconName: String {
-    if (kind == "IEEE80211") { return "wifi" }
+    if kind == "IEEE80211" { return "wifi" }
 
     return "cable.connector.horizontal"
   }
-  
+
+  // MARK: Instance Methods
+
+  public func setSoftMac(_ address: String) {
+    _softMAC = address
+  }
+
   // MARK: Private Instance Properties
 
   /// This is where we keep the hardware MAC address as a String. But we don't expose it.
   private var _hardMAC: String
-  
+
   /// This is where we keep the software MAC address as a String.
   /// This variable is populated asynchronously using ``Ifconfig``.
-  var _softMAC: String
-  
+  private var _softMAC: String
+
   //  var softPrefix: MACPrefix {
   //    return MACPrefix(softMAC.prefix)
   //  }
-  
 
-  
 }
 
 extension Interface: Comparable {
-  static func ==(lhs: Interface, rhs: Interface) -> Bool {
+  static func == (lhs: Interface, rhs: Interface) -> Bool {
     return lhs.BSDName == rhs.BSDName
   }
-  
-  static func <(lhs: Interface, rhs: Interface) -> Bool {
+
+  static func < (lhs: Interface, rhs: Interface) -> Bool {
     return lhs.BSDName < rhs.BSDName
   }
 }
 
 extension Interface {
   enum Action: String {
-    case hide = "hide"
-    case ignore = "ignore"
-    case random = "random"
-    case specify = "specify"
-    case original = "original"
+    case hide
+    case ignore
+    case random
+    case specify
+    case original
   }
 }

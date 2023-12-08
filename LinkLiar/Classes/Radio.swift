@@ -31,7 +31,6 @@ class Radio {
     })
   }
 
-  
   //  static func uninstallDaemon(reply: @escaping (Bool) -> Void) {
   //    usingHelper(block: { helper in
   //      helper.uninstallDaemon(reply: { success in
@@ -40,7 +39,7 @@ class Radio {
   //      })
   //    })
   //  }
-  
+
   static func install(state: LinkState, reply: @escaping (Bool) -> Void) {
     transceive(state: state, block: { helper in
       helper.createConfigDirectory(reply: { success in
@@ -127,7 +126,6 @@ class Radio {
 //    })
 //  }
 
-  
   // MARK: Private Properties
 
   private static var xpcConnection: NSXPCConnection?
@@ -140,12 +138,12 @@ class Radio {
     }) as! ListenerProtocol
     block(helper)
   }
-  
+
   private static func connection(state: LinkState) -> NSXPCConnection? {
-    if (xpcConnection != nil) {
+    if xpcConnection != nil {
       return xpcConnection
     }
-    
+
     Log.debug(Identifiers.daemon.rawValue)
     xpcConnection = NSXPCConnection(machServiceName: Identifiers.daemon.rawValue, options: NSXPCConnection.Options.privileged)
     Log.debug("xpcConnection: \(xpcConnection!.description)")
@@ -154,18 +152,18 @@ class Radio {
 
     xpcConnection!.interruptionHandler = {
       xpcConnection?.interruptionHandler = nil
-      OperationQueue.main.addOperation(){
+      OperationQueue.main.addOperation {
         xpcConnection = nil
         Log.debug("XPC Connection interrupted - the Helper probably crashed.")
         Log.debug("You mght find a crash report at /Library/Logs/DiagnosticReports")
         state.xpcStatus = .interrupted
       }
     }
-    
+
     xpcConnection!.invalidationHandler = {
       xpcConnection?.invalidationHandler = nil
-      
-      OperationQueue.main.addOperation(){
+
+      OperationQueue.main.addOperation {
         xpcConnection = nil
         Log.debug("XPC Connection Invalidated")
         state.xpcStatus = .invalidated

@@ -32,7 +32,7 @@ class IntervalTimer {
 
     started = true
   }
-  
+
   // MARK: - Private Properties
 
   private var started = false
@@ -40,14 +40,13 @@ class IntervalTimer {
 
   private let timer: Timer = {
     let interval: TimeInterval = 60 * 10
-    
+
     let newTimer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true, block: { _ in
       Log.debug("\(interval) seconds have passed.")
       NotificationCenter.default.post(name: .intervalElapsed, object: nil)
     })
     newTimer.tolerance = 60
-    
+
     return newTimer
   }()
 }
-

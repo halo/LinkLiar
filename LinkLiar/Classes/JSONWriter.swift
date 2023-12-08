@@ -48,7 +48,7 @@ class JSONWriter {
       return false
     }
   }
-  
+
   // MARK: Private Instance Properties
 
   private var path: String

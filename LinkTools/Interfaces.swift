@@ -28,16 +28,16 @@ struct Interfaces {
   /// In that case, the instances will update their softMac property.
   static func all(asyncSoftMac: Bool) -> [Interface] {
     var instances = [Interface]()
-    
+
     all(asyncSoftMac: asyncSoftMac, using: { interface in
       instances.append(interface)
     })
-    
+
     return instances.sorted()
   }
 
   // MARK: Private Class Methods
-  
+
   private static func all(asyncSoftMac: Bool, using yield: (Interface) -> Void) {
     let interfaces = SCNetworkInterfaceCopyAll()
 
@@ -49,7 +49,7 @@ struct Interfaces {
 
       let interface = Interface(BSDName: BSDName as String, displayName: displayName as String, kind: type as String, hardMAC: hardMAC as String, async: asyncSoftMac)
       if !interface.isSpoofable { continue }
-      
+
       yield(interface)
     }
   }

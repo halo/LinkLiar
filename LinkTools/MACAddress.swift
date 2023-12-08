@@ -17,7 +17,7 @@
 import Foundation
 
 struct MACAddress: Equatable {
-  
+
   // MARK: Class Methods
 
   static func initIfValid(_ address: String) -> MACAddress? {
@@ -34,13 +34,13 @@ struct MACAddress: Equatable {
 
 //  func add(_ address: MACAddress) -> MACAddress {
 //  }
-  
+
   // MARK: Instance Properties
 
   func humanReadable(config: Configuration) -> String {
     guard isValid else { return "??:??:??:??:??:??" }
-    
-    guard (config.general.isAnonymized) else {
+
+    guard config.general.isAnonymized else {
       return humanReadable
     }
     let address = config.general.anonymizationSeed
@@ -50,7 +50,6 @@ struct MACAddress: Equatable {
     return MACAddress(newAddress).formatted
   }
 
-  
   var humanReadable: String {
     guard isValid else { return "??:??:??:??:??:??" }
 
@@ -62,7 +61,7 @@ struct MACAddress: Equatable {
   }
 
   var formatted: String {
-    return String(sanitized.enumerated().map() {
+    return String(sanitized.enumerated().map {
       $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
     }.joined().dropFirst())
   }
@@ -79,10 +78,10 @@ struct MACAddress: Equatable {
     return !isValid
   }
 
-  var integers : [UInt8] {
+  var integers: [UInt8] {
     return sanitized.map { UInt8(String($0), radix: 16)! }
   }
-  
+
   // MARK: Private Instance Properties
 
   private var sanitized: String {
@@ -92,16 +91,14 @@ struct MACAddress: Equatable {
 
   private var raw: String
 
-
 }
 
 extension MACAddress: Comparable {
   static func ==(lhs: MACAddress, rhs: MACAddress) -> Bool {
     return lhs.formatted == rhs.formatted
   }
-  
+
   static func <(lhs: MACAddress, rhs: MACAddress) -> Bool {
     return lhs.formatted < rhs.formatted
   }
 }
-

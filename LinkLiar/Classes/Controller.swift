@@ -1,19 +1,36 @@
+/*
+ * Copyright (C)  halo https://io.github.com/halo/LinkLiar
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit
+ * persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+ * Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+ * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+ * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
 import Cocoa
 import Foundation
 import ServiceManagement
 
 class Controller {
-  
+
   // MARK: Class Methods
-  
+
   static func queryInterfaces(state: LinkState) {
     state.allInterfaces = Interfaces.all(asyncSoftMac: true)
   }
-  
+
   static func registerDaemon(state: LinkState) {
 //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
-    
+
     DispatchQueue.global().async {
       do {
         try service.register()
@@ -25,16 +42,16 @@ class Controller {
       }
     }
   }
-  
+
   static func unregisterDaemon(state: LinkState) {
 //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
-    
+
     DispatchQueue.global().async {
       do {
         try service.unregister()
         queryDaemonRegistration(state: state)
-        
+
         Log.debug("Successfully unregistered \(service)")
         print("\(service) has then status \(service.status)")
       } catch {
@@ -43,10 +60,10 @@ class Controller {
       }
     }
   }
-  
+
   static func queryDaemonVersion(state: LinkState) {
     Radio.version(state: state, reply: { version in
-      if (version == nil) {
+      if version == nil {
         Log.debug("No Version")
         state.daemonVersion = Version("0.0.0")
       } else {
@@ -55,34 +72,32 @@ class Controller {
       }
     })
   }
-  
+
   static func wantsToQuit(_ state: LinkState) {
     guard !state.wantsToQuit else {
       state.wantsToQuit = false
       return
     }
-    
+
     if state.daemonRegistration == .enabled {
       state.wantsToQuit = true
     } else {
       quitForReal()
     }
   }
-  
+
   static func wantsToStay(_ state: LinkState) {
     state.wantsToQuit = false
   }
-  
+
   static func quitForReal() {
     NSApplication.shared.terminate(nil)
   }
-  
+
   static func queryAllSoftMACs(_ state: LinkState) {
     state.allInterfaces.forEach { $0.querySoftMAC(async: true) }
   }
-  
-  
-  
+
 //
 //  static func install(state: LinkState) {
 //    Radio.install(state: state, reply: { success in
@@ -105,22 +120,18 @@ class Controller {
 //      }
 //    })
 //  }
-  
-  
-  
-  
-  
+
   static func troubleshoot(state: LinkState) {
     queryInterfaces(state: state)
     queryDaemonRegistration(state: state)
-    
+
   }
-  
+
   // MARK: Private Functions
-  
+
   static func queryDaemonRegistration(state: LinkState) {
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
-    
+
     switch service.status {
       case .notRegistered:
         state.daemonRegistration = .notRegistered
@@ -133,10 +144,10 @@ class Controller {
       default:
         state.daemonRegistration = .novel
     }
-    
+
     // For some reason we also need to attempt to talk to the daemon
     // in order for it's status to be updated
     queryDaemonVersion(state: state)
   }
-  
+
 }

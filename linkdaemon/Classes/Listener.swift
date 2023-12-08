@@ -25,7 +25,7 @@ class Listener: NSObject {
 //    return Version("?.?.?")
 //  }()
 
-  // MARK Private Properties
+  // MARK: Private Properties
 
   lazy var listener: NSXPCListener = {
     Log.debug("Instantiating new listener...")
@@ -39,10 +39,10 @@ class Listener: NSObject {
   var shouldQuit = false
   var versionOnStartUp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 
-  // MARK Instance Methods
+  // MARK: Instance Methods
 
-  func listen(){
-    
+  func listen() {
+
     Log.debug("Helper says hello")
     listener.resume() // Tell the XPC listener to start processing requests.
 
@@ -64,12 +64,12 @@ extension Listener: ListenerProtocol {
       Log.debug("Cannot find my bundle")
       return reply("missing bundle")
     }
-    
+
     guard let versionString = bundleDictionary["CFBundleShortVersionString"] as? String else {
       Log.debug("Cannot find my version in the bundle dictionary")
       return reply("missing version string")
     }
-    
+
     Log.debug("It is \(versionString)")
     reply(versionString)
   }
@@ -90,7 +90,7 @@ extension Listener: ListenerProtocol {
 //  }
 
   func createConfigDirectory(reply: (Bool) -> Void) {
-    
+
 //    Log.debug("\(Bundle.main.bundlePath)")
 //    Log.debug("\(Bundle.main.infoDictionary)")
 //    let infoPath = "\(Bundle.main.bundlePath)/Contents/Info.plist"
@@ -145,10 +145,10 @@ extension Listener: ListenerProtocol {
 
 extension Listener: NSXPCListenerDelegate {
 
-  func listener(_ listener:NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
+  func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
     Log.debug("New connection!")
     newConnection.exportedInterface = NSXPCInterface(with: ListenerProtocol.self)
-    newConnection.exportedObject = self;
+    newConnection.exportedObject = self
     newConnection.invalidationHandler = (() -> Void)? {
       Log.debug("Daemon lost connection to GUI...")
       // This means the GUI was closed and the helper can be closed.

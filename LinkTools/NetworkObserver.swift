@@ -18,7 +18,7 @@ import Cocoa
 import SystemConfiguration
 
 struct  NetworkObserver {
-  
+
   let callback: () -> Void
 
   // MARK: Class Methods
@@ -32,15 +32,15 @@ struct  NetworkObserver {
 
     let store = SCDynamicStoreCreate(nil, "LinkLiar" as CFString, callbackWrapper, nil)!
     let keys = [SCDynamicStoreKeyCreateNetworkInterface(nil, kSCDynamicStoreDomainState)] as CFArray
-    
-    SCDynamicStoreSetNotificationKeys(store, keys , nil)
+
+    SCDynamicStoreSetNotificationKeys(store, keys, nil)
     CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store, 0), CFRunLoopMode.defaultMode)
-    
+
     // When the observer starts, we notify immediately.
     // One could say the conditions changed right now "for us".
     callbackWrapper(store, [] as CFArray, nil)
   }
-  
+
   // MARK: Private Class Methods
 
   // I wish we could use `NetworkObserver.observe` with a callback closure.
@@ -50,7 +50,7 @@ struct  NetworkObserver {
     Log.debug("Network conditions changed")
     NotificationCenter.default.post(name: .networkConditionsChanged, object: nil)
   }
-  
+
   private func notificationCallback(_ _: Notification) {
     callback()
   }

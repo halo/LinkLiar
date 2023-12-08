@@ -29,16 +29,16 @@ extension Configuration {
   ///     }
   ///
   struct Policy {
-    
+
     // MARK: Class Methods
-    
+
     init(_ hardMAC: String, dictionary: [String: Any]) {
       self.dictionary = dictionary
       self.hardMAC = hardMAC
     }
-    
+
     // MARK: Instance Properties
-        
+
     /// Looks up which action has been defined.
     ///
     /// Returns `nil` if no (valid) action was defined.
@@ -51,7 +51,7 @@ extension Configuration {
 
       return Interface.Action(rawValue: actionName) ?? nil
     }
-    
+
     /// Looks up which MAC address has been defined.
     /// This is useful if the action is "specify".
     ///
@@ -64,7 +64,7 @@ extension Configuration {
       let address = MACAddress(rawAddress)
       return address.isValid ? address : nil
     }
-    
+
     /// Queries the Hotspot definitions for this Interface.
     ///
     /// It looks like this in JSON:
@@ -85,17 +85,17 @@ extension Configuration {
     ///
     var accessPoints: [AccessPointPolicy] {
       guard let ssidsDictionary = dictionary["ssids:\(hardMAC)"] as? [String: String] else { return [] }
-      
+
       return ssidsDictionary.compactMap({ ssid, rawAddress in
         return AccessPointPolicy.initIfValid(ssid: ssid, softMAC: rawAddress)
       }).sorted()
     }
-    
+
     // MARK: Private Instance Properties
-    
+
     /// The root of the configuration file.
     private var dictionary: [String: Any]
-    
+
     /// The MAC address of the ``Interface`` we're interested in.
     private var hardMAC: String
 
