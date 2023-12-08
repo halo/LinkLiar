@@ -81,11 +81,11 @@ struct MACAddress: Equatable {
 }
 
 extension MACAddress: Comparable {
-  static func ==(lhs: MACAddress, rhs: MACAddress) -> Bool {
+  static func == (lhs: MACAddress, rhs: MACAddress) -> Bool {
     return lhs.formatted == rhs.formatted
   }
 
-  static func <(lhs: MACAddress, rhs: MACAddress) -> Bool {
+  static func < (lhs: MACAddress, rhs: MACAddress) -> Bool {
     return lhs.formatted < rhs.formatted
   }
 }

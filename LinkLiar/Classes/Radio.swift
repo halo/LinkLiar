@@ -120,9 +120,11 @@ class Radio {
   // MARK: Private Functions
 
   private static func transceive(state: LinkState, block: @escaping (ListenerProtocol) -> Void) {
+    // swiftlint:disable force_cast
     let helper = connection(state: state)?.remoteObjectProxyWithErrorHandler({ error in
       Log.debug("Oh no, no connection to helper: \(error.localizedDescription)")
     }) as! ListenerProtocol
+    // swiftlint:enable force_cast
     block(helper)
   }
 

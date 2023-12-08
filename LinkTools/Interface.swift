@@ -16,8 +16,10 @@ class Interface: Identifiable {
   /// Upon initialization we assign what we already know.
   init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
     self.BSDName = BSDName
+
+    // Not sure why, but some Ethernet interfaces have this reduntantly in their name
     self.displayName = displayName
-      .replacingOccurrences(of: "(en0)", with: "") // Not sure why, but some Ethernet interfaces have this reduntantly in their name
+      .replacingOccurrences(of: "(en0)", with: "")
       .replacingOccurrences(of: "(en1)", with: "")
       .replacingOccurrences(of: "(en2)", with: "")
       .replacingOccurrences(of: "(en3)", with: "")

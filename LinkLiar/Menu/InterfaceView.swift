@@ -35,10 +35,10 @@ struct InterfaceView: View {
             copy(interface.softMAC.humanReadable)
             copiedHardMAC = now
             Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: {_ in
-              // FIXME: This doesn't reliably work when pressing this button repeatedly.
+              // This doesn't reliably work when pressing this button repeatedly, but I can live with that.
               copiedHardMAC = 0
             })
-          }) {
+          }, label: {
             Text(interface.softMAC.humanReadable)
               .font(.system(.body, design: .monospaced, weight: .light))
               .onHover { hovering in
@@ -56,7 +56,7 @@ struct InterfaceView: View {
 //                .imageScale(.small)
 //                .opacity(0)
 //            }
-          }.buttonStyle(.plain)
+          }).buttonStyle(.plain)
 
           //            Text(interface.softMAC.humanReadable)
           //              .font(.system(.body, design: .monospaced))

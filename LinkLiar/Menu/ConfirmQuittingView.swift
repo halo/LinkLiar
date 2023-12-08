@@ -19,14 +19,14 @@ struct ConfirmQuittingView: View {
         Text("LinkLiar will continue to run in\nin the background. You can\nchange this in the settings.")
           .padding(.bottom, 4)
 
-        Button(action: { Controller.quitForReal() }) {
+        Button(action: Controller.quitForReal) {
           Text("Quit this Menu")
         }.padding(.bottom, 4)
           .buttonStyle(.borderedProminent)
 
-        Button(action: { Controller.wantsToStay(state) }) {
+        Button(action: { Controller.wantsToStay(state) }, label: {
           Text("Cancel")
-        }.padding(.bottom, 4)
+        }).padding(.bottom, 4)
           .buttonStyle(.plain)
       }
 

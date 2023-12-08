@@ -40,7 +40,9 @@ class Ifconfig {
   func softMAC(callback: @escaping (MACAddress) -> Void) {
     self.outputHandle.waitForDataInBackgroundAndNotify()
 
-    NotificationCenter.default.addObserver(forName: Process.didTerminateNotification, object: process, queue: nil) { _ in
+    NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
+                                           object: process,
+                                           queue: nil) { _ in
       callback(MACAddress(self._softMAC))
     }
 

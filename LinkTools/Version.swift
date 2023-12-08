@@ -8,11 +8,11 @@ struct Version {
   // MARK: Class Methods
 
   init(_ version: String) {
-    let v = version.components(separatedBy: ".") as Array
+    let parts = version.components(separatedBy: ".") as Array
 
-    major = Int(v[0])!
-    minor = Int(v[1])!
-    patch = Int(v[2])!
+    major = Int(parts[0])!
+    minor = Int(parts[1])!
+    patch = Int(parts[2])!
   }
 
   // MARK: Instance Properties

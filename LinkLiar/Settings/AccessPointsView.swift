@@ -20,7 +20,7 @@ struct AccessPointsView: View {
            with a certain name (SSID), you can specify a MAC address that LinkLiar
            should assign to this interface. This overrides custom MAC settings for this Interface.
            """)
-        .padding(4)
+      .padding(4)
 
       Table(state.config.policy(interface.hardMAC).accessPoints, selection: $selection) {
         TableColumn("SSID", value: \.ssid)
@@ -33,9 +33,9 @@ struct AccessPointsView: View {
       }.contextMenu(forSelectionType: Configuration.AccessPointPolicy.ID.self) { _ in
         Button("Delete", role: .destructive) { removeSsid() }
 
-    }
+      }
       HStack {
-        Button(action: { isAddPopoverPresented = true }) {
+        Button(action: showAddAccessPointPopover) {
           Image(systemName: "plus")
         }.padding(10)
           .controlSize(.extraLarge)
@@ -59,14 +59,14 @@ struct AccessPointsView: View {
               .border(.tertiary)
               .font(.system(.title3, design: .monospaced))
               .frame(width: 250)
-              Button(action: { addSsid() }) {
+              Button(action: { addSsid() }, label: {
                 Text("Add")
-              }
+              })
             }.padding()
-           }
+          }
           .presentationCompactAdaptation(.popover)
 
-        Button(action: { removeSsid() }) {
+        Button(action: removeSsid) {
           Image(systemName: "minus")
         }.padding(.vertical, 10)
           .controlSize(.extraLarge)
@@ -75,13 +75,18 @@ struct AccessPointsView: View {
     }
   }
 
+  private func showAddAccessPointPopover() {
+    isAddPopoverPresented = true
+  }
+
   private func addSsid() {
     Log.debug("Adding SSID to Interface \(interface.hardMAC.humanReadable)")
     ConfigWriter.addInterfaceSsid(interface: interface, ssid: newSsid, address: newMAC, state: state)
   }
 
   private func removeSsid() {
-    guard let accessPointPolicy = state.config.policy(interface.hardMAC).accessPoints.first(where: { $0.id == selection }) else {
+    guard let accessPointPolicy = state.config.policy(interface.hardMAC).accessPoints
+      .first(where: { $0.id == selection }) else {
       Log.debug("SSID definition not found")
       return
     }

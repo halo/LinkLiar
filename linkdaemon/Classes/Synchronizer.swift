@@ -46,7 +46,8 @@ class Synchronizer {
 //      return
 //    }
 //    if interface.softMAC == address {
-//      Log.debug("Interface \(interface.BSDName) with hardMAC \(interface.hardMAC.humanReadable) and softMAC \(interface.softMAC.humanReadable) is already set to softMAC \(address.humanReadable) - skipping")
+//      Log.debug("Interface \(interface.BSDName) with hardMAC \(interface.hardMAC.humanReadable) and 
+//      softMAC \(interface.softMAC.humanReadable) is already set to softMAC \(address.humanReadable) - skipping")
 //      return
 //    }
 //    setMAC(BSDName: interface.BSDName, address: address)

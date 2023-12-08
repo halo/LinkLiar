@@ -29,12 +29,17 @@ struct Interfaces {
     let interfaces = SCNetworkInterfaceCopyAll()
 
     for interfaceRef in interfaces {
+      // swiftlint:disable force_cast
       guard let BSDName = SCNetworkInterfaceGetBSDName(interfaceRef as! SCNetworkInterface) else { continue }
-      guard let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface) else { continue }
-      guard let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface) else { continue }
+      guard let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface)
+      else { continue }
+      guard let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface)
+      else { continue }
       guard let type = SCNetworkInterfaceGetInterfaceType(interfaceRef as! SCNetworkInterface) else { continue }
+      // swiftlint:enable force_cast
 
-      let interface = Interface(BSDName: BSDName as String, displayName: displayName as String, kind: type as String, hardMAC: hardMAC as String, async: asyncSoftMac)
+      let interface = Interface(BSDName: BSDName as String, displayName: displayName as String,
+                                kind: type as String, hardMAC: hardMAC as String, async: asyncSoftMac)
       if !interface.isSpoofable { continue }
 
       yield(interface)

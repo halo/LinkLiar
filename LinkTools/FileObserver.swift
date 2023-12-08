@@ -1,7 +1,6 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-
 import Foundation
 
 // See https://gist.github.com/DivineDominion/56e56f3db43216d9eaab300d3b9f049a

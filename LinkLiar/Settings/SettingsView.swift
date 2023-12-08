@@ -7,41 +7,41 @@ import ServiceManagement
 struct SettingsView: View {
   @Environment(LinkState.self) private var state
 
-  @State private var selectedFolder: String? = panes.welcome.rawValue
+  @State private var selectedFolder: String? = Panes.welcome.rawValue
 
   var body: some View {
     NavigationSplitView {
       List(selection: $selectedFolder) {
         Spacer()
 
-        NavigationLink(value: panes.welcome.rawValue) {
+        NavigationLink(value: Panes.welcome.rawValue) {
           Label("Welcome", systemImage: "figure.dance")
         }
 
-        NavigationLink(value: panes.settings.rawValue) {
+        NavigationLink(value: Panes.settings.rawValue) {
           Label("Settings", systemImage: "gear")
         }
 
-        NavigationLink(value: panes.help.rawValue) {
+        NavigationLink(value: Panes.help.rawValue) {
           Label("FAQ", systemImage: "book.pages")
         }
 
-        NavigationLink(value: panes.troubleshoot.rawValue) {
+        NavigationLink(value: Panes.troubleshoot.rawValue) {
           Label("Troubleshoot", systemImage: "bandage")
         }
 
-        NavigationLink(value: panes.community.rawValue) {
+        NavigationLink(value: Panes.community.rawValue) {
           Label("Community", systemImage: "bubble")
         }
 
-        NavigationLink(value: panes.uninstall.rawValue) {
+        NavigationLink(value: Panes.uninstall.rawValue) {
           Label("Uninstall", systemImage: "trash")
         }
 
         Spacer()
         Text("Interfaces")
 
-        NavigationLink(value: panes.defaultPolicy.rawValue) {
+        NavigationLink(value: Panes.defaultPolicy.rawValue) {
           Label("Interface Default", systemImage: "wand.and.stars.inverse")
         }
 
@@ -67,14 +67,14 @@ struct SettingsView: View {
 }
 
 extension SettingsView {
-  enum panes: String {
-    case welcome = "welcome"
-    case settings = "settings"
-    case troubleshoot = "troubleshoot"
-    case help = "help"
-    case community = "community"
-    case uninstall = "uninstall"
-    case defaultPolicy = "default_policy"
+  enum Panes: String {
+    case welcome
+    case settings
+    case troubleshoot
+    case help
+    case community
+    case uninstall
+    case defaultPolicy
   }
 }
 

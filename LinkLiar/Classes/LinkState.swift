@@ -9,12 +9,12 @@ class LinkState {
   // GUI
   var wantsToQuit = false
   var version: Version = {
-    Version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String)
+    Version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?")
   }()
 
   // Daemon
-  var daemonRegistration = daemonRegistrations.unknown
-  var xpcStatus = xpcStatuses.unknown
+  var daemonRegistration = DaemonRegistrations.unknown
+  var xpcStatus = XpcStatuses.unknown
   var daemonVersion = Version("0.0.0")
 
   // Network
@@ -48,7 +48,7 @@ class LinkState {
 
 extension LinkState {
   // Analogous to `SMAppService.Status`.
-  enum daemonRegistrations: String {
+  enum DaemonRegistrations: String {
     case unknown = "unknown"
     case notRegistered = "not registered"
     case enabled = "enabled"
@@ -57,11 +57,11 @@ extension LinkState {
     case novel = "novel" // Didn't exist yet in `SMAppService.Status` in this release.
   }
 
-  enum xpcStatuses: String {
-    case unknown = "unknown"
-    case initialized = "initialized"
-    case connected = "connected"
-    case invalidated = "invalidated"
-    case interrupted = "interrupted"
+  enum XpcStatuses: String {
+    case unknown
+    case initialized
+    case connected
+    case invalidated
+    case interrupted
   }
 }

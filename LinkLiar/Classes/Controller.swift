@@ -14,7 +14,7 @@ class Controller {
   }
 
   static func registerDaemon(state: LinkState) {
-//    queryDaemonRegistration(state: state)
+    //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
     DispatchQueue.global().async {
@@ -30,7 +30,7 @@ class Controller {
   }
 
   static func unregisterDaemon(state: LinkState) {
-//    queryDaemonRegistration(state: state)
+    //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
     DispatchQueue.global().async {
@@ -84,28 +84,28 @@ class Controller {
     state.allInterfaces.forEach { $0.querySoftMAC(async: true) }
   }
 
-//
-//  static func install(state: LinkState) {
-//    Radio.install(state: state, reply: { success in
-//      if (success) {
-//        Log.debug("Installation complete")
-//      } else {
-//        Log.debug("Could not complete installation")
-//      }
-//    })
-//  }
-//
-//
-//
-//  static func uninstall(state: LinkState) {
-//    Radio.uninstall(state: state, reply: { success in
-//      if (success) {
-//        Log.debug("umInstallation complete")
-//      } else {
-//        Log.debug("Could not complete uninstallation")
-//      }
-//    })
-//  }
+  //
+  //  static func install(state: LinkState) {
+  //    Radio.install(state: state, reply: { success in
+  //      if (success) {
+  //        Log.debug("Installation complete")
+  //      } else {
+  //        Log.debug("Could not complete installation")
+  //      }
+  //    })
+  //  }
+  //
+  //
+  //
+  //  static func uninstall(state: LinkState) {
+  //    Radio.uninstall(state: state, reply: { success in
+  //      if (success) {
+  //        Log.debug("umInstallation complete")
+  //      } else {
+  //        Log.debug("Could not complete uninstallation")
+  //      }
+  //    })
+  //  }
 
   static func troubleshoot(state: LinkState) {
     queryInterfaces(state: state)
@@ -119,16 +119,16 @@ class Controller {
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
     switch service.status {
-      case .notRegistered:
-        state.daemonRegistration = .notRegistered
-      case .enabled:
-        state.daemonRegistration = .enabled
-      case .requiresApproval:
-        state.daemonRegistration = .requiresApproval
-      case .notFound:
-        state.daemonRegistration = .notFound
-      default:
-        state.daemonRegistration = .novel
+    case .notRegistered:
+      state.daemonRegistration = .notRegistered
+    case .enabled:
+      state.daemonRegistration = .enabled
+    case .requiresApproval:
+      state.daemonRegistration = .requiresApproval
+    case .notFound:
+      state.daemonRegistration = .notFound
+    default:
+      state.daemonRegistration = .novel
     }
 
     // For some reason we also need to attempt to talk to the daemon

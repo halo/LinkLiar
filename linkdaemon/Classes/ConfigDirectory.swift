@@ -25,7 +25,10 @@ struct ConfigDirectory {
       try manager.createDirectory(atPath: Paths.configDirectory, withIntermediateDirectories: false)
       Log.debug("Created config directory \(Paths.configDirectory)")
     } catch let error as NSError {
-      Log.info("Could not create config directory \(Paths.configDirectory) does it already exist? \(error.localizedDescription)")
+      Log.info("""
+               Could not create config directory \(Paths.configDirectory)
+               does it already exist? \(error.localizedDescription)
+               """)
     }
   }
 
@@ -58,7 +61,8 @@ struct ConfigDirectory {
 
   private static func ensureFilePermissions() {
     do {
-      try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"], ofItemAtPath: Paths.configFile)
+      try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"],
+                                            ofItemAtPath: Paths.configFile)
       Log.debug("Did set file permissions")
     } catch let error {
       print("File Permissions error: ", error)

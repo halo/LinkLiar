@@ -24,7 +24,7 @@ class Listener: NSObject {
   }()
 
   var shouldQuit = false
-  var versionOnStartUp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+  var versionOnStartUp = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?"
 
   // MARK: Instance Methods
 

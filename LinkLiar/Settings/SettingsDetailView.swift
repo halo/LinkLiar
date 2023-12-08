@@ -12,22 +12,22 @@ struct SettingsDetailView: View {
     VStack {
 
       switch selectedFolder {
-        case nil:
+      case nil:
+        EmptyView()
+      case SettingsView.Panes.welcome.rawValue:
+        Text("Welcome")
+      case SettingsView.Panes.defaultPolicy.rawValue:
+        SettingsInterfaceFallbackView().environment(state)
+      case SettingsView.Panes.troubleshoot.rawValue:
+        SettingsTroubleshootView().environment(state)
+      default:
+        if let interface = state.allInterfaces.first(where: { $0.id == selectedFolder }) {
+          SettingsInterfaceView().environment(state)
+                                 .environment(interface)
+        } else {
+          // The Interface currently edited was unplugged
           EmptyView()
-        case SettingsView.panes.welcome.rawValue:
-          Text("Welcome")
-        case SettingsView.panes.defaultPolicy.rawValue:
-          SettingsInterfaceFallbackView().environment(state)
-        case SettingsView.panes.troubleshoot.rawValue:
-          SettingsTroubleshootView().environment(state)
-        default:
-          if let interface = state.allInterfaces.first(where: { $0.id == selectedFolder }) {
-            SettingsInterfaceView().environment(state)
-                                   .environment(interface)
-          } else {
-            // The Interface currently edited was unplugged
-            EmptyView()
-          }
+        }
       }
     }
 
