@@ -44,24 +44,13 @@ class ConfigWriter {
   static func addInterfaceSsid(interface: Interface, ssid: String, address: String, state: LinkState) {
     guard let accessPointPolicy = Configuration.AccessPointPolicy.initIfValid(ssid: ssid, softMAC: address)
     else { return }
-    var dictionary = state.configDictionary
-    dictionary["version"] = state.version.formatted
+    let newDictionary = ConfigMerger.addInterfaceSsid(
+      interface: interface,
+      accessPointPolicy: accessPointPolicy,
+      state: state)
 
-    // { "action": "random", ... } or {}
-    var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
-    // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
-    var ssidsDictionary = interfaceDictionary[Configuration.Key.ssids.rawValue] as? [String: String] ?? [:]
-    // { "Coffeeshop": "aa:aa:aa:aa:aa:aa" }
-    let minimalSsidDictionary = [ssid: accessPointPolicy.softMAC.formatted]
-    // { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" }
-    let newSsidsDictionary = ssidsDictionary.merging(minimalSsidDictionary) { (_, new) in new }
-    // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" } }
-    interfaceDictionary.updateValue(newSsidsDictionary, forKey: Configuration.Key.ssids.rawValue)
-    // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
-    dictionary.updateValue(interfaceDictionary, forKey: interface.hardMAC.formatted)
-
-    if JSONWriter(filePath: Paths.configFile).write(dictionary) {
-      state.configDictionary = dictionary
+    if JSONWriter(filePath: Paths.configFile).write(newDictionary) {
+      state.configDictionary = newDictionary
     }
   }
 

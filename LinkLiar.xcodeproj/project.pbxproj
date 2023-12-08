@@ -87,6 +87,7 @@
 		C28E032D2B0D43560074EC94 /* SettingsInterfaceHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E032C2B0D43560074EC94 /* SettingsInterfaceHeadlineView.swift */; };
 		C28E032F2B0D473A0074EC94 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E032E2B0D473A0074EC94 /* General.swift */; };
 		C28E03302B0D473A0074EC94 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E032E2B0D473A0074EC94 /* General.swift */; };
+		C2969EB52B23CB7D00A9BB72 /* ConfigMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EB42B23CB7D00A9BB72 /* ConfigMerger.swift */; };
 		C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
@@ -240,6 +241,7 @@
 		C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkDaemon.swift; path = Classes/LinkDaemon.swift; sourceTree = "<group>"; };
 		C28E032C2B0D43560074EC94 /* SettingsInterfaceHeadlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceHeadlineView.swift; sourceTree = "<group>"; };
 		C28E032E2B0D473A0074EC94 /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
+		C2969EB42B23CB7D00A9BB72 /* ConfigMerger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigMerger.swift; sourceTree = "<group>"; };
 		C29EAF762AE59EE7003578B9 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				C22134542AEC0BD600BCF30E /* Controller.swift */,
 				C22134562AEC0BD600BCF30E /* Radio.swift */,
 				C22F21B82B02AD870086B621 /* ConfigWriter.swift */,
+				C2969EB42B23CB7D00A9BB72 /* ConfigMerger.swift */,
 				C22F21A72B010B210086B621 /* JSONWriter.swift */,
 				C28E03262B0A7EF50074EC94 /* MACAddressFormatter.swift */,
 			);
@@ -683,6 +686,7 @@
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
 				C2DAB21E2B1647E1002DD295 /* AccessPointsView.swift in Sources */,
+				C2969EB52B23CB7D00A9BB72 /* ConfigMerger.swift in Sources */,
 				C22F21A32AFFFAB40086B621 /* ConfirmQuittingView.swift in Sources */,
 				C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */,
 				C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
