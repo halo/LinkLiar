@@ -71,7 +71,8 @@ extension Configuration {
     ///     }
     ///
     var accessPoints: [AccessPointPolicy] {
-      guard let ssidsDictionary = dictionary["ssids:\(hardMAC)"] as? [String: String] else { return [] }
+      guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return [] }
+      guard let ssidsDictionary = interfaceDictionary["ssids"] as? [String: String] else { return [] }
 
       return ssidsDictionary.compactMap({ ssid, rawAddress in
         AccessPointPolicy.initIfValid(ssid: ssid, softMAC: rawAddress)

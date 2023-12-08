@@ -48,3 +48,10 @@ struct Configuration {
   }
 
 }
+
+extension Configuration {
+  enum Key: String {
+    case action
+    case ssids
+  }
+}
