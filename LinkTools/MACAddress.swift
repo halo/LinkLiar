@@ -48,25 +48,25 @@ struct MACAddress: Equatable {
   }
 
   var formatted: String {
-    return String(sanitized.enumerated().map {
+    String(sanitized.enumerated().map {
       $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
     }.joined().dropFirst())
   }
 
   var prefix: String {
-    return formatted.components(separatedBy: ":").prefix(3).joined(separator: ":")
+    formatted.components(separatedBy: ":").prefix(3).joined(separator: ":")
   }
 
   var isValid: Bool {
-    return formatted.count == 17
+    formatted.count == 17
   }
 
   var isInvalid: Bool {
-    return !isValid
+    !isValid
   }
 
   var integers: [UInt8] {
-    return sanitized.map { UInt8(String($0), radix: 16)! }
+    sanitized.map { UInt8(String($0), radix: 16)! }
   }
 
   // MARK: Private Instance Properties
@@ -82,10 +82,10 @@ struct MACAddress: Equatable {
 
 extension MACAddress: Comparable {
   static func == (lhs: MACAddress, rhs: MACAddress) -> Bool {
-    return lhs.formatted == rhs.formatted
+    lhs.formatted == rhs.formatted
   }
 
   static func < (lhs: MACAddress, rhs: MACAddress) -> Bool {
-    return lhs.formatted < rhs.formatted
+    lhs.formatted < rhs.formatted
   }
 }

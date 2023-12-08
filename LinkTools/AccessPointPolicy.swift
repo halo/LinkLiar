@@ -35,10 +35,10 @@ extension Configuration {
 
 extension Configuration.AccessPointPolicy: Comparable {
   static func == (lhs: Configuration.AccessPointPolicy, rhs: Configuration.AccessPointPolicy) -> Bool {
-    return lhs.id == rhs.id
+    lhs.id == rhs.id
   }
 
   static func < (lhs: Configuration.AccessPointPolicy, rhs: Configuration.AccessPointPolicy) -> Bool {
-    return lhs.id < rhs.id
+    lhs.id < rhs.id
   }
 }

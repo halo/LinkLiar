@@ -50,13 +50,13 @@ class Interface: Identifiable {
 
   /// Exposes the hardware MAC as an object.
   var hardMAC: MACAddress {
-    return MACAddress(_hardMAC)
+    MACAddress(_hardMAC)
   }
 
   /// Exposes the software MAC as an object.
   /// Whether it is already known or not.
   var softMAC: MACAddress {
-    return MACAddress(_softMAC)
+    MACAddress(_softMAC)
   }
 
   // MARK: Instance Methods
@@ -81,7 +81,7 @@ class Interface: Identifiable {
   // MARK: Instance Properties
 
   var hasOriginalMAC: Bool {
-    return hardMAC == softMAC
+    hardMAC == softMAC
   }
 
   var isSpoofable: Bool {
@@ -155,11 +155,11 @@ class Interface: Identifiable {
 
 extension Interface: Comparable {
   static func == (lhs: Interface, rhs: Interface) -> Bool {
-    return lhs.BSDName == rhs.BSDName
+    lhs.BSDName == rhs.BSDName
   }
 
   static func < (lhs: Interface, rhs: Interface) -> Bool {
-    return lhs.BSDName < rhs.BSDName
+    lhs.BSDName < rhs.BSDName
   }
 }
 

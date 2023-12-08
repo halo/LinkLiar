@@ -23,28 +23,28 @@ struct Configuration {
   /// Queries the version with which the configuration was created.
   ///
   lazy var version: String? = {
-    return self.dictionary["version"] as? String
+    self.dictionary["version"] as? String
   }()
 
   ///
   /// Queries universal settings.
   ///
   var general: General {
-    return General(dictionary: dictionary)
+    General(dictionary: dictionary)
   }
 
   ///
   /// Queries settings of one Interface.
   ///
   func policy(_ hardMAC: MACAddress) -> Policy {
-    return Policy(hardMAC.formatted, dictionary: dictionary)
+    Policy(hardMAC.formatted, dictionary: dictionary)
   }
 
   ///
   /// Queries settings of the "default" Interface.
   ///
   var fallbackPolicy: Policy {
-    return Policy("default", dictionary: dictionary)
+    Policy("default", dictionary: dictionary)
   }
 
 }

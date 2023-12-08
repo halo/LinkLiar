@@ -16,10 +16,10 @@ struct AccessPointsView: View {
     VStack(alignment: .leading) {
 
       Text("""
-           When LinkLiar detects that you are connected to a Wi-Fi Access Point
-           with a certain name (SSID), you can specify a MAC address that LinkLiar
-           should assign to this interface. This overrides custom MAC settings for this Interface.
-           """)
+        When LinkLiar detects that you are connected to a Wi-Fi Access Point
+        with a certain name (SSID), you can specify a MAC address that LinkLiar
+        should assign to this interface. This overrides custom MAC settings for this Interface.
+      """)
       .padding(4)
 
       Table(state.config.policy(interface.hardMAC).accessPoints, selection: $selection) {

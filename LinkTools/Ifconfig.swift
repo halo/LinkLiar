@@ -70,12 +70,12 @@ class Ifconfig {
 
   /// Converting the STDOUT pipe to an IO.
   private lazy var outputHandle: FileHandle = {
-    return self.outputPipe.fileHandleForReading
+    self.outputPipe.fileHandleForReading
   }()
 
   /// Reading the STDOUT IO as Data.
   private lazy var outputData: Data = {
-    return self.outputHandle.availableData
+    self.outputHandle.availableData
   }()
 
   /// Converting the STDOUT Data to a String.

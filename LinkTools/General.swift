@@ -30,7 +30,7 @@ extension Configuration {
 //     * Queries whether MAC addresses should be anonymized in GUI and logs.
 //     */
     var isAnonymized: Bool {
-      return anonymizationSeed.isValid
+      anonymizationSeed.isValid
     }
 
     /**

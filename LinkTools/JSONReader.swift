@@ -15,11 +15,11 @@ class JSONReader {
   // MARK: Instance Properties
 
   var success: Bool {
-    return data != nil
+    data != nil
   }
 
   var failure: Bool {
-    return !success
+    !success
   }
 
   lazy var data: Data? = {
@@ -59,6 +59,6 @@ class JSONReader {
   private var path: String
 
   private var url: URL {
-    return URL(fileURLWithPath: path)
+    URL(fileURLWithPath: path)
   }
 }

@@ -5,7 +5,7 @@ import Foundation
 
 extension String {
   func appendPath(_ string: String) -> String {
-    return URL(fileURLWithPath: self).appendingPathComponent(string).path
+    URL(fileURLWithPath: self).appendingPathComponent(string).path
   }
 }
 

@@ -2,3 +2,13 @@ included:
   - LinkLiar
   - LinkTools
   - linkdaemon
+
+opt_in_rules:
+  - file_name
+  - implicit_return
+  - indentation_width
+
+# Rules
+
+indentation_width:
+  indentation_width: 2

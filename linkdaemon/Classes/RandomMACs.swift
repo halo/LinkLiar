@@ -11,7 +11,7 @@ extension Collection where Index == Int {
    - returns: A random element of the collection.
    */
   func sample() -> Iterator.Element? {
-    return isEmpty ? nil : self[Int(arc4random_uniform(UInt32(endIndex)))]
+    isEmpty ? nil : self[Int(arc4random_uniform(UInt32(endIndex)))]
   }
 
 }
@@ -21,11 +21,11 @@ struct RandomMACs {
   // Internal Methods
 
   static func generate() -> MACAddress {
-    return MACAddress([prefix(), suffix()].joined())
+    MACAddress([prefix(), suffix()].joined())
   }
 
   private static func prefix() -> String {
-    return "aa:aa:aa"
+    "aa:aa:aa"
 //    let prefixes = [String] // Config.instance.prefixes.calculatedPrefixes
 //
 //    guard let prefix = prefixes.sample() else {
@@ -39,7 +39,7 @@ struct RandomMACs {
   }
 
   private static func suffix() -> String {
-    return String(format: "%06X", Int(arc4random_uniform(0xffffff)))
+    String(format: "%06X", Int(arc4random_uniform(0xffffff)))
   }
 
 }

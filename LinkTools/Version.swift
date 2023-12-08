@@ -30,7 +30,7 @@ struct Version {
   // MARK: Instance Methods
 
   func isCompatible(with: Version) -> Bool {
-    return self.major == with.major && self.minor == with.minor
+    self.major == with.major && self.minor == with.minor
   }
 
 }

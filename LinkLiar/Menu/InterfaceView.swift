@@ -81,11 +81,11 @@ struct InterfaceView: View {
   }
 
   private var now: Double {
-    return Date().timeIntervalSince1970
+    Date().timeIntervalSince1970
   }
 
   private var recentlyCopied: Bool {
-    return copiedHardMAC > now - 2
+    copiedHardMAC > now - 2
   }
 
   private func copy(_ content: String) {

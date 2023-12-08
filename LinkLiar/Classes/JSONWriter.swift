@@ -41,7 +41,7 @@ class JSONWriter {
   private var path: String
 
   private var url: URL {
-    return URL(fileURLWithPath: path)
+    URL(fileURLWithPath: path)
   }
 
 }
