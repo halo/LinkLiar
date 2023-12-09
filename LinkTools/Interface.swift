@@ -13,6 +13,10 @@ class Interface: Identifiable {
 
   // MARK: Class Methods
 
+  init(_ hardMAC: String) {
+    self._hardMAC = hardMAC
+  }
+
   /// Upon initialization we assign what we already know.
   init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
     self.BSDName = BSDName
@@ -44,9 +48,9 @@ class Interface: Identifiable {
   var id: String { hardMAC.isValid ? hardMAC.formatted : BSDName }
 
   // These attributes are known instantaneously when querying the operating system.
-  var BSDName: String
-  var displayName: String
-  var kind: String
+  var BSDName = ""
+  var displayName = ""
+  var kind = ""
 
   /// Exposes the hardware MAC as an object.
   var hardMAC: MACAddress {
@@ -145,7 +149,7 @@ class Interface: Identifiable {
 
   /// This is where we keep the software MAC address as a String.
   /// This variable is populated asynchronously using ``Ifconfig``.
-  private var _softMAC: String
+  private var _softMAC = ""
 
   //  var softPrefix: MACPrefix {
   //    return MACPrefix(softMAC.prefix)

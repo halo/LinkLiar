@@ -81,7 +81,7 @@ struct AccessPointsView: View {
 
   private func addSsid() {
     Log.debug("Adding SSID to Interface \(interface.hardMAC.humanReadable)")
-    ConfigWriter.addInterfaceSsid(interface: interface, ssid: newSsid, address: newMAC, state: state)
+    Configuration.Writer(state).addInterfaceSsid(interface: interface, ssid: newSsid, address: newMAC)
   }
 
   private func removeSsid() {
@@ -91,7 +91,7 @@ struct AccessPointsView: View {
       return
     }
     Log.debug("Removing `\(accessPointPolicy.ssid)` from Interface \(interface.hardMAC.humanReadable)")
-    ConfigWriter.removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid, state: state)
+    Configuration.Writer(state).removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid)
   }
 }
 

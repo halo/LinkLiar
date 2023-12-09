@@ -13,7 +13,7 @@ struct PolicyDefaultOrCustomView: View {
     // true means it has an action
     let value = Binding<Bool>(
       get: { state.config.policy(interface.hardMAC).action != nil },
-      set: { value, _ in ConfigWriter.setInterfaceAction(interface: interface, action: (value ? .random : nil), state: state) })
+      set: { value, _ in Configuration.Writer(state).setInterfaceAction(interface: interface, action: (value ? .random : nil)) })
 
     GroupBox {
       HStack(alignment: .top) {

@@ -8,7 +8,7 @@ struct Configuration {
 
   // MARK: Class Methods
 
-  init(dictionary: [String: Any]) {
+  init(_ dictionary: [String: Any]) {
     self.dictionary = dictionary
   }
 

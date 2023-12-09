@@ -6,10 +6,16 @@ import SwiftUI
 @Observable
 
 class LinkState {
+
+  // Convenience initializer
+  init(_ configDictionary: [String: Any]? = nil) {
+    self.configDictionary = configDictionary ?? [:]
+  }
+
   // GUI
   var wantsToQuit = false
   var version: Version = {
-    Version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?.?.?")
+    Version(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0")
   }()
 
   // Daemon
@@ -30,7 +36,10 @@ class LinkState {
   /// Holds the raw configuration file as Dictionary.
   var configDictionary: [String: Any] = [:]
 
-//  var settingsEditingInterface: Interface?
+  /// Convenience wrapper for reading the configuration.
+  var config: Configuration {
+    Configuration(configDictionary)
+  }
 
   // Derived
   var warnAboutLeakage: Bool {
@@ -38,23 +47,18 @@ class LinkState {
       interface.hasOriginalMAC && config.policy(interface.hardMAC).action != .ignore
     })
   }
-
-  /// Convenience wrapper for reading the configuration.
-  var config: Configuration {
-    Configuration(dictionary: configDictionary)
-  }
-
 }
 
 extension LinkState {
   // Analogous to `SMAppService.Status`.
   enum DaemonRegistrations: String {
-    case unknown = "unknown"
-    case notRegistered = "not registered"
-    case enabled = "enabled"
-    case requiresApproval = "requires approval"
-    case notFound = "not found"
-    case novel = "novel" // Didn't exist yet in `SMAppService.Status` in this release.
+    case unknown
+    case notRegistered
+    case enabled
+    case requiresApproval
+    case notFound
+    // I.e. didn't exist yet in `SMAppService.Status` at the time of this release.
+    case novel
   }
 
   enum XpcStatuses: String {
