@@ -6,7 +6,6 @@ import os.log
 
 extension Configuration {
   struct Builder {
-
     // MARK: Class Methods
 
     init(_ dictionary: [String: Any]) {
@@ -76,6 +75,5 @@ extension Configuration {
     // MARK: Private Instance Properties
 
     private var configDictionary: [String: Any]
-
   }
 }

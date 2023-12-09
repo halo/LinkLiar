@@ -1,8 +1,8 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import SwiftUI
 import ServiceManagement
+import SwiftUI
 
 struct ApproveDaemonView: View {
   @Environment(LinkState.self) private var state
@@ -10,7 +10,6 @@ struct ApproveDaemonView: View {
   var body: some View {
     if state.daemonRegistration == .requiresApproval {
       VStack {
-
         Image(systemName: "lock.shield")
           .font(.system(size: 40))
           .padding(.bottom, 4)

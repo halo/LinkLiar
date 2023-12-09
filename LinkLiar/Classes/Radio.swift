@@ -5,7 +5,6 @@ import Foundation
 import ServiceManagement
 
 class Radio {
-
   static func version(state: LinkState, reply: @escaping (Version?) -> Void) {
     transceive(state: state, block: { listener in
       listener.version(reply: { rawVersion in
@@ -162,5 +161,4 @@ class Radio {
     xpcConnection?.resume()
     return xpcConnection
   }
-
 }

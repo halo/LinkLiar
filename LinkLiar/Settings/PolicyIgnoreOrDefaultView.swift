@@ -8,7 +8,6 @@ struct PolicyIgnoreOrDefaultView: View {
   @Environment(Interface.self) private var interface
 
   var body: some View {
-
     // false means it is ignored
     // true means it is anything else
     let value = Binding<Bool>(
@@ -34,7 +33,6 @@ struct PolicyIgnoreOrDefaultView: View {
         Toggle(isOn: value) {}
           .toggleStyle(.switch)
           .controlSize(.small)
-
       }.padding(4)
     }
   }

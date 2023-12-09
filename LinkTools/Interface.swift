@@ -1,8 +1,8 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import Foundation
 import CoreWLAN
+import Foundation
 
 // Because the soft-MAC is queried asynchronously.
 // We need SwiftUI to know that the Interface instance
@@ -10,7 +10,6 @@ import CoreWLAN
 @Observable
 
 class Interface: Identifiable {
-
   // MARK: Class Methods
 
   init(_ hardMAC: String) {
@@ -138,7 +137,7 @@ class Interface: Identifiable {
 
   // MARK: Instance Methods
 
-  public func setSoftMac(_ address: String) {
+  func setSoftMac(_ address: String) {
     _softMAC = address
   }
 

@@ -5,7 +5,6 @@ import Cocoa
 import SystemConfiguration
 
 struct  NetworkObserver {
-
   let callback: () -> Void
 
   // MARK: Class Methods
@@ -33,7 +32,7 @@ struct  NetworkObserver {
   // I wish we could use `NetworkObserver.observe` with a callback closure.
   // But callback types are not compatible with what the SystemConfiguration framework calls.
   // So we resort to sending global notifications that anyone may subscribe to.
-  private let callbackWrapper: SCDynamicStoreCallBack = { (_, _, _) in
+  private let callbackWrapper: SCDynamicStoreCallBack = { _, _, _ in
     Log.debug("Network conditions changed")
     NotificationCenter.default.post(name: .networkConditionsChanged, object: nil)
   }
@@ -41,5 +40,4 @@ struct  NetworkObserver {
   private func notificationCallback(_ _: Notification) {
     callback()
   }
-
 }

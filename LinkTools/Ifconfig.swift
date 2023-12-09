@@ -5,7 +5,6 @@ import Foundation
 
 /// Runs `ifconfig` to dermine the current MAC address of an Interface.
 class Ifconfig {
-
   // MARK: Class Methods
 
   /// Creates an `Ifconfig` instance for one particular Interface.
@@ -25,7 +24,7 @@ class Ifconfig {
 
   /// The BSD Name of a network interface. This property is read-only.
   /// For example `en0` or `en1`.
-  private(set) public var BSDName: String
+  private(set) var BSDName: String
 
   // MARK: Instance Methods
 
@@ -56,9 +55,9 @@ class Ifconfig {
   private lazy var process: Process = {
     let task = Process()
     task.launchPath = "/sbin/ifconfig"
-    task.arguments = [self.BSDName, "ether"]
-    task.standardOutput = self.outputPipe
-    task.standardError = self.errorPipe
+    task.arguments = [BSDName, "ether"]
+    task.standardOutput = outputPipe
+    task.standardError = errorPipe
     return task
   }()
 
@@ -70,18 +69,18 @@ class Ifconfig {
 
   /// Converting the STDOUT pipe to an IO.
   private lazy var outputHandle: FileHandle = {
-    self.outputPipe.fileHandleForReading
+    outputPipe.fileHandleForReading
   }()
 
   /// Reading the STDOUT IO as Data.
   private lazy var outputData: Data = {
-    self.outputHandle.availableData
+    outputHandle.availableData
   }()
 
   /// Converting the STDOUT Data to a String.
   private lazy var outputString: String = {
-    guard let stdout = String(data: self.outputData, encoding: .utf8) else {
-      Log.error("Ran `ifconfig \(self.BSDName)` and expected STDOUT but there was none.")
+    guard let stdout = String(data: outputData, encoding: .utf8) else {
+      Log.error("Ran `ifconfig \(BSDName)` and expected STDOUT but there was none.")
       return ""
     }
     return stdout
@@ -89,24 +88,23 @@ class Ifconfig {
 
   /// Parses the STDOUT String to determine the current MAC address of the Interface.
   private lazy var _softMAC: String = {
-    guard let ether = self.outputString.components(separatedBy: "ether ").last else {
-      Log.error("Failed to parse STDOUT of `ifconfig \(self.BSDName)` when looking for `ether `. Got: \(self.outputString)")
+    guard let ether = outputString.components(separatedBy: "ether ").last else {
+      Log.error("Failed to parse STDOUT of `ifconfig \(BSDName)` when looking for `ether `. Got: \(outputString)")
       return ""
     }
 
     guard let address = ether.components(separatedBy: " ").first else {
-      Log.error("Failed to parse STDOUT of `ifconfig \(self.BSDName)` when looking for MAC address. Got: \(ether)")
+      Log.error("Failed to parse STDOUT of `ifconfig \(BSDName)` when looking for MAC address. Got: \(ether)")
       return ""
     }
 
     guard address != "" else {
-      Log.debug("Interface \(self.BSDName) has no MAC address.")
+      Log.debug("Interface \(BSDName) has no MAC address.")
       return ""
     }
 
-    Log.debug("Interface \(self.BSDName) has soft MAC address \(MACAddress(address).humanReadable)")
+    Log.debug("Interface \(BSDName) has soft MAC address \(MACAddress(address).humanReadable)")
 
     return address
   }()
-
 }

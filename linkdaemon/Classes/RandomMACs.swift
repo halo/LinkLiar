@@ -4,7 +4,6 @@
 import Foundation
 
 extension Collection where Index == Int {
-
   /**
    Picks a random element of the collection.
 
@@ -13,11 +12,9 @@ extension Collection where Index == Int {
   func sample() -> Iterator.Element? {
     isEmpty ? nil : self[Int(arc4random_uniform(UInt32(endIndex)))]
   }
-
 }
 
 struct RandomMACs {
-
   // Internal Methods
 
   static func generate() -> MACAddress {
@@ -41,5 +38,4 @@ struct RandomMACs {
   private static func suffix() -> String {
     String(format: "%06X", Int(arc4random_uniform(0xffffff)))
   }
-
 }

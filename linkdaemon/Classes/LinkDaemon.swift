@@ -4,19 +4,18 @@
 import Cocoa
 
 class LinkDaemon {
-
   // MARK: Class Methods
 
   init() {
     Log.debug("Daemon \(version.formatted) says hello")
 
     // Start observing the config file.
-    configFileObserver = FileObserver.init(path: Paths.configFile, callback: configFileChanged)
+    configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
 
     // Load config file once.
     configFileChanged()
 
-    intervalTimer = IntervalTimer.init(callback: intervalElaped)
+    intervalTimer = IntervalTimer(callback: intervalElaped)
 
     // Start observing changes of ethernet interfaces
     networkObserver = NetworkObserver(callback: networkConditionsChanged)
@@ -47,7 +46,7 @@ class LinkDaemon {
   private func configFileChanged() {
     DispatchQueue.main.async {
       Log.debug("Config file change detected, acting upon it")
-      self.configDictionary = JSONReader.init(filePath: Paths.configFile).dictionary
+      self.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
     }
   }
 
@@ -82,5 +81,4 @@ class LinkDaemon {
     }
     return Version("?.?.?")
   }()
-
 }

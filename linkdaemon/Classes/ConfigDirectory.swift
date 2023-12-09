@@ -4,7 +4,6 @@
 import Foundation
 
 struct ConfigDirectory {
-
   // MARK: Class Methods
 
   static func create() {
@@ -64,9 +63,8 @@ struct ConfigDirectory {
       try FileManager.default.setAttributes([.posixPermissions: 0o664, .groupOwnerAccountName: "staff"],
                                             ofItemAtPath: Paths.configFile)
       Log.debug("Did set file permissions")
-    } catch let error {
+    } catch {
       print("File Permissions error: ", error)
     }
   }
-
 }

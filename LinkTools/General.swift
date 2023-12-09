@@ -3,7 +3,6 @@
 
 extension Configuration {
   struct General {
-
     // MARK: Initialization
 
     init(dictionary: [String: Any]) {
@@ -43,6 +42,5 @@ extension Configuration {
 
       return MACAddress(seed)
     }
-
   }
 }

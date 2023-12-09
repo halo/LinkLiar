@@ -1,8 +1,8 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import SwiftUI
 import ServiceManagement
+import SwiftUI
 
 struct SettingsView: View {
   @Environment(LinkState.self) private var state
@@ -57,12 +57,10 @@ struct SettingsView: View {
       }
       .toolbar(removing: .sidebarToggle)
       .navigationSplitViewColumnWidth(155)
-
     } detail: {
       SettingsDetailView(selectedFolder: $selectedFolder).environment(state)
     }.presentedWindowStyle(.hiddenTitleBar)
       .frame(minWidth: 650, idealWidth: 650, maxWidth: 650, minHeight: 500, idealHeight: 500, maxHeight: 800)
-
   }
 }
 
@@ -83,5 +81,4 @@ extension SettingsView {
   state.allInterfaces = Interfaces.all(asyncSoftMac: false)
 
   return SettingsView().environment(state)
-
 }

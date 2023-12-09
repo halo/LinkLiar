@@ -5,7 +5,6 @@
  * An immutable wrapper for querying the content of the configuration file.
  */
 struct Configuration {
-
   // MARK: Class Methods
 
   init(_ dictionary: [String: Any]) {
@@ -23,7 +22,7 @@ struct Configuration {
   /// Queries the version with which the configuration was created.
   ///
   lazy var version: String? = {
-    self.dictionary["version"] as? String
+    dictionary["version"] as? String
   }()
 
   ///
@@ -46,7 +45,6 @@ struct Configuration {
   var fallbackPolicy: Policy {
     Policy("default", dictionary: dictionary)
   }
-
 }
 
 extension Configuration {

@@ -8,14 +8,12 @@ struct SettingsInterfaceHeadlineView: View {
   @Environment(Interface.self) private var interface
 
   var body: some View {
-
     let activated = Binding<Bool>(
       get: { state.config.policy(interface.hardMAC).action != .hide },
       set: { value, _ in Configuration.Writer(state).setInterfaceActionHiddenness(interface: interface, isHidden: !value) })
 
     HStack(alignment: .firstTextBaseline) {
       HStack(alignment: .firstTextBaseline) {
-
         Image(systemName: interface.iconName).imageScale(.large)
 
         VStack(alignment: .leading) {
@@ -36,10 +34,8 @@ struct SettingsInterfaceHeadlineView: View {
       HStack(alignment: .top) {
         VStack(alignment: .leading, spacing: 3) {
           Toggle(isOn: activated) {}.toggleStyle(.switch)
-
         }.padding(4)
       }
-
     }.padding(.bottom)
   }
 }

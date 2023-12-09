@@ -6,7 +6,6 @@ import SwiftUI
 @Observable
 
 class LinkState {
-
   // Convenience initializer
   init(_ configDictionary: [String: Any]? = nil) {
     self.configDictionary = configDictionary ?? [:]

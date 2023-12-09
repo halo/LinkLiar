@@ -11,7 +11,6 @@ struct InterfaceView: View {
   @State var hoversSoftMAC = false
 
   var body: some View {
-
     // Separating Icons and text
     HStack(spacing: 8) {
       if interface.hasOriginalMAC {
@@ -30,7 +29,6 @@ struct InterfaceView: View {
         }
 
         HStack(spacing: 8) {
-
           Button(action: {
             copy(interface.softMAC.humanReadable)
             copiedHardMAC = now
@@ -76,7 +74,6 @@ struct InterfaceView: View {
       }
       // Padding parity on the right side.
       Image("MenuIconLeaking").opacity(0)
-
     }
   }
 

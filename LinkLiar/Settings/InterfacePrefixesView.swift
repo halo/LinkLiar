@@ -10,15 +10,12 @@ struct InterfacePrefixesView: View {
   var body: some View {
     VStack(alignment: .leading) {
       VStack(alignment: .leading) {
-
         Text("""
              Whenever LinkLiar is assigning a random MAC address to this interface,
              you can choose which vendor prefixes should be used.
              """)
           .padding(4)
-
       }
     }
   }
-
 }

@@ -8,7 +8,6 @@ struct PolicyDefaultOrCustomView: View {
   @Environment(Interface.self) private var interface
 
   var body: some View {
-
     // false means it is default
     // true means it has an action
     let value = Binding<Bool>(
@@ -34,7 +33,6 @@ struct PolicyDefaultOrCustomView: View {
         Toggle(isOn: value) {}
           .toggleStyle(.switch)
           .controlSize(.small)
-
       }.padding(4)
     }
   }

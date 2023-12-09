@@ -6,7 +6,6 @@ import Foundation
 
 extension Configuration {
   struct Writer {
-
     // MARK: Class Methods
 
     init(_ state: LinkState) {
@@ -166,6 +165,5 @@ extension Configuration {
     // MARK: Private Instance Properties
 
     private var state: LinkState
-
   }
 }

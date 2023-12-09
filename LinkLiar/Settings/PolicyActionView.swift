@@ -8,7 +8,6 @@ struct PolicyActionView: View {
   @Environment(Interface.self) private var interface
 
   var body: some View {
-
     let actionValue = Binding<Interface.Action?>(
       get: { state.config.policy(interface.hardMAC).action },
       set: { value, _ in Configuration.Writer(state).setInterfaceAction(interface: interface, action: value) })
@@ -19,7 +18,6 @@ struct PolicyActionView: View {
 
     GroupBox {
       VStack(alignment: .leading) {
-
         HStack(alignment: .top) {
           Menu {
             Button(action: { Configuration.Writer(state).setInterfaceAction(interface: interface, action: .random) },
@@ -35,7 +33,6 @@ struct PolicyActionView: View {
               Text("Keep Original MAC Address")
             })
             Divider()
-
           } label: {
             switch actionValue.wrappedValue {
               case .random:
@@ -51,7 +48,6 @@ struct PolicyActionView: View {
                 Text("Unknown")
             }
             Text(actionValue.wrappedValue?.rawValue ?? "?")
-
           }.menuStyle(.borderlessButton)
             .fixedSize()
 
@@ -59,7 +55,6 @@ struct PolicyActionView: View {
         }.padding(.top, 4)
 
         VStack(alignment: .leading) {
-
           switch actionValue.wrappedValue {
             case .random:
               Text("LinkLiar ensures that this Interface always has a random MAC address.")
@@ -89,9 +84,7 @@ struct PolicyActionView: View {
             default:
               Text("Invalid")
           }
-
         }.padding([.bottom, .horizontal], 4)
-
       }
     }
   }

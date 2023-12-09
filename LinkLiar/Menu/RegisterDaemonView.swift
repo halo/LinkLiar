@@ -9,7 +9,6 @@ struct RegisterDaemonView: View {
   var body: some View {
     if state.daemonRegistration == .notRegistered {
       VStack {
-
         Image(systemName: "sparkles")
           .font(.system(size: 40))
           .padding(.bottom, 4)
@@ -22,7 +21,6 @@ struct RegisterDaemonView: View {
         .buttonStyle(.borderedProminent)
 
         Divider().padding(.vertical, 5)
-
       }
     }
   }

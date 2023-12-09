@@ -3,10 +3,9 @@
 
 extension Configuration {
   struct AccessPointPolicy: Identifiable {
-
     // MARK: Class Methods
 
-    static func initIfValid(ssid: String, softMAC: String) -> AccessPointPolicy? {
+    static func initIfValid(ssid: String, softMAC: String) -> Self? {
       let accessPointPolicy = self.init(ssid: ssid, softMAC: softMAC)
       if !accessPointPolicy.isValid { return nil }
       return accessPointPolicy

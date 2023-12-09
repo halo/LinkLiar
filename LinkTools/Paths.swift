@@ -10,7 +10,6 @@ extension String {
 }
 
 class Paths {
-
   static let configDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
   static let configDirectoryURL = URL(fileURLWithPath: configDirectory)
 
@@ -23,5 +22,4 @@ class Paths {
 
   static let githubApiReleases = "https://api.github.com/repos/halo/LinkLiar/releases/latest"
   static let githubApiReleasesURL = URL(string: githubApiReleases)!
-
 }

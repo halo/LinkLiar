@@ -1,8 +1,8 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import SwiftUI
 import ServiceManagement
+import SwiftUI
 
 struct ConfirmQuittingView: View {
   @Environment(LinkState.self) private var state
@@ -29,7 +29,6 @@ struct ConfirmQuittingView: View {
         }).padding(.bottom, 4)
           .buttonStyle(.plain)
       }
-
     }
   }
 }

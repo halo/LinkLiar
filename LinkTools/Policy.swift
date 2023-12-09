@@ -16,7 +16,6 @@ extension Configuration {
   ///     }
   ///
   struct Policy {
-
     // MARK: Class Methods
 
     init(_ hardMAC: String, dictionary: [String: Any]) {
@@ -36,7 +35,7 @@ extension Configuration {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
       guard let actionName = interfaceDictionary["action"] as? String else { return nil }
 
-      return Interface.Action(rawValue: actionName) ?? nil
+      return Interface.Action(rawValue: actionName)
     }
 
     /// Looks up which MAC address has been defined.
@@ -86,6 +85,5 @@ extension Configuration {
 
     /// The MAC address of the ``Interface`` we're interested in.
     private var hardMAC: String
-
   }
 }

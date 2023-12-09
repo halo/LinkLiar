@@ -4,10 +4,9 @@
 import Foundation
 
 struct MACAddress: Equatable {
-
   // MARK: Class Methods
 
-  static func initIfValid(_ address: String) -> MACAddress? {
+  static func initIfValid(_ address: String) -> Self? {
     let macAddress = self.init(address)
     if !macAddress.isValid { return nil }
     return macAddress
@@ -34,7 +33,7 @@ struct MACAddress: Equatable {
     let otherIntegers = address.integers
     let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
     let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
-    return MACAddress(newAddress).formatted
+    return Self(newAddress).formatted
   }
 
   var humanReadable: String {
@@ -77,7 +76,6 @@ struct MACAddress: Equatable {
   }
 
   private var raw: String
-
 }
 
 extension MACAddress: Comparable {

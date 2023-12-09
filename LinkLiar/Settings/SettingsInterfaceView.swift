@@ -11,7 +11,6 @@ struct SettingsInterfaceView: View {
 
   var body: some View {
     VStack {
-
       SettingsInterfaceHeadlineView().environment(state).environment(interface)
 
       if state.config.policy(interface.hardMAC).action == .hide {
@@ -26,7 +25,6 @@ struct SettingsInterfaceView: View {
           }
           Spacer()
         }
-
       } else {
         // PoliciesView
 
@@ -39,13 +37,10 @@ struct SettingsInterfaceView: View {
                 PolicyDefaultOrCustomView().environment(state).environment(interface)
 
                 if (state.config.policy(interface.hardMAC).action) != nil {
-
                   PolicyActionView().environment(state)
                     .environment(interface)
-
                 }
               }
-
             }
             Spacer()
           }
@@ -69,7 +64,6 @@ struct SettingsInterfaceView: View {
             .tabItem {
               Text("Diagnose")
             }
-
         }
       }
       Spacer()

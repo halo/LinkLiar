@@ -29,16 +29,14 @@ class Listener: NSObject {
   // MARK: Instance Methods
 
   func listen() {
-
     Log.debug("Helper says hello")
     listener.resume() // Tell the XPC listener to start processing requests.
 
     while !shouldQuit {
-      RunLoop.current.run(until: Date.init(timeIntervalSinceNow: 1))
+      RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
     }
     Log.debug("Helper shutting down now.")
   }
-
 }
 
 // MARK: - HelperProtocol
@@ -77,7 +75,6 @@ extension Listener: ListenerProtocol {
 //  }
 
   func createConfigDirectory(reply: (Bool) -> Void) {
-
 //    Log.debug("\(Bundle.main.bundlePath)")
 //    Log.debug("\(Bundle.main.infoDictionary)")
 //    let infoPath = "\(Bundle.main.bundlePath)/Contents/Info.plist"
@@ -131,7 +128,6 @@ extension Listener: ListenerProtocol {
 // MARK: - NSXPCListenerDelegate
 
 extension Listener: NSXPCListenerDelegate {
-
   func listener(_ listener: NSXPCListener, shouldAcceptNewConnection newConnection: NSXPCConnection) -> Bool {
     Log.debug("New connection!")
     newConnection.exportedInterface = NSXPCInterface(with: ListenerProtocol.self)
@@ -146,5 +142,4 @@ extension Listener: NSXPCListenerDelegate {
     newConnection.resume() // Ready to receive connections
     return true // Accept the incoming connection
   }
-
 }

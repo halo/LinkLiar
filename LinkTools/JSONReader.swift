@@ -5,7 +5,6 @@ import Foundation
 import os.log
 
 class JSONReader {
-
   // MARK: Class Methods
 
   init(filePath: String) {
@@ -24,8 +23,8 @@ class JSONReader {
 
   lazy var data: Data? = {
     do {
-      Log.debug("Reading \(self.path)")
-      let result = try Data(contentsOf: self.url)
+      Log.debug("Reading \(path)")
+      let result = try Data(contentsOf: url)
       Log.debug("Content: \(result)")
       Log.debug("Successfuly read it")
       return result
@@ -36,7 +35,7 @@ class JSONReader {
   }()
 
   lazy var dictionary: [String: Any] = {
-    guard let jsonData = self.data else {
+    guard let jsonData = data else {
       Log.error("Missing JSON data to parse.")
       return [String: Any]()
     }

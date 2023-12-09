@@ -1,14 +1,24 @@
+# See https://github.com/realm/SwiftLint#configuration
+# See https://realm.github.io/SwiftLint/rule-directory.html
+
 included:
   - LinkLiar
   - LinkTools
   - linkdaemon
 
+disabled_rules:
+ - explicit_acl
+ - explicit_type_interface
+ - indentation_width
+ - multiline_arguments_brackets
+
 opt_in_rules:
+  # - all
+
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - direct_return
   - file_name
   - implicit_return
-  - indentation_width
-
-# Rules
-
-indentation_width:
-  indentation_width: 2
+  - literal_expression_end_indentation

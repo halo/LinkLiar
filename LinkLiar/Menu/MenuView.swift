@@ -9,7 +9,7 @@ struct MenuView: View {
 
   @State var selectedItem: String = ""
   @State var items = ["One", "Two"]
-  @State var isHovering: Bool = false
+  @State var isHovering = false
 
   var body: some View {
     VStack {
@@ -36,7 +36,6 @@ struct MenuView: View {
       }
 
       ConfirmQuittingView().environment(state)
-
     }.padding(12)
       .fixedSize()
       .onAppear {

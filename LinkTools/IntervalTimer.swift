@@ -4,7 +4,6 @@
 import Foundation
 
 class IntervalTimer {
-
   // MARK: Class Methods
 
   init(callback: @escaping () -> Void) {

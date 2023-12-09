@@ -9,13 +9,10 @@ struct DiagnoseInterfaceView: View {
 
   var body: some View {
     VStack(alignment: .leading) {
-
       Text("Diagnose...")
         .padding(4)
-
     }
   }
-
 }
 
 //

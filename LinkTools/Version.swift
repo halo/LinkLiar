@@ -4,7 +4,6 @@
 import Foundation
 
 struct Version {
-
   // MARK: Class Methods
 
   init(_ version: String) {
@@ -29,8 +28,7 @@ struct Version {
 
   // MARK: Instance Methods
 
-  func isCompatible(with: Version) -> Bool {
+  func isCompatible(with: Self) -> Bool {
     self.major == with.major && self.minor == with.minor
   }
-
 }

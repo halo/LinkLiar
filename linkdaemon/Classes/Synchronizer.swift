@@ -1,11 +1,10 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import Foundation
 import CoreWLAN
+import Foundation
 
 class Synchronizer {
-
   static func run() {
     Log.debug("Synchronizing yo")
 //    for interface in Interfaces.all(async: false) {
@@ -131,5 +130,4 @@ class Synchronizer {
       task.launch()
     }
   }
-
 }

@@ -6,7 +6,6 @@ import Foundation
 import ServiceManagement
 
 class Controller {
-
   // MARK: Class Methods
 
   static func queryInterfaces(state: LinkState) {
@@ -110,7 +109,6 @@ class Controller {
   static func troubleshoot(state: LinkState) {
     queryInterfaces(state: state)
     queryDaemonRegistration(state: state)
-
   }
 
   // MARK: Private Functions
@@ -121,12 +119,16 @@ class Controller {
     switch service.status {
     case .notRegistered:
       state.daemonRegistration = .notRegistered
+
     case .enabled:
       state.daemonRegistration = .enabled
+
     case .requiresApproval:
       state.daemonRegistration = .requiresApproval
+
     case .notFound:
       state.daemonRegistration = .notFound
+
     default:
       state.daemonRegistration = .novel
     }
@@ -135,5 +137,4 @@ class Controller {
     // in order for it's status to be updated
     queryDaemonVersion(state: state)
   }
-
 }

@@ -5,7 +5,6 @@ import SystemConfiguration
 
 /// Helper to query macOS interfaces.
 struct Interfaces {
-
   // MARK: Class Methods
 
   /// Returns every ``Interface`` where the MAC address likely can be modified.

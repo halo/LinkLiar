@@ -4,7 +4,6 @@
 import Foundation
 
 class MACAddressFormatter: Formatter {
-
   let disallowedCharacters = CharacterSet(charactersIn: "0123456789:abcdefABCDEF").inverted
 
   override func string(for obj: Any?) -> String? {
@@ -31,5 +30,4 @@ class MACAddressFormatter: Formatter {
 
     return true
   }
-
 }

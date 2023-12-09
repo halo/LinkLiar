@@ -1,8 +1,8 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import os.log
 import Foundation
+import os.log
 
 public struct Log {
   private static let log = OSLog(subsystem: Identifiers.gui.rawValue, category: "logger")
@@ -57,5 +57,4 @@ public struct Log {
       // You may also end up here if you turned on app sandboxing.
     }
   }
-
 }

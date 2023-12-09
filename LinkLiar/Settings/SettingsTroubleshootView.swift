@@ -1,8 +1,8 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import SwiftUI
 import ServiceManagement
+import SwiftUI
 
 struct SettingsTroubleshootView: View {
   @Environment(LinkState.self) private var state
@@ -11,7 +11,7 @@ struct SettingsTroubleshootView: View {
 
   private func fetchLatestRelease() {
     URLSession.shared.dataTask(with: Paths.githubApiReleasesURL) { data, _, error in
-         if let data = data {
+         if let data {
            do {
              let json = try JSONSerialization.jsonObject(with: data, options: [])
              if let object = json as? [String: Any] {
@@ -26,12 +26,11 @@ struct SettingsTroubleshootView: View {
              Log.error(error.localizedDescription)
            }
         }
-      }.resume()
+    }.resume()
   }
 
   var body: some View {
     VStack {
-
       GroupBox {
         HStack(alignment: .top) {
           Menu {
@@ -69,7 +68,6 @@ struct SettingsTroubleshootView: View {
             Button(action: SMAppService.openSystemSettingsLoginItems) {
               Text("Show Login Items")
             }
-
           } label: {
             Text("Daemon State")
           }.menuStyle(.borderlessButton).fixedSize()
@@ -121,7 +119,6 @@ struct SettingsTroubleshootView: View {
     //      }
 
   }
-
 }
 
 #Preview {
@@ -129,5 +126,4 @@ struct SettingsTroubleshootView: View {
   state.allInterfaces = Interfaces.all(asyncSoftMac: false)
 
   return SettingsTroubleshootView().environment(state)
-
 }

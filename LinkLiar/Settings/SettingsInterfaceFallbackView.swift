@@ -7,20 +7,17 @@ struct SettingsInterfaceFallbackView: View {
   @Environment(LinkState.self) private var state
 
   var body: some View {
-
     let actionValue = Binding<Interface.Action?>(
       get: { state.config.fallbackPolicy.action },
       set: { value, _ in Configuration.Writer(state).setFallbackInterfaceAction(action: value) })
 
     VStack(alignment: .leading) {
-
       Text("Default Interface Settings")
         .font(.title2)
         .padding(.top)
 
       GroupBox {
         VStack(alignment: .leading) {
-
           HStack(alignment: .top) {
             Menu {
               Button(action: { Configuration.Writer(state).setFallbackInterfaceAction(action: .random) }) {
@@ -33,7 +30,6 @@ struct SettingsInterfaceFallbackView: View {
                 Text("Ignore")
               }
               Divider()
-
             } label: {
               switch actionValue.wrappedValue {
                 case .random:
@@ -46,7 +42,6 @@ struct SettingsInterfaceFallbackView: View {
                   Text("Ignore")
               }
               Text(actionValue.wrappedValue?.rawValue ?? "?")
-
             }.menuStyle(.borderlessButton)
               .fixedSize()
 
@@ -54,7 +49,6 @@ struct SettingsInterfaceFallbackView: View {
           }.padding(4)
 
           VStack(alignment: .leading) {
-
             switch actionValue.wrappedValue {
               case .random:
                 Text("LinkLiar ensures that an Interface always has a random MAC address.")
@@ -69,9 +63,7 @@ struct SettingsInterfaceFallbackView: View {
               default:
                 Text("LinkLiar warns if an Interface is leaking its MAC address, but LinkLiar won't modify the MAC address.")
             }
-
           }.padding(4)
-
         }
       }
       Spacer()

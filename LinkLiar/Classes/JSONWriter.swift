@@ -5,7 +5,6 @@ import Foundation
 import os.log
 
 class JSONWriter {
-
   // MARK: Class Methods
 
   init(filePath: String) {
@@ -29,7 +28,6 @@ class JSONWriter {
         Log.error("Could not write: \(error)")
         return false
       }
-
     } catch let error as NSError {
       Log.error("Could not serialize: \(error)")
       return false
@@ -43,5 +41,4 @@ class JSONWriter {
   private var url: URL {
     URL(fileURLWithPath: path)
   }
-
 }

@@ -12,7 +12,7 @@ struct LinkLiarApp: App {
 
   init() {
     // Start observing the config file.
-    configFileObserver = FileObserver.init(path: Paths.configFile, callback: configFileChanged)
+    configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
 
     // Load config file once.
     configFileChanged()
@@ -38,7 +38,7 @@ struct LinkLiarApp: App {
     // All state-changing operations must be run on the main thread.
     DispatchQueue.main.async {
       Log.debug("Config file change detected, acting upon it")
-      state.configDictionary = JSONReader.init(filePath: Paths.configFile).dictionary
+      state.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
     }
   }
 
@@ -76,5 +76,4 @@ struct LinkLiarApp: App {
   private var menuBarIconName: String {
     state.warnAboutLeakage ? "MenuIconLeaking" : "MenuIconProtected"
   }
-
 }

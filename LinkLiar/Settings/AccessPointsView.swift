@@ -8,13 +8,12 @@ struct AccessPointsView: View {
   @Environment(Interface.self) private var interface
 
   @State private var selection: Configuration.AccessPointPolicy.ID?
-  @State private var isAddPopoverPresented: Bool = false
+  @State private var isAddPopoverPresented = false
   @State private var newSsid: String = ""
   @State private var newMAC: String = ""
 
   var body: some View {
     VStack(alignment: .leading) {
-
       Text("""
         When LinkLiar detects that you are connected to a Wi-Fi Access Point
         with a certain name (SSID), you can specify a MAC address that LinkLiar
@@ -28,11 +27,9 @@ struct AccessPointsView: View {
         TableColumn("MAC") { accessPointPolicy in
           Text(accessPointPolicy.softMAC.humanReadable)
             .font(.system(.body, design: .monospaced, weight: .light))
-
         }.width(150)
       }.contextMenu(forSelectionType: Configuration.AccessPointPolicy.ID.self) { _ in
         Button("Delete", role: .destructive) { removeSsid() }
-
       }
       HStack {
         Button(action: showAddAccessPointPopover) {
