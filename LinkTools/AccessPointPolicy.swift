@@ -1,7 +1,7 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-extension Configuration {
+extension Config {
   struct AccessPointPolicy: Identifiable {
     // MARK: Class Methods
 
@@ -32,12 +32,12 @@ extension Configuration {
   }
 }
 
-extension Configuration.AccessPointPolicy: Comparable {
-  static func == (lhs: Configuration.AccessPointPolicy, rhs: Configuration.AccessPointPolicy) -> Bool {
+extension Config.AccessPointPolicy: Comparable {
+  static func == (lhs: Config.AccessPointPolicy, rhs: Config.AccessPointPolicy) -> Bool {
     lhs.id == rhs.id
   }
 
-  static func < (lhs: Configuration.AccessPointPolicy, rhs: Configuration.AccessPointPolicy) -> Bool {
+  static func < (lhs: Config.AccessPointPolicy, rhs: Config.AccessPointPolicy) -> Bool {
     lhs.id < rhs.id
   }
 }

@@ -9,7 +9,7 @@ struct SettingsInterfaceFallbackView: View {
   var body: some View {
     let actionValue = Binding<Interface.Action?>(
       get: { state.config.fallbackPolicy.action },
-      set: { value, _ in Configuration.Writer(state).setFallbackInterfaceAction(action: value) })
+      set: { value, _ in Config.Writer(state).setFallbackInterfaceAction(action: value) })
 
     VStack(alignment: .leading) {
       Text("Default Interface Settings")
@@ -20,13 +20,13 @@ struct SettingsInterfaceFallbackView: View {
         VStack(alignment: .leading) {
           HStack(alignment: .top) {
             Menu {
-              Button(action: { Configuration.Writer(state).setFallbackInterfaceAction(action: .random) }) {
+              Button(action: { Config.Writer(state).setFallbackInterfaceAction(action: .random) }) {
                 Text("Always Keep Random")
               }
-              Button(action: { Configuration.Writer(state).setFallbackInterfaceAction(action: .original) }) {
+              Button(action: { Config.Writer(state).setFallbackInterfaceAction(action: .original) }) {
                 Text("Keep Original MAC Address")
               }
-              Button(action: { Configuration.Writer(state).setFallbackInterfaceAction(action: nil) }) {
+              Button(action: { Config.Writer(state).setFallbackInterfaceAction(action: nil) }) {
                 Text("Ignore")
               }
               Divider()

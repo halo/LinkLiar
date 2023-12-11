@@ -23,7 +23,7 @@ struct MACAddress: Equatable {
 
   // MARK: Instance Properties
 
-  func humanReadable(config: Configuration) -> String {
+  func humanReadable(config: Config.Reader) -> String {
     guard isValid else { return "??:??:??:??:??:??" }
 
     guard config.general.isAnonymized else {

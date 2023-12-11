@@ -7,7 +7,7 @@ struct AccessPointsView: View {
   @Environment(LinkState.self) private var state
   @Environment(Interface.self) private var interface
 
-  @State private var selection: Configuration.AccessPointPolicy.ID?
+  @State private var selection: Config.AccessPointPolicy.ID?
   @State private var isAddPopoverPresented = false
   @State private var newSsid: String = ""
   @State private var newMAC: String = ""
@@ -28,7 +28,7 @@ struct AccessPointsView: View {
           Text(accessPointPolicy.softMAC.humanReadable)
             .font(.system(.body, design: .monospaced, weight: .light))
         }.width(150)
-      }.contextMenu(forSelectionType: Configuration.AccessPointPolicy.ID.self) { _ in
+      }.contextMenu(forSelectionType: Config.AccessPointPolicy.ID.self) { _ in
         Button("Delete", role: .destructive) { removeSsid() }
       }
       HStack {
@@ -78,7 +78,7 @@ struct AccessPointsView: View {
 
   private func addSsid() {
     Log.debug("Adding SSID to Interface \(interface.hardMAC.humanReadable)")
-    Configuration.Writer(state).addInterfaceSsid(interface: interface, ssid: newSsid, address: newMAC)
+    Config.Writer(state).addInterfaceSsid(interface: interface, ssid: newSsid, address: newMAC)
   }
 
   private func removeSsid() {
@@ -88,7 +88,7 @@ struct AccessPointsView: View {
       return
     }
     Log.debug("Removing `\(accessPointPolicy.ssid)` from Interface \(interface.hardMAC.humanReadable)")
-    Configuration.Writer(state).removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid)
+    Config.Writer(state).removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid)
   }
 }
 

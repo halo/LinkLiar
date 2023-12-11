@@ -10,7 +10,7 @@ struct SettingsInterfaceHeadlineView: View {
   var body: some View {
     let activated = Binding<Bool>(
       get: { state.config.policy(interface.hardMAC).action != .hide },
-      set: { value, _ in Configuration.Writer(state).setInterfaceActionHiddenness(interface: interface, isHidden: !value) })
+      set: { value, _ in Config.Writer(state).setInterfaceActionHiddenness(interface: interface, isHidden: !value) })
 
     HStack(alignment: .firstTextBaseline) {
       HStack(alignment: .firstTextBaseline) {

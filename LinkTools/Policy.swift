@@ -1,7 +1,7 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-extension Configuration {
+extension Config {
   /// An immutable wrapper for querying settings of one interface.
   ///
   /// It looks like this in JSON:

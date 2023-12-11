@@ -10,25 +10,25 @@ struct PolicyActionView: View {
   var body: some View {
     let actionValue = Binding<Interface.Action?>(
       get: { state.config.policy(interface.hardMAC).action },
-      set: { value, _ in Configuration.Writer(state).setInterfaceAction(interface: interface, action: value) })
+      set: { value, _ in Config.Writer(state).setInterfaceAction(interface: interface, action: value) })
 
     let specificAddress = Binding<String>(
       get: { state.config.policy(interface.hardMAC).address?.formatted ?? "" },
-      set: { value, _ in Configuration.Writer(state).setInterfaceAddress(interface: interface, address: MACAddress(value)) })
+      set: { value, _ in Config.Writer(state).setInterfaceAddress(interface: interface, address: MACAddress(value)) })
 
     GroupBox {
       VStack(alignment: .leading) {
         HStack(alignment: .top) {
           Menu {
-            Button(action: { Configuration.Writer(state).setInterfaceAction(interface: interface, action: .random) },
+            Button(action: { Config.Writer(state).setInterfaceAction(interface: interface, action: .random) },
                    label: {
               Text("Always Keep Random")
             })
-            Button(action: { Configuration.Writer(state).setInterfaceAction(interface: interface, action: .specify) },
+            Button(action: { Config.Writer(state).setInterfaceAction(interface: interface, action: .specify) },
                    label: {
               Text("Specific MAC Address")
             })
-            Button(action: { Configuration.Writer(state).setInterfaceAction(interface: interface, action: .original) },
+            Button(action: { Config.Writer(state).setInterfaceAction(interface: interface, action: .original) },
                    label: {
               Text("Keep Original MAC Address")
             })

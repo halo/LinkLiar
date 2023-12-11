@@ -14,11 +14,15 @@ disabled_rules:
 
 opt_in_rules:
   # - all
-
   - closure_end_indentation
   - closure_spacing
   - collection_alignment
   - direct_return
+  - duplicate_imports
   - file_name
   - implicit_return
   - literal_expression_end_indentation
+  - prefer_self_in_static_references
+  - prefer_self_type_over_type_of_self
+  - self_in_property_initialization
+  - sorted_imports

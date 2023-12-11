@@ -36,8 +36,8 @@ class LinkState {
   var configDictionary: [String: Any] = [:]
 
   /// Convenience wrapper for reading the configuration.
-  var config: Configuration {
-    Configuration(configDictionary)
+  var config: Config.Reader {
+    Config.Reader(configDictionary)
   }
 
   // Derived

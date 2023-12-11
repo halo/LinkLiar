@@ -4,7 +4,7 @@
 import Foundation
 // import os.log
 
-extension Configuration {
+extension Config {
   struct Writer {
     // MARK: Class Methods
 
@@ -13,10 +13,10 @@ extension Configuration {
     }
 
     func addInterfaceSsid(interface: Interface, ssid: String, address: String) {
-      guard let accessPointPolicy = Configuration.AccessPointPolicy
+      guard let accessPointPolicy = Config.AccessPointPolicy
         .initIfValid(ssid: ssid, softMAC: address) else { return }
 
-      var newDictionary = Configuration.Builder(state.configDictionary).addInterfaceSsid(
+      var newDictionary = Config.Builder(state.configDictionary).addInterfaceSsid(
         interface,
         accessPointPolicy: accessPointPolicy)
 
@@ -27,7 +27,7 @@ extension Configuration {
     }
 
     func removeInterfaceSsid(interface: Interface, ssid: String) {
-      var newDictionary = Configuration.Builder(state.configDictionary).removeInterfaceSsid(
+      var newDictionary = Config.Builder(state.configDictionary).removeInterfaceSsid(
         interface,
         ssid: ssid)
 
@@ -49,58 +49,16 @@ extension Configuration {
       setInterfaceAction(interface: interface, action: newAction)
     }
 
-    func TESTremoveInterfaceSsid(interface: Interface, ssid: String) {
-      var dictionary = state.configDictionary
-      dictionary["version"] = state.version.formatted
-
-      var ssidDictionary: [String: String] = [:]
-      let key = "ssids:\(interface.hardMAC.humanReadable)"
-
-      ssidDictionary = dictionary[key] as? [String: String] ?? [:]
-      ssidDictionary.removeValue(forKey: ssid)
-      dictionary[key] = ssidDictionary
-
-      if ssidDictionary.isEmpty {
-        Log.debug("Removing unused SSID policy \(key)")
-        dictionary.removeValue(forKey: key)
-      }
-
-      Log.debug("Writing \(dictionary)")
-      print(dictionary)
-      if JSONWriter(filePath: Paths.configFile).write(dictionary) {
-        state.configDictionary = dictionary
-      }
-    }
-
     // MARK: Private Class Methods
 
     func setInterfaceAction(interface: Interface, action: Interface.Action?) {
-      var dictionary = state.configDictionary
-      dictionary["version"] = state.version.formatted
+      var newDictionary = Config.Builder(state.configDictionary).setInterfaceAction(
+        interface,
+        action: action)
 
-      var interfaceDictionary: [String: String] = [:]
-
-      if action == nil {
-        interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
-        interfaceDictionary.removeValue(forKey: "action")
-        Log.debug("Removing action of Interface \(interface.hardMAC.formatted)")
-      } else {
-        if let newAction = action?.rawValue {
-          Log.debug("Changing action of Interface \(interface.hardMAC.formatted) to \(newAction)")
-          interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
-          interfaceDictionary.updateValue(newAction, forKey: "action")
-        }
-      }
-
-      if interfaceDictionary.isEmpty {
-        Log.debug("Removing unused Interface policy \(interface.hardMAC.formatted)")
-        dictionary.removeValue(forKey: interface.hardMAC.formatted)
-      } else {
-        dictionary[interface.hardMAC.formatted] = interfaceDictionary
-      }
-
-      if JSONWriter(filePath: Paths.configFile).write(dictionary) {
-        state.configDictionary = dictionary
+      newDictionary["version"] = state.version.formatted
+      if JSONWriter(filePath: Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
       }
     }
 

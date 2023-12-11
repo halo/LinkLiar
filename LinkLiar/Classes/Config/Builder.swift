@@ -4,7 +4,7 @@
 import Foundation
 import os.log
 
-extension Configuration {
+extension Config {
   struct Builder {
     // MARK: Class Methods
 
@@ -14,6 +14,31 @@ extension Configuration {
 
     // MARK: Instance Methods
 
+    func setInterfaceAction(_ interface: Interface, action: Interface.Action?) -> [String: Any] {
+      var dictionary = configDictionary
+
+      // Make variable known outside of conditional.
+      var interfaceDictionary: [String: String] = [:]
+
+      if action == nil {
+        interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+        interfaceDictionary.removeValue(forKey: "action")
+      } else {
+        if let newAction = action?.rawValue {
+          interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
+          interfaceDictionary["action"] = newAction
+        }
+      }
+
+      if interfaceDictionary.isEmpty {
+        dictionary.removeValue(forKey: interface.hardMAC.formatted)
+      } else {
+        dictionary[interface.hardMAC.formatted] = interfaceDictionary
+      }
+
+      return dictionary
+    }
+
     func addInterfaceSsid(_ interface: Interface, accessPointPolicy: AccessPointPolicy) -> [String: Any] {
       var dictionary = configDictionary
 
@@ -22,11 +47,11 @@ extension Configuration {
       // { "action": "random", ... } or {}
       var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
-      var ssidsDictionary = interfaceDictionary[Configuration.Key.ssids.rawValue] as? [String: String] ?? [:]
+      var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" }
       ssidsDictionary[accessPointPolicy.ssid] = accessPointPolicy.softMAC.formatted
       // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" } }
-      interfaceDictionary[Configuration.Key.ssids.rawValue] = ssidsDictionary
+      interfaceDictionary[Config.Key.ssids.rawValue] = ssidsDictionary
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
       dictionary[interface.hardMAC.formatted] = interfaceDictionary
 
@@ -41,22 +66,23 @@ extension Configuration {
       // { "action": "random", ... } or {}
       var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", Coffeeshop": "aa:aa:aa:aa:aa:aa" } or {}
-      var ssidsDictionary = interfaceDictionary[Configuration.Key.ssids.rawValue] as? [String: String] ?? [:]
+      var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
       ssidsDictionary.removeValue(forKey: ssid)
 
       // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa" } }
-      interfaceDictionary[Configuration.Key.ssids.rawValue] = ssidsDictionary
+      interfaceDictionary[Config.Key.ssids.rawValue] = ssidsDictionary
 
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", ssids: {} } }
       if ssidsDictionary.isEmpty {
         // { "e1:e1:e1:e1:e1:e1": { "action": "random" } }
-        interfaceDictionary.removeValue(forKey: Configuration.Key.ssids.rawValue)
+        interfaceDictionary.removeValue(forKey: Config.Key.ssids.rawValue)
       }
 
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
       dictionary[interface.hardMAC.formatted] = interfaceDictionary
 
+      // This compression stuff could be extracted using `compactMapValues`.
       // { "e1:e1:e1:e1:e1:e1": { } }
       if interfaceDictionary.isEmpty {
         // { }
