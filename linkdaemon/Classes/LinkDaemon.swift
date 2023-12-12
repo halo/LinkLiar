@@ -8,22 +8,7 @@ class LinkDaemon {
 
   init() {
     Log.debug("Daemon \(version.formatted) says hello")
-
-    // Start observing the config file.
-    configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
-
-    // Load config file once.
-    configFileChanged()
-
-    intervalTimer = IntervalTimer(callback: intervalElaped)
-
-    // Start observing changes of ethernet interfaces
-    networkObserver = NetworkObserver(callback: networkConditionsChanged)
-
-    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willPowerOff), name: NSWorkspace.willPowerOffNotification, object: nil)
-    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleep(_:)), name: NSWorkspace.willSleepNotification, object: nil)
-    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWake(_:)), name: NSWorkspace.didWakeNotification, object: nil)
-
+    subscribe()
     RunLoop.main.run()
   }
 
@@ -38,23 +23,40 @@ class LinkDaemon {
 
   // MARK: Private Instance Methods
 
+  private func subscribe() {
+    // Start observing the config file.
+    configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
+
+    // Load config file once.
+    configFileChanged()
+
+    intervalTimer = IntervalTimer(callback: intervalElaped)
+
+    // Start observing changes of ethernet interfaces
+    networkObserver = NetworkObserver(callback: networkConditionsChanged)
+
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willPowerOff),
+                                                      name: NSWorkspace.willPowerOffNotification, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(willSleep(_:)),
+                                                      name: NSWorkspace.willSleepNotification, object: nil)
+    NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(didWake(_:)),
+                                                      name: NSWorkspace.didWakeNotification, object: nil)
+  }
+
   private func intervalElaped() {
     Log.debug("Interval elaped, acting upon it")
     Synchronizer.run()
   }
 
   private func configFileChanged() {
-    DispatchQueue.main.async {
-      Log.debug("Config file change detected, acting upon it")
-      self.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
-    }
+    Log.debug("Config file change detected, acting upon it")
+    self.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
+    Synchronizer.run()
   }
 
   private func networkConditionsChanged() {
-    DispatchQueue.main.async {
-      Log.debug("Network change detected, acting upon it")
-      Synchronizer.run()
-    }
+    Log.debug("Network change detected, acting upon it")
+    Synchronizer.run()
   }
 
   @objc func willPowerOff(_ _: Notification) {
@@ -75,7 +77,7 @@ class LinkDaemon {
     // Wi-Fi will loose connection when opening the lid of your MacBook.
   }
 
-  var version: Version = {
+  lazy var version: Version = {
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
       return Version(version)
     }

@@ -5,6 +5,7 @@ import CoreWLAN
 import Foundation
 
 class Synchronizer {
+
   static func run() {
     Log.debug("Synchronizing yo")
 //    for interface in Interfaces.all(async: false) {

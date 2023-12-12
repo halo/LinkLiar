@@ -17,6 +17,7 @@ extension Config {
     }
 
     // MARK: Instance Properties
+
     /// Conforming to `Identifiable`.
     var id: String { "\(ssid)|\(softMAC.formatted)" }
 

@@ -21,7 +21,7 @@ extension Config {
         accessPointPolicy: accessPointPolicy)
 
       newDictionary["version"] = state.version.formatted
-      if JSONWriter(filePath: Paths.configFile).write(newDictionary) {
+      if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
     }
@@ -32,7 +32,7 @@ extension Config {
         ssid: ssid)
 
       newDictionary["version"] = state.version.formatted
-      if JSONWriter(filePath: Paths.configFile).write(newDictionary) {
+      if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
     }
@@ -57,7 +57,7 @@ extension Config {
         action: action)
 
       newDictionary["version"] = state.version.formatted
-      if JSONWriter(filePath: Paths.configFile).write(newDictionary) {
+      if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
     }
@@ -85,7 +85,7 @@ extension Config {
         dictionary[interface.hardMAC.formatted] = interfaceDictionary
       }
 
-      if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      if JSONWriter(Paths.configFile).write(dictionary) {
         state.configDictionary = dictionary
       }
     }
@@ -115,7 +115,7 @@ extension Config {
         dictionary["default"] = interfaceDictionary
       }
 
-      if JSONWriter(filePath: Paths.configFile).write(dictionary) {
+      if JSONWriter(Paths.configFile).write(dictionary) {
         state.configDictionary = dictionary
       }
     }

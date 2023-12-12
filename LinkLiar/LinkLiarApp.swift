@@ -14,9 +14,6 @@ struct LinkLiarApp: App {
     // Start observing the config file.
     configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
 
-    // Load config file once.
-    configFileChanged()
-
     // Start observing changes of ethernet interfaces
     networkObserver = NetworkObserver(callback: networkConditionsChanged)
 
@@ -24,6 +21,9 @@ struct LinkLiarApp: App {
     NotificationCenter.default.addObserver(
       forName: .menuBarAppeared, object: nil, queue: nil, using: menuBarAppeared
     )
+
+    // Load config file once.
+    configFileChanged()
   }
 
   // MARK: Private Instance Properties

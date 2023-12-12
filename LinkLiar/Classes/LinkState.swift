@@ -51,13 +51,12 @@ class LinkState {
 extension LinkState {
   // Analogous to `SMAppService.Status`.
   enum DaemonRegistrations: String {
-    case unknown
+    case unknown // I.e. not initialized yet
     case notRegistered
     case enabled
     case requiresApproval
     case notFound
-    // I.e. didn't exist yet in `SMAppService.Status` at the time of this release.
-    case novel
+    case novel // I.e. didn't exist yet in `SMAppService.Status` at the time of this release.
   }
 
   enum XpcStatuses: String {

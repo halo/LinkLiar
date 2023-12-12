@@ -63,26 +63,26 @@
 		C2969EE22B278B1F00A9BB72 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC52B278B1F00A9BB72 /* Controller.swift */; };
 		C2969EE32B278B1F00A9BB72 /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC62B278B1F00A9BB72 /* JSONWriter.swift */; };
 		C2969EE42B278B1F00A9BB72 /* Radio.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC72B278B1F00A9BB72 /* Radio.swift */; };
-		C2969EE52B278B1F00A9BB72 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ECA2B278B1F00A9BB72 /* SettingsView.swift */; };
-		C2969EE62B278B1F00A9BB72 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ECB2B278B1F00A9BB72 /* AccessPointsView.swift */; };
-		C2969EE72B278B1F00A9BB72 /* PolicyHideOrIgnoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ECC2B278B1F00A9BB72 /* PolicyHideOrIgnoreView.swift */; };
-		C2969EE82B278B1F00A9BB72 /* SettingsInterfaceFallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ECD2B278B1F00A9BB72 /* SettingsInterfaceFallbackView.swift */; };
-		C2969EE92B278B1F00A9BB72 /* PolicyDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ECE2B278B1F00A9BB72 /* PolicyDefaultOrCustomView.swift */; };
-		C2969EEA2B278B1F00A9BB72 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ECF2B278B1F00A9BB72 /* SettingsDetailView.swift */; };
-		C2969EEB2B278B1F00A9BB72 /* PolicyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED02B278B1F00A9BB72 /* PolicyActionView.swift */; };
-		C2969EEC2B278B1F00A9BB72 /* InterfacePrefixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED12B278B1F00A9BB72 /* InterfacePrefixesView.swift */; };
-		C2969EED2B278B1F00A9BB72 /* DiagnoseInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED22B278B1F00A9BB72 /* DiagnoseInterfaceView.swift */; };
-		C2969EEE2B278B1F00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED32B278B1F00A9BB72 /* PolicyIgnoreOrDefaultView.swift */; };
-		C2969EEF2B278B1F00A9BB72 /* SettingsInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED42B278B1F00A9BB72 /* SettingsInterfaceView.swift */; };
-		C2969EF02B278B1F00A9BB72 /* SettingsInterfaceHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED52B278B1F00A9BB72 /* SettingsInterfaceHeadlineView.swift */; };
-		C2969EF12B278B1F00A9BB72 /* SettingsTroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED62B278B1F00A9BB72 /* SettingsTroubleshootView.swift */; };
-		C2969EF22B278B1F00A9BB72 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED82B278B1F00A9BB72 /* ApproveDaemonView.swift */; };
-		C2969EF32B278B1F00A9BB72 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969ED92B278B1F00A9BB72 /* RegisterDaemonView.swift */; };
-		C2969EF42B278B1F00A9BB72 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EDA2B278B1F00A9BB72 /* ConfirmQuittingView.swift */; };
-		C2969EF52B278B1F00A9BB72 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EDB2B278B1F00A9BB72 /* InterfaceView.swift */; };
-		C2969EF62B278B1F00A9BB72 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EDC2B278B1F00A9BB72 /* MenuView.swift */; };
-		C2969EF72B278B1F00A9BB72 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EDD2B278B1F00A9BB72 /* InterfacesView.swift */; };
 		C2969EF92B278B2B00A9BB72 /* LinkLiarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EF82B278B2B00A9BB72 /* LinkLiarApp.swift */; };
+		C2969F102B278E2A00A9BB72 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EFC2B278E2A00A9BB72 /* SettingsView.swift */; };
+		C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EFD2B278E2A00A9BB72 /* AccessPointsView.swift */; };
+		C2969F122B278E2A00A9BB72 /* PolicyHideOrIgnoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EFE2B278E2A00A9BB72 /* PolicyHideOrIgnoreView.swift */; };
+		C2969F132B278E2A00A9BB72 /* SettingsInterfaceFallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EFF2B278E2A00A9BB72 /* SettingsInterfaceFallbackView.swift */; };
+		C2969F142B278E2A00A9BB72 /* PolicyDefaultOrCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F002B278E2A00A9BB72 /* PolicyDefaultOrCustomView.swift */; };
+		C2969F152B278E2A00A9BB72 /* SettingsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F012B278E2A00A9BB72 /* SettingsDetailView.swift */; };
+		C2969F162B278E2A00A9BB72 /* PolicyActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F022B278E2A00A9BB72 /* PolicyActionView.swift */; };
+		C2969F172B278E2A00A9BB72 /* InterfacePrefixesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F032B278E2A00A9BB72 /* InterfacePrefixesView.swift */; };
+		C2969F182B278E2A00A9BB72 /* DiagnoseInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F042B278E2A00A9BB72 /* DiagnoseInterfaceView.swift */; };
+		C2969F192B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F052B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift */; };
+		C2969F1A2B278E2A00A9BB72 /* SettingsInterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F062B278E2A00A9BB72 /* SettingsInterfaceView.swift */; };
+		C2969F1B2B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F072B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift */; };
+		C2969F1C2B278E2A00A9BB72 /* SettingsTroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F082B278E2A00A9BB72 /* SettingsTroubleshootView.swift */; };
+		C2969F1D2B278E2A00A9BB72 /* ApproveDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F0A2B278E2A00A9BB72 /* ApproveDaemonView.swift */; };
+		C2969F1E2B278E2A00A9BB72 /* RegisterDaemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F0B2B278E2A00A9BB72 /* RegisterDaemonView.swift */; };
+		C2969F1F2B278E2A00A9BB72 /* ConfirmQuittingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F0C2B278E2A00A9BB72 /* ConfirmQuittingView.swift */; };
+		C2969F202B278E2A00A9BB72 /* InterfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */; };
+		C2969F212B278E2A00A9BB72 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F0E2B278E2A00A9BB72 /* MenuView.swift */; };
+		C2969F222B278E2A00A9BB72 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */; };
 		C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF782AE59EE7003578B9 /* Paths.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF762AE59EE7003578B9 /* Paths.swift */; };
 		C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */; };
@@ -191,26 +191,26 @@
 		C2969EC52B278B1F00A9BB72 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		C2969EC62B278B1F00A9BB72 /* JSONWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONWriter.swift; sourceTree = "<group>"; };
 		C2969EC72B278B1F00A9BB72 /* Radio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radio.swift; sourceTree = "<group>"; };
-		C2969ECA2B278B1F00A9BB72 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		C2969ECB2B278B1F00A9BB72 /* AccessPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointsView.swift; sourceTree = "<group>"; };
-		C2969ECC2B278B1F00A9BB72 /* PolicyHideOrIgnoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyHideOrIgnoreView.swift; sourceTree = "<group>"; };
-		C2969ECD2B278B1F00A9BB72 /* SettingsInterfaceFallbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceFallbackView.swift; sourceTree = "<group>"; };
-		C2969ECE2B278B1F00A9BB72 /* PolicyDefaultOrCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyDefaultOrCustomView.swift; sourceTree = "<group>"; };
-		C2969ECF2B278B1F00A9BB72 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
-		C2969ED02B278B1F00A9BB72 /* PolicyActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyActionView.swift; sourceTree = "<group>"; };
-		C2969ED12B278B1F00A9BB72 /* InterfacePrefixesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacePrefixesView.swift; sourceTree = "<group>"; };
-		C2969ED22B278B1F00A9BB72 /* DiagnoseInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnoseInterfaceView.swift; sourceTree = "<group>"; };
-		C2969ED32B278B1F00A9BB72 /* PolicyIgnoreOrDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyIgnoreOrDefaultView.swift; sourceTree = "<group>"; };
-		C2969ED42B278B1F00A9BB72 /* SettingsInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceView.swift; sourceTree = "<group>"; };
-		C2969ED52B278B1F00A9BB72 /* SettingsInterfaceHeadlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceHeadlineView.swift; sourceTree = "<group>"; };
-		C2969ED62B278B1F00A9BB72 /* SettingsTroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTroubleshootView.swift; sourceTree = "<group>"; };
-		C2969ED82B278B1F00A9BB72 /* ApproveDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApproveDaemonView.swift; sourceTree = "<group>"; };
-		C2969ED92B278B1F00A9BB72 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDaemonView.swift; sourceTree = "<group>"; };
-		C2969EDA2B278B1F00A9BB72 /* ConfirmQuittingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmQuittingView.swift; sourceTree = "<group>"; };
-		C2969EDB2B278B1F00A9BB72 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceView.swift; sourceTree = "<group>"; };
-		C2969EDC2B278B1F00A9BB72 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		C2969EDD2B278B1F00A9BB72 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
 		C2969EF82B278B2B00A9BB72 /* LinkLiarApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkLiarApp.swift; path = LinkLiar/LinkLiarApp.swift; sourceTree = "<group>"; };
+		C2969EFC2B278E2A00A9BB72 /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C2969EFD2B278E2A00A9BB72 /* AccessPointsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessPointsView.swift; sourceTree = "<group>"; };
+		C2969EFE2B278E2A00A9BB72 /* PolicyHideOrIgnoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyHideOrIgnoreView.swift; sourceTree = "<group>"; };
+		C2969EFF2B278E2A00A9BB72 /* SettingsInterfaceFallbackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceFallbackView.swift; sourceTree = "<group>"; };
+		C2969F002B278E2A00A9BB72 /* PolicyDefaultOrCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyDefaultOrCustomView.swift; sourceTree = "<group>"; };
+		C2969F012B278E2A00A9BB72 /* SettingsDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsDetailView.swift; sourceTree = "<group>"; };
+		C2969F022B278E2A00A9BB72 /* PolicyActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyActionView.swift; sourceTree = "<group>"; };
+		C2969F032B278E2A00A9BB72 /* InterfacePrefixesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacePrefixesView.swift; sourceTree = "<group>"; };
+		C2969F042B278E2A00A9BB72 /* DiagnoseInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiagnoseInterfaceView.swift; sourceTree = "<group>"; };
+		C2969F052B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PolicyIgnoreOrDefaultView.swift; sourceTree = "<group>"; };
+		C2969F062B278E2A00A9BB72 /* SettingsInterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceView.swift; sourceTree = "<group>"; };
+		C2969F072B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInterfaceHeadlineView.swift; sourceTree = "<group>"; };
+		C2969F082B278E2A00A9BB72 /* SettingsTroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTroubleshootView.swift; sourceTree = "<group>"; };
+		C2969F0A2B278E2A00A9BB72 /* ApproveDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApproveDaemonView.swift; sourceTree = "<group>"; };
+		C2969F0B2B278E2A00A9BB72 /* RegisterDaemonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDaemonView.swift; sourceTree = "<group>"; };
+		C2969F0C2B278E2A00A9BB72 /* ConfirmQuittingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmQuittingView.swift; sourceTree = "<group>"; };
+		C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceView.swift; sourceTree = "<group>"; };
+		C2969F0E2B278E2A00A9BB72 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
 		C29EAF762AE59EE7003578B9 /* Paths.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paths.swift; sourceTree = "<group>"; };
 		C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
@@ -247,10 +247,10 @@
 		C225BDA82B1FB9B500FFD119 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
 				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
 				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
 				C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */,
-				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -295,7 +295,7 @@
 			children = (
 				C2969EF82B278B2B00A9BB72 /* LinkLiarApp.swift */,
 				C2969EBF2B278B1F00A9BB72 /* Classes */,
-				C2969EC82B278B1F00A9BB72 /* Views */,
+				C2969EFA2B278E2A00A9BB72 /* Views */,
 			);
 			name = LinkLiar;
 			sourceTree = "<group>";
@@ -354,44 +354,45 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		C2969EC82B278B1F00A9BB72 /* Views */ = {
+		C2969EFA2B278E2A00A9BB72 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C2969EC92B278B1F00A9BB72 /* Settings */,
-				C2969ED72B278B1F00A9BB72 /* Menu */,
+				C2969EFB2B278E2A00A9BB72 /* Settings */,
+				C2969F092B278E2A00A9BB72 /* Menu */,
 			);
-			path = Views;
+			name = Views;
+			path = LinkLiar/Views;
 			sourceTree = "<group>";
 		};
-		C2969EC92B278B1F00A9BB72 /* Settings */ = {
+		C2969EFB2B278E2A00A9BB72 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				C2969ECA2B278B1F00A9BB72 /* SettingsView.swift */,
-				C2969ECB2B278B1F00A9BB72 /* AccessPointsView.swift */,
-				C2969ECC2B278B1F00A9BB72 /* PolicyHideOrIgnoreView.swift */,
-				C2969ECD2B278B1F00A9BB72 /* SettingsInterfaceFallbackView.swift */,
-				C2969ECE2B278B1F00A9BB72 /* PolicyDefaultOrCustomView.swift */,
-				C2969ECF2B278B1F00A9BB72 /* SettingsDetailView.swift */,
-				C2969ED02B278B1F00A9BB72 /* PolicyActionView.swift */,
-				C2969ED12B278B1F00A9BB72 /* InterfacePrefixesView.swift */,
-				C2969ED22B278B1F00A9BB72 /* DiagnoseInterfaceView.swift */,
-				C2969ED32B278B1F00A9BB72 /* PolicyIgnoreOrDefaultView.swift */,
-				C2969ED42B278B1F00A9BB72 /* SettingsInterfaceView.swift */,
-				C2969ED52B278B1F00A9BB72 /* SettingsInterfaceHeadlineView.swift */,
-				C2969ED62B278B1F00A9BB72 /* SettingsTroubleshootView.swift */,
+				C2969EFC2B278E2A00A9BB72 /* SettingsView.swift */,
+				C2969F082B278E2A00A9BB72 /* SettingsTroubleshootView.swift */,
+				C2969EFD2B278E2A00A9BB72 /* AccessPointsView.swift */,
+				C2969EFE2B278E2A00A9BB72 /* PolicyHideOrIgnoreView.swift */,
+				C2969EFF2B278E2A00A9BB72 /* SettingsInterfaceFallbackView.swift */,
+				C2969F002B278E2A00A9BB72 /* PolicyDefaultOrCustomView.swift */,
+				C2969F012B278E2A00A9BB72 /* SettingsDetailView.swift */,
+				C2969F022B278E2A00A9BB72 /* PolicyActionView.swift */,
+				C2969F032B278E2A00A9BB72 /* InterfacePrefixesView.swift */,
+				C2969F042B278E2A00A9BB72 /* DiagnoseInterfaceView.swift */,
+				C2969F052B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift */,
+				C2969F062B278E2A00A9BB72 /* SettingsInterfaceView.swift */,
+				C2969F072B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		C2969ED72B278B1F00A9BB72 /* Menu */ = {
+		C2969F092B278E2A00A9BB72 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				C2969ED82B278B1F00A9BB72 /* ApproveDaemonView.swift */,
-				C2969ED92B278B1F00A9BB72 /* RegisterDaemonView.swift */,
-				C2969EDA2B278B1F00A9BB72 /* ConfirmQuittingView.swift */,
-				C2969EDB2B278B1F00A9BB72 /* InterfaceView.swift */,
-				C2969EDC2B278B1F00A9BB72 /* MenuView.swift */,
-				C2969EDD2B278B1F00A9BB72 /* InterfacesView.swift */,
+				C2969F0A2B278E2A00A9BB72 /* ApproveDaemonView.swift */,
+				C2969F0B2B278E2A00A9BB72 /* RegisterDaemonView.swift */,
+				C2969F0C2B278E2A00A9BB72 /* ConfirmQuittingView.swift */,
+				C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */,
+				C2969F0E2B278E2A00A9BB72 /* MenuView.swift */,
+				C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -599,52 +600,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2969EE92B278B1F00A9BB72 /* PolicyDefaultOrCustomView.swift in Sources */,
-				C2969EE72B278B1F00A9BB72 /* PolicyHideOrIgnoreView.swift in Sources */,
+				C2969F182B278E2A00A9BB72 /* DiagnoseInterfaceView.swift in Sources */,
+				C2969F152B278E2A00A9BB72 /* SettingsDetailView.swift in Sources */,
 				C225BDB22B1FBCD500FFD119 /* IntervalTimer.swift in Sources */,
-				C2969EF02B278B1F00A9BB72 /* SettingsInterfaceHeadlineView.swift in Sources */,
+				C2969F1D2B278E2A00A9BB72 /* ApproveDaemonView.swift in Sources */,
 				C29EAF772AE59EE7003578B9 /* Paths.swift in Sources */,
 				C2969EDF2B278B1F00A9BB72 /* Builder.swift in Sources */,
-				C2969EF22B278B1F00A9BB72 /* ApproveDaemonView.swift in Sources */,
+				C2969F132B278E2A00A9BB72 /* SettingsInterfaceFallbackView.swift in Sources */,
 				C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
+				C2969F202B278E2A00A9BB72 /* InterfaceView.swift in Sources */,
 				C22F21AD2B010CBE0086B621 /* FileObserver.swift in Sources */,
 				C22F21B22B02A2CE0086B621 /* Reader.swift in Sources */,
-				C2969EEC2B278B1F00A9BB72 /* InterfacePrefixesView.swift in Sources */,
 				C28E032F2B0D473A0074EC94 /* General.swift in Sources */,
+				C2969F1B2B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift in Sources */,
+				C2969F142B278E2A00A9BB72 /* PolicyDefaultOrCustomView.swift in Sources */,
 				C2969EE32B278B1F00A9BB72 /* JSONWriter.swift in Sources */,
 				C22134852AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
 				C2969EE42B278B1F00A9BB72 /* Radio.swift in Sources */,
 				C225BDA42B1A6A6100FFD119 /* AccessPointPolicy.swift in Sources */,
 				C22134812AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C2969EE02B278B1F00A9BB72 /* Writer.swift in Sources */,
-				C2969EF52B278B1F00A9BB72 /* InterfaceView.swift in Sources */,
-				C2969EED2B278B1F00A9BB72 /* DiagnoseInterfaceView.swift in Sources */,
+				C2969F212B278E2A00A9BB72 /* MenuView.swift in Sources */,
+				C2969F122B278E2A00A9BB72 /* PolicyHideOrIgnoreView.swift in Sources */,
+				C2969F1F2B278E2A00A9BB72 /* ConfirmQuittingView.swift in Sources */,
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
 				C2969EE12B278B1F00A9BB72 /* MACAddressFormatter.swift in Sources */,
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
-				C2969EF32B278B1F00A9BB72 /* RegisterDaemonView.swift in Sources */,
-				C2969EEA2B278B1F00A9BB72 /* SettingsDetailView.swift in Sources */,
-				C2969EE82B278B1F00A9BB72 /* SettingsInterfaceFallbackView.swift in Sources */,
+				C2969F1A2B278E2A00A9BB72 /* SettingsInterfaceView.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
+				C2969F102B278E2A00A9BB72 /* SettingsView.swift in Sources */,
 				C2969EE22B278B1F00A9BB72 /* Controller.swift in Sources */,
 				C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */,
 				C2969EF92B278B2B00A9BB72 /* LinkLiarApp.swift in Sources */,
-				C2969EF62B278B1F00A9BB72 /* MenuView.swift in Sources */,
+				C2969F172B278E2A00A9BB72 /* InterfacePrefixesView.swift in Sources */,
 				C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C22F21B52B02A4B50086B621 /* Policy.swift in Sources */,
-				C2969EEF2B278B1F00A9BB72 /* SettingsInterfaceView.swift in Sources */,
-				C2969EEB2B278B1F00A9BB72 /* PolicyActionView.swift in Sources */,
-				C2969EF42B278B1F00A9BB72 /* ConfirmQuittingView.swift in Sources */,
-				C2969EE52B278B1F00A9BB72 /* SettingsView.swift in Sources */,
+				C2969F162B278E2A00A9BB72 /* PolicyActionView.swift in Sources */,
+				C2969F222B278E2A00A9BB72 /* InterfacesView.swift in Sources */,
+				C2969F1E2B278E2A00A9BB72 /* RegisterDaemonView.swift in Sources */,
+				C2969F1C2B278E2A00A9BB72 /* SettingsTroubleshootView.swift in Sources */,
 				C22134692AEC37E600BCF30E /* Version.swift in Sources */,
 				C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */,
-				C2969EF12B278B1F00A9BB72 /* SettingsTroubleshootView.swift in Sources */,
 				C2969EDE2B278B1F00A9BB72 /* LinkState.swift in Sources */,
 				C221347D2AEECFA300BCF30E /* Interfaces.swift in Sources */,
+				C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */,
 				C22134772AEECFA300BCF30E /* MACAddress.swift in Sources */,
-				C2969EE62B278B1F00A9BB72 /* AccessPointsView.swift in Sources */,
-				C2969EF72B278B1F00A9BB72 /* InterfacesView.swift in Sources */,
-				C2969EEE2B278B1F00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */,
+				C2969F192B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
