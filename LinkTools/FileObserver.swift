@@ -43,12 +43,7 @@ public class FileObserver {
   }
 
   let callback: () -> Void
-  let queue = DispatchQueue(label: "io.github.halo.LinkLiar.fileObserverQueue")
-
-//
-//  deinit {
-//    stop()
-//  }
+  let queue = DispatchQueue(label: "\(Identifiers.gui).fileObserverQueue")
 
   // MARK: - Private Properties
 

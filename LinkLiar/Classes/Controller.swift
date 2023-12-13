@@ -16,6 +16,7 @@ class Controller {
     //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
+    // Why did I use the queue here?
     DispatchQueue.global().async {
       do {
         try service.register()

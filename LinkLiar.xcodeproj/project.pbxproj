@@ -102,6 +102,7 @@
 		C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C2ADC85B2B222C2D002A2905 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */; };
 		C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */; };
+		C2D819522B2A2FDC00991D38 /* MACSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D819512B2A2FDC00991D38 /* MACSetter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,7 @@
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPolicyTests.swift; sourceTree = "<group>"; };
+		C2D819512B2A2FDC00991D38 /* MACSetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACSetter.swift; path = Classes/MACSetter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
 				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
 				C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */,
+				C2D819512B2A2FDC00991D38 /* MACSetter.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				C22134832AEED0AC00BCF30E /* Ifconfig.swift in Sources */,
 				C221347C2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C29EAF962AE5ADCA003578B9 /* Identifiers.swift in Sources */,
+				C2D819522B2A2FDC00991D38 /* MACSetter.swift in Sources */,
 				C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */,
 				C28E032B2B0BD5EB0074EC94 /* LinkDaemon.swift in Sources */,
 				C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */,

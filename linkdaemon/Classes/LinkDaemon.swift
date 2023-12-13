@@ -45,30 +45,30 @@ class LinkDaemon {
 
   private func intervalElaped() {
     Log.debug("Interval elaped, acting upon it")
-    Synchronizer.run()
+    synchronizer.run()
   }
 
   private func configFileChanged() {
     Log.debug("Config file change detected, acting upon it")
     self.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
-    Synchronizer.run()
+    synchronizer.run()
   }
 
   private func networkConditionsChanged() {
     Log.debug("Network change detected, acting upon it")
-    Synchronizer.run()
+    synchronizer.run()
   }
 
   @objc func willPowerOff(_ _: Notification) {
     Log.debug("Logging out...")
-    Synchronizer.mayReRandomize()
+    synchronizer.mayReRandomize()
   }
 
   @objc func willSleep(_ _: Notification) {
     Log.debug("Going to sleep...")
     // It's safe to randomize here, loosing Wi-Fi is not tragic while
     // closing the lid of your MacBook.
-    Synchronizer.mayReRandomize()
+    synchronizer.mayReRandomize()
   }
 
   @objc func didWake(_ _: Notification) {
@@ -77,10 +77,18 @@ class LinkDaemon {
     // Wi-Fi will loose connection when opening the lid of your MacBook.
   }
 
+  // MARK: Instance Properties
+
   lazy var version: Version = {
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
       return Version(version)
     }
     return Version("?.?.?")
+  }()
+
+  // MARK: Private Instance Properties
+
+  lazy var synchronizer: Synchronizer = {
+    Synchronizer()
   }()
 }
