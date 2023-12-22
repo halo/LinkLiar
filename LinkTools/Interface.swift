@@ -68,16 +68,16 @@ class Interface: Identifiable {
   /// The answer is stored in the softMAC property.
   /// This can be done synchronously or asynchronously.
   func querySoftMAC(async: Bool) {
-    let ifconfig = Ifconfig(BSDName: self.BSDName)
+    let reader = Ifconfig.Reader(self.BSDName)
 
     if async {
-      ifconfig.softMAC(callback: { address in
+      reader.softMAC(callback: { address in
         DispatchQueue.main.async {
           self._softMAC = address.formatted
         }
       })
     } else {
-      self._softMAC = ifconfig.softMAC().formatted
+      self._softMAC = reader.softMAC().formatted
     }
   }
 
