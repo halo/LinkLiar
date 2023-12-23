@@ -48,6 +48,14 @@ extension Config {
     var fallbackPolicy: Policy {
       Policy("default", dictionary: dictionary)
     }
+
+    ///
+    /// Determines final values by comparing
+    /// specific Interfaces and fallback defaults.
+    ///
+    func arbiter(_ hardMAC: MACAddress) -> Config.Arbiter {
+      Config.Arbiter(config: self, hardMAC: hardMAC)
+    }
   }
 }
 

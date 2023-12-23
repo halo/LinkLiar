@@ -11,6 +11,9 @@ disabled_rules:
  - explicit_type_interface
  - indentation_width
  - multiline_arguments_brackets
+ # If swift would allow the same filename in two different namespaces, I would turn this on again
+ # For now, I sometimes name them `MyNamespace.Myfile.swift`
+ - file_name
 
 opt_in_rules:
   # - all

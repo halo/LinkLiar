@@ -51,6 +51,23 @@ extension Config {
       return address.isValid ? address : nil
     }
 
+    /**
+     * Looks up the defined exceptioning MAC address for an Interface.
+     * This is useful to enforce re-randomization. Because the deamon
+     * would usually not re-randomize and already random Interface.
+     *
+     * - parameter hardMAC: The hardware MAC address of an Interface.
+     *
+     * - returns: A valid `MACAddress` or `nil` if no valid address was specified.
+     */
+    var exceptionAddress: MACAddress? {
+      guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
+      guard let rawAddress = interfaceDictionary["except"] as? String else { return nil }
+
+      let address = MACAddress(rawAddress)
+      return address.isValid ? address : nil
+    }
+
     /// Queries the Hotspot definitions for this Interface.
     ///
     /// It looks like this in JSON:

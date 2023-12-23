@@ -98,6 +98,9 @@
 		C2F3DA252B35C8B900977572 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */; };
 		C2F3DA2A2B35CB3C00977572 /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA292B35CB3C00977572 /* Ifconfig.Reader.swift */; };
 		C2F3DA2B2B35CB3C00977572 /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA292B35CB3C00977572 /* Ifconfig.Reader.swift */; };
+		C2F3DA2D2B36C71A00977572 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2C2B36C71A00977572 /* Sync.swift */; };
+		C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
+		C2F3DA302B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +217,8 @@
 		C2F3DA1C2B35C8B900977572 /* Policy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Policy.swift; path = Config/Policy.swift; sourceTree = "<group>"; };
 		C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessPointPolicy.swift; path = Config/AccessPointPolicy.swift; sourceTree = "<group>"; };
 		C2F3DA292B35CB3C00977572 /* Ifconfig.Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ifconfig.Reader.swift; sourceTree = "<group>"; };
+		C2F3DA2C2B36C71A00977572 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sync.swift; path = Classes/Sync.swift; sourceTree = "<group>"; };
+		C2F3DA2E2B3730E600977572 /* Arbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arbiter.swift; path = Config/Arbiter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +251,7 @@
 			children = (
 				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
 				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
+				C2F3DA2C2B36C71A00977572 /* Sync.swift */,
 				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
 				C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */,
 				C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */,
@@ -260,6 +266,7 @@
 				C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */,
 				C2F3DA1A2B35C8B800977572 /* General.swift */,
 				C2F3DA1C2B35C8B900977572 /* Policy.swift */,
+				C2F3DA2E2B3730E600977572 /* Arbiter.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -509,7 +516,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					C26699242AE55EFC00592008 = {
 						CreatedOnToolsVersion = 15.0;
@@ -609,6 +616,7 @@
 				C2969F132B278E2A00A9BB72 /* SettingsInterfaceFallbackView.swift in Sources */,
 				C22134892AEED66C00BCF30E /* NetworkObserver.swift in Sources */,
 				C2969F202B278E2A00A9BB72 /* InterfaceView.swift in Sources */,
+				C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */,
 				C22F21AD2B010CBE0086B621 /* FileObserver.swift in Sources */,
 				C2F3DA242B35C8B900977572 /* AccessPointPolicy.swift in Sources */,
 				C2969F1B2B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift in Sources */,
@@ -685,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C221348F2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
+				C2F3DA302B3730E600977572 /* Arbiter.swift in Sources */,
 				C2F3DA252B35C8B900977572 /* AccessPointPolicy.swift in Sources */,
 				C221347F2AEECFA300BCF30E /* Interfaces.swift in Sources */,
 				C2F3DA1F2B35C8B900977572 /* General.swift in Sources */,
@@ -703,6 +712,7 @@
 				C2F3DA2B2B35CB3C00977572 /* Ifconfig.Reader.swift in Sources */,
 				C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */,
 				C29EAF982AE5ADCA003578B9 /* Paths.swift in Sources */,
+				C2F3DA2D2B36C71A00977572 /* Sync.swift in Sources */,
 				C225BDAE2B1FBA3A00FFD119 /* RandomMACs.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
 				C2F3DA232B35C8B900977572 /* Policy.swift in Sources */,
@@ -768,6 +778,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -831,6 +842,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -861,6 +873,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LinkLiar/Preview Content\"";
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -890,6 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"LinkLiar/Preview Content\"";
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -917,6 +931,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -936,6 +951,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -954,6 +970,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -971,6 +988,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
@@ -988,6 +1006,7 @@
 				CODE_SIGN_ENTITLEMENTS = linkdaemon/linkdaemon.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				OTHER_CODE_SIGN_FLAGS = "\"-i io.github.halo.LinkLiar.linkdaemon\\\"\"";
@@ -1004,6 +1023,7 @@
 				CODE_SIGN_ENTITLEMENTS = linkdaemon/linkdaemon.entitlements;
 				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = B9J4QR64LK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				OTHER_CODE_SIGN_FLAGS = "\"-i io.github.halo.LinkLiar.linkdaemon\\\"\"";

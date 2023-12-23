@@ -43,7 +43,9 @@ public class FileObserver {
   }
 
   let callback: () -> Void
-  let queue = DispatchQueue(label: "\(Identifiers.gui).fileObserverQueue")
+
+  /// Per `DispatchQueue.init` this is a serial queue.
+  let queue = DispatchQueue(label: "\(Identifiers.gui).fileObserverQueue", qos: .utility)
 
   // MARK: - Private Properties
 

@@ -5,19 +5,23 @@ import CoreWLAN
 import Foundation
 
 class Synchronizer {
-
   func run() {
-    Log.debug("Synchronizing yo")
-//    for interface in Interfaces.all(async: false) {
-//      let action = Config.instance.knownInterface.calculatedAction(interface.hardMAC)
-//
-//      switch action {
-//      case .ignore:    Log.debug("Dutifully ignoring Interface \(interface.BSDName)")
-//      case .original:  originalize(interface)
-//      case .specify:   specify(interface)
-//      case .random:    randomize(interface)
-//      }
-//    }
+    Log.debug("Scheduling for synchronization...")
+
+    // Run serially
+    queue.sync {
+      Log.debug("Synchronizing now...")
+      reload()
+
+      for interface in interfaces {
+        let arbiter = config.arbiter(interface.hardMAC)
+        let sync = Sync(interface: interface, arbiter: arbiter)
+
+        if let newSoftMac = sync.newSoftMAC {
+          Ifconfig.Setter(interface.BSDName).setSoftMAC(newSoftMac)
+        }
+      }
+    }
   }
 
   func mayReRandomize() {
@@ -38,6 +42,31 @@ class Synchronizer {
 //      setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
 //    }
   }
+
+  // MARK: Private Instance Properties
+
+  /// Per `DispatchQueue.init` this is a serial queue.
+  /// We don't want to read the config and execute ifconfig parallelized.
+  ///
+  private var queue = DispatchQueue(label: "\(Identifiers.daemon).Synchronizer", qos: .utility)
+  private var config: Config.Reader = Config.Reader([:])
+  private var interfaces: [Interface] = []
+
+  // MARK: Private Instance Properties
+
+  private func reload() {
+    // Read configuration file afresh
+    let configDictionary = JSONReader(filePath: Paths.configFile).dictionary
+    config = Config.Reader(configDictionary)
+
+    // Query Interfaces afresh
+    interfaces = Interfaces.all(asyncSoftMac: false).filter {
+      config.policy($0.hardMAC).action != .hide
+    }.filter {
+      config.policy($0.hardMAC).action != .ignore
+    }
+  }
+
 //
 //  // Internal Methods
 //
