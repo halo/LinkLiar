@@ -38,7 +38,7 @@ extension Config {
     ///
     /// Queries the global list of Vendor MAC prefixes.
     ///
-    var general: Vendors {
+    var vendors: Vendors {
       Vendors(dictionary: dictionary)
     }
 

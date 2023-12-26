@@ -7,21 +7,23 @@ require 'macs'
 # ------------------------------------
 
 result = []
-result.push "// Copyright (c) halo"
+result.push "// Copyright (c) halo https://github.com/halo/LinkLiar"
 result.push "// SPDX-License-Identifier: MIT"
 result.push ""
 result.push "// This file was auto-generated #{Date.today} using `bin/vendors`."
 result.push "// If this file changes, don't forget to restart the daemon for the changes to take effect."
 result.push ''
-result.push 'struct PopularVendors {'
+result.push 'struct PopularVendorDatabase {'
+result.push '  // swiftlint:disable line_length'
 result.push '  static var dictionary: [String: [String:[UInt32]]] {'
 result.push '    return ['
 result.push Macs::Vendors.all.map(&:to_swift)
 result.push '    ]'
 result.push '  }'
+result.push '  // swiftlint:enable line_length'
 result.push '}'
 
-path = Pathname.new('LinkTools/Backends/PopularVendors.swift')
+path = Pathname.new('LinkTools/Backends/PopularVendorsDatabase.swift')
 puts "Writing to #{path}"
 
 path.write result.join("\n")

@@ -6,39 +6,61 @@ import Foundation
 enum Ifconfig {}
 
 extension Ifconfig {
-  /// Runs `ifconfig` to dermine the current MAC address of an Interface.
+  ///
+  /// Runs the external exectuable `ifconfig` to dermine the current MAC address of an Interface.
+  ///
   class Reader {
     // MARK: Class Methods
 
-    /// Creates an `Ifconfig.Reader` instance for one particular Interface.
+    ///
+    /// Creates an ``Ifconfig.Reader`` instance for one particular Interface.
     ///
     /// - parameter BSDName: The BSD name of the interface, e.g. `en0` or `en1`.
     ///
     /// ## Example:
     ///
     /// ```swift
-    /// let ifconfig = Ifconig(BSDName: "en2")
+    /// let myifconfig = Ifconig("en2")
     /// ```
+    ///
     init(_ BSDName: String) {
       self.BSDName = BSDName
     }
 
     // MARK: Instance Properties
 
-    /// The BSD Name of a network interface. This property is read-only.
-    /// For example `en0` or `en1`.
+    ///
+    /// The BSD Name of a network interface. For example `en0` or `en1`.
+    ///
+    /// This property is read-only.
+    ///
     private(set) var BSDName: String
 
     // MARK: Instance Methods
 
+    ///
     /// Synchronously queries software-assigned MAC address of the Interface.
+    ///
+    /// This is a function, rather than a computed property, to indicate that
+    /// this method always shells out to get the up-to-date value without caching it.
+    ///
+    /// ## Example:
+    ///
+    /// ```swift
+    /// Ifconig("en2").softMAC()
+    /// ```
+    ///
     func softMAC() -> MACAddress {
       process.launch()
       process.waitUntilExit() // Block until ifconfig exited.
       return MACAddress(_softMAC)
     }
 
+    ///
     /// Asynchronously queries software-assigned MAC address of the Interface.
+    ///
+    /// Provide a callback to receive the MAC address once it was resolved.
+    ///
     func softMAC(callback: @escaping (MACAddress) -> Void) {
       self.outputHandle.waitForDataInBackgroundAndNotify()
 
@@ -48,7 +70,7 @@ extension Ifconfig {
         callback(MACAddress(self._softMAC))
       }
 
-      // Run ifconfig.
+      // Run ifconfig (now that the observer is in place).
       process.launch()
     }
 

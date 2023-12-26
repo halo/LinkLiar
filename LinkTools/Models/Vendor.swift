@@ -16,39 +16,28 @@
 
 import Foundation
 
-struct PopularVendors {
-  // MARK: Class Properties
+struct Vendor: Comparable, Equatable {
 
-  ///
-  /// Looks up a Vendor by its ID.
-  /// If no vendor was found, returns nil.
-  ///
-  /// The ID is really just a nickname as String, nothing official.
-  /// It is used as a convenience shortcut in the LinkLiar config file.
-  ///
-  /// - parameter id: The ID of the vendor (e.g. "ibm").
-  ///
-  /// - returns: A ``Vendor`` if found and `nil` if missing.
-  ///
-  static func find(_ id: String) -> Vendor? {
-    let id = id.filter("0123456789abcdefghijklmnopqrstuvwxyz".contains)
-    guard let vendorData = PopularVendorsDatabase.dictionary[id] else { return nil }
-
-    guard let rawPrefixes = vendorData.values.first else { return nil }
-    guard let name = vendorData.keys.first else { return nil }
-
-    let prefixes = rawPrefixes.map { rawPrefix in
-      MACPrefix(String(format: "%06X", rawPrefix))
-    }
-
-    return Vendor(id: id, name: name, prefixes: prefixes)
+  init(id: String, name: String, prefixes: [MACPrefix]) {
+    self.id = id
+    self.name = name
+    self.prefixes = prefixes
   }
 
-  // MARK: Private Class Properties
+  var name: String
+  var id: String
+  var prefixes: [MACPrefix]
 
-  private static var all: [Vendor] {
-    PopularVendorsDatabase.dictionary.keys.sorted().reversed().compactMap {
-      find($0)
-    }
+  var title: String {
+    [name, " ・ ", String(prefixes.count)].joined()
   }
+
+  static func <(lhs: Self, rhs: Self) -> Bool {
+    lhs.name < rhs.name
+  }
+
+}
+
+func ==(lhs: Vendor, rhs: Vendor) -> Bool {
+  lhs.name == rhs.name
 }

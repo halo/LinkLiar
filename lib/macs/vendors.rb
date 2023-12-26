@@ -1,4 +1,4 @@
-# Copyright (c) halo
+# Copyright (c) halo https://github.com/halo/LinkLiar
 # SPDX-License-Identifier: MIT
 
 module Macs

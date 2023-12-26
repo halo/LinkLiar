@@ -1,6 +1,0 @@
-swift:
-  ext: ['.swift']
-  comment:
-    open:   '/*\n'
-    close:  ' */\n\n'
-    prefix: ' * '

@@ -3,15 +3,10 @@
 
 extension Config {
   struct Vendors {
-    // MARK: Initialization
-
-    init(dictionary: [String: Any]) {
-      self.dictionary = dictionary
-    }
 
     // MARK: Public Instance Properties
 
     var dictionary: [String: Any]
 
-    
+  }
 }

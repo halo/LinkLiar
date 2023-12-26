@@ -21,21 +21,21 @@ struct MACPrefix: Comparable, Equatable {
 
   // This does not check for validity.
   var formatted: String {
-    return String(sanitized.enumerated().map() {
+    String(sanitized.enumerated().map {
       $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
     }.joined().dropFirst())
   }
 
   var prefix: String {
-    return formatted.components(separatedBy: ":").prefix(3).joined(separator: ":")
+    formatted.components(separatedBy: ":").prefix(3).joined(separator: ":")
   }
 
   var isValid: Bool {
-    return formatted.count == 8
+    formatted.count == 8
   }
 
   var isInvalid: Bool {
-    return !isValid
+    !isValid
   }
 
   private var sanitized: String {
@@ -45,23 +45,23 @@ struct MACPrefix: Comparable, Equatable {
 
   private var raw: String
 
-  private var integers : [UInt8] {
-    return sanitized.map { UInt8(String($0), radix: 8)! }
+  private var integers: [UInt8] {
+    sanitized.map { UInt8(String($0), radix: 8)! }
   }
 
-  func add(_ address: MACAddress) -> MACPrefix {
+  func add(_ address: MACAddress) -> Self {
     let otherIntegers = address.integers
     let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 8 }
     let newPrefix = newIntegers.map { String($0, radix: 8) }.joined()
-    return MACPrefix(newPrefix)
+    return Self(newPrefix)
   }
 
-  static func <(lhs: MACPrefix, rhs: MACPrefix) -> Bool {
-    return lhs.prefix < rhs.prefix
+  static func <(lhs: Self, rhs: Self) -> Bool {
+    lhs.prefix < rhs.prefix
   }
 
 }
 
 func ==(lhs: MACPrefix, rhs: MACPrefix) -> Bool {
-  return lhs.formatted == rhs.formatted
+  lhs.formatted == rhs.formatted
 }
