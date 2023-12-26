@@ -56,33 +56,33 @@ struct PolicyActionView: View {
 
         VStack(alignment: .leading) {
           switch actionValue.wrappedValue {
-            case .random:
-              Text("LinkLiar ensures that this Interface always has a random MAC address.")
-                .font(.caption)
-                .foregroundColor(.secondary)
+          case .random:
+            Text("LinkLiar ensures that this Interface always has a random MAC address.")
+              .font(.caption)
+              .foregroundColor(.secondary)
 
-            case .specify:
-              Text("You specify a particular MAC address and LinkLiar sees to it that this Interface always has this address.")
-                .font(.caption)
-                .foregroundColor(.secondary)
+          case .specify:
+            Text("You specify a particular MAC address and LinkLiar sees to it that this Interface always has this address.")
+              .font(.caption)
+              .foregroundColor(.secondary)
 
-              TextField("MAC Address",
-                        value: specificAddress,
-                        formatter: MACAddressFormatter(),
-                        prompt: Text("e.g. aa:bb:cc:dd:ee:ff")
-              )
-              .disableAutocorrection(true)
-              .border(.tertiary)
-              .font(.system(.title3, design: .monospaced))
-              .frame(width: 200)
+            TextField("MAC Address",
+                      value: specificAddress,
+                      formatter: MACAddressFormatter(),
+                      prompt: Text("e.g. aa:bb:cc:dd:ee:ff")
+            )
+            .disableAutocorrection(true)
+            .border(.tertiary)
+            .font(.system(.title3, design: .monospaced))
+            .frame(width: 200)
 
-            case .original:
-              Text("LinkLiar ensures that this Interface always has its original hardware MAC address.")
-                .font(.caption)
-                .foregroundColor(.secondary)
+          case .original:
+            Text("LinkLiar ensures that this Interface always has its original hardware MAC address.")
+              .font(.caption)
+              .foregroundColor(.secondary)
 
-            default:
-              Text("Invalid")
+          default:
+            Text("Invalid")
           }
         }.padding([.bottom, .horizontal], 4)
       }
