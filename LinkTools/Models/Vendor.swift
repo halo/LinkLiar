@@ -1,28 +1,18 @@
-/*
- * Copyright (C) 2012-2021 halo https://io.github.com/halo/LinkLiar
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files
- * (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify,
- * merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
- * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+// Copyright (c) halo https://github.com/halo/LinkLiar
+// SPDX-License-Identifier: MIT
 
 import Foundation
 
-struct Vendor: Comparable, Equatable {
+struct Vendor: Identifiable {
+  // MARK: Class Methods
 
   init(id: String, name: String, prefixes: [MACPrefix]) {
     self.id = id
     self.name = name
     self.prefixes = prefixes
   }
+
+  // MARK: Instance Properties
 
   var name: String
   var id: String
@@ -31,13 +21,14 @@ struct Vendor: Comparable, Equatable {
   var title: String {
     [name, " ・ ", String(prefixes.count)].joined()
   }
-
-  static func <(lhs: Self, rhs: Self) -> Bool {
-    lhs.name < rhs.name
-  }
-
 }
 
-func ==(lhs: Vendor, rhs: Vendor) -> Bool {
-  lhs.name == rhs.name
+extension Vendor: Comparable {
+  static func == (lhs: Vendor, rhs: Vendor) -> Bool {
+    lhs.name == rhs.name
+  }
+
+  static func < (lhs: Vendor, rhs: Vendor) -> Bool {
+    lhs.name < rhs.name
+  }
 }

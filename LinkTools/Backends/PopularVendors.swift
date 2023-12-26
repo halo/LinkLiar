@@ -46,9 +46,9 @@ struct PopularVendors {
 
   // MARK: Private Class Properties
 
-  private static var all: [Vendor] {
-    PopularVendorsDatabase.dictionary.keys.sorted().reversed().compactMap {
+  static var all: [Vendor] {
+    PopularVendorsDatabase.dictionary.keys.reversed().compactMap {
       find($0)
-    }
+    }.sorted()
   }
 }

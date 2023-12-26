@@ -12,7 +12,8 @@ struct PolicyIgnoreOrDefaultView: View {
     // true means it is anything else
     let value = Binding<Bool>(
       get: { state.config.policy(interface.hardMAC).action != .ignore },
-      set: { value, _ in Config.Writer(state).setInterfaceActionIgnoredness(interface: interface, isIgnored: !value) })
+      set: { value, _ in Config.Writer(state).setInterfaceActionIgnoredness(interface: interface, isIgnored: !value) }
+    )
 
     GroupBox {
       HStack(alignment: .top) {
