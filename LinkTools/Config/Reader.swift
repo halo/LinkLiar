@@ -36,6 +36,13 @@ extension Config {
     }
 
     ///
+    /// Queries the global list of Vendor MAC prefixes.
+    ///
+    var general: Vendors {
+      Vendors(dictionary: dictionary)
+    }
+
+    ///
     /// Queries settings of one Interface.
     ///
     func policy(_ hardMAC: MACAddress) -> Policy {

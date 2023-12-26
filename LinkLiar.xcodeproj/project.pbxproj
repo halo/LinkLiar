@@ -44,6 +44,10 @@
 		C2456FB52B3AFB8F007D7AEA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */; };
 		C2456FB72B3AFD95007D7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2456FB62B3AFD95007D7AEA /* Assets.xcassets */; };
 		C2456FB92B3B003E007D7AEA /* VendorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FB82B3B003E007D7AEA /* VendorsView.swift */; };
+		C2456FBC2B3B025D007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
+		C2456FBD2B3B025D007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
+		C2456FBF2B3B0387007D7AEA /* MACPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBE2B3B0387007D7AEA /* MACPrefix.swift */; };
+		C2456FC02B3B0387007D7AEA /* MACPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBE2B3B0387007D7AEA /* MACPrefix.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -177,6 +181,8 @@
 		C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesView.swift; path = Sections/PreferencesView.swift; sourceTree = "<group>"; };
 		C2456FB62B3AFD95007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = "<group>"; };
 		C2456FB82B3B003E007D7AEA /* VendorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VendorsView.swift; path = Sections/VendorsView.swift; sourceTree = "<group>"; };
+		C2456FBB2B3B025D007D7AEA /* Vendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendors.swift; path = Config/Vendors.swift; sourceTree = "<group>"; };
+		C2456FBE2B3B0387007D7AEA /* MACPrefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACPrefix.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -276,6 +282,7 @@
 				C2F3DA1A2B35C8B800977572 /* General.swift */,
 				C2F3DA1C2B35C8B900977572 /* Policy.swift */,
 				C2F3DA2E2B3730E600977572 /* Arbiter.swift */,
+				C2456FBB2B3B025D007D7AEA /* Vendors.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -443,6 +450,7 @@
 				C22134752AEECFA300BCF30E /* Interface.swift */,
 				C22134762AEECFA300BCF30E /* Interfaces.swift */,
 				C225BDB12B1FBCD500FFD119 /* IntervalTimer.swift */,
+				C2456FBE2B3B0387007D7AEA /* MACPrefix.swift */,
 				C22134742AEECFA300BCF30E /* MACAddress.swift */,
 				C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */,
 				C29EAF7A2AE59F1F003578B9 /* Identifiers.swift */,
@@ -664,6 +672,7 @@
 				C2969EE12B278B1F00A9BB72 /* MACAddressFormatter.swift in Sources */,
 				C221347A2AEECFA300BCF30E /* Interface.swift in Sources */,
 				C221348D2AEEDDAA00BCF30E /* Notifications.swift in Sources */,
+				C2456FBF2B3B0387007D7AEA /* MACPrefix.swift in Sources */,
 				C2969F102B278E2A00A9BB72 /* SettingsView.swift in Sources */,
 				C2969EE22B278B1F00A9BB72 /* Controller.swift in Sources */,
 				C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */,
@@ -676,6 +685,7 @@
 				C2969F1E2B278E2A00A9BB72 /* RegisterDaemonView.swift in Sources */,
 				C2F3DA2A2B35CB3C00977572 /* Ifconfig.Reader.swift in Sources */,
 				C22134692AEC37E600BCF30E /* Version.swift in Sources */,
+				C2456FBC2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C29EAF7B2AE59F1F003578B9 /* Identifiers.swift in Sources */,
 				C2969EDE2B278B1F00A9BB72 /* LinkState.swift in Sources */,
 				C2F3DA202B35C8B900977572 /* Reader.swift in Sources */,
@@ -729,7 +739,9 @@
 				C2F3DA252B35C8B900977572 /* AccessPointPolicy.swift in Sources */,
 				C221347F2AEECFA300BCF30E /* Interfaces.swift in Sources */,
 				C2F3DA1F2B35C8B900977572 /* General.swift in Sources */,
+				C2456FBD2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C221346B2AEC3D7500BCF30E /* Version.swift in Sources */,
+				C2456FC02B3B0387007D7AEA /* MACPrefix.swift in Sources */,
 				C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */,
 				C22134872AEED11A00BCF30E /* CFArray+Sequence.swift in Sources */,
 				C225BDB32B1FBCD500FFD119 /* IntervalTimer.swift in Sources */,
