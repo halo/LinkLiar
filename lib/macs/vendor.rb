@@ -72,7 +72,7 @@ module Macs
 
     attr_reader :prefixes
 
-    # Excluding what naturally could not be a Mac.
+    # Excluding what naturally could not be a MacBook.
     def denylist
       %w[
         Arris

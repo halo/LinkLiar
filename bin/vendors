@@ -7,10 +7,13 @@ require 'macs'
 # ------------------------------------
 
 result = []
-result.push "// This file was auto-generated #{Date.today} using `bin/vendors`"
-result.push "// If this file changes, don't forget that you need to re-install the daemon for the changes to take effect."
+result.push "// Copyright (c) halo"
+result.push "// SPDX-License-Identifier: MIT"
+result.push ""
+result.push "// This file was auto-generated #{Date.today} using `bin/vendors`."
+result.push "// If this file changes, don't forget to restart the daemon for the changes to take effect."
 result.push ''
-result.push 'struct MACPrefixes {'
+result.push 'struct PopularVendors {'
 result.push '  static var dictionary: [String: [String:[UInt32]]] {'
 result.push '    return ['
 result.push Macs::Vendors.all.map(&:to_swift)
@@ -18,4 +21,7 @@ result.push '    ]'
 result.push '  }'
 result.push '}'
 
-Pathname.new('LinkTools/MACPrefixes.swift').write result.join("\n")
+path = Pathname.new('LinkTools/Backends/PopularVendors.swift')
+puts "Writing to #{path}"
+
+path.write result.join("\n")
