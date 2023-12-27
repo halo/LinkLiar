@@ -62,6 +62,13 @@ class Sync {
       return RandomMACs.generate()
     }
 
+    if !arbiter.prefixes.contains(interface.softPrefix) {
+      Log.debug("Interface \(interface.BSDName) has an unallowed prefix \(interface.softPrefix) randomizing.")
+      return RandomMACs.generate()
+    } else {
+      Log.debug("The Interface \(interface.BSDName) has the sanctioned prefix \(interface.softMAC).")
+    }
+
     return nil
   }
 

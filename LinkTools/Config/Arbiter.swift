@@ -32,6 +32,14 @@ extension Config {
       return config.fallbackPolicy.address
     }
 
+    var prefixes: [MACPrefix] {
+      if !config.vendors.chosenPopular.isEmpty {
+        return config.vendors.chosenPopular.flatMap { $0.prefixes }
+      }
+
+      return PopularVendors.find("apple")!.prefixes
+    }
+
     // MARK: Private Instance Properties
 
     private var config: Config.Reader

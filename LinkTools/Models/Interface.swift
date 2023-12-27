@@ -62,6 +62,10 @@ class Interface: Identifiable {
     MACAddress(_softMAC)
   }
 
+  var softPrefix: MACPrefix {
+    MACPrefix(softMAC.prefix)
+  }
+
   // MARK: Instance Methods
 
   /// Asks ``Ifconfig`` to fetch the soft MAC of this Interface.
@@ -149,11 +153,6 @@ class Interface: Identifiable {
   /// This is where we keep the software MAC address as a String.
   /// This variable is populated asynchronously using ``Ifconfig``.
   private var _softMAC = ""
-
-  //  var softPrefix: MACPrefix {
-  //    return MACPrefix(softMAC.prefix)
-  //  }
-
 }
 
 extension Interface: Comparable {
