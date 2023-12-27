@@ -44,6 +44,10 @@ struct PopularVendors {
     return Vendor(id: id, name: name, prefixes: prefixes)
   }
 
+  static func find(_ ids: [String]) -> [Vendor] {
+    ids.compactMap { find($0) }.sorted()
+  }
+
   // MARK: Private Class Properties
 
   static var all: [Vendor] {

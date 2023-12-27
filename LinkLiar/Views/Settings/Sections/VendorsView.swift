@@ -8,32 +8,45 @@ extension SettingsView {
   struct VendorsView: View {
     @Environment(LinkState.self) private var state
 
+    @State private var allVendors = PopularVendors.all
     @State private var selectedVendors = Set<Vendor.ID>()
     @State private var sortOrder = [KeyPathComparator(\Vendor.name)]
-    @State private var vendors = PopularVendors.all
 
     var body: some View {
-      let value = Binding<Bool>(
-        get: { true },
-        set: { _, _ in }
-      )
+//      selectedVendors = state.config.vendors.chosenPopular.map { $0.id }
+
+//      let chosenVendors: [String] = state.config.vendors.chosenPopular.map { $0.id }
 
       VStack {
         Text("Vendors...")
 
-        Table(vendors, selection: $selectedVendors, sortOrder: $sortOrder) {
-
-          TableColumn("") { _ in
-            Toggle(isOn: value) {}
-          }.width(20)
+        Table(allVendors, selection: $selectedVendors, sortOrder: $sortOrder) {
+//
+////          let chosen = Binding<Bool>(
+////            get: {
+////              chosenVendors.contains(where: { $0.id == \.id })
+////            },
+////            set: { _, _ in }
+////         )
+//
+//          TableColumn("") { _ in
+//            Toggle(isOn: \.isChosen)
+//
+//          }.width(20)
 
           TableColumn("Name", value: \.name)
-            .width(380)
+            .width(360)
           TableColumn("Prefixes") { vendor in
             Text("\(vendor.prefixes.count)")
           }.width(50)
+
         }.onChange(of: sortOrder) {
-          vendors.sort(using: $0)
+          allVendors.sort(using: sortOrder)
+
+        }.onChange(of: selectedVendors) {
+          let vendorIds = selectedVendors.map { String($0) }
+          let newVendors = PopularVendors.find(vendorIds)
+          Config.Writer(state).setVendors(vendors: newVendors)
         }
       }.padding()
     }

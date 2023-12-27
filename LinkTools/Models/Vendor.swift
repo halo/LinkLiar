@@ -3,7 +3,9 @@
 
 import Foundation
 
-struct Vendor: Identifiable {
+@Observable
+
+class Vendor: Identifiable, Hashable {
   // MARK: Class Methods
 
   init(id: String, name: String, prefixes: [MACPrefix]) {
@@ -18,8 +20,16 @@ struct Vendor: Identifiable {
   var id: String
   var prefixes: [MACPrefix]
 
+  var isChosen: Bool = false
+
   var title: String {
     [name, " ・ ", String(prefixes.count)].joined()
+  }
+
+  // MARK: Instance Methods
+
+  func hash(into hasher: inout Hasher) {
+      hasher.combine(id)
   }
 }
 

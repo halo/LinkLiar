@@ -98,6 +98,18 @@ extension Config {
       return removeInterfaceSsid(interface, ssid: ssid)
     }
 
+    func setVendors(vendors: [Vendor]) -> [String: Any] {
+      var dictionary = configDictionary
+
+      if vendors.isEmpty {
+        dictionary.removeValue(forKey: "vendors")
+      } else {
+        dictionary["vendors"] = vendors.map { $0.id }
+      }
+
+      return dictionary
+    }
+
     // MARK: Private Instance Properties
 
     private var configDictionary: [String: Any]
