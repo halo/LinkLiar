@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */; };
 		C225BDAD2B1FBA3A00FFD119 /* Synchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */; };
-		C225BDAE2B1FBA3A00FFD119 /* RandomMACs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */; };
 		C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAF2B1FBA4000FFD119 /* Listener.swift */; };
 		C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
@@ -55,6 +54,7 @@
 		C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C2456FFB2B3CBB08007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; };
+		C2456FFF2B3DA9B1007D7AEA /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C2456FFE2B3DA9B1007D7AEA /* oui.json */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -160,7 +160,6 @@
 /* Begin PBXFileReference section */
 		C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; };
 		C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronizer.swift; path = Classes/Synchronizer.swift; sourceTree = "<group>"; };
-		C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomMACs.swift; path = Classes/RandomMACs.swift; sourceTree = "<group>"; };
 		C225BDAF2B1FBA4000FFD119 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
 		C22F21A92B010C970086B621 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
 		C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroubleshootView.swift; path = Sections/TroubleshootView.swift; sourceTree = "<group>"; };
@@ -168,7 +167,7 @@
 		C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacePolicyView.swift; path = Sections/InterfacePolicyView.swift; sourceTree = "<group>"; };
 		C2456FB22B3AFB27007D7AEA /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeView.swift; path = Sections/WelcomeView.swift; sourceTree = "<group>"; };
 		C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesView.swift; path = Sections/PreferencesView.swift; sourceTree = "<group>"; };
-		C2456FB62B3AFD95007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = "<group>"; };
+		C2456FB62B3AFD95007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2456FB82B3B003E007D7AEA /* VendorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VendorsView.swift; path = Sections/VendorsView.swift; sourceTree = "<group>"; };
 		C2456FBB2B3B025D007D7AEA /* Vendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendors.swift; path = Config/Vendors.swift; sourceTree = "<group>"; };
 		C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.Reader.swift; path = Backends/Ifconfig.Reader.swift; sourceTree = "<group>"; };
@@ -187,8 +186,9 @@
 		C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeObserver.swift; path = Observers/TimeObserver.swift; sourceTree = "<group>"; };
 		C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorsDatabase.swift; path = Backends/PopularVendorsDatabase.swift; sourceTree = "<group>"; };
-		C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = io.github.halo.LinkLiar.linkdaemon.plist; path = LinkLiar/io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = "<group>"; };
-		C2456FF92B3CBAF9007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = "<group>"; };
+		C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = "<group>"; };
+		C2456FF92B3CBAF9007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = LinkLiar.entitlements; sourceTree = "<group>"; };
+		C2456FFE2B3DA9B1007D7AEA /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -271,7 +271,6 @@
 				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
 				C2F3DA2C2B36C71A00977572 /* Sync.swift */,
 				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
-				C225BDAC2B1FBA3A00FFD119 /* RandomMACs.swift */,
 				C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */,
 			);
 			name = Classes;
@@ -360,10 +359,20 @@
 			name = Observers;
 			sourceTree = "<group>";
 		};
-		C266991C2AE55EFC00592008 = {
+		C24570002B3DA9B6007D7AEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				C2456FB62B3AFD95007D7AEA /* Assets.xcassets */,
+				C2456FF92B3CBAF9007D7AEA /* LinkLiar.entitlements */,
+				C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */,
+				C2456FFE2B3DA9B1007D7AEA /* oui.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C266991C2AE55EFC00592008 = {
+			isa = PBXGroup;
+			children = (
 				C26699272AE55EFC00592008 /* LinkLiar */,
 				C26699692AE57A3100592008 /* linkdaemon */,
 				C29EAF752AE59EE7003578B9 /* LinkTools */,
@@ -388,11 +397,10 @@
 		C26699272AE55EFC00592008 /* LinkLiar */ = {
 			isa = PBXGroup;
 			children = (
-				C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */,
-				C2456FF92B3CBAF9007D7AEA /* LinkLiar.entitlements */,
 				C2969EF82B278B2B00A9BB72 /* LinkLiarApp.swift */,
 				C2969EBF2B278B1F00A9BB72 /* Classes */,
 				C2969EFA2B278E2A00A9BB72 /* Views */,
+				C24570002B3DA9B6007D7AEA /* Resources */,
 			);
 			name = LinkLiar;
 			sourceTree = "<group>";
@@ -637,6 +645,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2456FB72B3AFD95007D7AEA /* Assets.xcassets in Resources */,
+				C2456FFF2B3DA9B1007D7AEA /* oui.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +802,6 @@
 				C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */,
 				C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
 				C2F3DA2D2B36C71A00977572 /* Sync.swift in Sources */,
-				C225BDAE2B1FBA3A00FFD119 /* RandomMACs.swift in Sources */,
 				C2456FE52B3B1708007D7AEA /* Paths.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
 				C2F3DA232B35C8B900977572 /* Policy.swift in Sources */,

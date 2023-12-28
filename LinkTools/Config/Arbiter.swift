@@ -24,6 +24,14 @@ extension Config {
       return .ignore
     }
 
+    var prefixes: [MACPrefix] {
+      if !config.vendors.chosenPopular.isEmpty {
+        return config.vendors.chosenPopular.flatMap { $0.prefixes }
+      }
+
+      return PopularVendors.find("apple")!.prefixes
+    }
+
     var address: MACAddress? {
       if let interfaceSpecificAddress = config.policy(hardMAC).address {
         return interfaceSpecificAddress
@@ -32,12 +40,21 @@ extension Config {
       return config.fallbackPolicy.address
     }
 
-    var prefixes: [MACPrefix] {
-      if !config.vendors.chosenPopular.isEmpty {
-        return config.vendors.chosenPopular.flatMap { $0.prefixes }
-      }
+    var exceptionAddress: MACAddress? {
+      config.policy(hardMAC).exceptionAddress
+    }
 
-      return PopularVendors.find("apple")!.prefixes
+    // MARK: Instance Methods
+
+    func randomAddress() -> MACAddress {
+      let prefix = prefixes.randomElement()!
+      let suffix = [
+        String(Int.random(in: 0..<256), radix: 16, uppercase: false),
+        String(Int.random(in: 0..<256), radix: 16, uppercase: false),
+        String(Int.random(in: 0..<256), radix: 16, uppercase: false)
+      ].joined()
+
+      return MACAddress([prefix.formatted, suffix].joined())
     }
 
     // MARK: Private Instance Properties

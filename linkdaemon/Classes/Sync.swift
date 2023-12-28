@@ -59,17 +59,28 @@ class Sync {
   private var randomize: MACAddress? {
     if interface.hasOriginalMAC {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has its original MAC address.")
-      return RandomMACs.generate()
+      return arbiter.randomAddress()
     }
 
     if !arbiter.prefixes.contains(interface.softPrefix) {
       Log.debug("Interface \(interface.BSDName) has an unallowed prefix \(interface.softPrefix) randomizing.")
-      return RandomMACs.generate()
+      return arbiter.randomAddress()
     } else {
       Log.debug("The Interface \(interface.BSDName) has the sanctioned prefix \(interface.softMAC).")
     }
 
+    guard let undesiredAddress = arbiter.exceptionAddress else {
+      Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random and no undesired address has been specified.")
+      return nil
+    }
+
+    if interface.softMAC == undesiredAddress {
+      Log.debug("Randomizing Interface \(interface.BSDName) because it currently has the undesired address \(undesiredAddress.humanReadable).")
+      return arbiter.randomAddress()
+    }
+
+    Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random does not have the undesired address \(undesiredAddress.humanReadable).")
+
     return nil
   }
-
 }

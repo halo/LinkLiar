@@ -21,7 +21,7 @@ struct PopularVendors {
 
   ///
   /// Looks up a Vendor by its ID.
-  /// If no vendor was found, returns nil.
+  /// If no vendor was found, or it has no valid prefixes, returns nil.
   ///
   /// The ID is really just a nickname as String, nothing official.
   /// It is used as a convenience shortcut in the LinkLiar config file.
@@ -39,7 +39,9 @@ struct PopularVendors {
 
     let prefixes = rawPrefixes.map { rawPrefix in
       MACPrefix(String(format: "%06X", rawPrefix))
-    }
+    }.filter { $0.isValid }
+
+    if prefixes.isEmpty { return nil }
 
     return Vendor(id: id, name: name, prefixes: prefixes)
   }
