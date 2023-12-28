@@ -4,7 +4,7 @@
 import XCTest
 @testable import LinkLiar
 
-class ConfigurationBuilderTests: XCTestCase {
+class ConfigBuilderTests: XCTestCase {
 
   func testRemoveInterfaceSsidOne() {
     let state = LinkState([
@@ -15,7 +15,7 @@ class ConfigurationBuilderTests: XCTestCase {
           ]
         ]
     ])
-    let builder = Configuration.Builder(state.configDictionary)
+    let builder = Config.Builder(state.configDictionary)
     let dictionary = builder.removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
 
     XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
@@ -35,7 +35,7 @@ class ConfigurationBuilderTests: XCTestCase {
           ["Coffeeshop": "aa:aa:aa:aa:aa:aa"]
         ]
     ])
-    let builder = Configuration.Builder(state.configDictionary)
+    let builder = Config.Builder(state.configDictionary)
     let dictionary = builder.removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
 
     XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
@@ -51,7 +51,7 @@ class ConfigurationBuilderTests: XCTestCase {
           ["Coffeeshop": "aa:aa:aa:aa:aa:aa"]
         ]
     ])
-    let builder = Configuration.Builder(state.configDictionary)
+    let builder = Config.Builder(state.configDictionary)
     let dictionary = builder.removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
 
     XCTAssertEqual([], Array(dictionary.keys))

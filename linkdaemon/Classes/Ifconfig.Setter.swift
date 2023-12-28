@@ -22,7 +22,7 @@ extension Ifconfig {
 
     func setSoftMAC(_ address: MACAddress) {
       guard address.isValid else {
-        Log.info("Cannot apply MAC <\(address.humanReadable)> because it is not valid.")
+        Log.info("Cannot apply MAC <\(address.formatted)> because it is not valid.")
         return
       }
 

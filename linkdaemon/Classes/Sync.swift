@@ -63,23 +63,23 @@ class Sync {
     }
 
     if !arbiter.prefixes.contains(interface.softPrefix) {
-      Log.debug("Interface \(interface.BSDName) has an unallowed prefix \(interface.softPrefix) randomizing.")
+      Log.debug("Interface \(interface.BSDName) has an unallowed prefix \(interface.softPrefix.formatted) randomizing.")
       return arbiter.randomAddress()
     } else {
       Log.debug("The Interface \(interface.BSDName) has the sanctioned prefix \(interface.softMAC).")
     }
 
     guard let undesiredAddress = arbiter.exceptionAddress else {
-      Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random and no undesired address has been specified.")
+      Log.debug("\(interface.BSDName) is already random and no undesired address was specified.")
       return nil
     }
 
     if interface.softMAC == undesiredAddress {
-      Log.debug("Randomizing Interface \(interface.BSDName) because it currently has the undesired address \(undesiredAddress.humanReadable).")
+      Log.debug("Randomizing \(interface.BSDName) because it has undesired address \(undesiredAddress.humanReadable).")
       return arbiter.randomAddress()
     }
 
-    Log.debug("Skipping randomization of Interface \(interface.BSDName) because it is already random does not have the undesired address \(undesiredAddress.humanReadable).")
+    Log.debug("\(interface.BSDName) is already random but not undesired address \(undesiredAddress.humanReadable).")
 
     return nil
   }

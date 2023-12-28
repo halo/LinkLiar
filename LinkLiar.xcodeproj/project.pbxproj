@@ -55,6 +55,8 @@
 		C24570072B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; };
 		C24570082B3DB045007D7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C24570042B3DB045007D7AEA /* Assets.xcassets */; };
 		C24570092B3DB045007D7AEA /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C24570052B3DB045007D7AEA /* oui.json */; };
+		C245700A2B3DB24E007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FDF2B3B1708007D7AEA /* Identifiers.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -62,7 +64,7 @@
 		C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C28E032B2B0BD5EB0074EC94 /* LinkDaemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */; };
-		C2969EB92B24BE1B00A9BB72 /* ConfigurationBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EB82B24BE1B00A9BB72 /* ConfigurationBuilderTests.swift */; };
+		C2969EB92B24BE1B00A9BB72 /* ConfigBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */; };
 		C2969EDE2B278B1F00A9BB72 /* LinkState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC02B278B1F00A9BB72 /* LinkState.swift */; };
 		C2969EDF2B278B1F00A9BB72 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC22B278B1F00A9BB72 /* Builder.swift */; };
 		C2969EE02B278B1F00A9BB72 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC32B278B1F00A9BB72 /* Writer.swift */; };
@@ -91,7 +93,7 @@
 		C29EAF802AE5A202003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		C2ADC8532B22293B002A2905 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */; };
+		C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8522B22293A002A2905 /* ConfigTests.swift */; };
 		C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */; };
 		C2D819522B2A2FDC00991D38 /* Ifconfig.Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */; };
@@ -139,6 +141,7 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolderSpec = 1;
 			files = (
+				C245700A2B3DB24E007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */,
 			);
 			name = "Copy Agent Property Lists";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,7 +202,7 @@
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
 		C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
 		C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkDaemon.swift; sourceTree = "<group>"; };
-		C2969EB82B24BE1B00A9BB72 /* ConfigurationBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationBuilderTests.swift; sourceTree = "<group>"; };
+		C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigBuilderTests.swift; sourceTree = "<group>"; };
 		C2969EC02B278B1F00A9BB72 /* LinkState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkState.swift; sourceTree = "<group>"; };
 		C2969EC22B278B1F00A9BB72 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		C2969EC32B278B1F00A9BB72 /* Writer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
@@ -226,7 +229,7 @@
 		C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
+		C2ADC8522B22293A002A2905 /* ConfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPolicyTests.swift; sourceTree = "<group>"; };
 		C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.Setter.swift; path = Classes/Ifconfig.Setter.swift; sourceTree = "<group>"; };
 		C2F3DA1A2B35C8B800977572 /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = General.swift; path = Config/General.swift; sourceTree = "<group>"; };
@@ -408,8 +411,8 @@
 			isa = PBXGroup;
 			children = (
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
-				C2ADC8522B22293A002A2905 /* ConfigurationTests.swift */,
-				C2969EB82B24BE1B00A9BB72 /* ConfigurationBuilderTests.swift */,
+				C2ADC8522B22293A002A2905 /* ConfigTests.swift */,
+				C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */,
 				C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */,
 			);
 			path = LinkLiarTests;
@@ -482,11 +485,11 @@
 		C2969F092B278E2A00A9BB72 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				C2969F0E2B278E2A00A9BB72 /* MenuView.swift */,
 				C2969F0A2B278E2A00A9BB72 /* ApproveDaemonView.swift */,
 				C2969F0B2B278E2A00A9BB72 /* RegisterDaemonView.swift */,
 				C2969F0C2B278E2A00A9BB72 /* ConfirmQuittingView.swift */,
 				C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */,
-				C2969F0E2B278E2A00A9BB72 /* MenuView.swift */,
 				C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */,
 			);
 			path = Menu;
@@ -754,10 +757,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2969EB92B24BE1B00A9BB72 /* ConfigurationBuilderTests.swift in Sources */,
+				C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */,
+				C2969EB92B24BE1B00A9BB72 /* ConfigBuilderTests.swift in Sources */,
 				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
 				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
-				C2ADC8532B22293B002A2905 /* ConfigurationTests.swift in Sources */,
+				C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 			);

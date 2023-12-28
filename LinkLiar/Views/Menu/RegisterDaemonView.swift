@@ -7,7 +7,7 @@ struct RegisterDaemonView: View {
   @Environment(LinkState.self) private var state
 
   var body: some View {
-    if state.daemonRegistration == .notRegistered {
+    if state.daemonRegistration == .notRegistered || state.daemonRegistration == .notFound {
       VStack {
         Image(systemName: "sparkles")
           .font(.system(size: 40))
@@ -15,9 +15,10 @@ struct RegisterDaemonView: View {
 
         Text("The LinkLiar background service\nis not installed yet. Please install\nit first.")
 
-        Button(action: { Controller.registerDaemon(state: state) }) {
+        Button(action: { Controller.registerDaemon(state: state) },
+               label: {
           Text("Install")
-        }
+        })
         .buttonStyle(.borderedProminent)
 
         Divider().padding(.vertical, 5)
