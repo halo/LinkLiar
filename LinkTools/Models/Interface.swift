@@ -19,17 +19,7 @@ class Interface: Identifiable {
   /// Upon initialization we assign what we already know.
   init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
     self.BSDName = BSDName
-
-    // Not sure why, but some Ethernet interfaces have this reduntantly in their name
-    self.displayName = displayName
-      .replacingOccurrences(of: "(en0)", with: "")
-      .replacingOccurrences(of: "(en1)", with: "")
-      .replacingOccurrences(of: "(en2)", with: "")
-      .replacingOccurrences(of: "(en3)", with: "")
-      .replacingOccurrences(of: "(en4)", with: "")
-      .replacingOccurrences(of: "(en5)", with: "")
-      .replacingOccurrences(of: "(en6)", with: "")
-      .trimmingCharacters(in: .whitespaces)
+    self.rawDisplayName = displayName
     self.kind = kind
     self._hardMAC = hardMAC
     self._softMAC = ""
@@ -47,9 +37,22 @@ class Interface: Identifiable {
   var id: String { hardMAC.isValid ? hardMAC.formatted : BSDName }
 
   // These attributes are known instantaneously when querying the operating system.
+  // So we can set them to an empty String, knowing they will be populated at once.
   var BSDName = ""
-  var displayName = ""
   var kind = ""
+
+  // Not sure why, but some Ethernet interfaces have this reduntantly in their name
+  var displayName: String {
+    rawDisplayName
+      .replacingOccurrences(of: "(en0)", with: "")
+      .replacingOccurrences(of: "(en1)", with: "")
+      .replacingOccurrences(of: "(en2)", with: "")
+      .replacingOccurrences(of: "(en3)", with: "")
+      .replacingOccurrences(of: "(en4)", with: "")
+      .replacingOccurrences(of: "(en5)", with: "")
+      .replacingOccurrences(of: "(en6)", with: "")
+      .trimmingCharacters(in: .whitespaces)
+  }
 
   /// Exposes the hardware MAC as an object.
   var hardMAC: MACAddress {
@@ -59,9 +62,7 @@ class Interface: Identifiable {
   /// Exposes the software MAC as an object.
   /// Whether it is already known or not.
   var softMAC: MACAddress {
-    if let override = overrideSoftMacInTests {
-      return override
-    }
+    if let override = overrideSoftMacInTests { return override }
 
     return MACAddress(_softMAC)
   }
@@ -159,6 +160,8 @@ class Interface: Identifiable {
   /// This is where we keep the software MAC address as a String.
   /// This variable is populated asynchronously using ``Ifconfig``.
   private var _softMAC = ""
+
+  private var rawDisplayName = ""
 }
 
 extension Interface: Comparable {

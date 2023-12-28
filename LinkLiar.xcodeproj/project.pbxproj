@@ -73,6 +73,8 @@
 		C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */; };
 		C245701B2B3DB709007D7AEA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC22B278B1F00A9BB72 /* Builder.swift */; };
 		C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */; };
+		C245701E2B3E032C007D7AEA /* WifiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245701D2B3E032C007D7AEA /* WifiState.swift */; };
+		C245701F2B3E032C007D7AEA /* WifiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245701D2B3E032C007D7AEA /* WifiState.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -208,6 +210,7 @@
 		C24570052B3DB045007D7AEA /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = oui.json; path = LinkLiar/oui.json; sourceTree = SOURCE_ROOT; };
 		C24570062B3DB045007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = SOURCE_ROOT; };
 		C245700D2B3DB5B4007D7AEA /* SynchronizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeTests.swift; sourceTree = "<group>"; };
+		C245701D2B3E032C007D7AEA /* WifiState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WifiState.swift; path = Classes/WifiState.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 				C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */,
 				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
 				C2F3DA2C2B36C71A00977572 /* Synchronize.swift */,
+				C245701D2B3E032C007D7AEA /* WifiState.swift */,
 				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
 				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
 				C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */,
@@ -777,6 +781,7 @@
 			files = (
 				C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */,
 				C245701B2B3DB709007D7AEA /* Builder.swift in Sources */,
+				C245701F2B3E032C007D7AEA /* WifiState.swift in Sources */,
 				C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */,
 				C24570192B3DB6F9007D7AEA /* MACPrefix.swift in Sources */,
 				C24570182B3DB6F0007D7AEA /* Arbiter.swift in Sources */,
@@ -843,6 +848,7 @@
 				C2456FE52B3B1708007D7AEA /* Paths.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
 				C2F3DA232B35C8B900977572 /* Policy.swift in Sources */,
+				C245701E2B3E032C007D7AEA /* WifiState.swift in Sources */,
 				C225BDAD2B1FBA3A00FFD119 /* Synchronizer.swift in Sources */,
 				C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C2456FED2B3B1809007D7AEA /* FileObserver.swift in Sources */,
