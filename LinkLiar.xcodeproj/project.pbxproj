@@ -17,7 +17,6 @@
 		C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */; };
 		C2456FB32B3AFB27007D7AEA /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FB22B3AFB27007D7AEA /* WelcomeView.swift */; };
 		C2456FB52B3AFB8F007D7AEA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */; };
-		C2456FB72B3AFD95007D7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2456FB62B3AFD95007D7AEA /* Assets.xcassets */; };
 		C2456FB92B3B003E007D7AEA /* VendorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FB82B3B003E007D7AEA /* VendorsView.swift */; };
 		C2456FBC2B3B025D007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
 		C2456FBD2B3B025D007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
@@ -53,8 +52,9 @@
 		C2456FF42B3B1874007D7AEA /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */; };
 		C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
-		C2456FFB2B3CBB08007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; };
-		C2456FFF2B3DA9B1007D7AEA /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C2456FFE2B3DA9B1007D7AEA /* oui.json */; };
+		C24570072B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; };
+		C24570082B3DB045007D7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C24570042B3DB045007D7AEA /* Assets.xcassets */; };
+		C24570092B3DB045007D7AEA /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C24570052B3DB045007D7AEA /* oui.json */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -139,7 +139,6 @@
 			dstPath = Contents/Library/LaunchDaemons;
 			dstSubfolderSpec = 1;
 			files = (
-				C2456FFB2B3CBB08007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */,
 			);
 			name = "Copy Agent Property Lists";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,7 +166,6 @@
 		C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacePolicyView.swift; path = Sections/InterfacePolicyView.swift; sourceTree = "<group>"; };
 		C2456FB22B3AFB27007D7AEA /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeView.swift; path = Sections/WelcomeView.swift; sourceTree = "<group>"; };
 		C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesView.swift; path = Sections/PreferencesView.swift; sourceTree = "<group>"; };
-		C2456FB62B3AFD95007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C2456FB82B3B003E007D7AEA /* VendorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VendorsView.swift; path = Sections/VendorsView.swift; sourceTree = "<group>"; };
 		C2456FBB2B3B025D007D7AEA /* Vendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendors.swift; path = Config/Vendors.swift; sourceTree = "<group>"; };
 		C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.Reader.swift; path = Backends/Ifconfig.Reader.swift; sourceTree = "<group>"; };
@@ -186,9 +184,10 @@
 		C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeObserver.swift; path = Observers/TimeObserver.swift; sourceTree = "<group>"; };
 		C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorsDatabase.swift; path = Backends/PopularVendorsDatabase.swift; sourceTree = "<group>"; };
-		C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = "<group>"; };
-		C2456FF92B3CBAF9007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = LinkLiar.entitlements; sourceTree = "<group>"; };
-		C2456FFE2B3DA9B1007D7AEA /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = oui.json; sourceTree = "<group>"; };
+		C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = io.github.halo.LinkLiar.linkdaemon.plist; path = LinkLiar/io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = SOURCE_ROOT; };
+		C24570042B3DB045007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		C24570052B3DB045007D7AEA /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = oui.json; path = LinkLiar/oui.json; sourceTree = SOURCE_ROOT; };
+		C24570062B3DB045007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = SOURCE_ROOT; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -362,10 +361,10 @@
 		C24570002B3DA9B6007D7AEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C2456FB62B3AFD95007D7AEA /* Assets.xcassets */,
-				C2456FF92B3CBAF9007D7AEA /* LinkLiar.entitlements */,
-				C2456FF82B3CBAF9007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */,
-				C2456FFE2B3DA9B1007D7AEA /* oui.json */,
+				C24570042B3DB045007D7AEA /* Assets.xcassets */,
+				C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */,
+				C24570062B3DB045007D7AEA /* LinkLiar.entitlements */,
+				C24570052B3DB045007D7AEA /* oui.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -644,8 +643,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2456FB72B3AFD95007D7AEA /* Assets.xcassets in Resources */,
-				C2456FFF2B3DA9B1007D7AEA /* oui.json in Resources */,
+				C24570072B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */,
+				C24570082B3DB045007D7AEA /* Assets.xcassets in Resources */,
+				C24570092B3DB045007D7AEA /* oui.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
