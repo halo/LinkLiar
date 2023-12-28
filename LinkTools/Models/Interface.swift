@@ -59,7 +59,11 @@ class Interface: Identifiable {
   /// Exposes the software MAC as an object.
   /// Whether it is already known or not.
   var softMAC: MACAddress {
-    MACAddress(_softMAC)
+    if let override = overrideSoftMacInTests {
+      return override
+    }
+
+    return MACAddress(_softMAC)
   }
 
   var softPrefix: MACPrefix {
@@ -138,6 +142,8 @@ class Interface: Identifiable {
 
     return "cable.connector.horizontal"
   }
+
+  var overrideSoftMacInTests: MACAddress?
 
   // MARK: Instance Methods
 

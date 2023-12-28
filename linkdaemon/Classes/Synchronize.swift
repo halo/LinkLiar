@@ -4,7 +4,7 @@
 import CoreWLAN
 import Foundation
 
-class Sync {
+class Synchronize {
   // MARK: Class Methods
 
   init(interface: Interface, arbiter: Config.Arbiter) {

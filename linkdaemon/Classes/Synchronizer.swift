@@ -15,7 +15,7 @@ class Synchronizer {
 
       for interface in interfaces {
         let arbiter = config.arbiter(interface.hardMAC)
-        let sync = Sync(interface: interface, arbiter: arbiter)
+        let sync = Synchronize(interface: interface, arbiter: arbiter)
 
         if let newSoftMac = sync.newSoftMAC {
           Ifconfig.Setter(interface.BSDName).setSoftMAC(newSoftMac)

@@ -10,7 +10,7 @@ extension Config {
       self.hardMAC = hardMAC
     }
 
-    // MARK: Public Instance Properties
+    // MARK: Instance Properties
 
     var action: Interface.Action {
       if let interfaceSpecificAction = config.policy(hardMAC).action {
@@ -44,9 +44,15 @@ extension Config {
       config.policy(hardMAC).exceptionAddress
     }
 
+    var overrideAddressInTests: MACAddress?
+
     // MARK: Instance Methods
 
     func randomAddress() -> MACAddress {
+      if let override = overrideAddressInTests {
+        return override
+      }
+
       let prefix = prefixes.randomElement()!
       let suffix = [
         String(Int.random(in: 0..<256), radix: 16, uppercase: false),

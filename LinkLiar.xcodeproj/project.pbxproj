@@ -57,6 +57,22 @@
 		C24570092B3DB045007D7AEA /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C24570052B3DB045007D7AEA /* oui.json */; };
 		C245700A2B3DB24E007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Copy Agent Property Lists */ = {isa = PBXBuildFile; fileRef = C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FDF2B3B1708007D7AEA /* Identifiers.swift */; };
+		C245700C2B3DB59D007D7AEA /* Synchronize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2C2B36C71A00977572 /* Synchronize.swift */; };
+		C245700E2B3DB5B4007D7AEA /* SynchronizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245700D2B3DB5B4007D7AEA /* SynchronizeTests.swift */; };
+		C245700F2B3DB696007D7AEA /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD32B3B16F7007D7AEA /* Interface.swift */; };
+		C24570102B3DB69E007D7AEA /* Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1B2B35C8B900977572 /* Reader.swift */; };
+		C24570112B3DB6AC007D7AEA /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1A2B35C8B800977572 /* General.swift */; };
+		C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
+		C24570132B3DB6C5007D7AEA /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1C2B35C8B900977572 /* Policy.swift */; };
+		C24570142B3DB6C5007D7AEA /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */; };
+		C24570152B3DB6D2007D7AEA /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD02B3B16F7007D7AEA /* Vendor.swift */; };
+		C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */; };
+		C24570172B3DB6DD007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
+		C24570182B3DB6F0007D7AEA /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
+		C24570192B3DB6F9007D7AEA /* MACPrefix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */; };
+		C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */; };
+		C245701B2B3DB709007D7AEA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC22B278B1F00A9BB72 /* Builder.swift */; };
+		C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -105,7 +121,7 @@
 		C2F3DA232B35C8B900977572 /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1C2B35C8B900977572 /* Policy.swift */; };
 		C2F3DA242B35C8B900977572 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */; };
 		C2F3DA252B35C8B900977572 /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */; };
-		C2F3DA2D2B36C71A00977572 /* Sync.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2C2B36C71A00977572 /* Sync.swift */; };
+		C2F3DA2D2B36C71A00977572 /* Synchronize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2C2B36C71A00977572 /* Synchronize.swift */; };
 		C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 		C2F3DA302B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 /* End PBXBuildFile section */
@@ -191,6 +207,7 @@
 		C24570042B3DB045007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C24570052B3DB045007D7AEA /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = oui.json; path = LinkLiar/oui.json; sourceTree = SOURCE_ROOT; };
 		C24570062B3DB045007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = SOURCE_ROOT; };
+		C245700D2B3DB5B4007D7AEA /* SynchronizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeTests.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -236,7 +253,7 @@
 		C2F3DA1B2B35C8B900977572 /* Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reader.swift; path = Config/Reader.swift; sourceTree = "<group>"; };
 		C2F3DA1C2B35C8B900977572 /* Policy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Policy.swift; path = Config/Policy.swift; sourceTree = "<group>"; };
 		C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessPointPolicy.swift; path = Config/AccessPointPolicy.swift; sourceTree = "<group>"; };
-		C2F3DA2C2B36C71A00977572 /* Sync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sync.swift; path = Classes/Sync.swift; sourceTree = "<group>"; };
+		C2F3DA2C2B36C71A00977572 /* Synchronize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronize.swift; path = Classes/Synchronize.swift; sourceTree = "<group>"; };
 		C2F3DA2E2B3730E600977572 /* Arbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arbiter.swift; path = Config/Arbiter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,8 +287,8 @@
 			children = (
 				C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */,
 				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
+				C2F3DA2C2B36C71A00977572 /* Synchronize.swift */,
 				C225BDAF2B1FBA4000FFD119 /* Listener.swift */,
-				C2F3DA2C2B36C71A00977572 /* Sync.swift */,
 				C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */,
 				C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */,
 			);
@@ -414,6 +431,7 @@
 				C2ADC8522B22293A002A2905 /* ConfigTests.swift */,
 				C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */,
 				C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */,
+				C245700D2B3DB5B4007D7AEA /* SynchronizeTests.swift */,
 			);
 			path = LinkLiarTests;
 			sourceTree = "<group>";
@@ -757,12 +775,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */,
+				C245701B2B3DB709007D7AEA /* Builder.swift in Sources */,
+				C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */,
+				C24570192B3DB6F9007D7AEA /* MACPrefix.swift in Sources */,
+				C24570182B3DB6F0007D7AEA /* Arbiter.swift in Sources */,
+				C24570172B3DB6DD007D7AEA /* PopularVendorsDatabase.swift in Sources */,
+				C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */,
+				C24570152B3DB6D2007D7AEA /* Vendor.swift in Sources */,
+				C24570132B3DB6C5007D7AEA /* Policy.swift in Sources */,
+				C24570142B3DB6C5007D7AEA /* MACAddress.swift in Sources */,
+				C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */,
+				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
+				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
+				C245700F2B3DB696007D7AEA /* Interface.swift in Sources */,
+				C245700C2B3DB59D007D7AEA /* Synchronize.swift in Sources */,
 				C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */,
 				C2969EB92B24BE1B00A9BB72 /* ConfigBuilderTests.swift in Sources */,
 				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
 				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
 				C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
+				C245700E2B3DB5B4007D7AEA /* SynchronizeTests.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -805,7 +839,7 @@
 				C2456FDB2B3B16F7007D7AEA /* MACPrefix.swift in Sources */,
 				C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */,
 				C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
-				C2F3DA2D2B36C71A00977572 /* Sync.swift in Sources */,
+				C2F3DA2D2B36C71A00977572 /* Synchronize.swift in Sources */,
 				C2456FE52B3B1708007D7AEA /* Paths.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
 				C2F3DA232B35C8B900977572 /* Policy.swift in Sources */,
