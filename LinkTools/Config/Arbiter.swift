@@ -40,6 +40,18 @@ extension Config {
       return config.fallbackPolicy.address
     }
 
+    func addressForSsid(_ ssid: String) -> MACAddress? {
+      guard action == .original || action == .specify || action == .random  else {
+        return nil
+      }
+
+      guard let accessPoint = config.policy(hardMAC).accessPoints.first(where: { $0.ssid == ssid }) else {
+        return nil
+      }
+
+      return accessPoint.softMAC
+    }
+
     var exceptionAddress: MACAddress? {
       config.policy(hardMAC).exceptionAddress
     }

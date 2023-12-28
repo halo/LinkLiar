@@ -121,23 +121,14 @@ class Interface: Identifiable {
     return true
   }
 
-  // This is a human readable representation of the Interface.
-  // It's simply its name and interface identifier (e.g. "Wi-Fi ∙ en1")
-  //  var title: String {
-  //    return "\(displayName) · \(BSDName)"
-  //  }
-
-  /// We cannot modify the MAC address of an Airport device that is turned off.
-  /// This method figures out whether this interface is turned off.
-  var isPoweredOffWifi: Bool {
-    guard let wifi = CWWiFiClient.shared().interface(withName: BSDName) else { return false }
-    return !wifi.powerOn()
-  }
-
   var isWifi: Bool {
-    guard CWWiFiClient.shared().interface(withName: BSDName) != nil else { return false }
-    return true
+   CWWiFiClient.shared().interface(withName: BSDName) != nil
   }
+
+  var associatedSsid: String? {
+    CWWiFiClient.shared().interface(withName: BSDName)?.ssid()
+  }
+
   var iconName: String {
     if kind == "IEEE80211" { return "wifi" }
 

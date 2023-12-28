@@ -15,12 +15,19 @@ class Synchronize {
   // MARK: Public Instance Properties
 
   var newSoftMAC: MACAddress? {
+    if let ssid = CWWiFiClient.shared().interface(withName: interface.BSDName)?.ssid() {
+      if let newMAC = arbiter.addressForSsid(ssid) {
+        Log.debug("\(interface.BSDName) connected to \(ssid) wants MAC \(newMAC.formatted).")
+        return newMAC
+      }
+    }
+
     switch arbiter.action {
     case .original: return originalize
     case .specify: return specify
     case .random: return randomize
     default:
-      Log.debug("Skipping Interface \(interface.BSDName) having calculated action \(arbiter.action)")
+      Log.debug("Skipping Interface \(interface.BSDName) having action \(arbiter.action)")
       return nil
     }
   }
