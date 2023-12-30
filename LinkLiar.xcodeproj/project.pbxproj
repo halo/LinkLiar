@@ -303,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				C2F3DA1B2B35C8B900977572 /* Reader.swift */,
-				C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */,
 				C2F3DA1A2B35C8B800977572 /* General.swift */,
 				C2F3DA1C2B35C8B900977572 /* Policy.swift */,
 				C2F3DA2E2B3730E600977572 /* Arbiter.swift */,
@@ -354,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				C2456FD32B3B16F7007D7AEA /* Interface.swift */,
+				C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */,
 				C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */,
 				C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */,
 				C2456FD02B3B16F7007D7AEA /* Vendor.swift */,

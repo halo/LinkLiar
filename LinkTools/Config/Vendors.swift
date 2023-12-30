@@ -9,7 +9,7 @@ extension Config {
     var dictionary: [String: Any]
 
     var chosenPopular: [Vendor] {
-      guard let vendorIDs = dictionary["vendors"] as? [String] else { return [] }
+      guard let vendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
 
       let vendors = Set(vendorIDs).compactMap { string -> Vendor? in
         PopularVendors.find(string)

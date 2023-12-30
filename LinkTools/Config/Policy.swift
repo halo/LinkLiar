@@ -33,7 +33,7 @@ extension Config {
     ///
     var action: Interface.Action? {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
-      guard let actionName = interfaceDictionary["action"] as? String else { return nil }
+      guard let actionName = interfaceDictionary[Config.Key.action.rawValue] as? String else { return nil }
 
       return Interface.Action(rawValue: actionName)
     }
@@ -45,7 +45,7 @@ extension Config {
     ///
     var address: MACAddress? {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
-      guard let rawAddress = interfaceDictionary["address"] as? String else { return nil }
+      guard let rawAddress = interfaceDictionary[Config.Key.address.rawValue] as? String else { return nil }
 
       let address = MACAddress(rawAddress)
       return address.isValid ? address : nil
@@ -62,7 +62,7 @@ extension Config {
      */
     var exceptionAddress: MACAddress? {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
-      guard let rawAddress = interfaceDictionary["except"] as? String else { return nil }
+      guard let rawAddress = interfaceDictionary[Config.Key.except.rawValue] as? String else { return nil }
 
       let address = MACAddress(rawAddress)
       return address.isValid ? address : nil
@@ -88,7 +88,7 @@ extension Config {
     ///
     var accessPoints: [AccessPointPolicy] {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return [] }
-      guard let ssidsDictionary = interfaceDictionary["ssids"] as? [String: String] else { return [] }
+      guard let ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] else { return [] }
 
       return ssidsDictionary.compactMap({ ssid, rawAddress in
         AccessPointPolicy.initIfValid(ssid: ssid, softMAC: rawAddress)

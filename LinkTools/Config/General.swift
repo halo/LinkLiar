@@ -13,25 +13,26 @@ extension Config {
 
     var dictionary: [String: Any]
 
-    /**
-     * Queries whether interfaces set to random may be rerandomized at best-effort.
-     * This is yes by default. You can turn it off by adding the key.
-     */
+    ///
+    /// Queries whether interfaces set to random may be rerandomized at best-effort.
+    /// This is yes by default. You can turn it off by adding the key.
+    ///
     var isForbiddenToRerandomize: Bool {
-      guard let restriction = self.dictionary["skip_rerandom"] as? Bool else {
+      guard let restriction = self.dictionary[Config.Key.skipRerandom.rawValue] as? Bool else {
         return false
       }
 
       return restriction != false
     }
 
-//    /**
-//     * Queries whether MAC addresses should be anonymized in GUI and logs.
-//     */
+    ///
+    /// Queries whether MAC addresses should be anonymized in GUI and logs.
+    ///
     var isAnonymized: Bool {
       anonymizationSeed.isValid
     }
 
+    // TODO: How to solve this?
     /**
      * Queries a seed used for anonymizing MAC addresses shown in GUI and logs.
      */

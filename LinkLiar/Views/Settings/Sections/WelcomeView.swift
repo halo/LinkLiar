@@ -221,7 +221,7 @@ extension SettingsView {
           }.padding(.bottom)
 
           Text("You can see that there are good reasons to be able to change your MAC address. ") +
-            Text("The most important one is doubtlessly to achieve the same level of privacy ") +
+            Text("The most important one is to achieve the same level of privacy ") +
             Text("that your phone already has. ")
 
           Spacer()

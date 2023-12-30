@@ -3,9 +3,9 @@
 
 enum Config {}
 
-/**
- * An immutable wrapper for querying the content of the configuration file.
- */
+///
+/// An immutable wrapper for querying the content of the configuration file.
+///
 extension Config {
   struct Reader {
     // MARK: Class Methods
@@ -17,7 +17,8 @@ extension Config {
     // MARK: Public Instance Properties
 
     ///
-    /// Gives (readonly) access to the underlying dictionary of this configuration.
+    /// Gives (readonly) access to the underlying Dictionary of this configuration.
+    /// This is basically the JSON content of the configuration file as Dictionary.
     ///
     var dictionary: [String: Any]
 
@@ -25,18 +26,18 @@ extension Config {
     /// Queries the version with which the configuration was created.
     ///
     lazy var version: String? = {
-      dictionary["version"] as? String
+      dictionary[Config.Key.version.rawValue] as? String
     }()
 
     ///
-    /// Queries universal settings.
+    /// Queries universal LinkLiar settings.
     ///
     var general: General {
       General(dictionary: dictionary)
     }
 
     ///
-    /// Queries the global list of Vendor MAC prefixes.
+    /// Queries the list of Vendor MAC prefixes.
     ///
     var vendors: Vendors {
       Vendors(dictionary: dictionary)
@@ -53,7 +54,7 @@ extension Config {
     /// Queries settings of the "default" Interface.
     ///
     var fallbackPolicy: Policy {
-      Policy("default", dictionary: dictionary)
+      Policy(Config.Key.theDefault.rawValue, dictionary: dictionary)
     }
 
     ///
@@ -69,6 +70,13 @@ extension Config {
 extension Config {
   enum Key: String {
     case action
+    case apple
+    case address
+    case theDefault = "default"
+    case except
+    case skipRerandom = "skip_rerandom"
     case ssids
+    case vendors
+    case version
   }
 }

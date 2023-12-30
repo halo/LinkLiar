@@ -29,7 +29,7 @@ extension Config {
         return config.vendors.chosenPopular.flatMap { $0.prefixes }
       }
 
-      return PopularVendors.find("apple")!.prefixes
+      return PopularVendors.find(Config.Key.apple.rawValue)!.prefixes
     }
 
     var address: MACAddress? {
