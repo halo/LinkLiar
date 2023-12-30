@@ -34,5 +34,5 @@ struct ApproveDaemonView: View {
 #Preview {
   let state = LinkState()
   state.daemonRegistration = .requiresApproval
-  return ApproveDaemonView().environment(state)
+  return ApproveDaemonView().environment(state).frame(width: 200)
 }

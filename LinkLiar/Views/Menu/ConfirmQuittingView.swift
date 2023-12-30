@@ -36,5 +36,5 @@ struct ConfirmQuittingView: View {
 #Preview {
   let state = LinkState()
   state.wantsToQuit = true
-  return ConfirmQuittingView().environment(state)
+  return ConfirmQuittingView().environment(state).frame(width: 200)
 }

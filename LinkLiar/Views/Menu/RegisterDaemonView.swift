@@ -30,5 +30,5 @@ struct RegisterDaemonView: View {
 #Preview {
   let state = LinkState()
   state.daemonRegistration = .notRegistered
-  return RegisterDaemonView().environment(state)
+  return RegisterDaemonView().environment(state).frame(width: 200)
 }
