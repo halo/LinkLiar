@@ -22,11 +22,19 @@ extension Config {
 
       if action == nil {
         interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
-        interfaceDictionary.removeValue(forKey: "action")
+        interfaceDictionary.removeValue(forKey: Config.Key.action.rawValue)
       } else {
         if let newAction = action?.rawValue {
           interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
-          interfaceDictionary["action"] = newAction
+          interfaceDictionary[Config.Key.action.rawValue] = newAction
+
+          // Whenever you want an Interface to have a random MAC address,
+          // there is a chance that the softMAC already was random.
+          // We disallow the current softMAC (whatever it was), so that
+          // the daemon can determine that it should re-randomize anyway.
+          if newAction == Interface.Action.random.rawValue && interface.softMAC.isValid {
+            interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.formatted
+          }
         }
       }
 
@@ -37,6 +45,22 @@ extension Config {
       }
 
       return dictionary
+    }
+
+    ///
+    /// If this is an Interface that is supposed to have a random MAC address,
+    /// you can instruct it to force a re-randomization by setting the current
+    /// softMAC to forbidden ("except").
+    ///
+    func testResetExceptionAddress(_ interface: Interface) -> [String: Any] {
+      let dictionary = configDictionary
+
+      let interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+      let interfaceAction = interfaceDictionary[Config.Key.action.rawValue]
+
+      guard interfaceAction == Interface.Action.random.rawValue else { return configDictionary }
+
+      return setInterfaceAction(interface, action: .random)
     }
 
     func addInterfaceSsid(_ interface: Interface, accessPointPolicy: AccessPointPolicy) -> [String: Any] {
@@ -92,7 +116,9 @@ extension Config {
       return dictionary
     }
 
+    ///
     /// Convenience Wrapper if you don't have an ``Interface`` but you have a hardware MAC address.
+    ///
     func removeInterfaceSsid(_ hardMAC: String, ssid: String) -> [String: Any] {
       let interface = Interface("e1:e1:e1:e1:e1:e1")
       return removeInterfaceSsid(interface, ssid: ssid)
@@ -102,9 +128,9 @@ extension Config {
       var dictionary = configDictionary
 
       if vendors.isEmpty {
-        dictionary.removeValue(forKey: "vendors")
+        dictionary.removeValue(forKey: Config.Key.vendors.rawValue)
       } else {
-        dictionary["vendors"] = vendors.map { $0.id }
+        dictionary[Config.Key.vendors.rawValue] = vendors.map { $0.id }
       }
 
       return dictionary

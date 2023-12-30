@@ -6,6 +6,47 @@ import XCTest
 
 class ConfigBuilderTests: XCTestCase {
 
+  // MARK: setInterfaceAction
+
+  func testSetInterfaceActionToHideFirstTime() {
+    let state = LinkState()
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    let builder = Config.Builder(state.configDictionary)
+    let dictionary = builder.setInterfaceAction(interface, action: .hide)
+
+    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+
+    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
+    XCTAssertEqual(["action": "hide"], interfaceDictionary)
+  }
+
+  func testSetInterfaceActionToRandomFirstTime() {
+    let state = LinkState()
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let builder = Config.Builder(state.configDictionary)
+    let dictionary = builder.setInterfaceAction(interface, action: .random)
+
+    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+
+    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
+    XCTAssertEqual(["action": "random", "except": "bb:bb:bb:bb:bb:bb"], interfaceDictionary)
+  }
+
+  func testSetInterfaceActionToRandomFirstTimeWithoutSoftMac() {
+    let state = LinkState()
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    let builder = Config.Builder(state.configDictionary)
+    let dictionary = builder.setInterfaceAction(interface, action: .random)
+
+    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+
+    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
+    XCTAssertEqual(["action": "random"], interfaceDictionary)
+  }
+
+  // MARK: removeInterfaceSsid
+
   func testRemoveInterfaceSsidOne() {
     let state = LinkState([
       "e1:e1:e1:e1:e1:e1":
@@ -57,4 +98,51 @@ class ConfigBuilderTests: XCTestCase {
     XCTAssertEqual([], Array(dictionary.keys))
   }
 
+  func testResetExceptionAddressFirstTime() {
+    let state = LinkState([
+      "e1:e1:e1:e1:e1:e1":
+        ["action": "random"]
+    ])
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let builder = Config.Builder(state.configDictionary)
+    let dictionary = builder.testResetExceptionAddress(interface)
+
+    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+
+    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
+    XCTAssertEqual(["action": "random", "except": "bb:bb:bb:bb:bb:bb"], interfaceDictionary)
+  }
+
+  func testResetExceptionAddress() {
+    let state = LinkState([
+      "e1:e1:e1:e1:e1:e1":
+        ["action": "random", "except": "aa:aa:aa:aa:aa:aa"]
+    ])
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let builder = Config.Builder(state.configDictionary)
+    let dictionary = builder.testResetExceptionAddress(interface)
+
+    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+
+    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
+    XCTAssertEqual(["action": "random", "except": "bb:bb:bb:bb:bb:bb"], interfaceDictionary)
+  }
+
+  func testResetExceptionAddressForNonRandomInterface() {
+    let state = LinkState([
+      "e1:e1:e1:e1:e1:e1":
+        ["action": "ignore"]
+    ])
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let builder = Config.Builder(state.configDictionary)
+    let dictionary = builder.testResetExceptionAddress(interface)
+
+    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+
+    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
+    XCTAssertEqual(["action": "ignore"], interfaceDictionary)
+  }
 }

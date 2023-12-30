@@ -511,8 +511,8 @@
 				C2969F0B2B278E2A00A9BB72 /* RegisterDaemonView.swift */,
 				C2969F0A2B278E2A00A9BB72 /* ApproveDaemonView.swift */,
 				C2969F0C2B278E2A00A9BB72 /* ConfirmQuittingView.swift */,
-				C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */,
 				C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */,
+				C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";

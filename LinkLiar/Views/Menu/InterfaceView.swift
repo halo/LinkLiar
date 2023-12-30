@@ -4,11 +4,8 @@
 import SwiftUI
 
 struct InterfaceView: View {
+  @Bindable var state: LinkState
   @Bindable var interface: Interface
-
-  @State var hoversHardMAC = false
-  @State var copiedHardMAC = 0.0
-  @State var hoversSoftMAC = false
 
   var body: some View {
     // Separating Icons and text
@@ -34,9 +31,6 @@ struct InterfaceView: View {
           }, label: {
             Text(interface.softMAC.humanReadable)
               .font(.system(.body, design: .monospaced, weight: .light))
-              .onHover { hovering in
-                hoversSoftMAC = hovering
-              }
           }).buttonStyle(.plain)
         }
 
@@ -45,28 +39,28 @@ struct InterfaceView: View {
             Text("Originally ")
               .opacity(0.5)
               .font(.system(.footnote))
-            Text(interface.hardMAC.humanReadable)
+            Button(action: {
+              copy(interface.hardMAC.humanReadable)
+            }, label: {
+              Text(interface.hardMAC.humanReadable)
               .font(.system(.footnote, design: .monospaced))
-              .textSelection(.enabled)
               .opacity(0.5)
+            }).buttonStyle(.plain)
           }
         }
       }
       // Padding parity on the right side (invisible).
       Image("MenuIconLeaking").opacity(0)
+
     }.contextMenu {
-      Button("Delete", role: .destructive) {  }
-      /*@START_MENU_TOKEN@*/Text("Menu Item 2")/*@END_MENU_TOKEN@*/
-      /*@START_MENU_TOKEN@*/Text("Menu Item 3")/*@END_MENU_TOKEN@*/
+      Button("Copy MAC address") { copy(interface.softMAC.humanReadable) }
+
+      if state.config.policy(interface.hardMAC).action == .random {
+        Button("Randomize now") {
+//          Config.Writer(state).setInterfaceAction(interface: interface, action: .hide)
+        }
+      }
     }
-  }
-
-  private var now: Double {
-    Date().timeIntervalSince1970
-  }
-
-  private var recentlyCopied: Bool {
-    copiedHardMAC > now - 2
   }
 
   private func copy(_ content: String) {
@@ -77,6 +71,7 @@ struct InterfaceView: View {
 }
 
 #Preview {
+  let state = LinkState()
   let interfaces = Interfaces.all(asyncSoftMac: false)
-  return InterfaceView(interface: interfaces.first!)
+  return InterfaceView(state: state, interface: interfaces.first!)
 }

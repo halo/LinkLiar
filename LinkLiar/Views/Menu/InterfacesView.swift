@@ -11,7 +11,7 @@ struct InterfacesView: View {
     VStack(alignment: .leading, spacing: 14) {
       // One row per Interface
       ForEach(state.nonHiddenInterfaces) { interface in
-        InterfaceView(interface: interface)
+        InterfaceView(state: state, interface: interface)
       }
     }
   }
