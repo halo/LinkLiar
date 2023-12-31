@@ -16,24 +16,8 @@ module LinkLiar
         stylize :red
       end
 
-      def green
-        stylize :green
-      end
-
-      def yellow
-        stylize :yellow
-      end
-
       def blue
         stylize :blue
-      end
-
-      def magenta
-        stylize :magenta
-      end
-
-      def cyan
-        stylize :cyan
       end
 
       def bold
@@ -64,11 +48,7 @@ module LinkLiar
         case style
         when :normal  then 0
         when :red     then 31
-        when :green   then 32
-        when :yellow  then 33
         when :blue    then 34
-        when :magenta then 35
-        when :cyan    then 36
         when :bold    then 1
         when :faint   then 2
         end
@@ -112,14 +92,10 @@ class Log
     result = []
 
     case owner
-    when :helper
-      result.push "Helper - ".yellow
     when :daemon
-      result.push "Daemon - ".blue
+      result.push "Daemon - ".blue.bold
     when :gui
-      result.push "GUI    - ".red
-    when :launcher
-      result.push "Launch - ".magenta
+      result.push "GUI    - ".red.bold
     end
 
     result.push data.eventMessage
@@ -132,9 +108,7 @@ class Log
   attr_reader :data
 
   def owner
-    return :helper if data.senderImagePath.include? 'linkhelper'
     return :daemon if data.senderImagePath.include? 'linkdaemon'
-    return :launcher if data.senderImagePath.include? 'LinkLauncher'
     return :gui
   end
 end
@@ -162,6 +136,6 @@ begin
 rescue Interrupt => exception
   puts
   puts
-  puts ' Bye :)'.faint
+  puts 'Bye :)'.faint
   puts
 end

@@ -37,6 +37,15 @@ extension Config {
       }
     }
 
+    func resetExceptionAddress(interface: Interface) {
+      var newDictionary = Config.Builder(state.configDictionary).resetExceptionAddress(interface)
+
+      newDictionary["version"] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
     func setVendors(vendors: [Vendor]) {
       var newDictionary = Config.Builder(state.configDictionary).setVendors(vendors: vendors)
 

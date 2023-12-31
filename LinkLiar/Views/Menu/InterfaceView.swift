@@ -55,9 +55,9 @@ struct InterfaceView: View {
     }.contextMenu {
       Button("Copy MAC address") { copy(interface.softMAC.humanReadable) }
 
-      if state.config.policy(interface.hardMAC).action == .random {
+      if state.config.arbiter(interface.hardMAC).action == .random {
         Button("Randomize now") {
-//          Config.Writer(state).setInterfaceAction(interface: interface, action: .hide)
+          Config.Writer(state).resetExceptionAddress(interface: interface)
         }
       }
     }

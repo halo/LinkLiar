@@ -52,7 +52,7 @@ extension Config {
     /// you can instruct it to force a re-randomization by setting the current
     /// softMAC to forbidden ("except").
     ///
-    func testResetExceptionAddress(_ interface: Interface) -> [String: Any] {
+    func resetExceptionAddress(_ interface: Interface) -> [String: Any] {
       let dictionary = configDictionary
 
       let interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]

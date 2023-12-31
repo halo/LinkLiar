@@ -15,12 +15,8 @@ class Synchronize {
   // MARK: Public Instance Properties
 
   var newSoftMAC: MACAddress? {
-    if let ssid = CWWiFiClient.shared().interface(withName: interface.BSDName)?.ssid() {
-      if let newMAC = arbiter.addressForSsid(ssid) {
-        Log.debug("\(interface.BSDName) connected to \(ssid) wants MAC \(newMAC.formatted).")
-        return newMAC
-      }
-    }
+    // When an SSID-MAC binding was specified, it takes precedence.
+    if let address = addressForSsid { return address }
 
     switch arbiter.action {
     case .original: return originalize
@@ -37,7 +33,30 @@ class Synchronize {
   private var interface: Interface
   private var arbiter: Config.Arbiter
 
-  // MARK: Private Instance Methods
+  private var addressForSsid: MACAddress? {
+    guard arbiter.action == .original || arbiter.action == .specify || arbiter.action == .random else {
+      Log.debug("\(interface.BSDName) with action \(arbiter.action) is not applicable for SSID-MAC binding.")
+      return nil
+    }
+
+    guard let wifiInterface = CWWiFiClient.shared().interface(withName: interface.BSDName) else {
+      Log.debug("\(interface.BSDName) is not an Interface that can connect to an SSID.")
+      return nil
+    }
+
+    guard let ssid = wifiInterface.ssid() else {
+      Log.debug("\(interface.BSDName) is not connected to an SSID.")
+      return nil
+    }
+
+    guard let newMAC = arbiter.addressForSsid(ssid) else {
+      Log.debug("\(interface.BSDName) has no SSID-MAC binding defined.")
+      return nil
+    }
+
+    Log.debug("\(interface.BSDName) connected to \(ssid) wants MAC \(newMAC.formatted).")
+    return newMAC
+  }
 
   private var originalize: MACAddress? {
     guard interface.hasOriginalMAC else {

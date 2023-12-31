@@ -98,6 +98,8 @@ class ConfigBuilderTests: XCTestCase {
     XCTAssertEqual([], Array(dictionary.keys))
   }
 
+  // MARK: resetExceptionAddress
+
   func testResetExceptionAddressFirstTime() {
     let state = LinkState([
       "e1:e1:e1:e1:e1:e1":
@@ -106,7 +108,7 @@ class ConfigBuilderTests: XCTestCase {
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
     interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
     let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.testResetExceptionAddress(interface)
+    let dictionary = builder.resetExceptionAddress(interface)
 
     XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
 
@@ -122,7 +124,7 @@ class ConfigBuilderTests: XCTestCase {
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
     interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
     let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.testResetExceptionAddress(interface)
+    let dictionary = builder.resetExceptionAddress(interface)
 
     XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
 
@@ -138,7 +140,7 @@ class ConfigBuilderTests: XCTestCase {
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
     interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
     let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.testResetExceptionAddress(interface)
+    let dictionary = builder.resetExceptionAddress(interface)
 
     XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
 

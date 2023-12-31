@@ -50,7 +50,6 @@ class LinkDaemon {
 
   private func configFileChanged() {
     Log.debug("Config file change detected, acting upon it")
-    self.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
     synchronizer.run()
   }
 
