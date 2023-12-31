@@ -47,9 +47,9 @@ public struct Log {
 
     switch level {
     case .debug: prefix = "DEBUG"
-    case .info: prefix = "INFO"
+    case .info:  prefix = "INFO "
     case .error: prefix = "ERROR"
-    default: prefix = "DEFAULT"
+    default:     prefix = "OTHER"
     }
 
     let data = "\(prefix) \(message)\n".data(using: .utf8)!
