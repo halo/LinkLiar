@@ -75,6 +75,10 @@
 		C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */; };
 		C245701E2B3E032C007D7AEA /* WifiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245701D2B3E032C007D7AEA /* WifiState.swift */; };
 		C245701F2B3E032C007D7AEA /* WifiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245701D2B3E032C007D7AEA /* WifiState.swift */; };
+		C24570252B41F996007D7AEA /* UninstallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570222B41F996007D7AEA /* UninstallView.swift */; };
+		C24570262B41F996007D7AEA /* FaqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570232B41F996007D7AEA /* FaqView.swift */; };
+		C24570272B41F996007D7AEA /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570242B41F996007D7AEA /* CommunityView.swift */; };
+		C24570292B41FC3E007D7AEA /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570282B41FC3E007D7AEA /* Urls.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -211,6 +215,10 @@
 		C24570062B3DB045007D7AEA /* LinkLiar.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = LinkLiar.entitlements; path = LinkLiar/LinkLiar.entitlements; sourceTree = SOURCE_ROOT; };
 		C245700D2B3DB5B4007D7AEA /* SynchronizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynchronizeTests.swift; sourceTree = "<group>"; };
 		C245701D2B3E032C007D7AEA /* WifiState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WifiState.swift; path = Classes/WifiState.swift; sourceTree = "<group>"; };
+		C24570222B41F996007D7AEA /* UninstallView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UninstallView.swift; path = Sections/UninstallView.swift; sourceTree = "<group>"; };
+		C24570232B41F996007D7AEA /* FaqView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqView.swift; path = Sections/FaqView.swift; sourceTree = "<group>"; };
+		C24570242B41F996007D7AEA /* CommunityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityView.swift; path = Sections/CommunityView.swift; sourceTree = "<group>"; };
+		C24570282B41FC3E007D7AEA /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Urls.swift; path = Constants/Urls.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -315,8 +323,11 @@
 			isa = PBXGroup;
 			children = (
 				C2456FB22B3AFB27007D7AEA /* WelcomeView.swift */,
+				C24570242B41F996007D7AEA /* CommunityView.swift */,
 				C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */,
 				C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */,
+				C24570232B41F996007D7AEA /* FaqView.swift */,
+				C24570222B41F996007D7AEA /* UninstallView.swift */,
 				C2456FB82B3B003E007D7AEA /* VendorsView.swift */,
 				C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */,
 				C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */,
@@ -368,6 +379,7 @@
 				C2456FDF2B3B1708007D7AEA /* Identifiers.swift */,
 				C2456FE12B3B1708007D7AEA /* Notifications.swift */,
 				C2456FE02B3B1708007D7AEA /* Paths.swift */,
+				C24570282B41FC3E007D7AEA /* Urls.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -741,6 +753,7 @@
 				C2969EE32B278B1F00A9BB72 /* JSONWriter.swift in Sources */,
 				C2969EE42B278B1F00A9BB72 /* Radio.swift in Sources */,
 				C2969EE02B278B1F00A9BB72 /* Writer.swift in Sources */,
+				C24570272B41F996007D7AEA /* CommunityView.swift in Sources */,
 				C2456FF02B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C2456FB32B3AFB27007D7AEA /* WelcomeView.swift in Sources */,
 				C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */,
@@ -764,10 +777,13 @@
 				C2969F1E2B278E2A00A9BB72 /* RegisterDaemonView.swift in Sources */,
 				C2456FBC2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C2969EDE2B278B1F00A9BB72 /* LinkState.swift in Sources */,
+				C24570292B41FC3E007D7AEA /* Urls.swift in Sources */,
 				C2F3DA202B35C8B900977572 /* Reader.swift in Sources */,
+				C24570262B41F996007D7AEA /* FaqView.swift in Sources */,
 				C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */,
 				C2F3DA1E2B35C8B900977572 /* General.swift in Sources */,
 				C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
+				C24570252B41F996007D7AEA /* UninstallView.swift in Sources */,
 				C2969F192B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */,
 				C2456FB52B3AFB8F007D7AEA /* PreferencesView.swift in Sources */,
 				C2456FEE2B3B1809007D7AEA /* NetworkObserver.swift in Sources */,

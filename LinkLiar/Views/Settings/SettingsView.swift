@@ -25,6 +25,10 @@ struct SettingsView: View {
           Label("Welcome", systemImage: "figure.dance")
         }
 
+        NavigationLink(value: Pane.community.rawValue) {
+          Label("Community", systemImage: "bubble")
+        }
+
         NavigationLink(value: Pane.preferences.rawValue) {
           Label("Settings", systemImage: "gear")
         }
@@ -39,10 +43,6 @@ struct SettingsView: View {
 
         NavigationLink(value: Pane.troubleshoot.rawValue) {
           Label("Troubleshoot", systemImage: "bandage")
-        }
-
-        NavigationLink(value: Pane.community.rawValue) {
-          Label("Community", systemImage: "bubble")
         }
 
         NavigationLink(value: Pane.uninstall.rawValue) {
