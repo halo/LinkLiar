@@ -48,6 +48,7 @@ class WifiState {
     if getInterface == nil { return }
 
     // If we don't know the previous SSID, we can't do much.
+    // Because, even if we knew the BSSID, we have no way of connecting to it.
     guard let ssid = associatedSsid else { return }
 
     // Giving the Interface some time before attempting a re-connect to the same network.
@@ -65,7 +66,6 @@ class WifiState {
   // MARK: Private Instance Properties
 
   private var associatedSsid: String?
-  private var associatedBssid: String?
 
   lazy private var getInterface: CWInterface? = {
     CWWiFiClient.shared().interface(withName: BSDName)

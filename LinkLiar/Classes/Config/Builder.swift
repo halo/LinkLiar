@@ -25,7 +25,7 @@ extension Config {
         interfaceDictionary.removeValue(forKey: Config.Key.action.rawValue)
       } else {
         if let newAction = action?.rawValue {
-          interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["action": newAction]
+          interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [Config.Key.action.rawValue: newAction]
           interfaceDictionary[Config.Key.action.rawValue] = newAction
 
           // Whenever you want an Interface to have a random MAC address,
@@ -50,17 +50,23 @@ extension Config {
     ///
     /// If this is an Interface that is supposed to have a random MAC address,
     /// you can instruct it to force a re-randomization by setting the current
-    /// softMAC to forbidden ("except").
+    /// softMAC to forbidden (by saving it in the "except" key/value).
     ///
     func resetExceptionAddress(_ interface: Interface) -> [String: Any] {
-      let dictionary = configDictionary
+      var dictionary = configDictionary
 
-      let interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
-      let interfaceAction = interfaceDictionary[Config.Key.action.rawValue]
+      // Technically, this could happen. Because the softMAC is resolved asynchronously in the background.
+      guard interface.softMAC.isValid else {
+        Log.debug("\(interface.BSDName) has no valid softMAC.")
+        return configDictionary
+      }
 
-      guard interfaceAction == Interface.Action.random.rawValue else { return configDictionary }
+      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+      interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.formatted
 
-      return setInterfaceAction(interface, action: .random)
+      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+
+      return dictionary
     }
 
     func addInterfaceSsid(_ interface: Interface, accessPointPolicy: AccessPointPolicy) -> [String: Any] {
