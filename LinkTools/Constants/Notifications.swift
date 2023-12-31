@@ -7,4 +7,5 @@ extension Notification.Name {
   static let menuBarAppeared = Notification.Name("\(Identifiers.gui).notifications.menuBarAppeared")
   static let networkConditionsChanged = Notification.Name("\(Identifiers.gui).notifications.interfacesChanged")
   static let intervalElapsed = Notification.Name("\(Identifiers.gui).notifications.intervalElapsed")
+  static let manualTrigger = Notification.Name("\(Identifiers.gui).notifications.manualTrigger")
 }

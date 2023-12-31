@@ -40,6 +40,17 @@ extension Config {
     func resetExceptionAddress(interface: Interface) {
       var newDictionary = Config.Builder(state.configDictionary).resetExceptionAddress(interface)
 
+      // This is one of the rare occasions where the background daemon changes a MAC address
+      // while the GUI is open and showing that address. The GUI has no way of knowing that
+      // the address was changed (it doesn't trigger a network condition change or config file change).
+      // So we resort to polling, to give the user visual feedback about the successful change.
+      // Less than a second should be enough to have detected the change.
+      for millisecond in [100, 300, 500, 700] {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(millisecond)) {
+          NotificationCenter.default.post(name: .manualTrigger, object: nil)
+        }
+      }
+
       newDictionary["version"] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary

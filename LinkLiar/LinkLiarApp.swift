@@ -22,6 +22,10 @@ struct LinkLiarApp: App {
       forName: .menuBarAppeared, object: nil, queue: nil, using: menuBarAppeared
     )
 
+    NotificationCenter.default.addObserver(
+      forName: .manualTrigger, object: nil, queue: nil, using: manualTrigger
+    )
+
     // Load config file once.
     configFileChanged()
   }
@@ -53,6 +57,13 @@ struct LinkLiarApp: App {
       // If there was a "do you really want to quit?" warning,
       // we can remove it once the menu bar was closed and reopened.
       Controller.wantsToStay(state)
+    }
+  }
+
+  private func manualTrigger(_ _: Notification) {
+    DispatchQueue.main.async {
+      Log.debug("Manual reload requested")
+      Controller.queryAllSoftMACs(state)
     }
   }
 
