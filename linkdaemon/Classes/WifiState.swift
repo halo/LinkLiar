@@ -27,7 +27,7 @@ class WifiState {
     // there is no SSID. So we check the signal strength, to
     // determine whether the Wi-Fi is currently associated.
     guard interface.rssiValue() != 0 else {
-      Log.info("You are not associated to any network.")
+      Log.info("\(BSDName) is not connected to any Wi-Fi network")
       return
     }
 

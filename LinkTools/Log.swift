@@ -5,34 +5,40 @@ import Foundation
 import os.log
 
 public struct Log {
-  private static let log = OSLog(subsystem: Identifiers.gui.rawValue, category: "logger")
+  // MARK: Class Methods
 
-  public static func debug(_ message: String, callerPath: String = #file) {
+  static func debug(_ message: String, callerPath: String = #file) {
     write(message, level: .debug, callerPath: callerPath)
   }
 
-  public static func info(_ message: String, callerPath: String = #file) {
+  static func info(_ message: String, callerPath: String = #file) {
     write(message, level: .info, callerPath: callerPath)
   }
 
-  public static func error(_ message: String, callerPath: String = #file) {
+  static func error(_ message: String, callerPath: String = #file) {
     write(message, level: .error, callerPath: callerPath)
   }
+
+  // MARK: Private Class Methods
 
   private static func write(_ message: String, level: OSLogType, callerPath: String) {
     guard let filename = callerPath.components(separatedBy: "/").last else {
       return write(message, level: level)
     }
 
-    guard let classname = filename.components(separatedBy: ".").first else {
-      return write(message, level: level)
-    }
+    let classname = filename.components(separatedBy: ".").dropLast().joined(separator: ".")
 
     write("\(classname) - \(message)", level: level)
   }
 
+  // MARK: Private Class Properties
+
+  private static let logger = Logger(subsystem: Identifiers.gui.rawValue, category: "logger")
+
+  // MARK: Private Class Methods
+
   private static func write(_ message: String, level: OSLogType) {
-    os_log("%{public}@", log: log, type: level, message)
+    logger.log(level: level, "\(message)")
     appendToLogfile(message, level: level)
   }
 
@@ -40,9 +46,9 @@ public struct Log {
     var prefix = "UNKNOWN"
 
     switch level {
-    case OSLogType.debug: prefix = "DEBUG"
-    case OSLogType.info: prefix = "INFO"
-    case OSLogType.error: prefix = "ERROR"
+    case .debug: prefix = "DEBUG"
+    case .info: prefix = "INFO"
+    case .error: prefix = "ERROR"
     default: prefix = "DEFAULT"
     }
 
