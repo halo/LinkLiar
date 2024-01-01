@@ -8,47 +8,40 @@ extension SettingsView {
   struct VendorsView: View {
     @Environment(LinkState.self) private var state
 
-    @State private var allVendors = PopularVendors.all
-    @State private var selectedVendors = Set<Vendor.ID>()
-    @State private var sortOrder = [KeyPathComparator(\Vendor.name)]
+    @State private var vendors = [Vendor]()
 
     var body: some View {
-//      selectedVendors = state.config.vendors.chosenPopular.map { $0.id }
-
-//      let chosenVendors: [String] = state.config.vendors.chosenPopular.map { $0.id }
-
       VStack {
-        Text("Vendors...")
+        Table(state.config.vendors.popularMarked) {
 
-        Table(allVendors, selection: $selectedVendors, sortOrder: $sortOrder) {
-//
-////          let chosen = Binding<Bool>(
-////            get: {
-////              chosenVendors.contains(where: { $0.id == \.id })
-////            },
-////            set: { _, _ in }
-////         )
-//
-//          TableColumn("") { _ in
-//            Toggle(isOn: \.isChosen)
-//
-//          }.width(20)
+          TableColumn("Active") { vendor in
+            let isChosen = Binding<Bool>(
+              get: { vendor.isChosen },
+              set: { value, _ in toggleVendor(value: value, vendor: vendor) })
+
+            Toggle("", isOn: isChosen)
+
+          }.width(20)
 
           TableColumn("Name", value: \.name)
-            .width(360)
+            .width(340)
+
           TableColumn("Prefixes") { vendor in
             Text("\(vendor.prefixes.count)")
           }.width(50)
-
-        }.onChange(of: sortOrder) {
-          allVendors.sort(using: sortOrder)
-
-        }.onChange(of: selectedVendors) {
-          let vendorIds = selectedVendors.map { String($0) }
-          let newVendors = PopularVendors.find(vendorIds)
-          Config.Writer(state).setVendors(vendors: newVendors)
         }
       }.padding()
+    }
+
+    private func toggleVendor(value: Bool, vendor: Vendor) {
+      if value {
+        Config.Writer(state).addVendor(vendor)
+      } else {
+        Config.Writer(state).removeVendor(vendor)
+      }
+      
+      // TODO: Why does the table not refresh unless I do this radical hack?
+      state.configDictionary = [:]
     }
   }
 }

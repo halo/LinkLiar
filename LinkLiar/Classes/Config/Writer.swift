@@ -66,6 +66,24 @@ extension Config {
       }
     }
 
+    func addVendor(_ vendor: Vendor) {
+      var newDictionary = Config.Builder(state.configDictionary).addVendor(vendor)
+
+      newDictionary["version"] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
+    func removeVendor(_ vendor: Vendor) {
+      var newDictionary = Config.Builder(state.configDictionary).removeVendor(vendor)
+
+      newDictionary["version"] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
     // MARK: TODO below this line
 
     func setInterfaceActionHiddenness(interface: Interface, isHidden: Bool) {

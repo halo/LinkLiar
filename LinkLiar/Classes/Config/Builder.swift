@@ -136,8 +136,28 @@ extension Config {
       if vendors.isEmpty {
         dictionary.removeValue(forKey: Config.Key.vendors.rawValue)
       } else {
-        dictionary[Config.Key.vendors.rawValue] = vendors.map { $0.id }
+        dictionary[Config.Key.vendors.rawValue] = Array(Set(vendors)).map { $0.id }
       }
+
+      return dictionary
+    }
+
+    func addVendor(_ vendor: Vendor) -> [String: Any] {
+      var dictionary = configDictionary
+      var currentVendorIds = dictionary[Config.Key.vendors.rawValue] as? [String] ?? []
+      currentVendorIds.append(vendor.id)
+
+      dictionary[Config.Key.vendors.rawValue] = Array(Set(currentVendorIds)).sorted().map { $0 }
+
+      return dictionary
+    }
+
+    func removeVendor(_ vendor: Vendor) -> [String: Any] {
+      var dictionary = configDictionary
+      var currentVendorIds = dictionary[Config.Key.vendors.rawValue] as? [String] ?? []
+      currentVendorIds.removeAll(where: { $0 == vendor.id })
+
+      dictionary[Config.Key.vendors.rawValue] = Array(Set(currentVendorIds)).sorted().map { $0 }
 
       return dictionary
     }
