@@ -16,7 +16,7 @@ struct Interfaces {
   /// Pass in `asyncSoftMac` to query the soft MAC addresses in the background.
   /// In that case, the instances will update their softMac property.
   ///
-  static func all(asyncSoftMac: Bool) -> [Interface] {
+  static func all(asyncSoftMac: Bool?) -> [Interface] {
     var instances = [Interface]()
 
     all(asyncSoftMac: asyncSoftMac, using: { interface in
@@ -31,7 +31,7 @@ struct Interfaces {
   ///
   /// Internal helper that yields every spoofable ``Interface``.
   ///
-  private static func all(asyncSoftMac: Bool, using yield: (Interface) -> Void) {
+  private static func all(asyncSoftMac: Bool?, using yield: (Interface) -> Void) {
     let interfaces = SCNetworkInterfaceCopyAll()
 
     for interfaceRef in interfaces {

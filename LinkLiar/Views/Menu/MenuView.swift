@@ -15,6 +15,7 @@ struct MenuView: View {
     VStack {
       RegisterDaemonView().environment(state)
       ApproveDaemonView().environment(state)
+      ApplyRecommendationsView().environment(state)
 
       InterfacesView().environment(state)
 

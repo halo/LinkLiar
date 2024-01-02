@@ -57,15 +57,6 @@ extension Config {
       }
     }
 
-//    func setVendors(vendors: [Vendor]) {
-//      var newDictionary = Config.Builder(state.configDictionary).setVendors(vendors: vendors)
-//
-//      newDictionary[Config.Key.version.rawValue] = state.version.formatted
-//      if JSONWriter(Paths.configFile).write(newDictionary) {
-//        state.configDictionary = newDictionary
-//      }
-//    }
-
     func addVendor(_ vendor: Vendor) {
       var newDictionary = Config.Builder(state.configDictionary).addVendor(vendor)
 
@@ -125,8 +116,42 @@ extension Config {
       }
     }
 
+    func applyRecommendedSettings() {
+      for interface in Interfaces.all(asyncSoftMac: nil) {
+        if interface.isWifi {
+          setInterfaceAction(interface: interface, action: nil)
+        } else {
+          setInterfaceAction(interface: interface, action: .ignore)
+        }
+        setFallbackInterfaceAction(.random)
+      }
+
+      setVendors([])
+    }
+
+    func dismissRecommendedSettings() {
+      var newDictionary = Config.Builder(state.configDictionary).dismissRecommendedSettings()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
     // MARK: Private Instance Properties
 
     private var state: LinkState
+
+    // MARK: Private Instance Methods
+
+    private func setVendors(_ vendors: [Vendor]) {
+      var newDictionary = Config.Builder(state.configDictionary).setVendors(vendors: vendors)
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
   }
 }

@@ -183,17 +183,17 @@ extension Config {
       return removeInterfaceSsid(interface, ssid: ssid)
     }
 
-//    func setVendors(vendors: [Vendor]) -> [String: Any] {
-//      var dictionary = configDictionary
-//
-//      if vendors.isEmpty {
-//        dictionary.removeValue(forKey: Config.Key.vendors.rawValue)
-//      } else {
-//        dictionary[Config.Key.vendors.rawValue] = Array(Set(vendors)).map { $0.id }
-//      }
-//
-//      return dictionary
-//    }
+    func setVendors(vendors: [Vendor]) -> [String: Any] {
+      var dictionary = configDictionary
+
+      if vendors.isEmpty {
+        dictionary.removeValue(forKey: Config.Key.vendors.rawValue)
+      } else {
+        dictionary[Config.Key.vendors.rawValue] = Array(Set(vendors)).map { $0.id }
+      }
+
+      return dictionary
+    }
 
     func addVendor(_ vendor: Vendor) -> [String: Any] {
       var dictionary = configDictionary
@@ -216,6 +216,14 @@ extension Config {
       } else {
         dictionary[Config.Key.vendors.rawValue] = newVendors
       }
+
+      return dictionary
+    }
+
+    func dismissRecommendedSettings() -> [String: Any] {
+      var dictionary = configDictionary
+
+      dictionary[Config.Key.recommendation.rawValue] = false
 
       return dictionary
     }

@@ -79,6 +79,7 @@
 		C24570262B41F996007D7AEA /* FaqView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570232B41F996007D7AEA /* FaqView.swift */; };
 		C24570272B41F996007D7AEA /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570242B41F996007D7AEA /* CommunityView.swift */; };
 		C24570292B41FC3E007D7AEA /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570282B41FC3E007D7AEA /* Urls.swift */; };
+		C245702B2B4447A1007D7AEA /* ApplyRecommendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245702A2B4447A0007D7AEA /* ApplyRecommendationsView.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -219,6 +220,7 @@
 		C24570232B41F996007D7AEA /* FaqView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqView.swift; path = Sections/FaqView.swift; sourceTree = "<group>"; };
 		C24570242B41F996007D7AEA /* CommunityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityView.swift; path = Sections/CommunityView.swift; sourceTree = "<group>"; };
 		C24570282B41FC3E007D7AEA /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Urls.swift; path = Constants/Urls.swift; sourceTree = "<group>"; };
+		C245702A2B4447A0007D7AEA /* ApplyRecommendationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyRecommendationsView.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -522,6 +524,7 @@
 				C2969F0E2B278E2A00A9BB72 /* MenuView.swift */,
 				C2969F0B2B278E2A00A9BB72 /* RegisterDaemonView.swift */,
 				C2969F0A2B278E2A00A9BB72 /* ApproveDaemonView.swift */,
+				C245702A2B4447A0007D7AEA /* ApplyRecommendationsView.swift */,
 				C2969F0C2B278E2A00A9BB72 /* ConfirmQuittingView.swift */,
 				C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */,
 				C2969F0D2B278E2A00A9BB72 /* InterfaceView.swift */,
@@ -783,6 +786,7 @@
 				C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */,
 				C2F3DA1E2B35C8B900977572 /* General.swift in Sources */,
 				C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
+				C245702B2B4447A1007D7AEA /* ApplyRecommendationsView.swift in Sources */,
 				C24570252B41F996007D7AEA /* UninstallView.swift in Sources */,
 				C2969F192B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */,
 				C2456FB52B3AFB8F007D7AEA /* PreferencesView.swift in Sources */,

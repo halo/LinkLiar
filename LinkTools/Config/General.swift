@@ -13,6 +13,14 @@ extension Config {
 
     var dictionary: [String: Any]
 
+    var isDismissingRecommendation: Bool {
+      guard let restriction = self.dictionary[Config.Key.recommendation.rawValue] as? Bool else {
+        return false
+      }
+
+      return true
+    }
+
     ///
     /// Queries whether interfaces set to random may be rerandomized at best-effort.
     /// This is yes by default. You can turn it off by adding the key.

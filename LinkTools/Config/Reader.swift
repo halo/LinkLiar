@@ -64,6 +64,18 @@ extension Config {
     func arbiter(_ hardMAC: MACAddress) -> Config.Arbiter {
       Config.Arbiter(config: self, hardMAC: hardMAC)
     }
+
+    var isRecommended: Bool {
+      let interfaces = Interfaces.all(asyncSoftMac: true)
+
+      // If any Interface is random (or otherwise specified),
+      // then LinkLiar is doing what it's supposed to do (i.e. recommended usage).
+      if interfaces.contains(where: { arbiter($0.hardMAC).action == .random }) { return true }
+      if interfaces.contains(where: { arbiter($0.hardMAC).action == .specify }) { return true }
+      if interfaces.contains(where: { arbiter($0.hardMAC).action == .original }) { return true }
+
+      return false
+    }
   }
 }
 
@@ -78,5 +90,6 @@ extension Config {
     case ssids
     case vendors
     case version
+    case recommendation
   }
 }

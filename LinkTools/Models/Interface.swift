@@ -17,7 +17,7 @@ class Interface: Identifiable {
   }
 
   /// Upon initialization we assign what we already know.
-  init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool) {
+  init(BSDName: String, displayName: String, kind: String, hardMAC: String, async: Bool?) {
     self.BSDName = BSDName
     self.rawDisplayName = displayName
     self.kind = kind
@@ -76,10 +76,12 @@ class Interface: Identifiable {
   /// Asks ``Ifconfig`` to fetch the soft MAC of this Interface.
   /// The answer is stored in the softMAC property.
   /// This can be done synchronously or asynchronously.
-  func querySoftMAC(async: Bool) {
+  func querySoftMAC(async: Bool?) {
+    guard let isAsync = async else { return }
+
     let reader = Ifconfig.Reader(self.BSDName)
 
-    if async {
+    if isAsync {
       reader.softMAC(callback: { address in
         DispatchQueue.main.async {
           self._softMAC = address.formatted
