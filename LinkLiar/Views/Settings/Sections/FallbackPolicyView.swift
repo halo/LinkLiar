@@ -10,7 +10,7 @@ extension SettingsView {
     var body: some View {
       let actionValue = Binding<Interface.Action?>(
         get: { state.config.fallbackPolicy.action },
-        set: { value, _ in Config.Writer(state).setFallbackInterfaceAction(action: value) })
+        set: { value, _ in Config.Writer(state).setFallbackInterfaceAction(value) })
 
       VStack(alignment: .leading) {
         Text("Default Interface Settings")
@@ -21,26 +21,26 @@ extension SettingsView {
           VStack(alignment: .leading) {
             HStack(alignment: .top) {
               Menu {
-                Button(action: { Config.Writer(state).setFallbackInterfaceAction(action: .random) }) {
+                Button(action: { Config.Writer(state).setFallbackInterfaceAction(.random) }) {
                   Text("Always Keep Random")
                 }
-                Button(action: { Config.Writer(state).setFallbackInterfaceAction(action: .original) }) {
+                Button(action: { Config.Writer(state).setFallbackInterfaceAction(.original) }) {
                   Text("Keep Original MAC Address")
                 }
-                Button(action: { Config.Writer(state).setFallbackInterfaceAction(action: nil) }) {
+                Button(action: { Config.Writer(state).setFallbackInterfaceAction(nil) }) {
                   Text("Ignore")
                 }
                 Divider()
               } label: {
                 switch actionValue.wrappedValue {
-                  case .random:
-                    Text("Always Keep Random")
+                case .random:
+                  Text("Always Keep Random")
 
-                  case .original:
-                    Text("Keep Original MAC Address")
+                case .original:
+                  Text("Keep Original MAC Address")
 
-                  default:
-                    Text("Ignore")
+                default:
+                  Text("Ignore")
                 }
                 Text(actionValue.wrappedValue?.rawValue ?? "?")
               }.menuStyle(.borderlessButton)

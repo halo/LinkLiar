@@ -39,7 +39,7 @@ extension SettingsView {
       } else {
         Config.Writer(state).removeVendor(vendor)
       }
-      
+
       // TODO: Why does the table not refresh unless I do this radical hack?
       state.configDictionary = [:]
     }

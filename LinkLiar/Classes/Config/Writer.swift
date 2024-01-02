@@ -20,7 +20,7 @@ extension Config {
         interface,
         accessPointPolicy: accessPointPolicy)
 
-      newDictionary["version"] = state.version.formatted
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
@@ -31,7 +31,7 @@ extension Config {
         interface,
         ssid: ssid)
 
-      newDictionary["version"] = state.version.formatted
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
@@ -40,7 +40,7 @@ extension Config {
     func resetExceptionAddress(interface: Interface) {
       var newDictionary = Config.Builder(state.configDictionary).resetExceptionAddress(interface)
 
-      newDictionary["version"] = state.version.formatted
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
@@ -57,19 +57,19 @@ extension Config {
       }
     }
 
-    func setVendors(vendors: [Vendor]) {
-      var newDictionary = Config.Builder(state.configDictionary).setVendors(vendors: vendors)
-
-      newDictionary["version"] = state.version.formatted
-      if JSONWriter(Paths.configFile).write(newDictionary) {
-        state.configDictionary = newDictionary
-      }
-    }
+//    func setVendors(vendors: [Vendor]) {
+//      var newDictionary = Config.Builder(state.configDictionary).setVendors(vendors: vendors)
+//
+//      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+//      if JSONWriter(Paths.configFile).write(newDictionary) {
+//        state.configDictionary = newDictionary
+//      }
+//    }
 
     func addVendor(_ vendor: Vendor) {
       var newDictionary = Config.Builder(state.configDictionary).addVendor(vendor)
 
-      newDictionary["version"] = state.version.formatted
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
@@ -78,13 +78,11 @@ extension Config {
     func removeVendor(_ vendor: Vendor) {
       var newDictionary = Config.Builder(state.configDictionary).removeVendor(vendor)
 
-      newDictionary["version"] = state.version.formatted
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
     }
-
-    // MARK: TODO below this line
 
     func setInterfaceActionHiddenness(interface: Interface, isHidden: Bool) {
       let newAction = isHidden ? Interface.Action.hide : Interface.Action.ignore
@@ -96,74 +94,34 @@ extension Config {
       setInterfaceAction(interface: interface, action: newAction)
     }
 
-    // MARK: Private Class Methods
-
     func setInterfaceAction(interface: Interface, action: Interface.Action?) {
       var newDictionary = Config.Builder(state.configDictionary).setInterfaceAction(
         interface,
         action: action)
 
-      newDictionary["version"] = state.version.formatted
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {
         state.configDictionary = newDictionary
       }
     }
 
     func setInterfaceAddress(interface: Interface, address: MACAddress) {
-      guard address.isValid else {
-        return
-      }
+      var newDictionary = Config.Builder(state.configDictionary).setInterfaceAddress(
+        interface,
+        address: address)
 
-      var dictionary = state.configDictionary
-      dictionary["version"] = state.version.formatted
-
-      var interfaceDictionary: [String: String] = [:]
-
-      let newAddress = address.formatted
-
-      Log.debug("Changing address of Interface \(interface.hardMAC.formatted) to \(newAddress)")
-      interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? ["address": newAddress]
-      interfaceDictionary.updateValue(newAddress, forKey: "address")
-
-      if interfaceDictionary.isEmpty {
-        Log.debug("Removing unused Interface policy \(interface.hardMAC.formatted)")
-        dictionary.removeValue(forKey: interface.hardMAC.formatted)
-      } else {
-        dictionary[interface.hardMAC.formatted] = interfaceDictionary
-      }
-
-      if JSONWriter(Paths.configFile).write(dictionary) {
-        state.configDictionary = dictionary
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
       }
     }
 
-    func setFallbackInterfaceAction(action: Interface.Action?) {
-      var dictionary = state.configDictionary
-      dictionary["version"] = state.version.formatted
+    func setFallbackInterfaceAction(_ action: Interface.Action?) {
+      var newDictionary = Config.Builder(state.configDictionary).setFallbackInterfaceAction(action)
 
-      var interfaceDictionary: [String: String] = [:]
-
-      if action == nil {
-        interfaceDictionary = dictionary["default"] as? [String: String] ?? [:]
-        interfaceDictionary.removeValue(forKey: "action")
-        Log.debug("Removing action of fallback Interface")
-      } else {
-        if let newAction = action?.rawValue {
-          Log.debug("Changing fallback action to \(newAction)")
-          interfaceDictionary = dictionary["default"] as? [String: String] ?? ["action": newAction]
-          interfaceDictionary.updateValue(newAction, forKey: "action")
-        }
-      }
-
-      if interfaceDictionary.isEmpty {
-        Log.debug("Removing unused fallback policy")
-        dictionary.removeValue(forKey: "default")
-      } else {
-        dictionary["default"] = interfaceDictionary
-      }
-
-      if JSONWriter(Paths.configFile).write(dictionary) {
-        state.configDictionary = dictionary
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
       }
     }
 

@@ -9,142 +9,311 @@ class ConfigBuilderTests: XCTestCase {
   // MARK: setInterfaceAction
 
   func testSetInterfaceActionToHideFirstTime() {
-    let state = LinkState()
+    let input: [String: Any] = [:]
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.setInterfaceAction(interface, action: .hide)
+    let output = Config.Builder(input)
+      .setInterfaceAction(interface, action: .hide)
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
-
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
-    XCTAssertEqual(["action": "hide"], interfaceDictionary)
+    let expected = ["e1:e1:e1:e1:e1:e1": ["action": "hide"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
   func testSetInterfaceActionToRandomFirstTime() {
-    let state = LinkState()
+    let input: [String: Any] = [:]
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
     interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.setInterfaceAction(interface, action: .random)
+    let output = Config.Builder(input)
+      .setInterfaceAction(interface, action: .random)
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
-
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
-    XCTAssertEqual(["action": "random", "except": "bb:bb:bb:bb:bb:bb"], interfaceDictionary)
+    let expected = ["e1:e1:e1:e1:e1:e1":
+                      ["action": "random",
+                       "except": "bb:bb:bb:bb:bb:bb"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
   func testSetInterfaceActionToRandomFirstTimeWithoutSoftMac() {
-    let state = LinkState()
+    let input: [String: Any] = [:]
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.setInterfaceAction(interface, action: .random)
+    let output = Config.Builder(input)
+      .setInterfaceAction(interface, action: .random)
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+    let expected = ["e1:e1:e1:e1:e1:e1": ["action": "random"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
 
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
-    XCTAssertEqual(["action": "random"], interfaceDictionary)
+  func testSetInterfaceActionToNothingFirstTime() {
+    let input: [String: Any] = [:]
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let output = Config.Builder(input)
+      .setInterfaceAction(interface, action: nil)
+
+    let expected: [String: Any] = [:]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testSetInterfaceActionToNothingRemoving() {
+    let input = ["e1:e1:e1:e1:e1:e1": ["action": "random"]]
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    let output = Config.Builder(input)
+      .setInterfaceAction(interface, action: nil)
+
+    let expected: [String: Any] = [:]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testSetInterfaceActionToNothingModifying() {
+    let input = ["e1:e1:e1:e1:e1:e1": ["action": "random", "address": "aa:aa:aa:aa:aa:aa"]]
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    let output = Config.Builder(input)
+      .setInterfaceAction(interface, action: nil)
+
+    let expected = ["e1:e1:e1:e1:e1:e1": ["address": "aa:aa:aa:aa:aa:aa"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  // MARK: setInterfaceAddress
+
+  func testSetInterfaceAddressFirstTime() {
+    let input: [String: Any] = [:]
+    let output = Config.Builder(input)
+      .setInterfaceAddress("e1:e1:e1:e1:e1:e1", address: "aa:aa:aa:aa:aa:aa")
+
+    let expected = ["e1:e1:e1:e1:e1:e1": ["address": "aa:aa:aa:aa:aa:aa"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testSetInterfaceAddressModifying() {
+    let input = [ "e1:e1:e1:e1:e1:e1": ["address": "aa:aa:aa:aa:aa:aa",
+                                        "except": "bb:bb:bb:bb:bb:bb"]]
+    let output = Config.Builder(input)
+      .setInterfaceAddress("e1:e1:e1:e1:e1:e1", address: "cc:cc:cc:cc:cc:cc")
+
+    let expected = ["e1:e1:e1:e1:e1:e1": ["address": "cc:cc:cc:cc:cc:cc",
+                                          "except": "bb:bb:bb:bb:bb:bb"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  // MARK: setFallbackInterfaceAction
+
+  func testSetFallbackInterfaceActionToHideFirstTime() {
+    let input: [String: Any] = [:]
+    let output = Config.Builder(input).setFallbackInterfaceAction(.hide)
+
+    let expected = ["default": ["action": "hide"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+
+  func testSetFallbackInterfaceActionToNothingRemoving() {
+    let input = ["default": ["action": "random"]]
+    let output = Config.Builder(input).setFallbackInterfaceAction(nil)
+
+    let expected: [String: Any] = [:]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+
+  // MARK: resetExceptionAddress
+
+  func testResetExceptionAddressFirstTime() {
+    let input: [String: Any] = [:]
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let output = Config.Builder(input)
+      .resetExceptionAddress(interface)
+
+    let expected = ["e1:e1:e1:e1:e1:e1": ["except": "bb:bb:bb:bb:bb:bb"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testResetExceptionAddressInvalid() {
+    let input = ["e1:e1:e1:e1:e1:e1": ["action": "random"]]
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("xx:xx:xx:xx:xx:xx")
+    let output = Config.Builder(input)
+      .resetExceptionAddress(interface)
+
+    let expected = ["e1:e1:e1:e1:e1:e1": ["action": "random"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testResetExceptionAddressModifying() {
+    let input = ["e1:e1:e1:e1:e1:e1": ["action": "random",
+                                       "except": "aa:aa:aa:aa:aa:aa"]]
+    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
+    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
+    let output = Config.Builder(input)
+      .resetExceptionAddress(interface)
+
+    let expected = ["e1:e1:e1:e1:e1:e1": ["action": "random",
+                                          "except": "bb:bb:bb:bb:bb:bb"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  // MARK: addInterfaceSsid
+
+  func testAddInterfaceSsidFirstTime() {
+    let input: [String: Any] = [:]
+    let accessPointPolicy = Config.AccessPointPolicy(ssid: "Skyshop", softMAC: "cc:cc:cc:cc:cc:cc")
+    let output = Config.Builder(input)
+      .addInterfaceSsid("e1:e1:e1:e1:e1:e1", accessPointPolicy: accessPointPolicy)
+
+    let expected = ["e1:e1:e1:e1:e1:e1":
+                      ["ssids":
+                        ["Skyshop": "cc:cc:cc:cc:cc:cc"]]
+    ]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testAddInterfaceSsidEmpty() {
+    let input = ["e1:e1:e1:e1:e1:e1":
+                  ["ssids": []]
+    ]
+    let accessPointPolicy = Config.AccessPointPolicy(ssid: "Skyshop", softMAC: "cc:cc:cc:cc:cc:cc")
+    let output = Config.Builder(input)
+      .addInterfaceSsid("e1:e1:e1:e1:e1:e1", accessPointPolicy: accessPointPolicy)
+
+    let expected = ["e1:e1:e1:e1:e1:e1":
+                      ["ssids":
+                        ["Skyshop": "cc:cc:cc:cc:cc:cc"]]
+    ]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testAddInterfaceSsid() {
+    let input = ["e1:e1:e1:e1:e1:e1":
+                  ["ssids":
+                    ["Coffeeshop": "aa:aa:aa:aa:aa:aa",
+                     "Papershop": "bb:bb:bb:bb:bb:bb"
+                    ]
+                  ]
+    ]
+    let accessPointPolicy = Config.AccessPointPolicy(ssid: "Skyshop", softMAC: "cc:cc:cc:cc:cc:cc")
+    let output = Config.Builder(input)
+      .addInterfaceSsid("e1:e1:e1:e1:e1:e1", accessPointPolicy: accessPointPolicy)
+
+    let expected = ["e1:e1:e1:e1:e1:e1":
+                      ["ssids":
+                        ["Coffeeshop": "aa:aa:aa:aa:aa:aa",
+                         "Papershop": "bb:bb:bb:bb:bb:bb",
+                         "Skyshop": "cc:cc:cc:cc:cc:cc"]
+                      ]
+    ]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
   // MARK: removeInterfaceSsid
 
   func testRemoveInterfaceSsidOne() {
-    let state = LinkState([
-      "e1:e1:e1:e1:e1:e1":
-        ["ssids":
-          ["Coffeeshop": "aa:aa:aa:aa:aa:aa",
-           "Papershop": "bb:bb:bb:bb:bb:bb"
-          ]
-        ]
-    ])
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
+    let input = ["e1:e1:e1:e1:e1:e1":
+                  ["ssids":
+                    ["Coffeeshop": "aa:aa:aa:aa:aa:aa",
+                     "Papershop": "bb:bb:bb:bb:bb:bb"
+                    ]
+                  ]
+    ]
+    let output = Config.Builder(input)
+      .removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
-
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: Any]
-    XCTAssertEqual(["ssids"], Array(interfaceDictionary.keys))
-
-    let ssidsDictionary = interfaceDictionary["ssids"] as! [String: String]
-    XCTAssertEqual(["Papershop": "bb:bb:bb:bb:bb:bb"], ssidsDictionary)
+    let expected = ["e1:e1:e1:e1:e1:e1":
+                      ["ssids":
+                        ["Papershop": "bb:bb:bb:bb:bb:bb"]
+                      ]
+    ]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
   func testRemoveInterfaceSsidLast() {
-    let state = LinkState([
+    let input = [
       "e1:e1:e1:e1:e1:e1":
         ["action": "random",
          "ssids":
           ["Coffeeshop": "aa:aa:aa:aa:aa:aa"]
         ]
-    ])
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
+    ]
+    let output = Config.Builder(input)
+      .removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
-
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: Any]
-    XCTAssertEqual(["action"], Array(interfaceDictionary.keys))
+    let expected = ["e1:e1:e1:e1:e1:e1": ["action": "random"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
   func testRemoveInterfaceSsidOnly() {
-    let state = LinkState([
+    let input = [
       "e1:e1:e1:e1:e1:e1":
         ["ssids":
           ["Coffeeshop": "aa:aa:aa:aa:aa:aa"]
         ]
-    ])
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
+    ]
+    let output = Config.Builder(input)
+      .removeInterfaceSsid("e1:e1:e1:e1:e1:e1", ssid: "Coffeeshop")
 
-    XCTAssertEqual([], Array(dictionary.keys))
+    let expected: [String: Any] = [:]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
-  // MARK: resetExceptionAddress
+  // MARK: addVendor
 
-  func testResetExceptionAddressFirstTime() {
-    let state = LinkState([
-      "e1:e1:e1:e1:e1:e1":
-        ["action": "random"]
-    ])
-    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
-    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.resetExceptionAddress(interface)
+  func testAddVendor() {
+    let input = [
+      "vendors":
+        ["3com", "apple"]
+    ]
+    let vendor = Vendor(id: "acme", name: "", prefixes: [])
+    let output = Config.Builder(input).addVendor(vendor)
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
-
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
-    XCTAssertEqual(["action": "random", "except": "bb:bb:bb:bb:bb:bb"], interfaceDictionary)
+    let expected = ["vendors": ["3com", "acme", "apple"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
-  func testResetExceptionAddress() {
-    let state = LinkState([
-      "e1:e1:e1:e1:e1:e1":
-        ["action": "random", "except": "aa:aa:aa:aa:aa:aa"]
-    ])
-    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
-    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.resetExceptionAddress(interface)
+  func testAddVendorDuplicates() {
+    let input = [
+      "vendors":
+        ["3com", "apple"]
+    ]
+    let vendor = Vendor(id: "apple", name: "", prefixes: [])
+    let output = Config.Builder(input).addVendor(vendor)
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
-
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
-    XCTAssertEqual(["action": "random", "except": "bb:bb:bb:bb:bb:bb"], interfaceDictionary)
+    let expected = ["vendors": ["3com", "apple"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 
-  func testResetExceptionAddressForNonRandomInterface() {
-    let state = LinkState([
-      "e1:e1:e1:e1:e1:e1":
-        ["action": "ignore"]
-    ])
-    let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
-    interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
-    let builder = Config.Builder(state.configDictionary)
-    let dictionary = builder.resetExceptionAddress(interface)
+  // MARK: removeVendor
 
-    XCTAssertEqual(["e1:e1:e1:e1:e1:e1"], Array(dictionary.keys))
+  func testRemoveVendor() {
+    let input = [
+      "vendors":
+        ["3com", "apple"]
+    ]
+    let vendor = Vendor(id: "apple", name: "", prefixes: [])
+    let output = Config.Builder(input).removeVendor(vendor)
 
-    let interfaceDictionary = dictionary["e1:e1:e1:e1:e1:e1"] as! [String: String]
-    XCTAssertEqual(["action": "ignore"], interfaceDictionary)
+    let expected = ["vendors": ["3com"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testRemoveVendorDuplicates() {
+    let input = [
+      "vendors":
+        ["3com", "apple", "apple"]
+    ]
+    let vendor = Vendor(id: "apple", name: "", prefixes: [])
+    let output = Config.Builder(input).removeVendor(vendor)
+
+    let expected = ["vendors": ["3com"]]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
+  }
+
+  func testRemoveVendorLast() {
+    let input = [
+      "vendors":
+        ["3com"]
+    ]
+    let vendor = Vendor(id: "3com", name: "", prefixes: [])
+    let output = Config.Builder(input).removeVendor(vendor)
+
+    let expected: [String: Any] = [:]
+    XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 }
