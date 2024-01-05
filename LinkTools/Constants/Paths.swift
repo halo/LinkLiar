@@ -3,14 +3,19 @@
 
 import Foundation
 
-extension String {
-  func appendPath(_ string: String) -> String {
-    URL(fileURLWithPath: self).appendingPathComponent(string).path
-  }
-}
-
 class Paths {
-  static let configDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
+  static var configDirectory: String {
+    guard let path = Stage.configPath else {
+      return defaultConfigDirectory
+    }
+
+    guard !path.isEmpty else {
+      return defaultConfigDirectory
+    }
+
+    return path
+  }
+
   static let configDirectoryURL = URL(fileURLWithPath: configDirectory)
 
   static let configFile = configDirectory.appendPath("config.json")
@@ -22,4 +27,13 @@ class Paths {
 
   static let githubApiReleases = "https://api.github.com/repos/halo/LinkLiar/releases/latest"
   static let githubApiReleasesURL = URL(string: githubApiReleases)!
+
+  private static let defaultConfigDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
+}
+
+
+extension String {
+  func appendPath(_ string: String) -> String {
+    URL(fileURLWithPath: self).appendingPathComponent(string).path
+  }
 }
