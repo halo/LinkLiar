@@ -7,7 +7,9 @@ class Stage {
   // MARK: Class Properties
 
   static var configPath: String? {
-    options[Self.Argument.config.rawValue]
+    Log.debug("\(CommandLine.arguments)")
+    Log.debug("\(options)")
+    return options[Self.Argument.config.rawValue]
   }
 
   // MARK: Private Class Properties
@@ -23,14 +25,20 @@ class Stage {
   ///
   private static var options: [String: String] {
     switch arguments.count {
-    case 2:
+    case 3:
       return [
-        arguments[0]: arguments[1]
+        arguments[1]: arguments[2]
       ]
-    case 4:
+    case 5:
       return [
-        arguments[0]: arguments[1],
-        arguments[2]: arguments[3]
+        arguments[1]: arguments[2],
+        arguments[3]: arguments[4]
+      ]
+    case 7:
+      return [
+        arguments[1]: arguments[2],
+        arguments[3]: arguments[4],
+        arguments[5]: arguments[6]
       ]
 
     default:

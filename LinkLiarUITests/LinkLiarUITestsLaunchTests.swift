@@ -14,12 +14,17 @@ final class LinkLiarUITestsLaunchTests: XCTestCase {
   }
   
   func testLaunch() throws {
+    // Setup
+    let configFilePath = "/tmp/\(Identifiers.gui.rawValue).test.\(Date.now.timeIntervalSince1970).json"
+
+    // Launch
     let app = XCUIApplication()
+    app.launchArguments = ["--config", configFilePath]
     app.launch()
-    
-    // Insert steps here to perform after app launch but before taking a screenshot,
-    // such as logging into a test account or navigating somewhere in the app
-    
+
+    // Test
+    app.menuBars.statusItems.firstMatch.click()
+
     let attachment = XCTAttachment(screenshot: app.screenshot())
     attachment.name = "Launch Screen"
     attachment.lifetime = .keepAlways

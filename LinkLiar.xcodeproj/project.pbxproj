@@ -85,6 +85,11 @@
 		C24570302B484DFA007D7AEA /* StageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245702F2B484DFA007D7AEA /* StageTests.swift */; };
 		C24570312B485BF7007D7AEA /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC42B3B16D4007D7AEA /* Interfaces.swift */; };
 		C24570332B486561007D7AEA /* PathsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570322B486561007D7AEA /* PathsTests.swift */; };
+		C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC62B278B1F00A9BB72 /* JSONWriter.swift */; };
+		C24570352B486A4C007D7AEA /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
+		C24570362B486A51007D7AEA /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC62B278B1F00A9BB72 /* JSONWriter.swift */; };
+		C24570372B486AB8007D7AEA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
+		C24570382B486AC6007D7AEA /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FDF2B3B1708007D7AEA /* Identifiers.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -811,6 +816,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */,
 				C24570332B486561007D7AEA /* PathsTests.swift in Sources */,
 				C24570312B485BF7007D7AEA /* Interfaces.swift in Sources */,
 				C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */,
@@ -845,6 +851,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C24570382B486AC6007D7AEA /* Identifiers.swift in Sources */,
+				C24570372B486AB8007D7AEA /* Log.swift in Sources */,
+				C24570362B486A51007D7AEA /* JSONWriter.swift in Sources */,
+				C24570352B486A4C007D7AEA /* JSONReader.swift in Sources */,
 				C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */,
 				C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */,
 			);

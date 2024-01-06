@@ -42,7 +42,7 @@ struct LinkLiarApp: App {
     // All state-changing operations must be run on the main thread.
     DispatchQueue.main.async {
       Log.debug("Config file change detected, acting upon it")
-      state.configDictionary = JSONReader(filePath: Paths.configFile).dictionary
+      state.configDictionary = JSONReader(Paths.configFile).dictionary
     }
   }
 

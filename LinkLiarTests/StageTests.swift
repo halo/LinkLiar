@@ -17,7 +17,9 @@ class StageTests: XCTestCase {
 
   func testConfigPathCustom() {
     Stage.stubArguments([
-      "--config", "/dev/null/over/here"
+      "LinkLiar.app/Contents/MacOS/LinkLiar", 
+      "--config",
+      "/dev/null/over/here"
     ])
 
     XCTAssertEqual("/dev/null/over/here", Stage.configPath)

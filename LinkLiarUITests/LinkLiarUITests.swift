@@ -19,11 +19,32 @@ final class LinkLiarUITests: XCTestCase {
     }
 
     func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+      // Setup
+      let configFilePath = "/tmp/\(Identifiers.gui.rawValue).test.\(Date.now.timeIntervalSince1970).json"
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      // Launch
+      let app = XCUIApplication()
+      app.launchArguments = ["--config", configFilePath]
+      app.launch()
+
+      // Test
+      app.menuBars.statusItems.firstMatch.click()
+      app/*@START_MENU_TOKEN@*/.buttons["Settings"]/*[[".dialogs",".groups.buttons[\"Settings\"]",".buttons[\"Settings\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.click()
+      
+      let settings = app.windows.firstMatch
+      settings.outlines["Sidebar"].buttons["Interface Default"].click()
+      settings.popUpButtons["Ignore"].click()
+      settings.menuItems["Always Keep Random"].click()
+
+      let expected: [String: Any] = [
+        "default" :     [
+          "action": "random",
+        ],
+        "version": "4.0.0"
+      ]
+
+      let config = JSONReader(configFilePath).dictionary
+      XCTAssertEqual(expected as NSDictionary, config as NSDictionary)
     }
 
 //    func testLaunchPerformance() throws {

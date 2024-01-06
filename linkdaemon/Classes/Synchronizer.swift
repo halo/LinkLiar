@@ -56,7 +56,7 @@ class Synchronizer {
 
   private func reload() {
     // Read configuration file afresh
-    let configDictionary = JSONReader(filePath: Paths.configFile).dictionary
+    let configDictionary = JSONReader(Paths.configFile).dictionary
     config = Config.Reader(configDictionary)
 
     // Query Interfaces afresh

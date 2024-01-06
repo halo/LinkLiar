@@ -4,21 +4,24 @@
 import Foundation
 
 class Paths {
-  static var configDirectory: String {
+  static let configFile = {
     guard let path = Stage.configPath else {
-      return defaultConfigDirectory
+      Log.debug("Using default config file path: \(defaultConfigFile)")
+      return defaultConfigFile
     }
 
     guard !path.isEmpty else {
-      return defaultConfigDirectory
+      Log.debug("Using config file path: \(defaultConfigFile)")
+      return defaultConfigFile
     }
 
+    Log.debug("Using custom config file path: \(path)")
     return path
-  }
+  }()
 
+  static let configDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
   static let configDirectoryURL = URL(fileURLWithPath: configDirectory)
 
-  static let configFile = configDirectory.appendPath("config.json")
   static let configFileURL = URL(fileURLWithPath: configFile)
 
 //  static let debugLogFile = configDirectory.appendPath("linkliar.log")
@@ -28,9 +31,9 @@ class Paths {
   static let githubApiReleases = "https://api.github.com/repos/halo/LinkLiar/releases/latest"
   static let githubApiReleasesURL = URL(string: githubApiReleases)!
 
-  private static let defaultConfigDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
-}
+  private static let defaultConfigFile = configDirectory.appendPath("config.json")
 
+}
 
 extension String {
   func appendPath(_ string: String) -> String {

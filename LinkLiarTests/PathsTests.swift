@@ -12,7 +12,7 @@ class PathsTests: XCTestCase {
   // MARK: configDirectory
 
   func testConfigDirectoryDefault() {
-    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar", Paths.configDirectory)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar/config.json", Paths.configFile)
   }
 
   func testConfigDirectoryEmpty() {
@@ -20,14 +20,14 @@ class PathsTests: XCTestCase {
       "--config", ""
     ])
 
-    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar", Paths.configDirectory)
+    XCTAssertEqual("/Library/Application Support/io.github.halo.LinkLiar/config.json", Paths.configFile)
   }
 
   func testConfigDirectoryCustom() {
     Stage.stubArguments([
-      "--config", "/dev/null/over/there"
+      "--config", "/dev/null/over/there.json"
     ])
 
-    XCTAssertEqual("/dev/null/over/there", Stage.configPath)
+    XCTAssertEqual("/dev/null/over/there.json", Paths.configFile)
   }
 }

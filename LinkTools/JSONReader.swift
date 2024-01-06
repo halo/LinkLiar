@@ -7,7 +7,7 @@ import os.log
 class JSONReader {
   // MARK: Class Methods
 
-  init(filePath: String) {
+  init(_ filePath: String) {
     self.path = filePath
   }
 
