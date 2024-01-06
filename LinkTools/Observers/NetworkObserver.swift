@@ -17,10 +17,12 @@ struct  NetworkObserver {
     )
 
     let store = SCDynamicStoreCreate(nil, "LinkLiar" as CFString, callbackWrapper, nil)!
-    let keys = [SCDynamicStoreKeyCreateNetworkInterface(nil, kSCDynamicStoreDomainState)] as CFArray
+    let keys = ["State:/Network/Global/IPv4"] as CFArray
 
     SCDynamicStoreSetNotificationKeys(store, keys, nil)
-    CFRunLoopAddSource(CFRunLoopGetCurrent(), SCDynamicStoreCreateRunLoopSource(nil, store, 0), CFRunLoopMode.defaultMode)
+    CFRunLoopAddSource(CFRunLoopGetCurrent(),
+                       SCDynamicStoreCreateRunLoopSource(nil, store, 0),
+                       CFRunLoopMode.defaultMode)
 
     // When the observer starts, we notify immediately.
     // One could say the conditions changed right now "for us".
