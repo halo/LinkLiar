@@ -140,14 +140,16 @@ class ConfigBuilderTests: XCTestCase {
 
   func testResetExceptionAddressModifying() {
     let input = ["e1:e1:e1:e1:e1:e1": ["action": "random",
-                                       "except": "aa:aa:aa:aa:aa:aa"]]
+                                       "except": "aa:aa:aa:aa:aa:aa",
+                                       "ssids": ["Coffeeshop": "bb:bb:bb:bb:bb:bb"]]]
     let interface = Interface(BSDName: "en0", displayName: "", kind: "", hardMAC: "e1:e1:e1:e1:e1:e1", async: false)
     interface.overrideSoftMacInTests = MACAddress("bb:bb:bb:bb:bb:bb")
     let output = Config.Builder(input)
       .resetExceptionAddress(interface)
 
     let expected = ["e1:e1:e1:e1:e1:e1": ["action": "random",
-                                          "except": "bb:bb:bb:bb:bb:bb"]]
+                                          "except": "bb:bb:bb:bb:bb:bb",
+                                          "ssids": ["Coffeeshop": "bb:bb:bb:bb:bb:bb"]]]
     XCTAssertEqual(expected as NSDictionary, output as NSDictionary)
   }
 

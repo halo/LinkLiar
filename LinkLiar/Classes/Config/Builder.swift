@@ -106,7 +106,7 @@ extension Config {
         return configDictionary
       }
 
-      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
       interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.formatted
 
       dictionary[interface.hardMAC.formatted] = interfaceDictionary
