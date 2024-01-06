@@ -10,7 +10,8 @@ on:
 
 jobs:
   tests:
-    runs-on: macos-latest
+    # See https://github.com/actions/runner-images/issues/7508
+    runs-on: macos-14
 
     steps:
       - name: Checkout

@@ -48,6 +48,10 @@ class Stage {
 
   // MARK: Private Class Methods
 
+  ///
+  /// `CommandLine.arguments` always includes the name of the executable as first element.
+  /// When we stub the arguments in tests, we just want to pass the arguments, not the executable.
+  ///
   static func stubArguments(_ newArguments: [String]) {
     arguments = ["/tmp/LinkLiar.app/Contents/MacOS/LinkLiar"] + newArguments
   }
