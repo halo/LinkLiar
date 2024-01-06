@@ -49,7 +49,7 @@ class Stage {
   // MARK: Private Class Methods
 
   static func stubArguments(_ newArguments: [String]) {
-    arguments = newArguments
+    arguments = ["/tmp/LinkLiar.app/Contents/MacOS/LinkLiar"] + newArguments
   }
 
   static func resetArguments() {
