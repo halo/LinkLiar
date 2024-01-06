@@ -7,9 +7,7 @@ class Stage {
   // MARK: Class Properties
 
   static var configPath: String? {
-    Log.debug("\(CommandLine.arguments)")
-    Log.debug("\(options)")
-    return options[Self.Argument.config.rawValue]
+    options[Self.Argument.config.rawValue]
   }
 
   // MARK: Private Class Properties

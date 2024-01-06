@@ -33,7 +33,11 @@ class WifiState {
 
     // If we are associated, and the access point SSID is known,
     // then we might as well remember it and reconnect to it later.
-    associatedSsid = interface.ssid()
+
+    // This doesn't work:
+    // associatedSsid = interface.ssid()
+
+    associatedSsid = Airport().ssid()
 
     Log.info("Disassociating Wi-Fi \(BSDName) connection...")
 
@@ -49,11 +53,14 @@ class WifiState {
 
     // If we don't know the previous SSID, we can't do much.
     // Because, even if we knew the BSSID, we have no way of connecting to it.
-    guard let ssid = associatedSsid else { return }
+    guard let ssid = associatedSsid else {
+      Log.debug("You were not associated to an SSID earlier.")
+      return
+    }
 
     // Giving the Interface some time before attempting a re-connect to the same network.
     Log.info("Waiting for prior changes to take effect...")
-    sleep(1)
+    sleep(3)
 
     Log.info("Reconnecting to SSID <\(ssid)>")
     let process = Process()
@@ -61,6 +68,8 @@ class WifiState {
     process.arguments = ["-setairportnetwork", BSDName, ssid]
     process.launch()
     process.waitUntilExit()
+    Log.info("Am I reconnected?")
+    // FIXME: At this very point, the daemon re-randomized the (non-associated) Wi-Fi.
   }
 
   // MARK: Private Instance Properties

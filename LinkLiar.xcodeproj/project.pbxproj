@@ -90,6 +90,9 @@
 		C24570362B486A51007D7AEA /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC62B278B1F00A9BB72 /* JSONWriter.swift */; };
 		C24570372B486AB8007D7AEA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C24570382B486AC6007D7AEA /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FDF2B3B1708007D7AEA /* Identifiers.swift */; };
+		C245703A2B49899F007D7AEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570392B49899F007D7AEA /* LocationManager.swift */; };
+		C245703B2B49899F007D7AEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570392B49899F007D7AEA /* LocationManager.swift */; };
+		C245703E2B49903E007D7AEA /* Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245703D2B49903E007D7AEA /* Airport.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
@@ -234,6 +237,8 @@
 		C245702C2B482D63007D7AEA /* Stage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stage.swift; path = Constants/Stage.swift; sourceTree = "<group>"; };
 		C245702F2B484DFA007D7AEA /* StageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageTests.swift; sourceTree = "<group>"; };
 		C24570322B486561007D7AEA /* PathsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsTests.swift; sourceTree = "<group>"; };
+		C24570392B49899F007D7AEA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Backends/LocationManager.swift; sourceTree = "<group>"; };
+		C245703D2B49903E007D7AEA /* Airport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.swift; path = Classes/Backends/Airport.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266993A2AE55EFD00592008 /* LinkLiarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkLiarTests.swift; sourceTree = "<group>"; };
@@ -311,6 +316,7 @@
 		C225BDA82B1FB9B500FFD119 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C245703C2B49902F007D7AEA /* Backends */,
 				C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */,
 				C225BDAB2B1FBA3A00FFD119 /* Synchronizer.swift */,
 				C2F3DA2C2B36C71A00977572 /* Synchronize.swift */,
@@ -367,6 +373,7 @@
 		C2456FC12B3B16C9007D7AEA /* Backends */ = {
 			isa = PBXGroup;
 			children = (
+				C24570392B49899F007D7AEA /* LocationManager.swift */,
 				C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */,
 				C2456FC42B3B16D4007D7AEA /* Interfaces.swift */,
 				C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */,
@@ -419,6 +426,14 @@
 				C24570052B3DB045007D7AEA /* oui.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C245703C2B49902F007D7AEA /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				C245703D2B49903E007D7AEA /* Airport.swift */,
+			);
+			name = Backends;
 			sourceTree = "<group>";
 		};
 		C266991C2AE55EFC00592008 = {
@@ -786,6 +801,7 @@
 				C29EAF7F2AE5A202003578B9 /* Log.swift in Sources */,
 				C2969EE12B278B1F00A9BB72 /* MACAddressFormatter.swift in Sources */,
 				C2969F102B278E2A00A9BB72 /* SettingsView.swift in Sources */,
+				C245703A2B49899F007D7AEA /* LocationManager.swift in Sources */,
 				C2969EE22B278B1F00A9BB72 /* Controller.swift in Sources */,
 				C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */,
 				C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */,
@@ -873,6 +889,7 @@
 				C2456FC92B3B16D4007D7AEA /* PopularVendors.swift in Sources */,
 				C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */,
 				C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
+				C245703E2B49903E007D7AEA /* Airport.swift in Sources */,
 				C2456FD92B3B16F7007D7AEA /* Version.swift in Sources */,
 				C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C2456FDD2B3B16F7007D7AEA /* Interface.swift in Sources */,
@@ -881,6 +898,7 @@
 				C2456FF42B3B1874007D7AEA /* CFArray+Sequence.swift in Sources */,
 				C2456FD72B3B16F7007D7AEA /* Vendor.swift in Sources */,
 				C245702E2B482D63007D7AEA /* Stage.swift in Sources */,
+				C245703B2B49899F007D7AEA /* LocationManager.swift in Sources */,
 				C2456FE32B3B1708007D7AEA /* Identifiers.swift in Sources */,
 				C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */,
 				C28E032B2B0BD5EB0074EC94 /* LinkDaemon.swift in Sources */,

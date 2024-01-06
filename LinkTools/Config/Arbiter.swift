@@ -24,6 +24,7 @@ extension Config {
       return .ignore
     }
 
+    // TODO: Do we need to include SSID-MAC binding prefixes?
     var prefixes: [MACPrefix] {
       if !config.vendors.chosenPopular.isEmpty {
         return config.vendors.chosenPopular.flatMap { $0.prefixes }

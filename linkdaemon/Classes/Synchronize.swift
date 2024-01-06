@@ -39,12 +39,12 @@ class Synchronize {
       return nil
     }
 
-    guard let wifiInterface = CWWiFiClient.shared().interface(withName: interface.BSDName) else {
-      Log.debug("\(interface.BSDName) is not an Interface that can connect to an SSID.")
-      return nil
-    }
+//    guard let wifiInterface = CWWiFiClient.shared().interface(withName: interface.BSDName) else {
+//      Log.debug("\(interface.BSDName) is not an Interface that can connect to an SSID.")
+//      return nil
+//    }
 
-    guard let ssid = wifiInterface.ssid() else {
+    guard let ssid = Airport().ssid() else {
       Log.debug("\(interface.BSDName) is not connected to an SSID.")
       return nil
     }
