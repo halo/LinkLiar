@@ -10,10 +10,11 @@ extension Config {
 
     var popularMarked: [Vendor] {
       let allVendors = PopularVendors.all
-      guard let chosenVendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
 
-      for vendor in allVendors {
-        vendor.isChosen = (chosenVendorIDs.first { $0 == vendor.id } != nil)
+      if let chosenVendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] {
+        for vendor in allVendors {
+          vendor.isChosen = (chosenVendorIDs.first { $0 == vendor.id } != nil)
+        }
       }
 
       return allVendors

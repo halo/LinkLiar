@@ -14,7 +14,7 @@ extension SettingsView {
       VStack {
         Table(state.config.vendors.popularMarked) {
 
-          TableColumn("Active") { vendor in
+          TableColumn("On") { vendor in
             let isChosen = Binding<Bool>(
               get: { vendor.isChosen },
               set: { value, _ in toggleVendor(value: value, vendor: vendor) })
