@@ -128,7 +128,7 @@ extension Ifconfig {
         return ""
       }
 
-      Log.debug("Interface \(BSDName) has soft MAC address \(MACAddress(address).humanReadable)")
+//      Log.debug("Interface \(BSDName) has soft MAC address \(MACAddress(address).humanReadable)")
 
       return address
     }()

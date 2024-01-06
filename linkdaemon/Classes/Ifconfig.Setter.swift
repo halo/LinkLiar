@@ -36,8 +36,11 @@ extension Ifconfig {
       process.launch()
       process.waitUntilExit() // Block until ifconfig exited.
 
-      state.restore()
+      // Giving the Interface some time before attempting a re-connect to a network.
+      Log.info("Waiting for prior changes to take effect...")
+      sleep(1)
 
+      state.restore()
     }
   }
 }

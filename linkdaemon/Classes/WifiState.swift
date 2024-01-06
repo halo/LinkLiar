@@ -37,7 +37,7 @@ class WifiState {
     // This doesn't work:
     // associatedSsid = interface.ssid()
 
-    associatedSsid = Airport().ssid()
+    associatedSsid = AirportUtility().ssid()
 
     Log.info("Disassociating Wi-Fi \(BSDName) connection...")
 
@@ -58,18 +58,19 @@ class WifiState {
       return
     }
 
-    // Giving the Interface some time before attempting a re-connect to the same network.
-    Log.info("Waiting for prior changes to take effect...")
-    sleep(3)
+    var index = 1
 
-    Log.info("Reconnecting to SSID <\(ssid)>")
-    let process = Process()
-    process.launchPath = "/usr/sbin/networksetup"
-    process.arguments = ["-setairportnetwork", BSDName, ssid]
-    process.launch()
-    process.waitUntilExit()
-    Log.info("Am I reconnected?")
-    // FIXME: At this very point, the daemon re-randomized the (non-associated) Wi-Fi.
+    while AirportUtility().ssid() == nil && index <= 2 {
+      if index == 1 {
+        connectToPublicWifi(ssid)
+      } else {
+        Log.info("Turn Wi-Fi on and off hoping it will connect to <\(ssid)>")
+        turnWifiOffAndOn()
+      }
+      index += 1
+      sleep(1)
+    }
+
   }
 
   // MARK: Private Instance Properties
@@ -79,4 +80,30 @@ class WifiState {
   lazy private var getInterface: CWInterface? = {
     CWWiFiClient.shared().interface(withName: BSDName)
   }()
+
+  // This only works for passwordless access points.
+  private func connectToPublicWifi(_ ssid: String) {
+    Log.info("Attempt to connect to passwordless SSID <\(ssid)>")
+    let process = Process()
+    process.launchPath = "/usr/sbin/networksetup"
+    process.arguments = ["-setairportnetwork", BSDName, ssid]
+    process.launch()
+    process.waitUntilExit()
+  }
+
+  private func turnWifiOffAndOn() {
+//    Log.info("Turning off Wi-Fi")
+    let offProcess = Process()
+    offProcess.launchPath = "/usr/sbin/networksetup"
+    offProcess.arguments = ["-setairportpower", BSDName, "off"]
+    offProcess.launch()
+    offProcess.waitUntilExit()
+
+//    Log.info("Turning on Wi-Fi")
+    let onProcess = Process()
+    onProcess.launchPath = "/usr/sbin/networksetup"
+    onProcess.arguments = ["-setairportpower", BSDName, "on"]
+    onProcess.launch()
+    onProcess.waitUntilExit()
+  }
 }

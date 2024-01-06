@@ -38,7 +38,7 @@ public struct Log {
   // MARK: Private Class Methods
 
   private static func write(_ message: String, level: OSLogType) {
-    logger.log(level: level, "\(message)")
+    logger.log(level: level, "\(message, privacy: .public)")
     appendToLogfile(message, level: level)
   }
 

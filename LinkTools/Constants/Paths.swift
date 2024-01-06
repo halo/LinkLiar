@@ -4,7 +4,7 @@
 import Foundation
 
 class Paths {
-  static var configFile: String {
+  static var configFile: String = {
     guard let path = Stage.configPath else {
       Log.debug("Using default config file path: \(defaultConfigFile)")
       return defaultConfigFile
@@ -17,7 +17,7 @@ class Paths {
 
     Log.debug("Using custom config file path: \(path)")
     return path
-  }
+  }()
 
   static let configDirectory = "/Library/Application Support/\(Identifiers.gui.rawValue)"
   static let configDirectoryURL = URL(fileURLWithPath: configDirectory)

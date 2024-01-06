@@ -1,27 +1,40 @@
 // Copyright (c) halo https://github.com/halo/LinkLiar
 // SPDX-License-Identifier: MIT
 
-import CoreWLAN
 import Foundation
 
-class Synchronizer {
+class Executor {
+
   func run() {
     Log.debug("Scheduling for synchronization...")
 
     // Run serially
-    queue.sync {
-      Log.debug("Synchronizing now...")
+    DispatchQueue.global(qos: .utility).sync {
+      Log.info("Synchronizing Interfaces...")
       reload()
 
       for interface in interfaces {
         let arbiter = config.arbiter(interface.hardMAC)
-        let sync = Synchronize(interface: interface, arbiter: arbiter)
+        let synchronization = Synchronization(interface: interface, arbiter: arbiter)
 
-        if let newSoftMac = sync.newSoftMAC {
-          Ifconfig.Setter(interface.BSDName).setSoftMAC(newSoftMac)
+        if synchronizations[synchronization.hardMAC.formatted] == nil {
+          // Trusting you'll never physically attach so many interfaces as to run out of memory here.
+          Log.debug("Adding \(synchronization.hardMAC.formatted) to queue")
+          synchronizations[synchronization.hardMAC.formatted] = synchronization
+        }
+
+        if let synchronization = synchronizations[synchronization.hardMAC.formatted] {
+          synchronization.update(interface: interface, arbiter: arbiter)
         }
       }
+
+      for synchronization in synchronizations.values {
+        Log.debug("Synchronizing \(synchronization.BSDName)")
+        synchronization.execute()
+      }
     }
+
+    Log.debug("Done synchronizing")
   }
 
   func mayReRandomize() {
@@ -45,25 +58,30 @@ class Synchronizer {
 
   // MARK: Private Instance Properties
 
+  ///
   /// Per `DispatchQueue.init` this is a serial queue.
   /// We don't want to read the config and execute ifconfig parallelized.
   ///
-  private var queue = DispatchQueue(label: "\(Identifiers.daemon).Synchronizer", qos: .utility)
+//  private var queue = DispatchQueue(label: "\(Identifiers.daemon).Synchronizer", qos: .utility)
   private var config: Config.Reader = Config.Reader([:])
   private var interfaces: [Interface] = []
+  private var synchronizations = [String: Synchronization]()
 
   // MARK: Private Instance Properties
 
   private func reload() {
     // Read configuration file afresh
+    Log.debug("Reloading configuration...")
     let configDictionary = JSONReader(Paths.configFile).dictionary
     config = Config.Reader(configDictionary)
 
-    // Query Interfaces afresh
+    // Query Interfaces afresh synchronously
+    Log.debug("Reloading Interfaces...")
     interfaces = Interfaces.all(asyncSoftMac: false).filter {
       config.policy($0.hardMAC).action != .hide
     }.filter {
       config.policy($0.hardMAC).action != .ignore
     }
   }
+
 }

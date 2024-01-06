@@ -6,7 +6,7 @@ import Foundation
 ///
 /// Runs the external exectuable `airport` to dermine the current SSID and/or BSSID of an Interface.
 ///
-class Airport {
+class AirportUtility {
   // MARK: Instance Methods
 
   func ssid() -> String? {

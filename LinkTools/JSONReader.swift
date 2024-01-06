@@ -24,10 +24,9 @@ class JSONReader {
   lazy var data: Data? = {
     do {
       Log.debug("Reading \(path)")
-      let result = try Data(contentsOf: url)
-      Log.debug("Content: \(result)")
-      Log.debug("Successfuly read it")
-      return result
+//      Log.debug("Content: \(result)")
+//      Log.debug("Successfuly read it")
+      return try Data(contentsOf: url)
     } catch let error as NSError {
       Log.debug(error.localizedDescription)
       return nil

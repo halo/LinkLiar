@@ -55,7 +55,7 @@ struct InterfaceView: View {
     }.contextMenu {
       Button("Copy MAC address") { copy(interface.softMAC.humanReadable) }
 
-      if state.config.arbiter(interface.hardMAC).action == .random {
+      if state.config.arbiter(interface.hardMAC).action == .random && state.daemonRegistration == .enabled {
         Button("Randomize now") {
           Config.Writer(state).resetExceptionAddress(interface: interface)
         }

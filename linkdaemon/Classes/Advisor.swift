@@ -4,7 +4,7 @@
 import CoreWLAN
 import Foundation
 
-class Synchronize {
+class Advisor {
   // MARK: Class Methods
 
   init(interface: Interface, arbiter: Config.Arbiter) {
@@ -12,12 +12,7 @@ class Synchronize {
     self.arbiter = arbiter
   }
 
-  // MARK: Public Instance Properties
-
-  var newSoftMAC: MACAddress? {
-    // When an SSID-MAC binding was specified, it takes precedence.
-    if let address = addressForSsid { return address }
-
+  var addressForStandard: MACAddress? {
     switch arbiter.action {
     case .original: return originalize
     case .specify: return specify
@@ -28,35 +23,31 @@ class Synchronize {
     }
   }
 
-  // MARK: Private Instance Properties
-
-  private var interface: Interface
-  private var arbiter: Config.Arbiter
-
-  private var addressForSsid: MACAddress? {
+  var addressForSsid: MACAddress? {
     guard arbiter.action == .original || arbiter.action == .specify || arbiter.action == .random else {
-      Log.debug("\(interface.BSDName) with action \(arbiter.action) is not applicable for SSID-MAC binding.")
+      // An SSID-MAC binding can for example not affect ignored or hidden interfaces.
+      Log.debug("\(interface.BSDName) with action \(arbiter.action) not applicable for SSID-MAC binding")
       return nil
     }
 
-//    guard let wifiInterface = CWWiFiClient.shared().interface(withName: interface.BSDName) else {
-//      Log.debug("\(interface.BSDName) is not an Interface that can connect to an SSID.")
-//      return nil
-//    }
-
-    guard let ssid = Airport().ssid() else {
-      Log.debug("\(interface.BSDName) is not connected to an SSID.")
+    guard let ssid = AirportUtility().ssid() else {
+      Log.debug("\(interface.BSDName) not associated to an SSID")
       return nil
     }
 
     guard let newMAC = arbiter.addressForSsid(ssid) else {
-      Log.debug("\(interface.BSDName) has no SSID-MAC binding defined.")
+      Log.debug("\(interface.BSDName) has no SSID-MAC binding")
       return nil
     }
 
-    Log.debug("\(interface.BSDName) connected to \(ssid) wants MAC \(newMAC.formatted).")
+    Log.info("\(interface.BSDName) associated to \(ssid) wants MAC \(newMAC.formatted)")
     return newMAC
   }
+
+  // MARK: Private Instance Properties
+
+  private var interface: Interface
+  private var arbiter: Config.Arbiter
 
   private var originalize: MACAddress? {
     guard interface.hasOriginalMAC else {
@@ -91,9 +82,10 @@ class Synchronize {
     if !arbiter.prefixes.contains(interface.softPrefix) {
       Log.debug("Interface \(interface.BSDName) has an unallowed prefix \(interface.softPrefix.formatted) randomizing.")
       return arbiter.randomAddress()
-    } else {
-      Log.debug("The Interface \(interface.BSDName) has the sanctioned prefix \(interface.softMAC).")
     }
+//    else {
+//      Log.debug("The Interface \(interface.BSDName) has the sanctioned prefix \(interface.softPrefix.formatted).")
+//    }
 
     guard let undesiredAddress = arbiter.exceptionAddress else {
       Log.debug("\(interface.BSDName) is already random and no undesired address was specified.")

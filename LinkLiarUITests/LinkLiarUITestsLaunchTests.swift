@@ -15,7 +15,7 @@ final class LinkLiarUITestsLaunchTests: XCTestCase {
   
   func testLaunch() throws {
     // Setup
-    let configFilePath = "/tmp/\(Identifiers.gui.rawValue).test.\(Date.now.timeIntervalSince1970).json"
+    let configFilePath = "/tmp/LinkLiar.\(Date.now.timeIntervalSince1970).json"
 
     // Launch
     let app = XCUIApplication()

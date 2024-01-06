@@ -84,6 +84,7 @@ class Interface: Identifiable {
     if isAsync {
       reader.softMAC(callback: { address in
         DispatchQueue.main.async {
+          Log.debug("Setting softMAC to \(address.formatted)")
           self._softMAC = address.formatted
         }
       })

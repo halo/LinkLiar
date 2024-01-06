@@ -12,8 +12,14 @@ class Controller {
     state.allInterfaces = Interfaces.all(asyncSoftMac: true)
   }
 
+//  static func restartDaemon(state: LinkState) {
+//    if state.daemonRegistration == .enabled {
+//      unregisterDaemon(state: state)
+//      registerDaemon(state: state)
+//    }
+//  }
+
   static func registerDaemon(state: LinkState) {
-    //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
     // Why did I use the queue here?

@@ -30,7 +30,7 @@ class LinkDaemon {
     // Load config file once.
     configFileChanged()
 
-    intervalTimer = IntervalTimer(callback: intervalElaped)
+    intervalTimer = IntervalTimer(callback: intervalElapsed)
 
     // Start observing changes of ethernet interfaces
     networkObserver = NetworkObserver(callback: networkConditionsChanged)
@@ -43,8 +43,8 @@ class LinkDaemon {
                                                       name: NSWorkspace.didWakeNotification, object: nil)
   }
 
-  private func intervalElaped() {
-    Log.debug("Interval elaped, acting upon it")
+  private func intervalElapsed() {
+    Log.debug("Interval elapsed, acting upon it")
     synchronizer.run()
   }
 
@@ -87,7 +87,7 @@ class LinkDaemon {
 
   // MARK: Private Instance Properties
 
-  lazy var synchronizer: Synchronizer = {
-    Synchronizer()
+  lazy var synchronizer: Executor = {
+    Executor()
   }()
 }
