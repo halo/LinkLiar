@@ -30,18 +30,20 @@ class Advisor {
       return nil
     }
 
-    guard let ssid = AirportUtility().ssid() else {
-      Log.debug("\(interface.BSDName) not associated to an SSID")
-      return nil
-    }
+    return nil
 
-    guard let newMAC = arbiter.addressForSsid(ssid) else {
-      Log.debug("\(interface.BSDName) has no SSID-MAC binding")
-      return nil
-    }
-
-    Log.info("\(interface.BSDName) associated to \(ssid) wants MAC \(newMAC.formatted)")
-    return newMAC
+//    guard let ssid = Airport.Connection.ssid else {
+//      Log.debug("\(interface.BSDName) not associated to an SSID")
+//      return nil
+//    }
+//
+//    guard let newMAC = arbiter.addressForSsid(ssid) else {
+//      Log.debug("\(interface.BSDName) has no SSID-MAC binding")
+//      return nil
+//    }
+//
+//    Log.info("\(interface.BSDName) associated to \(ssid) wants MAC \(newMAC.formatted)")
+//    return newMAC
   }
 
   // MARK: Private Instance Properties

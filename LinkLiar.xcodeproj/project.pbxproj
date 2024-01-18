@@ -48,8 +48,6 @@
 		C2456FEF2B3B1809007D7AEA /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FEA2B3B1809007D7AEA /* NetworkObserver.swift */; };
 		C2456FF02B3B1809007D7AEA /* TimeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */; };
 		C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */; };
-		C2456FF32B3B1874007D7AEA /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */; };
-		C2456FF42B3B1874007D7AEA /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */; };
 		C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C24570072B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; };
@@ -88,11 +86,22 @@
 		C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2969EC62B278B1F00A9BB72 /* JSONWriter.swift */; };
 		C245703A2B49899F007D7AEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570392B49899F007D7AEA /* LocationManager.swift */; };
 		C245703B2B49899F007D7AEA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24570392B49899F007D7AEA /* LocationManager.swift */; };
-		C245703E2B49903E007D7AEA /* AirportUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245703D2B49903E007D7AEA /* AirportUtility.swift */; };
 		C24570402B49DC9B007D7AEA /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245703F2B49DC9B007D7AEA /* Advisor.swift */; };
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
+		C280C03E2B51225000C653F0 /* Airport.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C03B2B51225000C653F0 /* Airport.Scanner.swift */; };
+		C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C03B2B51225000C653F0 /* Airport.Scanner.swift */; };
+		C280C0412B58363200C653F0 /* Airport.Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0402B58363200C653F0 /* Airport.Connection.swift */; };
+		C280C0422B58363200C653F0 /* Airport.Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0402B58363200C653F0 /* Airport.Connection.swift */; };
+		C280C0442B5836E700C653F0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
+		C280C0452B5836E700C653F0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
+		C280C0472B584D6900C653F0 /* AirportConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */; };
+		C280C04B2B58511800C653F0 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0492B58511800C653F0 /* CFArray+Sequence.swift */; };
+		C280C04C2B58511800C653F0 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0492B58511800C653F0 /* CFArray+Sequence.swift */; };
+		C280C04E2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C04A2B58511800C653F0 /* Collection+safeSubscript.swift */; };
+		C280C04F2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C04A2B58511800C653F0 /* Collection+safeSubscript.swift */; };
+		C280C0502B58511800C653F0 /* Collection+safeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C04A2B58511800C653F0 /* Collection+safeSubscript.swift */; };
 		C288E2162AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
 		C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */; };
@@ -132,7 +141,6 @@
 		C2B45B7E2B49E834004C1BB9 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C2B45B7F2B49E842004C1BB9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C2B45B802B49E849004C1BB9 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FDF2B3B1708007D7AEA /* Identifiers.swift */; };
-		C2B45B812B49E87D004C1BB9 /* AirportUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245703D2B49903E007D7AEA /* AirportUtility.swift */; };
 		C2B45B822B49E87D004C1BB9 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAB2B1FBA3A00FFD119 /* Executor.swift */; };
 		C2B45B832B49E87D004C1BB9 /* Advisor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C245703F2B49DC9B007D7AEA /* Advisor.swift */; };
 		C2B45B842B49E88D004C1BB9 /* Ifconfig.Setter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */; };
@@ -227,7 +235,6 @@
 		C2456FE92B3B1809007D7AEA /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObserver.swift; path = Observers/FileObserver.swift; sourceTree = "<group>"; };
 		C2456FEA2B3B1809007D7AEA /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkObserver.swift; path = Observers/NetworkObserver.swift; sourceTree = "<group>"; };
 		C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeObserver.swift; path = Observers/TimeObserver.swift; sourceTree = "<group>"; };
-		C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFArray+Sequence.swift"; sourceTree = "<group>"; };
 		C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorsDatabase.swift; path = Backends/PopularVendorsDatabase.swift; sourceTree = "<group>"; };
 		C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = io.github.halo.LinkLiar.linkdaemon.plist; path = LinkLiar/io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = SOURCE_ROOT; };
 		C24570042B3DB045007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -244,7 +251,6 @@
 		C245702F2B484DFA007D7AEA /* StageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StageTests.swift; sourceTree = "<group>"; };
 		C24570322B486561007D7AEA /* PathsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathsTests.swift; sourceTree = "<group>"; };
 		C24570392B49899F007D7AEA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationManager.swift; path = Backends/LocationManager.swift; sourceTree = "<group>"; };
-		C245703D2B49903E007D7AEA /* AirportUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirportUtility.swift; path = Classes/Backends/AirportUtility.swift; sourceTree = "<group>"; };
 		C245703F2B49DC9B007D7AEA /* Advisor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Advisor.swift; path = Classes/Advisor.swift; sourceTree = "<group>"; };
 		C26699252AE55EFC00592008 /* LinkLiar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LinkLiar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C26699362AE55EFD00592008 /* LinkLiarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LinkLiarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +261,12 @@
 		C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.LinkLiar.linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266996A2AE57A3100592008 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
+		C280C03B2B51225000C653F0 /* Airport.Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.Scanner.swift; path = Classes/Backends/Airport.Scanner.swift; sourceTree = "<group>"; };
+		C280C0402B58363200C653F0 /* Airport.Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.Connection.swift; path = Classes/Backends/Airport.Connection.swift; sourceTree = "<group>"; };
+		C280C0432B5836E700C653F0 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportConnectionTests.swift; sourceTree = "<group>"; };
+		C280C0492B58511800C653F0 /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFArray+Sequence.swift"; sourceTree = "<group>"; };
+		C280C04A2B58511800C653F0 /* Collection+safeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+safeSubscript.swift"; sourceTree = "<group>"; };
 		C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListenerProtocol.swift; sourceTree = "<group>"; };
 		C28E032A2B0BD5EB0074EC94 /* LinkDaemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkDaemon.swift; sourceTree = "<group>"; };
 		C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigBuilderTests.swift; sourceTree = "<group>"; };
@@ -439,7 +451,8 @@
 		C245703C2B49902F007D7AEA /* Backends */ = {
 			isa = PBXGroup;
 			children = (
-				C245703D2B49903E007D7AEA /* AirportUtility.swift */,
+				C280C0402B58363200C653F0 /* Airport.Connection.swift */,
+				C280C03B2B51225000C653F0 /* Airport.Scanner.swift */,
 			);
 			name = Backends;
 			sourceTree = "<group>";
@@ -482,6 +495,7 @@
 		C26699392AE55EFD00592008 /* LinkLiarTests */ = {
 			isa = PBXGroup;
 			children = (
+				C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */,
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
 				C2ADC8522B22293A002A2905 /* ConfigTests.swift */,
 				C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */,
@@ -510,6 +524,15 @@
 				C266996F2AE57A3D00592008 /* linkdaemon.entitlements */,
 			);
 			path = linkdaemon;
+			sourceTree = "<group>";
+		};
+		C280C0482B58511800C653F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C280C0492B58511800C653F0 /* CFArray+Sequence.swift */,
+				C280C04A2B58511800C653F0 /* Collection+safeSubscript.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C2969EBF2B278B1F00A9BB72 /* Classes */ = {
@@ -579,10 +602,11 @@
 				C2456FDE2B3B16FF007D7AEA /* Constants */,
 				C2456FCE2B3B16EE007D7AEA /* Models */,
 				C2456FE82B3B17E6007D7AEA /* Observers */,
+				C280C0482B58511800C653F0 /* Extensions */,
 				C29EAF7E2AE5A202003578B9 /* Log.swift */,
 				C288E2152AE7AF2D0098FF39 /* ListenerProtocol.swift */,
+				C280C0432B5836E700C653F0 /* Command.swift */,
 				C22F21A92B010C970086B621 /* JSONReader.swift */,
-				C2456FF22B3B1874007D7AEA /* CFArray+Sequence.swift */,
 			);
 			path = LinkTools;
 			sourceTree = "<group>";
@@ -784,7 +808,7 @@
 				C2456FDA2B3B16F7007D7AEA /* MACPrefix.swift in Sources */,
 				C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */,
 				C2456FCA2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
-				C2456FF32B3B1874007D7AEA /* CFArray+Sequence.swift in Sources */,
+				C280C04E2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
 				C2456FD82B3B16F7007D7AEA /* Version.swift in Sources */,
 				C2456FB92B3B003E007D7AEA /* VendorsView.swift in Sources */,
 				C2456FD42B3B16F7007D7AEA /* MACAddress.swift in Sources */,
@@ -819,6 +843,7 @@
 				C2969F162B278E2A00A9BB72 /* PolicyActionView.swift in Sources */,
 				C2969F222B278E2A00A9BB72 /* InterfacesView.swift in Sources */,
 				C2969F1E2B278E2A00A9BB72 /* RegisterDaemonView.swift in Sources */,
+				C280C04B2B58511800C653F0 /* CFArray+Sequence.swift in Sources */,
 				C2456FBC2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C2969EDE2B278B1F00A9BB72 /* LinkState.swift in Sources */,
 				C24570292B41FC3E007D7AEA /* Urls.swift in Sources */,
@@ -843,8 +868,8 @@
 				C2B45B862B49E89A004C1BB9 /* Stage.swift in Sources */,
 				C2B45B852B49E893004C1BB9 /* Paths.swift in Sources */,
 				C2B45B842B49E88D004C1BB9 /* Ifconfig.Setter.swift in Sources */,
-				C2B45B812B49E87D004C1BB9 /* AirportUtility.swift in Sources */,
 				C2B45B822B49E87D004C1BB9 /* Executor.swift in Sources */,
+				C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */,
 				C2B45B832B49E87D004C1BB9 /* Advisor.swift in Sources */,
 				C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */,
 				C24570332B486561007D7AEA /* PathsTests.swift in Sources */,
@@ -863,16 +888,20 @@
 				C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */,
 				C24570302B484DFA007D7AEA /* StageTests.swift in Sources */,
 				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
+				C280C0452B5836E700C653F0 /* Command.swift in Sources */,
 				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
 				C245700F2B3DB696007D7AEA /* Interface.swift in Sources */,
 				C245700C2B3DB59D007D7AEA /* Synchronization.swift in Sources */,
 				C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */,
+				C280C0502B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
 				C2969EB92B24BE1B00A9BB72 /* ConfigBuilderTests.swift in Sources */,
 				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
 				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
 				C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */,
+				C280C0422B58363200C653F0 /* Airport.Connection.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C245700E2B3DB5B4007D7AEA /* AdvisorTests.swift in Sources */,
+				C280C0472B584D6900C653F0 /* AirportConnectionTests.swift in Sources */,
 				C29EAF802AE5A202003578B9 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -895,6 +924,7 @@
 			files = (
 				C2F3DA302B3730E600977572 /* Arbiter.swift in Sources */,
 				C2F3DA252B35C8B900977572 /* AccessPointPolicy.swift in Sources */,
+				C280C03E2B51225000C653F0 /* Airport.Scanner.swift in Sources */,
 				C2F3DA1F2B35C8B900977572 /* General.swift in Sources */,
 				C2456FBD2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C2456FE72B3B1708007D7AEA /* Notifications.swift in Sources */,
@@ -902,13 +932,15 @@
 				C2456FC92B3B16D4007D7AEA /* PopularVendors.swift in Sources */,
 				C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */,
 				C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
-				C245703E2B49903E007D7AEA /* AirportUtility.swift in Sources */,
+				C280C0412B58363200C653F0 /* Airport.Connection.swift in Sources */,
 				C2456FD92B3B16F7007D7AEA /* Version.swift in Sources */,
+				C280C04F2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
 				C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */,
+				C280C04C2B58511800C653F0 /* CFArray+Sequence.swift in Sources */,
 				C2456FDD2B3B16F7007D7AEA /* Interface.swift in Sources */,
 				C2456FD52B3B16F7007D7AEA /* MACAddress.swift in Sources */,
 				C2D819522B2A2FDC00991D38 /* Ifconfig.Setter.swift in Sources */,
-				C2456FF42B3B1874007D7AEA /* CFArray+Sequence.swift in Sources */,
+				C280C0442B5836E700C653F0 /* Command.swift in Sources */,
 				C2456FD72B3B16F7007D7AEA /* Vendor.swift in Sources */,
 				C245702E2B482D63007D7AEA /* Stage.swift in Sources */,
 				C245703B2B49899F007D7AEA /* LocationManager.swift in Sources */,

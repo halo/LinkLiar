@@ -4,6 +4,8 @@
 import Foundation
 
 class Paths {
+  // Class Properties
+
   static var configFile: String = {
     guard let path = Stage.configPath else {
       Log.debug("Using default config file path: \(defaultConfigFile)")
@@ -30,6 +32,10 @@ class Paths {
 
   static let githubApiReleases = "https://api.github.com/repos/halo/LinkLiar/releases/latest"
   static let githubApiReleasesURL = URL(string: githubApiReleases)!
+
+  static let airportCLI = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+
+  // Private Class Properties
 
   private static let defaultConfigFile = configDirectory.appendPath("config.json")
 

@@ -37,7 +37,7 @@ class WifiState {
     // This doesn't work:
     // associatedSsid = interface.ssid()
 
-    associatedSsid = AirportUtility().ssid()
+//    associatedSsid = AirportUtility().ssid()
 
     Log.info("Disassociating Wi-Fi \(BSDName) connection...")
 
@@ -50,26 +50,27 @@ class WifiState {
   func restore() {
     // Can only restore Wi-Fi interfaces.
     if getInterface == nil { return }
+    return
 
-    // If we don't know the previous SSID, we can't do much.
-    // Because, even if we knew the BSSID, we have no way of connecting to it.
-    guard let ssid = associatedSsid else {
-      Log.debug("You were not associated to an SSID earlier.")
-      return
-    }
+//    // If we don't know the previous SSID, we can't do much.
+//    // Because, even if we knew the BSSID, we have no way of connecting to it.
+//    guard let ssid = associatedSsid else {
+//      Log.debug("You were not associated to an SSID earlier.")
+//      return
+//    }
+//
+//    var index = 1
 
-    var index = 1
-
-    while AirportUtility().ssid() == nil && index <= 2 {
-      if index == 1 {
-        connectToPublicWifi(ssid)
-      } else {
-        Log.info("Turn Wi-Fi on and off hoping it will connect to <\(ssid)>")
-        turnWifiOffAndOn()
-      }
-      index += 1
-      sleep(1)
-    }
+//    while AirportUtility().ssid() == nil && index <= 2 {
+//      if index == 1 {
+//        connectToPublicWifi(ssid)
+//      } else {
+//        Log.info("Turn Wi-Fi on and off hoping it will connect to <\(ssid)>")
+//        turnWifiOffAndOn()
+//      }
+//      index += 1
+//      sleep(1)
+//    }
 
   }
 

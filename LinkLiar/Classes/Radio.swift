@@ -140,6 +140,8 @@ class Radio {
 
     xpcConnection!.interruptionHandler = {
       xpcConnection?.interruptionHandler = nil
+
+      // I actually don't know why this is supposed to be wrapped in an `OperationQueue`.
       OperationQueue.main.addOperation {
         xpcConnection = nil
         Log.debug("XPC Connection interrupted - the Helper probably crashed.")
