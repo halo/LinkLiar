@@ -3,22 +3,22 @@
 
 import Foundation
 
-class Hotspot: Decodable {
-  var bssid: String = ""
-  var ssid: String = ""
-
-  private enum CodingKeys: String, CodingKey {
-    case bssid = "BSSID"
-    case ssid = "SSID_STR"
-  }
-}
-
 extension Airport {
   ///
   /// Runs the external exectuable `airport` to determine which
   /// Access Points are reachable through the internal Wi-Fi interface.
   ///
   struct Scanner {
+    struct Hotspot: Decodable {
+      var bssid: String = ""
+      var ssid: String = ""
+
+      private enum CodingKeys: String, CodingKey {
+        case bssid = "BSSID"
+        case ssid = "SSID_STR"
+      }
+    }
+
     // MARK: - Class Methods
 
     init(stubOutput: String? = nil) {
@@ -27,22 +27,27 @@ extension Airport {
 
     // MARK: - Instance Properties
 
-    lazy var accessPoints: [Hotspot]? = {
+    lazy var accessPoints: [AccessPoint] = {
 
       do {
         let infoPlistData = Data(output.utf8)  // command.runData()
         guard !infoPlistData.isEmpty else {
           Log.debug("`airport --scan` returned empty STDOUT")
-          return nil
+          return []
         }
 
         let plistDecoder = PropertyListDecoder()
-        return try plistDecoder.decode([Hotspot].self, from: infoPlistData)
+        let hotspots = try plistDecoder.decode([Hotspot].self, from: infoPlistData)
+
+        return hotspots.compactMap {
+          print($0.ssid)
+          return AccessPoint.init(ssid: $0.ssid, bssid: $0.bssid)
+        }
 
       } catch {
         print(error)
       }
-      return nil
+      return []
     }()
 
     // MARK: - Private Instance Properties

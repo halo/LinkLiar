@@ -37,7 +37,8 @@ extension Config {
     /// Queries whether MAC addresses should be anonymized in GUI and logs.
     ///
     var isAnonymized: Bool {
-      anonymizationSeed.isValid
+      false
+//      anonymizationSeed.isValid
     }
 
     // TODO: How to solve this?
@@ -46,10 +47,10 @@ extension Config {
      */
     var anonymizationSeed: MACAddress {
       guard let seed = self.dictionary["anonymous"] as? String else {
-        return MACAddress("")
+        return MACAddress(address: "")
       }
 
-      return MACAddress(seed)
+      return MACAddress(address: seed)
     }
   }
 }

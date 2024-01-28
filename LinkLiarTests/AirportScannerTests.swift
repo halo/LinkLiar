@@ -129,14 +129,14 @@ class AirportScannerTests: XCTestCase {
 
     let accessPoints = scan.accessPoints
     XCTAssertNotNil(accessPoints)
-    XCTAssertEqual(2, accessPoints?.count)
+    XCTAssertEqual(2, accessPoints.count)
 
-    let firstPoint = accessPoints?.first!
-    XCTAssertEqual("Thé Coffeeshop", firstPoint?.ssid)
-    XCTAssertEqual("6:aa:bb:cc:2:dd", firstPoint?.bssid)
+    let firstPoint = accessPoints.first!
+    XCTAssertEqual(SSID("Thé Coffeeshop"), firstPoint.ssid)
+    XCTAssertEqual(MACAddress("6:aa:bb:cc:2:dd"), firstPoint.bssid)
 
-    let secondPoint = accessPoints?.last!
-    XCTAssertEqual("The Starship", secondPoint?.ssid)
-    XCTAssertEqual("aa:c:bb:cc:dd:ee", secondPoint?.bssid)
+    let secondPoint = accessPoints.last!
+    XCTAssertEqual(SSID("The Starship"), secondPoint.ssid)
+    XCTAssertEqual(MACAddress("aa:c:bb:cc:dd:ee"), secondPoint.bssid)
   }
 }

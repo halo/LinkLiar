@@ -21,26 +21,26 @@ extension Config {
       var interfaceDictionary: [String: String] = [:]
 
       if action == nil {
-        interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+        interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: String] ?? [:]
         interfaceDictionary.removeValue(forKey: Config.Key.action.rawValue)
 
       } else if let newAction = action?.rawValue {
-        interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
+        interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: String] ?? [:]
         interfaceDictionary[Config.Key.action.rawValue] = newAction
 
         // Whenever you want an Interface to have a random MAC address,
         // there is a chance that the softMAC already was random.
         // We disallow the current softMAC (whatever it was), so that
         // the daemon can determine that it should re-randomize anyway.
-        if newAction == Interface.Action.random.rawValue && interface.softMAC.isValid {
-          interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.formatted
+        if newAction == Interface.Action.random.rawValue {
+          interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.address
         }
       }
 
       if interfaceDictionary.isEmpty {
-        dictionary.removeValue(forKey: interface.hardMAC.formatted)
+        dictionary.removeValue(forKey: interface.hardMAC.address)
       } else {
-        dictionary[interface.hardMAC.formatted] = interfaceDictionary
+        dictionary[interface.hardMAC.address] = interfaceDictionary
       }
 
       return dictionary
@@ -72,13 +72,13 @@ extension Config {
     }
 
     func setInterfaceAddress(_ interface: Interface, address: MACAddress) -> [String: Any] {
-      guard address.isValid else { return configDictionary }
+//      guard address.isValid else { return configDictionary }
       var dictionary = configDictionary
 
-      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: String] ?? [:]
-      interfaceDictionary[Config.Key.address.rawValue] = address.formatted
+      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: String] ?? [:]
+      interfaceDictionary[Config.Key.address.rawValue] = address.address
 
-      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+      dictionary[interface.hardMAC.address] = interfaceDictionary
       return dictionary
     }
 
@@ -88,7 +88,7 @@ extension Config {
     ///
     func setInterfaceAddress(_ hardMAC: String, address: String) -> [String: Any] {
       let interface = Interface(hardMAC)
-      let address = MACAddress(address)
+      let address = MACAddress(address: address)
       return setInterfaceAddress(interface, address: address)
     }
 
@@ -101,13 +101,13 @@ extension Config {
       var dictionary = configDictionary
 
       // Technically, this could happen. Because the softMAC is resolved asynchronously in the background.
-      guard interface.softMAC.isValid else {
-        Log.debug("\(interface.BSDName) has no valid softMAC.")
-        return configDictionary
-      }
+//      guard interface.softMAC.isValid else {
+//        Log.debug("\(interface.BSDName) has no valid softMAC.")
+//        return configDictionary
+//      }
 
-      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
-      interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.formatted
+      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
+      interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.address
 
       dictionary[interface.hardMAC.formatted] = interfaceDictionary
 

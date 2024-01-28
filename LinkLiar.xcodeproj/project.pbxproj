@@ -12,6 +12,7 @@
 		C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAF2B1FBA4000FFD119 /* Listener.swift */; };
 		C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
+		C23F0DC72B6692B100EE94F5 /* MACAddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */; };
 		C2456FAB2B3AF888007D7AEA /* TroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */; };
 		C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */; };
 		C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */; };
@@ -221,6 +222,7 @@
 		C225BDAB2B1FBA3A00FFD119 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Classes/Executor.swift; sourceTree = "<group>"; };
 		C225BDAF2B1FBA4000FFD119 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
 		C22F21A92B010C970086B621 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
+		C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressTest.swift; sourceTree = "<group>"; };
 		C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroubleshootView.swift; path = Sections/TroubleshootView.swift; sourceTree = "<group>"; };
 		C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FallbackPolicyView.swift; path = Sections/FallbackPolicyView.swift; sourceTree = "<group>"; };
 		C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacePolicyView.swift; path = Sections/InterfacePolicyView.swift; sourceTree = "<group>"; };
@@ -371,6 +373,22 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
+		C23F0DC42B66929100EE94F5 /* LinkTools */ = {
+			isa = PBXGroup;
+			children = (
+				C23F0DC52B66929A00EE94F5 /* Models */,
+			);
+			name = LinkTools;
+			sourceTree = "<group>";
+		};
+		C23F0DC52B66929A00EE94F5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		C2456FA92B3AF871007D7AEA /* Sections */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +525,7 @@
 		C26699392AE55EFD00592008 /* LinkLiarTests */ = {
 			isa = PBXGroup;
 			children = (
+				C23F0DC42B66929100EE94F5 /* LinkTools */,
 				C2AA40B12B5FC4B1007CD6CB /* linkdaemon */,
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
 				C2ADC8522B22293A002A2905 /* ConfigTests.swift */,
@@ -908,6 +927,7 @@
 				C24570312B485BF7007D7AEA /* Interfaces.swift in Sources */,
 				C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */,
 				C245701B2B3DB709007D7AEA /* Builder.swift in Sources */,
+				C23F0DC72B6692B100EE94F5 /* MACAddressTest.swift in Sources */,
 				C245701F2B3E032C007D7AEA /* WifiState.swift in Sources */,
 				C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */,
 				C24570192B3DB6F9007D7AEA /* MACPrefix.swift in Sources */,

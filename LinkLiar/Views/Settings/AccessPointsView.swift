@@ -95,7 +95,7 @@ struct AccessPointsView: View {
 #Preview("Always Random") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = ["ssids:\(interface.hardMAC.formatted)":
+  state.configDictionary = ["ssids:\(interface.hardMAC.address)":
                               ["Free Wifi": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "dd:dd:dd:dd:dd:dd"]]
 
   return AccessPointsView().environment(state).environment(interface)

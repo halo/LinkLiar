@@ -6,26 +6,23 @@ import Foundation
 struct MACAddress: Equatable {
   // MARK: Class Methods
 
-  static func initIfValid(_ address: String) -> Self? {
-    let macAddress = self.init(address)
-    if !macAddress.isValid { return nil }
-    return macAddress
+  init?(_ address: String) {
+    guard let validAddress = Parser.init(address).normalized else { return nil }
+
+    self.address = validAddress
   }
 
-  init(_ address: String) {
-    self.raw = address
+  init(address: String) {
+    self.address = address
   }
-
-  // MARK: Instance Methods
-
-//  func add(_ address: MACAddress) -> MACAddress {
-//  }
 
   // MARK: Instance Properties
 
-  func humanReadable(config: Config.Reader) -> String {
-    guard isValid else { return "??:??:??:??:??:??" }
+  // TODO: Remove this alias
+  var formatted: String { address }
+  let isValid = true
 
+  func humanReadable(config: Config.Reader) -> String {
     guard config.general.isAnonymized else {
       return humanReadable
     }
@@ -33,57 +30,81 @@ struct MACAddress: Equatable {
     let otherIntegers = address.integers
     let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
     let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
-    return Self(newAddress).formatted
+    return Self(newAddress)?.address ?? "??:??:??:??:??:??"
   }
 
   var humanReadable: String {
-    guard isValid else { return "??:??:??:??:??:??" }
-
-//    if Config.instance.settings.anonymizationSeed.isValid {
-//      return add(Config.instance.settings.anonymizationSeed).formatted
-//    } else {
-      return formatted
-//    }
-  }
-
-  var formatted: String {
-    String(sanitized.enumerated().map {
-      $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
-    }.joined().dropFirst())
+    //    if Config.instance.settings.anonymizationSeed.isValid {
+    //      return add(Config.instance.settings.anonymizationSeed).formatted
+    //    } else {
+    address
+    //    }
   }
 
   var prefix: String {
-    formatted.components(separatedBy: ":").prefix(3).joined(separator: ":")
-  }
-
-  var isValid: Bool {
-    formatted.count == 17
-  }
-
-  var isInvalid: Bool {
-    !isValid
+    address.components(separatedBy: ":").prefix(3).joined(separator: ":")
   }
 
   var integers: [UInt8] {
-    sanitized.map { UInt8(String($0), radix: 16)! }
+    address.map { UInt8(String($0), radix: 16)! }
   }
 
   // MARK: Private Instance Properties
 
-  private var sanitized: String {
-    let nonHexCharacters = CharacterSet(charactersIn: "0123456789abcdef").inverted
-    return raw.lowercased().components(separatedBy: nonHexCharacters).joined()
-  }
+  let address: String
+}
 
-  private var raw: String
+// MARK: Private Helpers
+
+extension MACAddress {
+  /// Checks a potential MAC address for validity and normalizes it.
+  ///
+  private struct Parser {
+    init(_ input: String) {
+      self.input = input
+    }
+
+    var normalized: String? {
+      formatted.count == 17 ? formatted : nil
+    }
+
+    private var input: String
+    private let nonHexCharacters = CharacterSet(charactersIn: "0123456789abcdef").inverted
+
+    /// Firstly, convert "aa:b::ff" to "aa:0b:00:ff"
+    ///
+    private var expanded: String {
+      input.split(separator: ":", omittingEmptySubsequences: false).map { substring in
+        if substring.count > 1 { return substring }
+        if substring.count == 1 { return "0\(substring)" }
+        return "00"
+      }.joined()
+    }
+
+    /// Secondly, remove potential non-valid characters.
+    ///
+    private var stripped: String {
+      expanded.lowercased()
+              .components(separatedBy: nonHexCharacters)
+              .joined()
+    }
+
+    /// Thirdly, insert ":" for proper formatting.
+    ///
+    private var formatted: String {
+      String(stripped.enumerated().map {
+        $0.offset % 2 == 1 ? [$0.element] : [":", $0.element]
+      }.joined().dropFirst())
+    }
+  }
 }
 
 extension MACAddress: Comparable {
   static func == (lhs: MACAddress, rhs: MACAddress) -> Bool {
-    lhs.formatted == rhs.formatted
+    lhs.address == rhs.address
   }
 
   static func < (lhs: MACAddress, rhs: MACAddress) -> Bool {
-    lhs.formatted < rhs.formatted
+    lhs.address < rhs.address
   }
 }

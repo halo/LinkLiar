@@ -13,13 +13,13 @@ extension Config {
 
     init(ssid: String, softMAC: String) {
       self.ssid = ssid
-      self.softMAC = MACAddress(softMAC)
+      self.softMAC = MACAddress(address: softMAC)
     }
 
     // MARK: Instance Properties
 
     /// Conforming to `Identifiable`.
-    var id: String { "\(ssid)|\(softMAC.formatted)" }
+    var id: String { "\(ssid)|\(softMAC.address)" }
 
     /**
      * Gives access to the underlying dictionary of this configuration.
@@ -28,7 +28,7 @@ extension Config {
     var softMAC: MACAddress
 
     var isValid: Bool {
-      softMAC.isValid && !ssid.isEmpty
+      !ssid.isEmpty
     }
   }
 }

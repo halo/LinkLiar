@@ -73,7 +73,7 @@ extension Config {
         String(Int.random(in: 0..<256), radix: 16, uppercase: false)
       ].joined()
 
-      return MACAddress([prefix.formatted, suffix].joined())
+      return MACAddress(address: [prefix.formatted, suffix].joined())
     }
 
     // MARK: Private Instance Properties

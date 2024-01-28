@@ -47,8 +47,7 @@ extension Config {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
       guard let rawAddress = interfaceDictionary[Config.Key.address.rawValue] as? String else { return nil }
 
-      let address = MACAddress(rawAddress)
-      return address.isValid ? address : nil
+      return MACAddress(rawAddress)
     }
 
     /**
@@ -64,8 +63,7 @@ extension Config {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
       guard let rawAddress = interfaceDictionary[Config.Key.except.rawValue] as? String else { return nil }
 
-      let address = MACAddress(rawAddress)
-      return address.isValid ? address : nil
+      return MACAddress(rawAddress)
     }
 
     /// Queries the Hotspot definitions for this Interface.

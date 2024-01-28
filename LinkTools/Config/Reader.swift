@@ -47,7 +47,7 @@ extension Config {
     /// Queries settings of one Interface.
     ///
     func policy(_ hardMAC: MACAddress) -> Policy {
-      Policy(hardMAC.formatted, dictionary: dictionary)
+      Policy(hardMAC.address, dictionary: dictionary)
     }
 
     ///

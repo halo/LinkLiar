@@ -17,13 +17,13 @@ class Executor {
         let arbiter = config.arbiter(interface.hardMAC)
         let synchronization = Synchronization(interface: interface, arbiter: arbiter)
 
-        if synchronizations[synchronization.hardMAC.formatted] == nil {
+        if synchronizations[synchronization.hardMAC.address] == nil {
           // Trusting you'll never physically attach so many interfaces as to run out of memory here.
-          Log.debug("Adding \(synchronization.hardMAC.formatted) to queue")
-          synchronizations[synchronization.hardMAC.formatted] = synchronization
+          Log.debug("Adding \(synchronization.hardMAC.address) to queue")
+          synchronizations[synchronization.hardMAC.address] = synchronization
         }
 
-        if let synchronization = synchronizations[synchronization.hardMAC.formatted] {
+        if let synchronization = synchronizations[synchronization.hardMAC.address] {
           synchronization.update(interface: interface, arbiter: arbiter)
         }
       }

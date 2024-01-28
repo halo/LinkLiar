@@ -53,7 +53,7 @@ extension Ifconfig {
     func softMAC() -> MACAddress {
       process.launch()
       process.waitUntilExit() // Block until ifconfig exited.
-      return MACAddress(_softMAC)
+      return MACAddress(address: _softMAC)
     }
 
     ///
@@ -67,7 +67,7 @@ extension Ifconfig {
       NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
                                              object: process,
                                              queue: nil) { _ in
-        callback(MACAddress(self._softMAC))
+        callback(MACAddress(address: self._softMAC))
       }
 
       // Run ifconfig (now that the observer is in place).

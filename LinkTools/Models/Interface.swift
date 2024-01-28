@@ -34,7 +34,7 @@ class Interface: Identifiable {
   /// Conforming to `Identifiable`.
   /// The only truly long-term unique identifier is the hardware MAC of an Interface.
   /// In the unlikely case that it's unavailable, fall back to something like `en0`.
-  var id: String { hardMAC.isValid ? hardMAC.formatted : BSDName }
+  var id: String { hardMAC.address }
 
   // These attributes are known instantaneously when querying the operating system.
   // So we can set them to an empty String, knowing they will be populated at once.
@@ -56,7 +56,7 @@ class Interface: Identifiable {
 
   /// Exposes the hardware MAC as an object.
   var hardMAC: MACAddress {
-    MACAddress(_hardMAC)
+    MACAddress(address: _hardMAC)
   }
 
   /// Exposes the software MAC as an object.
@@ -64,7 +64,7 @@ class Interface: Identifiable {
   var softMAC: MACAddress {
     if let override = overrideSoftMacInTests { return override }
 
-    return MACAddress(_softMAC)
+    return MACAddress(address: _softMAC)
   }
 
   var softPrefix: MACPrefix {
@@ -84,12 +84,12 @@ class Interface: Identifiable {
     if isAsync {
       reader.softMAC(callback: { address in
         DispatchQueue.main.async {
-          Log.debug("Setting softMAC to \(address.formatted)")
-          self._softMAC = address.formatted
+          Log.debug("Setting softMAC to \(address.address)")
+          self._softMAC = address.address
         }
       })
     } else {
-      self._softMAC = reader.softMAC().formatted
+      self._softMAC = reader.softMAC().address
     }
   }
 
@@ -103,8 +103,8 @@ class Interface: Identifiable {
     // You can only change MAC addresses of Ethernet and Wi-Fi adapters
     if (["Ethernet", "IEEE80211"].firstIndex(of: kind) ) == nil { return false }
 
-    // If there is no internal MAC this is to be ignored
-    if hardMAC.isInvalid { return false }
+//    // If there is no internal MAC this is to be ignored
+//    if hardMAC == nil { return false }
 
     // Bluetooth can also be filtered out
     if displayName.contains("tooth") { return false }

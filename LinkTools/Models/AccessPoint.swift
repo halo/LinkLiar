@@ -7,8 +7,8 @@ struct AccessPoint: Identifiable {
   // MARK: - Class Methods
 
   init?(ssid: String, bssid: String) {
-    guard let validSSID = SSID.init(ssid) else { return nil }
-    guard let validBSSID = MACAddress.initIfValid(bssid) else { return nil }
+    guard let validSSID = SSID(ssid) else { return nil }
+    guard let validBSSID = MACAddress(bssid) else { return nil }
 
     self.ssid = validSSID
     self.bssid = validBSSID
@@ -25,7 +25,7 @@ struct AccessPoint: Identifiable {
   let bssid: MACAddress
 
   /// Conforming to `Identifiable`.
-  var id: String { bssid.formatted }
+  var id: String { bssid.address }
 }
 
 extension AccessPoint: Comparable {
