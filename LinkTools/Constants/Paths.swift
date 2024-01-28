@@ -34,6 +34,7 @@ class Paths {
   static let githubApiReleasesURL = URL(string: githubApiReleases)!
 
   static let airportCLI = "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+  static let ifconfigCLI = "/sbin/ifconfig"
 
   // Private Class Properties
 

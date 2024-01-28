@@ -27,9 +27,9 @@ struct InterfaceView: View {
 
         HStack(spacing: 8) {
           Button(action: {
-            copy(interface.softMAC.humanReadable)
+            copy(interface.softMAC?.address ?? "??:??:??:??:??:??")
           }, label: {
-            Text(interface.softMAC.humanReadable)
+            Text(interface.softMAC?.address ?? "??:??:??:??:??:??")
               .font(.system(.body, design: .monospaced, weight: .light))
           }).buttonStyle(.plain)
         }
@@ -53,7 +53,7 @@ struct InterfaceView: View {
       Image("MenuIconLeaking").opacity(0)
 
     }.contextMenu {
-      Button("Copy MAC address") { copy(interface.softMAC.humanReadable) }
+      Button("Copy MAC address") { copy(interface.softMAC?.address ?? "??:??:??:??:??:??") }
 
       if state.config.arbiter(interface.hardMAC).action == .random && state.daemonRegistration == .enabled {
         Button("Randomize now") {

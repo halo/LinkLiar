@@ -7,6 +7,7 @@ import Foundation
 ///
 class Command {
   // MARK: Class Methods
+
   init(_ path: String, arguments: [String]) {
     self.path = path
     self.arguments = arguments
@@ -14,16 +15,23 @@ class Command {
 
   // MARK: Instance Methods
 
+  /// Run synchronously
+  ///
   func run() -> String {
     process.launch()
     process.waitUntilExit() // Block until airport exited.
     return outputString
   }
 
-  func runData() -> Data {
+  /// Run asynchronously
+  ///
+  func run(callback: @escaping (String) -> Void) {
+    NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
+                                           object: process,
+                                           queue: nil) { _ in
+      callback(self.outputString)
+    }
     process.launch()
-    process.waitUntilExit()
-    return outputData
   }
 
   // MARK: Private Instance Properties

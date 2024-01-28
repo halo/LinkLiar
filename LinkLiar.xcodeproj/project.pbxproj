@@ -13,6 +13,7 @@
 		C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C23F0DC72B6692B100EE94F5 /* MACAddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */; };
+		C23F0DC82B66AE3800EE94F5 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
 		C2456FAB2B3AF888007D7AEA /* TroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */; };
 		C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */; };
 		C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */; };
@@ -434,11 +435,11 @@
 		C2456FCE2B3B16EE007D7AEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C2456FCF2B3B16F7007D7AEA /* MAC.swift */,
+				C2AA40A92B59A0C4007CD6CB /* SSID.swift */,
 				C2AA40A52B599B26007CD6CB /* AccessPoint.swift */,
 				C2456FD32B3B16F7007D7AEA /* Interface.swift */,
-				C2456FCF2B3B16F7007D7AEA /* MAC.swift */,
 				C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */,
-				C2AA40A92B59A0C4007CD6CB /* SSID.swift */,
 				C2456FD02B3B16F7007D7AEA /* Vendor.swift */,
 				C2456FD12B3B16F7007D7AEA /* Version.swift */,
 			);
@@ -843,6 +844,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23F0DC82B66AE3800EE94F5 /* Command.swift in Sources */,
 				C2969F182B278E2A00A9BB72 /* DiagnoseInterfaceView.swift in Sources */,
 				C2969F152B278E2A00A9BB72 /* SettingsDetailView.swift in Sources */,
 				C2969F1D2B278E2A00A9BB72 /* ApproveDaemonView.swift in Sources */,

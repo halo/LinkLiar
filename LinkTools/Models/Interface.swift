@@ -14,6 +14,7 @@ class Interface: Identifiable {
 
   init(_ hardMAC: String) {
     self._hardMAC = hardMAC
+    self._softMAC = MAC(address: "")
   }
 
   /// Upon initialization we assign what we already know.
@@ -22,7 +23,7 @@ class Interface: Identifiable {
     self.rawDisplayName = displayName
     self.kind = kind
     self._hardMAC = hardMAC
-    self._softMAC = ""
+    self._softMAC = MAC(address: "")
 
     // No need to lookup a soft MAC if it cannot be modified.
     if !isSpoofable { return }
@@ -61,14 +62,14 @@ class Interface: Identifiable {
 
   /// Exposes the software MAC as an object.
   /// Whether it is already known or not.
-  var softMAC: MAC {
+  var softMAC: MAC? {
     if let override = overrideSoftMacInTests { return override }
 
-    return MAC(address: _softMAC)
+    return  _softMAC
   }
 
   var softPrefix: MACPrefix {
-    MACPrefix(softMAC.prefix)
+    MACPrefix(softMAC!.prefix)
   }
 
   // MARK: Instance Methods
@@ -82,14 +83,17 @@ class Interface: Identifiable {
     let reader = Ifconfig.Reader(self.BSDName)
 
     if isAsync {
-      reader.softMAC(callback: { address in
+      reader.softMAC(callback: { potentialAddress in
+        guard let address = potentialAddress else { return }
+
         DispatchQueue.main.async {
           Log.debug("Setting softMAC to \(address.address)")
-          self._softMAC = address.address
+          self._softMAC = address
         }
       })
     } else {
-      self._softMAC = reader.softMAC().address
+      guard let address = reader.softMAC() else { return }
+      self._softMAC = address
     }
   }
 
@@ -142,9 +146,9 @@ class Interface: Identifiable {
 
   // MARK: Instance Methods
 
-  func setSoftMac(_ address: String) {
-    _softMAC = address
-  }
+//  func setSoftMac(_ address: String) {
+//    _softMAC = MAC(address)
+//  }
 
   // MARK: Private Instance Properties
 
@@ -153,7 +157,7 @@ class Interface: Identifiable {
 
   /// This is where we keep the software MAC address as a String.
   /// This variable is populated asynchronously using ``Ifconfig``.
-  private var _softMAC = ""
+  private var _softMAC: MAC
 
   private var rawDisplayName = ""
 }

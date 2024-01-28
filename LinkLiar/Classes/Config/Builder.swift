@@ -33,7 +33,9 @@ extension Config {
         // We disallow the current softMAC (whatever it was), so that
         // the daemon can determine that it should re-randomize anyway.
         if newAction == Interface.Action.random.rawValue {
-          interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.address
+          if let mac = interface.softMAC {
+            interfaceDictionary[Config.Key.except.rawValue] = mac.address
+          }
         }
       }
 
@@ -107,7 +109,9 @@ extension Config {
 //      }
 
       var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
-      interfaceDictionary[Config.Key.except.rawValue] = interface.softMAC.address
+      if let mac = interface.softMAC {
+        interfaceDictionary[Config.Key.except.rawValue] = mac.address
+      }
 
       dictionary[interface.hardMAC.formatted] = interfaceDictionary
 

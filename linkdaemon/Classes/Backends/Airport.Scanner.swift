@@ -52,7 +52,7 @@ extension Airport {
 
     // MARK: - Private Instance Properties
 
-    var stubOutput: String?
+    private var stubOutput: String?
 
     private lazy var output: String = {
       stubOutput ?? command.run()

@@ -6,13 +6,11 @@ import Foundation
 enum Ifconfig {}
 
 extension Ifconfig {
-  ///
   /// Runs the external exectuable `ifconfig` to dermine the current MAC address of an Interface.
   ///
   class Reader {
     // MARK: Class Methods
 
-    ///
     /// Creates an ``Ifconfig.Reader`` instance for one particular Interface.
     ///
     /// - parameter BSDName: The BSD name of the interface, e.g. `en0` or `en1`.
@@ -23,13 +21,13 @@ extension Ifconfig {
     /// let myifconfig = Ifconig("en2")
     /// ```
     ///
-    init(_ BSDName: String) {
+    init(_ BSDName: String, stubOutput: String? = nil) {
       self.BSDName = BSDName
+      self.stubOutput = stubOutput
     }
 
     // MARK: Instance Properties
 
-    ///
     /// The BSD Name of a network interface. For example `en0` or `en1`.
     ///
     /// This property is read-only.
@@ -50,87 +48,64 @@ extension Ifconfig {
     /// Ifconig("en2").softMAC()
     /// ```
     ///
-    func softMAC() -> MAC {
-      process.launch()
-      process.waitUntilExit() // Block until ifconfig exited.
-      return MAC(address: _softMAC)
+    func softMAC() -> MAC? {
+      setOutput(command.run())
+      return parse(output)
     }
 
-    ///
     /// Asynchronously queries software-assigned MAC address of the Interface.
     ///
     /// Provide a callback to receive the MAC address once it was resolved.
     ///
-    func softMAC(callback: @escaping (MAC) -> Void) {
-      self.outputHandle.waitForDataInBackgroundAndNotify()
-
-      NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
-                                             object: process,
-                                             queue: nil) { _ in
-        callback(MAC(address: self._softMAC))
+    func softMAC(callback: @escaping (MAC?) -> Void) {
+      if let stubbedOutput = stubOutput {
+        callback(parse(stubbedOutput))
+        return
       }
 
-      // Run ifconfig (now that the observer is in place).
-      process.launch()
+      command.run { output in
+        callback(self.parse(output))
+      }
     }
 
-    // MARK: Private Instance Properties
-
-    /// The `Process` instance that will execute the command.
-    private lazy var process: Process = {
-      let task = Process()
-      task.launchPath = "/sbin/ifconfig"
-      task.arguments = [BSDName, "ether"]
-      task.standardOutput = outputPipe
-      task.standardError = errorPipe
-      return task
-    }()
-
-    /// This pipe will capture STDOUT of the ifconfig process.
-    private lazy var outputPipe = Pipe()
-
-    /// This pipe will capture STDERR of the ifconfig process.
-    private lazy var errorPipe = Pipe()
-
-    /// Converting the STDOUT pipe to an IO.
-    private lazy var outputHandle: FileHandle = {
-      outputPipe.fileHandleForReading
-    }()
-
-    /// Reading the STDOUT IO as Data.
-    private lazy var outputData: Data = {
-      outputHandle.availableData
-    }()
-
-    /// Converting the STDOUT Data to a String.
-    private lazy var outputString: String = {
-      guard let stdout = String(data: outputData, encoding: .utf8) else {
-        Log.error("Ran `ifconfig \(BSDName)` and expected STDOUT but there was none.")
-        return ""
-      }
-      return stdout
-    }()
+    // MARK: - Private Instance Methods
 
     /// Parses the STDOUT String to determine the current MAC address of the Interface.
-    private lazy var _softMAC: String = {
-      guard let ether = outputString.components(separatedBy: "ether ").last else {
-        Log.error("Failed to parse STDOUT of `ifconfig \(BSDName)` when looking for `ether `. Got: \(outputString)")
-        return ""
+    private func parse(_ stdout: String) -> MAC? {
+      guard let ether = stdout.components(separatedBy: "ether ").last else {
+        Log.error("Failed to parse STDOUT of `ifconfig \(BSDName)` when looking for `ether `. Got: \(output)")
+        return nil
       }
 
       guard let address = ether.components(separatedBy: " ").first else {
         Log.error("Failed to parse STDOUT of `ifconfig \(BSDName)` when looking for MAC address. Got: \(ether)")
-        return ""
+        return nil
       }
 
       guard address != "" else {
         Log.debug("Interface \(BSDName) has no MAC address.")
-        return ""
+        return nil
       }
 
-//      Log.debug("Interface \(BSDName) has soft MAC address \(MACAddress(address).humanReadable)")
+      return MAC(address)
+    }
 
-      return address
+    private func setOutput(_ stdout: String) {
+      _output = stdout
+    }
+
+    // MARK: - Private Instance Properties
+
+    private var stubOutput: String?
+
+    private lazy var output: String = {
+      stubOutput ?? _output
+    }()
+
+    private var _output = ""
+
+    private lazy var command = {
+      Command.init(Paths.ifconfigCLI, arguments: [BSDName, "ether"])
     }()
   }
 }
