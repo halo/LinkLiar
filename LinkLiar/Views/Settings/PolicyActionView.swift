@@ -14,7 +14,7 @@ struct PolicyActionView: View {
 
     let specificAddress = Binding<String>(
       get: { state.config.policy(interface.hardMAC).address?.formatted ?? "" },
-      set: { value, _ in Config.Writer(state).setInterfaceAddress(interface: interface, address: MACAddress(address: value)) })
+      set: { value, _ in Config.Writer(state).setInterfaceAddress(interface: interface, address: MAC(address: value)) })
 
     GroupBox {
       VStack(alignment: .leading) {

@@ -96,7 +96,7 @@ extension Config {
       }
     }
 
-    func setInterfaceAddress(interface: Interface, address: MACAddress) {
+    func setInterfaceAddress(interface: Interface, address: MAC) {
       var newDictionary = Config.Builder(state.configDictionary).setInterfaceAddress(
         interface,
         address: address)

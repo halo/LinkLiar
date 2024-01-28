@@ -43,11 +43,11 @@ extension Config {
     ///
     /// - returns: A valid ``MACAddress`` or `nil` if no valid address was specified.
     ///
-    var address: MACAddress? {
+    var address: MAC? {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
       guard let rawAddress = interfaceDictionary[Config.Key.address.rawValue] as? String else { return nil }
 
-      return MACAddress(rawAddress)
+      return MAC(rawAddress)
     }
 
     /**
@@ -59,11 +59,11 @@ extension Config {
      *
      * - returns: A valid `MACAddress` or `nil` if no valid address was specified.
      */
-    var exceptionAddress: MACAddress? {
+    var exceptionAddress: MAC? {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return nil }
       guard let rawAddress = interfaceDictionary[Config.Key.except.rawValue] as? String else { return nil }
 
-      return MACAddress(rawAddress)
+      return MAC(rawAddress)
     }
 
     /// Queries the Hotspot definitions for this Interface.

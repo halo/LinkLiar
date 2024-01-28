@@ -12,7 +12,7 @@ class Advisor {
     self.arbiter = arbiter
   }
 
-  var addressForStandard: MACAddress? {
+  var addressForStandard: MAC? {
     switch arbiter.action {
     case .original: return originalize
     case .specify: return specify
@@ -23,7 +23,7 @@ class Advisor {
     }
   }
 
-  var addressForSsid: MACAddress? {
+  var addressForSsid: MAC? {
     guard arbiter.action == .original || arbiter.action == .specify || arbiter.action == .random else {
       // An SSID-MAC binding can for example not affect ignored or hidden interfaces.
       Log.debug("\(interface.BSDName) with action \(arbiter.action) not applicable for SSID-MAC binding")
@@ -51,7 +51,7 @@ class Advisor {
   private var interface: Interface
   private var arbiter: Config.Arbiter
 
-  private var originalize: MACAddress? {
+  private var originalize: MAC? {
     guard interface.hasOriginalMAC else {
       Log.debug("Skipping Interface \(interface.BSDName), because it currently has its original MAC address.")
       return nil
@@ -61,7 +61,7 @@ class Advisor {
     return interface.hardMAC
   }
 
-  private var specify: MACAddress? {
+  private var specify: MAC? {
     guard let address = arbiter.address else {
       Log.debug("No address was provided for \(interface.BSDName)")
       return nil
@@ -75,7 +75,7 @@ class Advisor {
     return address
   }
 
-  private var randomize: MACAddress? {
+  private var randomize: MAC? {
     if interface.hasOriginalMAC {
       Log.debug("Randomizing Interface \(interface.BSDName) because it currently has its original MAC address.")
       return arbiter.randomAddress()

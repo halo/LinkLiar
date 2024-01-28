@@ -46,7 +46,7 @@ extension Config {
     ///
     /// Queries settings of one Interface.
     ///
-    func policy(_ hardMAC: MACAddress) -> Policy {
+    func policy(_ hardMAC: MAC) -> Policy {
       Policy(hardMAC.address, dictionary: dictionary)
     }
 
@@ -61,7 +61,7 @@ extension Config {
     /// Determines final values by comparing
     /// specific Interfaces and fallback defaults.
     ///
-    func arbiter(_ hardMAC: MACAddress) -> Config.Arbiter {
+    func arbiter(_ hardMAC: MAC) -> Config.Arbiter {
       Config.Arbiter(config: self, hardMAC: hardMAC)
     }
 

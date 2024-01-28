@@ -13,7 +13,7 @@ extension Config {
 
     init(ssid: String, softMAC: String) {
       self.ssid = ssid
-      self.softMAC = MACAddress(address: softMAC)
+      self.softMAC = MAC(address: softMAC)
     }
 
     // MARK: Instance Properties
@@ -25,7 +25,7 @@ extension Config {
      * Gives access to the underlying dictionary of this configuration.
      */
     var ssid: String
-    var softMAC: MACAddress
+    var softMAC: MAC
 
     var isValid: Bool {
       !ssid.isEmpty

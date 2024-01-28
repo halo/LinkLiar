@@ -27,8 +27,8 @@
 		C2456FC92B3B16D4007D7AEA /* PopularVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */; };
 		C2456FCA2B3B16D4007D7AEA /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC42B3B16D4007D7AEA /* Interfaces.swift */; };
 		C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC42B3B16D4007D7AEA /* Interfaces.swift */; };
-		C2456FD42B3B16F7007D7AEA /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */; };
-		C2456FD52B3B16F7007D7AEA /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */; };
+		C2456FD42B3B16F7007D7AEA /* MAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MAC.swift */; };
+		C2456FD52B3B16F7007D7AEA /* MAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MAC.swift */; };
 		C2456FD62B3B16F7007D7AEA /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD02B3B16F7007D7AEA /* Vendor.swift */; };
 		C2456FD72B3B16F7007D7AEA /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD02B3B16F7007D7AEA /* Vendor.swift */; };
 		C2456FD82B3B16F7007D7AEA /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD12B3B16F7007D7AEA /* Version.swift */; };
@@ -63,7 +63,7 @@
 		C24570112B3DB6AC007D7AEA /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1A2B35C8B800977572 /* General.swift */; };
 		C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
 		C24570132B3DB6C5007D7AEA /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1C2B35C8B900977572 /* Policy.swift */; };
-		C24570142B3DB6C5007D7AEA /* MACAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */; };
+		C24570142B3DB6C5007D7AEA /* MAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MAC.swift */; };
 		C24570152B3DB6D2007D7AEA /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD02B3B16F7007D7AEA /* Vendor.swift */; };
 		C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */; };
 		C24570172B3DB6DD007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
@@ -233,7 +233,7 @@
 		C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.Reader.swift; path = Backends/Ifconfig.Reader.swift; sourceTree = "<group>"; };
 		C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendors.swift; path = Backends/PopularVendors.swift; sourceTree = "<group>"; };
 		C2456FC42B3B16D4007D7AEA /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interfaces.swift; path = Backends/Interfaces.swift; sourceTree = "<group>"; };
-		C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAddress.swift; path = Models/MACAddress.swift; sourceTree = "<group>"; };
+		C2456FCF2B3B16F7007D7AEA /* MAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MAC.swift; path = Models/MAC.swift; sourceTree = "<group>"; };
 		C2456FD02B3B16F7007D7AEA /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendor.swift; path = Models/Vendor.swift; sourceTree = "<group>"; };
 		C2456FD12B3B16F7007D7AEA /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = Models/Version.swift; sourceTree = "<group>"; };
 		C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACPrefix.swift; path = Models/MACPrefix.swift; sourceTree = "<group>"; };
@@ -436,7 +436,7 @@
 			children = (
 				C2AA40A52B599B26007CD6CB /* AccessPoint.swift */,
 				C2456FD32B3B16F7007D7AEA /* Interface.swift */,
-				C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */,
+				C2456FCF2B3B16F7007D7AEA /* MAC.swift */,
 				C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */,
 				C2AA40A92B59A0C4007CD6CB /* SSID.swift */,
 				C2456FD02B3B16F7007D7AEA /* Vendor.swift */,
@@ -859,7 +859,7 @@
 				C280C04E2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
 				C2456FD82B3B16F7007D7AEA /* Version.swift in Sources */,
 				C2456FB92B3B003E007D7AEA /* VendorsView.swift in Sources */,
-				C2456FD42B3B16F7007D7AEA /* MACAddress.swift in Sources */,
+				C2456FD42B3B16F7007D7AEA /* MAC.swift in Sources */,
 				C2F3DA242B35C8B900977572 /* AccessPointPolicy.swift in Sources */,
 				C2969F1B2B278E2A00A9BB72 /* SettingsInterfaceHeadlineView.swift in Sources */,
 				C2456FEC2B3B1809007D7AEA /* FileObserver.swift in Sources */,
@@ -936,7 +936,7 @@
 				C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */,
 				C24570152B3DB6D2007D7AEA /* Vendor.swift in Sources */,
 				C24570132B3DB6C5007D7AEA /* Policy.swift in Sources */,
-				C24570142B3DB6C5007D7AEA /* MACAddress.swift in Sources */,
+				C24570142B3DB6C5007D7AEA /* MAC.swift in Sources */,
 				C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */,
 				C24570302B484DFA007D7AEA /* StageTests.swift in Sources */,
 				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
@@ -992,7 +992,7 @@
 				C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C280C04C2B58511800C653F0 /* CFArray+Sequence.swift in Sources */,
 				C2456FDD2B3B16F7007D7AEA /* Interface.swift in Sources */,
-				C2456FD52B3B16F7007D7AEA /* MACAddress.swift in Sources */,
+				C2456FD52B3B16F7007D7AEA /* MAC.swift in Sources */,
 				C2D819522B2A2FDC00991D38 /* Ifconfig.Setter.swift in Sources */,
 				C280C0442B5836E700C653F0 /* Command.swift in Sources */,
 				C2456FD72B3B16F7007D7AEA /* Vendor.swift in Sources */,

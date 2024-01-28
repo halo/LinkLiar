@@ -133,10 +133,10 @@ class AirportScannerTests: XCTestCase {
 
     let firstPoint = accessPoints.first!
     XCTAssertEqual(SSID("Thé Coffeeshop"), firstPoint.ssid)
-    XCTAssertEqual(MACAddress("6:aa:bb:cc:2:dd"), firstPoint.bssid)
+    XCTAssertEqual(MAC("6:aa:bb:cc:2:dd"), firstPoint.bssid)
 
     let secondPoint = accessPoints.last!
     XCTAssertEqual(SSID("The Starship"), secondPoint.ssid)
-    XCTAssertEqual(MACAddress("aa:c:bb:cc:dd:ee"), secondPoint.bssid)
+    XCTAssertEqual(MAC("aa:c:bb:cc:dd:ee"), secondPoint.bssid)
   }
 }

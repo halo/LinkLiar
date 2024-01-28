@@ -5,7 +5,7 @@ extension Config {
   class Arbiter {
     // MARK: Class Methods
 
-    init(config: Config.Reader, hardMAC: MACAddress) {
+    init(config: Config.Reader, hardMAC: MAC) {
       self.config = config
       self.hardMAC = hardMAC
     }
@@ -33,7 +33,7 @@ extension Config {
       return PopularVendors.find(Config.Key.apple.rawValue)!.prefixes
     }
 
-    var address: MACAddress? {
+    var address: MAC? {
       if let interfaceSpecificAddress = config.policy(hardMAC).address {
         return interfaceSpecificAddress
       }
@@ -41,7 +41,7 @@ extension Config {
       return config.fallbackPolicy.address
     }
 
-    func addressForSsid(_ ssid: String) -> MACAddress? {
+    func addressForSsid(_ ssid: String) -> MAC? {
       guard action == .original || action == .specify || action == .random  else {
         return nil
       }
@@ -53,15 +53,15 @@ extension Config {
       return accessPoint.softMAC
     }
 
-    var exceptionAddress: MACAddress? {
+    var exceptionAddress: MAC? {
       config.policy(hardMAC).exceptionAddress
     }
 
-    var overrideAddressInTests: MACAddress?
+    var overrideAddressInTests: MAC?
 
     // MARK: Instance Methods
 
-    func randomAddress() -> MACAddress {
+    func randomAddress() -> MAC {
       if let override = overrideAddressInTests {
         return override
       }
@@ -73,12 +73,12 @@ extension Config {
         String(Int.random(in: 0..<256), radix: 16, uppercase: false)
       ].joined()
 
-      return MACAddress(address: [prefix.formatted, suffix].joined())
+      return MAC(address: [prefix.formatted, suffix].joined())
     }
 
     // MARK: Private Instance Properties
 
     private var config: Config.Reader
-    private var hardMAC: MACAddress
+    private var hardMAC: MAC
   }
 }

@@ -3,7 +3,7 @@
 
 import Foundation
 
-struct MACAddress: Equatable {
+struct MAC: Equatable {
   // MARK: Class Methods
 
   init?(_ address: String) {
@@ -56,7 +56,7 @@ struct MACAddress: Equatable {
 
 // MARK: Private Helpers
 
-extension MACAddress {
+extension MAC {
   /// Checks a potential MAC address for validity and normalizes it.
   ///
   private struct Parser {
@@ -99,12 +99,12 @@ extension MACAddress {
   }
 }
 
-extension MACAddress: Comparable {
-  static func == (lhs: MACAddress, rhs: MACAddress) -> Bool {
+extension MAC: Comparable {
+  static func == (lhs: MAC, rhs: MAC) -> Bool {
     lhs.address == rhs.address
   }
 
-  static func < (lhs: MACAddress, rhs: MACAddress) -> Bool {
+  static func < (lhs: MAC, rhs: MAC) -> Bool {
     lhs.address < rhs.address
   }
 }

@@ -20,7 +20,7 @@ extension Ifconfig {
 
     // MARK: Instance Methods
 
-    func setSoftMAC(_ address: MACAddress) {
+    func setSoftMAC(_ address: MAC) {
 //      guard address.isValid else {
 //        Log.info("Cannot apply MAC <\(address.formatted)> because it is not valid.")
 //        return

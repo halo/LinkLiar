@@ -71,7 +71,7 @@ extension Config {
       return dictionary
     }
 
-    func setInterfaceAddress(_ interface: Interface, address: MACAddress) -> [String: Any] {
+    func setInterfaceAddress(_ interface: Interface, address: MAC) -> [String: Any] {
 //      guard address.isValid else { return configDictionary }
       var dictionary = configDictionary
 
@@ -88,7 +88,7 @@ extension Config {
     ///
     func setInterfaceAddress(_ hardMAC: String, address: String) -> [String: Any] {
       let interface = Interface(hardMAC)
-      let address = MACAddress(address: address)
+      let address = MAC(address: address)
       return setInterfaceAddress(interface, address: address)
     }
 

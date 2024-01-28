@@ -45,12 +45,12 @@ extension Config {
     /**
      * Queries a seed used for anonymizing MAC addresses shown in GUI and logs.
      */
-    var anonymizationSeed: MACAddress {
+    var anonymizationSeed: MAC {
       guard let seed = self.dictionary["anonymous"] as? String else {
-        return MACAddress(address: "")
+        return MAC(address: "")
       }
 
-      return MACAddress(address: seed)
+      return MAC(address: seed)
     }
   }
 }

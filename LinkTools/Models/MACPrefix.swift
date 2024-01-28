@@ -49,7 +49,7 @@ struct MACPrefix: Comparable, Equatable {
     sanitized.map { UInt8(String($0), radix: 8)! }
   }
 
-  func add(_ address: MACAddress) -> Self {
+  func add(_ address: MAC) -> Self {
     let otherIntegers = address.integers
     let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 8 }
     let newPrefix = newIntegers.map { String($0, radix: 8) }.joined()
