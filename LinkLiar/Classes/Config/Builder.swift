@@ -113,7 +113,7 @@ extension Config {
         interfaceDictionary[Config.Key.except.rawValue] = mac.address
       }
 
-      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+      dictionary[interface.hardMAC.address] = interfaceDictionary
 
       return dictionary
     }
@@ -124,15 +124,15 @@ extension Config {
       // Adding "Coffeeshop"
 
       // { "action": "random", ... } or {}
-      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
+      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
       var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" }
-      ssidsDictionary[accessPointPolicy.ssid] = accessPointPolicy.softMAC.formatted
+      ssidsDictionary[accessPointPolicy.ssid] = accessPointPolicy.softMAC.address
       // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" } }
       interfaceDictionary[Config.Key.ssids.rawValue] = ssidsDictionary
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
-      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+      dictionary[interface.hardMAC.address] = interfaceDictionary
 
       return dictionary
     }
@@ -151,7 +151,7 @@ extension Config {
       // Removing "Coffeeshop".
 
       // { "action": "random", ... } or {}
-      var interfaceDictionary = dictionary[interface.hardMAC.formatted] as? [String: Any] ?? [:]
+      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", Coffeeshop": "aa:aa:aa:aa:aa:aa" } or {}
       var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
@@ -167,13 +167,13 @@ extension Config {
       }
 
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
-      dictionary[interface.hardMAC.formatted] = interfaceDictionary
+      dictionary[interface.hardMAC.address] = interfaceDictionary
 
       // This compression stuff could be extracted using `compactMapValues`.
       // { "e1:e1:e1:e1:e1:e1": { } }
       if interfaceDictionary.isEmpty {
         // { }
-        dictionary.removeValue(forKey: interface.hardMAC.formatted)
+        dictionary.removeValue(forKey: interface.hardMAC.address)
       }
 
       return dictionary

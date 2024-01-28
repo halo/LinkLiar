@@ -83,7 +83,7 @@ extension SettingsView.InterfacePolicyView {
 #Preview("Hidden") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "hide"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "hide"]]
 
   return SettingsView.InterfacePolicyView().environment(state).environment(interface)
 }
@@ -91,7 +91,7 @@ extension SettingsView.InterfacePolicyView {
 #Preview("Ignored WiFi") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "ignore"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "ignore"]]
 
   return SettingsView.InterfacePolicyView().environment(state).environment(interface)
 }
@@ -99,7 +99,7 @@ extension SettingsView.InterfacePolicyView {
 #Preview("Ignored Cable") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).last!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "ignore"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "ignore"]]
 
   return SettingsView.InterfacePolicyView().environment(state).environment(interface)
 }

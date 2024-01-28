@@ -43,7 +43,7 @@ struct SettingsInterfaceHeadlineView: View {
 #Preview("Hidden WiFi") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "hide"],
+  state.configDictionary = [interface.hardMAC.address: ["action": "hide"],
                             "anonymous": "\( String(format: "%06X", Int(arc4random_uniform(0xffffff))) )\( String(format: "%06X", Int(arc4random_uniform(0xffffff))) )"]
 
   return SettingsInterfaceHeadlineView().environment(state)
@@ -53,7 +53,7 @@ struct SettingsInterfaceHeadlineView: View {
 #Preview("Hidden Cable") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).last!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "hide"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "hide"]]
 
   return SettingsInterfaceHeadlineView().environment(state)
     .environment(interface)

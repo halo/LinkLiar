@@ -19,7 +19,6 @@ struct MAC: Equatable {
   // MARK: Instance Properties
 
   // TODO: Remove this alias
-  var formatted: String { address }
   let isValid = true
 
   func humanReadable(config: Config.Reader) -> String {

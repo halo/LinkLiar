@@ -13,7 +13,7 @@ struct PolicyActionView: View {
       set: { value, _ in Config.Writer(state).setInterfaceAction(interface: interface, action: value) })
 
     let specificAddress = Binding<String>(
-      get: { state.config.policy(interface.hardMAC).address?.formatted ?? "" },
+      get: { state.config.policy(interface.hardMAC).address?.address ?? "" },
       set: { value, _ in Config.Writer(state).setInterfaceAddress(interface: interface, address: MAC(address: value)) })
 
     GroupBox {
@@ -93,7 +93,7 @@ struct PolicyActionView: View {
 #Preview("Always Random") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "random"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "random"]]
 
   return PolicyActionView().environment(state).environment(interface)
 }
@@ -101,7 +101,7 @@ struct PolicyActionView: View {
 #Preview("Specified MAC") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "specify", "address": "aa:bb:cc:dd:ee:ff"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "specify", "address": "aa:bb:cc:dd:ee:ff"]]
 
   return PolicyActionView().environment(state).environment(interface)
 }
@@ -109,7 +109,7 @@ struct PolicyActionView: View {
 #Preview("Original MAC") {
   let state = LinkState()
   let interface = Interfaces.all(asyncSoftMac: false).first!
-  state.configDictionary = [interface.hardMAC.formatted: ["action": "original"]]
+  state.configDictionary = [interface.hardMAC.address: ["action": "original"]]
 
   return PolicyActionView().environment(state).environment(interface)
 }
