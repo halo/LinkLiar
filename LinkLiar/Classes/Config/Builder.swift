@@ -73,28 +73,26 @@ extension Config {
       return dictionary
     }
 
-    func setInterfaceAddress(_ interface: Interface, address: MAC) -> [String: Any] {
-//      guard address.isValid else { return configDictionary }
+    func setInterfaceAddress(_ interface: Interface, address: MAC?) -> [String: Any] {
+      guard let mac = address else { return configDictionary }
       var dictionary = configDictionary
 
       var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: String] ?? [:]
-      interfaceDictionary[Config.Key.address.rawValue] = address.address
+      interfaceDictionary[Config.Key.address.rawValue] = mac.address
 
       dictionary[interface.hardMAC.address] = interfaceDictionary
       return dictionary
     }
 
-    ///
     /// Convenience Wrapper if you don't have an ``Interface`` or ``MACAddress``
     /// but you have a hardMAC as String and a MACAddress as String.
     ///
     func setInterfaceAddress(_ hardMAC: String, address: String) -> [String: Any] {
       let interface = Interface(hardMAC)
-      let address = MAC(address: address)
+      let address = MAC(address)
       return setInterfaceAddress(interface, address: address)
     }
 
-    ///
     /// If this is an Interface that is supposed to have a random MAC address,
     /// you can instruct it to force a re-randomization by setting the current
     /// softMAC to forbidden (by saving it in the "except" key/value).
@@ -103,10 +101,10 @@ extension Config {
       var dictionary = configDictionary
 
       // Technically, this could happen. Because the softMAC is resolved asynchronously in the background.
-//      guard interface.softMAC.isValid else {
-//        Log.debug("\(interface.BSDName) has no valid softMAC.")
-//        return configDictionary
-//      }
+      guard interface.softMAC != nil else {
+        Log.debug("\(interface.BSDName) has no valid softMAC.")
+        return configDictionary
+      }
 
       var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
       if let mac = interface.softMAC {

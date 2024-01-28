@@ -96,10 +96,12 @@ extension Config {
       }
     }
 
-    func setInterfaceAddress(interface: Interface, address: MAC) {
+    func setInterfaceAddress(interface: Interface, address: MAC?) {
+      guard let mac = address else { return }
+
       var newDictionary = Config.Builder(state.configDictionary).setInterfaceAddress(
         interface,
-        address: address)
+        address: mac)
 
       newDictionary[Config.Key.version.rawValue] = state.version.formatted
       if JSONWriter(Paths.configFile).write(newDictionary) {

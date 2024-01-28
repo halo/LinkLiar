@@ -20,19 +20,19 @@ extension Ifconfig {
 
     // MARK: Instance Methods
 
-    func setSoftMAC(_ address: MAC) {
-//      guard address.isValid else {
-//        Log.info("Cannot apply MAC <\(address.formatted)> because it is not valid.")
-//        return
-//      }
+    func setSoftMAC(_ address: MAC?) {
+      guard let mac = address else {
+        Log.info("Cannot apply invalid MAC.")
+        return
+      }
 
       let state = WifiState(BSDName)
       state.prepare()
 
-      Log.info("Setting MAC address of Interface \(BSDName) to <\(address.humanReadable)>...")
+      Log.info("Setting MAC address of Interface \(BSDName) to <\(mac.humanReadable)>...")
       let process = Process()
       process.launchPath = "/sbin/ifconfig"
-      process.arguments = [BSDName, "ether", address.address]
+      process.arguments = [BSDName, "ether", mac.address]
       process.launch()
       process.waitUntilExit() // Block until ifconfig exited.
 

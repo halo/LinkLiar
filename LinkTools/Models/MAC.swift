@@ -18,9 +18,6 @@ struct MAC: Equatable {
 
   // MARK: Instance Properties
 
-  // TODO: Remove this alias
-  let isValid = true
-
   func humanReadable(config: Config.Reader) -> String {
     guard config.general.isAnonymized else {
       return humanReadable

@@ -14,7 +14,7 @@ struct PolicyActionView: View {
 
     let specificAddress = Binding<String>(
       get: { state.config.policy(interface.hardMAC).address?.address ?? "" },
-      set: { value, _ in Config.Writer(state).setInterfaceAddress(interface: interface, address: MAC(address: value)) })
+      set: { value, _ in Config.Writer(state).setInterfaceAddress(interface: interface, address: MAC(value)) })
 
     GroupBox {
       VStack(alignment: .leading) {
@@ -35,17 +35,17 @@ struct PolicyActionView: View {
             Divider()
           } label: {
             switch actionValue.wrappedValue {
-              case .random:
-                Text("Always Keep Random")
+            case .random:
+              Text("Always Keep Random")
 
-              case .specify:
-                Text("Specific MAC Address")
+            case .specify:
+              Text("Specific MAC Address")
 
-              case .original:
-                Text("Keep Original MAC Address")
+            case .original:
+              Text("Keep Original MAC Address")
 
-              default:
-                Text("Unknown")
+            default:
+              Text("Unknown")
             }
             Text(actionValue.wrappedValue?.rawValue ?? "?")
           }.menuStyle(.borderlessButton)
