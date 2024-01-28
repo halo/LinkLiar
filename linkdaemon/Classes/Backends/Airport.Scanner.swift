@@ -3,6 +3,16 @@
 
 import Foundation
 
+class Hotspot: Decodable {
+  var bssid: String = ""
+  var ssid: String = ""
+
+  private enum CodingKeys: String, CodingKey {
+    case bssid = "BSSID"
+    case ssid = "SSID_STR"
+  }
+}
+
 extension Airport {
   ///
   /// Runs the external exectuable `airport` to determine which
@@ -17,12 +27,18 @@ extension Airport {
 
     // MARK: - Instance Properties
 
-    lazy var accessPoints: [String: Any]? = {
+    lazy var accessPoints: [Hotspot]? = {
+
       do {
-        let infoPlistData = command.runData()
-          if let dict = try PropertyListSerialization.propertyList(from: infoPlistData, options: [], format: nil) as? [String: Any] {
-              return dict
-          }
+        let infoPlistData = Data(output.utf8)  // command.runData()
+        guard !infoPlistData.isEmpty else {
+          Log.debug("`airport --scan` returned empty STDOUT")
+          return nil
+        }
+
+        let plistDecoder = PropertyListDecoder()
+        return try plistDecoder.decode([Hotspot].self, from: infoPlistData)
+
       } catch {
         print(error)
       }

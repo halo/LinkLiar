@@ -135,6 +135,13 @@
 		C29EAF802AE5A202003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29EAF7E2AE5A202003578B9 /* Log.swift */; };
 		C29EAFAA2AE5B2CE003578B9 /* io.github.halo.LinkLiar.linkdaemon in Embed Executables */ = {isa = PBXBuildFile; fileRef = C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C2AA40A62B599B26007CD6CB /* AccessPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40A52B599B26007CD6CB /* AccessPoint.swift */; };
+		C2AA40A72B599B26007CD6CB /* AccessPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40A52B599B26007CD6CB /* AccessPoint.swift */; };
+		C2AA40A82B599B26007CD6CB /* AccessPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40A52B599B26007CD6CB /* AccessPoint.swift */; };
+		C2AA40AA2B59A0C4007CD6CB /* SSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40A92B59A0C4007CD6CB /* SSID.swift */; };
+		C2AA40AB2B59A0C4007CD6CB /* SSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40A92B59A0C4007CD6CB /* SSID.swift */; };
+		C2AA40AC2B59A0C4007CD6CB /* SSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40A92B59A0C4007CD6CB /* SSID.swift */; };
+		C2AA40AE2B59A8CF007CD6CB /* AirportScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2AA40AD2B59A8CF007CD6CB /* AirportScannerTests.swift */; };
 		C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8522B22293A002A2905 /* ConfigTests.swift */; };
 		C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */; };
@@ -296,6 +303,9 @@
 		C2969F0F2B278E2A00A9BB72 /* InterfacesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
 		C29EAF7E2AE5A202003578B9 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		C29EAF9B2AE5B07C003578B9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C2AA40A52B599B26007CD6CB /* AccessPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessPoint.swift; path = Models/AccessPoint.swift; sourceTree = "<group>"; };
+		C2AA40A92B59A0C4007CD6CB /* SSID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SSID.swift; path = Models/SSID.swift; sourceTree = "<group>"; };
+		C2AA40AD2B59A8CF007CD6CB /* AirportScannerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportScannerTests.swift; sourceTree = "<group>"; };
 		C2ADC8522B22293A002A2905 /* ConfigTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationPolicyTests.swift; sourceTree = "<group>"; };
 		C2D819512B2A2FDC00991D38 /* Ifconfig.Setter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.Setter.swift; path = Classes/Ifconfig.Setter.swift; sourceTree = "<group>"; };
@@ -356,6 +366,7 @@
 				C2F3DA1C2B35C8B900977572 /* Policy.swift */,
 				C2F3DA2E2B3730E600977572 /* Arbiter.swift */,
 				C2456FBB2B3B025D007D7AEA /* Vendors.swift */,
+				C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -405,10 +416,11 @@
 		C2456FCE2B3B16EE007D7AEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C2AA40A52B599B26007CD6CB /* AccessPoint.swift */,
 				C2456FD32B3B16F7007D7AEA /* Interface.swift */,
-				C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */,
 				C2456FCF2B3B16F7007D7AEA /* MACAddress.swift */,
 				C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */,
+				C2AA40A92B59A0C4007CD6CB /* SSID.swift */,
 				C2456FD02B3B16F7007D7AEA /* Vendor.swift */,
 				C2456FD12B3B16F7007D7AEA /* Version.swift */,
 			);
@@ -495,7 +507,7 @@
 		C26699392AE55EFD00592008 /* LinkLiarTests */ = {
 			isa = PBXGroup;
 			children = (
-				C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */,
+				C2AA40B12B5FC4B1007CD6CB /* linkdaemon */,
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
 				C2ADC8522B22293A002A2905 /* ConfigTests.swift */,
 				C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */,
@@ -617,6 +629,23 @@
 				C29EAF9B2AE5B07C003578B9 /* Foundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2AA40B12B5FC4B1007CD6CB /* linkdaemon */ = {
+			isa = PBXGroup;
+			children = (
+				C2AA40B22B5FC4C4007CD6CB /* Backends */,
+			);
+			name = linkdaemon;
+			sourceTree = "<group>";
+		};
+		C2AA40B22B5FC4C4007CD6CB /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */,
+				C2AA40AD2B59A8CF007CD6CB /* AirportScannerTests.swift */,
+			);
+			name = Backends;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -819,6 +848,7 @@
 				C2456FAB2B3AF888007D7AEA /* TroubleshootView.swift in Sources */,
 				C2969EE32B278B1F00A9BB72 /* JSONWriter.swift in Sources */,
 				C2969EE42B278B1F00A9BB72 /* Radio.swift in Sources */,
+				C2AA40AA2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C2969EE02B278B1F00A9BB72 /* Writer.swift in Sources */,
 				C24570272B41F996007D7AEA /* CommunityView.swift in Sources */,
 				C2456FF02B3B1809007D7AEA /* TimeObserver.swift in Sources */,
@@ -847,6 +877,7 @@
 				C2456FBC2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C2969EDE2B278B1F00A9BB72 /* LinkState.swift in Sources */,
 				C24570292B41FC3E007D7AEA /* Urls.swift in Sources */,
+				C2AA40A62B599B26007CD6CB /* AccessPoint.swift in Sources */,
 				C2F3DA202B35C8B900977572 /* Reader.swift in Sources */,
 				C24570262B41F996007D7AEA /* FaqView.swift in Sources */,
 				C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */,
@@ -873,6 +904,7 @@
 				C2B45B832B49E87D004C1BB9 /* Advisor.swift in Sources */,
 				C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */,
 				C24570332B486561007D7AEA /* PathsTests.swift in Sources */,
+				C2AA40A82B599B26007CD6CB /* AccessPoint.swift in Sources */,
 				C24570312B485BF7007D7AEA /* Interfaces.swift in Sources */,
 				C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */,
 				C245701B2B3DB709007D7AEA /* Builder.swift in Sources */,
@@ -888,12 +920,14 @@
 				C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */,
 				C24570302B484DFA007D7AEA /* StageTests.swift in Sources */,
 				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
+				C2AA40AC2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C280C0452B5836E700C653F0 /* Command.swift in Sources */,
 				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
 				C245700F2B3DB696007D7AEA /* Interface.swift in Sources */,
 				C245700C2B3DB59D007D7AEA /* Synchronization.swift in Sources */,
 				C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */,
 				C280C0502B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
+				C2AA40AE2B59A8CF007CD6CB /* AirportScannerTests.swift in Sources */,
 				C2969EB92B24BE1B00A9BB72 /* ConfigBuilderTests.swift in Sources */,
 				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
 				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
@@ -946,6 +980,7 @@
 				C245703B2B49899F007D7AEA /* LocationManager.swift in Sources */,
 				C2456FE32B3B1708007D7AEA /* Identifiers.swift in Sources */,
 				C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */,
+				C2AA40A72B599B26007CD6CB /* AccessPoint.swift in Sources */,
 				C28E032B2B0BD5EB0074EC94 /* LinkDaemon.swift in Sources */,
 				C2F3DA212B35C8B900977572 /* Reader.swift in Sources */,
 				C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */,
@@ -961,6 +996,7 @@
 				C245701E2B3E032C007D7AEA /* WifiState.swift in Sources */,
 				C225BDAD2B1FBA3A00FFD119 /* Executor.swift in Sources */,
 				C288E2182AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
+				C2AA40AB2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C2456FED2B3B1809007D7AEA /* FileObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
