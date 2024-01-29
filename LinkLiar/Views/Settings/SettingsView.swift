@@ -60,7 +60,7 @@ struct SettingsView: View {
           let isHidden = state.config.policy(interface.hardMAC).action == .hide
           let opacity = isHidden ? 0.5 : 1
           NavigationLink(value: interface.id) {
-            Label(interface.displayName, systemImage: interface.iconName).opacity(opacity)
+            Label(interface.name, systemImage: interface.iconName).opacity(opacity)
           }
         }
 
@@ -92,7 +92,7 @@ extension SettingsView {
 
 #Preview {
   let state = LinkState()
-  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(.sync)
 
   return SettingsView().environment(state)
 }

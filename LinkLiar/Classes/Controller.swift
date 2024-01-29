@@ -9,7 +9,7 @@ class Controller {
   // MARK: Class Methods
 
   static func queryInterfaces(state: LinkState) {
-    state.allInterfaces = Interfaces.all(asyncSoftMac: true)
+    state.allInterfaces = Interfaces.all(.async)
   }
 
 //  static func restartDaemon(state: LinkState) {
@@ -87,7 +87,7 @@ class Controller {
   }
 
   static func queryAllSoftMACs(_ state: LinkState) {
-    state.allInterfaces.forEach { $0.querySoftMAC(async: true) }
+    state.allInterfaces.forEach { $0.querySoftMAC() }
   }
 
   //

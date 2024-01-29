@@ -36,13 +36,13 @@ class Synchronization {
 
   // This is idempodent, no limits on calling this.
   private func executeStandard(_ address: MAC) {
-    Log.debug("Standard synchronization of \(interface.BSDName)")
+    Log.debug("Standard synchronization of \(interface.bsd.name)")
     Ifconfig.Setter(BSDName).setSoftMAC(address)
   }
 
   // This is NOT idempodent. Needs to limit itself.
   private func executeSsidBinding(_ address: MAC) {
-    Log.debug("SSID synchronization of \(interface.BSDName)")
+    Log.debug("SSID synchronization of \(interface.bsd.name)")
 
 //    if gracetime > Date.now {
 //      Log.debug("\(BSDName) idle")
@@ -56,7 +56,7 @@ class Synchronization {
   }
 
   var hardMAC: MAC { interface.hardMAC }
-  var BSDName: String { interface.BSDName }
+  var BSDName: String { interface.bsd.name }
   var advisor: Advisor
   private var gracetime = Date(timeIntervalSinceReferenceDate: 0)
 

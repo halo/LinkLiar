@@ -9,17 +9,16 @@ import SystemConfiguration
 struct Interfaces {
   // MARK: Class Methods
 
-  ///
   /// Returns every ``Interface`` where the MAC address likely can be modified.
   /// The ``Interface`` instances are immediately returned.
   ///
-  /// Pass in `asyncSoftMac` to query the soft MAC addresses in the background.
+  /// Pass in a resolving mechanism to query the soft MAC addresses in the background.
   /// In that case, the instances will update their softMac property.
   ///
-  static func all(asyncSoftMac: Bool?) -> [Interface] {
+  static func all(_ resolving: Interface.SoftMACResolving) -> [Interface] {
     var instances = [Interface]()
 
-    all(asyncSoftMac: asyncSoftMac, using: { interface in
+    all(resolving: resolving, using: { interface in
       instances.append(interface)
     })
 
@@ -28,26 +27,29 @@ struct Interfaces {
 
   // MARK: Private Class Methods
 
-  ///
   /// Internal helper that yields every spoofable ``Interface``.
   ///
-  private static func all(asyncSoftMac: Bool?, using yield: (Interface) -> Void) {
+  private static func all(resolving: Interface.SoftMACResolving, using yield: (Interface) -> Void) {
     let interfaces = SCNetworkInterfaceCopyAll()
 
     for interfaceRef in interfaces {
       // swiftlint:disable force_cast
-      guard let BSDName = SCNetworkInterfaceGetBSDName(interfaceRef as! SCNetworkInterface)
-        else { continue }
-      guard let displayName = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface)
-        else { continue }
+      guard let BSDName = SCNetworkInterfaceGetBSDName(interfaceRef as! SCNetworkInterface) else { continue }
+      guard let name = SCNetworkInterfaceGetLocalizedDisplayName(interfaceRef as! SCNetworkInterface)
+              as? String else { continue }
       guard let hardMAC = SCNetworkInterfaceGetHardwareAddressString(interfaceRef as! SCNetworkInterface)
         else { continue }
       guard let type = SCNetworkInterfaceGetInterfaceType(interfaceRef as! SCNetworkInterface)
-        else { continue }
+              as? String else { continue }
       // swiftlint:enable force_cast
 
-      let interface = Interface(BSDName: BSDName as String, displayName: displayName as String,
-                                kind: type as String, hardMAC: hardMAC as String, async: asyncSoftMac)
+      guard let bsd = BSD(BSDName as String) else { continue }
+      guard let hardMAC = MAC(hardMAC as String) else { continue }
+      guard let interface = Interface(bsd: bsd,
+                                      hardMAC: hardMAC,
+                                      name: name,
+                                      kind: type,
+                                      resolving: resolving) else { continue }
       if !interface.isSpoofable { continue }
 
       yield(interface)

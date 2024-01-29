@@ -17,7 +17,7 @@ extension Config {
         .initIfValid(ssid: ssid, softMAC: address) else { return }
 
       var newDictionary = Config.Builder(state.configDictionary).addInterfaceSsid(
-        interface,
+        interface.hardMAC,
         accessPointPolicy: accessPointPolicy)
 
       newDictionary[Config.Key.version.rawValue] = state.version.formatted
@@ -28,7 +28,7 @@ extension Config {
 
     func removeInterfaceSsid(interface: Interface, ssid: String) {
       var newDictionary = Config.Builder(state.configDictionary).removeInterfaceSsid(
-        interface,
+        interface.hardMAC,
         ssid: ssid)
 
       newDictionary[Config.Key.version.rawValue] = state.version.formatted
@@ -100,7 +100,7 @@ extension Config {
       guard let mac = address else { return }
 
       var newDictionary = Config.Builder(state.configDictionary).setInterfaceAddress(
-        interface,
+        interface.hardMAC,
         address: mac)
 
       newDictionary[Config.Key.version.rawValue] = state.version.formatted
@@ -119,7 +119,7 @@ extension Config {
     }
 
     func applyRecommendedSettings() {
-      for interface in Interfaces.all(asyncSoftMac: nil) {
+      for interface in Interfaces.all(.none) {
         if interface.isWifi {
           setInterfaceAction(interface: interface, action: nil)
         } else {

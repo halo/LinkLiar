@@ -73,14 +73,15 @@ extension Config {
       return dictionary
     }
 
-    func setInterfaceAddress(_ interface: Interface, address: MAC?) -> [String: Any] {
+    func setInterfaceAddress(_ hardMAC: MAC?, address: MAC?) -> [String: Any] {
       guard let mac = address else { return configDictionary }
+      guard let hardMAC = hardMAC else { return configDictionary }
       var dictionary = configDictionary
 
-      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: String] ?? [:]
+      var interfaceDictionary = dictionary[hardMAC.address] as? [String: String] ?? [:]
       interfaceDictionary[Config.Key.address.rawValue] = mac.address
 
-      dictionary[interface.hardMAC.address] = interfaceDictionary
+      dictionary[hardMAC.address] = interfaceDictionary
       return dictionary
     }
 
@@ -88,9 +89,9 @@ extension Config {
     /// but you have a hardMAC as String and a MACAddress as String.
     ///
     func setInterfaceAddress(_ hardMAC: String, address: String) -> [String: Any] {
-      let interface = Interface(hardMAC)
+      let hardMAC = MAC(hardMAC)
       let address = MAC(address)
-      return setInterfaceAddress(interface, address: address)
+      return setInterfaceAddress(hardMAC, address: address)
     }
 
     /// If this is an Interface that is supposed to have a random MAC address,
@@ -102,7 +103,7 @@ extension Config {
 
       // Technically, this could happen. Because the softMAC is resolved asynchronously in the background.
       guard interface.softMAC != nil else {
-        Log.debug("\(interface.BSDName) has no valid softMAC.")
+        Log.debug("\(interface.bsd.name) has no valid softMAC.")
         return configDictionary
       }
 
@@ -116,13 +117,14 @@ extension Config {
       return dictionary
     }
 
-    func addInterfaceSsid(_ interface: Interface, accessPointPolicy: AccessPointPolicy) -> [String: Any] {
+    func addInterfaceSsid(_ hardMAC: MAC?, accessPointPolicy: AccessPointPolicy) -> [String: Any] {
+      guard let hardMAC = hardMAC else { return configDictionary }
       var dictionary = configDictionary
 
       // Adding "Coffeeshop"
 
       // { "action": "random", ... } or {}
-      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
+      var interfaceDictionary = dictionary[hardMAC.address] as? [String: Any] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
       var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" }
@@ -130,7 +132,7 @@ extension Config {
       // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" } }
       interfaceDictionary[Config.Key.ssids.rawValue] = ssidsDictionary
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
-      dictionary[interface.hardMAC.address] = interfaceDictionary
+      dictionary[hardMAC.address] = interfaceDictionary
 
       return dictionary
     }
@@ -139,17 +141,17 @@ extension Config {
     /// Convenience Wrapper if you don't have an ``Interface`` but you have a hardware MAC address.
     ///
     func addInterfaceSsid(_ hardMAC: String, accessPointPolicy: AccessPointPolicy) -> [String: Any] {
-      let interface = Interface(hardMAC)
-      return addInterfaceSsid(interface, accessPointPolicy: accessPointPolicy)
+      addInterfaceSsid(MAC(hardMAC), accessPointPolicy: accessPointPolicy)
     }
 
-    func removeInterfaceSsid(_ interface: Interface, ssid: String) -> [String: Any] {
+    func removeInterfaceSsid(_ hardMAC: MAC?, ssid: String) -> [String: Any] {
+      guard let hardMAC = hardMAC else { return configDictionary }
       var dictionary = configDictionary
 
       // Removing "Coffeeshop".
 
       // { "action": "random", ... } or {}
-      var interfaceDictionary = dictionary[interface.hardMAC.address] as? [String: Any] ?? [:]
+      var interfaceDictionary = dictionary[hardMAC.address] as? [String: Any] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", Coffeeshop": "aa:aa:aa:aa:aa:aa" } or {}
       var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
@@ -165,13 +167,13 @@ extension Config {
       }
 
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
-      dictionary[interface.hardMAC.address] = interfaceDictionary
+      dictionary[hardMAC.address] = interfaceDictionary
 
       // This compression stuff could be extracted using `compactMapValues`.
       // { "e1:e1:e1:e1:e1:e1": { } }
       if interfaceDictionary.isEmpty {
         // { }
-        dictionary.removeValue(forKey: interface.hardMAC.address)
+        dictionary.removeValue(forKey: hardMAC.address)
       }
 
       return dictionary
@@ -181,8 +183,7 @@ extension Config {
     /// Convenience Wrapper if you don't have an ``Interface`` but you have a hardware MAC address.
     ///
     func removeInterfaceSsid(_ hardMAC: String, ssid: String) -> [String: Any] {
-      let interface = Interface(hardMAC)
-      return removeInterfaceSsid(interface, ssid: ssid)
+      removeInterfaceSsid(MAC(hardMAC), ssid: ssid)
     }
 
     func setVendors(vendors: [Vendor]) -> [String: Any] {

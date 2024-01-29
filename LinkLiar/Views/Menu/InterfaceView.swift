@@ -19,8 +19,8 @@ struct InterfaceView: View {
 
       VStack(alignment: .leading) {
         HStack(spacing: 8) {
-          Text(interface.displayName)
-          Text(interface.BSDName)
+          Text(interface.name)
+          Text(interface.bsd.name)
             .opacity(0.3)
             .font(.system(.body, design: .monospaced))
         }
@@ -72,6 +72,6 @@ struct InterfaceView: View {
 
 #Preview {
   let state = LinkState()
-  let interfaces = Interfaces.all(asyncSoftMac: false)
+  let interfaces = Interfaces.all(.sync)
   return InterfaceView(state: state, interface: interfaces.first!)
 }

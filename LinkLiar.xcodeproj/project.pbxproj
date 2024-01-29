@@ -12,8 +12,12 @@
 		C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAF2B1FBA4000FFD119 /* Listener.swift */; };
 		C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
 		C22F21AB2B010C970086B621 /* JSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22F21A92B010C970086B621 /* JSONReader.swift */; };
-		C23F0DC72B6692B100EE94F5 /* MACAddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */; };
+		C23F0DC72B6692B100EE94F5 /* MACTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC62B6692B100EE94F5 /* MACTest.swift */; };
 		C23F0DC82B66AE3800EE94F5 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
+		C23F0DCA2B66B87300EE94F5 /* BSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC92B66B87300EE94F5 /* BSD.swift */; };
+		C23F0DCB2B66B87300EE94F5 /* BSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC92B66B87300EE94F5 /* BSD.swift */; };
+		C23F0DCC2B66B87300EE94F5 /* BSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DC92B66B87300EE94F5 /* BSD.swift */; };
+		C23F0DCE2B66BD6900EE94F5 /* InterfaceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DCD2B66BD6900EE94F5 /* InterfaceTest.swift */; };
 		C2456FAB2B3AF888007D7AEA /* TroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */; };
 		C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */; };
 		C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */; };
@@ -223,7 +227,9 @@
 		C225BDAB2B1FBA3A00FFD119 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Classes/Executor.swift; sourceTree = "<group>"; };
 		C225BDAF2B1FBA4000FFD119 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
 		C22F21A92B010C970086B621 /* JSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONReader.swift; sourceTree = "<group>"; };
-		C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAddressTest.swift; sourceTree = "<group>"; };
+		C23F0DC62B6692B100EE94F5 /* MACTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACTest.swift; sourceTree = "<group>"; };
+		C23F0DC92B66B87300EE94F5 /* BSD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BSD.swift; path = Models/BSD.swift; sourceTree = "<group>"; };
+		C23F0DCD2B66BD6900EE94F5 /* InterfaceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceTest.swift; sourceTree = "<group>"; };
 		C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroubleshootView.swift; path = Sections/TroubleshootView.swift; sourceTree = "<group>"; };
 		C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FallbackPolicyView.swift; path = Sections/FallbackPolicyView.swift; sourceTree = "<group>"; };
 		C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacePolicyView.swift; path = Sections/InterfacePolicyView.swift; sourceTree = "<group>"; };
@@ -385,7 +391,8 @@
 		C23F0DC52B66929A00EE94F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C23F0DC62B6692B100EE94F5 /* MACAddressTest.swift */,
+				C23F0DC62B6692B100EE94F5 /* MACTest.swift */,
+				C23F0DCD2B66BD6900EE94F5 /* InterfaceTest.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -437,6 +444,7 @@
 			children = (
 				C2456FCF2B3B16F7007D7AEA /* MAC.swift */,
 				C2AA40A92B59A0C4007CD6CB /* SSID.swift */,
+				C23F0DC92B66B87300EE94F5 /* BSD.swift */,
 				C2AA40A52B599B26007CD6CB /* AccessPoint.swift */,
 				C2456FD32B3B16F7007D7AEA /* Interface.swift */,
 				C2456FD22B3B16F7007D7AEA /* MACPrefix.swift */,
@@ -902,6 +910,7 @@
 				C2F3DA202B35C8B900977572 /* Reader.swift in Sources */,
 				C24570262B41F996007D7AEA /* FaqView.swift in Sources */,
 				C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */,
+				C23F0DCA2B66B87300EE94F5 /* BSD.swift in Sources */,
 				C2F3DA1E2B35C8B900977572 /* General.swift in Sources */,
 				C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
 				C245702B2B4447A1007D7AEA /* ApplyRecommendationsView.swift in Sources */,
@@ -924,15 +933,17 @@
 				C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */,
 				C2B45B832B49E87D004C1BB9 /* Advisor.swift in Sources */,
 				C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */,
+				C23F0DCE2B66BD6900EE94F5 /* InterfaceTest.swift in Sources */,
 				C24570332B486561007D7AEA /* PathsTests.swift in Sources */,
 				C2AA40A82B599B26007CD6CB /* AccessPoint.swift in Sources */,
 				C24570312B485BF7007D7AEA /* Interfaces.swift in Sources */,
 				C245701C2B3DB711007D7AEA /* Ifconfig.Reader.swift in Sources */,
 				C245701B2B3DB709007D7AEA /* Builder.swift in Sources */,
-				C23F0DC72B6692B100EE94F5 /* MACAddressTest.swift in Sources */,
+				C23F0DC72B6692B100EE94F5 /* MACTest.swift in Sources */,
 				C245701F2B3E032C007D7AEA /* WifiState.swift in Sources */,
 				C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */,
 				C24570192B3DB6F9007D7AEA /* MACPrefix.swift in Sources */,
+				C23F0DCC2B66B87300EE94F5 /* BSD.swift in Sources */,
 				C24570182B3DB6F0007D7AEA /* Arbiter.swift in Sources */,
 				C24570172B3DB6DD007D7AEA /* PopularVendorsDatabase.swift in Sources */,
 				C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */,
@@ -994,6 +1005,7 @@
 				C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C280C04C2B58511800C653F0 /* CFArray+Sequence.swift in Sources */,
 				C2456FDD2B3B16F7007D7AEA /* Interface.swift in Sources */,
+				C23F0DCB2B66B87300EE94F5 /* BSD.swift in Sources */,
 				C2456FD52B3B16F7007D7AEA /* MAC.swift in Sources */,
 				C2D819522B2A2FDC00991D38 /* Ifconfig.Setter.swift in Sources */,
 				C280C0442B5836E700C653F0 /* Command.swift in Sources */,

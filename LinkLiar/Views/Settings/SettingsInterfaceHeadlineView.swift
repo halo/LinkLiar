@@ -18,9 +18,9 @@ struct SettingsInterfaceHeadlineView: View {
 
         VStack(alignment: .leading) {
           HStack(alignment: .firstTextBaseline) {
-            Text(interface.displayName)
+            Text(interface.name)
               .font(.title2)
-            Text(interface.BSDName)
+            Text(interface.bsd.name)
               .font(.system(.body, design: .monospaced))
               .opacity(0.5)
           }
@@ -42,7 +42,7 @@ struct SettingsInterfaceHeadlineView: View {
 
 #Preview("Hidden WiFi") {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
+  let interface = Interfaces.all(.sync).first!
   state.configDictionary = [interface.hardMAC.address: ["action": "hide"],
                             "anonymous": "\( String(format: "%06X", Int(arc4random_uniform(0xffffff))) )\( String(format: "%06X", Int(arc4random_uniform(0xffffff))) )"]
 
@@ -52,7 +52,7 @@ struct SettingsInterfaceHeadlineView: View {
 
 #Preview("Hidden Cable") {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).last!
+  let interface = Interfaces.all(.sync).last!
   state.configDictionary = [interface.hardMAC.address: ["action": "hide"]]
 
   return SettingsInterfaceHeadlineView().environment(state)

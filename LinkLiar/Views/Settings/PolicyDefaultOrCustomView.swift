@@ -40,7 +40,7 @@ struct PolicyDefaultOrCustomView: View {
 
 #Preview {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
+  let interface = Interfaces.all(.sync).first!
 
   return PolicyDefaultOrCustomView().environment(state)
                                             .environment(interface)

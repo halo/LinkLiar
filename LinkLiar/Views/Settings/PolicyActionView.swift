@@ -92,7 +92,7 @@ struct PolicyActionView: View {
 
 #Preview("Always Random") {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
+  let interface = Interfaces.all(.sync).first!
   state.configDictionary = [interface.hardMAC.address: ["action": "random"]]
 
   return PolicyActionView().environment(state).environment(interface)
@@ -100,7 +100,7 @@ struct PolicyActionView: View {
 
 #Preview("Specified MAC") {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
+  let interface = Interfaces.all(.sync).first!
   state.configDictionary = [interface.hardMAC.address: ["action": "specify", "address": "aa:bb:cc:dd:ee:ff"]]
 
   return PolicyActionView().environment(state).environment(interface)
@@ -108,7 +108,7 @@ struct PolicyActionView: View {
 
 #Preview("Original MAC") {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
+  let interface = Interfaces.all(.sync).first!
   state.configDictionary = [interface.hardMAC.address: ["action": "original"]]
 
   return PolicyActionView().environment(state).environment(interface)

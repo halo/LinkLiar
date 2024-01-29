@@ -186,7 +186,7 @@ extension SettingsView {
 
 #Preview {
   let state = LinkState()
-  state.allInterfaces = Interfaces.all(asyncSoftMac: false)
+  state.allInterfaces = Interfaces.all(.sync)
 
   return SettingsView.TroubleshootView().environment(state)
 }

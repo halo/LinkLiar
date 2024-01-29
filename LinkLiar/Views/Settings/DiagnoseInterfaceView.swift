@@ -18,7 +18,7 @@ struct DiagnoseInterfaceView: View {
 //
 // #Preview("Always Random") {
 //  let state = LinkState()
-//  let interface = Interfaces.all(asyncSoftMac: false).first!
+//  let interface = Interfaces.all(.sync).first!
 //  state.configDictionary = ["ssids:\(interface.hardMAC.formatted)":
 //                              ["Free Wifi": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "dd:dd:dd:dd:dd:dd"]]
 //
@@ -27,7 +27,7 @@ struct DiagnoseInterfaceView: View {
 
 // #Preview("Specified MAC") {
 //  let state = LinkState()
-//  let interface = Interfaces.all(asyncSoftMac: false).first!
+//  let interface = Interfaces.all(.sync).first!
 //  state.configDictionary = [interface.hardMAC.formatted: ["action": "specify", "address": "aa:bb:cc:dd:ee:ff"]]
 //
 //  return AccessPointView().environment(state).environment(interface)
@@ -36,7 +36,7 @@ struct DiagnoseInterfaceView: View {
 //
 // #Preview("Original MAC") {
 //  let state = LinkState()
-//  let interface = Interfaces.all(asyncSoftMac: false).first!
+//  let interface = Interfaces.all(.sync).first!
 //  state.configDictionary = [interface.hardMAC.formatted: ["action": "original"]]
 //
 //  return AccessPointView().environment(state).environment(interface)

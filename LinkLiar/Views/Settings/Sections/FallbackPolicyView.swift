@@ -75,7 +75,7 @@ extension SettingsView {
 
 #Preview {
   let state = LinkState()
-  let interface = Interfaces.all(asyncSoftMac: false).first!
+  let interface = Interfaces.all(.sync).first!
 
   return SettingsView.FallbackPolicyView().environment(state)
     .environment(interface)

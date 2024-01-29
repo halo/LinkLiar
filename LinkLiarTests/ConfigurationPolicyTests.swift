@@ -39,11 +39,11 @@ class ConfigurationPolicyTests: XCTestCase {
 
     let accessPoint1 = accessPoints.first!
     XCTAssertEqual("Coffeeshop", accessPoint1.ssid)
-    XCTAssertEqual(MACAddress("aa:aa:aa:aa:aa:aa"), accessPoint1.softMAC)
+    XCTAssertEqual(MAC("aa:aa:aa:aa:aa:aa"), accessPoint1.softMAC)
 
     let accessPoint2 = accessPoints.last!
     XCTAssertEqual("Papershop", accessPoint2.ssid)
-    XCTAssertEqual(MACAddress("bb:bb:bb:bb:bb:bb"), accessPoint2.softMAC)
+    XCTAssertEqual(MAC("bb:bb:bb:bb:bb:bb"), accessPoint2.softMAC)
   }
 
 }

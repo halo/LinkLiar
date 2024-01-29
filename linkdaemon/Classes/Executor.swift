@@ -47,12 +47,12 @@ class Executor {
 //      let action = Config.instance.knownInterface.action(interface.hardMAC)
 //
 //      guard action == .random else {
-//        Log.debug("Not re-randomizing \(interface.BSDName) because it is not defined to be random.")
+//        Log.debug("Not re-randomizing \(interface.bsd.name) because it is not defined to be random.")
 //        return
 //      }
 //
-//      Log.debug("Taking the chance to re-randomize \(interface.BSDName)")
-//      setMAC(BSDName: interface.BSDName, address: RandomMACs.generate())
+//      Log.debug("Taking the chance to re-randomize \(interface.bsd.name)")
+//      setMAC(BSDName: interface.bsd.name, address: RandomMACs.generate())
 //    }
   }
 
@@ -77,7 +77,7 @@ class Executor {
 
     // Query Interfaces afresh synchronously
     Log.debug("Reloading Interfaces...")
-    interfaces = Interfaces.all(asyncSoftMac: false).filter {
+    interfaces = Interfaces.all(.sync).filter {
       config.policy($0.hardMAC).action != .hide
     }.filter {
       config.policy($0.hardMAC).action != .ignore

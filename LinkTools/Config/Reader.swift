@@ -66,7 +66,7 @@ extension Config {
     }
 
     var isRecommended: Bool {
-      let interfaces = Interfaces.all(asyncSoftMac: true)
+      let interfaces = Interfaces.all(.async)
 
       // If any Interface is random (or otherwise specified),
       // then LinkLiar is doing what it's supposed to do (i.e. recommended usage).
