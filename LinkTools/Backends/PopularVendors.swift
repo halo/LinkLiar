@@ -24,9 +24,9 @@ struct PopularVendors {
     guard let rawPrefixes = vendorData.values.first else { return nil }
     guard let name = vendorData.keys.first else { return nil }
 
-    let prefixes = rawPrefixes.map { rawPrefix in
-      MACPrefix(String(format: "%06X", rawPrefix))
-    }.filter { $0.isValid }
+    let prefixes = rawPrefixes.compactMap { rawPrefix in
+      OUI(String(format: "%06X", rawPrefix))
+    }
 
     if prefixes.isEmpty { return nil }
 

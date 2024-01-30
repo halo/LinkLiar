@@ -8,7 +8,7 @@ import Foundation
 class Vendor: Identifiable, Hashable {
   // MARK: Class Methods
 
-  init(id: String, name: String, prefixes: [MACPrefix]) {
+  init(id: String, name: String, prefixes: [OUI]) {
     self.id = id
     self.name = name
     self.prefixes = prefixes
@@ -18,7 +18,7 @@ class Vendor: Identifiable, Hashable {
 
   var name: String
   var id: String
-  var prefixes: [MACPrefix]
+  var prefixes: [OUI]
 
   var isChosen: Bool = false
 

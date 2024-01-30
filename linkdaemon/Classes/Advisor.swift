@@ -82,7 +82,7 @@ class Advisor {
     }
 
     if !arbiter.prefixes.contains(interface.softPrefix) {
-      Log.debug("Interface \(interface.bsd.name) has an unallowed prefix \(interface.softPrefix.formatted) randomizing.")
+      Log.debug("Interface \(interface.bsd.name) has an unallowed prefix \(interface.softPrefix.address) randomizing.")
       return arbiter.randomAddress()
     }
 //    else {

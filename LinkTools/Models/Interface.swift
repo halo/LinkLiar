@@ -51,8 +51,8 @@ class Interface: Identifiable {
     return  _softMAC
   }
 
-  var softPrefix: MACPrefix {
-    MACPrefix(softMAC!.prefix)
+  var softPrefix: OUI {
+    OUI(softMAC!.prefix)!
   }
 
   var hasOriginalMAC: Bool {

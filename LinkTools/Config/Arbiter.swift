@@ -25,7 +25,7 @@ extension Config {
     }
 
     // TODO: Do we need to include SSID-MAC binding prefixes?
-    var prefixes: [MACPrefix] {
+    var prefixes: [OUI] {
       if !config.vendors.chosenPopular.isEmpty {
         return config.vendors.chosenPopular.flatMap { $0.prefixes }
       }
@@ -73,7 +73,7 @@ extension Config {
         String(Int.random(in: 0..<256), radix: 16, uppercase: false)
       ].joined()
 
-      return MAC(address: [prefix.formatted, suffix].joined())
+      return MAC(address: [prefix.address, suffix].joined())
     }
 
     // MARK: Private Instance Properties
