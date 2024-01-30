@@ -29,7 +29,7 @@ extension Ifconfig {
       let state = WifiState(BSDName)
       state.prepare()
 
-      Log.info("Setting MAC address of Interface \(BSDName) to <\(mac.humanReadable)>...")
+      Log.info("Setting MAC address of Interface \(BSDName) to <\(mac.address)>...")
       let process = Process()
       process.launchPath = "/sbin/ifconfig"
       process.arguments = [BSDName, "ether", mac.address]

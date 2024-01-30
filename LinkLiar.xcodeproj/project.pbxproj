@@ -22,6 +22,10 @@
 		C23F0DD12B6977A800EE94F5 /* MACParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DCF2B6977A800EE94F5 /* MACParser.swift */; };
 		C23F0DD22B6977A800EE94F5 /* MACParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DCF2B6977A800EE94F5 /* MACParser.swift */; };
 		C23F0DD42B6979D000EE94F5 /* MACParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DD32B6979D000EE94F5 /* MACParserTest.swift */; };
+		C23F0DD62B697FE300EE94F5 /* MACAnonymizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DD52B697FE300EE94F5 /* MACAnonymizer.swift */; };
+		C23F0DD72B697FE300EE94F5 /* MACAnonymizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DD52B697FE300EE94F5 /* MACAnonymizer.swift */; };
+		C23F0DD82B697FE300EE94F5 /* MACAnonymizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DD52B697FE300EE94F5 /* MACAnonymizer.swift */; };
+		C23F0DDA2B69801900EE94F5 /* MACAnonymizerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23F0DD92B69801900EE94F5 /* MACAnonymizerTest.swift */; };
 		C2456FAB2B3AF888007D7AEA /* TroubleshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */; };
 		C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */; };
 		C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */; };
@@ -236,6 +240,8 @@
 		C23F0DCD2B66BD6900EE94F5 /* InterfaceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterfaceTest.swift; sourceTree = "<group>"; };
 		C23F0DCF2B6977A800EE94F5 /* MACParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACParser.swift; path = Models/MACParser.swift; sourceTree = "<group>"; };
 		C23F0DD32B6979D000EE94F5 /* MACParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACParserTest.swift; sourceTree = "<group>"; };
+		C23F0DD52B697FE300EE94F5 /* MACAnonymizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACAnonymizer.swift; path = Models/MACAnonymizer.swift; sourceTree = "<group>"; };
+		C23F0DD92B69801900EE94F5 /* MACAnonymizerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACAnonymizerTest.swift; sourceTree = "<group>"; };
 		C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TroubleshootView.swift; path = Sections/TroubleshootView.swift; sourceTree = "<group>"; };
 		C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FallbackPolicyView.swift; path = Sections/FallbackPolicyView.swift; sourceTree = "<group>"; };
 		C2456FAE2B3AF99A007D7AEA /* InterfacePolicyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InterfacePolicyView.swift; path = Sections/InterfacePolicyView.swift; sourceTree = "<group>"; };
@@ -400,6 +406,7 @@
 				C23F0DC62B6692B100EE94F5 /* MACTest.swift */,
 				C23F0DCD2B66BD6900EE94F5 /* InterfaceTest.swift */,
 				C23F0DD32B6979D000EE94F5 /* MACParserTest.swift */,
+				C23F0DD92B69801900EE94F5 /* MACAnonymizerTest.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -458,6 +465,7 @@
 				C2456FD02B3B16F7007D7AEA /* Vendor.swift */,
 				C2456FD12B3B16F7007D7AEA /* Version.swift */,
 				C23F0DCF2B6977A800EE94F5 /* MACParser.swift */,
+				C23F0DD52B697FE300EE94F5 /* MACAnonymizer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -860,6 +868,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C23F0DD62B697FE300EE94F5 /* MACAnonymizer.swift in Sources */,
 				C23F0DC82B66AE3800EE94F5 /* Command.swift in Sources */,
 				C2969F182B278E2A00A9BB72 /* DiagnoseInterfaceView.swift in Sources */,
 				C2969F152B278E2A00A9BB72 /* SettingsDetailView.swift in Sources */,
@@ -966,6 +975,7 @@
 				C2AA40AC2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C280C0452B5836E700C653F0 /* Command.swift in Sources */,
 				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
+				C23F0DDA2B69801900EE94F5 /* MACAnonymizerTest.swift in Sources */,
 				C245700F2B3DB696007D7AEA /* Interface.swift in Sources */,
 				C245700C2B3DB59D007D7AEA /* Synchronization.swift in Sources */,
 				C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */,
@@ -977,6 +987,7 @@
 				C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */,
 				C23F0DD22B6977A800EE94F5 /* MACParser.swift in Sources */,
 				C280C0422B58363200C653F0 /* Airport.Connection.swift in Sources */,
+				C23F0DD82B697FE300EE94F5 /* MACAnonymizer.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C245700E2B3DB5B4007D7AEA /* AdvisorTests.swift in Sources */,
 				C280C0472B584D6900C653F0 /* AirportConnectionTests.swift in Sources */,
@@ -1012,6 +1023,7 @@
 				C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
 				C280C0412B58363200C653F0 /* Airport.Connection.swift in Sources */,
 				C2456FD92B3B16F7007D7AEA /* Version.swift in Sources */,
+				C23F0DD72B697FE300EE94F5 /* MACAnonymizer.swift in Sources */,
 				C280C04F2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
 				C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C280C04C2B58511800C653F0 /* CFArray+Sequence.swift in Sources */,

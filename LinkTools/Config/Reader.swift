@@ -84,6 +84,7 @@ extension Config {
     case action
     case apple
     case address
+    case anonymize
     case theDefault = "default"
     case except
     case skipRerandom = "skip_rerandom"

@@ -25,7 +25,7 @@ struct AccessPointsView: View {
         TableColumn("SSID", value: \.ssid)
           .width(250)
         TableColumn("MAC") { accessPointPolicy in
-          Text(accessPointPolicy.softMAC.humanReadable)
+          Text(accessPointPolicy.softMAC.address)
             .font(.system(.body, design: .monospaced, weight: .light))
         }.width(150)
       }.contextMenu(forSelectionType: Config.AccessPointPolicy.ID.self) { _ in
@@ -77,7 +77,7 @@ struct AccessPointsView: View {
   }
 
   private func addSsid() {
-    Log.debug("Adding SSID to Interface \(interface.hardMAC.humanReadable)")
+    Log.debug("Adding SSID to Interface \(interface.hardMAC.address)")
     Config.Writer(state).addInterfaceSsid(interface: interface, ssid: newSsid, address: newMAC)
   }
 
@@ -87,7 +87,7 @@ struct AccessPointsView: View {
       Log.debug("SSID definition not found")
       return
     }
-    Log.debug("Removing `\(accessPointPolicy.ssid)` from Interface \(interface.hardMAC.humanReadable)")
+    Log.debug("Removing `\(accessPointPolicy.ssid)` from Interface \(interface.hardMAC.address)")
     Config.Writer(state).removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid)
   }
 }

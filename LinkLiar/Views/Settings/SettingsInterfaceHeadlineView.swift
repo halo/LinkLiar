@@ -24,7 +24,7 @@ struct SettingsInterfaceHeadlineView: View {
               .font(.system(.body, design: .monospaced))
               .opacity(0.5)
           }
-          Text(interface.hardMAC.humanReadable(config: state.config))
+          Text(interface.hardMAC.address)
             .font(.system(.body, design: .monospaced))
             .opacity(0.5)
         }

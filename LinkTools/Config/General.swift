@@ -33,24 +33,11 @@ extension Config {
       return restriction != false
     }
 
-    ///
     /// Queries whether MAC addresses should be anonymized in GUI and logs.
+    /// This is no by default. You can turn it on by adding the key.
     ///
     var isAnonymized: Bool {
-      false
-//      anonymizationSeed.isValid
-    }
-
-    // TODO: How to solve this?
-    /**
-     * Queries a seed used for anonymizing MAC addresses shown in GUI and logs.
-     */
-    var anonymizationSeed: MAC {
-      guard let seed = self.dictionary["anonymous"] as? String else {
-        return MAC(address: "")
-      }
-
-      return MAC(address: seed)
+      self.dictionary[Config.Key.anonymize.rawValue] as? Bool ?? false
     }
   }
 }

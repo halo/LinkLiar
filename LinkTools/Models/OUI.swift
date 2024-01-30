@@ -3,6 +3,9 @@
 
 import Foundation
 
+/// Organizationally unique identifier.
+/// Also known as MAC prefix.
+///
 struct OUI: Equatable {
   // MARK: Class Methods
 

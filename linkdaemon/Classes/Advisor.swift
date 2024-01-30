@@ -68,7 +68,7 @@ class Advisor {
     }
 
     if interface.softMAC == address {
-      Log.debug("Interface \(interface.bsd.name) is already set to softMAC \(address.humanReadable) - skipping")
+      Log.debug("Interface \(interface.bsd.name) is already set to softMAC \(address.address) - skipping")
       return nil
     }
 
@@ -95,11 +95,11 @@ class Advisor {
     }
 
     if interface.softMAC == undesiredAddress {
-      Log.debug("Randomizing \(interface.bsd.name) because it has undesired address \(undesiredAddress.humanReadable).")
+      Log.debug("Randomizing \(interface.bsd.name) because it has undesired address \(undesiredAddress.address).")
       return arbiter.randomAddress()
     }
 
-    Log.debug("\(interface.bsd.name) is already random but not undesired address \(undesiredAddress.humanReadable).")
+    Log.debug("\(interface.bsd.name) is already random but not undesired address \(undesiredAddress.address).")
 
     return nil
   }

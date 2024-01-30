@@ -18,31 +18,24 @@ struct MAC: Equatable {
 
   // MARK: Instance Properties
 
-  func humanReadable(config: Config.Reader) -> String {
-    guard config.general.isAnonymized else {
-      return humanReadable
-    }
-    let address = config.general.anonymizationSeed
-    let otherIntegers = address.integers
-    let newIntegers = integers.enumerated().map { ($1 + otherIntegers[$0]) % 16 }
-    let newAddress = newIntegers.map { String($0, radix: 16) }.joined()
-    return Self(newAddress)?.address ?? "??:??:??:??:??:??"
-  }
-
-  var humanReadable: String {
-    //    if Config.instance.settings.anonymizationSeed.isValid {
-    //      return add(Config.instance.settings.anonymizationSeed).formatted
-    //    } else {
-    address
-    //    }
-  }
-
   var prefix: String {
     address.components(separatedBy: ":").prefix(3).joined(separator: ":")
   }
 
   var integers: [UInt8] {
-    address.map { UInt8(String($0), radix: 16)! }
+    address.split(separator: ":")
+           .joined()
+           .map { UInt8(String($0), radix: 16)! }
+  }
+
+  // MARK: Instance Methods
+
+  func anonymous(_ anonymize: Bool) -> String {
+    if anonymize {
+      return MACAnonymizer.anonymize(self)
+    } else {
+      return address
+    }
   }
 
   // MARK: Private Instance Properties

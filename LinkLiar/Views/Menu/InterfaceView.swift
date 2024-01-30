@@ -29,7 +29,7 @@ struct InterfaceView: View {
           Button(action: {
             copy(interface.softMAC?.address ?? "??:??:??:??:??:??")
           }, label: {
-            Text(interface.softMAC?.address ?? "??:??:??:??:??:??")
+            Text(interface.hardMAC.anonymous(state.config.general.isAnonymized))
               .font(.system(.body, design: .monospaced, weight: .light))
           }).buttonStyle(.plain)
         }
@@ -40,9 +40,9 @@ struct InterfaceView: View {
               .opacity(0.5)
               .font(.system(.footnote))
             Button(action: {
-              copy(interface.hardMAC.humanReadable)
+              copy(interface.hardMAC.address)
             }, label: {
-              Text(interface.hardMAC.humanReadable)
+              Text(interface.hardMAC.anonymous(state.config.general.isAnonymized))
               .font(.system(.footnote, design: .monospaced))
               .opacity(0.5)
             }).buttonStyle(.plain)
