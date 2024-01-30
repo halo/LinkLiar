@@ -29,7 +29,7 @@ struct InterfaceView: View {
           Button(action: {
             copy(interface.softMAC?.address ?? "??:??:??:??:??:??")
           }, label: {
-            Text(interface.hardMAC.anonymous(state.config.general.isAnonymized))
+            Text(interface.softMAC?.anonymous(state.config.general.isAnonymized) ?? "??:??:??:??:??:??")
               .font(.system(.body, design: .monospaced, weight: .light))
           }).buttonStyle(.plain)
         }
