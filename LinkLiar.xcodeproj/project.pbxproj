@@ -179,6 +179,7 @@
 		C2F3DA2D2B36C71A00977572 /* Synchronization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2C2B36C71A00977572 /* Synchronization.swift */; };
 		C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 		C2F3DA302B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
+		C2F701582B6C2ECF001390E1 /* BSDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701572B6C2ECE001390E1 /* BSDTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -336,6 +337,7 @@
 		C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccessPointPolicy.swift; path = Config/AccessPointPolicy.swift; sourceTree = "<group>"; };
 		C2F3DA2C2B36C71A00977572 /* Synchronization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronization.swift; path = Classes/Synchronization.swift; sourceTree = "<group>"; };
 		C2F3DA2E2B3730E600977572 /* Arbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arbiter.swift; path = Config/Arbiter.swift; sourceTree = "<group>"; };
+		C2F701572B6C2ECE001390E1 /* BSDTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSDTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 		C23F0DC52B66929A00EE94F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C2F701572B6C2ECE001390E1 /* BSDTest.swift */,
 				C23F0DC62B6692B100EE94F5 /* MACTest.swift */,
 				C23F0DCD2B66BD6900EE94F5 /* InterfaceTest.swift */,
 				C23F0DD32B6979D000EE94F5 /* MACParserTest.swift */,
@@ -974,6 +977,7 @@
 				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
 				C2AA40AC2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C280C0452B5836E700C653F0 /* Command.swift in Sources */,
+				C2F701582B6C2ECF001390E1 /* BSDTest.swift in Sources */,
 				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
 				C23F0DDA2B69801900EE94F5 /* MACAnonymizerTest.swift in Sources */,
 				C245700F2B3DB696007D7AEA /* Interface.swift in Sources */,

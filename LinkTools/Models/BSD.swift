@@ -39,6 +39,10 @@ struct BSD: Identifiable {
   // MARK: - Instance Properties
 
   let name: String
+  var number: Int {
+    let numberAsString = name.suffix(from: name.index(name.startIndex, offsetBy: 2))
+    return Int(numberAsString) ?? 999
+  }
 
   /// Conforming to `Identifiable`.
   var id: String { name }
