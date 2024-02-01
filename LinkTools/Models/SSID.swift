@@ -13,12 +13,6 @@ struct SSID: Identifiable {
     self.name = name
   }
 
-  // MARK: - Private Class Methods
-
-  private init(validName: String) {
-    self.name = validName
-  }
-
   // MARK: - Instance Properties
 
   let name: String

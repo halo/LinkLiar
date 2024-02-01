@@ -14,11 +14,6 @@ struct AccessPoint: Identifiable {
     self.bssid = validBSSID
   }
 
-  private init(ssid: SSID, bssid: MAC) {
-    self.ssid = ssid
-    self.bssid = bssid
-  }
-
   // MARK: - Instance Properties
 
   let ssid: SSID

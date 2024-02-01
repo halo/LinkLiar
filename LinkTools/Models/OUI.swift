@@ -15,10 +15,6 @@ struct OUI: Equatable {
     self.address = validAddress
   }
 
-  init(address: String) {
-    self.address = address
-  }
-
   // MARK: Instance Properties
 
   // MARK: Private Instance Properties

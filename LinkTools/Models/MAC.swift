@@ -8,12 +8,7 @@ struct MAC: Equatable {
 
   init?(_ address: String) {
     guard let validAddress = MACParser.normalized48(address) else { return nil }
-
     self.address = validAddress
-  }
-
-  private init(address: String) {
-    self.address = address
   }
 
   // MARK: Instance Properties
