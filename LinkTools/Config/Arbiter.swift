@@ -46,7 +46,7 @@ extension Config {
         return nil
       }
 
-      guard let accessPoint = config.policy(hardMAC).accessPoints.first(where: { $0.ssid == ssid }) else {
+      guard let accessPoint = config.policy(hardMAC).accessPoints.first(where: { $0.ssid.name == ssid }) else {
         return nil
       }
 
@@ -73,7 +73,7 @@ extension Config {
         String(Int.random(in: 0..<256), radix: 16, uppercase: false)
       ].joined()
 
-      return MAC(address: [prefix.address, suffix].joined())
+      return MAC([prefix.address, suffix].joined())!
     }
 
     // MARK: Private Instance Properties

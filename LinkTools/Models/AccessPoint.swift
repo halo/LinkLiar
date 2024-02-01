@@ -14,7 +14,7 @@ struct AccessPoint: Identifiable {
     self.bssid = validBSSID
   }
 
-  init(ssid: SSID, bssid: MAC) {
+  private init(ssid: SSID, bssid: MAC) {
     self.ssid = ssid
     self.bssid = bssid
   }

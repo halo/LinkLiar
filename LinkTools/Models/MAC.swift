@@ -12,7 +12,7 @@ struct MAC: Equatable {
     self.address = validAddress
   }
 
-  init(address: String) {
+  private init(address: String) {
     self.address = address
   }
 

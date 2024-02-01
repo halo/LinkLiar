@@ -22,7 +22,7 @@ struct AccessPointsView: View {
       .padding(4)
 
       Table(state.config.policy(interface.hardMAC).accessPoints, selection: $selection) {
-        TableColumn("SSID", value: \.ssid)
+        TableColumn("SSID", value: \.ssid.name)
           .width(250)
         TableColumn("MAC") { accessPointPolicy in
           Text(accessPointPolicy.softMAC.address)
@@ -88,7 +88,7 @@ struct AccessPointsView: View {
       return
     }
     Log.debug("Removing `\(accessPointPolicy.ssid)` from Interface \(interface.hardMAC.address)")
-    Config.Writer(state).removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid)
+    Config.Writer(state).removeInterfaceSsid(interface: interface, ssid: accessPointPolicy.ssid.name)
   }
 }
 

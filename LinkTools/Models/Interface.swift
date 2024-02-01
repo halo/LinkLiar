@@ -117,7 +117,7 @@ class Interface: Identifiable {
         guard let address = potentialAddress else { return }
 
         DispatchQueue.main.async {
-          Log.debug("Setting softMAC to \(address.address)")
+//          Log.debug("Setting softMAC to \(address.address)")
           self._softMAC = address
         }
       })

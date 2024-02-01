@@ -128,7 +128,7 @@ extension Config {
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
       var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" }
-      ssidsDictionary[accessPointPolicy.ssid] = accessPointPolicy.softMAC.address
+      ssidsDictionary[accessPointPolicy.ssid.name] = accessPointPolicy.softMAC.address
       // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa", "Coffeeshop": "aa:aa:aa:aa:aa:aa" } }
       interfaceDictionary[Config.Key.ssids.rawValue] = ssidsDictionary
       // { "e1:e1:e1:e1:e1:e1": { "action": "random", "ssids": { ... } }
@@ -144,8 +144,9 @@ extension Config {
       addInterfaceSsid(MAC(hardMAC), accessPointPolicy: accessPointPolicy)
     }
 
-    func removeInterfaceSsid(_ hardMAC: MAC?, ssid: String) -> [String: Any] {
+    func removeInterfaceSsid(_ hardMAC: MAC?, ssid: SSID?) -> [String: Any] {
       guard let hardMAC = hardMAC else { return configDictionary }
+      guard let ssid = ssid else { return configDictionary }
       var dictionary = configDictionary
 
       // Removing "Coffeeshop".
@@ -155,7 +156,7 @@ extension Config {
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa", Coffeeshop": "aa:aa:aa:aa:aa:aa" } or {}
       var ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] ?? [:]
       // { "Existing SSID": "aa:aa:aa:aa:aa:aa" } or {}
-      ssidsDictionary.removeValue(forKey: ssid)
+      ssidsDictionary.removeValue(forKey: ssid.name)
 
       // { "action": "random", "ssids": { "Existing SSID": "aa:aa:aa:aa:aa:aa" } }
       interfaceDictionary[Config.Key.ssids.rawValue] = ssidsDictionary
@@ -182,7 +183,7 @@ extension Config {
     ///
     /// Convenience Wrapper if you don't have an ``Interface`` but you have a hardware MAC address.
     ///
-    func removeInterfaceSsid(_ hardMAC: String, ssid: String) -> [String: Any] {
+    func removeInterfaceSsid(_ hardMAC: String, ssid: SSID?) -> [String: Any] {
       removeInterfaceSsid(MAC(hardMAC), ssid: ssid)
     }
 

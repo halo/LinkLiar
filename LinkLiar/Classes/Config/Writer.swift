@@ -13,8 +13,9 @@ extension Config {
     }
 
     func addInterfaceSsid(interface: Interface, ssid: String, address: String) {
-      guard let accessPointPolicy = Config.AccessPointPolicy
-        .initIfValid(ssid: ssid, softMAC: address) else { return }
+      guard let ssid = SSID(ssid) else { return }
+      guard let softMAC = MAC(address) else { return }
+      let accessPointPolicy = Config.AccessPointPolicy(ssid: ssid, softMAC: softMAC)
 
       var newDictionary = Config.Builder(state.configDictionary).addInterfaceSsid(
         interface.hardMAC,
@@ -27,6 +28,8 @@ extension Config {
     }
 
     func removeInterfaceSsid(interface: Interface, ssid: String) {
+      guard let ssid = SSID(ssid) else { return }
+
       var newDictionary = Config.Builder(state.configDictionary).removeInterfaceSsid(
         interface.hardMAC,
         ssid: ssid)

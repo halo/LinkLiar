@@ -74,13 +74,17 @@ extension Config {
     ///     {
     ///       // Definitions for the Interface
     ///       // with a particular hardware MAC.
-    ///       "ssids:00:2a:a5:75:da:32" : {
-    ///         "Some Wifi Name" : "aa:bb:cc:dd:ee:ff",
-    ///         "Another SSID" : "11:22:33:44:55:66"
+    ///       "ssids": {
+    ///         "00:2a:a5:75:da:32": {
+    ///           "Some Wifi Name": "aa:bb:cc:dd:ee:ff",
+    ///           "Another SSID": "11:22:33:44:55:66"
+    ///         },
     ///       },
     ///       // Definitions for another Interface.
-    ///       "ssids:00:2a:a5:11:3f:8b" : {
-    ///         "University SSID" : "55:55:55:55:55:55",
+    ///       "ssids": {
+    ///         "00:2a:a5:11:3f:8b": {
+    ///           "University SSID": "55:55:55:55:55:55",
+    ///         }
     ///       },
     ///     }
     ///
@@ -88,8 +92,11 @@ extension Config {
       guard let interfaceDictionary = dictionary[hardMAC] as? [String: Any] else { return [] }
       guard let ssidsDictionary = interfaceDictionary[Config.Key.ssids.rawValue] as? [String: String] else { return [] }
 
-      return ssidsDictionary.compactMap({ ssid, rawAddress in
-        AccessPointPolicy.initIfValid(ssid: ssid, softMAC: rawAddress)
+      return ssidsDictionary.compactMap({ rawSSID, rawSoftMAC in
+        guard let validSSID = SSID(rawSSID) else { return nil }
+        guard let validSoftMAC = MAC(rawSoftMAC) else { return nil }
+
+        return AccessPointPolicy(ssid: validSSID, softMAC: validSoftMAC)
       }).sorted()
     }
 
