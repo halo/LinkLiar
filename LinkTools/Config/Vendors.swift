@@ -8,21 +8,19 @@ extension Config {
 
     var dictionary: [String: Any]
 
-    var popularMarked: [Vendor] {
-      let allVendors = PopularVendors.all
+    var popular: [Vendor] {
+//      if let chosenVendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] {
+//        for vendor in allVendors {
+//          vendor.isChosen = (chosenVendorIDs.first { $0 == vendor.id } != nil)
+//        }
+//      }
 
-      if let chosenVendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] {
-        for vendor in allVendors {
-          vendor.isChosen = (chosenVendorIDs.first { $0 == vendor.id } != nil)
-        }
-      }
-
-      return allVendors
+      PopularVendors.all
     }
 
-    var chosenIDs: [String] {
-      guard let vendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
-      return vendorIDs
+    func isChosen(_ vendor: Vendor) -> Bool {
+      guard let chosenIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return false }
+      return chosenIDs.contains(where: { $0 == vendor.id })
     }
 
     var chosenPopular: [Vendor] {

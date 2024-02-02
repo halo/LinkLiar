@@ -13,25 +13,25 @@ class JSONWriter {
 
   // MARK: Instance Methods
 
-  /// Persists a ``Dictionary`` in a file using ``JSON`` format.
+  /// Persists a `Dictionary` in a file using `JSON` format.
   ///
   func write(_ dictionary: [String: Any]) -> Bool {
     do {
       let jsonData = try JSONSerialization.data(withJSONObject: dictionary,
-                                                options: [.sortedKeys, .prettyPrinted]) as NSData
-      let jsonString = NSString(data: jsonData as Data, encoding: String.Encoding.utf8.rawValue)! as String
+                                                options: [.sortedKeys, .prettyPrinted]) as Data
+      let json = String(data: jsonData, encoding: .utf8)!
 
       do {
         // We don't have write-permissions to the entire directory.
         // So we cannot create a temporary auxiliary file and "atomically" replace config.json,
         // Instead we modify the existing file in-place, since we're only allowed to do that.
-        try jsonString.write(toFile: path, atomically: false, encoding: .utf8)
+        try json.write(toFile: path, atomically: false, encoding: .utf8)
         return true
-      } catch let error as NSError {
+      } catch {
         Log.error("Could not write: \(error)")
         return false
       }
-    } catch let error as NSError {
+    } catch {
       Log.error("Could not serialize: \(error)")
       return false
     }

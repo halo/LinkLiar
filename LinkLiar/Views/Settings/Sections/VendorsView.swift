@@ -12,12 +12,11 @@ extension SettingsView {
 
     var body: some View {
       VStack {
-        Table(state.config.vendors.popularMarked) {
+        Table(state.config.vendors.popular) {
 
           TableColumn("On") { vendor in
             let isChosen = Binding<Bool>(
-//              get: { vendor.isChosen },
-              get: { state.config.vendors.chosenIDs.contains(where: { $0 == vendor.id }) },
+              get: { state.config.vendors.isChosen(vendor) },
               set: { value, _ in toggleVendor(value: value, vendor: vendor) })
 
             Toggle("", isOn: isChosen)
@@ -40,9 +39,6 @@ extension SettingsView {
       } else {
         Config.Writer(state).removeVendor(vendor)
       }
-
-      // TODO: Why does the table not refresh unless I do this radical hack?
-//      state.configDictionary = [:]
     }
   }
 }
