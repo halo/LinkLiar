@@ -106,8 +106,6 @@
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
 		C280C03E2B51225000C653F0 /* Airport.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C03B2B51225000C653F0 /* Airport.Scanner.swift */; };
 		C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C03B2B51225000C653F0 /* Airport.Scanner.swift */; };
-		C280C0412B58363200C653F0 /* Airport.Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0402B58363200C653F0 /* Airport.Connection.swift */; };
-		C280C0422B58363200C653F0 /* Airport.Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0402B58363200C653F0 /* Airport.Connection.swift */; };
 		C280C0442B5836E700C653F0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
 		C280C0452B5836E700C653F0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
 		C280C0472B584D6900C653F0 /* AirportConnectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */; };
@@ -180,6 +178,9 @@
 		C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 		C2F3DA302B3730E600977572 /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 		C2F701582B6C2ECF001390E1 /* BSDTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701572B6C2ECE001390E1 /* BSDTest.swift */; };
+		C2F7015B2B6C380C001390E1 /* BSSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7015A2B6C380C001390E1 /* BSSID.swift */; };
+		C2F7015C2B6C380C001390E1 /* BSSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7015A2B6C380C001390E1 /* BSSID.swift */; };
+		C2F7015D2B6C380C001390E1 /* BSSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7015A2B6C380C001390E1 /* BSSID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -291,7 +292,6 @@
 		C266996A2AE57A3100592008 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
 		C280C03B2B51225000C653F0 /* Airport.Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.Scanner.swift; path = Classes/Backends/Airport.Scanner.swift; sourceTree = "<group>"; };
-		C280C0402B58363200C653F0 /* Airport.Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.Connection.swift; path = Classes/Backends/Airport.Connection.swift; sourceTree = "<group>"; };
 		C280C0432B5836E700C653F0 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportConnectionTests.swift; sourceTree = "<group>"; };
 		C280C0492B58511800C653F0 /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFArray+Sequence.swift"; sourceTree = "<group>"; };
@@ -338,6 +338,7 @@
 		C2F3DA2C2B36C71A00977572 /* Synchronization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Synchronization.swift; path = Classes/Synchronization.swift; sourceTree = "<group>"; };
 		C2F3DA2E2B3730E600977572 /* Arbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arbiter.swift; path = Config/Arbiter.swift; sourceTree = "<group>"; };
 		C2F701572B6C2ECE001390E1 /* BSDTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSDTest.swift; sourceTree = "<group>"; };
+		C2F7015A2B6C380C001390E1 /* BSSID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BSSID.swift; path = Models/BSSID.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +398,7 @@
 		C23F0DC42B66929100EE94F5 /* LinkTools */ = {
 			isa = PBXGroup;
 			children = (
+				C2F701592B6C3553001390E1 /* Config */,
 				C23F0DC52B66929A00EE94F5 /* Models */,
 			);
 			name = LinkTools;
@@ -461,6 +463,7 @@
 			children = (
 				C2456FCF2B3B16F7007D7AEA /* MAC.swift */,
 				C2AA40A92B59A0C4007CD6CB /* SSID.swift */,
+				C2F7015A2B6C380C001390E1 /* BSSID.swift */,
 				C23F0DC92B66B87300EE94F5 /* BSD.swift */,
 				C2456FD22B3B16F7007D7AEA /* OUI.swift */,
 				C2AA40A52B599B26007CD6CB /* AccessPoint.swift */,
@@ -509,7 +512,6 @@
 		C245703C2B49902F007D7AEA /* Backends */ = {
 			isa = PBXGroup;
 			children = (
-				C280C0402B58363200C653F0 /* Airport.Connection.swift */,
 				C280C03B2B51225000C653F0 /* Airport.Scanner.swift */,
 			);
 			name = Backends;
@@ -559,7 +561,6 @@
 				C2ADC8522B22293A002A2905 /* ConfigTests.swift */,
 				C2969EB82B24BE1B00A9BB72 /* ConfigBuilderTests.swift */,
 				C2ADC8AD2B23638E002A2905 /* ConfigurationPolicyTests.swift */,
-				C245700D2B3DB5B4007D7AEA /* AdvisorTests.swift */,
 				C245702F2B484DFA007D7AEA /* StageTests.swift */,
 				C24570322B486561007D7AEA /* PathsTests.swift */,
 			);
@@ -693,6 +694,14 @@
 				C2AA40AD2B59A8CF007CD6CB /* AirportScannerTests.swift */,
 			);
 			name = Backends;
+			sourceTree = "<group>";
+		};
+		C2F701592B6C3553001390E1 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				C245700D2B3DB5B4007D7AEA /* AdvisorTests.swift */,
+			);
+			name = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -900,6 +909,7 @@
 				C2AA40AA2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C2969EE02B278B1F00A9BB72 /* Writer.swift in Sources */,
 				C24570272B41F996007D7AEA /* CommunityView.swift in Sources */,
+				C2F7015B2B6C380C001390E1 /* BSSID.swift in Sources */,
 				C2456FF02B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C2456FB32B3AFB27007D7AEA /* WelcomeView.swift in Sources */,
 				C2456FAF2B3AF99A007D7AEA /* InterfacePolicyView.swift in Sources */,
@@ -976,6 +986,7 @@
 				C24570302B484DFA007D7AEA /* StageTests.swift in Sources */,
 				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
 				C2AA40AC2B59A0C4007CD6CB /* SSID.swift in Sources */,
+				C2F7015D2B6C380C001390E1 /* BSSID.swift in Sources */,
 				C280C0452B5836E700C653F0 /* Command.swift in Sources */,
 				C2F701582B6C2ECF001390E1 /* BSDTest.swift in Sources */,
 				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
@@ -990,7 +1001,6 @@
 				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
 				C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */,
 				C23F0DD22B6977A800EE94F5 /* MACParser.swift in Sources */,
-				C280C0422B58363200C653F0 /* Airport.Connection.swift in Sources */,
 				C23F0DD82B697FE300EE94F5 /* MACAnonymizer.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
 				C245700E2B3DB5B4007D7AEA /* AdvisorTests.swift in Sources */,
@@ -1025,7 +1035,7 @@
 				C2456FC92B3B16D4007D7AEA /* PopularVendors.swift in Sources */,
 				C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */,
 				C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
-				C280C0412B58363200C653F0 /* Airport.Connection.swift in Sources */,
+				C2F7015C2B6C380C001390E1 /* BSSID.swift in Sources */,
 				C2456FD92B3B16F7007D7AEA /* Version.swift in Sources */,
 				C23F0DD72B697FE300EE94F5 /* MACAnonymizer.swift in Sources */,
 				C280C04F2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,

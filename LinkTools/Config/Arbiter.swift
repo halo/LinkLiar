@@ -41,16 +41,25 @@ extension Config {
       return config.fallbackPolicy.address
     }
 
-    func addressForSsid(_ ssid: String) -> MAC? {
+    var accessPointPolicies: [AccessPointPolicy]? {
       guard action == .original || action == .specify || action == .random  else {
+        // An SSID-MAC binding can for example not affect ignored or hidden interfaces.
+        Log.debug("\(hardMAC.address) with action \(action) not applicable for SSID-MAC binding")
         return nil
       }
 
-      guard let accessPoint = config.policy(hardMAC).accessPoints.first(where: { $0.ssid.name == ssid }) else {
+      let definedAccessPointPolicies = config.policy(hardMAC).accessPoints
+
+      guard !definedAccessPointPolicies.isEmpty else {
+        Log.debug("Has no access point policies")
         return nil
       }
 
-      return accessPoint.softMAC
+      return definedAccessPointPolicies
+    }
+
+    var mayScan: Bool {
+      config.general.scan
     }
 
     var exceptionAddress: MAC? {

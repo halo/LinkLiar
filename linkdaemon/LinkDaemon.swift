@@ -45,29 +45,29 @@ class LinkDaemon {
 
   private func intervalElapsed() {
     Log.debug("Interval elapsed, acting upon it")
-    synchronizer.run()
+    executor.run()
   }
 
   private func configFileChanged() {
     Log.debug("Config file change detected, acting upon it")
-    synchronizer.run()
+    executor.run()
   }
 
   private func networkConditionsChanged() {
     Log.debug("Network change detected, acting upon it")
-    synchronizer.run()
+    executor.run()
   }
 
   @objc func willPowerOff(_ _: Notification) {
     Log.debug("Logging out...")
-    synchronizer.mayReRandomize()
+    executor.mayReRandomize()
   }
 
   @objc func willSleep(_ _: Notification) {
     Log.debug("Going to sleep...")
     // It's safe to randomize here, loosing Wi-Fi is not tragic while
     // closing the lid of your MacBook.
-    synchronizer.mayReRandomize()
+    executor.mayReRandomize()
   }
 
   @objc func didWake(_ _: Notification) {
@@ -87,7 +87,7 @@ class LinkDaemon {
 
   // MARK: Private Instance Properties
 
-  lazy var synchronizer: Executor = {
+  lazy var executor: Executor = {
     Executor()
   }()
 }

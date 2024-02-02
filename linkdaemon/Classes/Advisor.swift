@@ -4,7 +4,7 @@
 import CoreWLAN
 import Foundation
 
-class Advisor {
+struct Advisor {
   // MARK: Class Methods
 
   init(interface: Interface, arbiter: Config.Arbiter) {
@@ -12,7 +12,9 @@ class Advisor {
     self.arbiter = arbiter
   }
 
-  var addressForStandard: MAC? {
+  var address: MAC? {
+    if let override = addressForSsid() { return override }
+
     switch arbiter.action {
     case .original: return originalize
     case .specify: return specify
@@ -23,27 +25,42 @@ class Advisor {
     }
   }
 
-  var addressForSsid: MAC? {
-    guard arbiter.action == .original || arbiter.action == .specify || arbiter.action == .random else {
-      // An SSID-MAC binding can for example not affect ignored or hidden interfaces.
-      Log.debug("\(interface.bsd.name) with action \(arbiter.action) not applicable for SSID-MAC binding")
+  private func addressForSsid() -> MAC? {
+    // No need to scan for networks, if this interface doesn't care.
+    guard let accessPointPolicies = arbiter.accessPointPolicies else { return nil }
+    guard arbiter.mayScan else {
+      Log.debug("Won't scan for networks..")
       return nil
     }
 
-    return nil
+    // This takes several seconds.
+    Log.debug("Attempting to scan for networks...")
 
-//    guard let ssid = Airport.Connection.ssid else {
-//      Log.debug("\(interface.bsd.name) not associated to an SSID")
-//      return nil
-//    }
-//
-//    guard let newMAC = arbiter.addressForSsid(ssid) else {
-//      Log.debug("\(interface.bsd.name) has no SSID-MAC binding")
-//      return nil
-//    }
-//
-//    Log.info("\(interface.bsd.name) associated to \(ssid) wants MAC \(newMAC.formatted)")
-//    return newMAC
+    let accessPoints = Airport.Scanner().accessPoints()
+    guard !accessPoints.isEmpty else {
+      Log.debug("There are no access points in the air.")
+      return nil
+    }
+
+    Log.debug("Found \(accessPoints.count) access points in the air.")
+
+    // I think that there usually are more access points in the air,
+    // than there are defined policies in the configuration file.
+
+    // That's why we look at each policy and compare it with all access points.
+    // There would likely be more work to look at each access point
+    // and compare it with all policies.
+
+    // Let's see if one of the user-defined policies matches a found network.
+    for accessPointPolicy in accessPointPolicies {
+      Log.debug("Comparing policy \(accessPointPolicy.ssid) with \(accessPoints.count) access points.")
+      guard accessPoints.contains(where: { $0.ssid == accessPointPolicy.ssid }) else { continue }
+      Log.debug("There was a match on \(accessPointPolicy.ssid)")
+
+      return accessPointPolicy.softMAC
+    }
+
+    return nil
   }
 
   // MARK: Private Instance Properties

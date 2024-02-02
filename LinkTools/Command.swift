@@ -18,8 +18,14 @@ class Command {
   /// Run synchronously
   ///
   func run() -> String {
-    process.launch()
-    process.waitUntilExit() // Block until airport exited.
+//    Log.debug("Running synchronously \(path) \(arguments.joined(separator: " "))")
+    do {
+      try process.run()
+    } catch {
+      Log.debug("Command failed \(error)")
+    }
+//    Log.debug("Waiting for synchronous command to finish.")
+//    Log.debug("Synchronous command finished.")
     return outputString
   }
 
@@ -29,9 +35,15 @@ class Command {
     NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
                                            object: process,
                                            queue: nil) { _ in
+//      Log.debug("Asynchronous command finished.")
       callback(self.outputString)
     }
-    process.launch()
+//    Log.debug("Running asynchronously \(path) \(arguments.joined(separator: " "))")
+    do {
+      try process.run()
+    } catch {
+      Log.error("Command failed \(error)")
+    }
   }
 
   // MARK: Private Instance Properties
@@ -58,7 +70,7 @@ class Command {
 
   /// Reading the STDOUT IO as Data.
   private lazy var outputData: Data = {
-    outputHandle.availableData
+    outputHandle.readDataToEndOfFile()
   }()
 
   /// Converting the STDOUT Data to a String.

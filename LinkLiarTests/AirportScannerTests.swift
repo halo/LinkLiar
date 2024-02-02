@@ -6,7 +6,8 @@ import XCTest
 
 class AirportScannerTests: XCTestCase {
   func testScan() {
-    var scan = Airport.Scanner(stubOutput:"""
+    let scanner = Airport.Scanner()
+    scanner.stubOutput = """
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -125,15 +126,15 @@ class AirportScannerTests: XCTestCase {
         </dict>
       </array>
       </plist>
-    """)
+    """
 
-    let accessPoints = scan.accessPoints
+    let accessPoints = scanner.accessPoints()
     XCTAssertNotNil(accessPoints)
     XCTAssertEqual(2, accessPoints.count)
 
     let firstPoint = accessPoints.first!
     XCTAssertEqual(SSID("Thé Coffeeshop"), firstPoint.ssid)
-    XCTAssertEqual(MAC("6:aa:bb:cc:2:dd"), firstPoint.bssid)
+    XCTAssertEqual(MAC("06:aa:bb:cc:02:dd"), firstPoint.bssid)
 
     let secondPoint = accessPoints.last!
     XCTAssertEqual(SSID("The Starship"), secondPoint.ssid)

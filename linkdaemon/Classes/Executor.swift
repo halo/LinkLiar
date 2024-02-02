@@ -5,55 +5,68 @@ import Foundation
 
 class Executor {
 
+  /// <#Description#>
   func run() {
     Log.debug("Scheduling for synchronization...")
 
-    // Run serially
-    DispatchQueue.global(qos: .utility).sync {
-      Log.info("Synchronizing Interfaces...")
+    // Any given synchronization run runs serially...
+    //    let executorgroup = DispatchGroup()
+    //    group.enter()
+
+    executorQueue.sync {
+      // ...because we don't want race-conditions when reading the configuration file
+      // and comparing that with the currently attached hardware interfaces.
       reload()
 
-      for interface in interfaces {
-        let arbiter = config.arbiter(interface.hardMAC)
-        let synchronization = Synchronization(interface: interface, arbiter: arbiter)
+      // However, per interface, we can parallelize the work.
+      // To check if all interfaces have finished, we need a group.
+      let group = DispatchGroup()
+      Log.debug("Entering dispatch group for \(self.interfaces.count) Interfaces...")
 
-        if synchronizations[synchronization.hardMAC.address] == nil {
-          // Trusting you'll never physically attach so many interfaces as to run out of memory here.
-          Log.debug("Adding \(synchronization.hardMAC.address) to queue")
-          synchronizations[synchronization.hardMAC.address] = synchronization
-        }
+      for interface in self.interfaces {
+        group.enter()
 
-        if let synchronization = synchronizations[synchronization.hardMAC.address] {
-          synchronization.update(interface: interface, arbiter: arbiter)
+        // Parallelization is especially needed if we're scanning for SSIDS,
+        // which, serially, would take 3 seconds per Interface.
+        interfaceQueue.async {
+
+          Log.info("Synchronizing Interface \(interface.bsd.name)")
+          let arbiter = self.config.arbiter(interface.hardMAC)
+          Synchronization(interface: interface, arbiter: arbiter).run()
+
+          // Inform the group, that this particular interface finished its synchronization.
+          group.leave()
         }
       }
 
-      for synchronization in synchronizations.values {
-        Log.debug("Synchronizing \(synchronization.BSDName)")
-        synchronization.execute()
+      Log.debug("Waiting for interfaces to finish synchronizing")
+      let deadline = DispatchTime.now() + .seconds(15)
+      if group.wait(timeout: deadline) == .success {
+        Log.debug("Done synchronizing")
+      } else {
+        Log.error("Synchronization timed out!")
       }
     }
 
-    Log.debug("Done synchronizing")
   }
 
   func mayReRandomize() {
-//    if Config.instance.settings.isForbiddenToRerandomize {
-//      Log.debug("This was a good chance to re-randomize, but it is disabled.")
-//      return
-//    }
-//
-//    for interface in Interfaces.all(async: false) {
-//      let action = Config.instance.knownInterface.action(interface.hardMAC)
-//
-//      guard action == .random else {
-//        Log.debug("Not re-randomizing \(interface.bsd.name) because it is not defined to be random.")
-//        return
-//      }
-//
-//      Log.debug("Taking the chance to re-randomize \(interface.bsd.name)")
-//      setMAC(BSDName: interface.bsd.name, address: RandomMACs.generate())
-//    }
+    //    if Config.instance.settings.isForbiddenToRerandomize {
+    //      Log.debug("This was a good chance to re-randomize, but it is disabled.")
+    //      return
+    //    }
+    //
+    //    for interface in Interfaces.all(async: false) {
+    //      let action = Config.instance.knownInterface.action(interface.hardMAC)
+    //
+    //      guard action == .random else {
+    //        Log.debug("Not re-randomizing \(interface.bsd.name) because it is not defined to be random.")
+    //        return
+    //      }
+    //
+    //      Log.debug("Taking the chance to re-randomize \(interface.bsd.name)")
+    //      setMAC(BSDName: interface.bsd.name, address: RandomMACs.generate())
+    //    }
   }
 
   // MARK: Private Instance Properties
@@ -62,10 +75,12 @@ class Executor {
   /// Per `DispatchQueue.init` this is a serial queue.
   /// We don't want to read the config and execute ifconfig parallelized.
   ///
-//  private var queue = DispatchQueue(label: "\(Identifiers.daemon).Synchronizer", qos: .utility)
+  ///  private var queue = DispatchQueue(label: "\(Identifiers.daemon).Synchronizer", qos: .utility)
   private var config: Config.Reader = Config.Reader([:])
   private var interfaces: [Interface] = []
   private var synchronizations = [String: Synchronization]()
+  private let executorQueue = DispatchQueue(label: "\(Identifiers.daemon).serialExecutorQueue")
+  private let interfaceQueue = DispatchQueue(label: "\(Identifiers.daemon).parallelInterfaceQueue", attributes: .concurrent)
 
   // MARK: Private Instance Properties
 

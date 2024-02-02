@@ -16,7 +16,8 @@ extension SettingsView {
 
           TableColumn("On") { vendor in
             let isChosen = Binding<Bool>(
-              get: { vendor.isChosen },
+//              get: { vendor.isChosen },
+              get: { state.config.vendors.chosenIDs.contains(where: { $0 == vendor.id }) },
               set: { value, _ in toggleVendor(value: value, vendor: vendor) })
 
             Toggle("", isOn: isChosen)
@@ -41,7 +42,7 @@ extension SettingsView {
       }
 
       // TODO: Why does the table not refresh unless I do this radical hack?
-      state.configDictionary = [:]
+//      state.configDictionary = [:]
     }
   }
 }

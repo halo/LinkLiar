@@ -20,6 +20,11 @@ extension Config {
       return allVendors
     }
 
+    var chosenIDs: [String] {
+      guard let vendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
+      return vendorIDs
+    }
+
     var chosenPopular: [Vendor] {
       guard let vendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
 

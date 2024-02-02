@@ -39,5 +39,11 @@ extension Config {
     var isAnonymized: Bool {
       self.dictionary[Config.Key.anonymize.rawValue] as? Bool ?? false
     }
+
+    /// Whether or not to scan for SSIDS on every daemon run.
+    ///
+    var scan: Bool {
+      self.dictionary[Config.Key.scan.rawValue] as? Bool ?? false
+    }
   }
 }
