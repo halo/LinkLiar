@@ -20,7 +20,6 @@ extension SettingsView {
               set: { value, _ in toggleVendor(value: value, vendor: vendor) })
 
             Toggle("", isOn: isChosen)
-
           }.width(20)
 
           TableColumn("Name", value: \.name)
