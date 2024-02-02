@@ -12,6 +12,11 @@ extension SettingsView {
 
     var body: some View {
       VStack {
+        Text("""
+             When LinkLiar is supposed to randomize the MAC address of an Interface, \
+             you can tell it here from which vendors it should pick a prefix.
+             """) //.multilineTextAlignment(.leading)
+
         Table(state.config.vendors.popular) {
 
           TableColumn("On") { vendor in
