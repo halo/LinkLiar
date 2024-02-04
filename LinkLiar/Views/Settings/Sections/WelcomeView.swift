@@ -17,7 +17,7 @@ extension SettingsView {
             .aspectRatio(contentMode: .fill)
             .frame(width: 60, height: 60)
             .padding(.bottom, 3)
-          Text("Welcome to the LinkLiar Beginner's Guide!")
+          Text("LinkLiar Beginner's Guide").bold()
         }.padding()
 
         VStack(alignment: .leading) {
@@ -104,10 +104,8 @@ extension SettingsView {
             }.padding(5)
           }.padding(.bottom)
 
-          Text("To solve this problem, every device has been assigned a unique MAC address ") +
-            Text("(by the way, this has nothing to do with the word \"Macintosh\"). ") +
-            Text("This address was given to the device in the factory, when the device was built. ") +
-            Text("It is used to establish first contact over the air.")
+          Text("To solve this problem, every computer is given a unique identifier when built in the factory. ") +
+            Text("It's called the \"MAC address\" and is used to establish first contact over the air.")
 
           GroupBox {
             HStack {
@@ -176,7 +174,7 @@ extension SettingsView {
           Spacer(minLength: 10)
 
           Text("Every laptop has a built-in function to do this. But it's not intuitive to use. ") +
-          Text("LinkLiar is a small tool to help you change your MAC address.")
+          Text("LinkLiar is a small tool to help you change your MAC address. ")
 
           GroupBox {
             HStack {
@@ -193,6 +191,11 @@ extension SettingsView {
               Spacer()
             }.padding(5)
           }.padding(.bottom)
+
+          Text("The most important reason to change your MAC address, is to achieve the same level of privacy ") +
+            Text("that your phone already has.")
+
+          Spacer(minLength: 10)
 
           Text("Incidentally, the MAC address is often used to grant permission for using a public Wi-Fi. ")
 
@@ -220,9 +223,13 @@ extension SettingsView {
             }.padding(5)
           }.padding(.bottom)
 
-          Text("You can see that there are good reasons to be able to change your MAC address. ") +
-            Text("The most important one is to achieve the same level of privacy ") +
-            Text("that your phone already has. ")
+          Text("Since MAC addresses are announced in the clear over the air, everybody ") +
+            Text("can see them. If a school, a company, or a private Wi-Fi owner relies on ") +
+            Text("them for access control, it's not secure. Everybody can change their MAC address.")
+
+          Spacer(minLength: 10)
+
+          Text("And now, can you.")
 
           Spacer()
         }
