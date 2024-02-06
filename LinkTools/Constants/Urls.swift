@@ -5,7 +5,7 @@ import Foundation
 
 class Urls {
   static let githubRepo = "https://github.com/halo/LinkLiar"
-  static let githubRepoURL = URL(string: githubIssues)!
+  static let githubRepoURL = URL(string: githubRepo)!
 
   static let githubIssues = "\(githubRepo)/issues"
   static let githubIssuesURL = URL(string: githubIssues)!

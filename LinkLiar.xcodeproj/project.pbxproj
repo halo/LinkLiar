@@ -421,9 +421,9 @@
 			children = (
 				C2456FB22B3AFB27007D7AEA /* WelcomeView.swift */,
 				C24570242B41F996007D7AEA /* CommunityView.swift */,
+				C24570232B41F996007D7AEA /* FaqView.swift */,
 				C2456FB42B3AFB8F007D7AEA /* PreferencesView.swift */,
 				C2456FAA2B3AF888007D7AEA /* TroubleshootView.swift */,
-				C24570232B41F996007D7AEA /* FaqView.swift */,
 				C24570222B41F996007D7AEA /* UninstallView.swift */,
 				C2456FB82B3B003E007D7AEA /* VendorsView.swift */,
 				C2456FAC2B3AF976007D7AEA /* FallbackPolicyView.swift */,

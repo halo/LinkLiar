@@ -9,65 +9,82 @@ extension SettingsView {
 
     var body: some View {
       ScrollView {
-        Image(systemName: "figure.wave")
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 25, height: 22)
-          .padding(.top, 20)
-          .padding(.bottom, 12)
-        Text("Discussions, Suggestions, Questions").font(.title3)
+        VStack(alignment: .center) {
+          Image(systemName: "bubble.left.and.bubble.right.fill")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 60, height: 60)
+            .padding(.bottom, 3)
+          Text("LinkLiar Community").bold()
+        }.padding()
 
         GroupBox {
+          VStack {
+            Image(systemName: "figure.wave")
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 20)
+            Text("Say Hello!").italic()
+          }.padding(.top)
+
           HStack {
             VStack(alignment: .leading) {
-              Text("If you're just wondering about something, would like to give feedback, or pitch an idea for improvement, ") +
-              Text("please go open  ")
-              Link(Urls.githubDiscussions, destination: Urls.githubDiscussionsURL)
-              Text("and see if you can start a discussion. ") +
-              Text("While it can't be guaranteed that you'll get an immediate answer, ") +
-              Text(" you can be sure that it will be read within hours.")
+              Text("If you have questions, or ideas for improvement, start a discussion at")
+              HStack {
+                Spacer()
+                Link(Urls.githubDiscussionsURL.host! + Urls.githubDiscussionsURL.path, destination: Urls.githubDiscussionsURL)
+                Spacer()
+              }.padding(2)
+              Text("You may not get an immediate answer, but it will be read within hours.")
             }
             Spacer()
-          }
+          }.padding(5)
         }.padding(.bottom)
 
-        Image(systemName: "cloud.drizzle.fill")
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 35, height: 30)
-        Text("Bugs, Issues, Problems").font(.title3)
-
         GroupBox {
+          VStack {
+            Image(systemName: "cloud.drizzle.fill")
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 30)
+            Text("Report problems").italic()
+          }.padding(.top)
+
           HStack {
             VStack(alignment: .leading) {
-              Text("It can happen that LinkLiar doesn't work properly in certain cases. ") +
-              Text("If you believe that you encountered a reproducable error, please head over to ")
-              Link(Urls.githubIssues, destination: Urls.githubIssuesURL)
-              Text("and see if there already is an issue open for your problem. ") +
-              Text("If not, please feel free to open a new issue.")
+              Text("If you encountered a reproducable error, please look for issues at ")
+              HStack {
+                Spacer()
+                Link(Urls.githubIssuesURL.host! + Urls.githubIssuesURL.path, destination: Urls.githubIssuesURL)
+                Spacer()
+              }.padding(2)
+              Text("It can happen that LinkLiar doesn't work properly, so tell us about it. ")
             }
-          Spacer()
-          }
+            Spacer()
+          }.padding(5)
         }.padding(.bottom)
 
-        Image(systemName: "swift")
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 34, height: 25)
-          .padding(.top, 12)
-        Text("Programming").font(.title3)
-
         GroupBox {
+          VStack {
+            Image(systemName: "keyboard.fill")
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 31)
+            Text("Learn programming").italic()
+          }.padding(.top)
+
           HStack {
             VStack(alignment: .leading) {
-              Text("Maybe you want to improve your programming skills or just make sure that LinkLiar ") +
-              Text("is not some fishy malware. You can do so at  ")
-              Link(Urls.githubRepo, destination: Urls.githubRepoURL)
-              Text("to check out the programming code. ") +
-              Text("You can fork the repository, make changes to the code, and open pull requests.")
+              Text("Fork the repository, make changes to code, and open pull requests at")
+              HStack {
+                Spacer()
+                Link(Urls.githubRepoURL.host! + Urls.githubRepoURL.path, destination: Urls.githubRepoURL)
+                Spacer()
+              }.padding(2)
+              Text("It's always hard to get started, so we aim for quality documentation.")
             }
-          Spacer()
-          }
+            Spacer()
+          }.padding(5)
         }.padding(.bottom)
 
       }.padding()
@@ -77,5 +94,5 @@ extension SettingsView {
 
 #Preview {
   let state = LinkState()
-  return SettingsView.CommunityView().environment(state)
+  return SettingsView.CommunityView().environment(state).frame(width: 500)
 }
