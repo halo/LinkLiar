@@ -19,7 +19,7 @@ struct PopularVendors {
   ///
   static func find(_ id: String) -> Vendor? {
     let id = id.filter("0123456789abcdefghijklmnopqrstuvwxyz".contains)
-    guard let vendorData = PopularVendorsDatabase.dictionary[id] else { return nil }
+    guard let vendorData = PopularVendorsDatabase.dictionaryWithOUIs[id] else { return nil }
 
     guard let rawPrefixes = vendorData.values.first else { return nil }
     guard let name = vendorData.keys.first else { return nil }
@@ -40,7 +40,7 @@ struct PopularVendors {
   // MARK: Private Class Properties
 
   static var all: [Vendor] {
-    PopularVendorsDatabase.dictionary.keys.reversed().compactMap {
+    PopularVendorsDatabase.dictionaryWithOUIs.keys.reversed().compactMap {
       find($0)
     }.sorted()
   }

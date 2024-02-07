@@ -13,11 +13,17 @@ result.push ""
 result.push "// This file was auto-generated #{Date.today} using `bin/vendors`."
 result.push "// If this file changes, don't forget to restart the daemon for the changes to take effect."
 result.push ''
-result.push 'struct PopularVendorDatabase {'
-result.push '  // swiftlint:disable line_length'
-result.push '  static var dictionary: [String: [String:[UInt32]]] {'
+result.push 'struct PopularVendorsDatabase {'
+result.push '  static var dictionaryWithCounts: [String: [String: Int]] {'
 result.push '    return ['
-result.push Macs::Vendors.all.map(&:to_swift)
+result.push Macs::Vendors.all.map(&:to_swift_counts)
+result.push '    ]'
+result.push '  }'
+result.push ''
+result.push '  // swiftlint:disable line_length'
+result.push '  static var dictionaryWithOUIs: [String: [String: [UInt32]]] {'
+result.push '    return ['
+result.push Macs::Vendors.all.map(&:to_swift_ouis)
 result.push '    ]'
 result.push '  }'
 result.push '  // swiftlint:enable line_length'

@@ -8,10 +8,12 @@ import Foundation
 class Vendor: Identifiable, Hashable {
   // MARK: Class Methods
 
-  init(id: String, name: String, prefixes: [OUI]) {
+  init(id: String, name: String, prefixes: [OUI] = [], prefixCount: Int = 0) {
     self.id = id
     self.name = name
     self.prefixes = prefixes
+    // This is just a cache, in case the actual prefixes are absent.
+    self.prefixCount = prefixCount == 0 ? prefixes.count : prefixCount
   }
 
   // MARK: Instance Properties
@@ -19,6 +21,7 @@ class Vendor: Identifiable, Hashable {
   var name: String
   var id: String
   var prefixes: [OUI]
+  var prefixCount = 0
 
   var isChosen: Bool = false
 

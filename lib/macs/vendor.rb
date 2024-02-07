@@ -35,10 +35,15 @@ module Macs
       [name, id, prefixes.count].join(' – ')
     end
 
-    def to_swift
+    def to_swift_ouis
       # E.g. `"ibm": ["IBM": [0x3440b5,0x40f2e9,0x98be94,0xa897dc]],`
       %|      // #{@name}   #{prefixes.join(',')}| + "\n" +
         %|      "#{id}": ["#{name}": [#{prefixes.map { "0x#{_1.to_i(16).to_s(16).to_s.rjust(6, '0')}" }.join(',')}]],|
+    end
+
+    def to_swift_counts
+      # E.g. `"ibm": ["IBM": 42],`
+      %|      "#{id}": ["#{name}": #{prefixes.count}],|
     end
 
     def add_prefix(prefix)

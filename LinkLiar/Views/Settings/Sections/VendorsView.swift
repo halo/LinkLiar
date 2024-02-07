@@ -17,7 +17,7 @@ extension SettingsView {
              you can tell it here from which vendors it should pick a prefix.
              """) // .multilineTextAlignment(.leading)
 
-        Table(state.config.vendors.popular) {
+        Table(state.config.vendors.popularNames) {
 
           TableColumn("On") { vendor in
             let isChosen = Binding<Bool>(

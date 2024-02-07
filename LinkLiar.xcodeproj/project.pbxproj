@@ -36,8 +36,6 @@
 		C2456FBD2B3B025D007D7AEA /* Vendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FBB2B3B025D007D7AEA /* Vendors.swift */; };
 		C2456FC62B3B16D4007D7AEA /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */; };
 		C2456FC72B3B16D4007D7AEA /* Ifconfig.Reader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */; };
-		C2456FC82B3B16D4007D7AEA /* PopularVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */; };
-		C2456FC92B3B16D4007D7AEA /* PopularVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */; };
 		C2456FCA2B3B16D4007D7AEA /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC42B3B16D4007D7AEA /* Interfaces.swift */; };
 		C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC42B3B16D4007D7AEA /* Interfaces.swift */; };
 		C2456FD42B3B16F7007D7AEA /* MAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MAC.swift */; };
@@ -62,8 +60,6 @@
 		C2456FEF2B3B1809007D7AEA /* NetworkObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FEA2B3B1809007D7AEA /* NetworkObserver.swift */; };
 		C2456FF02B3B1809007D7AEA /* TimeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */; };
 		C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */; };
-		C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
-		C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C24570072B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist in Resources */ = {isa = PBXBuildFile; fileRef = C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */; };
 		C24570082B3DB045007D7AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C24570042B3DB045007D7AEA /* Assets.xcassets */; };
 		C24570092B3DB045007D7AEA /* oui.json in Resources */ = {isa = PBXBuildFile; fileRef = C24570052B3DB045007D7AEA /* oui.json */; };
@@ -78,8 +74,6 @@
 		C24570132B3DB6C5007D7AEA /* Policy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1C2B35C8B900977572 /* Policy.swift */; };
 		C24570142B3DB6C5007D7AEA /* MAC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FCF2B3B16F7007D7AEA /* MAC.swift */; };
 		C24570152B3DB6D2007D7AEA /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD02B3B16F7007D7AEA /* Vendor.swift */; };
-		C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */; };
-		C24570172B3DB6DD007D7AEA /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */; };
 		C24570182B3DB6F0007D7AEA /* Arbiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA2E2B3730E600977572 /* Arbiter.swift */; };
 		C24570192B3DB6F9007D7AEA /* OUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2456FD22B3B16F7007D7AEA /* OUI.swift */; };
 		C245701A2B3DB702007D7AEA /* AccessPointPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F3DA1D2B35C8B900977572 /* AccessPointPolicy.swift */; };
@@ -181,6 +175,16 @@
 		C2F7015B2B6C380C001390E1 /* BSSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7015A2B6C380C001390E1 /* BSSID.swift */; };
 		C2F7015C2B6C380C001390E1 /* BSSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7015A2B6C380C001390E1 /* BSSID.swift */; };
 		C2F7015D2B6C380C001390E1 /* BSSID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7015A2B6C380C001390E1 /* BSSID.swift */; };
+		C2F701662B73FA7C001390E1 /* MACVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701632B73FA7C001390E1 /* MACVendors.swift */; };
+		C2F701672B73FA7C001390E1 /* MACVendors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701632B73FA7C001390E1 /* MACVendors.swift */; };
+		C2F701692B74016E001390E1 /* PopularVendorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701682B74016E001390E1 /* PopularVendorNames.swift */; };
+		C2F7016A2B74016E001390E1 /* PopularVendorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701682B74016E001390E1 /* PopularVendorNames.swift */; };
+		C2F7016C2B7401D9001390E1 /* PopularVendorOuis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7016B2B7401D9001390E1 /* PopularVendorOuis.swift */; };
+		C2F7016D2B7401D9001390E1 /* PopularVendorOuis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F7016B2B7401D9001390E1 /* PopularVendorOuis.swift */; };
+		C2F7016E2B740317001390E1 /* PopularVendorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701682B74016E001390E1 /* PopularVendorNames.swift */; };
+		C2F701712B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701702B7405CA001390E1 /* PopularVendorsDatabase.swift */; };
+		C2F701722B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701702B7405CA001390E1 /* PopularVendorsDatabase.swift */; };
+		C2F701732B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F701702B7405CA001390E1 /* PopularVendorsDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,7 +256,6 @@
 		C2456FB82B3B003E007D7AEA /* VendorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VendorsView.swift; path = Sections/VendorsView.swift; sourceTree = "<group>"; };
 		C2456FBB2B3B025D007D7AEA /* Vendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendors.swift; path = Config/Vendors.swift; sourceTree = "<group>"; };
 		C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ifconfig.Reader.swift; path = Backends/Ifconfig.Reader.swift; sourceTree = "<group>"; };
-		C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendors.swift; path = Backends/PopularVendors.swift; sourceTree = "<group>"; };
 		C2456FC42B3B16D4007D7AEA /* Interfaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Interfaces.swift; path = Backends/Interfaces.swift; sourceTree = "<group>"; };
 		C2456FCF2B3B16F7007D7AEA /* MAC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MAC.swift; path = Models/MAC.swift; sourceTree = "<group>"; };
 		C2456FD02B3B16F7007D7AEA /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vendor.swift; path = Models/Vendor.swift; sourceTree = "<group>"; };
@@ -265,7 +268,6 @@
 		C2456FE92B3B1809007D7AEA /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileObserver.swift; path = Observers/FileObserver.swift; sourceTree = "<group>"; };
 		C2456FEA2B3B1809007D7AEA /* NetworkObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkObserver.swift; path = Observers/NetworkObserver.swift; sourceTree = "<group>"; };
 		C2456FEB2B3B1809007D7AEA /* TimeObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeObserver.swift; path = Observers/TimeObserver.swift; sourceTree = "<group>"; };
-		C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorsDatabase.swift; path = Backends/PopularVendorsDatabase.swift; sourceTree = "<group>"; };
 		C24570032B3DB045007D7AEA /* io.github.halo.LinkLiar.linkdaemon.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = io.github.halo.LinkLiar.linkdaemon.plist; path = LinkLiar/io.github.halo.LinkLiar.linkdaemon.plist; sourceTree = SOURCE_ROOT; };
 		C24570042B3DB045007D7AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = LinkLiar/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		C24570052B3DB045007D7AEA /* oui.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = oui.json; path = LinkLiar/oui.json; sourceTree = SOURCE_ROOT; };
@@ -339,6 +341,10 @@
 		C2F3DA2E2B3730E600977572 /* Arbiter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arbiter.swift; path = Config/Arbiter.swift; sourceTree = "<group>"; };
 		C2F701572B6C2ECE001390E1 /* BSDTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSDTest.swift; sourceTree = "<group>"; };
 		C2F7015A2B6C380C001390E1 /* BSSID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BSSID.swift; path = Models/BSSID.swift; sourceTree = "<group>"; };
+		C2F701632B73FA7C001390E1 /* MACVendors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MACVendors.swift; path = Backends/MACVendors.swift; sourceTree = "<group>"; };
+		C2F701682B74016E001390E1 /* PopularVendorNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorNames.swift; path = Backends/PopularVendorNames.swift; sourceTree = "<group>"; };
+		C2F7016B2B7401D9001390E1 /* PopularVendorOuis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorOuis.swift; path = Classes/Backends/PopularVendorOuis.swift; sourceTree = "<group>"; };
+		C2F701702B7405CA001390E1 /* PopularVendorsDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopularVendorsDatabase.swift; path = Backends/PopularVendorsDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,8 +458,7 @@
 				C24570392B49899F007D7AEA /* LocationManager.swift */,
 				C2456FC22B3B16D4007D7AEA /* Ifconfig.Reader.swift */,
 				C2456FC42B3B16D4007D7AEA /* Interfaces.swift */,
-				C2456FC32B3B16D4007D7AEA /* PopularVendors.swift */,
-				C2456FF52B3B1E84007D7AEA /* PopularVendorsDatabase.swift */,
+				C2F701702B7405CA001390E1 /* PopularVendorsDatabase.swift */,
 			);
 			name = Backends;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 			isa = PBXGroup;
 			children = (
 				C280C03B2B51225000C653F0 /* Airport.Scanner.swift */,
+				C2F7016B2B7401D9001390E1 /* PopularVendorOuis.swift */,
 			);
 			name = Backends;
 			sourceTree = "<group>";
@@ -598,6 +604,7 @@
 		C2969EBF2B278B1F00A9BB72 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C2F701612B73FA70001390E1 /* Backends */,
 				C2969EC02B278B1F00A9BB72 /* LinkState.swift */,
 				C2969EC52B278B1F00A9BB72 /* Controller.swift */,
 				C2969EC72B278B1F00A9BB72 /* Radio.swift */,
@@ -702,6 +709,15 @@
 				C245700D2B3DB5B4007D7AEA /* AdvisorTests.swift */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		C2F701612B73FA70001390E1 /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				C2F701632B73FA7C001390E1 /* MACVendors.swift */,
+				C2F701682B74016E001390E1 /* PopularVendorNames.swift */,
+			);
+			name = Backends;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -885,8 +901,8 @@
 				C2969F182B278E2A00A9BB72 /* DiagnoseInterfaceView.swift in Sources */,
 				C2969F152B278E2A00A9BB72 /* SettingsDetailView.swift in Sources */,
 				C2969F1D2B278E2A00A9BB72 /* ApproveDaemonView.swift in Sources */,
+				C2F701712B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */,
 				C2F3DA222B35C8B900977572 /* Policy.swift in Sources */,
-				C2456FC82B3B16D4007D7AEA /* PopularVendors.swift in Sources */,
 				C2456FE22B3B1708007D7AEA /* Identifiers.swift in Sources */,
 				C2969EDF2B278B1F00A9BB72 /* Builder.swift in Sources */,
 				C245702D2B482D63007D7AEA /* Stage.swift in Sources */,
@@ -896,6 +912,7 @@
 				C2F3DA2F2B3730E600977572 /* Arbiter.swift in Sources */,
 				C2456FCA2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
 				C280C04E2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
+				C2F701692B74016E001390E1 /* PopularVendorNames.swift in Sources */,
 				C2456FD82B3B16F7007D7AEA /* Version.swift in Sources */,
 				C2456FB92B3B003E007D7AEA /* VendorsView.swift in Sources */,
 				C2456FD42B3B16F7007D7AEA /* MAC.swift in Sources */,
@@ -924,6 +941,7 @@
 				C2969F102B278E2A00A9BB72 /* SettingsView.swift in Sources */,
 				C245703A2B49899F007D7AEA /* LocationManager.swift in Sources */,
 				C2969EE22B278B1F00A9BB72 /* Controller.swift in Sources */,
+				C2F701662B73FA7C001390E1 /* MACVendors.swift in Sources */,
 				C2456FAD2B3AF976007D7AEA /* FallbackPolicyView.swift in Sources */,
 				C22F21AA2B010C970086B621 /* JSONReader.swift in Sources */,
 				C2969EF92B278B2B00A9BB72 /* LinkLiarApp.swift in Sources */,
@@ -943,7 +961,6 @@
 				C2969F112B278E2A00A9BB72 /* AccessPointsView.swift in Sources */,
 				C23F0DCA2B66B87300EE94F5 /* BSD.swift in Sources */,
 				C2F3DA1E2B35C8B900977572 /* General.swift in Sources */,
-				C2456FF62B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
 				C245702B2B4447A1007D7AEA /* ApplyRecommendationsView.swift in Sources */,
 				C24570252B41F996007D7AEA /* UninstallView.swift in Sources */,
 				C2969F192B278E2A00A9BB72 /* PolicyIgnoreOrDefaultView.swift in Sources */,
@@ -961,9 +978,11 @@
 				C2B45B852B49E893004C1BB9 /* Paths.swift in Sources */,
 				C2B45B842B49E88D004C1BB9 /* Ifconfig.Setter.swift in Sources */,
 				C2B45B822B49E87D004C1BB9 /* Executor.swift in Sources */,
+				C2F7016D2B7401D9001390E1 /* PopularVendorOuis.swift in Sources */,
 				C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */,
 				C2B45B832B49E87D004C1BB9 /* Advisor.swift in Sources */,
 				C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */,
+				C2F701732B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */,
 				C23F0DCE2B66BD6900EE94F5 /* InterfaceTest.swift in Sources */,
 				C24570332B486561007D7AEA /* PathsTests.swift in Sources */,
 				C2AA40A82B599B26007CD6CB /* AccessPoint.swift in Sources */,
@@ -976,9 +995,7 @@
 				C24570192B3DB6F9007D7AEA /* OUI.swift in Sources */,
 				C23F0DCC2B66B87300EE94F5 /* BSD.swift in Sources */,
 				C24570182B3DB6F0007D7AEA /* Arbiter.swift in Sources */,
-				C24570172B3DB6DD007D7AEA /* PopularVendorsDatabase.swift in Sources */,
 				C23F0DD42B6979D000EE94F5 /* MACParserTest.swift in Sources */,
-				C24570162B3DB6DA007D7AEA /* PopularVendors.swift in Sources */,
 				C24570152B3DB6D2007D7AEA /* Vendor.swift in Sources */,
 				C24570132B3DB6C5007D7AEA /* Policy.swift in Sources */,
 				C24570142B3DB6C5007D7AEA /* MAC.swift in Sources */,
@@ -992,6 +1009,7 @@
 				C24570102B3DB69E007D7AEA /* Reader.swift in Sources */,
 				C23F0DDA2B69801900EE94F5 /* MACAnonymizerTest.swift in Sources */,
 				C245700F2B3DB696007D7AEA /* Interface.swift in Sources */,
+				C2F7016A2B74016E001390E1 /* PopularVendorNames.swift in Sources */,
 				C245700C2B3DB59D007D7AEA /* Synchronization.swift in Sources */,
 				C245700B2B3DB516007D7AEA /* Identifiers.swift in Sources */,
 				C280C0502B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
@@ -1000,6 +1018,7 @@
 				C2ADC8592B222C2D002A2905 /* JSONReader.swift in Sources */,
 				C2ADC8AE2B23638E002A2905 /* ConfigurationPolicyTests.swift in Sources */,
 				C2ADC8532B22293B002A2905 /* ConfigTests.swift in Sources */,
+				C2F701672B73FA7C001390E1 /* MACVendors.swift in Sources */,
 				C23F0DD22B6977A800EE94F5 /* MACParser.swift in Sources */,
 				C23F0DD82B697FE300EE94F5 /* MACAnonymizer.swift in Sources */,
 				C288E2172AE7AF2D0098FF39 /* ListenerProtocol.swift in Sources */,
@@ -1032,7 +1051,6 @@
 				C2456FBD2B3B025D007D7AEA /* Vendors.swift in Sources */,
 				C2456FE72B3B1708007D7AEA /* Notifications.swift in Sources */,
 				C2456FC72B3B16D4007D7AEA /* Ifconfig.Reader.swift in Sources */,
-				C2456FC92B3B16D4007D7AEA /* PopularVendors.swift in Sources */,
 				C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */,
 				C2456FCB2B3B16D4007D7AEA /* Interfaces.swift in Sources */,
 				C2F7015C2B6C380C001390E1 /* BSSID.swift in Sources */,
@@ -1041,11 +1059,13 @@
 				C280C04F2B58511800C653F0 /* Collection+safeSubscript.swift in Sources */,
 				C2456FF12B3B1809007D7AEA /* TimeObserver.swift in Sources */,
 				C280C04C2B58511800C653F0 /* CFArray+Sequence.swift in Sources */,
+				C2F7016C2B7401D9001390E1 /* PopularVendorOuis.swift in Sources */,
 				C2456FDD2B3B16F7007D7AEA /* Interface.swift in Sources */,
 				C23F0DCB2B66B87300EE94F5 /* BSD.swift in Sources */,
 				C2456FD52B3B16F7007D7AEA /* MAC.swift in Sources */,
 				C2D819522B2A2FDC00991D38 /* Ifconfig.Setter.swift in Sources */,
 				C280C0442B5836E700C653F0 /* Command.swift in Sources */,
+				C2F7016E2B740317001390E1 /* PopularVendorNames.swift in Sources */,
 				C2456FD72B3B16F7007D7AEA /* Vendor.swift in Sources */,
 				C245702E2B482D63007D7AEA /* Stage.swift in Sources */,
 				C245703B2B49899F007D7AEA /* LocationManager.swift in Sources */,
@@ -1056,11 +1076,11 @@
 				C2F3DA212B35C8B900977572 /* Reader.swift in Sources */,
 				C23F0DD12B6977A800EE94F5 /* MACParser.swift in Sources */,
 				C29EAF972AE5ADCA003578B9 /* Log.swift in Sources */,
+				C2F701722B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */,
 				C2456FEF2B3B1809007D7AEA /* NetworkObserver.swift in Sources */,
 				C2456FDB2B3B16F7007D7AEA /* OUI.swift in Sources */,
 				C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */,
 				C24570402B49DC9B007D7AEA /* Advisor.swift in Sources */,
-				C2456FF72B3B1E84007D7AEA /* PopularVendorsDatabase.swift in Sources */,
 				C2F3DA2D2B36C71A00977572 /* Synchronization.swift in Sources */,
 				C2456FE52B3B1708007D7AEA /* Paths.swift in Sources */,
 				C266996B2AE57A3100592008 /* main.swift in Sources */,
