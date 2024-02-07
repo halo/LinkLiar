@@ -42,8 +42,8 @@ extension SettingsView {
         GroupBox("Changing your MAC address makes you loose your connection.", content: {
           HStack {
             Text("""
-                 If you change a MAC address while the interface is connected, you will loose connection. \
-                 The interface may attempt to reconnect, which normally succeeds within seconds (now using the new MAC address).
+                 The MAC address of an interface cannot be modified while connected to a Wi-Fi network. \
+                 That's why LinkLiar will disassociate from any connected network before modifying the MAC address.
                  """)
             Spacer()
           }
@@ -55,7 +55,7 @@ extension SettingsView {
             Spacer()
           }
         }).padding(.bottom)
-        
+
       }.padding()
     }
   }

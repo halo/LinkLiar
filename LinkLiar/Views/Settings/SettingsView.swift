@@ -29,24 +29,18 @@ struct SettingsView: View {
           Label("Community", systemImage: "bubble")
         }
 
+        NavigationLink(value: Pane.help.rawValue) {
+          Label("FAQ", systemImage: "book.pages")
+        }
+
+        Spacer()
+
         NavigationLink(value: Pane.preferences.rawValue) {
           Label("Settings", systemImage: "gear")
         }
 
         NavigationLink(value: Pane.vendors.rawValue) {
           Label("Vendors", systemImage: "apple.logo")
-        }
-
-        NavigationLink(value: Pane.help.rawValue) {
-          Label("FAQ", systemImage: "book.pages")
-        }
-
-        NavigationLink(value: Pane.troubleshoot.rawValue) {
-          Label("Troubleshoot", systemImage: "bandage")
-        }
-
-        NavigationLink(value: Pane.uninstall.rawValue) {
-          Label("Uninstall", systemImage: "trash")
         }
 
         Spacer()
@@ -65,6 +59,15 @@ struct SettingsView: View {
         }
 
         Spacer()
+
+        NavigationLink(value: Pane.troubleshoot.rawValue) {
+          Label("Troubleshoot", systemImage: "bandage")
+        }
+
+        NavigationLink(value: Pane.uninstall.rawValue) {
+          Label("Uninstall", systemImage: "trash")
+        }
+
       }
       .toolbar(removing: .sidebarToggle)
       .navigationSplitViewColumnWidth(155)

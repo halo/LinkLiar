@@ -23,6 +23,9 @@ struct SettingsDetailView: View {
       case SettingsView.Pane.community.rawValue:
           SettingsView.CommunityView().environment(state)
 
+      case SettingsView.Pane.help.rawValue:
+          SettingsView.FaqView().environment(state)
+
       case SettingsView.Pane.preferences.rawValue:
           SettingsView.PreferencesView().environment(state)
 
