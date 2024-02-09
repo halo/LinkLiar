@@ -21,8 +21,8 @@ struct PopularVendors {
     let id = id.filter("0123456789abcdefghijklmnopqrstuvwxyz".contains)
     guard let vendorData = PopularVendorsDatabase.dictionaryWithCounts[id] else { return nil }
 
-    guard let rawPrefixCount = vendorData.values.first else { return nil }
     guard let name = vendorData.keys.first else { return nil }
+    guard let rawPrefixCount = vendorData.values.first else { return nil }
 
     return Vendor(id: id, name: name, prefixCount: rawPrefixCount)
   }

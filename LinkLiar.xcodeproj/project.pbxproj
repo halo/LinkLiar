@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C20B96BC2B767D0000F1E2E8 /* CGKeyCode+optionKeyPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B96BB2B767D0000F1E2E8 /* CGKeyCode+optionKeyPressed.swift */; };
 		C20B96BD2B767D0000F1E2E8 /* CGKeyCode+optionKeyPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B96BB2B767D0000F1E2E8 /* CGKeyCode+optionKeyPressed.swift */; };
+		C20B96C02B76ACF900F1E2E8 /* PopularVendorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20B96BF2B76ACF900F1E2E8 /* PopularVendorsTests.swift */; };
 		C225BDAA2B1FBA3100FFD119 /* ConfigDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */; };
 		C225BDAD2B1FBA3A00FFD119 /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAB2B1FBA3A00FFD119 /* Executor.swift */; };
 		C225BDB02B1FBA4000FFD119 /* Listener.swift in Sources */ = {isa = PBXBuildFile; fileRef = C225BDAF2B1FBA4000FFD119 /* Listener.swift */; };
@@ -244,6 +245,7 @@
 
 /* Begin PBXFileReference section */
 		C20B96BB2B767D0000F1E2E8 /* CGKeyCode+optionKeyPressed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGKeyCode+optionKeyPressed.swift"; sourceTree = "<group>"; };
+		C20B96BF2B76ACF900F1E2E8 /* PopularVendorsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularVendorsTests.swift; sourceTree = "<group>"; };
 		C225BDA92B1FBA3100FFD119 /* ConfigDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigDirectory.swift; path = Classes/ConfigDirectory.swift; sourceTree = "<group>"; };
 		C225BDAB2B1FBA3A00FFD119 /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Classes/Executor.swift; sourceTree = "<group>"; };
 		C225BDAF2B1FBA4000FFD119 /* Listener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Listener.swift; path = Classes/Listener.swift; sourceTree = "<group>"; };
@@ -380,6 +382,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C20B96BE2B76ACD100F1E2E8 /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				C20B96BF2B76ACF900F1E2E8 /* PopularVendorsTests.swift */,
+			);
+			name = Backends;
+			sourceTree = "<group>";
+		};
 		C225BDA82B1FB9B500FFD119 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +423,7 @@
 		C23F0DC42B66929100EE94F5 /* LinkTools */ = {
 			isa = PBXGroup;
 			children = (
+				C20B96BE2B76ACD100F1E2E8 /* Backends */,
 				C2F701592B6C3553001390E1 /* Config */,
 				C23F0DC52B66929A00EE94F5 /* Models */,
 			);
@@ -1016,6 +1027,7 @@
 				C24570142B3DB6C5007D7AEA /* MAC.swift in Sources */,
 				C24570122B3DB6B2007D7AEA /* Vendors.swift in Sources */,
 				C24570302B484DFA007D7AEA /* StageTests.swift in Sources */,
+				C20B96C02B76ACF900F1E2E8 /* PopularVendorsTests.swift in Sources */,
 				C24570112B3DB6AC007D7AEA /* General.swift in Sources */,
 				C2AA40AC2B59A0C4007CD6CB /* SSID.swift in Sources */,
 				C2F7015D2B6C380C001390E1 /* BSSID.swift in Sources */,

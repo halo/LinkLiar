@@ -98,57 +98,57 @@ extension SettingsView {
           }.padding(4)
         }
 
-        Text("Wi-Fi").font(.headline).padding(.top)
+//        Text("Wi-Fi").font(.headline).padding(.top)
 
-        ForEach(CWWiFiClient.shared().interfaces()!, id: \.self) { interface in
-          GroupBox {
-            HStack(alignment: .top) {
-              Menu {
-                Button(action: { disassociateWifi() }, label: {
-                  Text("Disassociate")
-                })
-
-                Button(action: { LocationManager.instance.requestAlwaysAuthorization() }, label: {
-                  Text("Request authorization")
-                })
-                Divider()
-                Button(action: { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_LocationServices")!) }, label: {
-                  Text("Show Location Settings")
-                })
-              } label: {
-                if let BSDName = interface.interfaceName {
-                  Text("SSID of \(BSDName)")
-
-                } else {
-                  Text("SSID...")
-                }
-              }.menuStyle(.borderlessButton).fixedSize()
-              Spacer()
-
-              if LocationManager.instance.authorizationStatus == .denied {
-                  Text("L denied")
-              } else if LocationManager.instance.authorizationStatus == .authorizedAlways {
-                Text("L authorizedAlways")
-              } else if LocationManager.instance.authorizationStatus == .notDetermined {
-                Text("L notDetermined")
-
-              }
-
-              if let ssid = interface.ssid() {
-                Text(ssid)
-              } else {
-                Text("(no SSID)")
-              }
-
-              if let bssid = interface.bssid() {
-                Text(bssid)
-              } else {
-                Text("(no BSSID)")
-              }
-
-            }.padding(4)
-          }
-        }
+//        ForEach(CWWiFiClient.shared().interfaces()!, id: \.self) { interface in
+//          GroupBox {
+//            HStack(alignment: .top) {
+//              Menu {
+//                Button(action: { disassociateWifi() }, label: {
+//                  Text("Disassociate")
+//                })
+//
+//                Button(action: { LocationManager.instance.requestAlwaysAuthorization() }, label: {
+//                  Text("Request authorization")
+//                })
+//                Divider()
+//                Button(action: { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.preference.security?Privacy_LocationServices")!) }, label: {
+//                  Text("Show Location Settings")
+//                })
+//              } label: {
+//                if let BSDName = interface.interfaceName {
+//                  Text("SSID of \(BSDName)")
+//
+//                } else {
+//                  Text("SSID...")
+//                }
+//              }.menuStyle(.borderlessButton).fixedSize()
+//              Spacer()
+//
+//              if LocationManager.instance.authorizationStatus == .denied {
+//                  Text("L denied")
+//              } else if LocationManager.instance.authorizationStatus == .authorizedAlways {
+//                Text("L authorizedAlways")
+//              } else if LocationManager.instance.authorizationStatus == .notDetermined {
+//                Text("L notDetermined")
+//
+//              }
+//
+//              if let ssid = interface.ssid() {
+//                Text(ssid)
+//              } else {
+//                Text("(no SSID)")
+//              }
+//
+//              if let bssid = interface.bssid() {
+//                Text(bssid)
+//              } else {
+//                Text("(no BSSID)")
+//              }
+//
+//            }.padding(4)
+//          }
+//        }
 
         Spacer()
       }.padding()

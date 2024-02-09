@@ -235,6 +235,18 @@ extension Config {
       return dictionary
     }
 
+    func allowScan() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary[Config.Key.scan.rawValue] = true
+      return dictionary
+    }
+
+    func denyScan() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary.removeValue(forKey: Config.Key.scan.rawValue)
+      return dictionary
+    }
+
     // MARK: - Private Instance Properties
 
     private var configDictionary: [String: Any]

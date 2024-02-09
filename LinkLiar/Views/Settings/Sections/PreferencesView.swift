@@ -9,8 +9,44 @@ extension SettingsView {
     @Environment(LinkState.self) private var state
 
     var body: some View {
-      VStack {
-        Text("Preferences...")
+      ScrollView {
+
+        GroupBox {
+          HStack(alignment: .top) {
+            let scanPermission = Binding<Bool>(
+              get: { state.config.general.scan },
+              set: { value, _ in
+                value ? Config.Writer(state).allowScan() : Config.Writer(state).denyScan()
+              }
+            )
+
+            VStack(alignment: .leading, spacing: 3) {
+              Text("Allow Wi-Fi Network Scanning")
+              if scanPermission.wrappedValue {
+                Text("""
+                     Currently, LinkLiar scans for Wi-Fi networks if you configured \
+                     an interface to have a specific MAC depending on the presence of a Wi-Fi network SSID. \
+                     Deactivate this, to prevent LinkLiar from ever scanning for networks.
+                     """)
+                  .font(.caption)
+                  .foregroundColor(.secondary)
+              } else {
+                Text("""
+                     Currently, LinkLiar will never scan for Wi-Fi networks. \
+                     Even if you configured an Interface to have a specific MAC address \
+                     if a certain Wi-Fi network SSID is found. Activate this to stat scanning for networks.
+                     """)
+                  .font(.caption)
+                  .foregroundColor(.secondary)
+              }
+            }
+            Spacer()
+            Toggle(isOn: scanPermission) {}
+              .toggleStyle(.switch)
+              .controlSize(.small)
+          }.padding(4)
+        }
+
       }.padding()
     }
   }

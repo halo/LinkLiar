@@ -8,7 +8,6 @@ extension SettingsView {
   struct VendorsView: View {
     @Environment(LinkState.self) private var state
 
-    @State private var vendors = [Vendor]()
     @State private var selectedVendors = Set<Vendor.ID>()
 
     var body: some View {
@@ -32,7 +31,7 @@ extension SettingsView {
             .width(340)
 
           TableColumn("Prefixes") { vendor in
-            Text("\(vendor.prefixes.count)")
+            Text("\(vendor.prefixCount)")
           }.width(50)
         }
       }.padding().onAppear {
@@ -71,7 +70,6 @@ extension SettingsView {
           Config.Writer(state).addVendor(vendor)
         }
       }
-      Log.debug("You’ve hit the Space key with \(vendors.count)")
     }
   }
 }

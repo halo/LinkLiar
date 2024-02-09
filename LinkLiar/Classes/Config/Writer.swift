@@ -165,6 +165,24 @@ extension Config {
       }
     }
 
+    func allowScan() {
+      var newDictionary = Config.Builder(state.configDictionary).allowScan()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
+    func denyScan() {
+      var newDictionary = Config.Builder(state.configDictionary).denyScan()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
     // MARK: Private Instance Properties
 
     private var state: LinkState
