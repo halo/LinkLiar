@@ -14,7 +14,7 @@ extension Config {
     var dictionary: [String: Any]
 
     var isDismissingRecommendation: Bool {
-      guard let restriction = self.dictionary[Config.Key.recommendation.rawValue] as? Bool else {
+      guard let _ = self.dictionary[Config.Key.recommendation.rawValue] as? Bool else {
         return false
       }
 
@@ -40,10 +40,10 @@ extension Config {
       self.dictionary[Config.Key.anonymize.rawValue] as? Bool ?? false
     }
 
-    /// Whether or not to scan for SSIDS on every daemon run.
+    /// Whether or not to scan for SSIDS on daemon synchronization runs.
     ///
-    var scan: Bool {
-      self.dictionary[Config.Key.scan.rawValue] as? Bool ?? false
+    var denyScan: Bool {
+      self.dictionary[Config.Key.denyScan.rawValue] as? Bool ?? false
     }
   }
 }

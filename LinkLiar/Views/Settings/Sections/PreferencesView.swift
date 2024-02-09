@@ -13,8 +13,8 @@ extension SettingsView {
 
         GroupBox {
           HStack(alignment: .top) {
-            let scanPermission = Binding<Bool>(
-              get: { state.config.general.scan },
+            let allowScan = Binding<Bool>(
+              get: { !state.config.general.denyScan },
               set: { value, _ in
                 value ? Config.Writer(state).allowScan() : Config.Writer(state).denyScan()
               }
@@ -22,14 +22,14 @@ extension SettingsView {
 
             VStack(alignment: .leading, spacing: 3) {
               Text("Allow Wi-Fi Network Scanning")
-              if scanPermission.wrappedValue {
+              if allowScan.wrappedValue {
                 Text("""
                      Currently, LinkLiar scans for Wi-Fi networks if you configured \
                      an interface to have a specific MAC depending on the presence of a Wi-Fi network SSID. \
                      Deactivate this, to prevent LinkLiar from ever scanning for networks.
                      """)
-                  .font(.caption)
-                  .foregroundColor(.secondary)
+             .font(.caption)
+             .foregroundColor(.secondary)
               } else {
                 Text("""
                      Currently, LinkLiar will never scan for Wi-Fi networks. \
@@ -41,7 +41,7 @@ extension SettingsView {
               }
             }
             Spacer()
-            Toggle(isOn: scanPermission) {}
+            Toggle(isOn: allowScan) {}
               .toggleStyle(.switch)
               .controlSize(.small)
           }.padding(4)

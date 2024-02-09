@@ -94,7 +94,7 @@ extension Config {
     case anonymize
     case theDefault = "default"
     case except
-    case scan
+    case denyScan = "deny_scan"
     case skipRerandom = "skip_rerandom"
     case ssids
     case vendors

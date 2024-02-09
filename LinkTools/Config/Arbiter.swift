@@ -55,7 +55,7 @@ extension Config {
     }
 
     var mayScan: Bool {
-      config.general.scan
+      !config.general.denyScan
     }
 
     var exceptionAddress: MAC? {

@@ -237,13 +237,13 @@ extension Config {
 
     func allowScan() -> [String: Any] {
       var dictionary = configDictionary
-      dictionary[Config.Key.scan.rawValue] = true
+      dictionary.removeValue(forKey: Config.Key.denyScan.rawValue)
       return dictionary
     }
 
     func denyScan() -> [String: Any] {
       var dictionary = configDictionary
-      dictionary.removeValue(forKey: Config.Key.scan.rawValue)
+      dictionary[Config.Key.denyScan.rawValue] = true
       return dictionary
     }
 
