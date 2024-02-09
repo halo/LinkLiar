@@ -37,8 +37,6 @@ class WifiState {
     // This doesn't work:
     // associatedSsid = interface.ssid()
 
-//    associatedSsid = AirportUtility().ssid()
-
     Log.info("Disassociating Wi-Fi \(BSDName) connection...")
 
     // Cannot be connected to an access point while changing MAC address.

@@ -180,24 +180,13 @@ extension Config {
       return dictionary
     }
 
-    ///
     /// Convenience Wrapper if you don't have an ``Interface`` but you have a hardware MAC address.
     ///
     func removeInterfaceSsid(_ hardMAC: String, ssid: SSID?) -> [String: Any] {
       removeInterfaceSsid(MAC(hardMAC), ssid: ssid)
     }
 
-    func setVendors(vendors: [Vendor]) -> [String: Any] {
-      var dictionary = configDictionary
-
-      if vendors.isEmpty {
-        dictionary.removeValue(forKey: Config.Key.vendors.rawValue)
-      } else {
-        dictionary[Config.Key.vendors.rawValue] = Array(Set(vendors)).map { $0.id }
-      }
-
-      return dictionary
-    }
+    // MARK: Vendors
 
     func addVendor(_ vendor: Vendor) -> [String: Any] {
       var dictionary = configDictionary
@@ -224,6 +213,20 @@ extension Config {
       return dictionary
     }
 
+    func addAllVendors() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary[Config.Key.vendors.rawValue] = PopularVendorsDatabase.dictionaryWithCounts.keys.sorted()
+      return dictionary
+    }
+
+    func removeAllVendors() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary.removeValue(forKey: Config.Key.vendors.rawValue)
+      return dictionary
+    }
+
+    // MARK: General Settings
+
     func dismissRecommendedSettings() -> [String: Any] {
       var dictionary = configDictionary
 
@@ -232,7 +235,7 @@ extension Config {
       return dictionary
     }
 
-    // MARK: Private Instance Properties
+    // MARK: - Private Instance Properties
 
     private var configDictionary: [String: Any]
   }

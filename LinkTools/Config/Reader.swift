@@ -37,10 +37,17 @@ extension Config {
     }
 
     ///
-    /// Queries the list of Vendor MAC prefixes.
+    /// Queries the list of Vendors.
     ///
     var vendors: Vendors {
       Vendors(dictionary: dictionary)
+    }
+
+    ///
+    /// Queries the list of Vendor MAC prefixes.
+    ///
+    var ouis: OUIs {
+      OUIs(dictionary: dictionary)
     }
 
     ///

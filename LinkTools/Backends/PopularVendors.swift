@@ -4,7 +4,7 @@
 import Foundation
 
 struct PopularVendors {
-  // MARK: Class Properties
+  // MARK: Class Methods
 
   ///
   /// Looks up a Vendor by its ID.
@@ -19,28 +19,22 @@ struct PopularVendors {
   ///
   static func find(_ id: String) -> Vendor? {
     let id = id.filter("0123456789abcdefghijklmnopqrstuvwxyz".contains)
-    guard let vendorData = PopularVendorsDatabase.dictionaryWithOUIs[id] else { return nil }
+    guard let vendorData = PopularVendorsDatabase.dictionaryWithCounts[id] else { return nil }
 
-    guard let rawPrefixes = vendorData.values.first else { return nil }
+    guard let rawPrefixCount = vendorData.values.first else { return nil }
     guard let name = vendorData.keys.first else { return nil }
 
-    let prefixes = rawPrefixes.compactMap { rawPrefix in
-      OUI(String(format: "%06X", rawPrefix))
-    }
-
-    if prefixes.isEmpty { return nil }
-
-    return Vendor(id: id, name: name, prefixes: prefixes)
+    return Vendor(id: id, name: name, prefixCount: rawPrefixCount)
   }
 
   static func find(_ ids: [String]) -> [Vendor] {
     ids.compactMap { find($0) }.sorted()
   }
 
-  // MARK: Private Class Properties
+  // MARK: Class Properties
 
   static var all: [Vendor] {
-    PopularVendorsDatabase.dictionaryWithOUIs.keys.reversed().compactMap {
+    PopularVendorsDatabase.dictionaryWithCounts.keys.reversed().compactMap {
       find($0)
     }.sorted()
   }

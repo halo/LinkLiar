@@ -60,6 +60,8 @@ extension Config {
       }
     }
 
+    // MARK: Vendors
+
     func addVendor(_ vendor: Vendor) {
       var newDictionary = Config.Builder(state.configDictionary).addVendor(vendor)
 
@@ -77,6 +79,26 @@ extension Config {
         state.configDictionary = newDictionary
       }
     }
+
+    func addAllVendors() {
+      var newDictionary = Config.Builder(state.configDictionary).addAllVendors()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
+    func removeAllVendors() {
+      var newDictionary = Config.Builder(state.configDictionary).removeAllVendors()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
+    // MARK: Interface Action
 
     func setInterfaceActionHiddenness(interface: Interface, isHidden: Bool) {
       let newAction = isHidden ? Interface.Action.hide : Interface.Action.ignore
@@ -131,7 +153,7 @@ extension Config {
         setFallbackInterfaceAction(.random)
       }
 
-      setVendors([])
+      removeAllVendors()
     }
 
     func dismissRecommendedSettings() {
@@ -146,17 +168,6 @@ extension Config {
     // MARK: Private Instance Properties
 
     private var state: LinkState
-
-    // MARK: Private Instance Methods
-
-    private func setVendors(_ vendors: [Vendor]) {
-      var newDictionary = Config.Builder(state.configDictionary).setVendors(vendors: vendors)
-
-      newDictionary[Config.Key.version.rawValue] = state.version.formatted
-      if JSONWriter(Paths.configFile).write(newDictionary) {
-        state.configDictionary = newDictionary
-      }
-    }
 
   }
 }

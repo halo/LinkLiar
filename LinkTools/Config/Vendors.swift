@@ -9,13 +9,9 @@ extension Config {
     var dictionary: [String: Any]
 
     // Proxy them, so that the state is observed.
-    var popularNames: [Vendor] {
-      PopularVendorNames.all
+    var popular: [Vendor] {
+      PopularVendors.all
     }
-
-//    var popularWithOUI: [Vendor] {
-//      PopularVendorOUIs.all
-//    }
 
     func isChosen(_ vendor: Vendor) -> Bool {
       guard let chosenIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else {
@@ -28,7 +24,7 @@ extension Config {
       guard let vendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
 
       let vendors = Set(vendorIDs).compactMap { string -> Vendor? in
-        PopularVendorNames.find(string)
+        PopularVendors.find(string)
       }
 
       return Array(vendors).sorted()

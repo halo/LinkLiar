@@ -26,12 +26,7 @@ extension Config {
 
     // TODO: Do we need to include SSID-MAC binding prefixes?
     var prefixes: [OUI] {
-      if !config.vendors.chosenPopular.isEmpty {
-        return config.vendors.chosenPopular.flatMap { $0.prefixes }
-      }
-
-//      return PopularVendors.find(Config.Key.apple.rawValue)!.prefixes
-      return []
+      config.ouis.chosenPopular
     }
 
     var address: MAC? {
