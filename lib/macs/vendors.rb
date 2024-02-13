@@ -19,7 +19,9 @@ module Macs
       result = {}
 
       rows do |row|
-        result[row.first] = row.last
+        oui = row.first.downcase # aabbcc
+        [2, 5].each { oui.insert _1, ':' } # aa:bb:cc
+        result[oui] = row.last
       end
 
       result

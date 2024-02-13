@@ -6,7 +6,7 @@ import Foundation
 /// Organizationally unique identifier.
 /// Also known as MAC prefix.
 ///
-struct OUI: Equatable {
+struct OUI: Equatable, Hashable {
   // MARK: Class Methods
 
   init?(_ address: String) {

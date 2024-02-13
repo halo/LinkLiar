@@ -34,6 +34,11 @@ struct InterfaceView: View {
           }).buttonStyle(.plain)
         }
 
+//        Text(MACVendors.name(interface.softOUI))
+        .font(.system(.footnote, design: .monospaced))
+        .opacity(0.5)
+
+
         if !interface.hasOriginalMAC {
           HStack(spacing: 0) {
             Text("Originally ")
@@ -49,6 +54,7 @@ struct InterfaceView: View {
           }
         }
       }
+
       // Padding parity on the right side (invisible).
       Image("MenuIconLeaking").opacity(0)
 

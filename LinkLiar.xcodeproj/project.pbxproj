@@ -101,6 +101,7 @@
 		C26699452AE55EFD00592008 /* LinkLiarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699442AE55EFD00592008 /* LinkLiarUITests.swift */; };
 		C26699472AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26699462AE55EFD00592008 /* LinkLiarUITestsLaunchTests.swift */; };
 		C266996B2AE57A3100592008 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C266996A2AE57A3100592008 /* main.swift */; };
+		C278B0B92B7BF750001DFA58 /* MACVendorsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278B0B82B7BF750001DFA58 /* MACVendorsTest.swift */; };
 		C280C03E2B51225000C653F0 /* Airport.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C03B2B51225000C653F0 /* Airport.Scanner.swift */; };
 		C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C03B2B51225000C653F0 /* Airport.Scanner.swift */; };
 		C280C0442B5836E700C653F0 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = C280C0432B5836E700C653F0 /* Command.swift */; };
@@ -302,6 +303,7 @@
 		C26699682AE57A3100592008 /* io.github.halo.LinkLiar.linkdaemon */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = io.github.halo.LinkLiar.linkdaemon; sourceTree = BUILT_PRODUCTS_DIR; };
 		C266996A2AE57A3100592008 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C266996F2AE57A3D00592008 /* linkdaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = linkdaemon.entitlements; sourceTree = "<group>"; };
+		C278B0B82B7BF750001DFA58 /* MACVendorsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MACVendorsTest.swift; sourceTree = "<group>"; };
 		C280C03B2B51225000C653F0 /* Airport.Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Airport.Scanner.swift; path = Classes/Backends/Airport.Scanner.swift; sourceTree = "<group>"; };
 		C280C0432B5836E700C653F0 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		C280C0462B584D6900C653F0 /* AirportConnectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirportConnectionTests.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 		C26699392AE55EFD00592008 /* LinkLiarTests */ = {
 			isa = PBXGroup;
 			children = (
+				C278B0B62B7BF734001DFA58 /* LinkLiar */,
 				C23F0DC42B66929100EE94F5 /* LinkTools */,
 				C2AA40B12B5FC4B1007CD6CB /* linkdaemon */,
 				C266993A2AE55EFD00592008 /* LinkLiarTests.swift */,
@@ -611,6 +614,22 @@
 				C266996F2AE57A3D00592008 /* linkdaemon.entitlements */,
 			);
 			path = linkdaemon;
+			sourceTree = "<group>";
+		};
+		C278B0B62B7BF734001DFA58 /* LinkLiar */ = {
+			isa = PBXGroup;
+			children = (
+				C278B0B72B7BF739001DFA58 /* Backends */,
+			);
+			name = LinkLiar;
+			sourceTree = "<group>";
+		};
+		C278B0B72B7BF739001DFA58 /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				C278B0B82B7BF750001DFA58 /* MACVendorsTest.swift */,
+			);
+			name = Backends;
 			sourceTree = "<group>";
 		};
 		C280C0482B58511800C653F0 /* Extensions */ = {
@@ -1005,6 +1024,7 @@
 				C280C03F2B51225000C653F0 /* Airport.Scanner.swift in Sources */,
 				C2B45B832B49E87D004C1BB9 /* Advisor.swift in Sources */,
 				C20B96BD2B767D0000F1E2E8 /* CGKeyCode+optionKeyPressed.swift in Sources */,
+				C278B0B92B7BF750001DFA58 /* MACVendorsTest.swift in Sources */,
 				C24570342B486A0D007D7AEA /* JSONWriter.swift in Sources */,
 				C2F7017F2B74FC98001390E1 /* PopularOUIs.swift in Sources */,
 				C2F701732B7405CA001390E1 /* PopularVendorsDatabase.swift in Sources */,
