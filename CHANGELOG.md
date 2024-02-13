@@ -1,3 +1,7 @@
+# 4.0.0
+
+Rewrite everything from scratch.
+
 # 3.2.0
 
 * [FEATURE] If connected to a network, re-associate to the same SSID after a disconnect to change the MAC address.

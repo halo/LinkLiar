@@ -31,5 +31,8 @@ result.push '}'
 
 path = Pathname.new('LinkTools/Backends/PopularVendorsDatabase.swift')
 puts "Writing to #{path}"
-
 path.write result.join("\n")
+
+path = Pathname.new('LinkLiar/oui.json')
+puts "Writing to #{path}"
+path.write Macs::Vendors.as_json.to_json
