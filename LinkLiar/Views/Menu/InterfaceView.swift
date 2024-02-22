@@ -34,10 +34,9 @@ struct InterfaceView: View {
           }).buttonStyle(.plain)
         }
 
-//        Text(MACVendors.name(interface.softOUI))
+        Text(MACVendors.name(interface.softOUI))
         .font(.system(.footnote, design: .monospaced))
         .opacity(0.5)
-
 
         if !interface.hasOriginalMAC {
           HStack(spacing: 0) {

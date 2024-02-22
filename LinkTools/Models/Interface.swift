@@ -51,7 +51,7 @@ class Interface: Identifiable {
     return  _softMAC
   }
 
-  var softPrefix: OUI {
+  var softOUI: OUI {
     OUI(softMAC!.prefix)!
   }
 

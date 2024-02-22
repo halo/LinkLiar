@@ -28,6 +28,8 @@ struct LinkLiarApp: App {
 
     // Load config file once.
     configFileChanged()
+
+    MACVendors.load()
   }
 
   // MARK: Private Instance Properties
