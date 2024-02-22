@@ -183,6 +183,24 @@ extension Config {
       }
     }
 
+    func allowRerandomization() {
+      var newDictionary = Config.Builder(state.configDictionary).allowRerandomization()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
+    func denyRerandomization() {
+      var newDictionary = Config.Builder(state.configDictionary).denyRerandomization()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
+    }
+
     // MARK: Private Instance Properties
 
     private var state: LinkState

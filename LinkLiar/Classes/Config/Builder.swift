@@ -247,6 +247,18 @@ extension Config {
       return dictionary
     }
 
+    func allowRerandomization() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary.removeValue(forKey: Config.Key.skipRerandom.rawValue)
+      return dictionary
+    }
+
+    func denyRerandomization() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary[Config.Key.skipRerandom.rawValue] = true
+      return dictionary
+    }
+
     // MARK: - Private Instance Properties
 
     private var configDictionary: [String: Any]

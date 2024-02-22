@@ -47,6 +47,41 @@ extension SettingsView {
           }.padding(4)
         }
 
+
+        GroupBox {
+          HStack(alignment: .top) {
+            let allowRerandomization = Binding<Bool>(
+              get: { !state.config.general.isForbiddenToRerandomize },
+              set: { value, _ in
+                value ? Config.Writer(state).allowRerandomization() : Config.Writer(state).denyRerandomization()
+              }
+            )
+
+            VStack(alignment: .leading, spacing: 3) {
+              Text("Allow Re-randomization")
+              if allowRerandomization.wrappedValue {
+                Text("""
+                     Just before your computer goes to sleep, re-randomize every Interface \
+                     that has a random MAC address. So that when you travel with your Laptop, \
+                     you open the lid with a fresh random address.
+                     """)
+             .font(.caption)
+             .foregroundColor(.secondary)
+              } else {
+                Text("""
+                     Never re-randomize MAC addresses when going to sleep.
+                     """)
+                  .font(.caption)
+                  .foregroundColor(.secondary)
+              }
+            }
+            Spacer()
+            Toggle(isOn: allowRerandomization) {}
+              .toggleStyle(.switch)
+              .controlSize(.small)
+          }.padding(4)
+        }
+
       }.padding()
     }
   }
