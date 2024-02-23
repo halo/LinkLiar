@@ -47,11 +47,10 @@ extension SettingsView {
           }.padding(4)
         }
 
-
         GroupBox {
           HStack(alignment: .top) {
             let allowRerandomization = Binding<Bool>(
-              get: { !state.config.general.isForbiddenToRerandomize },
+              get: { state.config.general.isRerandomize },
               set: { value, _ in
                 value ? Config.Writer(state).allowRerandomization() : Config.Writer(state).denyRerandomization()
               }

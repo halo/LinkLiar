@@ -249,13 +249,13 @@ extension Config {
 
     func allowRerandomization() -> [String: Any] {
       var dictionary = configDictionary
-      dictionary.removeValue(forKey: Config.Key.skipRerandom.rawValue)
+      dictionary[Config.Key.rerandomize.rawValue] = true
       return dictionary
     }
 
     func denyRerandomization() -> [String: Any] {
       var dictionary = configDictionary
-      dictionary[Config.Key.skipRerandom.rawValue] = true
+      dictionary.removeValue(forKey: Config.Key.rerandomize.rawValue)
       return dictionary
     }
 

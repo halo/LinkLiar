@@ -4,24 +4,14 @@
 import Foundation
 
 class Executor {
-
-  /// <#Description#>
   func run() {
     Log.debug("Scheduling for synchronization...")
 
-    // Any given synchronization run runs serially...
-    //    let executorgroup = DispatchGroup()
-    //    group.enter()
-
-    executorQueue.sync {
-      // ...because we don't want race-conditions when reading the configuration file
-      // and comparing that with the currently attached hardware interfaces.
-      reload()
-
-      // However, per interface, we can parallelize the work.
+    queued {
+      // Per interface, we can parallelize the work.
       // To check if all interfaces have finished, we need a group.
-      let group = DispatchGroup()
       Log.debug("Entering dispatch group for \(self.interfaces.count) Interfaces...")
+      let group = DispatchGroup()
 
       for interface in self.interfaces {
         group.enter()
@@ -41,41 +31,54 @@ class Executor {
 
       Log.debug("Waiting for interfaces to finish synchronizing")
       let deadline = DispatchTime.now() + .seconds(15)
+
       if group.wait(timeout: deadline) == .success {
         Log.debug("Done synchronizing")
       } else {
         Log.error("Synchronization timed out!")
       }
     }
-
   }
 
   func mayReRandomize() {
-    //    if Config.instance.settings.isForbiddenToRerandomize {
-    //      Log.debug("This was a good chance to re-randomize, but it is disabled.")
-    //      return
-    //    }
-    //
-    //    for interface in Interfaces.all(async: false) {
-    //      let action = Config.instance.knownInterface.action(interface.hardMAC)
-    //
-    //      guard action == .random else {
-    //        Log.debug("Not re-randomizing \(interface.bsd.name) because it is not defined to be random.")
-    //        return
-    //      }
-    //
-    //      Log.debug("Taking the chance to re-randomize \(interface.bsd.name)")
-    //      setMAC(BSDName: interface.bsd.name, address: RandomMACs.generate())
-    //    }
+    guard self.config.general.isRerandomize else {
+      Log.debug("This was a good chance to re-randomize, but it is disabled.")
+      return
+    }
+
+    queued {
+
+      Log.debug("Entering dispatch group for \(self.interfaces.count) Interfaces...")
+      let group = DispatchGroup()
+
+      for interface in self.interfaces {
+        group.enter()
+
+        Log.info("Checking rerandomization for Interface \(interface.bsd.name)")
+        let arbiter = self.config.arbiter(interface.hardMAC)
+
+        if arbiter.action == .random {
+          Log.debug("Taking the chance to re-randomize \(interface.bsd.name)")
+          Ifconfig.Setter(interface.bsd.name).setSoftMAC(arbiter.randomAddress())
+        } else {
+          Log.debug("Not re-randomizing \(interface.bsd.name) because it is not defined to be random.")
+        }
+        group.leave()
+      }
+
+      Log.debug("Waiting for interfaces to finish rerandomizing")
+      let deadline = DispatchTime.now() + .seconds(3)
+
+      if group.wait(timeout: deadline) == .success {
+        Log.debug("Done rerandomizing")
+      } else {
+        Log.error("Rerandomization timed out!")
+      }
+    }
   }
 
   // MARK: Private Instance Properties
 
-  ///
-  /// Per `DispatchQueue.init` this is a serial queue.
-  /// We don't want to read the config and execute ifconfig parallelized.
-  ///
-  ///  private var queue = DispatchQueue(label: "\(Identifiers.daemon).Synchronizer", qos: .utility)
   private var config: Config.Reader = Config.Reader([:])
   private var interfaces: [Interface] = []
   private var synchronizations = [String: Synchronization]()
@@ -84,18 +87,24 @@ class Executor {
 
   // MARK: Private Instance Properties
 
-  private func reload() {
-    // Read configuration file afresh
-    Log.debug("Reloading configuration...")
-    let configDictionary = JSONReader(Paths.configFile).dictionary
-    config = Config.Reader(configDictionary)
+  private func queued(_ block: () -> Void) {
+    // ...because we don't want race-conditions when reading the configuration file
+    // and comparing that with the currently attached hardware interfaces.
+    executorQueue.sync {
+      // Read configuration file afresh
+      Log.debug("Reloading configuration...")
+      let configDictionary = JSONReader(Paths.configFile).dictionary
+      config = Config.Reader(configDictionary)
 
-    // Query Interfaces afresh synchronously
-    Log.debug("Reloading Interfaces...")
-    interfaces = Interfaces.all(.sync).filter {
-      config.policy($0.hardMAC).action != .hide
-    }.filter {
-      config.policy($0.hardMAC).action != .ignore
+      // Query Interfaces afresh synchronously
+      Log.debug("Reloading Interfaces...")
+      interfaces = Interfaces.all(.sync).filter {
+        config.policy($0.hardMAC).action != .hide
+      }.filter {
+        config.policy($0.hardMAC).action != .ignore
+      }
+
+      block()
     }
   }
 

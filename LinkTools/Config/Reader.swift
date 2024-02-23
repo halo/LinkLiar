@@ -95,7 +95,7 @@ extension Config {
     case theDefault = "default"
     case except
     case denyScan = "deny_scan"
-    case skipRerandom = "skip_rerandom"
+    case rerandomize
     case ssids
     case vendors
     case version

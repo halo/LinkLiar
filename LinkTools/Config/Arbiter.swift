@@ -68,16 +68,23 @@ extension Config {
 
     func randomAddress() -> MAC {
       if let override = overrideAddressInTests {
+        Log.debug("Using static random address in tests")
         return override
       }
 
-      let prefix = prefixes.randomElement()!
+//      let prefix = prefixes.randomElement()!
       let suffix = [
         String(Int.random(in: 0..<256), radix: 16, uppercase: false),
         String(Int.random(in: 0..<256), radix: 16, uppercase: false),
         String(Int.random(in: 0..<256), radix: 16, uppercase: false)
       ].joined()
 
+      guard let prefix = prefixes.randomElement() else {
+        Log.debug("Failed to pick popular OUI!")
+        return MAC("aa:bb:cc:\(suffix)")!
+      }
+
+      Log.debug("Generated random address \(prefix)")
       return MAC([prefix.address, suffix].joined())!
     }
 

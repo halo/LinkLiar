@@ -14,9 +14,11 @@ extension Config {
     }
 
     var chosenPopular: [OUI] {
-      guard let vendorIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else { return [] }
+      guard let chosenIDs = dictionary[Config.Key.vendors.rawValue] as? [String] else {
+        return PopularOUIs.find(Config.Key.apple.rawValue)
+      }
 
-      let vendors = Set(vendorIDs).flatMap { PopularOUIs.find($0) }.compactMap { $0 }
+      let vendors = Set(chosenIDs).flatMap { PopularOUIs.find($0) }.compactMap { $0 }
 
       return Array(vendors).sorted()
     }

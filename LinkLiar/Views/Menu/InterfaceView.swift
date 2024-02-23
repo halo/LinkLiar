@@ -62,6 +62,7 @@ struct InterfaceView: View {
 
       if state.config.arbiter(interface.hardMAC).action == .random && state.daemonRegistration == .enabled {
         Button("Randomize now") {
+          Log.debug("Force randomization...")
           Config.Writer(state).resetExceptionAddress(interface: interface)
         }
       }

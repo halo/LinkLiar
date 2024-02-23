@@ -9,6 +9,7 @@ class Controller {
   // MARK: Class Methods
 
   static func queryInterfaces(state: LinkState) {
+    Log.debug("Reloading Interfaces...")
     state.allInterfaces = Interfaces.all(.async)
   }
 
