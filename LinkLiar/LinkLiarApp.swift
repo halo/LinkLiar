@@ -64,7 +64,7 @@ struct LinkLiarApp: App {
 
   private func manualTrigger(_ _: Notification) {
     DispatchQueue.main.async {
-      Log.debug("Manual reload requested")
+      Log.debug("Manual softMAC querying requested")
       Controller.queryAllSoftMACs(state)
     }
   }

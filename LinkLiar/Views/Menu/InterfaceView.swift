@@ -35,8 +35,8 @@ struct InterfaceView: View {
         }
 
         Text(MACVendors.name(interface.softOUI))
-        .font(.system(.footnote, design: .monospaced))
-        .opacity(0.5)
+          .font(.system(.footnote, design: .monospaced))
+          .opacity(0.5)
 
         if !interface.hasOriginalMAC {
           HStack(spacing: 0) {
@@ -47,8 +47,8 @@ struct InterfaceView: View {
               copy(interface.hardMAC.address)
             }, label: {
               Text(interface.hardMAC.anonymous(state.config.general.isAnonymized))
-              .font(.system(.footnote, design: .monospaced))
-              .opacity(0.5)
+                .font(.system(.footnote, design: .monospaced))
+                .opacity(0.5)
             }).buttonStyle(.plain)
           }
         }
@@ -57,7 +57,10 @@ struct InterfaceView: View {
       // Padding parity on the right side (invisible).
       Image("MenuIconLeaking").opacity(0)
 
-    }.contextMenu {
+    // Without this, only words (captions) are right-clickable. With it, you can click anywhere in this HStack.
+    // See https://www.hackingwithswift.com/quick-start/swiftui/how-to-control-the-tappable-area-of-a-view-using-contentshape
+    }.contentShape(Rectangle())
+    .contextMenu {
       Button("Copy MAC address") { copy(interface.softMAC?.address ?? "??:??:??:??:??:??") }
 
       if state.config.arbiter(interface.hardMAC).action == .random && state.daemonRegistration == .enabled {
