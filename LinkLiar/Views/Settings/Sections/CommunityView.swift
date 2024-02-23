@@ -12,6 +12,7 @@ extension SettingsView {
         VStack(alignment: .center) {
           Image(systemName: "bubble.left.and.bubble.right.fill")
             .resizable()
+            .symbolRenderingMode(.hierarchical)
             .aspectRatio(contentMode: .fill)
             .frame(width: 60, height: 60)
             .padding(.bottom, 3)

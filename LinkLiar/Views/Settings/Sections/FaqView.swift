@@ -33,7 +33,7 @@ extension SettingsView {
           HStack {
             Text("""
                You original hardware MAC address will be revealed when you cold boot your computer and Wi-Fi \
-               is turned on. MAC address modifications do persist when sleeping and waking your computer, however.
+               is turned on. However, MAC address modifications do persist when sleeping and waking your computer.
                """)
             Spacer()
           }
@@ -43,7 +43,7 @@ extension SettingsView {
           HStack {
             Text("""
                  The MAC address of an interface cannot be modified while connected to a Wi-Fi network. \
-                 That's why LinkLiar will disassociate from any connected network before modifying the MAC address.
+                 That's why LinkLiar will disassociate from any connected network before attempting to modify the MAC address.
                  """)
             Spacer()
           }
@@ -51,7 +51,10 @@ extension SettingsView {
 
         GroupBox("Wi-Fi needs to be on for MAC modification.", content: {
           HStack {
-            Text("When your Wi-Fi (aka Airport) is turned off, you cannot change its MAC address. You might need to turn it on first.")
+            Text("""
+                 "When your Wi-Fi (aka Airport) is turned off, you cannot change its MAC address. \
+                 You might need to turn it on first.
+                 """)
             Spacer()
           }
         }).padding(.bottom)

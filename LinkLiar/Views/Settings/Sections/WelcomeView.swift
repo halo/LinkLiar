@@ -14,6 +14,7 @@ extension SettingsView {
         VStack(alignment: .center) {
           Image(systemName: "hands.and.sparkles.fill")
             .resizable()
+            .symbolRenderingMode(.hierarchical)
             .aspectRatio(contentMode: .fill)
             .frame(width: 60, height: 60)
             .padding(.bottom, 3)

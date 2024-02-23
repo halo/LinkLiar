@@ -153,7 +153,17 @@ extension Config {
         setFallbackInterfaceAction(.random)
       }
 
+      denyRerandomization()
       removeAllVendors()
+    }
+
+    func resetRecommendedSettings() {
+      var newDictionary = Config.Builder(state.configDictionary).resetRecommendedSettings()
+
+      newDictionary[Config.Key.version.rawValue] = state.version.formatted
+      if JSONWriter(Paths.configFile).write(newDictionary) {
+        state.configDictionary = newDictionary
+      }
     }
 
     func dismissRecommendedSettings() {

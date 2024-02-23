@@ -81,6 +81,39 @@ extension SettingsView {
           }.padding(4)
         }
 
+        GroupBox {
+          HStack(alignment: .top) {
+            let warnOnIdleSettings = Binding<Bool>(
+              get: { !state.config.general.isDismissingRecommendation },
+              set: { value, _ in
+                value ? Config.Writer(state).resetRecommendedSettings() :
+                Config.Writer(state).dismissRecommendedSettings()
+              }
+            )
+
+            VStack(alignment: .leading, spacing: 3) {
+              Text("Warn about no-op configuration")
+              if warnOnIdleSettings.wrappedValue {
+                Text("""
+                     If LinkLiar is configured to not do anything, warn about that.
+                     """)
+             .font(.caption)
+             .foregroundColor(.secondary)
+              } else {
+                Text("""
+                     Don't notify about settings that have no effect.
+                     """)
+                  .font(.caption)
+                  .foregroundColor(.secondary)
+              }
+            }
+            Spacer()
+            Toggle(isOn: warnOnIdleSettings) {}
+              .toggleStyle(.switch)
+              .controlSize(.small)
+          }.padding(4)
+        }
+
       }.padding()
     }
   }

@@ -227,11 +227,15 @@ extension Config {
 
     // MARK: General Settings
 
+    func resetRecommendedSettings() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary.removeValue(forKey: Config.Key.recommendation.rawValue)
+      return dictionary
+    }
+
     func dismissRecommendedSettings() -> [String: Any] {
       var dictionary = configDictionary
-
       dictionary[Config.Key.recommendation.rawValue] = false
-
       return dictionary
     }
 
