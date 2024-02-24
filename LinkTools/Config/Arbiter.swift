@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: MIT
 
 extension Config {
+  /// Determines the priority of configuration values.
+  /// E.g. an interface specific value overrides general defaults.
   class Arbiter {
     // MARK: Class Methods
 
@@ -62,12 +64,12 @@ extension Config {
       config.policy(hardMAC).exceptionAddress
     }
 
-    var overrideAddressInTests: MAC?
+    var stubAddressInTests: MAC?
 
     // MARK: Instance Methods
 
     func randomAddress() -> MAC {
-      if let override = overrideAddressInTests {
+      if let override = stubAddressInTests {
         Log.debug("Using static random address in tests")
         return override
       }
