@@ -24,6 +24,8 @@ class LinkDaemon {
   // MARK: Private Instance Methods
 
   private func subscribe() {
+    ConfigDirectory.ensure()
+
     // Start observing the config file.
     configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
 

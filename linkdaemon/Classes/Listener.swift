@@ -88,7 +88,7 @@ extension Listener: ListenerProtocol {
 //    Log.debug("now!")
 //    Log.debug(uncachedBundle.infoDictionary?["CFBundleShortVersionString"]! as! String)
 
-    ConfigDirectory.create()
+    ConfigDirectory.ensure()
     reply(true)
   }
 

@@ -6,7 +6,7 @@ import Foundation
 struct ConfigDirectory {
   // MARK: Class Methods
 
-  static func create() {
+  static func ensure() {
     ensureDirectory()
     ensureDirectoryPermissions()
     ensureFile()
