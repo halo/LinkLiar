@@ -13,44 +13,31 @@ class Controller {
     state.allInterfaces = Interfaces.all(.async)
   }
 
-//  static func restartDaemon(state: LinkState) {
-//    if state.daemonRegistration == .enabled {
-//      unregisterDaemon(state: state)
-//      registerDaemon(state: state)
-//    }
-//  }
-
   static func registerDaemon(state: LinkState) {
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
-    // Why did I use the queue here?
     DispatchQueue.global().async {
       do {
         try service.register()
-        queryDaemonRegistration(state: state)
         Log.debug("Successfully registered \(service)")
       } catch {
         Log.debug("Unable to register \(error)")
-        queryDaemonRegistration(state: state)
       }
+      queryDaemonRegistration(state: state)
     }
   }
 
   static func unregisterDaemon(state: LinkState) {
-    //    queryDaemonRegistration(state: state)
     let service = SMAppService.daemon(plistName: "\(Identifiers.daemon.rawValue).plist")
 
     DispatchQueue.global().async {
       do {
         try service.unregister()
-        queryDaemonRegistration(state: state)
-
         Log.debug("Successfully unregistered \(service)")
-        print("\(service) has then status \(service.status)")
       } catch {
         Log.debug("Unable to unregister \(error)")
-        queryDaemonRegistration(state: state)
       }
+      queryDaemonRegistration(state: state)
     }
   }
 
@@ -91,29 +78,6 @@ class Controller {
     state.allInterfaces.forEach { $0.querySoftMAC() }
   }
 
-  //
-  //  static func install(state: LinkState) {
-  //    Radio.install(state: state, reply: { success in
-  //      if (success) {
-  //        Log.debug("Installation complete")
-  //      } else {
-  //        Log.debug("Could not complete installation")
-  //      }
-  //    })
-  //  }
-  //
-  //
-  //
-  //  static func uninstall(state: LinkState) {
-  //    Radio.uninstall(state: state, reply: { success in
-  //      if (success) {
-  //        Log.debug("umInstallation complete")
-  //      } else {
-  //        Log.debug("Could not complete uninstallation")
-  //      }
-  //    })
-  //  }
-
   static func troubleshoot(state: LinkState) {
     queryInterfaces(state: state)
     queryDaemonRegistration(state: state)
@@ -142,7 +106,7 @@ class Controller {
     }
 
     // For some reason we also need to attempt to talk to the daemon
-    // in order for it's status to be updated
+    // in order for it's status to be updated.
     queryDaemonVersion(state: state)
   }
 }
