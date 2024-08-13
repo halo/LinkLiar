@@ -38,6 +38,9 @@ struct SettingsDetailView: View {
       case SettingsView.Pane.troubleshoot.rawValue:
         SettingsView.TroubleshootView().environment(state)
 
+        case SettingsView.Pane.uninstall.rawValue:
+          SettingsView.UninstallView().environment(state)
+
       default:
         if let interface = state.allInterfaces.first(where: { $0.id == selectedFolder }) {
           SettingsView.InterfacePolicyView().environment(state)
