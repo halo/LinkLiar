@@ -7,8 +7,14 @@ import SwiftUI
 
 class LinkState {
   // Convenience initializer
-  init(_ configDictionary: [String: Any]? = nil) {
+  init(_ configDictionary: [String: Any]? = nil, isolate: Bool = false) {
     self.configDictionary = configDictionary ?? [:]
+
+    if isolate {
+      allInterfaces = Interfaces.all(.sync)
+      configFilePath = "/tmp/linkliar.isolation.json"
+      isolated = true
+    }
   }
 
   // GUI
@@ -29,6 +35,11 @@ class LinkState {
       config.policy($0.hardMAC).action != .hide
     }
   }
+
+  // Paths
+
+  var configFilePath: String = Paths.configFile
+  var isolated: Bool = false
 
   // Settings
 

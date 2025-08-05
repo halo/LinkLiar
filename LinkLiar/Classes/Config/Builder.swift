@@ -239,6 +239,18 @@ extension Config {
       return dictionary
     }
 
+    func restrictDaemon() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary[Config.Key.restrictDaemon.rawValue] = true
+      return dictionary
+    }
+
+    func liberateDaemon() -> [String: Any] {
+      var dictionary = configDictionary
+      dictionary.removeValue(forKey: Config.Key.restrictDaemon.rawValue)
+      return dictionary
+    }
+
     func allowScan() -> [String: Any] {
       var dictionary = configDictionary
       dictionary.removeValue(forKey: Config.Key.denyScan.rawValue)

@@ -100,5 +100,6 @@ extension Config {
     case vendors
     case version
     case recommendation
+    case restrictDaemon = "restrict_daemon"
   }
 }

@@ -29,6 +29,15 @@ extension Config {
       self.dictionary[Config.Key.rerandomize.rawValue] as? Bool ?? false
     }
 
+    ///
+    /// Queries whether the deamon is to be restricted to the lifetime of the GUI.
+    /// In LinkLiar prior to 4.0.0, this was true by default and could be deactivated by adding the key.
+    /// Nowadays, the daemon is always on and you can restrict it by setting this key to true.
+    ///
+    var isRestrictedDaemon: Bool {
+      self.dictionary[Config.Key.restrictDaemon.rawValue] as? Bool ?? false
+    }
+
     /// Queries whether MAC addresses should be anonymized in GUI and logs.
     /// This is no by default. You can turn it on by adding the key.
     ///

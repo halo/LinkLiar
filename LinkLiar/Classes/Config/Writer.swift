@@ -175,6 +175,14 @@ extension Config {
       }
     }
 
+    func restrictDaemon() {
+      persist(builder.restrictDaemon())
+    }
+
+    func liberateDaemon() {
+      persist(builder.liberateDaemon())
+    }
+
     func allowScan() {
       var newDictionary = Config.Builder(state.configDictionary).allowScan()
 
@@ -214,6 +222,21 @@ extension Config {
     // MARK: Private Instance Properties
 
     private var state: LinkState
+
+    private var builder: Config.Builder {
+      Config.Builder(state.configDictionary)
+    }
+
+    // MARK: Private Instance Functions
+
+    private func persist(_ newDictionary: [String: Any]) {
+      var mutableDictionary = newDictionary
+      mutableDictionary[Config.Key.version.rawValue] = state.version.formatted
+
+      if JSONWriter(Paths.configFile).write(mutableDictionary) {
+        state.configDictionary = mutableDictionary
+      }
+    }
 
   }
 }

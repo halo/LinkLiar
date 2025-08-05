@@ -19,14 +19,16 @@ extension SettingsView {
         }.padding()
 
         if state.daemonRegistration == .notRegistered || state.daemonRegistration == .notFound {
-          HStack {
-            Text("""
-             There is no background service installed.
-
-             You can delete LinkLiar.app to uninstall.
-             """)
-            Spacer()
-          }.padding(.bottom)
+          VStack(alignment: .leading) {
+            HStack {
+              Text("There is no background service installed.")
+            }.padding(.bottom)
+            HStack {
+              Text("You can simply delete")
+              Text("LinkLiar.app").monospaced().bold()
+              Text("to uninstall.")
+            }.padding(.bottom)
+          }
 
         } else {
 

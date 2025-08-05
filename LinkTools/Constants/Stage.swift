@@ -12,7 +12,6 @@ class Stage {
 
   // MARK: Private Class Properties
 
-  ///
   /// Keeping it simple for now, the CLI arguments need to be presented in tuples.
   ///
   /// ## Example:
@@ -46,7 +45,6 @@ class Stage {
 
   // MARK: Private Class Methods
 
-  ///
   /// `CommandLine.arguments` always includes the name of the executable as first element.
   /// When we stub the arguments in tests, we just want to pass the arguments, not the executable.
   ///
@@ -58,7 +56,6 @@ class Stage {
     arguments = CommandLine.arguments
   }
 
-  ///
   /// We keep this mutable for easier unit testing.
   ///
   private static var arguments: [String] = CommandLine.arguments

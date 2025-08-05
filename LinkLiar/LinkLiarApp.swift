@@ -11,13 +11,13 @@ struct LinkLiarApp: App {
   // MARK: Class Methods
 
   init() {
-    // Start observing the config file.
+    // Start observing changes made to the config file.
     configFileObserver = FileObserver(path: Paths.configFile, callback: configFileChanged)
 
-    // Start observing changes of ethernet interfaces
+    // Start observing changes of ethernet interfaces.
     networkObserver = NetworkObserver(callback: networkConditionsChanged)
 
-    // Start observing when the user opens the menu bar by clicking on it.
+    // Start observing when the user opens the menu bar item by clicking on it.
     NotificationCenter.default.addObserver(
       forName: .menuBarAppeared, object: nil, queue: nil, using: menuBarAppeared
     )
@@ -29,7 +29,11 @@ struct LinkLiarApp: App {
     // Load config file once.
     configFileChanged()
 
+    // Asynchronously
     MACVendors.load()
+
+    // Assume that the deamon is wanted, when it is only allowed during the lifetime of the GUI.
+    if state.config.general.isRestrictedDaemon { Controller.registerDaemon(state: state) }
   }
 
   // MARK: Private Instance Properties
@@ -77,9 +81,11 @@ struct LinkLiarApp: App {
   }
 
   var body: some Scene {
-    MenuBarExtra("LinkLiar", image: menuBarIconName) {
-      MenuView().environment(state)
-    }.menuBarExtraStyle(.window)
+//    if state.isolated {
+      MenuBarExtra("LinkLiar", image: menuBarIconName) {
+        MenuView().environment(state)
+      }.menuBarExtraStyle(.window)
+//    }
 
     Settings {
       SettingsView().environment(state)
