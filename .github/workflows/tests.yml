@@ -10,12 +10,11 @@ on:
 
 jobs:
   tests:
-    # See https://github.com/actions/runner-images/issues/7508
-    runs-on: macos-14
+    runs-on: macos-15
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # See https://docs.github.com/en/actions/deployment/installing-an-apple-certificate-on-macos-runners-for-xcode-development
       - name: Install Developer Certificate
